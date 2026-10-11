@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Set up, verify and operate Intel accelerators for LLM inference. References cover Gaudi software 1.24.2, the habana container runtime and vault images, the vllm-gaudi plugin, Intel GPU paths (vLLM XPU, llm-scaler, llama.cpp SYCL, OpenVINO), the archived or end-of-life status of IPEX, IPEX-LLM and the HabanaAI vLLM fork, and troubleshooting.",
+  "references": [
+    "https://docs.habana.ai/en/latest/Release_Notes/GAUDI_Release_Notes.html",
+    "https://docs.habana.ai/en/latest/Installation_Guide/Additional_Installation/Docker_Installation.html",
+    "https://github.com/vllm-project/vllm-gaudi",
+    "https://vllm-gaudi.readthedocs.io/en/latest/getting_started/quickstart/quickstart.html",
+    "https://github.com/HabanaAI/vllm-fork",
+    "https://docs.vllm.ai/en/latest/getting_started/installation/gpu/",
+    "https://github.com/intel/llm-scaler",
+    "https://github.com/ggml-org/llama.cpp/blob/master/docs/backend/SYCL.md",
+    "https://docs.openvino.ai/2026/model-server/ovms_docs_llm_reference.html",
+    "https://github.com/intel/ipex-llm",
+    "https://github.com/intel/intel-extension-for-pytorch"
+  ],
+  "kind": "platform"
+}

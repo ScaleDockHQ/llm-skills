@@ -1,0 +1,19 @@
+# Troubleshooting
+
+> Verified against Gaudi 1.24.2 docs (Docker Installation, release notes), vLLM XPU docs, llama.cpp SYCL docs, 2026-10-11
+
+| Symptom                                                     | Cause                                       | Fix                                                                                                                                       |
+| ----------------------------------------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `Unknown runtime specified habana` or `unknown runtime hpu` | Runtime not registered                      | Install `habanalabs-container-runtime`, add `habana` to `/etc/docker/daemon.json`, restart Docker (`references/gaudi.md`).                |
+| Docker cannot connect to daemon                             | Service down or user not in `docker` group  | `systemctl status docker`; `groups $USER`.                                                                                                |
+| `hl-smi` finds no device                                    | Driver or firmware not loaded               | `dpkg -l \| grep habana`; `dmesg \| grep -i habana`; follow the Installation Guide.                                                       |
+| Hang on exit with multi-card vLLM                           | Forked workers after HPU init               | Keep the `spawn` start method the plugin selects.                                                                                         |
+| Poor performance on Ubuntu 22.04.5 kernels 5.9+             | `intel_idle`                                | Release notes: kernel argument `intel_idle.max_cstate=0` (ask first).                                                                     |
+| Gaudi 3 instability or bandwidth loss                       | PCIe hardware issue                         | 1.24.0 added a firmware/driver workaround (EWR and fabric serialization); update to the latest release.                                   |
+| Plugin and vLLM version mismatch                            | Wrong combination                           | Use the pairing from the release notes (e.g. Gaudi 1.24.1 with plugin 0.24.0 or 0.26.0).                                                  |
+| `sycl-ls` empty or SYCL "no device"                         | oneAPI env not sourced or driver missing    | `source /opt/intel/oneapi/setvars.sh`; install the Intel GPU driver; add user to `render`.                                                |
+| Container sees no GPU (XPU)                                 | `/dev/dri` not passed                       | `--device /dev/dri:/dev/dri` and `-v /dev/dri/by-path:/dev/dri/by-path`.                                                                  |
+| vLLM XPU wheel install fails                                | Python is not 3.12, or only one index given | Use Python 3.12; pass both the vLLM XPU and PyTorch XPU indexes.                                                                          |
+| XPU graph or runtime errors after upgrading PyTorch         | Runtime version drift                       | vLLM docs: PyTorch 2.14 XPU graph support needs specific oneAPI packages (pinned in the install page); also prefer compute runtime 26.18. |
+| Wrong GPU used by llama.cpp                                 | Several Level Zero devices                  | `llama-ls-sycl-device`; `ONEAPI_DEVICE_SELECTOR="level_zero:N"`.                                                                          |
+| Code pulls in IPEX or `ipex-llm`                            | Archived dependencies                       | `references/status.md`.                                                                                                                   |
