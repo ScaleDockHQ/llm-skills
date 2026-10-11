@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Configure LlamaIndex (Python llama-index 0.14.x) against self-hosted OpenAI- and Anthropic-compatible endpoints: vLLM, llama.cpp, Ollama, LiteLLM and llama-swap. Covers OpenAILike, Anthropic, Ollama and OpenAILikeEmbedding, capability flags and context windows, Settings defaults that fall back to OpenAI, key handling without printing secrets, model names, structured_predict program modes, FunctionAgent tool calling, streaming usage, troubleshooting, and a curl and jq probe script.",
+  "references": [
+    "https://github.com/run-llama/llama_index",
+    "https://github.com/run-llama/llama_index/releases",
+    "https://pypi.org/project/llama-index/",
+    "https://pypi.org/project/llama-index-llms-openai-like/",
+    "https://developers.llamaindex.ai/python/framework/module_guides/models/llms/",
+    "https://developers.llamaindex.ai/python/framework/module_guides/querying/structured_outputs/",
+    "https://developers.llamaindex.ai/python/framework/understanding/agent/",
+    "https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/llms/llama-index-llms-openai-like",
+    "https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/llms/llama-index-llms-anthropic",
+    "https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/llms/llama-index-llms-ollama",
+    "https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/embeddings/llama-index-embeddings-openai-like"
+  ],
+  "kind": "product"
+}
