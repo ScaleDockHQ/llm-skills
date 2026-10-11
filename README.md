@@ -175,9 +175,10 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 #### Embeddings and RAG
 
-| Skill                                                           | Description                                                                                                                                                                | Install                                                            |
-| --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| [`text-embeddings-inference`](skills/text-embeddings-inference) | Run Hugging Face Text Embeddings Inference (TEI) for embedding and rerank models beside your LLM stack: image per GPU, sizing, API key, LiteLLM entries, update, teardown. | `npx skills add ScaleDockHQ/llms-skills@text-embeddings-inference` |
+| Skill                                                           | Description                                                                                                                                                                            | Install                                                            |
+| --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| [`text-embeddings-inference`](skills/text-embeddings-inference) | Run Hugging Face Text Embeddings Inference (TEI) for embedding and rerank models beside your LLM stack: image per GPU, sizing, API key, LiteLLM entries, update, teardown.             | `npx skills add ScaleDockHQ/llms-skills@text-embeddings-inference` |
+| [`milvus`](skills/milvus)                                       | Run Milvus (Lite, single container or Compose standalone) beside your LLM stack: requirements, hardened compose, index memory math, auth, upgrades, LiteLLM embeddings and Open WebUI. | `npx skills add ScaleDockHQ/llms-skills@milvus`                    |
 
 ### Platform skills
 
@@ -263,7 +264,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 108 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 109 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 

@@ -1604,7 +1604,7 @@
       "name": "milvus",
       "kind": "product",
       "category": "embeddings-rag",
-      "status": "planned",
+      "status": "stable",
       "wave": 9,
       "upstream": "https://github.com/milvus-io/milvus",
       "replaces": null
