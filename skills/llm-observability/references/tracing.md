@@ -15,16 +15,9 @@ A trace follows one request (or one agent run) through app → gateway → engin
 
 ## Install
 
-Langfuse (self-host, local test):
+Langfuse: needs web, worker, ClickHouse, Redis, Postgres and S3-compatible storage, so it is a product skill of its own. Install, secrets, ports and upgrades live there.
 
-```bash
-git clone https://github.com/langfuse/langfuse.git && cd langfuse
-# edit docker-compose.yml: replace every value marked "# CHANGEME" first
-docker compose up -d          # UI and API on :3000
-curl -fsS http://localhost:3000/api/public/health
-```
-
-Before starting, replace every secret marked `# CHANGEME` in `docker-compose.yml` with a long random value.
+Depth: install the langfuse skill (npx skills add ScaleDockHQ/llms-skills --skill langfuse)
 
 Phoenix:
 
@@ -48,21 +41,11 @@ export TRACELOOP_TRACE_CONTENT=false               # do not record prompts/compl
 
 ## Minimal working config
 
-Standard OTel exporter env vars, pointing at Langfuse (HTTP only, no gRPC):
-
-```bash
-# Build the Basic auth string without echoing keys; keys come from your secret store
-AUTH_STRING=$(printf '%s:%s' "$LANGFUSE_PUBLIC_KEY" "$LANGFUSE_SECRET_KEY" | base64 | tr -d '\n')
-export OTEL_EXPORTER_OTLP_ENDPOINT="https://llm.example.com/api/public/otel"
-export OTEL_EXPORTER_OTLP_HEADERS="Authorization=Basic ${AUTH_STRING},x-langfuse-ingestion-version=4"
-export OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
-```
-
-The trace-specific endpoint is `/api/public/otel/v1/traces`. Without `x-langfuse-ingestion-version=4`, directly ingested OTel data can appear with a delay of up to ~10 minutes.
+Langfuse takes OTLP over HTTP only (no gRPC) at `<host>/api/public/otel`, with Basic auth and a version header. The exact exporter variables are in the `langfuse` skill (see the Depth line above).
 
 Pointing at Phoenix: `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://node-b:6006/v1/traces` (HTTP/protobuf) or gRPC on `node-b:4317`.
 
-A Collector in the middle lets you strip content and fan out:
+A Collector in the middle lets you strip content and fan out (backend-neutral example; the Langfuse exporter variant ships in the `langfuse` skill):
 
 ```yaml
 receivers:
@@ -78,17 +61,14 @@ processors:
       - { key: gen_ai.system_instructions, action: delete }
   batch: {}
 exporters:
-  otlphttp/langfuse:
-    endpoint: https://llm.example.com/api/public/otel
-    headers:
-      Authorization: "Basic ${env:LANGFUSE_AUTH_STRING}"
-      x-langfuse-ingestion-version: "4"
+  otlphttp/backend:
+    endpoint: ${env:OTLP_BACKEND_ENDPOINT} # any OTLP/HTTP backend, including Langfuse or Phoenix
 service:
   pipelines:
     traces:
       receivers: [otlp]
       processors: [attributes/strip-genai-content, batch]
-      exporters: [otlphttp/langfuse]
+      exporters: [otlphttp/backend]
 ```
 
 The `attributes` processor ships in the core and contrib Collector distributions. Instrumentations that put content in other attributes or span events (vendor-specific keys) need their own delete rules; inspect a real span first.
@@ -117,21 +97,20 @@ The `attributes` processor ships in the core and contrib Collector distributions
 - Sample: keep 100% for errors and slow requests, sample the rest (head sampling in SDK or tail sampling in a Collector).
 - Watch the backend's own storage growth; trace payloads with content are orders of magnitude larger than metrics.
 - Retention:
-  - Langfuse self-hosted keeps data indefinitely unless you configure retention, and project-level **Data Retention is an Enterprise Edition feature** when self-hosting (minimum 3 days, nightly deletion). Without EE, plan your own deletion (database-level jobs) or keep content out entirely.
+  - Langfuse self-hosted keeps data indefinitely unless retention is configured, and retention is an Enterprise feature when self-hosting; details in the `langfuse` skill.
   - Phoenix: `PHOENIX_DEFAULT_RETENTION_POLICY_DAYS` (default 0 = infinite).
 - Access: Langfuse and Phoenix UIs show full prompts if captured. Restrict accounts, enable SSO where available, and keep them off the public internet.
 
 ## Tuning knobs worth knowing
 
 - `TRACELOOP_TRACE_CONTENT=false`: OpenLLMetry stops recording prompts, completions and embeddings.
-- Langfuse SDK masking: a client-side `mask` function redacts before data leaves the app; server-side masking is an Enterprise feature.
+- Langfuse masking (client-side hooks, Enterprise server-side masking): see the `langfuse` skill.
 - LiteLLM `turn_off_message_logging: true` and `callback_settings.otel.message_logging: false` keep content out of gateway-emitted traces.
 - Phoenix `PHOENIX_TELEMETRY_ENABLED=false` disables Phoenix's own product analytics (it states trace data is not included either way); `PHOENIX_ALLOW_EXTERNAL_RESOURCES=false` for air-gapped hosts.
 
 ## Known pitfalls
 
-- **Langfuse does not accept OTLP gRPC**; use HTTP/protobuf or HTTP/JSON.
-- **Basic auth string wrapping**: GNU `base64` wraps long output; strip newlines (`tr -d '\n'`) or use `-w 0`.
+- **Langfuse does not accept OTLP gRPC**; use HTTP/protobuf or HTTP/JSON (more in the `langfuse` skill).
 - **Disconnected traces**: missing `traceparent` propagation between app and gateway.
 - **Double instrumentation**: app SDK and gateway callback both log the same LLM call; decide which layer owns LLM spans.
 - **Content captured by default** in some SDKs and gateway callbacks; verify with a test request and inspect the stored span before production traffic.
@@ -143,9 +122,6 @@ The `attributes` processor ships in the core and contrib Collector distributions
 - OTel semantic conventions (GenAI section, published): https://opentelemetry.io/docs/specs/semconv/gen-ai/
 - OTel Collector attributes processor: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/attributesprocessor
 - Langfuse OpenTelemetry: https://langfuse.com/integrations/native/opentelemetry
-- Langfuse self-hosting: https://langfuse.com/self-hosting
-- Langfuse data retention: https://langfuse.com/docs/administration/data-retention
-- Langfuse masking: https://langfuse.com/docs/observability/features/masking
 - Phoenix: https://arize.com/docs/phoenix
 - Phoenix Docker: https://arize.com/docs/phoenix/self-hosting/deployment-options/docker
 - OpenLLMetry: https://github.com/traceloop/openllmetry

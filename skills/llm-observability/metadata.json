@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.1.0",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Metrics, tracing, logging, cost tracking and alerting for LLM serving and LLM apps. Covers Prometheus metrics from vLLM, SGLang, llama.cpp, TGI and llama-swap (including which /metrics endpoints are unauthenticated), NVIDIA GPU metrics with DCGM exporter and the unified-memory reporting caveats on DGX Spark / GB10, Prometheus and Grafana setup with validated scrape and alert templates, OpenTelemetry GenAI tracing with Langfuse, Arize Phoenix and OpenLLMetry, LiteLLM gateway metrics, logging callbacks, spend logs and pricing, symptom-first alerting, and a privacy review for prompt and PII logging, redaction and retention.",
@@ -19,7 +19,7 @@
     "https://github.com/open-telemetry/semantic-conventions-genai",
     "https://opentelemetry.io/docs/specs/semconv/gen-ai/",
     "https://langfuse.com/integrations/native/opentelemetry",
-    "https://langfuse.com/docs/administration/data-retention",
+    "https://github.com/langfuse/langfuse",
     "https://arize.com/docs/phoenix",
     "https://github.com/traceloop/openllmetry",
     "https://docs.litellm.ai/docs/proxy/prometheus",

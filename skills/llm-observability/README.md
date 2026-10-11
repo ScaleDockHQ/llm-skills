@@ -26,7 +26,7 @@ The `SKILL.md` overview is always loaded; the agent pulls a reference only when 
 - [`references/metrics-engines.md`](references/metrics-engines.md): enabling and reading vLLM, SGLang, llama.cpp, TGI and llama-swap metrics, auth on `/metrics`, and the queries that matter.
 - [`references/gpu-metrics.md`](references/gpu-metrics.md): DCGM exporter install and fields, nvidia-smi, and unified-memory reporting on DGX Spark / GB10.
 - [`references/prometheus-grafana.md`](references/prometheus-grafana.md): scrape configs, auth with `credentials_file`, retention, recording rules and official dashboards.
-- [`references/tracing.md`](references/tracing.md): OpenTelemetry GenAI conventions, Langfuse, Phoenix, OpenLLMetry, Collector content stripping, vLLM and LiteLLM trace export.
+- [`references/tracing.md`](references/tracing.md): OpenTelemetry GenAI conventions, Phoenix, OpenLLMetry, Collector content stripping, vLLM and LiteLLM trace export; Langfuse depth lives in the `langfuse` skill.
 - [`references/gateway-logging.md`](references/gateway-logging.md): LiteLLM Prometheus metrics and labels, logging callbacks, spend logs and retention, OSS vs Enterprise.
 - [`references/cost-tracking.md`](references/cost-tracking.md): pricing self-hosted models, zero-cost and budget behaviour, spend queries, cost per token for your own capacity.
 - [`references/alerting.md`](references/alerting.md): symptom vs cause alerts, recommended alert set, pitfalls.
@@ -50,6 +50,7 @@ The `SKILL.md` overview is always loaded; the agent pulls a reference only when 
 From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
 
 - `self-hosted-llms`: the engines and llama-swap being monitored; its sparkDash reference covers DGX-specific monitoring and points here for generic metrics.
+- `langfuse`: installing, operating and upgrading Langfuse, its SDK and OTLP ingestion, retention and masking.
 - `llm-gateway`: LiteLLM setup, keys, teams and budgets behind the spend metrics.
 - `llm-evals`: quality signals; production failures become golden-set items.
 - `local-llms`, `cloud-llms`, `choosing-llm-hosting`: where the traffic runs.

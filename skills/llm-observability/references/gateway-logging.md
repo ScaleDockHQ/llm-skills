@@ -100,9 +100,12 @@ callback_settings:
 ```
 
 - OTel: env `OTEL_EXPORTER` (`otlp_http`, `otlp_grpc`, `console`), `OTEL_ENDPOINT`, `OTEL_HEADERS`.
-- Langfuse via OTel: `langfuse_otel` with `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_OTEL_HOST` (or `LANGFUSE_HOST`).
-- Langfuse classic: `success_callback: ["langfuse"]` with the same keys and `LANGFUSE_HOST`.
+- Langfuse: `callbacks: ["langfuse_otel"]` (or `["otel"]` pointed at a Collector). Keys, hosts, classic-callback and per-team details: see the Langfuse note below.
 - Keep secrets in env/secret store, never in the YAML committed to git.
+
+**Langfuse in this stack.** Use the `langfuse_otel` preset so gateway generations carry model, usage, cost and key/team attribution; keep `turn_off_message_logging: true` until content logging is approved.
+
+Depth: install the langfuse skill (npx skills add ScaleDockHQ/llms-skills --skill langfuse)
 
 ### Spend logs
 
