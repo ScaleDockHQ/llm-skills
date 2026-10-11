@@ -338,6 +338,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`mac-cluster-exo-mlx`](skills/mac-cluster-exo-mlx)                 | Cluster several Apple Silicon Macs into one inference host with exo or MLX distributed (mlx.launch, JACCL RDMA, ring) over Thunderbolt 5. Use for Mac Studio...                      | `npx skills add ScaleDockHQ/llms-skills@mac-cluster-exo-mlx`         |
 | [`lm-studio-claude-code`](skills/lm-studio-claude-code)             | Run Claude Code against a local model served by LM Studio over its Anthropic-compatible /v1/messages endpoint (ANTHROPIC_BASE_URL, ANTHROPIC_AUTH_TOKEN, lms...                      | `npx skills add ScaleDockHQ/llms-skills@lm-studio-claude-code`       |
 | [`openrouter`](skills/openrouter)                                   | OpenRouter hosted gateway: one OpenAI-compatible API for hundreds of models with provider routing, fallbacks, presets, BYOK, guardrails and spend limits.                            | `npx skills add ScaleDockHQ/llms-skills@openrouter`                  |
+| [`portkey`](skills/portkey)                                         | Portkey AI Gateway: open-source Node.js gateway with configs for fallbacks, load balancing, retries and conditional routing, plus the hosted Portkey platform.                       | `npx skills add ScaleDockHQ/llms-skills@portkey`                     |
 
 ## Roadmap
 
