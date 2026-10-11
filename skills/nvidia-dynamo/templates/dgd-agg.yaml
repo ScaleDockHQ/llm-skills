@@ -1,0 +1,45 @@
+# From ai-dynamo/dynamo v1.5.1 examples/backends/vllm/deploy/agg.yaml (Apache-2.0).
+# Needs the Dynamo platform installed and hf-token-secret in the namespace.
+
+apiVersion: nvidia.com/v1beta1
+kind: DynamoGraphDeployment
+metadata:
+  name: vllm-agg
+spec:
+  components:
+    - name: Frontend
+      podTemplate:
+        spec:
+          containers:
+            - envFrom:
+                - secretRef:
+                    name: hf-token-secret
+              image: nvcr.io/nvidia/ai-dynamo/vllm-runtime:1.5.1
+              name: main
+      replicas: 1
+      type: frontend
+    - name: VllmDecodeWorker
+      podTemplate:
+        spec:
+          containers:
+            - args:
+                - --model
+                - Qwen/Qwen3-0.6B
+              command:
+                - python3
+                - -m
+                - dynamo.vllm
+              envFrom:
+                - secretRef:
+                    name: hf-token-secret
+              image: nvcr.io/nvidia/ai-dynamo/vllm-runtime:1.5.1
+              name: main
+              resources:
+                limits:
+                  nvidia.com/gpu: "1"
+                requests:
+                  # Increase this value for larger models.
+                  ephemeral-storage: 2Gi
+              workingDir: /workspace/examples/backends/vllm
+      replicas: 1
+      type: worker

@@ -1,0 +1,80 @@
+# From ai-dynamo/dynamo v1.5.1 examples/backends/vllm/deploy/disagg_router.yaml (Apache-2.0).
+# 2 prefill + 2 decode workers, KV routing: 4 GPUs. Production needs RDMA; raise ephemeral-storage for larger models.
+
+apiVersion: nvidia.com/v1beta1
+kind: DynamoGraphDeployment
+metadata:
+  name: vllm-v1-disagg-router
+spec:
+  components:
+    - name: Frontend
+      podTemplate:
+        spec:
+          containers:
+            - env:
+                - name: DYN_ROUTER_MODE
+                  value: kv
+              image: nvcr.io/nvidia/ai-dynamo/vllm-runtime:1.5.1
+              name: main
+      replicas: 1
+      type: frontend
+    - name: VllmDecodeWorker
+      podTemplate:
+        spec:
+          containers:
+            - args:
+                - --model
+                - Qwen/Qwen3-0.6B
+                - --disaggregation-mode
+                - decode
+                - --kv-transfer-config
+                - '{"kv_connector":"NixlConnector","kv_role":"kv_both"}'
+              command:
+                - python3
+                - -m
+                - dynamo.vllm
+              envFrom:
+                - secretRef:
+                    name: hf-token-secret
+              image: nvcr.io/nvidia/ai-dynamo/vllm-runtime:1.5.1
+              name: main
+              resources:
+                limits:
+                  nvidia.com/gpu: "1"
+                requests:
+                  # Increase this value for larger models.
+                  ephemeral-storage: 2Gi
+              workingDir: /workspace/examples/backends/vllm
+      replicas: 2
+      type: decode
+    - name: VllmPrefillWorker
+      podTemplate:
+        spec:
+          containers:
+            - args:
+                - --model
+                - Qwen/Qwen3-0.6B
+                - --disaggregation-mode
+                - prefill
+                - --kv-transfer-config
+                - '{"kv_connector":"NixlConnector","kv_role":"kv_both"}'
+                - --kv-events-config
+                - '{"publisher":"zmq","topic":"kv-events","endpoint":"tcp://*:20080","enable_kv_cache_events":true}'
+              command:
+                - python3
+                - -m
+                - dynamo.vllm
+              envFrom:
+                - secretRef:
+                    name: hf-token-secret
+              image: nvcr.io/nvidia/ai-dynamo/vllm-runtime:1.5.1
+              name: main
+              resources:
+                limits:
+                  nvidia.com/gpu: "1"
+                requests:
+                  # Increase this value for larger models.
+                  ephemeral-storage: 2Gi
+              workingDir: /workspace/examples/backends/vllm
+      replicas: 2
+      type: prefill
