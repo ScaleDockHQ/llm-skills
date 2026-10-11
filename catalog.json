@@ -1564,7 +1564,7 @@
       "name": "sglang-diffusion",
       "kind": "product",
       "category": "generative-media",
-      "status": "planned",
+      "status": "stable",
       "wave": 9,
       "upstream": "https://github.com/sgl-project/sglang",
       "replaces": null,
