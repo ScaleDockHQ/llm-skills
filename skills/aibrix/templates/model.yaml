@@ -1,0 +1,66 @@
+# Adapted from AIBrix v0.7.0 samples/quickstart/model.yaml. Pin the image tag you tested.
+# Names must match: Service name, model.aibrix.ai/name, --served-model-name, request "model".
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deepseek-r1-distill-llama-8b
+  labels:
+    model.aibrix.ai/name: deepseek-r1-distill-llama-8b
+    model.aibrix.ai/port: "8000"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      model.aibrix.ai/name: deepseek-r1-distill-llama-8b
+  template:
+    metadata:
+      labels:
+        model.aibrix.ai/name: deepseek-r1-distill-llama-8b
+        model.aibrix.ai/port: "8000"
+    spec:
+      containers:
+        - name: vllm-openai
+          image: vllm/vllm-openai:v0.11.0
+          command:
+            [
+              vllm,
+              serve,
+              --host,
+              "0.0.0.0",
+              --port,
+              "8000",
+              --model,
+              deepseek-ai/DeepSeek-R1-Distill-Llama-8B,
+              --served-model-name,
+              deepseek-r1-distill-llama-8b,
+              --max-model-len,
+              "12288",
+            ]
+          # Optional engine auth: add env VLLM_API_KEY from a Secret via secretKeyRef.
+          ports: [{ containerPort: 8000 }]
+          resources:
+            limits: { nvidia.com/gpu: "1" }
+          readinessProbe:
+            {
+              httpGet: { path: /health, port: 8000 },
+              periodSeconds: 5,
+              failureThreshold: 5,
+            }
+          startupProbe:
+            {
+              httpGet: { path: /health, port: 8000 },
+              periodSeconds: 5,
+              failureThreshold: 60,
+            }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: deepseek-r1-distill-llama-8b
+  labels:
+    model.aibrix.ai/name: deepseek-r1-distill-llama-8b
+spec:
+  selector:
+    model.aibrix.ai/name: deepseek-r1-distill-llama-8b
+  ports:
+    - { port: 8000, targetPort: 8000, protocol: TCP }
