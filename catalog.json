@@ -1004,7 +1004,7 @@
       "name": "llama-factory",
       "kind": "product",
       "category": "fine-tuning",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/hiyouga/LLaMA-Factory",
       "replaces": null
@@ -1013,7 +1013,7 @@
       "name": "peft",
       "kind": "product",
       "category": "fine-tuning",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/huggingface/peft",
       "replaces": null
@@ -1049,7 +1049,7 @@
       "name": "deepspeed",
       "kind": "product",
       "category": "fine-tuning",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/deepspeedai/DeepSpeed",
       "replaces": null

@@ -136,12 +136,15 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 #### Fine-tuning
 
-| Skill                       | Description                                                                                                                                                             | Install                                          |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| [`axolotl`](skills/axolotl) | Axolotl is a YAML-driven LLM fine-tuning framework (axolotl CLI) for LoRA, QLoRA, full fine-tuning, SFT, DPO, KTO and GRPO on Hugging Face models.                      | `npx skills add ScaleDockHQ/llms-skills@axolotl` |
-| [`unsloth`](skills/unsloth) | Unsloth is a fast, low-VRAM fine-tuning and RL library (FastLanguageModel, unsloth CLI) with Unsloth Studio and Desktop apps for LoRA, QLoRA, full fine-tuning, SFT,... | `npx skills add ScaleDockHQ/llms-skills@unsloth` |
-| [`trl`](skills/trl)         | TRL (Hugging Face Transformer Reinforcement Learning) is the post-training library with SFTTrainer, DPOTrainer, GRPOTrainer, RLOOTrainer, KTOTrainer, RewardTrainer...  | `npx skills add ScaleDockHQ/llms-skills@trl`     |
-| [`verl`](skills/verl)       | verl (Volcano Engine RL) is an RL post-training library for LLMs with PPO, GRPO, DAPO, RLOO and REINFORCE++ on Ray, FSDP/Megatron training and vLLM/SGLang rollout.     | `npx skills add ScaleDockHQ/llms-skills@verl`    |
+| Skill                                   | Description                                                                                                                                                                                  | Install                                                |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| [`axolotl`](skills/axolotl)             | Axolotl is a YAML-driven LLM fine-tuning framework (axolotl CLI) for LoRA, QLoRA, full fine-tuning, SFT, DPO, KTO and GRPO on Hugging Face models.                                           | `npx skills add ScaleDockHQ/llms-skills@axolotl`       |
+| [`unsloth`](skills/unsloth)             | Unsloth is a fast, low-VRAM fine-tuning and RL library (FastLanguageModel, unsloth CLI) with Unsloth Studio and Desktop apps for LoRA, QLoRA, full fine-tuning, SFT,...                      | `npx skills add ScaleDockHQ/llms-skills@unsloth`       |
+| [`trl`](skills/trl)                     | TRL (Hugging Face Transformer Reinforcement Learning) is the post-training library with SFTTrainer, DPOTrainer, GRPOTrainer, RLOOTrainer, KTOTrainer, RewardTrainer...                       | `npx skills add ScaleDockHQ/llms-skills@trl`           |
+| [`llama-factory`](skills/llama-factory) | LLaMA-Factory (llamafactory-cli) is the YAML-driven fine-tuning framework with the LLaMA Board web UI for LoRA, QLoRA, full tuning, SFT, DPO, KTO and reward training on 100+ LLMs and VLMs. | `npx skills add ScaleDockHQ/llms-skills@llama-factory` |
+| [`peft`](skills/peft)                   | PEFT is Hugging Face's parameter-efficient fine-tuning library (LoraConfig, get_peft_model, merge_and_unload) for LoRA, QLoRA, DoRA, IA3 and many more adapters on Transformers models.      | `npx skills add ScaleDockHQ/llms-skills@peft`          |
+| [`deepspeed`](skills/deepspeed)         | DeepSpeed is Microsoft's training library for large models with ZeRO stages 1-3, CPU/NVMe offload, the deepspeed launcher, ds_config.json, ds_report and zero_to_fp32.                       | `npx skills add ScaleDockHQ/llms-skills@deepspeed`     |
+| [`verl`](skills/verl)                   | verl (Volcano Engine RL) is an RL post-training library for LLMs with PPO, GRPO, DAPO, RLOO and REINFORCE++ on Ray, FSDP/Megatron training and vLLM/SGLang rollout.                          | `npx skills add ScaleDockHQ/llms-skills@verl`          |
 
 #### Evals and benchmarks
 
@@ -266,7 +269,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 111 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 114 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
