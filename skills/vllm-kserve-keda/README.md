@@ -25,7 +25,7 @@ npx skills add ScaleDockHQ/llms-skills --skill vllm-kserve-keda
 
 ## Companion skills
 
-- `kserve`, `keda`, `vllm`: component depth. `keda` may not be published yet; install later: keda skill.
+- `kserve`, `keda`, `vllm`: component depth. `llm-d` and `keda` are published.
 - `llm-d-vllm-kubernetes`: llm-d router with vLLM outside KServe.
 - `prometheus-grafana-llm`, `nvidia-gpu-operator`, `llm-evals`, `self-hosted-llms`.
 

@@ -82,7 +82,7 @@ nvidia-smi --query-gpu=name,driver_version --format=csv,noheader 2>/dev/null
 
 ## Companion skills
 
-- `nvidia-dynamo`: Dynamo platform depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dynamo`.
+- `nvidia-dynamo`: Dynamo platform depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dynamo`. If it is not yet listed in the install picker, install later: nvidia-dynamo skill.
 - `tensorrt-llm`: engine build and config. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorrt-llm`.
 - `disaggregated-serving`: when the split helps and the numerics gate. Install: `npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving`.
 - `multi-node-inference`: multinode TP and EP concepts. Install: `npx skills add ScaleDockHQ/llms-skills --skill multi-node-inference`.

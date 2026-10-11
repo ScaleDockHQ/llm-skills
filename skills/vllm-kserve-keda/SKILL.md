@@ -82,7 +82,7 @@ Full details and the reasons are in `references/install.md`.
 ## Companion skills
 
 - `kserve`: KServe depth, runtimes, storage, transformers. Install: `npx skills add ScaleDockHQ/llms-skills --skill kserve`.
-- `keda`: KEDA scalers and authentication depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill keda`. If it is not yet published, install later: keda skill.
+- `keda`: KEDA scalers and authentication depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill keda`.
 - `vllm`: engine flags, quantization, metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
 - `llm-d-vllm-kubernetes`: the llm-d router with vLLM outside KServe. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-d-vllm-kubernetes`.
 - `prometheus-grafana-llm`: Prometheus scraping and dashboards for vLLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill prometheus-grafana-llm`.

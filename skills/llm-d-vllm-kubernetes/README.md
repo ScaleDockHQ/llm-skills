@@ -26,7 +26,7 @@ npx skills add ScaleDockHQ/llms-skills --skill llm-d-vllm-kubernetes
 ## Companion skills
 
 - `vllm`, `gateway-api-inference-extension`, `prefix-aware-routing`, `disaggregated-serving`, `kserve`: component and technique depth.
-- `keda`: install later if not yet published. llm-d has no skill yet: install later: llm-d skill.
+- `llm-d`, `keda`: product depth.
 - `nvidia-gpu-operator`, `nccl-rdma-networking`, `prometheus-grafana-llm`, `llm-evals`.
 
 ## License

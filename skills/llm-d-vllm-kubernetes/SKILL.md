@@ -84,10 +84,10 @@ command -v helm git kubectl
 - `gateway-api-inference-extension`: InferencePool, EPP and CRD depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill gateway-api-inference-extension`.
 - `prefix-aware-routing`: how cache-aware routing works. Install: `npx skills add ScaleDockHQ/llms-skills --skill prefix-aware-routing`.
 - `disaggregated-serving`: when the split helps. Install: `npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving`.
-- `keda`: scalers and auth. Install: `npx skills add ScaleDockHQ/llms-skills --skill keda`. If it is not yet published, install later: keda skill.
+- `keda`: scalers and auth. Install: `npx skills add ScaleDockHQ/llms-skills --skill keda`.
 - `kserve`: llm-d inside KServe as `LLMInferenceService`. Install: `npx skills add ScaleDockHQ/llms-skills --skill kserve`.
 - `nvidia-gpu-operator`: GPU drivers and device plugin. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-gpu-operator`.
 - `nccl-rdma-networking`: RDMA for NIXL KV transfer. Install: `npx skills add ScaleDockHQ/llms-skills --skill nccl-rdma-networking`.
 - `prometheus-grafana-llm`: dashboards for router and vLLM metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill prometheus-grafana-llm`.
 - `llm-evals`: check quality after changing the setup. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- llm-d itself has no skill here yet; install later: llm-d skill.
+- `llm-d`: llm-d product depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-d`.

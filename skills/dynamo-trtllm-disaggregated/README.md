@@ -25,7 +25,7 @@ npx skills add ScaleDockHQ/llms-skills --skill dynamo-trtllm-disaggregated
 
 ## Companion skills
 
-- `nvidia-dynamo`, `tensorrt-llm`, `disaggregated-serving`, `multi-node-inference`, `prefix-aware-routing`.
+- `nvidia-dynamo` (install later if not yet listed), `tensorrt-llm`, `disaggregated-serving`, `multi-node-inference`, `prefix-aware-routing`.
 - `nccl-rdma-networking`, `nvidia-gpu-operator`, `llm-evals`, `choosing-hardware`.
 
 ## License

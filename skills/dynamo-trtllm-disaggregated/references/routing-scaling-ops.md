@@ -29,7 +29,7 @@ The Frontend docs also show a `--router-mode kv` flag; read `docs/fern/pages/kub
 ## Scaling
 
 - **Planner** (in a `DynamoGraphDeploymentRequest`, fields under `spec.features.planner`): `optimization_target` is `throughput` (default; static thresholds on queue depth and KV utilization), `latency` (earlier scale-up), `load`, or `sla` (targets TTFT and ITL, models engine performance, needs profiling data or AIConfigurator and Prometheus). `enable_throughput_scaling` and `enable_load_scaling` only matter with `sla`. `deploy/disagg_planner.yaml` is the template with Planner and Prometheus. This path was read, not run here.
-- **KEDA or HPA** on Prometheus metrics for DGD components is documented as needing kube-prometheus-stack. The exact scaling-adapter wiring for a `DynamoGraphDeployment` was not verified; read the Dynamo docs section and the `keda` skill (install later if not published) before relying on it.
+- **KEDA or HPA** on Prometheus metrics for DGD components is documented as needing kube-prometheus-stack. The exact scaling-adapter wiring for a `DynamoGraphDeployment` was not verified; read the Dynamo docs section and the `keda` skill before relying on it.
 - Scale prefill and decode pools by their own signals: prefill by queued prompt tokens and TTFT, decode by running requests, KV usage and ITL. Keep the ratio from measurements, not from the template's 1:1 or 2:1.
 - Do not add an HPA to a component the Planner already scales.
 
