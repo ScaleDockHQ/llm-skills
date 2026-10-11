@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Quantize and train PyTorch models with torchao: Float8, Int8 and Int4 inference configs via quantize_ and TorchAoConfig, QAT, float8 and prototype NVFP4/mxfp8 training, low-bit optimizers, vLLM serving and version pairing with PyTorch. Verified against torchao v0.18.0.",
+  "references": [
+    "https://github.com/pytorch/ao",
+    "https://docs.pytorch.org/ao/main/",
+    "https://github.com/pytorch/ao/releases",
+    "https://github.com/pytorch/ao/issues/2919",
+    "https://pypi.org/project/torchao/",
+    "https://huggingface.co/docs/transformers/quantization/torchao",
+    "https://docs.vllm.ai/en/latest/features/quantization/torchao.html",
+    "https://huggingface.co/pytorch"
+  ],
+  "kind": "product"
+}
