@@ -550,7 +550,7 @@
       "name": "traefik",
       "kind": "product",
       "category": "exposure-networking",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://doc.traefik.io/traefik/",
       "replaces": null
