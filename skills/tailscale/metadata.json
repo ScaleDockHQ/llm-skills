@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Reach and publish self-hosted LLM endpoints with Tailscale. Covers installation and auth keys, MagicDNS and HTTPS certificates, tailscale serve to a loopback gateway, Funnel and its limits, tags, grants and policy tests, key expiry for servers, updating, troubleshooting, an exposure-audit script, and combos for Ollama and for a Caddy catalog front with LiteLLM.",
+  "references": [
+    "https://github.com/tailscale/tailscale",
+    "https://github.com/tailscale/tailscale/releases",
+    "https://tailscale.com/changelog",
+    "https://tailscale.com/kb/1347/install",
+    "https://tailscale.com/kb/1031/install-linux",
+    "https://tailscale.com/kb/1080/cli",
+    "https://tailscale.com/kb/1312/serve",
+    "https://tailscale.com/kb/1242/tailscale-serve",
+    "https://tailscale.com/kb/1223/funnel",
+    "https://tailscale.com/kb/1153/enabling-https",
+    "https://tailscale.com/kb/1190/caddy-certificates",
+    "https://tailscale.com/kb/1081/magicdns",
+    "https://tailscale.com/kb/1324/grants",
+    "https://tailscale.com/kb/1337/policy-syntax",
+    "https://tailscale.com/kb/1018/acls",
+    "https://tailscale.com/kb/1068/tags",
+    "https://tailscale.com/kb/1028/key-expiry",
+    "https://tailscale.com/kb/1085/auth-keys",
+    "https://github.com/ollama/ollama/blob/main/server/routes.go",
+    "https://docs.ollama.com/faq"
+  ],
+  "kind": "product"
+}
