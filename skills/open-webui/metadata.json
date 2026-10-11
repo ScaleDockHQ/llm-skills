@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, connect and operate Open WebUI against self-hosted OpenAI-compatible endpoints (vLLM, llama.cpp, Ollama, LM Studio, LiteLLM, llama-swap). Covers pinned Docker and Compose installs, connection URLs and key handling, model ids and capabilities, native tool calling and streaming caveats, Docker networking to host endpoints, persistent config precedence, backup and updates, and troubleshooting, with Compose and env templates.",
+  "references": [
+    "https://github.com/open-webui/open-webui",
+    "https://github.com/open-webui/open-webui/releases",
+    "https://docs.openwebui.com/getting-started/quick-start",
+    "https://docs.openwebui.com/getting-started/quick-start/connect-a-provider/starting-with-openai-compatible",
+    "https://docs.openwebui.com/getting-started/updating",
+    "https://docs.openwebui.com/reference/env-configuration",
+    "https://docs.openwebui.com/troubleshooting/connection-error",
+    "https://docs.openwebui.com/features/extensibility/plugin/tools"
+  ],
+  "kind": "product"
+}
