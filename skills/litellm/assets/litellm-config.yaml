@@ -1,0 +1,101 @@
+# LiteLLM proxy config: one endpoint, stable aliases, local + cloud backends.
+# Docs: https://docs.litellm.ai/docs/proxy/configs
+#
+# Replace every <placeholder>. Secrets are read from the environment with
+# os.environ/NAME; keep the values in the env file next to docker-compose.yaml.
+#
+# Clients only ever see the model_name aliases below, never provider IDs.
+
+model_list:
+  # --- Local OpenAI-compatible backend (llama.cpp server, llama-swap, vLLM, SGLang) ---
+  # From inside the LiteLLM container, 127.0.0.1 is the container itself. When the
+  # backend runs on the Docker host, use http://host.docker.internal:8080/v1
+  # (docker-compose.yaml maps host.docker.internal to the host gateway).
+  - model_name: coder
+    litellm_params:
+      model: openai/<served-model-id> # ID exactly as the backend's /v1/models reports it
+      api_base: http://127.0.0.1:8080/v1 # must end in /v1
+      api_key: "none" # openai/ provider needs a non-empty value
+      use_chat_completions_api: true # bridge /v1/responses to /v1/chat/completions
+      timeout: 600 # whole response, seconds
+      stream_timeout: 300 # first chunk; covers cold model loads
+      input_cost_per_token: 0 # explicit zero: free, skips budget checks
+      output_cost_per_token: 0
+    model_info:
+      mode: chat
+      max_input_tokens: 131072 # set to the context the engine was started with
+      max_output_tokens: 16384
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_vision: false
+      supports_reasoning: true
+
+  # --- OpenAI ---
+  - model_name: chat-fast
+    litellm_params:
+      model: openai/<openai-model-id>
+      api_key: os.environ/OPENAI_API_KEY
+    model_info:
+      mode: chat
+      max_input_tokens: <context-window>
+      max_output_tokens: <max-output>
+      supports_function_calling: true
+      supports_vision: true
+
+  # --- Anthropic (name contains "claude" so Claude Code gateway discovery lists it) ---
+  - model_name: claude-main
+    litellm_params:
+      model: anthropic/<anthropic-model-id>
+      api_key: os.environ/ANTHROPIC_API_KEY
+    model_info:
+      mode: chat
+      max_input_tokens: <context-window>
+      max_output_tokens: <max-output>
+      supports_function_calling: true
+      supports_vision: true
+      supports_reasoning: true
+
+  # --- Open-model API (OpenRouter) as cloud overflow for the local coder ---
+  - model_name: coder-cloud
+    litellm_params:
+      model: openrouter/<vendor>/<model-id>
+      api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: chat
+      max_input_tokens: <context-window>
+      max_output_tokens: <max-output>
+      supports_function_calling: true
+
+  # --- Embeddings ---
+  - model_name: embed
+    litellm_params:
+      model: openai/<openai-embedding-model-id>
+      api_key: os.environ/OPENAI_API_KEY
+    model_info:
+      mode: embedding
+
+litellm_settings:
+  drop_params: true # drop params a backend does not support
+  request_timeout: 600
+  turn_off_message_logging: true # callbacks log metadata, not prompts
+  # callbacks: ["prometheus"]                  # exposes /metrics
+
+router_settings:
+  routing_strategy: simple-shuffle
+  num_retries: 2
+  allowed_fails: 3
+  cooldown_time: 30
+  fallbacks:
+    - coder: [coder-cloud]
+  context_window_fallbacks:
+    - coder: [coder-cloud]
+  enable_pre_call_checks: true # enforce max_input_tokens before calling
+  model_group_alias:
+    code: coder # old name keeps working
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY # admin only; clients get virtual keys
+  database_url: os.environ/DATABASE_URL
+  background_health_checks: true
+  health_check_interval: 300
+  health_check_details: false
