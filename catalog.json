@@ -408,7 +408,7 @@
       "name": "ray-serve",
       "kind": "product",
       "category": "orchestration",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://docs.ray.io/en/latest/serve/",
       "replaces": null
@@ -417,7 +417,7 @@
       "name": "gateway-api-inference-extension",
       "kind": "product",
       "category": "orchestration",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://github.com/kubernetes-sigs/gateway-api-inference-extension",
       "replaces": null
@@ -426,7 +426,7 @@
       "name": "nvidia-gpu-operator",
       "kind": "product",
       "category": "orchestration",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://github.com/NVIDIA/gpu-operator",
       "replaces": null
@@ -435,7 +435,7 @@
       "name": "keda",
       "kind": "product",
       "category": "orchestration",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://keda.sh",
       "replaces": null
@@ -1197,7 +1197,7 @@
       "name": "prometheus-grafana-llm",
       "kind": "product",
       "category": "observability",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://prometheus.io/docs",
       "replaces": "skills/llm-observability/references/prometheus-grafana.md"
@@ -1206,7 +1206,7 @@
       "name": "dcgm-exporter",
       "kind": "product",
       "category": "observability",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/NVIDIA/dcgm-exporter",
       "replaces": "skills/llm-observability/references/gpu-metrics.md"
@@ -1224,7 +1224,7 @@
       "name": "posthog-llm-analytics",
       "kind": "product",
       "category": "observability",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://posthog.com/docs/llm-analytics",
       "replaces": null
@@ -1242,7 +1242,7 @@
       "name": "weave",
       "kind": "product",
       "category": "observability",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/wandb/weave",
       "replaces": null
@@ -1251,7 +1251,7 @@
       "name": "datadog-llm-observability",
       "kind": "product",
       "category": "observability",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://docs.datadoghq.com/llm_observability/",
       "replaces": null
@@ -1260,7 +1260,7 @@
       "name": "sentry-ai-monitoring",
       "kind": "product",
       "category": "observability",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://docs.sentry.io/product/insights/ai/",
       "replaces": null
