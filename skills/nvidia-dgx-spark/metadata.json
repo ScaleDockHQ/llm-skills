@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Set up, size, network and operate NVIDIA DGX Spark (GB10, 128 GB unified memory, DGX OS) for LLM inference, single or dual node. References cover the current DGX OS stack, unified-memory budgeting and memory safety, ConnectX-7 clustering with NCCL validation, host setup, monitoring, updates, troubleshooting, and combos for engines, a two-node cluster and remote access.",
+  "references": [
+    "https://docs.nvidia.com/dgx/dgx-spark/index.html",
+    "https://docs.nvidia.com/dgx/dgx-spark/release-notes.html",
+    "https://docs.nvidia.com/dgx/dgx-spark/known-issues.html",
+    "https://docs.nvidia.com/dgx/dgx-spark/spark-clustering.html",
+    "https://github.com/NVIDIA/dgx-spark-playbooks",
+    "https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html",
+    "https://github.com/rfjakob/earlyoom",
+    "https://github.com/MiaAI-Lab/sparkDash"
+  ],
+  "kind": "platform"
+}

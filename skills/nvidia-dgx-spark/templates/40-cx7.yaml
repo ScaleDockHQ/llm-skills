@@ -1,0 +1,15 @@
+# /etc/netplan/40-cx7.yaml  (node 1; use .11 / .101.11 on node 2)
+# Interface names come from `ibdev2netdev`: use the ones that show (Up). Each QSFP port exposes two
+# Ethernet interfaces and the playbook addresses both of the cabled port. One cable gives full
+# bandwidth; with two cables, address all four interfaces.
+# Apply: sudo chmod 600 /etc/netplan/40-cx7.yaml && sudo netplan apply
+# Rollback: sudo rm /etc/netplan/40-cx7.yaml && sudo netplan apply
+network:
+  version: 2
+  ethernets:
+    enp1s0f1np1:
+      addresses: [192.168.100.10/24]
+      dhcp4: no
+    enP2p1s0f1np1:
+      addresses: [192.168.101.10/24]
+      dhcp4: no
