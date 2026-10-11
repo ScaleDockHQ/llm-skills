@@ -1154,7 +1154,7 @@
       "name": "nvidia-aiperf",
       "kind": "product",
       "category": "evals-benchmarks",
-      "status": "planned",
+      "status": "stable",
       "wave": 9,
       "upstream": "https://github.com/ai-dynamo/aiperf",
       "replaces": null,
