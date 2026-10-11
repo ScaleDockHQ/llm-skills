@@ -635,7 +635,7 @@
       "name": "intel-gpu-gaudi",
       "kind": "platform",
       "category": "hardware-platforms",
-      "status": "stable",
+      "status": "planned",
       "wave": 4,
       "upstream": null,
       "replaces": null
