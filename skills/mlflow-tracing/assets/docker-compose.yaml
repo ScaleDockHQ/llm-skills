@@ -1,0 +1,65 @@
+# MLflow tracking server (traces) with PostgreSQL and basic auth. Loopback only.
+# Required in the env file (mode 0600): POSTGRES_PASSWORD, MLFLOW_FLASK_SERVER_SECRET_KEY, MLFLOW_AUTH_ADMIN_PASSWORD
+# Optional: MLFLOW_VERSION (default pinned below), MLFLOW_ALLOWED_HOSTS (extra Host headers, comma separated)
+# Start: docker compose --env-file mlflow.env -f docker-compose.yaml up -d --build
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mlflow
+      POSTGRES_DB: mlflow
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in the env file}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mlflow -d mlflow"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  mlflow:
+    # Derived image: the upstream image lacks psycopg2 and Flask-WTF (needed for basic auth).
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM ghcr.io/mlflow/mlflow:${MLFLOW_VERSION:-v3.17.0}
+        ARG MLFLOW_PIP_VERSION=${MLFLOW_PIP_VERSION:-3.17.0}
+        RUN pip install --no-cache-dir "mlflow[auth]==$${MLFLOW_PIP_VERSION}" psycopg2-binary
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      MLFLOW_FLASK_SERVER_SECRET_KEY: ${MLFLOW_FLASK_SERVER_SECRET_KEY:?set it in the env file}
+      MLFLOW_AUTH_ADMIN_PASSWORD: ${MLFLOW_AUTH_ADMIN_PASSWORD:?set it in the env file}
+      MLFLOW_DISABLE_TELEMETRY: "true"
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    command:
+      - /bin/bash
+      - -c
+      - |
+        exec mlflow server --host 0.0.0.0 --port 5000 \
+          --backend-store-uri "postgresql://mlflow:$${POSTGRES_PASSWORD}@postgres:5432/mlflow" \
+          --artifacts-destination /mlflow/artifacts --serve-artifacts \
+          --app-name basic-auth \
+          --allowed-hosts "localhost:5000,127.0.0.1:5000,mlflow:5000${MLFLOW_ALLOWED_HOSTS:+,${MLFLOW_ALLOWED_HOSTS}}"
+    ports:
+      - "127.0.0.1:5000:5000"
+    volumes:
+      - artifacts:/mlflow/artifacts
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+volumes:
+  pgdata:
+  artifacts:

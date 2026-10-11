@@ -1,0 +1,23 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run MLflow as a self-hosted LLM tracing backend. Covers pip, Docker, Compose and Helm installs, PostgreSQL and artifact stores, Host validation and basic auth, OTLP ingest at /v1/traces and the autolog SDK, LiteLLM, vLLM and OpenAI-compatible endpoints, masking, archival and deletion, upgrades with schema migration, and troubleshooting, with a Compose template and a read-only check script.",
+  "references": [
+    "https://github.com/mlflow/mlflow",
+    "https://github.com/mlflow/mlflow/releases",
+    "https://pypi.org/project/mlflow/",
+    "https://github.com/mlflow/mlflow/tree/master/docker-compose",
+    "https://github.com/mlflow/mlflow/tree/master/charts",
+    "https://mlflow.org/docs/latest/self-hosting.md",
+    "https://mlflow.org/docs/latest/genai/tracing.md",
+    "https://mlflow.org/docs/latest/genai/tracing/opentelemetry/ingest.md",
+    "https://mlflow.org/docs/latest/genai/tracing/opentelemetry/genai-semconv.md",
+    "https://mlflow.org/docs/latest/genai/tracing/observe-with-traces/archive-traces.md",
+    "https://mlflow.org/docs/latest/genai/tracing/observe-with-traces/masking.md",
+    "https://mlflow.org/docs/latest/self-hosting/security/network.md",
+    "https://mlflow.org/docs/latest/self-hosting/security/basic-http-auth.md",
+    "https://mlflow.org/docs/latest/community/usage-tracking.md"
+  ],
+  "kind": "product"
+}
