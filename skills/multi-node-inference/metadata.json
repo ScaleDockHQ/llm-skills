@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Serve one LLM across several machines with tensor, pipeline, data and expert parallelism. Covers vLLM (Ray and multiprocessing), SGLang, TensorRT-LLM over MPI/SLURM, llama.cpp RPC, exo and TensorFold speed-up mode, the NCCL, ConnectX-7, RoCE and InfiniBand interconnect, and a DGX Spark dual-node example, with exact flags, defaults, constraints, a fabric verification procedure and a numerics gate via llm-evals. References are split into an engine matrix and an interconnect guide.",
+  "references": [
+    "https://docs.vllm.ai/en/latest/serving/parallelism_scaling/",
+    "https://docs.vllm.ai/en/latest/serving/data_parallel_deployment/",
+    "https://docs.vllm.ai/en/latest/serving/expert_parallel_deployment/",
+    "https://github.com/vllm-project/vllm",
+    "https://docs.sglang.ai/",
+    "https://github.com/sgl-project/sglang",
+    "https://nvidia.github.io/TensorRT-LLM/",
+    "https://github.com/NVIDIA/TensorRT-LLM",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/rpc/README.md",
+    "https://github.com/exo-explore/exo",
+    "https://github.com/ashhart/TensorFold",
+    "https://github.com/MiaAI-Lab/Qwen3.8-Flash-Dual-DGX-Sparks-TensorFold",
+    "https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html",
+    "https://github.com/NVIDIA/dgx-spark-playbooks",
+    "https://github.com/NVIDIA/nccl-tests"
+  ],
+  "kind": "technique"
+}
