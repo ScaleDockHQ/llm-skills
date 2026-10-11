@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Operating guide for Cerebras Inference Cloud: console and API-key setup, listing models, the OpenAI-compatible API and its differences, the dual-bucket rate limits and project limits, prompt caching, batch and Dedicated Inference, LiteLLM wiring, teardown and troubleshooting. References are split by task and were checked against the official Cerebras docs on 2026-10-11.",
+  "references": [
+    "https://inference-docs.cerebras.ai/llms.txt",
+    "https://inference-docs.cerebras.ai/quickstart",
+    "https://inference-docs.cerebras.ai/resources/openai",
+    "https://inference-docs.cerebras.ai/models/overview",
+    "https://inference-docs.cerebras.ai/support/deprecation",
+    "https://inference-docs.cerebras.ai/support/rate-limits",
+    "https://inference-docs.cerebras.ai/support/error",
+    "https://inference-docs.cerebras.ai/console/api-keys",
+    "https://inference-docs.cerebras.ai/console/projects",
+    "https://inference-docs.cerebras.ai/console/account-billing",
+    "https://inference-docs.cerebras.ai/capabilities/prompt-caching",
+    "https://docs.litellm.ai/docs/providers/cerebras"
+  ],
+  "kind": "platform"
+}
