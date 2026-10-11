@@ -1,6 +1,6 @@
 # Teardown
 
-> Verified against AWS EC2 CLI docs patterns and Neuron DLAMI guide, 2026-10-11
+> Verified against AWS CLI v2 EC2 reference (describe-instance-types, terminate-instances, cancel-capacity-reservation) and Neuron SDK 2.32.0 DLAMI guide, 2026-10-11
 
 Ask before deleting anything the user did not create in this session. Termination is permanent.
 
