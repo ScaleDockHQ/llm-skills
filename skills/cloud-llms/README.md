@@ -25,12 +25,12 @@ npx skills add ScaleDockHQ/llms-skills --skill cloud-llms
 
 The `SKILL.md` overview is always loaded; the agent pulls a reference only when a workflow step needs it.
 
-- [`references/frontier-apis.md`](references/frontier-apis.md): OpenAI, Anthropic, Gemini; keys, rate-limit tiers, batch, prompt caching, retention.
-- [`references/open-model-apis.md`](references/open-model-apis.md): Together AI, Fireworks AI, Groq, DeepInfra, OpenRouter, Hugging Face; verified base URLs and data handling.
-- [`references/hyperscalers.md`](references/hyperscalers.md): Bedrock, Agent Platform (Vertex AI), Microsoft Foundry; access, regions, quotas, private networking, IAM.
-- [`references/managed-endpoints.md`](references/managed-endpoints.md): SageMaker, Agent Platform endpoints, Azure ML online endpoints, Hugging Face Inference Endpoints.
-- [`references/gpu-vms.md`](references/gpu-vms.md): Lambda, RunPod, Vast.ai, CoreWeave, hyperscaler GPU instances.
-- [`references/serverless-gpu.md`](references/serverless-gpu.md): RunPod Serverless vLLM worker, Modal; cold starts.
+- [`references/frontier-apis.md`](references/frontier-apis.md): stack note for OpenAI, Anthropic, Gemini. Depth in `openai-api`, `anthropic-api`, `gemini-api`.
+- [`references/open-model-apis.md`](references/open-model-apis.md): stack note and base URLs. Depth in `together-ai`, `fireworks-ai`, `groq`, `cerebras`, `sambanova`, `deepinfra`, `hugging-face`.
+- [`references/hyperscalers.md`](references/hyperscalers.md): stack note. Depth in `aws-bedrock`, `google-vertex-ai`, `azure-foundry`.
+- [`references/managed-endpoints.md`](references/managed-endpoints.md): stack note. Depth in `aws-sagemaker`, `google-vertex-ai`, `azure-foundry`, `hugging-face`.
+- [`references/gpu-vms.md`](references/gpu-vms.md): stack note. Depth in `runpod`, `lambda-cloud`, `vast-ai`, `coreweave`, `nebius`, `crusoe`, `hyperbolic`.
+- [`references/serverless-gpu.md`](references/serverless-gpu.md): stack note. Depth in `runpod`, `modal`, `baseten`.
 - [`references/kubernetes.md`](references/kubernetes.md): GPU Operator, vLLM, production-stack, KServe, llm-d, LeaderWorkerSet.
 - [`references/gateway-hybrid.md`](references/gateway-hybrid.md): cloud entries, fallbacks and budgets in LiteLLM next to local models.
 - [`references/cost-and-quotas.md`](references/cost-and-quotas.md): budgets, alerts, quotas, cost formulas, teardown checks.
