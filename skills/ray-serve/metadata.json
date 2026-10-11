@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Serve LLMs with Ray Serve LLM (LLMConfig, build_openai_app, serve CLI, rayproject/ray-llm) and run them on Kubernetes with KubeRay RayService. Covers install, config, tensor/pipeline/data parallelism, prefix- and KV-aware routing, prefill/decode, multi-LoRA, autoscaling, observability, upgrades, GCS fault tolerance and troubleshooting, plus LiteLLM and KEDA combos and templates. Verified against Ray 2.59.0 and KubeRay v1.7.1.",
+  "references": [
+    "https://docs.ray.io/en/latest/serve/",
+    "https://docs.ray.io/en/latest/serve/llm/quick-start.html",
+    "https://docs.ray.io/en/latest/serve/llm/user-guides/configuration.html",
+    "https://docs.ray.io/en/latest/serve/llm/user-guides/cross-node-parallelism.html",
+    "https://docs.ray.io/en/latest/serve/llm/user-guides/prefill-decode.html",
+    "https://docs.ray.io/en/latest/serve/llm/user-guides/prefix-aware-routing.html",
+    "https://docs.ray.io/en/latest/serve/llm/user-guides/kv-aware-routing.html",
+    "https://docs.ray.io/en/latest/serve/llm/user-guides/multi-lora.html",
+    "https://docs.ray.io/en/latest/serve/llm/troubleshooting.html",
+    "https://docs.ray.io/en/latest/serve/advanced-guides/advanced-autoscaling.html",
+    "https://docs.ray.io/en/latest/serve/production-guide/kubernetes.html",
+    "https://docs.ray.io/en/latest/serve/production-guide/fault-tolerance.html",
+    "https://docs.ray.io/en/latest/serve/monitoring.html",
+    "https://github.com/ray-project/ray/releases",
+    "https://github.com/ray-project/kuberay",
+    "https://github.com/ray-project/kuberay/blob/v1.7.1/ray-operator/config/samples/ray-service.llm-serve.yaml",
+    "https://hub.docker.com/r/rayproject/ray-llm"
+  ],
+  "kind": "product"
+}
