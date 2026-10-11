@@ -27,5 +27,6 @@
     "https://github.com/openai/openai-python",
     "https://github.com/anthropics/anthropic-sdk-python",
     "https://ai-sdk.dev/providers/openai-compatible-providers"
-  ]
+  ],
+  "kind": "workflow"
 }

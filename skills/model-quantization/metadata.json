@@ -17,5 +17,6 @@
     "https://huggingface.co/docs/hub/model-cards",
     "https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables",
     "https://www.freedesktop.org/software/systemd/man/latest/systemd.resource-control.html"
-  ]
+  ],
+  "kind": "workflow"
 }

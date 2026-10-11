@@ -23,5 +23,6 @@
     "https://github.com/rfjakob/earlyoom",
     "https://huggingface.co/docs/huggingface_hub/guides/manage-cache",
     "https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html"
-  ]
+  ],
+  "kind": "workflow"
 }

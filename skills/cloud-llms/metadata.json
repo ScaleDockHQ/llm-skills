@@ -36,5 +36,6 @@
     "https://docs.litellm.ai/docs/proxy/configs",
     "https://docs.litellm.ai/docs/proxy/reliability",
     "https://docs.litellm.ai/docs/proxy/provider_budget_routing"
-  ]
+  ],
+  "kind": "workflow"
 }

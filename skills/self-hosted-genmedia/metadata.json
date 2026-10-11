@@ -23,5 +23,6 @@
     "https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/",
     "https://www.freedesktop.org/software/systemd/man/latest/systemd.resource-control.html",
     "https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables"
-  ]
+  ],
+  "kind": "workflow"
 }

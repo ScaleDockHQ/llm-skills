@@ -18,5 +18,6 @@
     "https://www.freedesktop.org/software/systemd/man/latest/systemd.resource-control.html",
     "https://github.com/meta-llama/llama-models/tree/main/models",
     "https://ai.google.dev/gemma/terms"
-  ]
+  ],
+  "kind": "workflow"
 }

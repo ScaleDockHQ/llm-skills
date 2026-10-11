@@ -26,5 +26,6 @@
     "https://developer.konghq.com/ai-gateway/",
     "https://developers.cloudflare.com/ai-gateway/",
     "https://code.claude.com/docs/en/llm-gateway-protocol"
-  ]
+  ],
+  "kind": "workflow"
 }

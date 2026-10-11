@@ -27,5 +27,6 @@
     "https://tailscale.com/kb/1312/serve",
     "https://tailscale.com/kb/1242/tailscale-serve",
     "https://agentskills.io/specification"
-  ]
+  ],
+  "kind": "workflow"
 }

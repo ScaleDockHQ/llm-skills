@@ -25,5 +25,6 @@
     "https://huggingface.co/docs/inference-providers/security",
     "https://openrouter.ai/docs/guides/privacy/data-collection",
     "https://docs.litellm.ai/docs/proxy/reliability"
-  ]
+  ],
+  "kind": "workflow"
 }

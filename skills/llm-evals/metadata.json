@@ -19,5 +19,6 @@
     "https://github.com/ggml-org/llama.cpp/tree/master/tools/perplexity",
     "https://docs.vllm.ai/en/latest/usage/reproducibility/",
     "https://docs.vllm.ai/en/latest/features/batch_invariance/"
-  ]
+  ],
+  "kind": "workflow"
 }
