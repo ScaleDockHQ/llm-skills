@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Operating guide for Vercel AI Gateway: API keys with spend attribution, OIDC, BYOK, the OpenAI, Anthropic and AI SDK compatible endpoints, model fallbacks and provider routing, team routing rules, stacking budgets, rate limits, zero data retention and allowlists, logs, Claude Code and LiteLLM wiring, teardown and troubleshooting. Checked against vercel.com/docs/ai-gateway and the live model list on 2026-10-11; the service has no version numbers.",
+  "references": [
+    "https://vercel.com/docs/ai-gateway",
+    "https://vercel.com/docs/ai-gateway/getting-started",
+    "https://vercel.com/docs/ai-gateway/authentication-and-byok/api-keys",
+    "https://vercel.com/docs/ai-gateway/authentication-and-byok/oidc",
+    "https://vercel.com/docs/ai-gateway/authentication-and-byok/byok",
+    "https://vercel.com/docs/ai-gateway/sdks-and-apis/rest-api",
+    "https://vercel.com/docs/ai-gateway/models-and-providers/model-fallbacks",
+    "https://vercel.com/docs/ai-gateway/models-and-providers/provider-options",
+    "https://vercel.com/docs/ai-gateway/models-and-providers/routing-rules",
+    "https://vercel.com/docs/ai-gateway/observability-and-spend/budgets",
+    "https://vercel.com/docs/ai-gateway/rate-limits",
+    "https://vercel.com/docs/ai-gateway/pricing",
+    "https://vercel.com/docs/ai-gateway/security-and-compliance",
+    "https://vercel.com/docs/ai-gateway/coding-agents/claude-code",
+    "https://docs.litellm.ai/docs/providers/vercel_ai_gateway"
+  ],
+  "kind": "product"
+}
