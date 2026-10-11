@@ -89,6 +89,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`ollama`](skills/ollama)             | Install, run and tune the Ollama local LLM server (ollama pull, run, serve, create, ps) on macOS, Linux, Windows and Docker, with Modelfiles, OLLAMA_* env vars,...       | `npx skills add ScaleDockHQ/llms-skills@ollama`       |
 | [`tensorfold`](skills/tensorfold)     | Installs, serves, tunes and troubleshoots TensorFold (`tensorfold-native`), a Zig LLM inference engine for Apple Silicon and NVIDIA GPUs with exact speculative decoding. | `npx skills add ScaleDockHQ/llms-skills@tensorfold`   |
 | [`exllamav3`](skills/exllamav3)       | Installs, serves and tunes ExLlamaV3 and TabbyAPI (EXL3 quants, OpenAI API).                                                                                              | `npx skills add ScaleDockHQ/llms-skills@exllamav3`    |
+| [`ik-llama-cpp`](skills/ik-llama-cpp) | Build, serve and tune ik_llama.cpp, the llama.cpp fork with IQK/trellis quants, fast CPU and hybrid CPU/GPU MoE inference, split-mode graph and MTP.                      | `npx skills add ScaleDockHQ/llms-skills@ik-llama-cpp` |
 
 #### Local runtimes
 
@@ -236,7 +237,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 91 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 92 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 

@@ -230,7 +230,7 @@
       "name": "ik-llama-cpp",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://github.com/ikawrakow/ik_llama.cpp",
       "replaces": null
