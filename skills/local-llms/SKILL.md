@@ -5,7 +5,7 @@ license: MIT
 compatibility: Personal machines (macOS on Apple Silicon, Windows 10/11, Linux desktops). Discovery commands need a shell (bash/zsh or PowerShell); benchmarking needs curl and jq. Installs, sysctl changes, firewall rules and LAN exposure require the user's explicit approval.
 metadata:
   author: ScaleDockHQ
-  version: "1.1.0"
+  version: "1.1.1"
 ---
 
 # Local LLMs
