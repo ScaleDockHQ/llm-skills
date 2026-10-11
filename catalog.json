@@ -461,7 +461,7 @@
       "name": "portkey",
       "kind": "product",
       "category": "gateways",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/Portkey-AI/gateway",
       "replaces": null
@@ -1268,7 +1268,7 @@
       "name": "claude-code",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/anthropics/claude-code",
       "replaces": "skills/llm-clients/references/coding-agents.md"
@@ -1277,7 +1277,7 @@
       "name": "codex-cli",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/openai/codex",
       "replaces": "skills/llm-clients/references/coding-agents.md"
@@ -1286,7 +1286,7 @@
       "name": "opencode",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/sst/opencode",
       "replaces": "skills/llm-clients/references/coding-agents.md"
@@ -1295,7 +1295,7 @@
       "name": "aider",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/Aider-AI/aider",
       "replaces": "skills/llm-clients/references/coding-agents.md"
