@@ -1906,7 +1906,7 @@
       "name": "vllm-kserve-keda",
       "kind": "stack",
       "category": "stacks",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": null,
       "replaces": null
@@ -1915,7 +1915,7 @@
       "name": "llm-d-vllm-kubernetes",
       "kind": "stack",
       "category": "stacks",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": null,
       "replaces": null
@@ -1924,7 +1924,7 @@
       "name": "dynamo-trtllm-disaggregated",
       "kind": "stack",
       "category": "stacks",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": null,
       "replaces": null

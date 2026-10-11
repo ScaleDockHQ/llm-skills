@@ -345,10 +345,13 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`portkey`](skills/portkey)                                         | Portkey AI Gateway: open-source Node.js gateway with configs for fallbacks, load balancing, retries and conditional routing, plus the hosted Portkey platform.                       | `npx skills add ScaleDockHQ/llms-skills@portkey`                     |
 | [`envoy-ai-gateway`](skills/envoy-ai-gateway)                       | Envoy AI Gateway (Agent Router): Kubernetes and standalone aigw gateway for LLM and MCP traffic, with model routing, upstream auth, fallback, token limits and InferencePool.        | `npx skills add ScaleDockHQ/llms-skills@envoy-ai-gateway`            |
 | [`kong-ai-gateway`](skills/kong-ai-gateway)                         | Kong AI Gateway: ai-proxy on Kong OSS, Enterprise balancing and token limits, and the 2.x Konnect model with kongctl, for OpenAI-compatible LLM traffic.                             | `npx skills add ScaleDockHQ/llms-skills@kong-ai-gateway`             |
+| [`vllm-kserve-keda`](skills/vllm-kserve-keda)                       | Deploy vLLM on Kubernetes with KServe (InferenceService or LLMInferenceService) and autoscale it with KEDA from vLLM Prometheus metrics, with a pinned runtime and teardown.         | `npx skills add ScaleDockHQ/llms-skills@vllm-kserve-keda`            |
+| [`llm-d-vllm-kubernetes`](skills/llm-d-vllm-kubernetes)             | Deploy vLLM behind the llm-d router on Kubernetes (Gateway API Inference Extension): optimized baseline, prefill/decode pools over NIXL and KEDA autoscaling.                        | `npx skills add ScaleDockHQ/llms-skills@llm-d-vllm-kubernetes`       |
+| [`dynamo-trtllm-disaggregated`](skills/dynamo-trtllm-disaggregated) | Run TensorRT-LLM prefill and decode as separate NVIDIA Dynamo workers on Kubernetes (DynamoGraphDeployment, NIXL over RDMA, KV-aware router, Planner).                               | `npx skills add ScaleDockHQ/llms-skills@dynamo-trtllm-disaggregated` |
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 181 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 184 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
