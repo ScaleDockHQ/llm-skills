@@ -1,0 +1,38 @@
+# Ollama with NVIDIA GPU, persistent models and a healthcheck.
+# Usage: docker compose up -d && docker compose exec ollama ollama pull qwen3:8b
+# AMD: image ollama/ollama:0.40.3-rocm and replace the deploy block with
+#   devices: ["/dev/kfd:/dev/kfd", "/dev/dri:/dev/dri"]
+# Reference: https://docs.ollama.com/docker
+services:
+  ollama:
+    image: ollama/ollama:0.40.3 # pin; check https://hub.docker.com/r/ollama/ollama/tags
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:11434:11434" # loopback only; the API has no auth
+    volumes:
+      - ollama:/root/.ollama
+    environment:
+      OLLAMA_CONTEXT_LENGTH: "32768"
+      OLLAMA_KEEP_ALIVE: "10m"
+      OLLAMA_MAX_LOADED_MODELS: "1"
+      OLLAMA_NUM_PARALLEL: "2"
+      OLLAMA_FLASH_ATTENTION: "1"
+      OLLAMA_KV_CACHE_TYPE: "q8_0"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    healthcheck:
+      # The image has the ollama binary; "ollama list" talks to the local server.
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  ollama:

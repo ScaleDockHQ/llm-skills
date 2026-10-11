@@ -1,0 +1,75 @@
+# Ollama on Kubernetes: one GPU, a PVC for models, a ClusterIP Service.
+# Needs the NVIDIA device plugin (nvidia.com/gpu). Pin the image tag.
+# The API has no authentication: keep the Service internal and add a NetworkPolicy or authenticating ingress.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ollama-models
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 200Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate # one GPU, one writer to the PVC
+  selector:
+    matchLabels:
+      app: ollama
+  template:
+    metadata:
+      labels:
+        app: ollama
+    spec:
+      containers:
+        - name: ollama
+          image: ollama/ollama:0.40.3
+          ports:
+            - containerPort: 11434
+          env:
+            - name: OLLAMA_CONTEXT_LENGTH
+              value: "32768"
+            - name: OLLAMA_KEEP_ALIVE
+              value: "10m"
+            - name: OLLAMA_MAX_LOADED_MODELS
+              value: "1"
+            - name: OLLAMA_NUM_PARALLEL
+              value: "2"
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+          volumeMounts:
+            - name: models
+              mountPath: /root/.ollama
+          readinessProbe: # /api/version does not load a model
+            httpGet:
+              path: /api/version
+              port: 11434
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 11434
+            periodSeconds: 30
+      volumes:
+        - name: models
+          persistentVolumeClaim:
+            claimName: ollama-models
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ollama
+spec:
+  selector:
+    app: ollama
+  ports:
+    - port: 11434
+      targetPort: 11434
