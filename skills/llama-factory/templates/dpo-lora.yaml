@@ -1,0 +1,47 @@
+# LLaMA-Factory LoRA DPO. Run from the repo root:  llamafactory-cli train dpo-lora.yaml
+# Keys mirror examples/train_lora/qwen3_lora_dpo.yaml at v0.9.5. The dataset entry needs
+# "ranking": true and chosen/rejected columns (see references/config-and-data.md).
+
+### model
+model_name_or_path: Qwen/Qwen3-4B-Instruct-2507 # or your merged SFT model
+trust_remote_code: true
+
+### method
+stage: dpo
+do_train: true
+finetuning_type: lora
+lora_rank: 8
+lora_target: all
+pref_beta: 0.1
+pref_loss: sigmoid # sigmoid (dpo), hinge, ipo, kto_pair, orpo, simpo
+
+### dataset
+dataset: my_prefs
+template: qwen3_nothink
+cutoff_len: 2048
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+val_size: 0.1
+
+### output
+output_dir: saves/my-dpo/lora
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: false
+report_to: none
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 5.0e-6
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+
+### eval
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 500
