@@ -1,6 +1,8 @@
 # Chatterbox: troubleshooting
 
-> Verified against resemble-ai/chatterbox master source and docs, 2026-10-11; symptoms not reproduced live
+> Verified against resemble-ai/chatterbox master source and docs, 2026-10-11
+
+Symptoms below come from source and docs; none was reproduced live.
 
 | Symptom                                                                         | Likely cause and fix                                                                                    |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
