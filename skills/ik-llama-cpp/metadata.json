@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Build, serve, tune, update and troubleshoot ik_llama.cpp, the llama.cpp fork with IQK and trellis quants, fast CPU and hybrid CPU/GPU MoE inference, split-mode graph and speculative decoding. Covers prebuilt images, CMake (CPU, CUDA, AVX-512), llama-server flags and API, offload planning, llama-swap and LiteLLM. References are split by task.",
+  "references": [
+    "https://github.com/ikawrakow/ik_llama.cpp",
+    "https://github.com/ikawrakow/ik_llama.cpp/blob/main/README.md",
+    "https://github.com/ikawrakow/ik_llama.cpp/blob/main/docs/parameters.md",
+    "https://github.com/ikawrakow/ik_llama.cpp/blob/main/docs/build.md",
+    "https://github.com/ikawrakow/ik_llama.cpp/blob/main/docs/speculative.md",
+    "https://github.com/ikawrakow/ik_llama.cpp/blob/main/docs/function-calling.md",
+    "https://github.com/ikawrakow/ik_llama.cpp/blob/main/docker/README.md",
+    "https://github.com/ikawrakow/ik_llama.cpp/blob/main/examples/server/README.md",
+    "https://github.com/ikawrakow/ik_llama.cpp/wiki"
+  ],
+  "kind": "product"
+}

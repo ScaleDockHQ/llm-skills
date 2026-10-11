@@ -1,0 +1,12 @@
+# llama-swap config for a host install. Adjust paths. See the llama-swap skill.
+healthCheckTimeout: 1800
+logLevel: info
+
+models:
+  "qwen3-moe":
+    proxy: "http://127.0.0.1:${PORT}"
+    cmd: >
+      /opt/ik_llama.cpp/build/bin/llama-server
+      --model /srv/models/Qwen3-30B-A3B-IQ4_KS.gguf --alias qwen3-moe
+      --port ${PORT} --jinja -c 32768 -fa on -ngl 999 --n-cpu-moe 20
+      -ctk q8_0 -ctv q8_0
