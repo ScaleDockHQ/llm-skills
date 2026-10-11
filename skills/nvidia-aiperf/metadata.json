@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Benchmark LLM serving with NVIDIA AIPerf against OpenAI-compatible endpoints: pinned install, aiperf profile flags and YAML configs, synthetic and trace workloads, metric definitions (TTFT, ITL, throughput, goodput), concurrency and request-rate sweeps, multi-run confidence intervals, GPU telemetry and server metrics, and GenAI-Perf migration. References split by install, CLI, workloads and metrics, sweeps, a vLLM combo, troubleshooting and updating.",
+  "references": [
+    "https://github.com/ai-dynamo/aiperf",
+    "https://github.com/ai-dynamo/aiperf/releases",
+    "https://pypi.org/project/aiperf/",
+    "https://github.com/ai-dynamo/aiperf/blob/v0.13.0/docs/cli-options.md",
+    "https://github.com/ai-dynamo/aiperf/blob/v0.13.0/docs/metrics-reference.md",
+    "https://github.com/ai-dynamo/aiperf/blob/v0.13.0/docs/tutorials/sweeps.md",
+    "https://github.com/ai-dynamo/aiperf/blob/v0.13.0/docs/tutorials/multi-run-confidence.md",
+    "https://github.com/ai-dynamo/aiperf/blob/v0.13.0/docs/tutorials/goodput.md",
+    "https://github.com/ai-dynamo/aiperf/blob/v0.13.0/docs/tutorials/gpu-telemetry.md",
+    "https://github.com/ai-dynamo/aiperf/blob/v0.13.0/docs/tutorials/control-hooks-by-server.md",
+    "https://github.com/ai-dynamo/aiperf/blob/v0.13.0/docs/tutorials/yaml-config.md",
+    "https://github.com/ai-dynamo/aiperf/blob/v0.13.0/docs/migrating.md"
+  ],
+  "kind": "product"
+}
