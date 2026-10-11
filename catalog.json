@@ -1029,9 +1029,9 @@
       "name": "verl",
       "kind": "product",
       "category": "fine-tuning",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
-      "upstream": "https://github.com/volcengine/verl",
+      "upstream": "https://github.com/verl-project/verl",
       "replaces": null
     },
     {
@@ -1056,10 +1056,11 @@
       "name": "torchtune",
       "kind": "product",
       "category": "fine-tuning",
-      "status": "planned",
+      "status": "note-only",
       "wave": 9,
       "upstream": "https://github.com/pytorch/torchtune",
       "replaces": null,
+      "note": "torchtune is no longer actively maintained: its README says development wound down in 2025, and the last release is v0.6.1 (2025-04-07).",
       "verifyStatus": true
     },
     {

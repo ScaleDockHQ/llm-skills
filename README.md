@@ -132,6 +132,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`axolotl`](skills/axolotl) | Axolotl is a YAML-driven LLM fine-tuning framework (axolotl CLI) for LoRA, QLoRA, full fine-tuning, SFT, DPO, KTO and GRPO on Hugging Face models.                      | `npx skills add ScaleDockHQ/llms-skills@axolotl` |
 | [`unsloth`](skills/unsloth) | Unsloth is a fast, low-VRAM fine-tuning and RL library (FastLanguageModel, unsloth CLI) with Unsloth Studio and Desktop apps for LoRA, QLoRA, full fine-tuning, SFT,... | `npx skills add ScaleDockHQ/llms-skills@unsloth` |
 | [`trl`](skills/trl)         | TRL (Hugging Face Transformer Reinforcement Learning) is the post-training library with SFTTrainer, DPOTrainer, GRPOTrainer, RLOOTrainer, KTOTrainer, RewardTrainer...  | `npx skills add ScaleDockHQ/llms-skills@trl`     |
+| [`verl`](skills/verl)       | verl (Volcano Engine RL) is an RL post-training library for LLMs with PPO, GRPO, DAPO, RLOO and REINFORCE++ on Ray, FSDP/Megatron training and vLLM/SGLang rollout.     | `npx skills add ScaleDockHQ/llms-skills@verl`    |
 
 #### Evals and benchmarks
 
@@ -233,7 +234,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 88 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 89 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
