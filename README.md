@@ -312,10 +312,11 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`goose`](skills/goose)                                             | Connect goose (Desktop and CLI agent) to self-hosted OpenAI- and Anthropic-compatible endpoints: OPENAI_HOST, custom providers, keys, tools, tool shim.                       | `npx skills add ScaleDockHQ/llms-skills@goose`                       |
 | [`portkey`](skills/portkey)                                         | Portkey AI Gateway: open-source Node.js gateway with configs for fallbacks, load balancing, retries and conditional routing, plus the hosted Portkey platform.                | `npx skills add ScaleDockHQ/llms-skills@portkey`                     |
 | [`envoy-ai-gateway`](skills/envoy-ai-gateway)                       | Envoy AI Gateway (Agent Router): Kubernetes and standalone aigw gateway for LLM and MCP traffic, with model routing, upstream auth, fallback, token limits and InferencePool. | `npx skills add ScaleDockHQ/llms-skills@envoy-ai-gateway`            |
+| [`open-webui`](skills/open-webui)                                   | Open WebUI chat UI: Docker install, OpenAI-compatible connections to self-hosted engines, tools, updates                                                                      | `npx skills add ScaleDockHQ/llms-skills@open-webui`                  |
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 150 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 154 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 

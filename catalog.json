@@ -1367,7 +1367,7 @@
       "name": "open-webui",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/open-webui/open-webui",
       "replaces": "skills/llm-clients/references/chat-uis.md"
