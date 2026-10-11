@@ -1,0 +1,33 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run Gemini, Claude and open models on Google Cloud Vertex AI, renamed Gemini Enterprise Agent Platform in 2026, and serve custom models on managed GPU endpoints. Covers gcloud and ADC auth, the OpenAI-compatible endpoint, quotas and consumption options, batch, private access, budgets, LiteLLM wiring and a verified teardown, split into seven focused references.",
+  "references": [
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/vertex-ai-name-changes",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/openai",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/authentication",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/error-code-429",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/standard-paygo",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/priority-paygo",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/undeploy-model",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention",
+    "https://docs.cloud.google.com/docs/quotas/view-manage",
+    "https://docs.cloud.google.com/billing/docs/how-to/budgets",
+    "https://docs.cloud.google.com/billing/docs/how-to/disable-billing-with-notifications",
+    "https://docs.cloud.google.com/resource-manager/docs/delete-restore-projects",
+    "https://docs.litellm.ai/docs/providers/vertex",
+    "https://docs.claude.com/en/api/claude-on-vertex-ai"
+  ],
+  "kind": "platform"
+}
