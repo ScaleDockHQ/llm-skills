@@ -24,17 +24,19 @@ npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms
 - [`references/when-to-fine-tune.md`](references/when-to-fine-tune.md) — prompting vs RAG vs fine-tuning, good and bad fits.
 - [`references/data-prep.md`](references/data-prep.md) — chat templates, Axolotl and TRL dataset formats, dedup, PII scrubbing.
 - [`references/methods.md`](references/methods.md) — full, LoRA, QLoRA, DoRA; SFT, DPO, KTO, ORPO, GRPO; tool support matrix.
-- [`references/axolotl.md`](references/axolotl.md) — Axolotl install, CLI, config knobs, Docker and arm64.
-- [`references/unsloth.md`](references/unsloth.md) — Unsloth install incl. DGX Spark, short Python script, exports.
-- [`references/trl.md`](references/trl.md) — TRL CLI and SFT/DPO/GRPO trainer snippets.
+- [`references/axolotl.md`](references/axolotl.md) — how Axolotl plugs into this stack; depth in the `axolotl` skill.
+- [`references/unsloth.md`](references/unsloth.md) — how Unsloth plugs into this stack; depth in the `unsloth` skill.
+- [`references/trl.md`](references/trl.md) — how TRL plugs into this stack; depth in the `trl` skill.
 - [`references/hardware.md`](references/hardware.md) — memory estimates, DGX Spark, consumer and cloud GPUs, memory caps, hf-xet.
 - [`references/evaluate-and-merge.md`](references/evaluate-and-merge.md) — compare vs base, merge adapters, GGUF export.
 - [`references/serving-adapters.md`](references/serving-adapters.md) — vLLM multi-LoRA, llama-server LoRA, Ollama status, gateway wiring.
 - [`references/licenses.md`](references/licenses.md) — Llama, Gemma, Qwen, Mistral and dataset license checks.
-- [`assets/axolotl-lora.yaml`](assets/axolotl-lora.yaml) — commented Axolotl LoRA SFT config.
 
 ## Companion skills
 
+- `axolotl` — config-driven training and merge/export (install: `npx skills add ScaleDockHQ/llms-skills --skill axolotl`)
+- `unsloth` — memory-tight single-GPU training (install: `npx skills add ScaleDockHQ/llms-skills --skill unsloth`)
+- `trl` — custom Python trainers and GRPO (install: `npx skills add ScaleDockHQ/llms-skills --skill trl`)
 - `llm-evals` — eval sets and quality gates for base vs fine-tune (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`)
 - `model-quantization` — quantize merged models, GGUF types (install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`)
 - `cloud-llms` — rent cloud GPUs for bigger runs (install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`)

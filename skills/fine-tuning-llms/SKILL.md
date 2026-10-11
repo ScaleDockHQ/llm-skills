@@ -4,7 +4,7 @@ description: Fine-tune open-weight LLMs locally (NVIDIA DGX Spark unified memory
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.0.1"
+  version: "1.1.0"
 compatibility: Linux with an NVIDIA GPU (x86_64 or arm64, incl. DGX Spark) for training; Docker optional. Uses Python CLIs (axolotl, trl, llama.cpp converters) via shell, plus curl, jq and optionally systemd-run for memory caps.
 ---
 
@@ -92,7 +92,7 @@ Ask only what can't be discovered:
 
 ### 4. Train
 
-- [ ] Copy `assets/axolotl-lora.yaml`; set `base_model`, data paths, `sequence_len`, `lora_r`, output dirs (`references/axolotl.md`).
+- [ ] Axolotl: install the `axolotl` skill and copy its `templates/lora-sft.yaml`; set `base_model`, data paths, `sequence_len`, `lora_r`, output dirs (`references/axolotl.md`).
 - [ ] On shared or unified-memory machines, stop model servers or budget memory explicitly (`references/hardware.md`).
 - [ ] Launch inside `tmux` and a memory-capped scope: `systemd-run --user --scope -p MemoryMax=<cap> -p MemorySwapMax=0 -- axolotl train cfg.yaml`.
 - [ ] Watch train and eval loss; stop if eval loss rises steadily (overfitting) or loss is NaN.
@@ -143,19 +143,21 @@ Ask only what can't be discovered:
 - `references/when-to-fine-tune.md` — prompting vs RAG vs fine-tuning ladder, good and bad fits, pre-flight questions.
 - `references/data-prep.md` — chat templates, Axolotl and TRL dataset formats, splitting, dedup, PII scrubbing, mask inspection.
 - `references/methods.md` — full, LoRA, QLoRA, DoRA; SFT, DPO, KTO, ORPO, SimPO, GRPO; which tool supports which.
-- `references/axolotl.md` — install (uv, Docker, arm64), CLI commands, key config options, pitfalls.
-- `references/unsloth.md` — install incl. DGX Spark Dockerfile, short Python LoRA script, merged/GGUF saving.
-- `references/trl.md` — `trl` CLI, SFT/DPO/GRPO snippets, PEFT flags, experimental trainers.
+- `references/axolotl.md` — how Axolotl plugs into this stack; depth in the `axolotl` skill.
+- `references/unsloth.md` — how Unsloth plugs into this stack; depth in the `unsloth` skill.
+- `references/trl.md` — how TRL plugs into this stack; depth in the `trl` skill.
 - `references/hardware.md` — memory rules of thumb, DGX Spark unified memory, consumer and cloud GPUs, memory-capped scopes, hf-xet env vars, checkpointing.
 - `references/evaluate-and-merge.md` — compare vs base, merge vs keep, merge recipes, GGUF export routes.
 - `references/serving-adapters.md` — vLLM multi-LoRA and dynamic loading, llama-server LoRA, Ollama status, LiteLLM/llama-swap wiring.
 - `references/licenses.md` — Llama, Gemma, Qwen, Mistral license checks, dataset and teacher-output terms, ship checklist.
-- `assets/axolotl-lora.yaml` — commented LoRA SFT config with held-out eval set.
 
 ## Companion skills
 
 Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
 
+- `axolotl` — config-driven training, multi-GPU, merge and export, the default trainer.
+- `unsloth` — memory-tight single-GPU training, Studio, merged and GGUF export.
+- `trl` — custom Python trainers, reward functions, GRPO with vLLM.
 - `llm-evals` — build the eval set, metrics and quality gates used to compare base vs fine-tune.
 - `model-quantization` — quantize merged models (GGUF types, imatrix, AWQ/GPTQ/FP8).
 - `cloud-llms` — rent cloud GPUs when local memory isn't enough.
