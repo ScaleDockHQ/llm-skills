@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run public LLM benchmarks with Hugging Face Lighteval: pinned install and extras, the Inspect-backed eval command, vLLM, LiteLLM and Accelerate backends, OpenAI-compatible endpoints, task strings and few-shot, reasoning-tag handling, results and per-sample details, custom tasks, troubleshooting and updating. References split by install, backends, tasks and results, troubleshooting and updating.",
+  "references": [
+    "https://github.com/huggingface/lighteval",
+    "https://github.com/huggingface/lighteval/releases",
+    "https://pypi.org/project/lighteval/",
+    "https://huggingface.co/docs/lighteval/installation",
+    "https://huggingface.co/docs/lighteval/quicktour",
+    "https://huggingface.co/docs/lighteval/use-vllm-as-backend",
+    "https://huggingface.co/docs/lighteval/use-litellm-as-backend",
+    "https://huggingface.co/docs/lighteval/saving-and-reading-results",
+    "https://huggingface.co/docs/lighteval/adding-a-custom-task",
+    "https://github.com/huggingface/lighteval/blob/main/src/lighteval/main_inspect.py",
+    "https://github.com/huggingface/lighteval/blob/main/src/lighteval/cli_args.py",
+    "https://huggingface.co/spaces/OpenEvals/open_benchmark_index"
+  ],
+  "kind": "product"
+}

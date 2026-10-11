@@ -1,0 +1,18 @@
+# lighteval vllm templates/vllm-model.yaml <task> --max-samples 5 --output-dir results --save-details
+# Fields follow upstream examples/model_configs/vllm_model_config.yaml (docs, 2026-10-11).
+model_parameters:
+  model_name: "<hf-repo-or-local-path>"
+  revision: "main"
+  dtype: "bfloat16"
+  tensor_parallel_size: 1
+  data_parallel_size: 1
+  pipeline_parallel_size: 1
+  gpu_memory_utilization: 0.8
+  max_model_length: 4096
+  seed: 1
+  trust_remote_code: false
+  generation_parameters:
+    temperature: 0.0
+    top_p: 1.0
+    max_new_tokens: 1024
+    seed: 42

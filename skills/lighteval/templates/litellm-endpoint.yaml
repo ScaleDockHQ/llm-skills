@@ -1,0 +1,11 @@
+# lighteval endpoint litellm templates/litellm-endpoint.yaml <task> --max-samples 5
+# Keep any real key out of this file; leave api_key empty for open servers.
+model_parameters:
+  model_name: "hosted_vllm/<served-model-id>" # ids from: curl $BASE/models | jq -r '.data[].id'
+  provider: "hosted_vllm"
+  base_url: "http://localhost:8000/v1"
+  api_key: ""
+  generation_parameters:
+    temperature: 0.0
+    max_new_tokens: 512
+    seed: 0
