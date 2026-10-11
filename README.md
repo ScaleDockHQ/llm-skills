@@ -117,6 +117,8 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`litellm`](skills/litellm)                             | LiteLLM proxy, a self-hosted OpenAI- and Anthropic-compatible gateway to 100+ providers with virtual keys, budgets and fallbacks.                                   | `npx skills add ScaleDockHQ/llms-skills@litellm`               |
 | [`cloudflare-ai-gateway`](skills/cloudflare-ai-gateway) | Cloudflare AI Gateway, a hosted proxy with logging, caching, rate and spend limits, retries and dynamic routing in front of OpenAI, Anthropic, Workers AI and more. | `npx skills add ScaleDockHQ/llms-skills@cloudflare-ai-gateway` |
 | [`vercel-ai-gateway`](skills/vercel-ai-gateway)         | Vercel AI Gateway, one hosted OpenAI-, Anthropic- and AI SDK-compatible endpoint with fallbacks, provider routing, BYOK, budgets and zero data retention.           | `npx skills add ScaleDockHQ/llms-skills@vercel-ai-gateway`     |
+| [`bifrost`](skills/bifrost)                             | Bifrost, a Go open-source AI gateway with a web UI, virtual keys, budgets, fallbacks, semantic cache and MCP.                                                       | `npx skills add ScaleDockHQ/llms-skills@bifrost`               |
+| [`helicone`](skills/helicone)                           | Helicone, LLM observability and AI gateway, now in maintenance mode, with logging, caching, rate limits and migration paths.                                        | `npx skills add ScaleDockHQ/llms-skills@helicone`              |
 
 #### Exposure and networking
 
@@ -270,7 +272,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 115 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 117 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 

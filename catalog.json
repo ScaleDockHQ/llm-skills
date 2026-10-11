@@ -506,7 +506,7 @@
       "name": "helicone",
       "kind": "product",
       "category": "gateways",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/Helicone/helicone",
       "replaces": null
@@ -515,7 +515,7 @@
       "name": "bifrost",
       "kind": "product",
       "category": "gateways",
-      "status": "planned",
+      "status": "stable",
       "wave": 9,
       "upstream": "https://github.com/maximhq/bifrost",
       "replaces": null,
