@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve, quantize, tune, scale out, update and troubleshoot LMDeploy, the InternLM LLM and VLM inference toolkit with TurboMind and PyTorch engines. Covers pip and Docker installs, OpenAI, Anthropic and Responses endpoints, tool and reasoning parsers, structured output, LoRA, AWQ and KV-cache quantization, tp, cp, dp and ep parallelism, the proxy server, Prometheus metrics, and Kubernetes. Includes compose, systemd and Kubernetes templates. Verified against LMDeploy v0.18.0.",
+  "references": [
+    "https://lmdeploy.readthedocs.io/en/latest/",
+    "https://github.com/InternLM/lmdeploy",
+    "https://github.com/InternLM/lmdeploy/releases",
+    "https://github.com/InternLM/lmdeploy/blob/main/docs/en/get_started/installation.md",
+    "https://github.com/InternLM/lmdeploy/blob/main/docs/en/llm/api_server.md",
+    "https://github.com/InternLM/lmdeploy/blob/main/docs/en/llm/api_server_tools.md",
+    "https://github.com/InternLM/lmdeploy/blob/main/docs/en/llm/proxy_server.md",
+    "https://github.com/InternLM/lmdeploy/blob/main/docs/en/advance/metrics.md",
+    "https://github.com/InternLM/lmdeploy/blob/main/docs/en/supported_models/supported_models.md",
+    "https://github.com/InternLM/lmdeploy/blob/main/docs/en/quantization/w4a16.md",
+    "https://github.com/InternLM/lmdeploy/blob/main/docs/en/quantization/kv_quant.md",
+    "https://hub.docker.com/r/openmmlab/lmdeploy",
+    "https://pypi.org/project/lmdeploy/"
+  ],
+  "kind": "product"
+}

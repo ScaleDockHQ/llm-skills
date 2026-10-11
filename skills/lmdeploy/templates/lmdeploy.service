@@ -1,0 +1,28 @@
+# /etc/systemd/system/lmdeploy.service
+# Runs LMDeploy from a venv: python3 -m venv /opt/lmdeploy/.venv && /opt/lmdeploy/.venv/bin/pip install lmdeploy==0.18.0
+# Create /etc/lmdeploy/lmdeploy.env with chmod 0600, owner root, containing for example:
+#   HF_TOKEN=...            (only for gated models)
+[Unit]
+Description=LMDeploy OpenAI-compatible server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=lmdeploy
+Group=lmdeploy
+EnvironmentFile=-/etc/lmdeploy/lmdeploy.env
+Environment=HF_HOME=/var/lib/lmdeploy/huggingface
+Environment=HOME=/var/lib/lmdeploy
+WorkingDirectory=/var/lib/lmdeploy
+# Loopback bind: the default is 0.0.0.0. Front it with a gateway that authenticates.
+ExecStart=/opt/lmdeploy/.venv/bin/lmdeploy serve api_server Qwen/Qwen3-8B \
+  --server-name 127.0.0.1 --server-port 23333 --model-name qwen \
+  --session-len 32768 --enable-prefix-caching --max-log-len 200 --tool-call-parser qwen
+Restart=on-failure
+RestartSec=15
+# Cold start (weights, warmup) can take many minutes.
+TimeoutStartSec=900
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,39 @@
+# Single-node LMDeploy, NVIDIA GPU. Start: docker compose up -d. Logs: docker compose logs -f lmdeploy
+# Needs Docker Compose 2.24+ for env_file `required: false`.
+# Put HF_TOKEN in ./lmdeploy.env, chmod 0600, never commit it.
+services:
+  lmdeploy:
+    image: openmmlab/lmdeploy:v0.18.0-cu12.8 # pin a tag or digest; also published: v0.18.0-cu13.0
+    container_name: lmdeploy
+    restart: unless-stopped
+    ipc: host
+    env_file:
+      - path: ./lmdeploy.env
+        required: false
+    environment:
+      HF_HOME: /root/.cache/huggingface
+    ports:
+      - "127.0.0.1:23333:23333" # loopback only; expose through a gateway with real auth
+    volumes:
+      - ${HF_CACHE_DIR:-${HOME}/.cache/huggingface}:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command:
+      - lmdeploy
+      - serve
+      - api_server
+      - Qwen/Qwen3-8B
+      - --server-name=0.0.0.0 # inside the container; the published port above is loopback only
+      - --server-port=23333
+      - --model-name=qwen
+      - --session-len=32768
+      - --cache-max-entry-count=0.8
+      - --enable-prefix-caching
+      - --max-log-len=200
+      - --tool-call-parser=qwen
+    # No healthcheck block: curl in the image is unverified. Probe /health from the host or an orchestrator.

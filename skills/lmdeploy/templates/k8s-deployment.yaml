@@ -1,0 +1,97 @@
+# Single-replica LMDeploy on Kubernetes (NVIDIA). Pinned image; model cache on a PVC.
+# Create the Secret from a file, not from shell history:
+#   kubectl create secret generic hf-token-secret --from-file=token=./hf-token.txt   (file mode 0600)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: lmdeploy-model-cache
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 100Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lmdeploy
+  labels:
+    app: lmdeploy
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate # a rolling update would need two GPUs at once
+  selector:
+    matchLabels:
+      app: lmdeploy
+  template:
+    metadata:
+      labels:
+        app: lmdeploy
+    spec:
+      volumes:
+        - name: cache-volume
+          persistentVolumeClaim:
+            claimName: lmdeploy-model-cache
+        - name: shm
+          emptyDir:
+            medium: Memory
+            sizeLimit: 8Gi
+      containers:
+        - name: lmdeploy
+          image: openmmlab/lmdeploy:v0.18.0-cu12.8 # pin; compare image IDs before upgrading
+          command: ["lmdeploy", "serve", "api_server", "Qwen/Qwen3-8B"]
+          args:
+            - --server-name=0.0.0.0 # pod network; expose only through a Service behind your gateway
+            - --server-port=23333
+            - --model-name=qwen
+            - --session-len=32768
+            - --enable-prefix-caching
+            - --max-log-len=200
+            - --tool-call-parser=qwen
+          env:
+            - name: HF_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: hf-token-secret
+                  key: token
+                  optional: true # only gated models need it
+          ports:
+            - containerPort: 23333
+          resources:
+            limits:
+              nvidia.com/gpu: "1"
+          volumeMounts:
+            - name: cache-volume
+              mountPath: /root/.cache/huggingface
+            - name: shm
+              mountPath: /dev/shm
+          startupProbe: # weight load and warmup are slow
+            httpGet:
+              path: /health
+              port: 23333
+            periodSeconds: 10
+            failureThreshold: 90
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 23333
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 23333
+            periodSeconds: 30
+            failureThreshold: 6
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lmdeploy
+spec:
+  type: ClusterIP
+  selector:
+    app: lmdeploy
+  ports:
+    - port: 23333
+      targetPort: 23333
