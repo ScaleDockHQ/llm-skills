@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Size, tune and operate Apple Silicon Macs for local LLM inference with Metal and MLX. References cover hardware and OS requirements per runtime, unified-memory budgeting and the iogpu.wired_limit_mb sysctl, runtime install and paths, power and thermals, running a Mac as an always-on server, troubleshooting and updates.",
+  "references": [
+    "https://ml-explore.github.io/mlx/build/html/install.html",
+    "https://github.com/ml-explore/mlx-lm",
+    "https://docs.ollama.com/macos",
+    "https://docs.ollama.com/faq",
+    "https://lmstudio.ai/docs/app/system-requirements",
+    "https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md",
+    "https://github.com/ggml-org/llama.cpp/issues/16646"
+  ],
+  "kind": "platform"
+}
