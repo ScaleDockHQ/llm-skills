@@ -1,0 +1,23 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Serve Mixture-of-Experts LLMs with expert parallelism, DeepEP all-to-all, EPLB load balancing, MoE kernel backends and expert offload to CPU. Covers exact flags, defaults and constraints for vLLM, SGLang, TensorRT-LLM and llama.cpp, plus the documented status for TensorFold, Ollama, ExLlamaV3 and KTransformers, with a quality gate for every numerics-changing option. References split into an engine flag matrix and a quality-gate procedure.",
+  "references": [
+    "https://github.com/vllm-project/vllm/blob/v0.31.0/docs/serving/expert_parallel_deployment.md",
+    "https://github.com/vllm-project/vllm/blob/v0.31.0/docs/design/moe_kernel_features.md",
+    "https://github.com/vllm-project/vllm/tree/v0.31.0/vllm/config",
+    "https://github.com/sgl-project/sglang/blob/v0.5.21/docs/docs/advanced_features/expert_parallelism.mdx",
+    "https://github.com/sgl-project/sglang/blob/v0.5.21/docs/docs/advanced_features/server_arguments.mdx",
+    "https://github.com/NVIDIA/TensorRT-LLM/blob/v1.2.1/docs/source/features/parallel-strategy.md",
+    "https://github.com/NVIDIA/TensorRT-LLM/blob/v1.2.1/tensorrt_llm/llmapi/llm_args.py",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://github.com/deepseek-ai/DeepEP",
+    "https://github.com/deepseek-ai/EPLB",
+    "https://github.com/kvcache-ai/ktransformers",
+    "https://github.com/ashhart/TensorFold",
+    "https://docs.ollama.com/modelfile",
+    "https://github.com/turboderp-org/exllamav3"
+  ],
+  "kind": "technique"
+}
