@@ -911,7 +911,7 @@
       "name": "gguf-quantization",
       "kind": "product",
       "category": "quantization",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md",
       "replaces": "skills/model-quantization/references/gguf.md"
