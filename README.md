@@ -561,7 +561,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload). | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
 
 | [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload). | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 100 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 101 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 | [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload). | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
 
 | [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload). | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
@@ -621,3 +621,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Run `pnpm install`, then `pnpm verify` b
 | [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload). | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
 [MIT](LICENSE)
 | [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload). | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
+| [`zed`](skills/zed) | Connect Zed (Agent Panel, Inline Assistant, edit prediction) to self-hosted OpenAI- and Anthropic-compatible endpoints: providers, model mapping, keys, tools. | `npx skills add ScaleDockHQ/llms-skills@zed` |
