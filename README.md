@@ -250,6 +250,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`kokoro-fastapi`](skills/kokoro-fastapi)             | Run and tune Kokoro-FastAPI, the Dockerized FastAPI server for the Kokoro-82M text-to-speech model with an OpenAI-compatible /v1/audio/speech endpoint, voice...        | `npx skills add ScaleDockHQ/llms-skills@kokoro-fastapi`       |
 | [`speaches`](skills/speaches)                         | Deploy and operate Speaches, the OpenAI-compatible speech server (faster-whisper STT, Kokoro and Piper TTS, Realtime API) with Docker or uv, dynamic model...           | `npx skills add ScaleDockHQ/llms-skills@speaches`             |
 | [`faster-whisper`](skills/faster-whisper)             | Install, run and tune faster-whisper, the CTranslate2 Python reimplementation of OpenAI Whisper for speech-to-text (WhisperModel, BatchedInferencePipeline)...          | `npx skills add ScaleDockHQ/llms-skills@faster-whisper`       |
+| [`diffusers`](skills/diffusers)                       | Install, run and serve Hugging Face Diffusers, the PyTorch library for image, video and audio diffusion pipelines (FLUX, SDXL, Qwen-Image, Wan, LTX), including...      | `npx skills add ScaleDockHQ/llms-skills@diffusers`            |
 | [`stable-diffusion-cpp`](skills/stable-diffusion-cpp) | Install, run and serve stable-diffusion.cpp, the ggml C/C++ engine for image and video diffusion (SD, SDXL, FLUX, Qwen-Image, Z-Image, Wan) with sd-cli and the...      | `npx skills add ScaleDockHQ/llms-skills@stable-diffusion-cpp` |
 
 #### Embeddings and RAG
@@ -375,7 +376,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 202 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 203 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
