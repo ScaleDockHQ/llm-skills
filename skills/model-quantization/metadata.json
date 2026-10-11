@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.1.0",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Produce quantized LLMs for a target engine and hardware: GGUF (llama.cpp), EXL3 (ExLlamaV3/TabbyAPI), AWQ/GPTQ/FP8/NVFP4 (LLM Compressor, NVIDIA Model Optimizer) for vLLM, SGLang and TensorRT-LLM, and MLX (mlx-lm). Includes calibration, quality checks against the base model (KL divergence, perplexity, smoke prompts), memory-safe execution on unified-memory machines like DGX Spark, and publishing to Hugging Face with base_model metadata and the full recipe.",
@@ -16,7 +16,12 @@
     "https://github.com/NVIDIA/TensorRT-LLM",
     "https://huggingface.co/docs/hub/model-cards",
     "https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables",
-    "https://www.freedesktop.org/software/systemd/man/latest/systemd.resource-control.html"
+    "https://www.freedesktop.org/software/systemd/man/latest/systemd.resource-control.html",
+    "https://docs.vllm.ai/projects/llm-compressor/en/latest/",
+    "https://nvidia.github.io/Model-Optimizer/",
+    "https://github.com/ml-explore/mlx",
+    "https://pypi.org/project/nvidia-modelopt/",
+    "https://pypi.org/project/llmcompressor/"
   ],
   "kind": "workflow"
 }
