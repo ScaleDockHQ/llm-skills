@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve, convert, compile, tune and troubleshoot MLC LLM (MLCEngine on Apache TVM) on CUDA, ROCm, Vulkan and Metal. Covers nightly wheels and source builds, mlc_llm serve and chat, weight conversion and model libraries, the OpenAI-compatible REST API, tensor parallel, speculative decoding, MicroServing and the JIT cache. References are split by task.",
+  "references": [
+    "https://github.com/mlc-ai/mlc-llm",
+    "https://llm.mlc.ai/docs/",
+    "https://llm.mlc.ai/docs/install/mlc_llm",
+    "https://llm.mlc.ai/docs/get_started/quick_start",
+    "https://llm.mlc.ai/docs/deploy/rest",
+    "https://llm.mlc.ai/docs/deploy/cli",
+    "https://llm.mlc.ai/docs/compilation/compile_models",
+    "https://llm.mlc.ai/docs/compilation/convert_weights",
+    "https://llm.mlc.ai/docs/compilation/configure_quantization",
+    "https://github.com/mlc-ai/mlc-llm/blob/main/python/mlc_llm/cli/serve.py",
+    "https://github.com/mlc-ai/mlc-llm/blob/main/python/mlc_llm/model/model.py",
+    "https://github.com/mlc-ai/mlc-llm/blob/main/python/mlc_llm/support/constants.py",
+    "https://github.com/mlc-ai/web-llm"
+  ],
+  "kind": "product"
+}

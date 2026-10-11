@@ -1,0 +1,23 @@
+# /etc/systemd/system/mlc-llm.service  (install only with the user's approval)
+[Unit]
+Description=MLC LLM server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=llm
+Group=llm
+Environment=MLC_LLM_HOME=/var/lib/mlc_llm
+# After the first successful warm run, use READONLY so a bad flag fails fast instead of JIT compiling
+Environment=MLC_JIT_POLICY=ON
+# Hugging Face token (if needed) and the API key come from a 0600 file; never inline them
+EnvironmentFile=-/etc/mlc-llm/env
+# Wrapper reads MLC_API_KEY from the env file and passes --api-key "$MLC_API_KEY"
+ExecStart=/bin/bash -c 'exec /opt/conda/envs/mlc-prebuilt/bin/mlc_llm serve HF://mlc-ai/Llama-3-8B-Instruct-q4f16_1-MLC \
+  --host 127.0.0.1 --port 8000 --mode server --api-key "$MLC_API_KEY"'
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=1800
+
+[Install]
+WantedBy=multi-user.target
