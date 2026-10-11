@@ -1,0 +1,38 @@
+# Two replicas, prefix caching, prefix-aware routing, KEDA scaling on queue depth.
+# Needs KEDA and a Prometheus at the serverAddress below.
+servingEngineSpec:
+  runtimeClassName: ""
+  vllmApiKey: { secretName: vllm-api-key, secretKey: key }
+  modelSpec:
+    - name: llama
+      repository: vllm/vllm-openai
+      tag: v0.31.0
+      modelURL: meta-llama/Llama-3.1-8B-Instruct
+      replicaCount: 2
+      requestCPU: 8
+      requestMemory: 48Gi
+      requestGPU: 1
+      pvcStorage: 60Gi
+      hf_token: { secretName: hf-token, secretKey: token }
+      vllmConfig:
+        enablePrefixCaching: true
+        maxModelLen: 16384
+        tensorParallelSize: 1
+      keda:
+        enabled: true
+        minReplicaCount: 2
+        maxReplicaCount: 4
+        pollingInterval: 15
+        cooldownPeriod: 360
+        triggers:
+          - type: prometheus
+            metadata:
+              serverAddress: http://prometheus-operated.monitoring.svc:9090
+              query: vllm:num_requests_waiting
+              threshold: "5"
+routerSpec:
+  repository: lmcache/lmstack-router
+  tag: v0.1.13
+  imagePullPolicy: IfNotPresent
+  routingLogic: prefixaware
+  serviceMonitor: { enabled: true }
