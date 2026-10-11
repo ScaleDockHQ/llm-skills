@@ -2,43 +2,9 @@
 
 > Verified against TensorFold v1.0.7, 2026-10-11
 
-## What it is and when to choose it
+This page keeps only what is specific to this stack: the wrapper script, the llama-swap and LiteLLM entries, and the stack pitfalls. Install, flags, tuning and operating detail live in the product skill.
 
-TensorFold (by Ash Hart, Apache-2.0) serves language models from a native Zig binary,
-`tensorfold-native`, on Apple Silicon (Metal) and NVIDIA GPUs (CUDA), with no Python in the serving path.
-It focuses on exact decoding (accepted drafts equal the plain reference), shared-lane concurrency and
-retained prompt prefixes. Choose it when your model and platform are on its **qualified** list.
-
-Qualified limits matter: release 1.0.7 admits only specific model/checkpoint/platform combinations. On
-CUDA that is Nemotron 3.5 Lightning 30B-A3B (MLX 4-bit, or NVIDIA's NVFP4 checkpoint) on GB10, plus
-selected Ampere (sm_86) and Blackwell (sm_120) x86 cards. Other families (Qwen3.8, GLM, Gemma 4 and more)
-are Metal-only or still under qualification in 1.0.7. Check the README table before planning.
-
-**Community DGX Spark recipes.** MiaAI-Lab publishes ready-made Spark recipes built on TensorFold, for
-example [Qwen3.8-27B on one DGX Spark](https://github.com/MiaAI-Lab/Qwen3.8-27B-DGX-Spark-TensorFold)
-and [Qwen3.8-Flash-Next on two DGX Sparks](https://github.com/MiaAI-Lab/Qwen3.8-Flash-Dual-DGX-Sparks-TensorFold).
-Credit and follow them upstream; do not copy them into your stack. Note they do not run the 1.0.7
-archive: the 27B recipe runs TensorFold v0.6.0 plus its own patches in an NVIDIA PyTorch container, and the
-dual recipe builds `tensorfold-native` from the `zig-flashnext` branch at a pinned commit. Treat every
-recipe default (port, host, context, KV dtype, memory reserve, patches) as upstream-owned.
-
-## Install (DGX Spark/arm64 and generic x86)
-
-Release archives (`linux-aarch64` for GB10, `linux-x86_64` for x86) need glibc 2.28+ and an NVIDIA driver
-providing `libcuda.so.1`; CUDA kernels are embedded in the binary.
-
-```bash
-V=1.0.7; A=linux-aarch64          # linux-x86_64 on x86 hosts
-cd /opt && sudo mkdir -p tensorfold && sudo chown "$USER" tensorfold && cd tensorfold
-curl -fLO "https://github.com/ashhart/TensorFold/releases/download/v$V/tensorfold-$V-$A.tar.gz"
-curl -fLO "https://github.com/ashhart/TensorFold/releases/download/v$V/tensorfold-$V-$A.tar.gz.sha256"
-sha256sum -c "tensorfold-$V-$A.tar.gz.sha256" && tar -xzf "tensorfold-$V-$A.tar.gz"
-ln -sfn "tensorfold-$V-$A" current && current/bin/tensorfold-native --version
-current/bin/tensorfold-native capabilities --json | jq .   # supported flags, env vars, platform values
-```
-
-Keep `bin`, `lib` and `share` together. Archives named `host-only` are CPU verification builds and cannot
-serve CUDA. Recipes install themselves (`git clone` + `./start.sh`); read their README first.
+Depth: install the tensorfold skill (`npx skills add ScaleDockHQ/llms-skills --skill tensorfold`).
 
 ## Minimal working config
 
@@ -87,29 +53,6 @@ on 0.0.0.0. Recipe containers do not carry the `llm-stack.role=engine` label unl
     api_base: http://127.0.0.1:8080/v1
     api_key: os.environ/LLAMA_SWAP_API_KEY
 ```
-
-## Operating
-
-- Start/stop via llama-swap; for recipes, `./start.sh`, `./start.sh restart` and `./stop.sh`.
-- Logs: llama-swap `/logs/stream/<id>` for the native binary; `docker logs -f <container>` for recipes. The
-  dual recipe saves each rank's log on stop and logs rank 1 on the worker (`ssh node-b docker logs ...`).
-- The dual recipe documents `FOREGROUND=1 ./start.sh` for running under a systemd unit.
-- Update (archive): download and verify the new archive next to the old one, repoint `current`, restart,
-  benchmark; keep the previous directory for rollback.
-- Update (recipe): `git fetch`, read the log and diff `scripts/config.sh`, patches and the pinned TensorFold
-  ref before pulling; re-check that your overrides still apply (see updating.md).
-
-## Tuning knobs worth knowing
-
-- `--context N`: prompt + reply bound; startup prints the capacity and memory it fitted.
-- `--parallel N`: requests sharing lanes (`auto` default). Recipes set their own values.
-- `--max-tokens N`: default reply limit (4096); requests override.
-- `--reasoning-effort low|medium|high|xhigh`, `--thinking` / `--no-thinking`, `--thinking-budget N`.
-- `--prompt-cache-gib GIB`: retained-prefix budget (16 GiB default on CUDA, inside the memory budget; `0` off).
-- `--alias NAME` (repeatable) for extra model IDs; `--compact-at auto` opts into context compaction.
-- `--no-drafts` serves the plain reference, useful for A/B quality gates.
-- Recipe knobs such as `PARALLEL`, `KV_DTYPE`, `KV_POOL_GB`, `TENSORFOLD_MEMORY_RESERVE_GIB` are recipe
-  settings, not TensorFold flags; change them only through the recipe's config.
 
 ## Known pitfalls
 

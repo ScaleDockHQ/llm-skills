@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.1.0",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Plan, set up, operate, update, benchmark, optimize and clean up a self-hosted LLM and generative-AI serving stack on Linux servers with NVIDIA GPUs, with NVIDIA DGX Spark (single or dual node) as the first-class profile. One authenticated OpenAI-compatible endpoint built from a LiteLLM gateway, llama-swap model swapping, engine containers (vLLM, SGLang, TensorRT-LLM, llama.cpp, Ollama, ExLlamaV3, TensorFold, stable-diffusion.cpp), an enriched /v1/models catalog behind Caddy, and Cloudflare Tunnel or Tailscale exposure, with memory safety, read-only status checks, a curl+jq benchmark script and a symptom-to-fix troubleshooting table.",

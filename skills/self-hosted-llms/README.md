@@ -74,6 +74,10 @@ From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); inst
 - `model-quantization`: producing EXL3, NVFP4, FP8 and GGUF quants.
 - `fine-tuning-llms`: training adapters or full fine-tunes to serve here.
 - `llm-observability`: metrics, logs and tracing beyond the built-in endpoints.
+- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `exllamav3`, `tensorfold`: engine depth.
+- `llama-swap`: router depth.
+- `nvidia-dgx-spark`: DGX Spark platform depth.
+- `litellm`, `cloudflare-tunnel`, `tailscale`: gateway and exposure depth.
 
 ## License
 

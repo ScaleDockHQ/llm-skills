@@ -2,41 +2,9 @@
 
 > Verified against ExLlamaV3 v1.6.1 (TabbyAPI main branch, no releases), 2026-10-11
 
-## What it is and when to choose it
+This page keeps only what is specific to this stack: the wrapper script, the llama-swap and LiteLLM entries, and the stack pitfalls. Install, flags, tuning and operating detail live in the product skill.
 
-ExLlamaV3 (turboderp, MIT) is an inference library for the EXL3 quantization format: per-model bitrates
-(for example 3.5 or 5.0 bpw) that fit a given memory budget closely, with paged attention, quantized KV
-cache and speculative decoding. It is a library, not a server. Its README names **TabbyAPI** (AGPL-3.0)
-as "the official and recommended backend server". Choose EXL3 when a well-made EXL3 quant beats the GGUF
-or NVFP4 options for your model at your memory budget, typically on single discrete GPUs.
-
-TabbyAPI describes itself as "a hobby project made for a small amount of users... not meant to run on
-production servers". Behind LiteLLM and llama-swap on loopback that is workable, but expect rolling-release
-breakage and pin images by digest.
-
-**vLLM and EXL3:** vLLM's quantization docs do not list EXL3 (one backend page only says it does not
-support EXL3). Treat "vLLM serves EXL3" as unverified; use TabbyAPI or the fork below.
-
-## Install (DGX Spark/arm64 and generic x86)
-
-**Generic x86 (discrete NVIDIA GPU):** TabbyAPI's published image.
-
-```bash
-docker pull ghcr.io/theroyallab/tabbyapi:latest   # CUDA 12.8; :cu13 for CUDA 13
-```
-
-Other tags: `latest-extras` (adds the embeddings stack), `latest-rocm`. Upstream exllamav3 v1.6.1 ships
-prebuilt wheels for linux_x86_64 and win_amd64 only.
-
-**DGX Spark / arm64:** on 2026-10-11 the `latest` and `cu13` image indexes listed only linux/amd64. Check
-the registry before relying on it (`docker manifest inspect ghcr.io/theroyallab/tabbyapi:cu13`), or build
-TabbyAPI's `docker/Dockerfile.cu13` on the Spark. There are no upstream aarch64 wheels, so EXL3 on GB10
-means a source build. The **MiaAI-Lab/exllamav3** fork targets exactly that: it builds from source on
-aarch64/GB10 (sm_120/sm_121), adds MTP/DFlash2 drafting and NVFP4/FP8 KV cache, and ships
-`tools/serve_openai.py`, an OpenAI-compatible server, plus `start.sh`/`stop.sh` that bootstrap a venv,
-torch and the engine build. Its companion kit
-[MiaAI-Lab/Qwen3.8-27B-DFlash2-EXL3-5.0bpw](https://github.com/MiaAI-Lab/Qwen3.8-27B-DFlash2-EXL3-5.0bpw)
-is the one-command path for that model. Build while serving is stopped and inside a capped scope.
+Depth: install the exllamav3 skill (`npx skills add ScaleDockHQ/llms-skills --skill exllamav3`).
 
 ## Minimal working config
 
@@ -105,24 +73,6 @@ models:
     api_key: os.environ/LLAMA_SWAP_API_KEY
     use_chat_completions_api: true # engine has no /v1/responses
 ```
-
-## Operating
-
-- Start/stop via llama-swap; logs with `docker logs -f exl3-model` or llama-swap `/logs/stream/exl3-model`.
-- Model downloads: TabbyAPI has a downloader (`main.py download <repo> --revision <branch>`); EXL3 repos
-  usually keep bitrates on branches, so the revision selects the quant. Prefer `hf download --revision`
-  in a capped scope (see models-and-weights.md).
-- Update TabbyAPI: pull, compare digests, restart, smoke test; it is rolling release, so keep the old digest.
-- Update the fork: `git fetch` and read the log before pulling; rebuild with serving stopped.
-
-## Tuning knobs worth knowing
-
-- TabbyAPI `model.max_seq_len`, `model.cache_size` (tokens, multiple of 256), `model.cache_mode`
-  (`FP16` or `k_bits,v_bits` such as `8,8`), `model.max_batch_size`, `model.tensor_parallel`.
-- TabbyAPI `draft_model.*` for speculative decoding, `model.reasoning*` and `model.tool_format` for parsing,
-  `model.template_vars_default` for default chat-template variables such as `reasoning_effort`.
-- Fork: `--cache_size`, `--cache_quant 8` or `8,4`, `--draft_model <path>|mtp|none`, `--cpu_cache_size`.
-- Quantized KV cache changes numerics; run a quality gate (see optimization.md).
 
 ## Known pitfalls
 

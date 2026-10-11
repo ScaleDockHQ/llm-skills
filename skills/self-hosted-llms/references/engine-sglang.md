@@ -2,24 +2,9 @@
 
 > Verified against SGLang v0.5.21, 2026-10-11
 
-## What it is and when to choose it
+This page keeps only what is specific to this stack: the wrapper script, the llama-swap and LiteLLM entries, and the stack pitfalls. Install, flags, tuning and operating detail live in the product skill.
 
-SGLang is a high-throughput serving engine with RadixAttention (automatic prefix reuse across requests),
-continuous batching, chunked prefill, speculative decoding, tensor/pipeline/data parallelism and
-multi-node support. Choose it as an alternative to vLLM when a model's recipe or launch day support lands
-in SGLang first, for agent workloads with heavy shared prefixes, or for structured output. It is a
-cold-start-heavy engine like vLLM: one model per process, best in an exclusive llama-swap group.
-
-## Install (DGX Spark/arm64 and generic x86)
-
-Use the official image `lmsysorg/sglang`. CUDA 12 tags are no longer published (`v0.5.19-cu129` was the last).
-
-- **Pin:** `lmsysorg/sglang:v0.5.21-cu130` (amd64 + arm64). `latest-cu130` is the moving equivalent and is
-  what NVIDIA's DGX Spark SGLang playbook uses.
-- **`spark` tag:** arm64-only and last pushed 2025-11 at the time of writing; prefer the versioned `-cu130`
-  tag on GB10 unless a model card tells you otherwise.
-- Run with `--ipc=host` (or a large `--shm-size`, upstream examples use 32g).
-- pip/uv installs exist; containers keep both nodes identical, so prefer them.
+Depth: install the sglang skill (`npx skills add ScaleDockHQ/llms-skills --skill sglang`).
 
 ## Minimal working config
 
@@ -65,22 +50,6 @@ models:
       tools: true # set by hand; only claim it if you pass --tool-call-parser
 ```
 
-### Dual DGX Spark
-
-SGLang's multi-node mode runs the same command on both nodes with a shared rendezvous address; use
-`--network host` so the ranks reach each other over the ConnectX-7 link:
-
-```bash
-# node-a (rank 0, serves the API)       # node-b (rank 1), from worker_run() over ssh
---tp-size 2 --nnodes 2 --node-rank 0    --tp-size 2 --nnodes 2 --node-rank 1
---dist-init-addr 10.0.0.1:50000         --dist-init-addr 10.0.0.1:50000
---host 127.0.0.1 --port "$PORT"
-```
-
-Start node-b first, then node-a; stop both. Upstream suggests `--disable-cuda-graph` if a multi-node run
-deadlocks. Set NCCL interface variables (for example `NCCL_SOCKET_IFNAME`) to the CX7 interface as in
-NVIDIA's connect-two-sparks playbook.
-
 ## How it plugs into the stack
 
 - **Port:** llama-swap `${PORT}` on 127.0.0.1 (container 30000).
@@ -99,25 +68,6 @@ NVIDIA's connect-two-sparks playbook.
     api_base: http://127.0.0.1:8080/v1
     api_key: os.environ/LLAMA_SWAP_API_KEY
 ```
-
-## Operating
-
-- Start/stop via llama-swap; `docker logs -f gpt-oss` or llama-swap `/logs/stream/gpt-oss`.
-- `curl -s http://127.0.0.1:8080/upstream/gpt-oss/server_info | jq .` shows effective server args without
-  going through the model name router.
-- Update: pull the new versioned tag on every node while serving, compare image IDs, read the release notes
-  for changed defaults, restart in a downtime window, rerun the benchmark (see updating.md).
-
-## Tuning knobs worth knowing
-
-- `--mem-fraction-static`: fraction for weights + KV pool. On GB10 the GPU shares 128 GB with the OS and
-  page cache; start around 0.7-0.8 (the playbook uses 0.75) and lower it if CUDA graph capture OOMs.
-- `--context-length`: caps context (default from the model config); `--max-total-tokens` caps the pool.
-- `--tool-call-parser <name>` (or `auto` to detect from the chat template) and `--reasoning-parser <name>`.
-- `--kv-cache-dtype fp8_e4m3|fp8_e5m2|bf16`: more context per GB; numerics change.
-- `--chunked-prefill-size N` (`-1` disables): trades TTFT against memory spikes on long prompts.
-- `--max-running-requests`, `--disable-radix-cache` (A/B only), `--speculative-algorithm` for drafts.
-- `--enable-cache-report` returns cached prompt tokens in `usage.prompt_tokens_details`.
 
 ## Known pitfalls
 
