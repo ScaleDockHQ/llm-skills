@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Set up, verify and operate AMD Instinct GPUs (MI300X, MI325X, MI350X, MI355X, MI200) with ROCm 10.1 for LLM inference. References cover the supported OS, driver and firmware matrix, install paths, container and engine images, RCCL multi-GPU checks and partitioning, acceptance health checks, amd-smi monitoring, updates, and troubleshooting with known issues.",
+  "references": [
+    "https://rocm.docs.amd.com/en/latest/about/release-notes.html",
+    "https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html",
+    "https://rocm.docs.amd.com/en/latest/install/rocm.html",
+    "https://rocm.docs.amd.com/en/latest/how-to/system-optimization/mi300x.html",
+    "https://rocm.docs.amd.com/projects/amdsmi/en/latest/how-to/amdsmi-cli-tool.html",
+    "https://docs.vllm.ai/en/latest/getting_started/installation/gpu/",
+    "https://hub.docker.com/r/vllm/vllm-openai-rocm",
+    "https://hub.docker.com/r/rocm/vllm",
+    "https://github.com/ROCm/TheRock"
+  ],
+  "kind": "platform"
+}
