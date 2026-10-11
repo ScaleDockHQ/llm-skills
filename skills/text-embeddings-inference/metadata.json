@@ -1,0 +1,14 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run Hugging Face Text Embeddings Inference (TEI) beside a self-hosted LLM stack. References cover the image per GPU architecture, server flags, memory and vector sizing, the native and OpenAI APIs, security, updating and teardown, troubleshooting, and combos with LiteLLM, llama-swap and Open WebUI, plus compose and gateway templates.",
+  "references": [
+    "https://github.com/huggingface/text-embeddings-inference",
+    "https://github.com/huggingface/text-embeddings-inference/blob/main/docs/source/en/cli_arguments.md",
+    "https://github.com/huggingface/text-embeddings-inference/blob/main/docs/source/en/supported_models.md",
+    "https://github.com/huggingface/text-embeddings-inference/blob/main/docs/openapi.json",
+    "https://docs.litellm.ai/docs/providers/huggingface_rerank"
+  ],
+  "kind": "product"
+}
