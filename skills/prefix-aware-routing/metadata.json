@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Choose, configure and validate prefix-cache and KV-aware request routing across LLM replicas. Covers the llm-d inference scheduler and Gateway API Inference Extension, vLLM production-stack, SGLang Model Gateway, NVIDIA Dynamo's KV router and AIBrix, with approximate versus precise modes, exact flags and plugin parameters, engine-side block size and KV-event settings, validation, security and a numerics gate via llm-evals. References are split into a router matrix and engine-side guidance.",
+  "references": [
+    "https://github.com/llm-d/llm-d",
+    "https://github.com/llm-d/llm-d-router",
+    "https://github.com/kubernetes-sigs/gateway-api-inference-extension",
+    "https://github.com/vllm-project/production-stack",
+    "https://docs.sglang.ai/advanced_features/sgl_model_gateway.html",
+    "https://github.com/sgl-project/sglang",
+    "https://github.com/ai-dynamo/dynamo",
+    "https://github.com/vllm-project/aibrix",
+    "https://github.com/vllm-project/vllm"
+  ],
+  "kind": "technique"
+}
