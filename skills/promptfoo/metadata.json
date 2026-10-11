@@ -1,0 +1,27 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run promptfoo task evals against any OpenAI-compatible endpoint: pinned install, config and golden-set JSONL, provider and auth settings for vLLM, llama.cpp, Ollama and gateways, reasoning-model handling, deterministic and model-graded assertions, CLI flags and exit codes, GitHub Actions regression gates, and an A/B gate for quantization changes. References split by install, config, providers, assertions, CLI, CI, troubleshooting, updating and a quantization combo.",
+  "references": [
+    "https://github.com/promptfoo/promptfoo",
+    "https://github.com/promptfoo/promptfoo/releases",
+    "https://github.com/promptfoo/promptfoo-action",
+    "https://www.promptfoo.dev/blog/promptfoo-joining-openai/",
+    "https://www.promptfoo.dev/docs/usage/command-line/",
+    "https://www.promptfoo.dev/docs/usage/troubleshooting/",
+    "https://www.promptfoo.dev/docs/providers/openai/",
+    "https://www.promptfoo.dev/docs/providers/vllm/",
+    "https://www.promptfoo.dev/docs/providers/llama.cpp/",
+    "https://www.promptfoo.dev/docs/configuration/expected-outputs/",
+    "https://www.promptfoo.dev/docs/configuration/expected-outputs/deterministic/",
+    "https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/llm-rubric/",
+    "https://www.promptfoo.dev/docs/configuration/test-cases/",
+    "https://www.promptfoo.dev/docs/configuration/outputs/",
+    "https://www.promptfoo.dev/docs/configuration/caching/",
+    "https://www.promptfoo.dev/docs/usage/sharing/",
+    "https://www.promptfoo.dev/docs/integrations/ci-cd/",
+    "https://www.promptfoo.dev/docs/integrations/github-action/"
+  ],
+  "kind": "product"
+}
