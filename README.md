@@ -195,6 +195,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`anthropic-sdk`](skills/anthropic-sdk) | Point the Anthropic Python and TypeScript SDKs at self-hosted Messages endpoints: base URL, auth_token vs api_key, model names, streaming, tools, per-engine recipes.                                   | `npx skills add ScaleDockHQ/llms-skills@anthropic-sdk` |
 | [`llamaindex`](skills/llamaindex)       | Configure LlamaIndex (OpenAILike, Anthropic, Ollama, OpenAILikeEmbedding) against self-hosted OpenAI- and Anthropic-compatible endpoints: keys, capability flags, structured output, agents, streaming. | `npx skills add ScaleDockHQ/llms-skills@llamaindex`    |
 | [`librechat`](skills/librechat)         | Run LibreChat, the self-hosted multi-user chat UI, against self-hosted OpenAI- and Anthropic-compatible endpoints: librechat.yaml, keys, model names, tools, agents, MCP.                               | `npx skills add ScaleDockHQ/llms-skills@librechat`     |
+| [`langchain`](skills/langchain)         | Configure LangChain (langchain-openai, langchain-anthropic, langchain-ollama) against self-hosted OpenAI- and Anthropic-compatible endpoints: keys, model names, structured output, tools, streaming.   | `npx skills add ScaleDockHQ/llms-skills@langchain`     |
 
 #### Generative media
 
@@ -231,8 +232,6 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`nvidia-rtx-workstation`](skills/nvidia-rtx-workstation) | Choose, size and run NVIDIA RTX PRO Blackwell workstation GPUs (6000 96 GB, 5000, 4500, 4000, Max-Q) for local LLM inference on Linux: open driver, sm_120, multi-GPU, power, MIG. | `npx skills add ScaleDockHQ/llms-skills@nvidia-rtx-workstation` |
 | [`cpu-inference`](skills/cpu-inference)                   | Run, size and tune LLM inference on CPUs only (x86 AVX2/AVX-512/AMX, AArch64 servers with NEON and KleidiAI, Intel Macs) with llama.cpp. Use for no-GPU...                         | `npx skills add ScaleDockHQ/llms-skills@cpu-inference`          |
 | [`nvidia-datacenter-gpus`](skills/nvidia-datacenter-gpus) | Choose and operate NVIDIA datacenter GPUs (H100, H200, B200, B300, GB200) for LLM serving: HBM sizing, NVLink and Fabric Manager, R580 driver branch, MIG, DCGM.                   | `npx skills add ScaleDockHQ/llms-skills@nvidia-datacenter-gpus` |
-| [`google-tpu`](skills/google-tpu)                         | Pick, provision and operate Google Cloud TPUs (v5e, v6e Trillium, TPU7x Ironwood) to serve LLMs with vLLM TPU (tpu-inference, vllm-tpu) on Compute Engine or GKE, then tear down.  | `npx skills add ScaleDockHQ/llms-skills@google-tpu`             |
-| [`aws-neuron`](skills/aws-neuron)                         | Set up and operate AWS Inferentia2 and Trainium (Inf2, Trn1, Trn2, Trn3) with the Neuron SDK to serve LLMs through vLLM Neuron or NxD Inference, using Neuron DLAMIs and DLCs.     | `npx skills add ScaleDockHQ/llms-skills@aws-neuron`             |
 | [`google-tpu`](skills/google-tpu)                         | Pick, provision and operate Google Cloud TPUs (v5e, v6e Trillium, TPU7x Ironwood) to serve LLMs with vLLM TPU (tpu-inference, vllm-tpu) on Compute Engine or GKE, then tear down.  | `npx skills add ScaleDockHQ/llms-skills@google-tpu`             |
 | [`aws-neuron`](skills/aws-neuron)                         | Set up and operate AWS Inferentia2 and Trainium (Inf2, Trn1, Trn2, Trn3) with the Neuron SDK to serve LLMs through vLLM Neuron or NxD Inference, using Neuron DLAMIs and DLCs.     | `npx skills add ScaleDockHQ/llms-skills@aws-neuron`             |
 
@@ -323,12 +322,10 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`modal-vllm`](skills/modal-vllm)                                   | Stack recipe for vLLM on Modal serverless GPUs (@app.server or a managed Endpoint) behind a LiteLLM gateway, with proxy-token auth, scale-to-zero, cold-start handling and teardown. | `npx skills add ScaleDockHQ/llms-skills@modal-vllm`                  |
 | [`mac-cluster-exo-mlx`](skills/mac-cluster-exo-mlx)                 | Cluster several Apple Silicon Macs into one inference host with exo or MLX distributed (mlx.launch, JACCL RDMA, ring) over Thunderbolt 5. Use for Mac Studio...                      | `npx skills add ScaleDockHQ/llms-skills@mac-cluster-exo-mlx`         |
 | [`lm-studio-claude-code`](skills/lm-studio-claude-code)             | Run Claude Code against a local model served by LM Studio over its Anthropic-compatible /v1/messages endpoint (ANTHROPIC_BASE_URL, ANTHROPIC_AUTH_TOKEN, lms...                      | `npx skills add ScaleDockHQ/llms-skills@lm-studio-claude-code`       |
-| [`runpod-serverless-vllm`](skills/runpod-serverless-vllm)           | Stack recipe for vLLM on Runpod Serverless (worker-vllm) behind a LiteLLM gateway, with spend caps, cold-start handling and teardown.                                                | `npx skills add ScaleDockHQ/llms-skills@runpod-serverless-vllm`      |
-| [`modal-vllm`](skills/modal-vllm)                                   | Stack recipe for vLLM on Modal serverless GPUs (@app.server or a managed Endpoint) behind a LiteLLM gateway, with proxy-token auth, scale-to-zero, cold-start handling and teardown. | `npx skills add ScaleDockHQ/llms-skills@modal-vllm`                  |
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 161 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 162 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
