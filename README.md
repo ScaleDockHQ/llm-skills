@@ -195,6 +195,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`nvidia-aiperf`](skills/nvidia-aiperf)                 | Benchmark LLM serving with NVIDIA AIPerf (aiperf profile) for TTFT, ITL, throughput, goodput, concurrency and request-rate sweeps against any OpenAI-compatible endpoin...                        | `npx skills add ScaleDockHQ/llms-skills@nvidia-aiperf`         |
 | [`guidellm`](skills/guidellm)                           | Benchmark LLM servers with GuideLLM (guidellm run) for SLO-aware latency and throughput using sweep, concurrent, constant and Poisson profiles, TTFT/ITL, goodput and t...                        | `npx skills add ScaleDockHQ/llms-skills@guidellm`              |
 | [`evalplus`](skills/evalplus)                           | Score code-generation LLMs on HumanEval+, MBPP+ and EvalPerf with EvalPlus (evalplus.evaluate, evalplus.codegen, evalplus.sanitize) as pass@1 on base vs extended tests...                        | `npx skills add ScaleDockHQ/llms-skills@evalplus`              |
+| [`swe-bench`](skills/swe-bench)                         | Grade coding-agent patches on SWE-bench (Verified, Lite, Multilingual, Multimodal, full) with the swebench CLI v5 (swebench eval, report, images, dataset), Docker-isol...                        | `npx skills add ScaleDockHQ/llms-skills@swe-bench`             |
 
 #### Observability
 
@@ -377,7 +378,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 204 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 205 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
