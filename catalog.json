@@ -470,7 +470,7 @@
       "name": "envoy-ai-gateway",
       "kind": "product",
       "category": "gateways",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/envoyproxy/ai-gateway",
       "replaces": null
@@ -598,9 +598,9 @@
       "name": "nvidia-datacenter-gpus",
       "kind": "platform",
       "category": "hardware-platforms",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
-      "upstream": null,
+      "upstream": "https://docs.nvidia.com/datacenter/tesla/",
       "replaces": null
     },
     {

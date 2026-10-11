@@ -217,6 +217,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`amd-strix-halo`](skills/amd-strix-halo)                 | Set up, size and operate AMD Ryzen AI Max (Strix Halo, gfx1151, Radeon 8060S, up to 128 GB unified memory) for local LLM inference on Linux or Windows.                            | `npx skills add ScaleDockHQ/llms-skills@amd-strix-halo`         |
 | [`nvidia-rtx-workstation`](skills/nvidia-rtx-workstation) | Choose, size and run NVIDIA RTX PRO Blackwell workstation GPUs (6000 96 GB, 5000, 4500, 4000, Max-Q) for local LLM inference on Linux: open driver, sm_120, multi-GPU, power, MIG. | `npx skills add ScaleDockHQ/llms-skills@nvidia-rtx-workstation` |
 | [`cpu-inference`](skills/cpu-inference)                   | Run, size and tune LLM inference on CPUs only (x86 AVX2/AVX-512/AMX, AArch64 servers with NEON and KleidiAI, Intel Macs) with llama.cpp. Use for no-GPU...                         | `npx skills add ScaleDockHQ/llms-skills@cpu-inference`          |
+| [`nvidia-datacenter-gpus`](skills/nvidia-datacenter-gpus) | Choose and operate NVIDIA datacenter GPUs (H100, H200, B200, B300, GB200) for LLM serving: HBM sizing, NVLink and Fabric Manager, R580 driver branch, MIG, DCGM.                   | `npx skills add ScaleDockHQ/llms-skills@nvidia-datacenter-gpus` |
 
 #### Cloud providers
 
@@ -292,17 +293,18 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 #### Stacks
 
-| Skill                                                               | Description                                                                                                                                                    | Install                                                              |
-| ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| [`ollama-open-webui-tailscale`](skills/ollama-open-webui-tailscale) | Private web chat for local models: Ollama behind Open WebUI, reachable only over your Tailscale tailnet with HTTPS.                                            | `npx skills add ScaleDockHQ/llms-skills@ollama-open-webui-tailscale` |
-| [`litellm-langfuse-prometheus`](skills/litellm-langfuse-prometheus) | One LiteLLM gateway reporting traces to Langfuse and metrics to Prometheus and Grafana.                                                                        | `npx skills add ScaleDockHQ/llms-skills@litellm-langfuse-prometheus` |
-| [`voice-stack`](skills/voice-stack)                                 | Self-hosted voice assistant: whisper.cpp speech-to-text, an LLM and Kokoro text-to-speech behind Open WebUI Voice Mode, with Pipecat and LiveKit paths.        | `npx skills add ScaleDockHQ/llms-skills@voice-stack`                 |
-| [`goose`](skills/goose)                                             | Connect goose (Desktop and CLI agent) to self-hosted OpenAI- and Anthropic-compatible endpoints: OPENAI_HOST, custom providers, keys, tools, tool shim.        | `npx skills add ScaleDockHQ/llms-skills@goose`                       |
-| [`portkey`](skills/portkey)                                         | Portkey AI Gateway: open-source Node.js gateway with configs for fallbacks, load balancing, retries and conditional routing, plus the hosted Portkey platform. | `npx skills add ScaleDockHQ/llms-skills@portkey`                     |
+| Skill                                                               | Description                                                                                                                                                                   | Install                                                              |
+| ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [`ollama-open-webui-tailscale`](skills/ollama-open-webui-tailscale) | Private web chat for local models: Ollama behind Open WebUI, reachable only over your Tailscale tailnet with HTTPS.                                                           | `npx skills add ScaleDockHQ/llms-skills@ollama-open-webui-tailscale` |
+| [`litellm-langfuse-prometheus`](skills/litellm-langfuse-prometheus) | One LiteLLM gateway reporting traces to Langfuse and metrics to Prometheus and Grafana.                                                                                       | `npx skills add ScaleDockHQ/llms-skills@litellm-langfuse-prometheus` |
+| [`voice-stack`](skills/voice-stack)                                 | Self-hosted voice assistant: whisper.cpp speech-to-text, an LLM and Kokoro text-to-speech behind Open WebUI Voice Mode, with Pipecat and LiveKit paths.                       | `npx skills add ScaleDockHQ/llms-skills@voice-stack`                 |
+| [`goose`](skills/goose)                                             | Connect goose (Desktop and CLI agent) to self-hosted OpenAI- and Anthropic-compatible endpoints: OPENAI_HOST, custom providers, keys, tools, tool shim.                       | `npx skills add ScaleDockHQ/llms-skills@goose`                       |
+| [`portkey`](skills/portkey)                                         | Portkey AI Gateway: open-source Node.js gateway with configs for fallbacks, load balancing, retries and conditional routing, plus the hosted Portkey platform.                | `npx skills add ScaleDockHQ/llms-skills@portkey`                     |
+| [`envoy-ai-gateway`](skills/envoy-ai-gateway)                       | Envoy AI Gateway (Agent Router): Kubernetes and standalone aigw gateway for LLM and MCP traffic, with model routing, upstream auth, fallback, token limits and InferencePool. | `npx skills add ScaleDockHQ/llms-skills@envoy-ai-gateway`            |
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 140 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 142 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
