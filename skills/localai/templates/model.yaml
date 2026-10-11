@@ -1,0 +1,20 @@
+# <models dir>/qwen3-4b.yaml
+name: qwen3-4b
+backend: llama-cpp
+parameters:
+  model: Qwen3-4B-Q4_K_M.gguf # relative to the models dir
+context_size: 8192
+threads: 8 # physical cores
+gpu_layers: 99
+known_usecases:
+  - chat
+template:
+  use_tokenizer_template: true
+options:
+  - use_jinja:true
+  - parallel:2
+  - cache_ram:4096
+download_files:
+  - filename: Qwen3-4B-Q4_K_M.gguf
+    uri: huggingface://unsloth/Qwen3-4B-GGUF/Qwen3-4B-Q4_K_M.gguf
+    # sha256: <add the published hash>

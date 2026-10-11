@@ -1,0 +1,7 @@
+model_list:
+  - model_name: local-chat
+    litellm_params:
+      model: openai/qwen3-4b # the model YAML name shown by /v1/models
+      api_base: http://localai:8080/v1
+      api_key: os.environ/LOCALAI_API_KEY
+      timeout: 600 # first request loads the model

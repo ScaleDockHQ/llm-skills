@@ -1,0 +1,25 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, configure, scale and troubleshoot LocalAI, the self-hosted OpenAI, Anthropic and Ollama compatible server with a model gallery and backends. Covers containers, binary and Kubernetes installs, model YAML, auth and bind safety, LRU and watchdog memory control, distributed mode, observability and updates. References are split by task.",
+  "references": [
+    "https://github.com/mudler/LocalAI",
+    "https://localai.io/",
+    "https://localai.io/basics/getting_started/",
+    "https://localai.io/features/",
+    "https://localai.io/features/authentication/",
+    "https://localai.io/features/distributed-mode/",
+    "https://localai.io/features/distribute/",
+    "https://localai.io/features/model-gallery/",
+    "https://localai.io/features/model-failover/",
+    "https://localai.io/features/openai-functions/",
+    "https://localai.io/features/mcp/",
+    "https://localai.io/advanced/model-configuration/",
+    "https://localai.io/advanced/vram-management/",
+    "https://localai.io/advanced/reverse-proxy-tls/",
+    "https://github.com/mudler/LocalAI/blob/master/core/cli/run.go",
+    "https://github.com/mudler/LocalAI/blob/master/backend/index.yaml"
+  ],
+  "kind": "product"
+}
