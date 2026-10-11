@@ -1,0 +1,82 @@
+# Gateway, route and self-hosted OpenAI-compatible backend (vLLM, Ollama).
+# Edit: namespace, hostname, port, model alias (x-ai-eg-model), served model name.
+# Applies to Agent Router (Envoy AI Gateway) v1.2.x on Envoy Gateway v1.9.2+.
+apiVersion: gateway.networking.k8s.io/v1
+kind: GatewayClass
+metadata:
+  name: llm
+spec:
+  controllerName: gateway.envoyproxy.io/gatewayclass-controller
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: llm
+  namespace: default
+spec:
+  gatewayClassName: llm
+  listeners:
+    - name: http
+      protocol: HTTP
+      port: 80
+---
+# Envoy Gateway's 32 KiB default buffer is too small for LLM payloads.
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: ClientTrafficPolicy
+metadata:
+  name: llm-buffer
+  namespace: default
+spec:
+  targetRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: llm
+  connection:
+    bufferLimit: 50Mi
+  http2:
+    initialStreamWindowSize: 16Mi
+    initialConnectionWindowSize: 24Mi
+---
+apiVersion: aigateway.envoyproxy.io/v1beta1
+kind: AIGatewayRoute
+metadata:
+  name: llm
+  namespace: default
+spec:
+  parentRefs:
+    - name: llm
+      kind: Gateway
+      group: gateway.networking.k8s.io
+  rules:
+    - matches:
+        - headers:
+            - type: Exact
+              name: x-ai-eg-model
+              value: qwen3-32b # client-facing alias
+      backendRefs:
+        - name: vllm
+          modelNameOverride: Qwen/Qwen3-32B # name the server serves
+---
+apiVersion: aigateway.envoyproxy.io/v1beta1
+kind: AIServiceBackend
+metadata:
+  name: vllm
+  namespace: default
+spec:
+  schema:
+    name: OpenAI
+  backendRef:
+    name: vllm
+    kind: Backend
+    group: gateway.envoyproxy.io
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: Backend
+metadata:
+  name: vllm
+  namespace: default
+spec:
+  endpoints:
+    - fqdn:
+        hostname: vllm.llm.svc.cluster.local
+        port: 8000

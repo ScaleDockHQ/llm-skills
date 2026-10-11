@@ -1,0 +1,19 @@
+# Standalone Agent Router (aigw) in Docker, fronting an Ollama or vLLM server on the host.
+# No inbound auth: ports are bound to loopback. Put caddy or tailscale in front to share it.
+# Credentials come from the environment; `OPENAI_API_KEY` is "unused" for local servers.
+services:
+  aigw:
+    image: envoyproxy/ai-gateway-cli:v1.2.0 # pin; latest and v1.3.0-dev.* track main
+    command: ["run"]
+    environment:
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-http://host.docker.internal:11434/v1}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-unused}
+      # Map low-cardinality headers to telemetry attributes (optional)
+      # OTEL_AIGW_REQUEST_HEADER_ATTRIBUTES: x-tenant-id:tenant.id
+      # OTEL_EXPORTER_OTLP_ENDPOINT: http://host.docker.internal:4317
+    ports:
+      - "127.0.0.1:1975:1975" # OpenAI-compatible /v1, Anthropic /anthropic, MCP /mcp
+      - "127.0.0.1:1064:1064" # admin: /metrics and /health
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped

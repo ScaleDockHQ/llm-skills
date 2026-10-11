@@ -1,0 +1,54 @@
+# Priority-based provider fallback. Primary at priority 0, fallback at priority 1,
+# plus a BackendTrafficPolicy on the generated HTTPRoute (same name as the AIGatewayRoute).
+# Both backends must exist as AIServiceBackend + Backend + BackendSecurityPolicy.
+apiVersion: aigateway.envoyproxy.io/v1beta1
+kind: AIGatewayRoute
+metadata:
+  name: llm-fallback
+  namespace: default
+spec:
+  parentRefs:
+    - name: llm
+      kind: Gateway
+      group: gateway.networking.k8s.io
+  rules:
+    - matches:
+        - headers:
+            - type: Exact
+              name: x-ai-eg-model
+              value: claude-sonnet
+      backendRefs:
+        - name: anthropic-direct
+          priority: 0
+          modelNameOverride: PRIMARY_MODEL_ID # from the provider's current model list
+        - name: bedrock-claude
+          priority: 1
+          modelNameOverride: FALLBACK_MODEL_ID
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: BackendTrafficPolicy
+metadata:
+  name: llm-fallback
+  namespace: default
+spec:
+  targetRefs:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      name: llm-fallback # must equal the AIGatewayRoute name
+  retry:
+    numRetries: 5
+    numAttemptsPerPriority: 1 # one attempt per tier, then the next priority
+    perRetry:
+      backOff:
+        baseInterval: 100ms
+        maxInterval: 10s
+      timeout: 30s
+    retryOn:
+      httpStatusCodes:
+        - 429
+        - 500
+        - 502
+        - 503
+      triggers:
+        - connect-failure
+        - retriable-status-codes
