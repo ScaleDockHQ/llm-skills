@@ -1145,7 +1145,7 @@
       "name": "guidellm",
       "kind": "product",
       "category": "evals-benchmarks",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/vllm-project/guidellm",
       "replaces": null
