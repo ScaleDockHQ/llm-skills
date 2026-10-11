@@ -1,0 +1,19 @@
+# One dcgm-exporter per NVIDIA GPU host. Needs the NVIDIA Container Toolkit.
+# Verified against dcgm-exporter 4.8.4 (DCGM 4.6.1) install docs, 2026-10-11.
+# Image tag format: <dcgm-version>-<exporter-version>-<variant>.
+services:
+  dcgm-exporter:
+    image: nvcr.io/nvidia/k8s/dcgm-exporter:4.6.1-4.8.4-distroless
+    cap_add: [SYS_ADMIN] # needed for DCGM_FI_PROF_* profiling fields; drop it if you do not need them
+    ports: ["127.0.0.1:9400:9400"] # bind to the private interface Prometheus uses, not 0.0.0.0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    volumes:
+      - ./llm-counters.csv:/etc/dcgm-exporter/llm-counters.csv:ro
+    command: ["--collectors", "/etc/dcgm-exporter/llm-counters.csv"]
+    restart: unless-stopped
