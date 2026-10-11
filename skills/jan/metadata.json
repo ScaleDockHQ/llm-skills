@@ -1,0 +1,25 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve and operate Jan, the open-source desktop LLM app. Covers packages for macOS, Windows and Linux, the Local API Server (OpenAI and Anthropic compatible, key, host and Trusted Hosts), GGUF and MLX models and the bundled llama.cpp router, custom providers for vLLM, Ollama and LiteLLM, MCP and Claude Code, updates across 0.8.x and troubleshooting.",
+  "references": [
+    "https://github.com/janhq/jan",
+    "https://github.com/janhq/jan/releases",
+    "https://jan.ai/docs",
+    "https://jan.ai/docs/desktop",
+    "https://jan.ai/docs/desktop/api-server",
+    "https://jan.ai/docs/desktop/api-preference",
+    "https://jan.ai/docs/desktop/data-folder",
+    "https://jan.ai/docs/desktop/install/linux",
+    "https://jan.ai/docs/desktop/local-engine/llama-cpp",
+    "https://jan.ai/docs/desktop/local-engine/mlx",
+    "https://jan.ai/docs/desktop/remote-models/custom-endpoint",
+    "https://jan.ai/docs/desktop/integrations/claude-code",
+    "https://jan.ai/docs/desktop/mcp",
+    "https://jan.ai/docs/desktop/troubleshooting",
+    "https://jan.ai/docs/agent/quickstart",
+    "https://jan.ai/changelog"
+  ],
+  "kind": "product"
+}
