@@ -212,6 +212,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`amd-instinct`](skills/amd-instinct)                     | Set up, verify and operate AMD Instinct GPUs (MI300X, MI325X, MI350X, MI355X, MI250, MI210) with ROCm 10.x for LLM inference.                                                      | `npx skills add ScaleDockHQ/llms-skills@amd-instinct`           |
 | [`amd-strix-halo`](skills/amd-strix-halo)                 | Set up, size and operate AMD Ryzen AI Max (Strix Halo, gfx1151, Radeon 8060S, up to 128 GB unified memory) for local LLM inference on Linux or Windows.                            | `npx skills add ScaleDockHQ/llms-skills@amd-strix-halo`         |
 | [`nvidia-rtx-workstation`](skills/nvidia-rtx-workstation) | Choose, size and run NVIDIA RTX PRO Blackwell workstation GPUs (6000 96 GB, 5000, 4500, 4000, Max-Q) for local LLM inference on Linux: open driver, sm_120, multi-GPU, power, MIG. | `npx skills add ScaleDockHQ/llms-skills@nvidia-rtx-workstation` |
+| [`cpu-inference`](skills/cpu-inference)                   | Run, size and tune LLM inference on CPUs only (x86 AVX2/AVX-512/AMX, AArch64 servers with NEON and KleidiAI, Intel Macs) with llama.cpp. Use for no-GPU...                         | `npx skills add ScaleDockHQ/llms-skills@cpu-inference`          |
 
 #### Cloud providers
 
@@ -296,7 +297,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 134 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 135 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
