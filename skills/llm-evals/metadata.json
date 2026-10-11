@@ -1,10 +1,11 @@
 {
-  "version": "1.0.1",
+  "version": "1.1.0",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Evaluate LLMs on your own tasks against any OpenAI-compatible endpoint (local, self-hosted, gateway or cloud). Covers golden-set design, comparing models and endpoints with promptfoo, public benchmarks with lm-evaluation-harness (local-completions vs local-chat-completions, logprob and tokenizer requirements), calibrated LLM-as-judge, A/B quality gates with decision records for numerics-changing changes such as quantization, speculative decoding, KV-cache dtype and engine upgrades (task evals vs perplexity and KL divergence), regression evals in GitHub Actions, and common eval pitfalls.",
   "references": [
     "https://github.com/promptfoo/promptfoo",
+    "https://github.com/promptfoo/promptfoo-action",
     "https://www.promptfoo.dev/docs/providers/openai/",
     "https://www.promptfoo.dev/docs/providers/vllm/",
     "https://www.promptfoo.dev/docs/configuration/expected-outputs/",
@@ -16,6 +17,7 @@
     "https://github.com/EleutherAI/lm-evaluation-harness",
     "https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/API_guide.md",
     "https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md",
+    "https://github.com/EleutherAI/lm-evaluation-harness/blob/main/lm_eval/models/openai_completions.py",
     "https://github.com/ggml-org/llama.cpp/tree/master/tools/perplexity",
     "https://docs.vllm.ai/en/latest/usage/reproducibility/",
     "https://docs.vllm.ai/en/latest/features/batch_invariance/"

@@ -49,7 +49,7 @@ For non-GGUF engines, run the same golden set and a benchmark subset through the
 4. **Greedy where possible.** Use `temperature: 0` for gate runs so differences come from numerics, not sampling. If production samples, add a second run at production settings with `--repeat`.
 5. **Measure noise.** Run baseline vs baseline (two runs, or `--repeat 3` on a subset). Batching and scheduling make many engines non-deterministic even at temperature 0; vLLM only guarantees reproducibility with batch invariance enabled (`VLLM_BATCH_INVARIANT=1`) on the same hardware and version. The baseline-vs-baseline flip count is your noise floor.
 6. **Run the candidate** with `--no-cache` and capture `results.jsonl` per provider.
-7. **Compare per item.** Count regressions (pass→fail) and fixes (fail→pass); inspect every regression on `critical` items by reading the outputs (jq recipe in `promptfoo.md`).
+7. **Compare per item.** Count regressions (pass→fail) and fixes (fail→pass); inspect every regression on `critical` items by reading the outputs (per-item diff recipe and script in the promptfoo skill: `npx skills add ScaleDockHQ/llms-skills --skill promptfoo`, `references/combos/quant-ci-gate.md`).
 8. **Check non-quality effects** in the same run: latency, tokens/s, output length, error rate. A quant that changes output length changes cost and latency too.
 9. **Decide and record** using the decision record below.
 
