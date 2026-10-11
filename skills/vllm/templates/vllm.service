@@ -1,0 +1,28 @@
+# /etc/systemd/system/vllm.service
+# Runs vLLM from a venv created with: uv venv --python 3.12 --seed && uv pip install vllm --torch-backend=auto
+# Create /etc/vllm/vllm.env with chmod 0600, owner root, containing for example:
+#   HF_TOKEN=...            (only for gated models)
+#   VLLM_API_KEY=...        (optional; protects /v1 only)
+[Unit]
+Description=vLLM OpenAI-compatible server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=vllm
+Group=vllm
+EnvironmentFile=-/etc/vllm/vllm.env
+Environment=HF_HOME=/var/lib/vllm/huggingface
+Environment=HOME=/var/lib/vllm
+WorkingDirectory=/var/lib/vllm
+ExecStart=/opt/vllm/.venv/bin/vllm serve --config /etc/vllm/config.yaml
+Restart=on-failure
+RestartSec=15
+# Cold start (load, compile, graph capture) can take many minutes.
+TimeoutStartSec=900
+LimitMEMLOCK=infinity
+# Give the engine time to release GPU memory before the next start.
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target

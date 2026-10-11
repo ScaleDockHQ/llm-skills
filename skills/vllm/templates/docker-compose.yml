@@ -1,0 +1,44 @@
+# Single-node vLLM, NVIDIA GPU. Start: docker compose up -d. Logs: docker compose logs -f vllm
+# Needs Docker Compose 2.24+ for env_file `required: false`.
+# Put HF_TOKEN (and VLLM_API_KEY if used) in ./vllm.env, chmod 0600, never commit it.
+services:
+  vllm:
+    image: vllm/vllm-openai:v0.31.0 # pin a tag or digest; compare image IDs on every node before upgrading
+    container_name: vllm
+    restart: unless-stopped
+    ipc: host # shared memory for tensor parallel; or set shm_size
+    env_file:
+      - path: ./vllm.env
+        required: false
+    environment:
+      HF_HOME: /root/.cache/huggingface
+    ports:
+      - "127.0.0.1:8000:8000" # loopback only; expose through a gateway
+    volumes:
+      - ${HF_CACHE_DIR:-${HOME}/.cache/huggingface}:/root/.cache/huggingface
+      - vllm-cache:/root/.cache/vllm # torch.compile cache; speeds up restarts
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    # The image entrypoint is `vllm serve`: the first argument is the model.
+    command:
+      - Qwen/Qwen3-Coder-30B-A3B-Instruct
+      - --host=0.0.0.0 # inside the container; the published port above is loopback only
+      - --served-model-name=qwen-coder
+      - --max-model-len=65536
+      - --gpu-memory-utilization=0.80
+      - --enable-auto-tool-choice
+      - --tool-call-parser=qwen3_xml
+    healthcheck: # assumes curl exists in the image (unverified); otherwise remove this block
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 10
+      start_period: 600s # weight load, compile and graph capture are slow
+
+volumes:
+  vllm-cache:
