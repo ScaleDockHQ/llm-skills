@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Fit more context or concurrent requests by quantizing the KV cache across vLLM, SGLang, TensorRT-LLM, llama.cpp, Ollama, ExLlamaV3 and TensorFold. Covers FP8, NVFP4, int8 and q8_0/q4_0 with exact per-engine flags, defaults, hardware and constraints, KV size arithmetic, calibration, upstream accuracy evidence, and a mandatory A/B quality gate with the llm-evals skill including rollback.",
+  "references": [
+    "https://docs.vllm.ai/en/latest/features/quantization/quantized_kvcache/",
+    "https://github.com/vllm-project/vllm/blob/v0.31.0/vllm/config/cache.py",
+    "https://docs.sglang.ai/advanced_features/quantized_kv_cache.html",
+    "https://github.com/NVIDIA/TensorRT-LLM/blob/v1.2.1/docs/source/features/quantization.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://github.com/ggml-org/llama.cpp/issues/24485",
+    "https://docs.ollama.com/faq",
+    "https://github.com/theroyallab/tabbyAPI/blob/main/config_sample.yml",
+    "https://github.com/turboderp-org/exllamav3",
+    "https://github.com/ashhart/TensorFold"
+  ],
+  "kind": "technique"
+}
