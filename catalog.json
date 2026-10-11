@@ -1127,7 +1127,7 @@
       "name": "evalplus",
       "kind": "product",
       "category": "evals-benchmarks",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/evalplus/evalplus",
       "replaces": null
