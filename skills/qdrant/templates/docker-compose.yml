@@ -1,0 +1,17 @@
+# Single-node Qdrant. Create qdrant.env first (0600): QDRANT__SERVICE__API_KEY=..., QDRANT__SERVICE__READ_ONLY_API_KEY=..., QDRANT__TELEMETRY_DISABLED=true
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.19.2
+    env_file: ./qdrant.env
+    ports:
+      - "127.0.0.1:6333:6333"
+      - "127.0.0.1:6334:6334"
+    volumes:
+      - ./storage:/qdrant/storage
+      - ./snapshots:/qdrant/snapshots
+    restart: unless-stopped
+    networks: [llm]
+
+networks:
+  llm:
+    name: llm

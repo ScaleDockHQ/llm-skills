@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run Qdrant beside a self-hosted LLM stack. References cover Docker install and image tags, RAM and disk sizing with memory tiers and quantization, configuration, the REST workflow, API keys, JWT and TLS, snapshots and upgrades, troubleshooting, and the LiteLLM embeddings and Open WebUI wiring, plus a compose template.",
+  "references": [
+    "https://github.com/qdrant/qdrant",
+    "https://qdrant.tech/documentation/operations/installation/",
+    "https://qdrant.tech/documentation/operations/security/",
+    "https://qdrant.tech/documentation/operations/capacity-planning/",
+    "https://qdrant.tech/documentation/ops-configuration/memory-tiers/",
+    "https://github.com/qdrant/qdrant/blob/master/config/config.yaml",
+    "https://docs.openwebui.com/reference/env-configuration"
+  ],
+  "kind": "product"
+}
