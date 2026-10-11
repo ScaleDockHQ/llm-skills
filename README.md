@@ -143,11 +143,14 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 #### Quantization
 
-| Skill                                           | Description                                                                                                                                         | Install                                                    |
-| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [`llm-compressor`](skills/llm-compressor)       | Quantize LLMs for vLLM with LLM Compressor (llmcompressor, vllm-project/llm-compressor).                                                            | `npx skills add ScaleDockHQ/llms-skills@llm-compressor`    |
-| [`nvidia-modelopt`](skills/nvidia-modelopt)     | Quantize LLMs with NVIDIA Model Optimizer (ModelOpt, nvidia-modelopt, NVIDIA/Model-Optimizer, formerly TensorRT-Model-Optimizer).                   | `npx skills add ScaleDockHQ/llms-skills@nvidia-modelopt`   |
-| [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload). | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
+| Skill                                           | Description                                                                                                                                                                                  | Install                                                    |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| [`llm-compressor`](skills/llm-compressor)       | Quantize LLMs for vLLM with LLM Compressor (llmcompressor, vllm-project/llm-compressor).                                                                                                     | `npx skills add ScaleDockHQ/llms-skills@llm-compressor`    |
+| [`nvidia-modelopt`](skills/nvidia-modelopt)     | Quantize LLMs with NVIDIA Model Optimizer (ModelOpt, nvidia-modelopt, NVIDIA/Model-Optimizer, formerly TensorRT-Model-Optimizer).                                                            | `npx skills add ScaleDockHQ/llms-skills@nvidia-modelopt`   |
+| [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload).                                          | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
+| [`bitsandbytes`](skills/bitsandbytes)           | Load and train LLMs in 8-bit and 4-bit with bitsandbytes (LLM.int8(), NF4/FP4 QLoRA, 8-bit and paged optimizers) through Transformers, PEFT, TRL and Accelerate.                             | `npx skills add ScaleDockHQ/llms-skills@bitsandbytes`      |
+| [`torchao`](skills/torchao)                     | Quantize, fine-tune and train PyTorch models with torchao (PyTorch AO, pytorch/ao) using quantize_() with Float8, Int8 and Int4 configs, QAT, float8 training and 8-bit or 4-bit optimizers. | `npx skills add ScaleDockHQ/llms-skills@torchao`           |
+| [`hqq`](skills/hqq)                             | Quantize LLMs to 8, 4, 3, 2 or 1 bit in minutes with HQQ (Half-Quadratic Quantization, dropbox/hqq, the hqq package), no calibration data needed.                                            | `npx skills add ScaleDockHQ/llms-skills@hqq`               |
 
 #### Fine-tuning
 
@@ -345,7 +348,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 178 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 181 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 

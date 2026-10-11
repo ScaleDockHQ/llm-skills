@@ -941,7 +941,7 @@
       "name": "bitsandbytes",
       "kind": "product",
       "category": "quantization",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/bitsandbytes-foundation/bitsandbytes",
       "replaces": null
@@ -950,7 +950,7 @@
       "name": "torchao",
       "kind": "product",
       "category": "quantization",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/pytorch/ao",
       "replaces": null
@@ -959,20 +959,21 @@
       "name": "hqq",
       "kind": "product",
       "category": "quantization",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
-      "upstream": "https://github.com/mobiusml/hqq",
+      "upstream": "https://github.com/dropbox/hqq",
       "replaces": null
     },
     {
       "name": "autoawq",
       "kind": "product",
       "category": "quantization",
-      "status": "planned",
+      "status": "note-only",
       "wave": 9,
       "upstream": "https://github.com/casper-hansen/AutoAWQ",
       "replaces": null,
-      "verifyStatus": true
+      "verifyStatus": true,
+      "note": "Upstream AutoAWQ is archived and officially deprecated (last release v0.2.9, 2025-05-11); use llm-compressor for AWQ."
     },
     {
       "name": "axolotl",
