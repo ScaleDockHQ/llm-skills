@@ -1,0 +1,73 @@
+# Single-node trtllm-serve on Kubernetes. Untested template; needs the NVIDIA device plugin.
+# For multi-node, disaggregated serving and KV-aware routing use NVIDIA Dynamo (references/combos/dynamo.md).
+# Create the secret out of band; never commit a token:
+#   kubectl create secret generic hf-token --from-literal=HF_TOKEN="$HF_TOKEN"
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: trtllm-config
+data:
+  config.yml: |
+    kv_cache_config:
+      free_gpu_memory_fraction: 0.85
+    cuda_graph_config:
+      enable_padding: true
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trtllm-serve
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: trtllm-serve }
+  template:
+    metadata:
+      labels: { app: trtllm-serve }
+    spec:
+      containers:
+        - name: trtllm
+          image: nvcr.io/nvidia/tensorrt-llm/release:1.2.1
+          command:
+            [
+              "trtllm-serve",
+              "nvidia/Qwen3-8B-FP8",
+              "--host",
+              "0.0.0.0",
+              "--port",
+              "8000",
+              "--config",
+              "/cfg/config.yml",
+            ]
+          envFrom:
+            - secretRef: { name: hf-token }
+          ports:
+            - containerPort: 8000
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+          readinessProbe:
+            httpGet: { path: /health, port: 8000 }
+            periodSeconds: 15
+            failureThreshold: 60
+          volumeMounts:
+            - { name: cfg, mountPath: /cfg, readOnly: true }
+            - { name: hf, mountPath: /root/.cache/huggingface }
+            - { name: shm, mountPath: /dev/shm }
+      volumes:
+        - name: cfg
+          configMap: { name: trtllm-config }
+        - name: hf
+          emptyDir: {} # use a PVC to keep weights across restarts
+        - name: shm
+          emptyDir: { medium: Memory } # replaces docker --ipc=host; size it for your model
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trtllm-serve
+spec:
+  selector: { app: trtllm-serve }
+  ports:
+    - port: 8000
+      targetPort: 8000

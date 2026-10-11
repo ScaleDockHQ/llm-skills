@@ -1,0 +1,12 @@
+# Starting point for trtllm-serve --config (v1.2.1 field names; verify against your tag).
+# Based on NVIDIA's DGX Spark playbook and TensorRT-LLM docs. Untested template.
+kv_cache_config:
+  dtype: auto
+  free_gpu_memory_fraction: 0.85 # GB10 shares memory with the OS: stay at 0.8 to 0.9
+  enable_block_reuse: true
+cuda_graph_config:
+  enable_padding: true
+disable_overlap_scheduler: false # true for two-model speculative decoding or Llama 3.1 8B / gpt-oss-20b on the playbook
+print_iter_log: false
+# guided_decoding_backend: xgrammar
+# enable_iter_perf_stats: true     # exposes /metrics
