@@ -1,0 +1,25 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run, serve, package and troubleshoot llamafile, the single-file LLM executable built from llama.cpp and Cosmopolitan Libc. Covers pre-built llamafiles and the runtime with external GGUF, chat, CLI and server modes, OpenAI and Anthropic compatible APIs, GPU backends, zipalign packaging, the sandbox and built-in tools, and whisperfile. References are split by task.",
+  "references": [
+    "https://github.com/mozilla-ai/llamafile",
+    "https://docs.mozilla.ai/llamafile",
+    "https://docs.mozilla.ai/llamafile/getting-started/quickstart",
+    "https://docs.mozilla.ai/llamafile/getting-started/pre-built-llamafiles",
+    "https://docs.mozilla.ai/llamafile/using-llamafile/running_llamafile",
+    "https://docs.mozilla.ai/llamafile/using-llamafile/creating_llamafiles",
+    "https://docs.mozilla.ai/llamafile/using-llamafile/source_installation",
+    "https://docs.mozilla.ai/llamafile/reference/support",
+    "https://docs.mozilla.ai/llamafile/reference/technical_details",
+    "https://docs.mozilla.ai/llamafile/reference/troubleshooting",
+    "https://docs.mozilla.ai/llamafile/whisperfile",
+    "https://github.com/mozilla-ai/llamafile/blob/main/docs/security.md",
+    "https://github.com/mozilla-ai/llamafile/blob/main/docs/cli_arguments.md",
+    "https://github.com/mozilla-ai/llamafile/blob/main/docs/api.md",
+    "https://github.com/mozilla-ai/llamafile/blob/main/docs/built-in-tools.md",
+    "https://huggingface.co/mozilla-ai/llamafile_0.10"
+  ],
+  "kind": "product"
+}
