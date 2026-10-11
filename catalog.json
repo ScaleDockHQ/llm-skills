@@ -1430,7 +1430,7 @@
       "name": "vercel-ai-sdk",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/vercel/ai",
       "replaces": "skills/llm-clients/references/sdks.md"

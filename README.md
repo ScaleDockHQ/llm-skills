@@ -358,6 +358,12 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 | [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload). | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
 
+#### Clients and SDKs
+
+| Skill                                   | Description                                                                                                                                                           | Install                                                |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| [`vercel-ai-sdk`](skills/vercel-ai-sdk) | Configure the Vercel AI SDK (ai, @ai-sdk/*) against self-hosted OpenAI- and Anthropic-compatible endpoints: keys, model aliases, tools, structured output, streaming. | `npx skills add ScaleDockHQ/llms-skills@vercel-ai-sdk` |
+
 #### Generative media
 
 | [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload). | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
@@ -555,7 +561,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload). | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
 
 | [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload). | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 99 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 100 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 | [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload). | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
 
 | [`gguf-quantization`](skills/gguf-quantization) | Convert models to GGUF and quantize them with llama.cpp (convert_hf_to_gguf.py, llama-imatrix, llama-quantize, KLD checks, gguf-split, Hub upload). | `npx skills add ScaleDockHQ/llms-skills@gguf-quantization` |
