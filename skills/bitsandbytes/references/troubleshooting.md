@@ -1,0 +1,21 @@
+# bitsandbytes troubleshooting
+
+> Verified against bitsandbytes 0.50.2 (docs errors.mdx, installation.mdx), 2026-10-11
+
+Start with `python3 -m bitsandbytes`; it prints the environment and runs a sanity check. Paste its output into any upstream issue.
+
+| Symptom                                                      | Cause and fix                                                                                                                                                                                                                            |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `no kernel image is available`                               | The loaded CUDA library does not support this GPU, or PyTorch's CUDA differs. Print `echo $PATH $LD_LIBRARY_PATH $CUDA_HOME`, remove duplicate CUDA versions (conda libs included), compare with `nvidia-smi`; else compile from source. |
+| `fatbinwrap`                                                 | CUDA mismatch between the C++ library and the CUDA part. Put the right CUDA on `PATH` and `LD_LIBRARY_PATH`; in conda add `$CONDA_PREFIX/lib` (contains cudart). Else compile from source.                                               |
+| `No compatible CUDA library found` or library not found      | No precompiled `libbitsandbytes_cuda{XY}` fits. Check `torch.version.cuda` (or `.hip`), try `BNB_CUDA_VERSION=128` (or `BNB_ROCM_VERSION=72`), or compile from source. Closest-version fallback logs a warning.                          |
+| `Error named symbol not found in /src/csrc/ops.cu` on Jetson | aarch64 wheel on L4T. Build on the device with the compute capability set (`install.md`).                                                                                                                                                |
+| LLM.int8() fails or is very slow                             | Needs NVIDIA compute capability 7.5+; use NF4 on older cards.                                                                                                                                                                            |
+| Slow generation in 4-bit                                     | Compute dtype is float32 by default; set `bnb_4bit_compute_dtype=torch.bfloat16`. Quantized kernels are memory-oriented, not faster than bf16.                                                                                           |
+| Garbage output after 8-bit                                   | Try `llm_int8_skip_modules=["lm_head"]` or tune `llm_int8_threshold`; compare with the bf16 model.                                                                                                                                       |
+| Cannot train 8-bit or 4-bit weights                          | Only extra parameters train; use PEFT adapters (`qlora-training.md`).                                                                                                                                                                    |
+| FSDP-QLoRA wraps layers one by one or errors on dtype        | `bnb_4bit_quant_storage` and model `dtype` differ; set both to bf16.                                                                                                                                                                     |
+| Wrong wheel or backend after a preview install               | `--force-reinstall` re-resolved torch; reinstall torch, then the preview wheel with `--no-deps`.                                                                                                                                         |
+| Out of memory while loading                                  | Use `device_map="auto"` to spread across GPUs, or 8-bit CPU offload (`llm_int8_enable_fp32_cpu_offload`; offloaded weights are stored in float32).                                                                                       |
+
+Still stuck: open an issue at https://github.com/bitsandbytes-foundation/bitsandbytes/issues with the diagnostics output and versions.
