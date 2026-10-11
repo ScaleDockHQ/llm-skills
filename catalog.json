@@ -644,7 +644,7 @@
       "name": "google-tpu",
       "kind": "platform",
       "category": "hardware-platforms",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": "https://cloud.google.com/tpu/docs",
       "replaces": null
@@ -653,7 +653,7 @@
       "name": "aws-neuron",
       "kind": "platform",
       "category": "hardware-platforms",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": "https://awsdocs-neuron.readthedocs-hosted.com",
       "replaces": null
@@ -1932,7 +1932,7 @@
       "name": "runpod-serverless-vllm",
       "kind": "stack",
       "category": "stacks",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": null,
       "replaces": null
@@ -1941,7 +1941,7 @@
       "name": "modal-vllm",
       "kind": "stack",
       "category": "stacks",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": null,
       "replaces": null
@@ -1968,7 +1968,7 @@
       "name": "mac-cluster-exo-mlx",
       "kind": "stack",
       "category": "stacks",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": null,
       "replaces": null
