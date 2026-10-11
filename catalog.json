@@ -257,7 +257,7 @@
       "name": "llamafile",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://github.com/Mozilla-Ocho/llamafile",
       "replaces": null

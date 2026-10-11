@@ -93,6 +93,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`lmdeploy`](skills/lmdeploy)         | Install, serve and tune LMDeploy, the InternLM LLM/VLM inference toolkit with TurboMind and PyTorch engines (`lmdeploy serve api_server`, `lmdeploy lite`, openmmlab/lmdeploy).                                                                                                                                                                                                                                                                                                                                                   | `npx skills add ScaleDockHQ/llms-skills@lmdeploy`     |
 | [`koboldcpp`](skills/koboldcpp)       | Install, run and tune KoboldCpp, the single-file llama.cpp-based GGUF server with the KoboldAI Lite UI, OpenAI, Ollama and Anthropic-style APIs plus image, speech, music and MCP.                                                                                                                                                                                                                                                                                                                                                | `npx skills add ScaleDockHQ/llms-skills@koboldcpp`    |
 | [`xinference`](skills/xinference)     | Install, serve and operate Xorbits Inference (Xinference), the Python model server and cluster for LLM, embedding, rerank, image, audio and video models behind OpenAI, Responses and Anthropic APIs. Use for xinference-local, xinference launch, xinference-supervisor/worker, xprobe/xinference Docker or Helm, vLLM/SGLang/llama.cpp/MLX engines, auth and API keys, replicas, Xavier, P/D, upgrades. Fixes "model_engine" missing, 401, virtualenv install, GPU OOM. Not for choosing an engine (choosing-inference-engine). | `npx skills add ScaleDockHQ/llms-skills@xinference`   |
+| [`llamafile`](skills/llamafile)       | Run and package LLMs as single-file executables with llamafile, with chat, CLI and OpenAI compatible server modes                                                                                                                                                                                                                                                                                                                                                                                                                 | `npx skills add ScaleDockHQ/llms-skills@llamafile`    |
 
 #### Local runtimes
 
@@ -265,7 +266,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 110 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 111 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
