@@ -1,6 +1,6 @@
 ---
 name: nvidia-gpu-operator
-description: Install and run the NVIDIA GPU Operator (Helm, ClusterPolicy, NVIDIADriver) so Kubernetes nodes expose nvidia.com/gpu for LLM pods: driver, container toolkit, device plugin, DCGM exporter, MIG Manager, GPU Feature Discovery, time-slicing, CDI, driver upgrades, uninstall. Use for GPU nodes not schedulable, pods stuck in Init, "no runtime for nvidia", missing GPUs, Xid errors, sharing a GPU between vLLM pods. Not for DCGM metrics only (dcgm-exporter), the workloads (vllm, ray-serve), or autoscaling (keda).
+description: Install and run the NVIDIA GPU Operator (Helm, ClusterPolicy, NVIDIADriver) so Kubernetes nodes expose nvidia.com/gpu for LLM pods, covering the driver, container toolkit, device plugin, DCGM exporter, MIG Manager, GPU Feature Discovery, time-slicing, CDI, driver upgrades, uninstall. Use for GPU nodes not schedulable, pods stuck in Init, no runtime for nvidia, missing GPUs, Xid errors, sharing a GPU between vLLM pods. Not for DCGM metrics only (dcgm-exporter), the workloads (vllm, ray-serve), or autoscaling (keda).
 license: MIT
 compatibility: Kubernetes with containerd 2.x or CRI-O on NVIDIA data center GPUs (x86 and ARM), kubectl, helm, bash, jq. Installing it modifies nodes (drivers, runtime config) and cluster CRDs, so it needs the user's explicit approval.
 metadata:
