@@ -182,6 +182,8 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`inspect-ai`](skills/inspect-ai)                       | Run Inspect AI (UK AISI) evals with the `inspect eval` CLI, Python Task/dataset/solver/scorer code, model_graded_qa judges, log files and Inspect View, again...                                  | `npx skills add ScaleDockHQ/llms-skills@inspect-ai`            |
 | [`deepeval`](skills/deepeval)                           | Run DeepEval (`deepeval test run`, pytest-based LLM unit tests) with GEval, answer relevancy, faithfulness and other metrics, using a local or OpenAI-compatible judge (vLLM, Ollama, LiteLLM)... | `npx skills add ScaleDockHQ/llms-skills@deepeval`              |
 | [`lighteval`](skills/lighteval)                         | Run Hugging Face Lighteval benchmarks with the lighteval CLI (lighteval eval, vllm, endpoint litellm, accelerate) on MMLU, GSM8K, GPQA, IFEval and 1000+ tasks, against vLLM, LiteLLM or...       | `npx skills add ScaleDockHQ/llms-skills@lighteval`             |
+| [`lighteval`](skills/lighteval)                         | Run Hugging Face Lighteval benchmarks with the lighteval CLI (lighteval eval, vllm, endpoint litellm, accelerate) on MMLU, GSM8K, GPQA, IFEval and 1000+ task...                                  | `npx skills add ScaleDockHQ/llms-skills@lighteval`             |
+| [`deepeval`](skills/deepeval)                           | Run DeepEval (`deepeval test run`, pytest-based LLM unit tests) with GEval, answer relevancy, faithfulness and other metrics, using a local or OpenAI-compati...                                  | `npx skills add ScaleDockHQ/llms-skills@deepeval`              |
 
 #### Observability
 

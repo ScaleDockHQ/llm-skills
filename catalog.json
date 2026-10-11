@@ -1116,10 +1116,12 @@
       "name": "ragas",
       "kind": "product",
       "category": "evals-benchmarks",
-      "status": "planned",
+      "status": "note-only",
       "wave": 8,
       "upstream": "https://github.com/explodinggradients/ragas",
-      "replaces": null
+      "replaces": null,
+      "verifyStatus": true,
+      "note": "Ragas is dormant: the last release is v0.4.3 (2026-01-13), the last code commit is 2026-02-24, 600+ issues are open and the repository moved to vibrantlabsai/ragas."
     },
     {
       "name": "evalplus",
