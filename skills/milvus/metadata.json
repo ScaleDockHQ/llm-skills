@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run Milvus beside a self-hosted LLM stack. References cover Milvus Lite, the single-container script and Compose standalone, sizing and index choice, authentication and hardening of insecure defaults, REST and pymilvus basics, backup and one-way upgrades, troubleshooting, and the LiteLLM embeddings and Open WebUI wiring, plus a hardened compose template.",
+  "references": [
+    "https://github.com/milvus-io/milvus",
+    "https://github.com/milvus-io/milvus/blob/master/scripts/standalone_embed.sh",
+    "https://github.com/milvus-io/milvus/tree/master/deployments/docker/standalone",
+    "https://github.com/milvus-io/milvus/blob/master/configs/milvus.yaml",
+    "https://github.com/milvus-io/milvus-docs/tree/v3.0.x/site/en",
+    "https://docs.openwebui.com/reference/env-configuration"
+  ],
+  "kind": "product"
+}
