@@ -1,0 +1,46 @@
+# Phoenix with PostgreSQL. Pin the tags; check releases before changing them.
+# Secrets come from an env file (mode 0600), never from this file:
+#   POSTGRES_PASSWORD=...   PHOENIX_SECRET=...   PHOENIX_DEFAULT_ADMIN_INITIAL_PASSWORD=...
+# Run: docker compose --env-file phoenix.env -f docker-compose.yaml up -d
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: phoenix
+      POSTGRES_DB: phoenix
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in the env file}
+    volumes:
+      - phoenix-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U phoenix -d phoenix"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    # no published ports: only Phoenix reaches the database
+
+  phoenix:
+    image: arizephoenix/phoenix:20.21.0
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:6006:6006" # UI, REST and OTLP/HTTP; front it with TLS before exposing
+      - "127.0.0.1:4317:4317" # OTLP/gRPC
+    environment:
+      PHOENIX_POSTGRES_HOST: postgres
+      PHOENIX_POSTGRES_PORT: "5432"
+      PHOENIX_POSTGRES_USER: phoenix
+      PHOENIX_POSTGRES_DB: phoenix
+      PHOENIX_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PHOENIX_ENABLE_AUTH: "true"
+      PHOENIX_SECRET: ${PHOENIX_SECRET:?set PHOENIX_SECRET in the env file}
+      PHOENIX_DEFAULT_ADMIN_INITIAL_PASSWORD: ${PHOENIX_DEFAULT_ADMIN_INITIAL_PASSWORD:?set it in the env file}
+      PHOENIX_DEFAULT_RETENTION_POLICY_DAYS: "30" # decide per environment; 0 keeps everything forever
+      PHOENIX_TELEMETRY_ENABLED: "false"
+      PHOENIX_ENABLE_STRONG_PASSWORD_POLICY: "true"
+      PHOENIX_ALLOW_EXTERNAL_RESOURCES: "true" # set "false" on air-gapped hosts
+
+volumes:
+  phoenix-db:
