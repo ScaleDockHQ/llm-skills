@@ -1,0 +1,5 @@
+# DeepSpeed hostfile: one line per node, slots = GPUs on that node.
+# Hostnames or SSH aliases must be reachable by passwordless SSH (or use --no_ssh on each node).
+# Use: deepspeed --hostfile=hostfile train.py --deepspeed --deepspeed_config ds_config.json
+worker-1 slots=4
+worker-2 slots=4

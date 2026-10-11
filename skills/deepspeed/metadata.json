@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Agent skill for DeepSpeed training: install and match CUDA, write ZeRO-1/2/3 configs with CPU and NVMe offload, integrate with Hugging Face Trainer, TRL, Accelerate, PEFT and LLaMA-Factory, launch multi-GPU and multi-node jobs, convert ZeRO checkpoints, update and troubleshoot.",
+  "references": [
+    "https://github.com/deepspeedai/DeepSpeed",
+    "https://github.com/deepspeedai/DeepSpeed/releases",
+    "https://www.deepspeed.ai/getting-started/",
+    "https://www.deepspeed.ai/docs/config-json/",
+    "https://www.deepspeed.ai/tutorials/advanced-install/",
+    "https://www.deepspeed.ai/tutorials/zero/",
+    "https://deepspeed.readthedocs.io/en/latest/",
+    "https://huggingface.co/docs/transformers/deepspeed",
+    "https://huggingface.co/docs/transformers/debugging",
+    "https://pypi.org/project/deepspeed/"
+  ],
+  "kind": "product"
+}
