@@ -107,9 +107,10 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 #### Orchestration
 
-| Skill                             | Description                                                                                                                     | Install                                             |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| [`llama-swap`](skills/llama-swap) | Install, configure and operate llama-swap, the Go proxy that hot-swaps local models behind one OpenAI/Anthropic-compatible URL. | `npx skills add ScaleDockHQ/llms-skills@llama-swap` |
+| Skill                             | Description                                                                                                                                                                             | Install                                             |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| [`llama-swap`](skills/llama-swap) | Install, configure and operate llama-swap, the Go proxy that hot-swaps local models behind one OpenAI/Anthropic-compatible URL.                                                         | `npx skills add ScaleDockHQ/llms-skills@llama-swap` |
+| [`kserve`](skills/kserve)         | Install and operate KServe on Kubernetes for LLMs: LLMInferenceService (llm-d routing, prefill/decode, multi-node, WVA autoscaling, canary) and InferenceService with the vLLM runtime. | `npx skills add ScaleDockHQ/llms-skills@kserve`     |
 
 #### Gateways
 

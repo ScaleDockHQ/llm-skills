@@ -371,7 +371,7 @@
       "name": "kserve",
       "kind": "product",
       "category": "orchestration",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://github.com/kserve/kserve",
       "replaces": "skills/cloud-llms/references/kubernetes.md"
