@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install and serve SGLang Diffusion, the image and video generation runtime of the SGLang project. References cover installation and Docker tags, supported models and the OpenAI-style routes, performance modes, offload, parallelism, caching and quantization, serving operations and security, updating and troubleshooting.",
+  "references": [
+    "https://github.com/sgl-project/sglang",
+    "https://github.com/sgl-project/sglang/releases",
+    "https://pypi.org/project/sglang/",
+    "https://hub.docker.com/r/lmsysorg/sglang",
+    "https://docs.sglang.io/docs/sglang-diffusion",
+    "https://docs.sglang.io/docs/sglang-diffusion/installation",
+    "https://docs.sglang.io/docs/sglang-diffusion/api/cli",
+    "https://docs.sglang.io/docs/sglang-diffusion/api/openai_api",
+    "https://docs.sglang.io/docs/sglang-diffusion/compatibility_matrix",
+    "https://docs.sglang.io/docs/sglang-diffusion/deployment_cookbook",
+    "https://docs.sglang.io/docs/sglang-diffusion/parallelism",
+    "https://docs.sglang.io/docs/sglang-diffusion/production_metrics"
+  ],
+  "kind": "product"
+}
