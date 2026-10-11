@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Use Together AI from an agent: the OpenAI-compatible serverless API, dedicated model inference with the tg CLI, batch jobs, fine-tuning, spend controls and teardown of every billable resource. References are split by setup, API, dedicated inference, batch and fine-tuning, limits, LiteLLM wiring, teardown and troubleshooting.",
+  "references": [
+    "https://docs.together.ai/docs/quickstart",
+    "https://docs.together.ai/docs/api-keys-authentication",
+    "https://docs.together.ai/docs/projects",
+    "https://docs.together.ai/docs/billing-spend-controls",
+    "https://docs.together.ai/docs/billing-credits",
+    "https://docs.together.ai/docs/serverless/rate-limits",
+    "https://docs.together.ai/docs/inference/openai-compatibility",
+    "https://docs.together.ai/docs/inference/function-calling/single-call",
+    "https://docs.together.ai/docs/inference/chat/structured-outputs",
+    "https://docs.together.ai/docs/dedicated-endpoints/quickstart",
+    "https://docs.together.ai/docs/dedicated-endpoints/manage",
+    "https://docs.together.ai/docs/dedicated-endpoints/scaling",
+    "https://docs.together.ai/docs/dedicated-endpoints/migrate-from-v1",
+    "https://docs.together.ai/docs/dedicated-endpoints/pricing",
+    "https://docs.together.ai/docs/inference/batch/overview",
+    "https://docs.together.ai/docs/inference/batch/manage",
+    "https://docs.together.ai/docs/fine-tuning/quickstart",
+    "https://docs.together.ai/docs/fine-tuning/deployment",
+    "https://docs.together.ai/reference/cli/files",
+    "https://docs.litellm.ai/docs/providers/togetherai"
+  ],
+  "kind": "platform"
+}
