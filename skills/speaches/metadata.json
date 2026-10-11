@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Deploy and operate Speaches, the OpenAI-compatible speech server (faster-whisper STT, Kokoro and Piper TTS, Realtime API). References cover Docker and uv installs, every configuration variable with defaults, the verified HTTP routes, model download and preload, auth and hardening, LiteLLM, Open WebUI and llama-swap integration, updating and troubleshooting, with templates and curl scripts.",
+  "references": [
+    "https://github.com/speaches-ai/speaches",
+    "https://github.com/speaches-ai/speaches/releases",
+    "https://speaches.ai/",
+    "https://github.com/speaches-ai/speaches/blob/master/src/speaches/config.py",
+    "https://github.com/speaches-ai/speaches/blob/master/docs/installation.md",
+    "https://github.com/speaches-ai/speaches/blob/master/docs/usage/realtime-api.md",
+    "https://github.com/speaches-ai/speaches/blob/master/compose.cuda.yaml",
+    "https://github.com/speaches-ai/speaches/tree/master/src/speaches/routers",
+    "https://github.com/SYSTRAN/faster-whisper",
+    "https://github.com/mostlygeek/llama-swap",
+    "https://docs.litellm.ai/docs/audio_transcription"
+  ],
+  "kind": "product"
+}
