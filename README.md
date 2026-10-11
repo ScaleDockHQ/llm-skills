@@ -108,10 +108,11 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 #### Orchestration
 
-| Skill                             | Description                                                                                                                                                                             | Install                                             |
-| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| [`llama-swap`](skills/llama-swap) | Install, configure and operate llama-swap, the Go proxy that hot-swaps local models behind one OpenAI/Anthropic-compatible URL.                                                         | `npx skills add ScaleDockHQ/llms-skills@llama-swap` |
-| [`kserve`](skills/kserve)         | Install and operate KServe on Kubernetes for LLMs: LLMInferenceService (llm-d routing, prefill/decode, multi-node, WVA autoscaling, canary) and InferenceService with the vLLM runtime. | `npx skills add ScaleDockHQ/llms-skills@kserve`     |
+| Skill                             | Description                                                                                                                                                                                        | Install                                             |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| [`llama-swap`](skills/llama-swap) | Install, configure and operate llama-swap, the Go proxy that hot-swaps local models behind one OpenAI/Anthropic-compatible URL.                                                                    | `npx skills add ScaleDockHQ/llms-skills@llama-swap` |
+| [`kserve`](skills/kserve)         | Install and operate KServe on Kubernetes for LLMs: LLMInferenceService (llm-d routing, prefill/decode, multi-node, WVA autoscaling, canary) and InferenceService with the vLLM runtime.            | `npx skills add ScaleDockHQ/llms-skills@kserve`     |
+| [`llm-d`](skills/llm-d)           | Install and operate llm-d on Kubernetes: Router (EPP) with precise prefix-cache and predicted-latency routing, prefill/decode disaggregation, wide expert parallelism, KV offload and autoscaling. | `npx skills add ScaleDockHQ/llms-skills@llm-d`      |
 
 #### Gateways
 
@@ -193,10 +194,15 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 #### Generative media
 
-| Skill                               | Description                                                                                                                                                             | Install                                              |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| [`comfyui`](skills/comfyui)         | Install, run headless and operate ComfyUI, the node-graph engine for image, video and audio diffusion models (FLUX, SDXL, Wan, LTX), with its HTTP API, custom nodes... | `npx skills add ScaleDockHQ/llms-skills@comfyui`     |
-| [`whisper-cpp`](skills/whisper-cpp) | Build, run and tune whisper.cpp, the C/C++ Whisper speech-to-text engine (whisper-cli, whisper-server) with ggml models, quantization, VAD and Core ML, CUDA, Vulkan... | `npx skills add ScaleDockHQ/llms-skills@whisper-cpp` |
+| Skill                                     | Description                                                                                                                                                             | Install                                                 |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| [`comfyui`](skills/comfyui)               | Install, run headless and operate ComfyUI, the node-graph engine for image, video and audio diffusion models (FLUX, SDXL, Wan, LTX), with its HTTP API, custom nodes... | `npx skills add ScaleDockHQ/llms-skills@comfyui`        |
+| [`whisper-cpp`](skills/whisper-cpp)       | Build, run and tune whisper.cpp, the C/C++ Whisper speech-to-text engine (whisper-cli, whisper-server) with ggml models, quantization, VAD and Core ML, CUDA, Vulkan... | `npx skills add ScaleDockHQ/llms-skills@whisper-cpp`    |
+| [`chatterbox`](skills/chatterbox)         | Install and run Chatterbox, Resemble AI's MIT-licensed open text-to-speech family (Turbo 350M, Nano 110M, Multilingual V3 with 23 languages, original English)...       | `npx skills add ScaleDockHQ/llms-skills@chatterbox`     |
+| [`f5-tts`](skills/f5-tts)                 | Install and run F5-TTS, the flow-matching zero-shot voice-cloning text-to-speech model (F5TTS_v1_Base, E2-TTS) with f5-tts_infer-cli, the Gradio app, the...            | `npx skills add ScaleDockHQ/llms-skills@f5-tts`         |
+| [`kokoro-fastapi`](skills/kokoro-fastapi) | Run and tune Kokoro-FastAPI, the Dockerized FastAPI server for the Kokoro-82M text-to-speech model with an OpenAI-compatible /v1/audio/speech endpoint, voice...        | `npx skills add ScaleDockHQ/llms-skills@kokoro-fastapi` |
+| [`speaches`](skills/speaches)             | Deploy and operate Speaches, the OpenAI-compatible speech server (faster-whisper STT, Kokoro and Piper TTS, Realtime API) with Docker or uv, dynamic model...           | `npx skills add ScaleDockHQ/llms-skills@speaches`       |
+| [`faster-whisper`](skills/faster-whisper) | Install, run and tune faster-whisper, the CTranslate2 Python reimplementation of OpenAI Whisper for speech-to-text (WhisperModel, BatchedInferencePipeline)...          | `npx skills add ScaleDockHQ/llms-skills@faster-whisper` |
 
 #### Embeddings and RAG
 
@@ -307,7 +313,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 145 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 150 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 

@@ -380,7 +380,7 @@
       "name": "llm-d",
       "kind": "product",
       "category": "orchestration",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://github.com/llm-d/llm-d",
       "replaces": "skills/cloud-llms/references/kubernetes.md"
@@ -1502,7 +1502,7 @@
       "name": "faster-whisper",
       "kind": "product",
       "category": "generative-media",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/SYSTRAN/faster-whisper",
       "replaces": "skills/self-hosted-genmedia/references/speech-to-text.md"
@@ -1511,7 +1511,7 @@
       "name": "speaches",
       "kind": "product",
       "category": "generative-media",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/speaches-ai/speaches",
       "replaces": "skills/self-hosted-genmedia/references/speech-to-text.md"
@@ -1520,10 +1520,30 @@
       "name": "kokoro-fastapi",
       "kind": "product",
       "category": "generative-media",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/remsky/Kokoro-FastAPI",
       "replaces": "skills/self-hosted-genmedia/references/text-to-speech.md"
+    },
+    {
+      "name": "f5-tts",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/SWivid/F5-TTS",
+      "replaces": null,
+      "verifyStatus": true
+    },
+    {
+      "name": "chatterbox",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/resemble-ai/chatterbox",
+      "replaces": null,
+      "verifyStatus": true
     },
     {
       "name": "vllm-omni",
