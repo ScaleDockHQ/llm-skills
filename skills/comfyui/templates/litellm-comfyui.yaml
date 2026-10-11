@@ -1,0 +1,18 @@
+# LiteLLM model_list entry for an OpenAI-shaped image route that is backed by YOUR wrapper around ComfyUI.
+# LiteLLM v1.105.0 has no ComfyUI provider, so a wrapper (see references/integrations.md) must exist and be
+# registered in llama-swap as model "comfy-image" first. Verified against docs.litellm.ai (image_generation,
+# proxy/health, proxy/timeout), 2026-10-11. Keys and budgets belong to the litellm skill.
+model_list:
+  - model_name: comfy-image
+    litellm_params:
+      model: openai/comfy-image # openai/ prefix + llama-swap model id
+      api_base: http://127.0.0.1:8080/v1 # llama-swap; keep /v1
+      api_key: os.environ/LLAMA_SWAP_API_KEY
+      timeout: 900 # whole-call timeout for slow renders and cold swaps
+    model_info:
+      mode: image_generation
+      disable_background_health_check: true # a probe would load the model and evict the LLM
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  # health_check_skip_disabled_background_models: true # also hides it from on-demand /health (named in the health docs; check your version)

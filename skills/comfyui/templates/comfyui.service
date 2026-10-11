@@ -1,0 +1,25 @@
+# systemd user unit for a headless ComfyUI. Install only after the user approves:
+#   mkdir -p ~/.config/systemd/user && cp comfyui.service ~/.config/systemd/user/
+#   systemctl --user daemon-reload && systemctl --user enable --now comfyui
+# Verified against ComfyUI v0.39.0 flags (comfy/cli_args.py), 2026-10-11.
+# Create extra_model_paths.yaml first (see templates/extra_model_paths.yaml) or drop that flag.
+# Do not run this next to llama-swap managing the same ComfyUI: llama-swap starts and stops it itself.
+[Unit]
+Description=ComfyUI (headless, loopback only)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/ComfyUI
+# %h expands to the user's home directory. Adjust the venv path if yours differs.
+ExecStart=%h/ComfyUI/.venv/bin/python main.py --listen 127.0.0.1 --port 8188 --disable-auto-launch --disable-all-custom-nodes --offline --extra-model-paths-config %h/ComfyUI/extra_model_paths.yaml
+# Optional: pin a GPU, or leave memory for another process with --reserve-vram <GB> above.
+#Environment=CUDA_VISIBLE_DEVICES=0
+# Cap a runaway job (adjust to the host). Remove if unsure.
+#MemoryMax=48G
+#MemorySwapMax=0
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

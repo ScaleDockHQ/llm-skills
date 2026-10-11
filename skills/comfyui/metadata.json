@@ -1,0 +1,31 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, run headless and operate ComfyUI, the node-graph engine for image, video and audio diffusion models. References cover install paths and comfy-cli, launch flags and binding, the HTTP API with API-format workflows, model folders and extra_model_paths.yaml, custom nodes and ComfyUI-Manager security, VRAM and RAM flags, updating, troubleshooting and a combo with llama-swap and LiteLLM, plus a systemd unit, templates and a curl and jq job runner.",
+  "references": [
+    "https://github.com/Comfy-Org/ComfyUI",
+    "https://github.com/Comfy-Org/ComfyUI/releases",
+    "https://github.com/Comfy-Org/ComfyUI/blob/master/comfy/cli_args.py",
+    "https://github.com/Comfy-Org/ComfyUI/blob/master/server.py",
+    "https://github.com/Comfy-Org/ComfyUI/blob/master/extra_model_paths.yaml.example",
+    "https://github.com/Comfy-Org/ComfyUI/tree/master/script_examples",
+    "https://github.com/Comfy-Org/ComfyUI-Manager",
+    "https://github.com/Comfy-Org/comfy-cli",
+    "https://docs.comfy.org/installation/manual_install",
+    "https://docs.comfy.org/installation/update_comfyui",
+    "https://docs.comfy.org/basic-concepts/models",
+    "https://docs.comfy.org/development/comfyui-server/comms_overview",
+    "https://docs.comfy.org/development/comfyui-server/comms_routes",
+    "https://docs.comfy.org/development/comfyui-server/comms_messages",
+    "https://docs.comfy.org/development/comfyui-server/api-key-integration",
+    "https://registry.comfy.org",
+    "https://download.pytorch.org/whl/cu130/torch/",
+    "https://github.com/mostlygeek/llama-swap/blob/main/docs/kb/guides/upstreams/comfyui.md",
+    "https://docs.litellm.ai/docs/image_generation",
+    "https://docs.litellm.ai/docs/proxy/health",
+    "https://caddyserver.com/docs/caddyfile/directives/reverse_proxy",
+    "https://nginx.org/en/docs/http/websocket.html"
+  ],
+  "kind": "product"
+}
