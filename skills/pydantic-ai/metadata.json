@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Configure Pydantic AI (Python pydantic-ai 2.x) against self-hosted OpenAI- and Anthropic-compatible endpoints: vLLM, llama.cpp, Ollama, LiteLLM and llama-swap. Covers OpenAIChatModel with OpenAIProvider, VLLMProvider, OllamaProvider, LiteLLMProvider and AnthropicProvider, why bare openai: means Responses, model profiles, key handling without printing secrets, output modes (Tool, Native, Prompted), tool calling, streaming, thinking fields, single-system-message backends, troubleshooting, and a curl and jq probe script.",
+  "references": [
+    "https://github.com/pydantic/pydantic-ai",
+    "https://github.com/pydantic/pydantic-ai/releases",
+    "https://pypi.org/project/pydantic-ai/",
+    "https://pydantic.dev/docs/ai/models/openai/",
+    "https://pydantic.dev/docs/ai/models/compatible-apis/",
+    "https://pydantic.dev/docs/ai/models/ollama/",
+    "https://pydantic.dev/docs/ai/models/anthropic/",
+    "https://pydantic.dev/docs/ai/models/overview/",
+    "https://pydantic.dev/docs/ai/output/",
+    "https://pydantic.dev/docs/ai/tools/",
+    "https://pydantic.dev/docs/ai/api/pydantic-ai/profiles/"
+  ],
+  "kind": "product"
+}
