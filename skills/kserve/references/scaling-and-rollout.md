@@ -9,6 +9,10 @@ Setting `spec.scaling` makes KServe create a `VariantAutoscaling` object plus an
 `ScaledObject`) that applies `wva_desired_replicas` with target 1. `spec.scaling` and `spec.replicas` are
 mutually exclusive.
 
+Status: llm-d marked its WVA guides deprecated in v0.10.0 (its recommended path is KEDA on EPP metrics, see skill
+`llm-d`), while KServe v0.21.0 docs still document WVA for `LLMInferenceService`. Check the WVA install guide before
+relying on it.
+
 Prerequisites: the WVA controller (install per <https://llm-d.ai/docs/guides/workload-autoscaling>), Prometheus
 scraping the pods and WVA, and either Prometheus Adapter (HPA) or KEDA.
 

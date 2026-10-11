@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Deploy and operate llm-d on Kubernetes: the llm-d Router (EPP, InferencePool) over vLLM or SGLang pools. Covers the optimized-baseline quickstart in standalone and gateway mode, precise prefix-cache routing, prefill/decode and wide expert parallelism, tiered KV offload, flow control, KEDA autoscaling, rollouts, observability and upgrades. Verified against llm-d v0.10.0.",
+  "references": [
+    "https://llm-d.ai/docs/getting-started/quickstart",
+    "https://llm-d.ai/docs/well-lit-paths",
+    "https://llm-d.ai/docs/well-lit-paths/foundations/optimized-baseline",
+    "https://llm-d.ai/docs/operations",
+    "https://github.com/llm-d/llm-d",
+    "https://github.com/llm-d/llm-d/releases",
+    "https://github.com/llm-d/llm-d/tree/release-0.10/guides",
+    "https://github.com/llm-d/llm-d-router",
+    "https://github.com/llm-d/llm-d-autoscaling"
+  ],
+  "kind": "product"
+}

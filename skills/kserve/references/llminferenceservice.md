@@ -31,7 +31,8 @@ GPU each, `/health` liveness probe on HTTPS port 8000 with a 120 s initial delay
 
 The default preset image in the v0.21.0 repo is `ghcr.io/llm-d/llm-d-cuda:v0.9.0` and the scheduler image is
 `ghcr.io/llm-d/llm-d-router-endpoint-picker:v0.10.0` (`config/llmisvcconfig`). Override `spec.template.containers[0].image`
-to pin your own vLLM build.
+to pin your own vLLM build. llm-d deprecated `ghcr.io/llm-d/llm-d-cuda` builds in its v0.10.0 release in favor of
+`docker.io/vllm/vllm-openai`, so prefer an explicit vLLM image for new deployments.
 
 ## Multi-node and parallelism
 
