@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Pick and verify the tool-call parser for a model on each inference engine. Covers vLLM --enable-auto-tool-choice and --tool-call-parser, SGLang --tool-call-parser, TensorRT-LLM --tool_parser, llama.cpp --jinja templates, Ollama tools, TensorFold and TabbyAPI tool_format, with verified parser-name lists, a model-family-to-parser table, strict tool modes, a probe script and a tool-call success gate with rollback.",
+  "references": [
+    "https://docs.vllm.ai/en/latest/features/tool_calling/",
+    "https://github.com/vllm-project/vllm/blob/v0.31.0/vllm/tool_parsers/__init__.py",
+    "https://docs.sglang.ai/advanced_features/tool_parser.html",
+    "https://github.com/sgl-project/sglang/blob/v0.5.21/python/sglang/srt/function_call/parser_names.py",
+    "https://nvidia.github.io/TensorRT-LLM/commands/trtllm-serve/trtllm-serve.html",
+    "https://github.com/ggml-org/llama.cpp/blob/master/docs/function-calling.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://docs.ollama.com/capabilities/tool-calling",
+    "https://docs.ollama.com/api/openai-compatibility",
+    "https://github.com/ashhart/TensorFold/blob/main/docs/api.md",
+    "https://github.com/theroyallab/tabbyAPI/blob/main/docs/10.-Tool-Calling.md"
+  ],
+  "kind": "technique"
+}
