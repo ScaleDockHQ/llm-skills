@@ -1,0 +1,26 @@
+# vLLM-Omni: troubleshooting
+
+> Verified against vLLM-Omni v0.30.0 (vLLM 0.30.0) (docs usage/faq, installation, serving, configuration and diffusion guides), 2026-10-11
+
+Start with the server log, `vllm --version`, `pip list | grep -i vllm` and `nvidia-smi`.
+
+| Symptom                                                               | Cause                                                                           | Fix                                                                                                              |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Warning about version mismatch on import, odd errors                  | vLLM and vLLM-Omni minor versions differ                                        | install the same major.minor of both (`updating.md`)                                                             |
+| `--omni` ignored or unknown argument                                  | wrong environment, or vLLM-Omni not installed in the env that owns `vllm`       | activate the right env; `pip list` shows both packages                                                           |
+| "free memory is less than desired GPU memory utilization" or CUDA OOM | requested fraction exceeds free VRAM, other processes on the GPU, model too big | lower `gpu_memory_utilization`, stop other users (`nvidia-smi`), offload, quantize, TP (`performance-memory.md`) |
+| Two stages fail to start on one GPU                                   | fractions sum above 1.0 or two AR stages on one chip                            | shrink fractions; place AR stages on separate GPUs                                                               |
+| Pre-built install picks 0.28                                          | stale doc examples                                                              | pin `vllm==0.30.0` and `vllm-omni==0.30.0` explicitly                                                            |
+| Binary or NCCL errors after install                                   | conda PyTorch, mixed CUDA builds                                                | fresh uv venv, matching CUDA, or build vLLM from source                                                          |
+| Docker container exits immediately with CUDA image                    | no default entrypoint                                                           | add `vllm serve MODEL --omni --port 8091` after the image name                                                   |
+| Route returns an OpenAI-style error                                   | model does not support the task                                                 | pick the endpoint for that model (`models-and-api.md`)                                                           |
+| Client times out on image or video                                    | long generation                                                                 | raise timeouts; use `POST /v1/videos` and poll                                                                   |
+| `POST /v1/videos` returns 409                                         | multiple API frontends (`--api-server-count`)                                   | use one frontend for video jobs                                                                                  |
+| `--max-num-seqs 4` fails at init                                      | pipeline lacks request-batch support                                            | use 1                                                                                                            |
+| Server reachable by others                                            | default bind is all interfaces                                                  | `--host 127.0.0.1`, firewall, `--api-key`, gateway                                                               |
+| Gated model download fails                                            | missing licence or token                                                        | accept the licence, set `HF_TOKEN` (see `hugging-face`)                                                          |
+| Sleep, wakeup or other calls fail with multiple API frontends         | process-local state                                                             | run a single frontend                                                                                            |
+| ROCm image tag not found                                              | no `v0.30.x` tag listed at verification time                                    | check tags, or build from source for the paired vLLM                                                             |
+| Quantized output looks wrong                                          | combination not validated for the model                                         | use a validated pair or drop quantization                                                                        |
+
+Report bugs to vllm-project/vllm-omni issues with environment details and a minimal reproducer (review output before sharing; `collect_env.py` exists in the repo).
