@@ -1,0 +1,23 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run and operate Traefik Proxy as the TLS and auth front of self-hosted LLM endpoints. Covers Docker Compose installs, routers, services and the Docker and file providers, middlewares (forwardAuth, basicAuth, ipAllowList, rateLimit), Let's Encrypt, streaming-safe timeouts for SSE, logs and metrics, v3 upgrades and troubleshooting.",
+  "references": [
+    "https://github.com/traefik/traefik",
+    "https://github.com/traefik/traefik/releases",
+    "https://doc.traefik.io/traefik/",
+    "https://doc.traefik.io/traefik/getting-started/docker/",
+    "https://doc.traefik.io/traefik/reference/install-configuration/entrypoints/",
+    "https://doc.traefik.io/traefik/reference/install-configuration/api-dashboard/",
+    "https://doc.traefik.io/traefik/reference/install-configuration/providers/docker/",
+    "https://doc.traefik.io/traefik/reference/install-configuration/tls/certificate-resolvers/acme/",
+    "https://doc.traefik.io/traefik/reference/install-configuration/observability/healthcheck/",
+    "https://doc.traefik.io/traefik/reference/routing-configuration/http/load-balancing/service/",
+    "https://doc.traefik.io/traefik/reference/routing-configuration/http/middlewares/forwardauth/",
+    "https://doc.traefik.io/traefik/reference/routing-configuration/http/middlewares/buffering/",
+    "https://doc.traefik.io/traefik/deprecation/releases/",
+    "https://doc.traefik.io/traefik/migrate/v2-to-v3/"
+  ],
+  "kind": "product"
+}

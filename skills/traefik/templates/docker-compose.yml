@@ -1,0 +1,27 @@
+# Traefik with the file provider. Pin the tag; record its digest.
+services:
+  traefik:
+    image: traefik:v3.7.14
+    restart: unless-stopped
+    command: ["--configFile=/etc/traefik/traefik.yml"]
+    ports:
+      - "80:80"
+      - "443:443"
+      # dashboard stays private; enable api.insecure only locally:
+      # - "127.0.0.1:8080:8080"
+    volumes:
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./dynamic:/etc/traefik/dynamic:ro
+      - traefik-data:/data # acme.json lives here, chmod 600
+    env_file:
+      - path: ./traefik.env # DNS challenge tokens, chmod 600
+        required: false
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+volumes:
+  traefik-data:

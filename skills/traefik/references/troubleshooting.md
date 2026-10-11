@@ -1,0 +1,21 @@
+# Traefik: troubleshooting
+
+> Verified against Traefik v3.7.14 (docs for v3.7), 2026-10-11
+
+Sources: reference docs for entrypoints, Docker provider, ACME, middlewares; `/api/http/routers` for live state.
+
+| Symptom                                    | Likely cause                                                                                              | Fix                                                                                                           |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| 404 page not found                         | No router matches the Host or path, wrong entrypoint, container not enabled                               | `/api/http/routers`; check rule backticks, `entryPoints`, `traefik.enable=true` with `exposedByDefault=false` |
+| 502 Bad Gateway                            | Backend down, wrong port, backend on host but URL is 127.0.0.1 inside the container, wrong Docker network | Fix `server.port` label or URL; set `providers.docker.network`; use service name or host-gateway              |
+| 504 Gateway Timeout                        | `responseHeaderTimeout` or dial timeout too low, backend slow to first token                              | Raise or unset `forwardingTimeouts`                                                                           |
+| Stream cut after N seconds                 | Non-zero `writeTimeout`, another proxy in front, client timeout                                           | Entry `writeTimeout: 0s`; check upstream proxies                                                              |
+| Stream arrives all at once                 | buffering middleware, compression, forwardBody                                                            | Remove them; set flushInterval -1                                                                             |
+| Default self-signed cert served            | ACME failed or router lacks `tls`/`certResolver`; DNS not pointing here                                   | Read logs for ACME errors; use staging; confirm challenge port reachable                                      |
+| ACME rate limited                          | Repeated production attempts                                                                              | Use staging `caServer`; wait                                                                                  |
+| `acme.json` permissions error              | File not `0600`                                                                                           | `chmod 600`                                                                                                   |
+| Dashboard open to the world                | `api.insecure=true` published on 8080                                                                     | Disable; route `api@internal` through auth                                                                    |
+| Config change not applied                  | Static option changed without restart, or file provider `watch` off                                       | Restart; check provider logs                                                                                  |
+| 401 from every call                        | forwardAuth or basicAuth failing; wrong header forwarded                                                  | `authRequestHeaders`; test the auth service directly                                                          |
+| Client IP wrong in allowlist or rate limit | Behind another proxy                                                                                      | `ipStrategy.depth` or `excludedIPs`                                                                           |
+| Docker provider errors                     | Socket not mounted or permission denied                                                                   | Mount the socket (read-only), or use a socket proxy                                                           |
