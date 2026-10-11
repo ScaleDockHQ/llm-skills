@@ -365,10 +365,11 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`vllm-kserve-keda`](skills/vllm-kserve-keda)                       | Deploy vLLM on Kubernetes with KServe (InferenceService or LLMInferenceService) and autoscale it with KEDA from vLLM Prometheus metrics, with a pinned runtime and teardown.         | `npx skills add ScaleDockHQ/llms-skills@vllm-kserve-keda`            |
 | [`llm-d-vllm-kubernetes`](skills/llm-d-vllm-kubernetes)             | Deploy vLLM behind the llm-d router on Kubernetes (Gateway API Inference Extension): optimized baseline, prefill/decode pools over NIXL and KEDA autoscaling.                        | `npx skills add ScaleDockHQ/llms-skills@llm-d-vllm-kubernetes`       |
 | [`dynamo-trtllm-disaggregated`](skills/dynamo-trtllm-disaggregated) | Run TensorRT-LLM prefill and decode as separate NVIDIA Dynamo workers on Kubernetes (DynamoGraphDeployment, NIXL over RDMA, KV-aware router, Planner).                               | `npx skills add ScaleDockHQ/llms-skills@dynamo-trtllm-disaggregated` |
+| [`lobehub`](skills/lobehub)                                         | LobeHub v2 chat workspace: Compose install, OpenAI/Anthropic-compatible proxy URLs, model lists, updates                                                                             | `npx skills add ScaleDockHQ/llms-skills@lobehub`                     |
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 199 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 198 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
