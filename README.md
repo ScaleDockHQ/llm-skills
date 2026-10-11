@@ -145,6 +145,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`traefik`](skills/traefik)                           | Front LLM endpoints with Traefik Proxy: Compose install, routers and middlewares, Let's Encrypt, SSE-safe timeouts, forwardAuth, upgrade, troubleshoot.                                                | `npx skills add ScaleDockHQ/llms-skills@traefik`              |
 | [`caddy`](skills/caddy)                               | Caddy is a web server and reverse proxy with automatic HTTPS, used as a loopback front for LLM endpoints.                                                                                              | `npx skills add ScaleDockHQ/llms-skills@caddy`                |
 | [`nccl-rdma-networking`](skills/nccl-rdma-networking) | NCCL over InfiniBand, RoCE and GPUDirect RDMA for multi-node GPU inference and training, verifying the fabric before tuning NCCL. Use to diagnose NET/Socket instead of NET/IB/GDRDMA, slow or hung... | `npx skills add ScaleDockHQ/llms-skills@nccl-rdma-networking` |
+| [`nccl-rdma-networking`](skills/nccl-rdma-networking) | Make NCCL use InfiniBand, RoCE and GPUDirect RDMA across GPU nodes: test ladder, nvidia-peermem or DMA-BUF, ACS and IOMMU, env vars, containers, troubleshoot.                                         | `npx skills add ScaleDockHQ/llms-skills@nccl-rdma-networking` |
 
 #### Quantization
 
@@ -367,7 +368,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 198 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 199 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
