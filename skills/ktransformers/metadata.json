@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve, tune and troubleshoot KTransformers, the CPU+GPU hybrid inference stack (kt-kernel plus the sglang-kt fork and the kt CLI) for huge Mixture-of-Experts models. Covers pip and source installs, CPU backends (AMX, AVX512, AVX2, llamafile), native FP8, BF16 and RAWINT4 weights, AMX conversion, GGUF experts, the --kt-* flags, NUMA and thread sizing, expert placement, deferred experts, layerwise prefill, exposure and security. Includes a launch script, systemd unit and a DeepSeek-V4-Flash compose file. Verified against KTransformers v0.7.1.",
+  "references": [
+    "https://github.com/kvcache-ai/ktransformers",
+    "https://github.com/kvcache-ai/ktransformers/releases",
+    "https://github.com/kvcache-ai/ktransformers/blob/main/kt-kernel/README.md",
+    "https://github.com/kvcache-ai/ktransformers/blob/main/doc/en/kt-kernel/kt-cli.md",
+    "https://github.com/kvcache-ai/ktransformers/blob/main/doc/en/kt-kernel/Native-Precision-Tutorial.md",
+    "https://github.com/kvcache-ai/ktransformers/blob/main/doc/en/kt-kernel/experts-sched-Tutorial.md",
+    "https://github.com/kvcache-ai/ktransformers/blob/main/doc/en/kt-kernel/AVX2-Tutorial.md",
+    "https://github.com/kvcache-ai/ktransformers/blob/main/doc/en/kt-kernel/Qwen3-Coder-Next-Tutorial.md",
+    "https://github.com/kvcache-ai/ktransformers/blob/main/doc/en/kt-kernel/Kimi-K2-Thinking-Native.md",
+    "https://github.com/kvcache-ai/ktransformers/blob/main/doc/en/DeepSeek-V4-Flash.md",
+    "https://github.com/kvcache-ai/ktransformers/blob/main/doc/en/FAQ.md",
+    "https://github.com/kvcache-ai/sglang",
+    "https://pypi.org/project/kt-kernel/",
+    "https://pypi.org/project/sglang-kt/",
+    "https://hub.docker.com/r/approachingai/ktransformers"
+  ],
+  "kind": "product"
+}

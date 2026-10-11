@@ -1,0 +1,34 @@
+# /etc/systemd/system/ktransformers.service
+# Runs the launch script from a venv: python3 -m venv /opt/ktransformers/venv && /opt/ktransformers/venv/bin/pip install kt-kernel==X sglang-kt==X
+# Copy templates/launch-sglang-kt.sh to /opt/ktransformers/launch-sglang-kt.sh (chmod 0755).
+# Create /etc/ktransformers/ktransformers.env with chmod 0600, owner root, for example:
+#   KT_VENV=/opt/ktransformers/venv
+#   KT_MODEL=/srv/models/Qwen3-30B-A3B
+#   KT_METHOD=BF16
+#   KT_CPUINFER=64        (physical cores)
+#   KT_POOLS=2            (NUMA nodes)
+#   KT_GPU_EXPERTS=32
+#   HF_TOKEN=...          (only for gated downloads; never needed at serve time for local weights)
+[Unit]
+Description=KTransformers (SGLang + kt-kernel) hybrid MoE server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ktransformers
+Group=ktransformers
+EnvironmentFile=/etc/ktransformers/ktransformers.env
+Environment=HOME=/var/lib/ktransformers
+WorkingDirectory=/var/lib/ktransformers
+# Host and port come from KT_HOST (default 127.0.0.1) and KT_PORT in the script. Front it with a proxy that authenticates.
+ExecStart=/opt/ktransformers/launch-sglang-kt.sh
+Restart=on-failure
+RestartSec=30
+# Loading hundreds of GB of weights takes many minutes.
+TimeoutStartSec=3600
+TimeoutStopSec=120
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
