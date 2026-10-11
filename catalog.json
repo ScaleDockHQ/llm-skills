@@ -1554,7 +1554,7 @@
       "name": "vllm-omni",
       "kind": "product",
       "category": "generative-media",
-      "status": "planned",
+      "status": "stable",
       "wave": 9,
       "upstream": "https://github.com/vllm-project/vllm-omni",
       "replaces": null,
