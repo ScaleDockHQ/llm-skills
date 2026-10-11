@@ -1,0 +1,18 @@
+# Per-pool driver with its own rollout policy (docs: GPU Driver Upgrades). nvidia.com/v1alpha1.
+apiVersion: nvidia.com/v1alpha1
+kind: NVIDIADriver
+metadata:
+  name: llm-pool
+spec:
+  version: 580.173.02 # pick from the component matrix for your operator version
+  nodeSelector:
+    driver.config: llm-pool # label GPU nodes with this
+  upgradePolicy:
+    autoUpgrade: true
+    maxParallelUpgrades: 1
+    maxUnavailable: 25%
+    drain:
+      enable: true
+      force: false
+      timeoutSeconds: 300
+      deleteEmptyDir: false

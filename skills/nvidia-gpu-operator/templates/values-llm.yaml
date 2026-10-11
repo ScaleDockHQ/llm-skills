@@ -1,0 +1,19 @@
+# Helm values sketch for LLM nodes. Adjust per references/install.md, then:
+#   helm install --wait gpu-operator -n gpu-operator --create-namespace \
+#     oci://nvcr.io/nvidia/cloud-native-charts/gpu-operator --version=v26.7.1 -f values-llm.yaml
+driver:
+  enabled: true # false when the driver is preinstalled
+  # useOpenKernelModules: true     # GH200 and GDS need open kernel modules
+toolkit:
+  enabled: true # false when the toolkit is preinstalled (DGX OS)
+nfd:
+  enabled: true # false when NFD already runs in the cluster
+dcgmExporter:
+  enabled: true
+  # enablePodLabels: true          # adds a ClusterRole; also set podLabelAllowlistRegex
+cdi:
+  enabled: true
+mig:
+  strategy: none # single or mixed to use MIG
+operator:
+  cleanupCRD: false # true removes CRDs on helm uninstall

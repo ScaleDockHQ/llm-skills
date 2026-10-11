@@ -1,0 +1,21 @@
+# Time-slicing ConfigMap (no memory or fault isolation). Apply in the operator namespace, then patch ClusterPolicy:
+#   kubectl patch clusterpolicies.nvidia.com/cluster-policy -n gpu-operator --type merge \
+#     -p '{"spec":{"devicePlugin":{"config":{"name":"time-slicing-config"}}}}'
+# and label nodes: kubectl label node <node> nvidia.com/device-plugin.config=any
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: time-slicing-config
+  namespace: gpu-operator
+data:
+  any: |-
+    version: v1
+    flags:
+      migStrategy: none
+    sharing:
+      timeSlicing:
+        renameByDefault: false
+        failRequestsGreaterThanOne: true
+        resources:
+          - name: nvidia.com/gpu
+            replicas: 4
