@@ -1,0 +1,18 @@
+# Example config.pbtxt for an ONNX model with dynamic batching and two GPU instances.
+# Place at <repo>/<model>/config.pbtxt with the model at <repo>/<model>/1/model.onnx.
+# Tune with perf_analyzer; verify what Triton resolved with GET /v2/models/<model>/config.
+name: "my_model"
+backend: "onnxruntime"
+max_batch_size: 8
+input [
+  { name: "input0", data_type: TYPE_FP32, dims: [ 3, 224, 224 ] }
+]
+output [
+  { name: "output0", data_type: TYPE_FP32, dims: [ 1000 ] }
+]
+dynamic_batching {
+  max_queue_delay_microseconds: 100
+}
+instance_group [
+  { count: 2, kind: KIND_GPU }
+]
