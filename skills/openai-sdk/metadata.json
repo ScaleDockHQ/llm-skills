@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Use the official OpenAI Python and Node SDKs against self-hosted LLM servers. Covers base URL and key handling without printing secrets, custom headers, timeouts, retries, proxies and TLS, Chat Completions versus Responses, streaming and usage, tool calling, structured output, reasoning fields, extra_body, recipes for vLLM, llama.cpp, Ollama, LiteLLM and llama-swap with model-name mapping, and troubleshooting, with a Node smoke test and a read-only endpoint probe script.",
+  "references": [
+    "https://github.com/openai/openai-python",
+    "https://github.com/openai/openai-node",
+    "https://platform.openai.com/docs/api-reference",
+    "https://docs.vllm.ai/en/latest/features/tool_calling.html",
+    "https://docs.vllm.ai/en/latest/features/reasoning_outputs.html",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://docs.ollama.com/api/openai-compatibility",
+    "https://github.com/mostlygeek/llama-swap"
+  ],
+  "kind": "product"
+}
