@@ -217,6 +217,10 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`milvus`](skills/milvus)                                       | Run Milvus (Lite, single container or Compose standalone) beside your LLM stack: requirements, hardened compose, index memory math, auth, upgrades, LiteLLM embeddings and Open WebUI. | `npx skills add ScaleDockHQ/llms-skills@milvus`                    |
 | [`weaviate`](skills/weaviate)                                   | Run Weaviate beside your LLM stack: Docker install, memory sizing and quantization, API-key auth and RBAC, text2vec-openai via LiteLLM or TEI, backups, upgrades.                      | `npx skills add ScaleDockHQ/llms-skills@weaviate`                  |
 | [`chroma`](skills/chroma)                                       | Run Chroma beside your LLM stack: Docker install, RAM sizing, token proxy (v1 has no built-in auth), OpenAI-compatible embedding function via LiteLLM or TEI, backups, upgrades.       | `npx skills add ScaleDockHQ/llms-skills@chroma`                    |
+| [`infinity`](skills/infinity)                                   | Run Infinity (infinity_emb), a multi-model REST server for embeddings, rerankers, CLIP and ColBERT, beside your LLM stack: install, config, security, LiteLLM, update.                 | `npx skills add ScaleDockHQ/llms-skills@infinity`                  |
+| [`qdrant`](skills/qdrant)                                       | Run Qdrant beside your LLM stack: Docker install, RAM sizing, memory tiers and quantization, API keys and TLS, snapshots, upgrades, LiteLLM embeddings and Open WebUI wiring.          | `npx skills add ScaleDockHQ/llms-skills@qdrant`                    |
+| [`pgvector`](skills/pgvector)                                   | Add vector search to Postgres with pgvector beside your LLM stack: Docker images, sizing, HNSW and IVFFlat, iterative scans, security, upgrades, LiteLLM embeddings and Open WebUI.    | `npx skills add ScaleDockHQ/llms-skills@pgvector`                  |
+| [`mcp-servers`](skills/mcp-servers)                             | Connect a self-hosted LLM stack to MCP tools: stdio vs streamable HTTP (spec 2026-07-28), authentication, Qdrant, Chroma and Postgres servers, LiteLLM MCP gateway.                    | `npx skills add ScaleDockHQ/llms-skills@mcp-servers`               |
 
 ### Platform skills
 
@@ -325,7 +329,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 162 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 166 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 

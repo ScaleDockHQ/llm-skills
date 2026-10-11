@@ -1598,7 +1598,7 @@
       "name": "infinity",
       "kind": "product",
       "category": "embeddings-rag",
-      "status": "planned",
+      "status": "stable",
       "wave": 9,
       "upstream": "https://github.com/michaelfeil/infinity",
       "replaces": null
@@ -1607,7 +1607,7 @@
       "name": "qdrant",
       "kind": "product",
       "category": "embeddings-rag",
-      "status": "planned",
+      "status": "stable",
       "wave": 9,
       "upstream": "https://github.com/qdrant/qdrant",
       "replaces": null
@@ -1616,7 +1616,7 @@
       "name": "pgvector",
       "kind": "product",
       "category": "embeddings-rag",
-      "status": "planned",
+      "status": "stable",
       "wave": 9,
       "upstream": "https://github.com/pgvector/pgvector",
       "replaces": null
@@ -1652,7 +1652,7 @@
       "name": "mcp-servers",
       "kind": "product",
       "category": "embeddings-rag",
-      "status": "planned",
+      "status": "stable",
       "wave": 9,
       "upstream": "https://modelcontextprotocol.io",
       "replaces": null,
