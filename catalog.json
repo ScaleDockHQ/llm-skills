@@ -275,7 +275,7 @@
       "name": "aphrodite-engine",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 9,
       "upstream": "https://github.com/aphrodite-engine/aphrodite-engine",
       "replaces": null,
@@ -352,11 +352,12 @@
       "name": "gpt4all",
       "kind": "product",
       "category": "local-runtimes",
-      "status": "planned",
+      "status": "note-only",
       "wave": 9,
       "upstream": "https://github.com/nomic-ai/gpt4all",
       "replaces": null,
-      "verifyStatus": true
+      "verifyStatus": true,
+      "note": "GPT4All is dormant: the last release is v3.10.0 (2025-02-25), the last code commit is 2025-02-25 (a CI-only change followed on 2025-05-27), and since then the repository has received only translation proposals and unanswered issues."
     },
     {
       "name": "llama-swap",
