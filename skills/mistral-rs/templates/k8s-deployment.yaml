@@ -1,0 +1,92 @@
+# Single-replica mistral.rs on Kubernetes (NVIDIA device plugin). Pinned image; model cache on a PVC.
+# Create the Secret from a file, not from shell history (only gated models need it):
+#   kubectl create secret generic hf-token-secret --from-file=token=./hf-token.txt   (file mode 0600)
+# The server has no authentication: expose it only through an authenticating gateway or ingress.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mistralrs-data
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 100Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mistralrs
+  labels:
+    app: mistralrs
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate # a rolling update would need two GPUs at once
+  selector:
+    matchLabels:
+      app: mistralrs
+  template:
+    metadata:
+      labels:
+        app: mistralrs
+    spec:
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: mistralrs-data
+      containers:
+        - name: mistralrs
+          image: ghcr.io/ericlbuehler/mistral.rs:cuda128-sm89-0.9.4 # pin; pick lane and sm from your nodes
+          args:
+            - serve
+            - --host=0.0.0.0 # pod network; reach it only through a ClusterIP Service
+            - --port=1234
+            - -m
+            - Qwen/Qwen3-4B
+            - --quant=4
+            - --max-seqs=32
+            - --pa-memory-fraction=0.8
+          env:
+            - name: HF_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: hf-token-secret
+                  key: token
+                  optional: true
+          ports:
+            - containerPort: 1234
+          resources:
+            limits:
+              nvidia.com/gpu: "1"
+          volumeMounts:
+            - name: data
+              mountPath: /data # HF_HOME in the image
+          startupProbe: # download, quantization and warmup are slow; /health says nothing about model load
+            httpGet:
+              path: /v1/models
+              port: 1234
+            periodSeconds: 10
+            failureThreshold: 180
+          readinessProbe:
+            httpGet:
+              path: /v1/models
+              port: 1234
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 1234
+            periodSeconds: 30
+            failureThreshold: 6
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mistralrs
+spec:
+  type: ClusterIP
+  selector:
+    app: mistralrs
+  ports:
+    - port: 1234
+      targetPort: 1234

@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve, quantize, tune, scale out, update and troubleshoot mistral.rs, the Rust LLM inference engine with the mistralrs CLI. Covers the installer, Docker and pip installs, CUDA lane selection, ISQ, UQFF and GGUF quantization, paged attention, OpenAI, Responses and Anthropic APIs, tool calling, structured output, dynamic LoRA, MTP speculative decoding, agent and sandbox safety, NCCL multi-GPU, Prometheus metrics, and Kubernetes. Includes TOML, compose, systemd and Kubernetes templates. Verified against mistral.rs v0.9.4.",
+  "references": [
+    "https://github.com/EricLBuehler/mistral.rs",
+    "https://github.com/EricLBuehler/mistral.rs/releases",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/quickstart.mdx",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/reference/hardware-support.md",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/reference/cli-toml-config.md",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/reference/environment-variables.md",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/reference/http-api.md",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/reference/openai-compatibility.md",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/reference/supported-models.md",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/reference/sandbox.md",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/guides/deploy/docker.md",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/guides/deploy/production-checklist.md",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/guides/deploy/observability.mdx",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/guides/perf/distributed-inference.mdx",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/guides/perf/throughput-tuning.mdx",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/guides/perf/speculative-decoding.mdx",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/guides/quantization/quantize-a-model.mdx",
+    "https://github.com/EricLBuehler/mistral.rs/blob/master/docs/src/content/docs/guides/serve/coding-agents.md",
+    "https://github.com/orgs/EricLBuehler/packages/container/package/mistral.rs",
+    "https://pypi.org/project/mistralrs/"
+  ],
+  "kind": "product"
+}
