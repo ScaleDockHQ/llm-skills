@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Host your own LLM on Amazon SageMaker AI: deploy JumpStart or Hugging Face models with AWS LMI (vLLM) containers to real-time, asynchronous or inference-component endpoints, scale to zero, call them with SigV4 or LiteLLM, control cost and delete the endpoint, endpoint config and model. References cover setup, deploy flows, scaling and budgets, gateway wiring, teardown and troubleshooting.",
+  "references": [
+    "https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-deploy-models.html",
+    "https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-test-endpoints.html",
+    "https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-delete-resources.html",
+    "https://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-auto-scaling-zero-instances.html",
+    "https://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-auto-scaling-prerequisites.html",
+    "https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference.html",
+    "https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference-invoke-endpoint.html",
+    "https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference-autoscale.html",
+    "https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference-delete-endpoint.html",
+    "https://docs.aws.amazon.com/sagemaker/latest/dg/serverless-endpoints.html",
+    "https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-use-python-sdk.html",
+    "https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-container-docs.html",
+    "https://docs.aws.amazon.com/sagemaker/latest/dg/inference-cost-optimization.html",
+    "https://docs.djl.ai/master/docs/serving/serving/docs/lmi/index.html",
+    "https://docs.djl.ai/master/docs/serving/serving/docs/lmi/user_guides/starting-guide.html",
+    "https://docs.djl.ai/master/docs/serving/serving/docs/lmi/user_guides/chat_input_output_schema.html",
+    "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html",
+    "https://docs.aws.amazon.com/cli/latest/reference/sagemaker/list-endpoints.html",
+    "https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html",
+    "https://docs.litellm.ai/docs/providers/aws_sagemaker"
+  ],
+  "kind": "platform"
+}
