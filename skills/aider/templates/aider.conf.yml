@@ -1,0 +1,10 @@
+# Copy to ~/.aider.conf.yml or the project root. No secrets here:
+# keys go in .env or the environment (OPENAI_API_KEY).
+model: openai/coder
+weak-model: openai/small
+openai-api-base: http://HOST:PORT/v1
+# edit-format: whole        # for small models that garble diffs
+# map-tokens: 1024          # shrink or 0 for small context windows
+# timeout: 600              # seconds; cold model loads
+check-update: false
+analytics: false
