@@ -1,0 +1,30 @@
+# Bifrost gateway, single instance, SQLite on a local volume.
+# Pin the tag: read https://github.com/maximhq/bifrost/releases (transports/vX.Y.Z) and the Docker Hub tag list first.
+services:
+  bifrost:
+    image: maximhq/bifrost:v2.2.6
+    container_name: bifrost
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080" # publish to loopback; put TLS and auth in front for remote use
+    environment:
+      APP_HOST: "0.0.0.0" # inside the container
+      APP_PORT: "8080"
+      LOG_LEVEL: "info"
+      LOG_STYLE: "json"
+      # Secrets come from a 0600 .env file next to this compose file; never inline them.
+      BIFROST_ENCRYPTION_KEY: "${BIFROST_ENCRYPTION_KEY}"
+      BIFROST_SETUP_TOKEN: "${BIFROST_SETUP_TOKEN}"
+      OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+      ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:-}"
+    volumes:
+      - ./data:/app/data # config.json, config.db, logs.db
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget -qO- http://localhost:8080/health >/dev/null || exit 1",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 5

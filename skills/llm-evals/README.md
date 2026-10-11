@@ -24,11 +24,11 @@ npx skills add ScaleDockHQ/llms-skills --skill llm-evals
 The `SKILL.md` overview is always loaded; the agent pulls a reference only when a step needs it.
 
 - [`references/eval-strategy.md`](references/eval-strategy.md) — what to measure, golden-set design, sizing, slicing, provenance and hold-out.
-- [`references/promptfoo.md`](references/promptfoo.md) — promptfoo against OpenAI-compatible endpoints: providers, auth, assertions, CLI flags, exit codes, per-item comparison.
-- [`references/lm-eval-harness.md`](references/lm-eval-harness.md) — `local-completions` vs `local-chat-completions`, logprobs and tokenizer requirements, model_args, smoke runs.
+- [`references/promptfoo.md`](references/promptfoo.md) — how promptfoo plugs into this stack; depth is in the `promptfoo` skill.
+- [`references/lm-eval-harness.md`](references/lm-eval-harness.md) — how lm-evaluation-harness plugs into this stack (chat vs completions, logprobs); depth is in the `lm-evaluation-harness` skill.
 - [`references/llm-as-judge.md`](references/llm-as-judge.md) — `llm-rubric`, judge configuration, thresholds, calibration, bias.
 - [`references/quality-gates.md`](references/quality-gates.md) — perplexity and KL divergence vs task evals, A/B protocol, thresholds, decision record.
-- [`references/regression-ci.md`](references/regression-ci.md) — GitHub Actions workflow with promptfoo, tiers, private endpoints, secrets.
+- [`references/regression-ci.md`](references/regression-ci.md) — CI tiers, gate policy, private endpoints and data; the workflow YAML lives in the `promptfoo` skill.
 - [`references/pitfalls.md`](references/pitfalls.md) — contamination, temperature and non-determinism, chat template mismatches, reasoning tokens, truncation.
 
 **Templates:**
@@ -47,6 +47,9 @@ The `SKILL.md` overview is always loaded; the agent pulls a reference only when 
 
 From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
 
+- `inspect-ai`, `lighteval`, `deepeval`, `evalplus`, `swe-bench`, `guidellm`, `nvidia-aiperf` — eval runner and benchmark depth.
+- `promptfoo` — task-eval runner in depth: config, assertions, CLI, CI workflow, quantization A/B gate.
+- `lm-evaluation-harness` — public benchmarks in depth: endpoint model types, backends, tasks, results.
 - `self-hosted-llms` — serving stacks; its "numerics-changing options need a quality gate" rule points here.
 - `model-quantization` — quantized candidates; its quality checks send task evals here.
 - `llm-gateway` — LiteLLM endpoints and keys the evals run through.

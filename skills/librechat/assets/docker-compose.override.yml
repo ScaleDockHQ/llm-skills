@@ -1,0 +1,21 @@
+# docker-compose.override.yml for LibreChat (copy next to docker-compose.yml; Compose merges it).
+# Verified against LibreChat v0.8.8, 2026-10-11.
+services:
+  api:
+    volumes:
+      # Mount the custom-endpoint config. An absolute CONFIG_PATH env var is the alternative.
+      - type: bind
+        source: ./librechat.yaml
+        target: /app/librechat.yaml
+    # The upstream compose already sets extra_hosts host.docker.internal:host-gateway.
+    # If your gateway runs in another Compose project, join its network instead:
+    # networks: [default, llm]
+
+  # Apple Silicon without AVX: the default MongoDB image crashes; use an older one.
+  # mongodb:
+  #   image: mongo:4.4.18
+
+# networks:
+#   llm:
+#     external: true
+#     name: litellm_default

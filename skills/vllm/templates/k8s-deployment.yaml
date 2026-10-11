@@ -1,0 +1,101 @@
+# Single-replica vLLM on Kubernetes (NVIDIA). Adapted from docs.vllm.ai deployment/k8s.
+# Create the Secret from a file, not from the command line history:
+#   kubectl create secret generic hf-token-secret --from-file=token=./hf-token.txt   (file mode 0600)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vllm-model-cache
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 100Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vllm
+  labels:
+    app: vllm
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate # a rolling update would need two GPUs at once
+  selector:
+    matchLabels:
+      app: vllm
+  template:
+    metadata:
+      labels:
+        app: vllm
+    spec:
+      volumes:
+        - name: cache-volume
+          persistentVolumeClaim:
+            claimName: vllm-model-cache
+        - name: shm # vLLM needs shared memory for tensor parallel inference
+          emptyDir:
+            medium: Memory
+            sizeLimit: 8Gi
+      containers:
+        - name: vllm
+          image: vllm/vllm-openai:v0.31.0 # pin a tag or digest
+          args:
+            - Qwen/Qwen3-Coder-30B-A3B-Instruct
+            - --served-model-name=qwen-coder
+            - --max-model-len=65536
+            - --gpu-memory-utilization=0.90
+            - --enable-auto-tool-choice
+            - --tool-call-parser=qwen3_xml
+          env:
+            - name: HF_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: hf-token-secret
+                  key: token
+                  optional: true # only gated models need it
+          ports:
+            - containerPort: 8000
+          resources:
+            limits:
+              nvidia.com/gpu: "1"
+              memory: 64Gi
+            requests:
+              cpu: "8" # at least 2 + number of GPUs physical cores; see performance-tuning.md
+              memory: 32Gi
+              nvidia.com/gpu: "1"
+          volumeMounts:
+            - name: cache-volume
+              mountPath: /root/.cache/huggingface
+            - name: shm
+              mountPath: /dev/shm
+          startupProbe: # cold start is slow; avoid the kubelet killing a healthy start
+            httpGet:
+              path: /health
+              port: 8000
+            periodSeconds: 10
+            failureThreshold: 90
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            periodSeconds: 10
+            failureThreshold: 6
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vllm
+spec:
+  type: ClusterIP
+  selector:
+    app: vllm
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8000

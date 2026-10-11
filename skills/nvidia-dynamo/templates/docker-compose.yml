@@ -1,0 +1,33 @@
+# One-machine Dynamo (frontend + vLLM worker) with file discovery, per the v1.5.1 quick start.
+# File discovery is single-machine only and has no KV events, routing or Planner.
+# Usage: export HF_TOKEN in your shell (only gated models need it), then `docker compose up`.
+services:
+  dynamo:
+    image: nvcr.io/nvidia/ai-dynamo/vllm-runtime:1.5.1
+    network_mode: host # frontend binds 0.0.0.0:8000 by default; --http-host below narrows it
+    ipc: host
+    environment:
+      - HF_TOKEN # forwarded from the host environment, never written here
+      - MODEL=Qwen/Qwen3-0.6B
+    volumes:
+      - ${HOME}/.cache/huggingface:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command:
+      - bash
+      - -c
+      - |
+        python3 -m dynamo.frontend --http-host 127.0.0.1 --http-port 8000 --discovery-backend file &
+        exec python3 -m dynamo.vllm --model "$$MODEL" --discovery-backend file \
+          --kv-events-config '{"enable_kv_cache_events": false}'
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://127.0.0.1:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 40
+      start_period: 120s

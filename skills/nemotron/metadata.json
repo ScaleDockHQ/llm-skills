@@ -1,0 +1,31 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Serve NVIDIA Nemotron open models (Nemotron 3.5 Lightning 30B-A3B, 3 Nano, Super, Ultra, Nano 4B, Nano Omni, plus Llama-Nemotron legacy) with the right parsers, reasoning toggles, quants and context limits. Covers vLLM, SGLang, TensorRT-LLM, llama.cpp, Ollama and TensorFold flags, NVFP4 on DGX Spark, RTX, Apple Silicon and datacenter GPUs, licenses and known bugs. References are split into models, parsers and templates, platforms and quants, and known issues.",
+  "references": [
+    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4",
+    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-NVFP4",
+    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4",
+    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16",
+    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-4B-GGUF",
+    "https://huggingface.co/nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+    "https://huggingface.co/nvidia/Llama-3_3-Nemotron-Super-49B-v1_5",
+    "https://huggingface.co/ggml-org/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-GGUF",
+    "https://huggingface.co/TensorFold/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit",
+    "https://huggingface.co/nvidia",
+    "https://docs.vllm.ai/en/latest/api/vllm/parser/nemotron_v3/",
+    "https://build.nvidia.com/spark/nemotron",
+    "https://github.com/NVIDIA-NeMo/Nemotron/blob/main/usage-cookbook/Nemotron-3.5-Lightning/vllm_cookbook.ipynb",
+    "https://ollama.com/library/nemotron-3.5-lightning",
+    "https://github.com/ashhart/TensorFold",
+    "https://github.com/vllm-project/vllm/issues/59770",
+    "https://github.com/vllm-project/vllm/issues/55894",
+    "https://github.com/ggml-org/llama.cpp/issues/20466",
+    "https://github.com/ggml-org/llama.cpp/pull/15676"
+  ],
+  "kind": "model-family"
+}

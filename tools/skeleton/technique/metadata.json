@@ -1,0 +1,8 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "{{date_month}}",
+  "abstract": "Two or three sentences on what the skill produces, which tools and platforms it covers, and how its references are split.",
+  "references": [],
+  "kind": "{{kind}}"
+}

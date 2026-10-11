@@ -1,0 +1,50 @@
+# SGLang single-node server. Adapted from upstream docker/compose.yaml (sgl-project/sglang).
+# Verified against SGLang v0.5.21, 2026-10-11.
+# Put HF_TOKEN=... in ./sglang.env (chmod 600) when the model is gated. Never commit that file.
+services:
+  sglang:
+    image: lmsysorg/sglang:v0.5.21-cu130 # pin; do not use latest/dev in production
+    container_name: sglang
+    restart: unless-stopped
+    ipc: host # shared memory between SGLang processes (or use shm_size: 32gb)
+    ports:
+      - "127.0.0.1:30000:30000" # loopback only; put a gateway or tunnel in front
+    # Upstream uses `network_mode: host` + `privileged: true` only because RDMA needs them.
+    # Enable both for multi-node/PD over RDMA, and then bind --host 127.0.0.1 or set --api-key.
+    env_file:
+      - ./sglang.env
+    volumes:
+      - ${HOME}/.cache/huggingface:/root/.cache/huggingface
+      - sglang-cache:/root/.cache/flashinfer
+    entrypoint: ["python3", "-m", "sglang.launch_server"]
+    command:
+      - --model-path
+      - Qwen/Qwen3-8B
+      - --served-model-name
+      - qwen3-8b
+      - --host
+      - 0.0.0.0 # inside the container; the port mapping above keeps it local
+      - --port
+      - "30000"
+      - --mem-fraction-static
+      - "0.85"
+      - --enable-metrics
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:30000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 600s # large models take minutes to load and capture CUDA graphs
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+volumes:
+  sglang-cache:

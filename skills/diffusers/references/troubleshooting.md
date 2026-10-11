@@ -1,0 +1,24 @@
+# Diffusers: troubleshooting
+
+> Verified against Diffusers v0.41.0 (docs installation, loading, memory, mps, create_a_server, cli), 2026-10-11
+
+Evidence first: `diffusers-cli env`, the full traceback, `nvidia-smi`, and the peak memory number.
+
+| Symptom                                                                          | Likely cause and fix                                                                                                                                                       |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CUDA out of memory`                                                             | work through `memory-and-speed.md` in order: dtype, VAE tiling, `enable_model_cpu_offload()`, quantize the transformer and text encoder, group offload, then smaller size. |
+| Offload saves almost nothing                                                     | the pipeline was moved to CUDA before `enable_sequential_cpu_offload()`, or a `device_map` is set (`reset_device_map()` first).                                            |
+| `torch.cuda.is_available()` is False                                             | CPU wheel or driver mismatch. Reinstall PyTorch for the CUDA version; on DGX Spark use NVIDIA's index (`install.md`).                                                      |
+| 401 or 403 loading a model                                                       | gated repo: accept the licence on the Hub and authenticate with a token (`HF_TOKEN`, `hf auth login`); wrong or missing token.                                             |
+| Hangs or errors offline                                                          | set `HF_HUB_OFFLINE=1` only after the model is in the cache, or load from a local directory.                                                                               |
+| Error mentioning `trust_remote_code`                                             | the repo ships custom code or modular blocks. Review the code, then pass `trust_remote_code=True` or `--trust-remote-code`; never by default.                              |
+| `IndexError: index 21 is out of bounds for dimension 0 with size 21` in a server | one scheduler shared across threads. Build a pipeline view per request with a fresh scheduler (`from_pipe`), as the example server does (`serving.md`).                    |
+| Black or noisy images                                                            | wrong dtype for the model or VAE (try bf16, or fp32 for the VAE), mismatched components, or an incompatible LoRA; compare with the model card's example.                   |
+| `mps` slow, swapping or a size error                                             | `enable_attention_slicing()` below 64 GB RAM; mps cannot handle arrays larger than `2**32`; lower resolution.                                                              |
+| `torch.compile` very slow or recompiling                                         | each new image size recompiles; keep shapes fixed, try regional compilation.                                                                                               |
+| LoRA does not change output                                                      | base model family mismatch, missing trigger word, or `set_adapters` not called after loading with a different `adapter_name`.                                              |
+| GGUF model will not load at pipeline level                                       | GGUF loads only per model with `from_single_file` and `GGUFQuantizationConfig` (`quantization-and-lora.md`).                                                               |
+| New pipeline class not found                                                     | Diffusers older than the model's integration; upgrade (`updating.md`) or use `main`.                                                                                       |
+| ONNX pipelines break after upgrade                                               | ONNX support is deprecated in 0.41.0; use Optimum.                                                                                                                         |
+| `diffusers-cli run --remote` fails                                               | needs `huggingface_hub>=1.23`, a signed-in account and sandbox access; check `--flavor` and `--timeout`.                                                                   |
+| Server unreachable or exposed                                                    | example server listens on `0.0.0.0:8000`; `ss -ltnp` shows what listens on port 8000; bind to loopback.                                                                    |

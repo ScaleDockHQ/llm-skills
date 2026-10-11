@@ -1,0 +1,22 @@
+# /etc/systemd/system/ik-llama.service  (install only with the user's approval)
+[Unit]
+Description=ik_llama.cpp server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=llm
+Group=llm
+WorkingDirectory=/opt/ik_llama.cpp
+# Keys stay in a 0600 file, never on the command line
+ExecStart=/opt/ik_llama.cpp/build/bin/llama-server \
+  -m /srv/models/model.gguf -a my-model \
+  --host 127.0.0.1 --port 8080 -c 32768 -ngl 999 --jinja --metrics \
+  --api-key-file /etc/ik-llama/api-keys.txt
+Restart=on-failure
+RestartSec=5
+LimitMEMLOCK=infinity
+TimeoutStartSec=1800
+
+[Install]
+WantedBy=multi-user.target

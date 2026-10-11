@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run and operate NVIDIA NIM for LLMs and VLMs, the prebuilt vLLM or SGLang containers from nvcr.io/nim. Covers model-specific and model-free images, model profiles and list-model-profiles, NIM_* variables, tool calling, LoRA, speculative decoding, Docker, the nim-llm Helm chart and the NIM Operator, air-gapped caches, multi-node Ray, the OpenAI, Responses and Anthropic APIs, metrics and tracing, upgrades and error fixes. Verified against NIM LLM 2.0.13.",
+  "references": [
+    "https://docs.nvidia.com/nim/large-language-models/latest/",
+    "https://docs.nvidia.com/nim/large-language-models/latest/about-nim-llm/release-notes.html",
+    "https://docs.nvidia.com/nim/large-language-models/latest/get-started/installation.html",
+    "https://docs.nvidia.com/nim/large-language-models/latest/reference/environment-variables.html",
+    "https://docs.nvidia.com/nim/large-language-models/latest/reference/cli-reference.html",
+    "https://docs.nvidia.com/nim/large-language-models/latest/reference/api-reference.html",
+    "https://docs.nvidia.com/nim/large-language-models/latest/deployment/model-profiles-and-selection.html",
+    "https://docs.nvidia.com/nim/large-language-models/latest/deployment/kubernetes-deployment/helm-k8s.html",
+    "https://docs.nvidia.com/nim/large-language-models/latest/deployment/kubernetes-deployment/nim-operator-deployment.html",
+    "https://docs.nvidia.com/nim/large-language-models/latest/reference/logging-and-observability.html",
+    "https://catalog.ngc.nvidia.com/"
+  ],
+  "kind": "product"
+}

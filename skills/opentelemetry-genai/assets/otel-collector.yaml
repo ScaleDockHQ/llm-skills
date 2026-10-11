@@ -1,0 +1,83 @@
+# GenAI trace gateway: receive OTLP from apps and gateways, remove prompt content, sample, fan out.
+# Collector contrib 0.162.0. Validate: otelcol-contrib validate --config=otel-collector.yaml
+# Required env (from a 0600 env file, never inline): BACKEND_AUTH_PHOENIX, LANGFUSE_BASIC_AUTH.
+# Remove the exporters you do not use from the pipeline at the bottom.
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  memory_limiter:
+    check_interval: 1s
+    limit_percentage: 75
+    spike_limit_percentage: 20
+
+  # Content never leaves the network: GenAI semconv attributes, the older gen_ai.prompt/completion
+  # indexed attributes, OpenInference and OpenLLMetry equivalents.
+  transform/strip-content:
+    error_mode: ignore
+    trace_statements:
+      - context: span
+        statements:
+          - delete_key(span.attributes, "gen_ai.input.messages")
+          - delete_key(span.attributes, "gen_ai.output.messages")
+          - delete_key(span.attributes, "gen_ai.system_instructions")
+          - delete_key(span.attributes, "gen_ai.tool.definitions")
+          - delete_key(span.attributes, "gen_ai.tool.call.arguments")
+          - delete_key(span.attributes, "gen_ai.tool.call.result")
+          - delete_key(span.attributes, "input.value")
+          - delete_key(span.attributes, "output.value")
+          - delete_key(span.attributes, "traceloop.entity.input")
+          - delete_key(span.attributes, "traceloop.entity.output")
+          - delete_matching_keys(span.attributes, "^(gen_ai\\.(prompt|completion)\\..*|llm\\.(input|output)_messages\\..*|llm\\.(prompts|invocation_parameters))$")
+      - context: spanevent
+        statements:
+          - delete_key(spanevent.attributes, "gen_ai.input.messages")
+          - delete_key(spanevent.attributes, "gen_ai.output.messages")
+
+  # Keep errors, slow requests, and a share of the rest.
+  tail_sampling:
+    decision_wait: 10s
+    num_traces: 50000
+    policies:
+      - name: errors
+        type: status_code
+        status_code: { status_codes: [ERROR] }
+      - name: slow
+        type: latency
+        latency: { threshold_ms: 15000 }
+      - name: baseline
+        type: probabilistic
+        probabilistic: { sampling_percentage: 25 }
+
+  batch:
+    timeout: 5s
+    send_batch_size: 512
+
+exporters:
+  otlphttp/phoenix:
+    endpoint: http://phoenix:6006
+    headers:
+      authorization: "Bearer ${env:BACKEND_AUTH_PHOENIX}"
+      x-project-name: genai-apps
+  otlphttp/langfuse:
+    endpoint: https://langfuse.example.com/api/public/otel
+    headers:
+      authorization: "Basic ${env:LANGFUSE_BASIC_AUTH}"
+  # MLflow: header names are case-insensitive; the experiment ID is the numeric ID, not the name.
+  otlphttp/mlflow:
+    endpoint: http://mlflow:5000
+    headers:
+      x-mlflow-experiment-id: "0"
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors:
+        [memory_limiter, transform/strip-content, tail_sampling, batch]
+      exporters: [otlphttp/phoenix]

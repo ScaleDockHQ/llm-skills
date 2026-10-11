@@ -1,0 +1,35 @@
+# /etc/systemd/system/mistralrs.service
+# Install a pinned release as the service user, e.g. as root after reading the installer:
+#   curl -fsSL https://mistralrs.dev/install.sh -o /tmp/mistralrs-install.sh && less /tmp/mistralrs-install.sh
+#   sudo -u mistralrs env HOME=/var/lib/mistralrs MISTRALRS_INSTALL_TAG=v0.9.4 sh /tmp/mistralrs-install.sh
+# Create /etc/mistralrs/mistralrs.env with chmod 0600, owner root, containing for example:
+#   HF_TOKEN=...            (only for gated models)
+[Unit]
+Description=mistral.rs inference server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=mistralrs
+Group=mistralrs
+EnvironmentFile=-/etc/mistralrs/mistralrs.env
+Environment=HOME=/var/lib/mistralrs
+Environment=HF_HOME=/var/lib/mistralrs/huggingface
+WorkingDirectory=/var/lib/mistralrs
+# Loopback bind: the default is 0.0.0.0 and the server has no authentication. Front it with a proxy that authenticates.
+ExecStart=/var/lib/mistralrs/.local/bin/mistralrs serve --host 127.0.0.1 --port 1234 \
+  -m Qwen/Qwen3-4B --quant 4 --max-seqs 32 --pa-memory-fraction 0.8
+# For a TOML config instead:
+#   ExecStart=/var/lib/mistralrs/.local/bin/mistralrs from-config -f /etc/mistralrs/mistralrs.toml
+Restart=on-failure
+RestartSec=15
+# First start downloads weights and may quantize; allow many minutes.
+TimeoutStartSec=1800
+TimeoutStopSec=60
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/mistralrs
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

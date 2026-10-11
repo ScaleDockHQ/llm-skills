@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Installs, serves, tunes and troubleshoots TensorFold, a Zig LLM inference engine for Apple Silicon and NVIDIA GPUs, with verified qualified-model limits, the two-Mac and two-DGX-Spark setups, and the community MiaAI-Lab recipes. References are split by install, serve flags, models, multi-node, features, API, tuning, integrations, observability, updating and troubleshooting.",
+  "references": [
+    "https://github.com/ashhart/TensorFold",
+    "https://github.com/ashhart/TensorFold/blob/main/RUNBOOK.md",
+    "https://github.com/ashhart/TensorFold/blob/main/docs/api.md",
+    "https://github.com/ashhart/TensorFold/blob/main/docs/recipes/cuda.md",
+    "https://github.com/ashhart/TensorFold/blob/main/docs/control.md",
+    "https://github.com/ashhart/TensorFold/blob/main/CHANGELOG.md",
+    "https://github.com/ashhart/TensorFold/releases",
+    "https://github.com/MiaAI-Lab/Qwen3.8-27B-DGX-Spark-TensorFold",
+    "https://github.com/MiaAI-Lab/Qwen3.8-Flash-Dual-DGX-Sparks-TensorFold"
+  ],
+  "kind": "product"
+}

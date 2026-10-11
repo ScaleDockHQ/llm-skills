@@ -1,0 +1,30 @@
+# Triton with a local model repository. Ports are published on loopback only: Triton has no authentication.
+# Usage: put models in ./model_repository, then `docker compose up`.
+services:
+  triton:
+    image: nvcr.io/nvidia/tritonserver:26.09-py3
+    command:
+      - tritonserver
+      - --model-repository=/models
+      - --disable-auto-complete-config
+    ports:
+      - "127.0.0.1:8000:8000" # HTTP
+      - "127.0.0.1:8001:8001" # gRPC
+      - "127.0.0.1:8002:8002" # metrics
+    volumes:
+      - ./model_repository:/models:ro
+    shm_size: 2gb
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://127.0.0.1:8000/v2/health/ready"]
+      interval: 15s
+      timeout: 5s
+      retries: 20
+      start_period: 60s
+    restart: unless-stopped

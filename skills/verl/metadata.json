@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Agent skill for verl, the RL post-training library for LLMs: install with uv or Docker, GRPO/PPO and other algorithms on FSDP or Megatron with vLLM or SGLang rollouts, custom reward functions, multi-node Ray, Slurm and SkyPilot, checkpoint merging, troubleshooting and updating. References split by install, training, rewards, scaling, checkpoints, troubleshooting and updating, plus a single-GPU GRPO template.",
+  "references": [
+    "https://github.com/verl-project/verl",
+    "https://verl.readthedocs.io/en/latest/start/install.html",
+    "https://verl.readthedocs.io/en/latest/start/quickstart.html",
+    "https://verl.readthedocs.io/en/latest/examples/config.html",
+    "https://verl.readthedocs.io/en/latest/algo/grpo.html",
+    "https://verl.readthedocs.io/en/latest/advance/reward_loop.html",
+    "https://verl.readthedocs.io/en/latest/advance/checkpoint.html",
+    "https://verl.readthedocs.io/en/latest/perf/perf_tuning.html",
+    "https://verl.readthedocs.io/en/latest/start/multinode.html",
+    "https://verl.readthedocs.io/en/latest/faq/faq.html",
+    "https://hub.docker.com/r/verlai/verl"
+  ],
+  "kind": "product"
+}

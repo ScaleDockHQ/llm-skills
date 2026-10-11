@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Agent skill for Unsloth: install Core, Studio, Desktop and Docker (incl. DGX Spark), write LoRA/QLoRA/full fine-tuning and RL scripts on TRL, run multi-GPU, export to adapters, merged 16-bit and GGUF, manage Studio exposure, troubleshoot and update. References split by install, fine-tuning, export, Studio, troubleshooting and updating, plus a GGUF-to-Ollama combo.",
+  "references": [
+    "https://github.com/unslothai/unsloth",
+    "https://unsloth.ai/docs",
+    "https://unsloth.ai/docs/get-started/fine-tuning-llms-guide",
+    "https://unsloth.ai/docs/get-started/install/pip-install",
+    "https://unsloth.ai/docs/get-started/install/docker",
+    "https://unsloth.ai/docs/blog/fine-tuning-llms-with-nvidia-dgx-spark-and-unsloth",
+    "https://unsloth.ai/docs/basics/inference-and-deployment/saving-to-gguf",
+    "https://unsloth.ai/docs/basics/inference-and-deployment/saving-to-ollama",
+    "https://unsloth.ai/docs/new/studio/export",
+    "https://unsloth.ai/docs/basics/multi-gpu-training-with-unsloth",
+    "https://unsloth.ai/docs/basics/multi-gpu-training-with-unsloth/ddp",
+    "https://github.com/unslothai/notebooks"
+  ],
+  "kind": "product"
+}

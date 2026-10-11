@@ -1,0 +1,14 @@
+{
+  "name": "custom_selfhosted",
+  "engine": "openai",
+  "display_name": "Self-hosted gateway",
+  "description": "OpenAI-compatible endpoint on the LAN",
+  "api_key_env": "CUSTOM_SELFHOSTED_API_KEY",
+  "base_url": "http://localhost:4000/v1/chat/completions",
+  "models": [
+    { "name": "coder", "context_limit": 131072 },
+    { "name": "fast", "context_limit": 32768 }
+  ],
+  "supports_streaming": true,
+  "requires_auth": true
+}

@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run Chroma beside a self-hosted LLM stack. References cover Docker install, memory sizing, the missing built-in auth and how to put a token-checking proxy in front, the OpenAI-compatible embedding function pointed at LiteLLM or TEI, backups, upgrades, troubleshooting, and LiteLLM, llama-swap and Open WebUI wiring, plus a compose template.",
+  "references": [
+    "https://github.com/chroma-core/chroma",
+    "https://docs.trychroma.com/guides/deploy/docker",
+    "https://docs.trychroma.com/guides/performance/single-node",
+    "https://docs.trychroma.com/reference/server-env-vars",
+    "https://docs.trychroma.com/docs/embeddings/embedding-functions",
+    "https://docs.openwebui.com/reference/env-configuration"
+  ],
+  "kind": "product"
+}

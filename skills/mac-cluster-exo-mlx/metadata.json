@@ -1,0 +1,14 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Cluster several Apple Silicon Macs into one inference host with exo or MLX distributed. References cover the Thunderbolt 5 mesh and RDMA enablement, ring versus JACCL backends, exo install, configuration and API, mlx.launch with distributed mlx_lm.server, troubleshooting and updates.",
+  "references": [
+    "https://github.com/exo-explore/exo",
+    "https://github.com/exo-explore/exo/blob/main/docs/api.md",
+    "https://ml-explore.github.io/mlx/build/html/usage/distributed.html",
+    "https://ml-explore.github.io/mlx/build/html/usage/launching_distributed.html",
+    "https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/server.py"
+  ],
+  "kind": "stack"
+}

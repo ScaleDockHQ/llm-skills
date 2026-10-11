@@ -1,0 +1,36 @@
+# Single-node mistral.rs, NVIDIA GPU. Start: docker compose up -d. Logs: docker compose logs -f mistralrs
+# Needs Docker Compose 2.24+ for env_file `required: false` and the NVIDIA Container Toolkit.
+# Put HF_TOKEN in ./mistralrs.env, chmod 0600, never commit it (only for gated models).
+# Pick the image: cuda<lane>-sm<cc>-<version> from `nvidia-smi` (driver CUDA version and compute_cap); CPU: cpu-<version>.
+services:
+  mistralrs:
+    image: ghcr.io/ericlbuehler/mistral.rs:cuda128-sm89-0.9.4 # pin a version tag; never *-latest
+    container_name: mistralrs
+    restart: unless-stopped
+    env_file:
+      - path: ./mistralrs.env
+        required: false
+    ports:
+      - "127.0.0.1:1234:1234" # loopback only; expose through a proxy that authenticates (the server has no auth)
+    volumes:
+      - mistralrs-data:/data # HF_HOME=/data in the image
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    # Flags instead of the TOML: `serve` flags; for a TOML file use command: [from-config, -f, /config/mistralrs.toml] with host 0.0.0.0 in it.
+    command:
+      - serve
+      - --host=0.0.0.0 # container network; the published port above stays loopback on the host
+      - --port=1234
+      - -m
+      - Qwen/Qwen3-4B
+      - --quant=4
+      - --max-seqs=32
+      - --pa-memory-fraction=0.8
+    # No healthcheck block: curl in the image is unverified. Probe /v1/models from the host or an orchestrator.
+volumes:
+  mistralrs-data:

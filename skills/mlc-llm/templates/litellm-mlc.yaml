@@ -1,0 +1,6 @@
+model_list:
+  - model_name: mlc-llama3
+    litellm_params:
+      model: openai/HF://mlc-ai/Llama-3-8B-Instruct-q4f16_1-MLC # the id shown by /v1/models
+      api_base: http://127.0.0.1:8000/v1
+      api_key: os.environ/MLC_API_KEY

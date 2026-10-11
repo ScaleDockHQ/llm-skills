@@ -1,0 +1,12 @@
+# Optional. Only when VRAM is too tight to keep TEI resident. See references/combos/llama-swap.md
+models:
+  "embed-qwen3":
+    proxy: "http://127.0.0.1:${PORT}"
+    cmd: |
+      docker run --name ${MODEL_ID} --init --rm --gpus all --env-file ${env.TEI_ENV_FILE}
+      -p 127.0.0.1:${PORT}:80 -v ${env.TEI_DATA}:/data
+      ghcr.io/huggingface/text-embeddings-inference:89-1.9
+      --model-id Qwen/Qwen3-Embedding-0.6B
+    cmdStop: docker stop ${MODEL_ID}
+    checkEndpoint: /health
+    ttl: 600

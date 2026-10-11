@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "local": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Local engine",
+      "options": {
+        "baseURL": "http://HOST:PORT/v1",
+        "apiKey": "{env:LOCAL_LLM_API_KEY}",
+        "chunkTimeout": 600000
+      },
+      "models": {
+        "coder": {
+          "name": "Coder",
+          "limit": { "context": 131072, "output": 16384 },
+          "tool_call": true,
+          "reasoning": false
+        },
+        "small": {
+          "name": "Small helper",
+          "limit": { "context": 32768, "output": 4096 },
+          "tool_call": true
+        },
+        "vision": {
+          "name": "Vision",
+          "limit": { "context": 32768, "output": 4096 },
+          "tool_call": true,
+          "attachment": true,
+          "modalities": { "input": ["text", "image"], "output": ["text"] }
+        }
+      }
+    }
+  },
+  "model": "local/coder",
+  "small_model": "local/small",
+  "share": "disabled",
+  "autoupdate": "notify"
+}

@@ -20,9 +20,9 @@ npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia
 ## References
 
 - [`references/image-servers.md`](references/image-servers.md): sd-server endpoints, build, model files, async jobs, comparison with ComfyUI.
-- [`references/comfyui.md`](references/comfyui.md): ComfyUI install, model folders, native API, flags, custom-node and Manager security, wrapping.
+- [`references/comfyui.md`](references/comfyui.md): how ComfyUI plugs into this stack; depth in the `comfyui` skill.
 - [`references/video.md`](references/video.md): open video models via ComfyUI native workflows, async job pattern, memory and time expectations.
-- [`references/speech-to-text.md`](references/speech-to-text.md): whisper-server, Speaches and vLLM Whisper; OpenAI path mapping; LiteLLM entry.
+- [`references/speech-to-text.md`](references/speech-to-text.md): Speaches, vLLM Whisper and whisper-server in the stack; OpenAI path mapping; LiteLLM entry; whisper.cpp depth in the `whisper-cpp` skill.
 - [`references/text-to-speech.md`](references/text-to-speech.md): Kokoro-FastAPI and Speaches TTS; images, API, LiteLLM entry.
 - [`references/stack-integration.md`](references/stack-integration.md): llama-swap entries and groups, `/comfyui/`, LiteLLM modes, end-to-end timeouts, auth.
 - [`references/memory-planning.md`](references/memory-planning.md): memory budgets on discrete and unified GPUs, co-resident vs swap, capped scopes, hf-xet limits.
@@ -32,6 +32,9 @@ npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia
 
 ## Companion skills
 
+- `faster-whisper`, `speaches`, `kokoro-fastapi`, `f5-tts`, `chatterbox`, `stable-diffusion-cpp`, `diffusers`, `invokeai`, `vllm-omni`, `sglang-diffusion`: speech, image and video server depth (install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`)
+- `comfyui`: ComfyUI install, API, custom nodes and memory (install: `npx skills add ScaleDockHQ/llms-skills --skill comfyui`)
+- `whisper-cpp`: whisper.cpp build, models, server API and tuning (install: `npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp`)
 - `self-hosted-llms`: the LLM stack this plugs into, including the engine-sdcpp reference (install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`)
 - `llm-gateway`: LiteLLM keys, budgets, routing and fallbacks (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`)
 - `llm-clients`: connect apps and agents to the new endpoints (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-clients`)

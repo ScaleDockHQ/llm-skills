@@ -1,0 +1,15 @@
+# SGLang server config. Use: python3 -m sglang.launch_server --config config.yaml
+# Keys are flag names without the leading "--"; CLI arguments override this file.
+# Verified against SGLang v0.5.21, 2026-10-11 (flag names from docs server_arguments).
+model-path: Qwen/Qwen3-8B
+served-model-name: qwen3-8b
+host: 127.0.0.1
+port: 30000
+tensor-parallel-size: 1
+mem-fraction-static: 0.85
+context-length: 32768
+enable-metrics: true
+# Parsers: set explicitly for the model family (see references/features.md)
+# tool-call-parser: qwen25
+# reasoning-parser: qwen3
+# Keys: put api-key in a 0600 file or env wrapper, not here, if this file is world-readable.

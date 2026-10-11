@@ -1,0 +1,54 @@
+# Starting point only: no official upstream manifest exists. Adapt names, storage and GPU resources.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tabbyapi
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate # single GPU: free it before the new pod starts
+  selector:
+    matchLabels: { app: tabbyapi }
+  template:
+    metadata:
+      labels: { app: tabbyapi }
+    spec:
+      containers:
+        - name: tabbyapi
+          image: ghcr.io/theroyallab/tabbyapi:latest # pin by digest
+          ports:
+            - containerPort: 5000
+          resources:
+            limits:
+              nvidia.com/gpu: 1 # NVIDIA device plugin
+          volumeMounts:
+            - { name: models, mountPath: /app/models }
+            - { name: config, mountPath: /app/config.yml, subPath: config.yml }
+            - { name: shm, mountPath: /dev/shm }
+          startupProbe: # large models take minutes to load
+            httpGet: { path: /health, port: 5000 }
+            periodSeconds: 10
+            failureThreshold: 90
+          readinessProbe:
+            httpGet: { path: /health, port: 5000 }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /health, port: 5000 }
+            periodSeconds: 30
+            failureThreshold: 6
+      volumes:
+        - name: models
+          persistentVolumeClaim: { claimName: exl3-models }
+        - name: config
+          configMap: { name: tabbyapi-config } # holds config.yml
+        - name: shm # replaces Docker --shm-size for tensor parallel / NCCL
+          emptyDir: { medium: Memory, sizeLimit: 8Gi }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tabbyapi
+spec:
+  selector: { app: tabbyapi }
+  ports:
+    - { port: 5000, targetPort: 5000 }

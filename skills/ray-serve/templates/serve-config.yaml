@@ -1,0 +1,27 @@
+# Ray Serve LLM config. Run: serve run serve-config.yaml   |   serve deploy serve-config.yaml
+# Docs: https://docs.ray.io/en/latest/serve/llm/user-guides/configuration.html
+applications:
+  - name: llm_app
+    route_prefix: "/"
+    import_path: ray.serve.llm:build_openai_app
+    args:
+      llm_configs:
+        - model_loading_config:
+            model_id: qwen-0.5b # the name clients send as "model"
+            model_source: Qwen/Qwen2.5-0.5B-Instruct # or {bucket_uri: s3://...} / local path
+          accelerator_type: A10G # set to the GPU you have: A10G, L4, L40S, A100, H100, H200, T4
+          engine_kwargs:
+            max_model_len: 8192
+            gpu_memory_utilization: 0.9
+            tensor_parallel_size: 1
+            # enable_prefix_caching: true      # needed for PrefixCacheAffinityRouter
+          deployment_config:
+            max_ongoing_requests: 128
+            autoscaling_config:
+              min_replicas: 1
+              max_replicas: 2
+              target_ongoing_requests: 64
+              downscale_delay_s: 600
+          runtime_env:
+            env_vars:
+              HF_HUB_ENABLE_HF_TRANSFER: "1" # needs hf_transfer installed; HF_TOKEN comes from the environment

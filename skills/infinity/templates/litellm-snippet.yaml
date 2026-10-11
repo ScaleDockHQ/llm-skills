@@ -1,0 +1,9 @@
+# Merge into LiteLLM model_list. INFINITY_API_KEY comes from the environment.
+model_list:
+  - model_name: embed-bge
+    litellm_params:
+      model: openai/BAAI/bge-small-en-v1.5
+      api_base: http://infinity:7997
+      api_key: os.environ/INFINITY_API_KEY
+    model_info:
+      mode: embedding

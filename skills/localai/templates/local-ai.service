@@ -1,0 +1,24 @@
+# /etc/systemd/system/local-ai.service  (install only with the user's approval)
+[Unit]
+Description=LocalAI server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=localai
+Group=localai
+WorkingDirectory=/var/lib/local-ai
+Environment=LOCALAI_MODELS_PATH=/var/lib/local-ai/models
+Environment=LOCALAI_BACKENDS_PATH=/var/lib/local-ai/backends
+Environment=LOCALAI_ADDRESS=127.0.0.1:8080
+Environment=LOCALAI_MAX_ACTIVE_BACKENDS=2
+# chmod 600; holds LOCALAI_API_KEY and HF_TOKEN. Never inline secrets here.
+EnvironmentFile=-/etc/local-ai/env
+ExecStart=/usr/local/bin/local-ai run
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=600
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

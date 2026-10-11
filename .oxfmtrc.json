@@ -15,5 +15,10 @@
     ]
   },
   "sortPackageJson": { "sortScripts": true },
-  "ignorePatterns": [".agents/", "skills-lock.json", "pnpm-lock.yaml"]
+  "ignorePatterns": [
+    "tools/skeleton/",
+    ".agents/",
+    "skills-lock.json",
+    "pnpm-lock.yaml"
+  ]
 }

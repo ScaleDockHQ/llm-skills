@@ -1,0 +1,23 @@
+# Extra Helm values layered after the guide values (llm-d router chart, release v0.10.0 guides).
+# helm upgrade $GUIDE_NAME $ROUTER_STANDALONE_CHART -f guides/recipes/router/base.values.yaml \
+#   -f guides/optimized-baseline/router/optimized-baseline.values.yaml -f router-values-override.yaml \
+#   -n $NAMESPACE --version $ROUTER_CHART_VERSION
+router:
+  epp:
+    replicas: 1 # >1 is active-passive unless ha-enable-leader-election is false
+    pluginsCustomConfig:
+      optimized-baseline-plugins.yaml: |
+        apiVersion: llm-d.ai/v1alpha1
+        kind: EndpointPickerConfig
+        plugins:
+        - type: approx-prefix-cache-producer
+        - type: inflight-load-producer
+        - type: prefix-cache-affinity-filter
+          parameters:
+            peakPrefillThroughput: 15928   # replace with your measured value for non-reference hardware
+        - type: token-load-scorer
+        schedulingProfiles:
+        - name: default
+          plugins:
+          - pluginRef: prefix-cache-affinity-filter
+          - pluginRef: token-load-scorer

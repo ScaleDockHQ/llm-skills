@@ -1,0 +1,30 @@
+# Per-model token budget on a backend (QuotaPolicy is v1alpha1 only).
+# Needs Redis and the dedicated quota rate-limit service (see references/limits-and-quota.md);
+# without it enforcement fails open unless controller.quotaRateLimitFailureModeDeny=true.
+apiVersion: aigateway.envoyproxy.io/v1alpha1
+kind: QuotaPolicy
+metadata:
+  name: qwen-budget
+  namespace: default
+spec:
+  targetRefs:
+    - group: aigateway.envoyproxy.io
+      kind: AIServiceBackend
+      name: vllm
+  perModelQuotas:
+    - modelName: Qwen/Qwen3-32B # must equal modelNameOverride on the route's backendRef
+      quota:
+        mode: Shared
+        costExpression: "input_tokens + output_tokens * 4u" # uint variables need u suffix
+        defaultBucket:
+          limit: 2000000
+          duration: "1d" # one of 1s, 1m, 1h, 1d
+        bucketRules:
+          - clientSelectors:
+              - headers:
+                  - name: x-tenant-id
+                    type: Distinct
+            quota:
+              limit: 200000
+              duration: "1d"
+            shadowMode: true # evaluate without enforcing; remove to enforce

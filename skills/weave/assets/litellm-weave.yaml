@@ -1,0 +1,7 @@
+# LiteLLM proxy config.yaml fragment: send traces to Weave over OTLP.
+# Verified against LiteLLM source (litellm/integrations/weave/weave_otel.py, v1.105.0), 2026-10-11.
+# Environment (names only; set values from a 0600 env file): WANDB_API_KEY, WANDB_PROJECT_ID=<entity>/<project>,
+# optional WANDB_HOST for Dedicated Cloud or Self-Managed.
+litellm_settings:
+  callbacks: ["weave_otel"]
+  turn_off_message_logging: true # redacts message content in logs; check that your callbacks honor it

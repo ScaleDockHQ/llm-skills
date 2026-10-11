@@ -1,0 +1,22 @@
+# F5-TTS: troubleshooting
+
+> Verified against F5-TTS 1.1.22 README, src/f5_tts/infer/README.md and source, 2026-10-11
+
+| Symptom                                                  | Likely cause                                               | Fix                                                                                                                   |
+| -------------------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Output is pure silence                                   | FFmpeg missing                                             | install ffmpeg (`conda install ffmpeg` or the OS package) and rerun (upstream note)                                   |
+| Words cut off at the end, or odd last syllable           | reference clip too long or no trailing silence             | use a clip under 12 s with about 1 s of silence at the end                                                            |
+| Wrong words or hallucinated reference text in the output | wrong `ref_text`, or empty `ref_text` transcribed badly    | give the exact transcript, or fix it after listening to the auto-transcription                                        |
+| Speech does not resemble the speaker                     | noisy, music-backed or multi-speaker reference             | use a clean single-speaker clip in the target language                                                                |
+| Accent leaks into another language                       | reference language differs from the text language          | use a reference in the same language as the text                                                                      |
+| Numbers read in the wrong language                       | digits default to English                                  | write numbers as words, or as Chinese characters for Chinese                                                          |
+| Letters spelled out                                      | uppercase text is read letter by letter                    | lowercase common words; keep `K.F.C.` style for acronyms                                                              |
+| Sentences merge or no pauses                             | missing space after punctuation, or no punctuation         | add a space after `.` and `,`; add extra spaces or commas for pauses                                                  |
+| Long text fails or quality drops                         | single generation holds about 30 s including the reference | use the CLI or Gradio chunking (`--gen_file`), keep chunks short                                                      |
+| `HIP error: invalid device function` (AMD)               | RDNA 3.5 or RDNA 4 with ROCm 6.x                           | install PyTorch for ROCm 7.x (README, issue #1236)                                                                    |
+| CUDA out of memory                                       | large batch or auto-transcription loading Whisper          | pass `--ref_text`, close other GPU jobs, run on CPU for a test with `--device cpu`                                    |
+| Early fine-tuned checkpoint sounds like the base model   | EMA weights dominated by the pretrained ones               | set `use_ema=False` (`F5TTS(use_ema=False)`)                                                                          |
+| `f5-tts_infer-cli: command not found`                    | virtualenv not active or install failed                    | activate the environment; `pip show f5-tts`                                                                           |
+| Gradio app unreachable from another host                 | bound to loopback by default                               | do not simply open it up: use SSH forwarding or a gateway; Docker needs `--host 0.0.0.0` with a loopback publish      |
+| Downloads fail on a server                               | no access to Hugging Face                                  | download the checkpoint elsewhere, then use `--ckpt_file` and `--vocab_file`; `--load_vocoder_from_local` for vocoder |
+| Model name not found for a community checkpoint          | wrong `--model` for the architecture                       | use the config name the model card states (`F5TTS_Base`, `F5TTS_v1_Base`, ...) plus `--ckpt_file` and `--vocab_file`  |

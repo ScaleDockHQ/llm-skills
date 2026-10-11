@@ -1,0 +1,23 @@
+# ik_llama.cpp server on CUDA 12. Pin the image digest after first pull:
+#   docker inspect --format '{{index .RepoDigests 0}}' ghcr.io/ikawrakow/ik-llama-cpp:cu12-server
+services:
+  ik-llama:
+    image: ghcr.io/ikawrakow/ik-llama-cpp:cu12-server
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - /srv/models:/models:ro
+      - ./api-keys.txt:/run/secrets/api-keys.txt:ro # 0600 file, one key per line
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    # Entrypoint is /app/llama-server; these are its flags.
+    command: >
+      -m /models/model.gguf -a my-model
+      --port 8080 -c 32768 -ngl 999 --jinja --metrics
+      --api-key-file /run/secrets/api-keys.txt

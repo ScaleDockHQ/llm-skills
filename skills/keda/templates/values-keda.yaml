@@ -1,0 +1,16 @@
+# Helm values for kedacore/keda 2.21.0. Review before use; each key is an assumption you can change.
+operator:
+  replicaCount: 2 # one active, one standby
+prometheus:
+  operator:
+    enabled: true # keda_* metrics from the operator
+    serviceMonitor:
+      enabled: false # set true when the Prometheus Operator CRDs exist
+  metricServer:
+    enabled: true
+    serviceMonitor:
+      enabled: false
+  webhooks:
+    enabled: true
+    serviceMonitor:
+      enabled: false

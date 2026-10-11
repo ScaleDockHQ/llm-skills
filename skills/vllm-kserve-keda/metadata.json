@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Deploy vLLM on Kubernetes through KServe in Standard mode and autoscale it with KEDA from vLLM Prometheus metrics. Covers InferenceService with a pinned vLLM ClusterServingRuntime, the generated ScaledObject, LLMInferenceService with direct KEDA scaling and the deprecated WVA path, install paths and version pins, calibration, scale-to-zero caveats, troubleshooting and teardown. References are split into install, InferenceService, LLMInferenceService, and tuning plus troubleshooting.",
+  "references": [
+    "https://github.com/kserve/kserve",
+    "https://github.com/kserve/kserve/releases/tag/v0.21.0",
+    "https://kserve.github.io/website/",
+    "https://github.com/kedacore/keda",
+    "https://keda.sh/docs/2.21/",
+    "https://keda.sh/docs/2.21/scalers/prometheus/",
+    "https://docs.vllm.ai/en/latest/usage/metrics/",
+    "https://hub.docker.com/r/vllm/vllm-openai",
+    "https://github.com/llm-d/llm-d"
+  ],
+  "kind": "stack"
+}

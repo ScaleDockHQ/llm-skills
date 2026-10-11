@@ -1,0 +1,26 @@
+# systemd user unit for whisper-server on loopback. Install only after the user approves:
+#   mkdir -p ~/.config/systemd/user && cp whisper-server.service ~/.config/systemd/user/
+#   systemctl --user daemon-reload && systemctl --user enable --now whisper-server
+# Verified against whisper.cpp v1.9.5 flags (examples/server/server.cpp), 2026-10-11.
+# Adjust the paths. Remove --convert and --tmp-dir if ffmpeg is not installed (then send 16 kHz WAV).
+# Do not run this next to llama-swap managing the same server: llama-swap starts and stops it itself.
+[Unit]
+Description=whisper.cpp server (loopback only)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/src/whisper.cpp
+# %h expands to the user's home directory. Create the tmp dir first: mkdir -p ~/.cache/whisper-tmp
+ExecStart=%h/src/whisper.cpp/build/bin/whisper-server --host 127.0.0.1 --port 8080 -m %h/models/whisper/ggml-large-v3-turbo.bin -l auto --convert --tmp-dir %h/.cache/whisper-tmp --request-path /v1/audio --inference-path /transcriptions
+# Optional: pin a GPU.
+#Environment=WHISPER_ARG_DEVICE=0
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=%h/.cache/whisper-tmp
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

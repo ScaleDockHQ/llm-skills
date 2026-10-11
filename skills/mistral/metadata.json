@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Serve Mistral AI open-weight models (Small 4, Medium 3.5, Large 3, Ministral 3, Devstral 2, legacy Magistral) with the right tokenizer mode, tool and reasoning parsers, reasoning_effort toggle, quant and context limit on vLLM, SGLang, llama.cpp, Ollama and TensorRT-LLM, for DGX Spark, RTX, Apple Silicon and datacenter GPUs. References split into models, parsers and templates, platforms and quants, and a known-issues table. Verified 2026-10-11; Large 4 weights were not yet released.",
+  "references": [
+    "https://huggingface.co/mistralai",
+    "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "https://mistral.ai/news/mistral-3/",
+    "https://mistral.ai/news/mistral-large-4/",
+    "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B",
+    "https://huggingface.co/mistralai/Mistral-Small-4-119B-2603",
+    "https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512",
+    "https://huggingface.co/mistralai/Ministral-3-14B-Reasoning-2512",
+    "https://huggingface.co/mistralai/Devstral-2-123B-Instruct-2512",
+    "https://huggingface.co/nvidia/Mistral-Medium-3.5-128B-NVFP4",
+    "https://docs.vllm.ai/en/latest/features/tool_calling/",
+    "https://docs.vllm.ai/en/latest/features/reasoning_outputs/",
+    "https://recipes.vllm.ai/mistralai/Mistral-Medium-3.5-128B",
+    "https://docs.sglang.io/cookbook/autoregressive/Mistral/Mistral-Medium-3.5",
+    "https://docs.sglang.io/cookbook/autoregressive/Mistral/Mistral-Small-4",
+    "https://github.com/ggml-org/llama.cpp/tree/master/tools/server",
+    "https://unsloth.ai/docs/models/mistral-3.5",
+    "https://ollama.com/library/mistral-medium-3.5",
+    "https://nvidia.github.io/TensorRT-LLM/reference/support-matrix.html",
+    "https://github.com/ashhart/TensorFold"
+  ],
+  "kind": "model-family"
+}

@@ -1,0 +1,6 @@
+# Mounted at /milvus/configs/user.yaml. Keys come from milvus.yaml in the Milvus repo.
+common:
+  security:
+    authorizationEnabled: true # off by default
+    adminAuthEnabled: true # protects port 9091 management, pprof and WebUI (HTTP Basic, root)
+    # Rotate root after first start (update_password); do not rely on defaultRootPassword.

@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Deploys and operates the vLLM production-stack Helm chart (vllm-stack 0.1.13) on Kubernetes: router, serving engines, LMCache offload, routing logics, KEDA and observability. References are split by install, values, routing, features, scaling, upgrades and troubleshooting.",
+  "references": [
+    "https://github.com/vllm-project/production-stack",
+    "https://docs.vllm.ai/projects/production-stack",
+    "https://vllm-project.github.io/production-stack/index.yaml",
+    "https://github.com/vllm-project/production-stack/blob/vllm-stack-0.1.13/helm/values.yaml"
+  ],
+  "kind": "product"
+}

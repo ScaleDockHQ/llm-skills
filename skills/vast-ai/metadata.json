@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Rent GPUs on Vast.ai to serve LLMs: search offers and create instances with the vastai CLI, run vLLM on mapped ports, set up Serverless endpoints and workergroups, call them via the openai.vast.ai proxy or LiteLLM, control spend and data exposure on marketplace hosts, and destroy every billable resource. Covers scoped API keys, stopped-instance storage billing, volumes, worker billing states and a symptom-to-fix table.",
+  "references": [
+    "https://docs.vast.ai/llms.txt",
+    "https://docs.vast.ai/cli/permissions",
+    "https://docs.vast.ai/cli/reference/create-endpoint",
+    "https://docs.vast.ai/cli/reference/create-workergroup",
+    "https://docs.vast.ai/cli/reference/delete-endpoint",
+    "https://docs.vast.ai/cli/reference/destroy-instances",
+    "https://docs.vast.ai/guides/instances/connect/networking",
+    "https://docs.vast.ai/guides/instances/storage/volumes",
+    "https://docs.vast.ai/guides/serverless/setting-up-endpoints",
+    "https://docs.vast.ai/guides/reference/faq/security",
+    "https://pypi.org/project/vastai/",
+    "https://github.com/vast-ai/vast-cli"
+  ],
+  "kind": "platform"
+}

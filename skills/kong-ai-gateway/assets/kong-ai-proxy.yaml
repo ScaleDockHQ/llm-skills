@@ -1,0 +1,32 @@
+# decK file for Kong Gateway 3.x OSS: ai-proxy in front of a self-hosted OpenAI-compatible server.
+# Kong Gateway OSS 3.9.3 accepts these providers: openai, azure, anthropic, cohere, mistral, llama2, gemini,
+# bedrock, huggingface. A vLLM, Ollama or llama.cpp OpenAI endpoint uses provider llama2 with llama2_format: openai.
+# Newer releases document dedicated "vllm" and "ollama" providers (tested: 3.9.3 rejects "vllm").
+# AI Proxy replaces the upstream, so the Service URL is only a placeholder.
+# Render with: DECK_UPSTREAM_URL=http://host.docker.internal:8000/v1/chat/completions deck file render assets/kong-ai-proxy.yaml -o kong.rendered.yaml
+_format_version: "3.0"
+services:
+  - name: llm
+    url: http://localhost:32000 # placeholder, never called
+    routes:
+      - name: llm-chat
+        paths:
+          - /v1/chat/completions
+        strip_path: false
+    plugins:
+      - name: ai-proxy
+        config:
+          route_type: llm/v1/chat
+          response_streaming: allow
+          logging:
+            log_statistics: true # token and model usage in log plugin output
+            log_payloads: false # prompt bodies stay out of logs unless you decide otherwise
+          model:
+            provider: llama2
+            name: local # upstream model name as the server knows it
+            options:
+              llama2_format: openai
+              upstream_url: ${{ env "DECK_UPSTREAM_URL" }} # full URL including the path
+# Hosted provider variant (replace the model block). Keep the key in the environment:
+#   model: { provider: openai, name: <model-id> }
+#   auth: { header_name: Authorization, header_value: "Bearer ${{ env "DECK_OPENAI_API_KEY" }}" }

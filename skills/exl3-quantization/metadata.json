@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Convert Hugging Face models to EXL3 with ExLlamaV3's convert.py: bitrate choice and ladders, head, embedding, vision and MTP bits, resume and multi-GPU conversion, the experimental optimized-recipe pipeline (sc_trace, sc_measure, sc_optimize), evaluation with perplexity and KLD, post-processing utilities and publishing per-bitrate branches on the Hub.",
+  "references": [
+    "https://github.com/turboderp-org/exllamav3",
+    "https://github.com/turboderp-org/exllamav3/releases",
+    "https://github.com/turboderp-org/exllamav3/blob/master/doc/convert.md",
+    "https://github.com/turboderp-org/exllamav3/blob/master/doc/optimize.md",
+    "https://github.com/turboderp-org/exllamav3/blob/master/doc/env_vars.md",
+    "https://github.com/turboderp-org/exllamav3/tree/master/util",
+    "https://github.com/turboderp-org/exllamav3/tree/master/eval",
+    "https://github.com/Cornell-RelaxML/qtip",
+    "https://huggingface.co/collections/turboderp/exl3-models-67f2dfe530f05cb9f596d21a",
+    "https://huggingface.co/docs/huggingface_hub/guides/cli"
+  ],
+  "kind": "product"
+}

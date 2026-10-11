@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install and operate NVIDIA DCGM Exporter for GPU telemetry in Prometheus. Covers package, container, Helm and GPU Operator installs, version pairing, collector CSVs tuned for LLM serving, cadence, device and label selection, scraping and joining GPU metrics with vLLM, llama.cpp and SGLang, alert rules for XID and throttling, unified-memory (DGX Spark) caveats, security, updates and troubleshooting, with validated templates and a read-only check script.",
+  "references": [
+    "https://github.com/NVIDIA/dcgm-exporter",
+    "https://github.com/NVIDIA/dcgm-exporter/releases",
+    "https://github.com/NVIDIA/dcgm-exporter/blob/main/etc/default-counters.csv",
+    "https://github.com/NVIDIA/dcgm-exporter/blob/main/deployment/README.md",
+    "https://docs.nvidia.com/datacenter/dcgm/latest/installation/install-dcgm-exporter.html",
+    "https://docs.nvidia.com/datacenter/dcgm/latest/reference/command-line-reference/dcgm-exporter.html",
+    "https://docs.nvidia.com/datacenter/dcgm/latest/reference/dcgm-exporter-metrics.html",
+    "https://docs.nvidia.com/datacenter/dcgm/latest/release-notes/dcgm-exporter.html",
+    "https://docs.nvidia.com/datacenter/dcgm/latest/learn/getting-started-for-system-administrators/configure-prometheus-for-dcgm-exporter.html",
+    "https://docs.nvidia.com/dgx/dgx-spark/known-issues.html",
+    "https://grafana.com/grafana/dashboards/12239"
+  ],
+  "kind": "product"
+}

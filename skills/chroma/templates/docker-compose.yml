@@ -1,0 +1,31 @@
+# Chroma on an internal network, Caddy bearer-token proxy on loopback.
+# Put CHROMA_PROXY_TOKEN in chroma.env (chmod 600): docker compose --env-file chroma.env up -d
+services:
+  chroma:
+    image: chromadb/chroma:1.5.9
+    restart: unless-stopped
+    volumes:
+      - chroma-data:/data
+    environment:
+      CHROMA_ALLOW_RESET: "false"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v2/heartbeat"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks: [llm]
+  proxy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on: [chroma]
+    ports:
+      - "127.0.0.1:8001:8001"
+    environment:
+      CHROMA_PROXY_TOKEN: ${CHROMA_PROXY_TOKEN:?set in chroma.env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    networks: [llm]
+networks:
+  llm:
+volumes:
+  chroma-data:

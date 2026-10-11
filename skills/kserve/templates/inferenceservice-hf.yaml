@@ -1,0 +1,39 @@
+# InferenceService with the Hugging Face (vLLM) runtime. Based on the KServe text-generation guide.
+# Create the Secret from a 0600 file first:
+#   kubectl create secret generic hf-secret --from-file=HF_TOKEN=/path/to/token-file
+apiVersion: serving.kserve.io/v1alpha1
+kind: ClusterStorageContainer
+metadata:
+  name: hf-hub
+spec:
+  container:
+    name: storage-initializer
+    image: kserve/storage-initializer:v0.21.0
+    env:
+      - name: HF_TOKEN
+        valueFrom:
+          secretKeyRef:
+            name: hf-secret
+            key: HF_TOKEN
+            optional: false
+    resources:
+      requests: { memory: 2Gi, cpu: "1" }
+      limits: { memory: 4Gi, cpu: "1" }
+  supportedUriFormats:
+    - prefix: hf://
+---
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: llama3-8b
+spec:
+  predictor:
+    model:
+      modelFormat:
+        name: huggingface
+      args:
+        - --model_name=llama3
+      storageUri: hf://meta-llama/meta-llama-3-8b-instruct
+      resources:
+        limits: { cpu: "6", memory: 24Gi, nvidia.com/gpu: "1" }
+        requests: { cpu: "6", memory: 24Gi, nvidia.com/gpu: "1" }

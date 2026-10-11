@@ -5,12 +5,12 @@ license: MIT
 compatibility: Commands assume bash, curl, jq and Docker Compose. Examples target the LiteLLM proxy; other gateways are covered at decision level. Works with any OpenAI-compatible backend (llama.cpp, llama-swap, vLLM, SGLang, Ollama) and hosted APIs.
 metadata:
   author: ScaleDockHQ
-  version: "1.0.1"
+  version: "1.2.1"
 ---
 
 # LLM Gateway
 
-One stable, authenticated endpoint that speaks the OpenAI and Anthropic wire formats, routing to any mix of local engines and cloud APIs. This skill owns everything general about gateways: choice, install, model registry, keys and budgets, routing, API bridging, upgrades and troubleshooting.
+One stable, authenticated endpoint that speaks the OpenAI and Anthropic wire formats, routing to any mix of local engines and cloud APIs. This skill owns the gateway decision and the stack-level workflow around it; LiteLLM product depth (install, config, keys, routing, bridging, observability, updating, troubleshooting) lives in the `litellm` skill, and the files below keep only how it plugs into this stack.
 
 Out of scope, handled by companion skills: serving the models themselves (`self-hosted-llms`, `local-llms`), picking a cloud vendor (`cloud-llms`), per-client config (`llm-clients`), tracing and dashboards (`llm-observability`).
 
@@ -119,17 +119,17 @@ Ask the user only for what discovery can't reveal: which providers they have acc
 
 ## References
 
-| File                                 | Read when                                                                  |
-| ------------------------------------ | -------------------------------------------------------------------------- |
-| `references/choosing-a-gateway.md`   | Comparing LiteLLM, OpenRouter, Portkey, Envoy AI Gateway, Kong, Cloudflare |
-| `references/litellm-setup.md`        | Installing LiteLLM with Docker and Postgres, keys, health endpoints        |
-| `references/models-and-providers.md` | Writing `model_list`, `model_info`, aliases, param dropping, passthrough   |
-| `references/keys-budgets.md`         | Virtual keys, teams, budgets, rate limits, rotation                        |
-| `references/routing-fallbacks.md`    | Load balancing, retries, timeouts, fallbacks, cooldowns                    |
-| `references/api-bridging.md`         | `/v1/messages` and `/v1/responses` clients over chat-completions backends  |
-| `references/hooks-and-callbacks.md`  | Logging callbacks, Prometheus, last-resort Python hooks                    |
-| `references/operations.md`           | Pinning, upgrades, rollback, migrations, logs, backups                     |
-| `references/troubleshooting.md`      | Symptom to cause to fix                                                    |
+| File                                 | Read when (each LiteLLM file is a short stack note ending in a Depth pointer) |
+| ------------------------------------ | ----------------------------------------------------------------------------- |
+| `references/choosing-a-gateway.md`   | Comparing LiteLLM, OpenRouter, Portkey, Envoy AI Gateway, Kong, Cloudflare    |
+| `references/litellm-setup.md`        | Installing LiteLLM with Docker and Postgres, keys, health endpoints           |
+| `references/models-and-providers.md` | Writing `model_list`, `model_info`, aliases, param dropping, passthrough      |
+| `references/keys-budgets.md`         | Virtual keys, teams, budgets, rate limits, rotation                           |
+| `references/routing-fallbacks.md`    | Load balancing, retries, timeouts, fallbacks, cooldowns                       |
+| `references/api-bridging.md`         | `/v1/messages` and `/v1/responses` clients over chat-completions backends     |
+| `references/hooks-and-callbacks.md`  | Logging callbacks, Prometheus, last-resort Python hooks                       |
+| `references/operations.md`           | Pinning, upgrades, rollback, migrations, logs, backups                        |
+| `references/troubleshooting.md`      | Symptom to cause to fix                                                       |
 
 Templates: `assets/litellm-config.yaml`, `assets/docker-compose.yaml`, `assets/litellm.env.example`.
 
@@ -139,6 +139,7 @@ Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`
 
 - `choosing-llm-hosting`: where models should run before you put a gateway in front.
 - `self-hosted-llms`: engines and llama-swap behind the gateway; keeps only stack-specific LiteLLM config.
+- `litellm`: product depth for the LiteLLM proxy; the `references/` files here for LiteLLM point to it.
 - `local-llms`: laptop and desktop backends.
 - `cloud-llms`: provider accounts, pricing and quotas.
 - `llm-clients`: pointing agents, IDEs, chat UIs and SDKs at the gateway.

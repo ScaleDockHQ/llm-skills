@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Deploy and operate LobeHub (formerly LobeChat) v2 against self-hosted OpenAI-compatible and Anthropic-compatible endpoints (vLLM, llama.cpp, Ollama, LM Studio, LiteLLM, llama-swap). Covers the server-database Docker Compose install, proxy URLs and key handling, model list capability flags, Docker networking and SSRF allowlists, update and backup, and troubleshooting, with an env template.",
+  "references": [
+    "https://github.com/lobehub/lobehub",
+    "https://github.com/lobehub/lobehub/releases",
+    "https://lobehub.com/docs/self-hosting/server-database/docker-compose",
+    "https://lobehub.com/docs/self-hosting/server-database/docker",
+    "https://lobehub.com/docs/self-hosting/environment-variables/model-provider",
+    "https://lobehub.com/docs/self-hosting/environment-variables/basic",
+    "https://lobehub.com/docs/self-hosting/advanced/model-list",
+    "https://lobehub.com/docs/self-hosting/migration/v2/breaking-changes",
+    "https://lobehub.com/docs/usage/providers/vllm",
+    "https://lobehub.com/docs/usage/providers/ollama"
+  ],
+  "kind": "product"
+}

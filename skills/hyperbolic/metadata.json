@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Rent, use and tear down Hyperbolic GPU instances (on-demand, spot, reserved; virtual machine and bare metal) through the app or the v2 API, run an open model on the box and connect it to a LiteLLM gateway. Covers auth, SSH keys, billing and balance rules, teardown, and the retirement of Hyperbolic's serverless inference API with migration paths.",
+  "references": [
+    "https://hyperbolic.ai/docs/llms.txt",
+    "https://hyperbolic.ai/docs/faq/inference-models",
+    "https://hyperbolic.ai/docs/overview/platform-comparison",
+    "https://hyperbolic.ai/docs/on-demand/quickstart",
+    "https://hyperbolic.ai/docs/on-demand/pricing",
+    "https://hyperbolic.ai/docs/on-demand/managing-instances",
+    "https://hyperbolic.ai/docs/on-demand/storage-and-ports",
+    "https://hyperbolic.ai/docs/on-demand/troubleshooting",
+    "https://hyperbolic.ai/docs/on-demand/maintenance",
+    "https://hyperbolic.ai/docs/reserved/overview",
+    "https://hyperbolic.ai/docs/general/account-management",
+    "https://hyperbolic.ai/docs/general/billing-payments",
+    "https://hyperbolic.ai/docs/general/auto-top-up",
+    "https://hyperbolic.ai/docs/securing-open-ports",
+    "https://hyperbolic.ai/docs/changelog",
+    "https://hyperbolic.ai/docs/api-reference/openapi.json",
+    "https://docs.litellm.ai/docs/providers/openai_compatible"
+  ],
+  "kind": "platform"
+}

@@ -1,0 +1,25 @@
+# Dynamic configuration for one LLM backend. Hot reloaded.
+http:
+  routers:
+    llm:
+      rule: "Host(`llm.example.com`)"
+      entryPoints: [websecure]
+      middlewares: [llm-allow, llm-rate]
+      service: llm
+      tls:
+        certResolver: le
+  middlewares:
+    llm-allow:
+      ipAllowList:
+        sourceRange: ["10.0.0.0/8", "192.168.0.0/16"]
+    llm-rate:
+      rateLimit:
+        average: 20
+        period: 1s
+        burst: 40
+  services:
+    llm:
+      loadBalancer:
+        servers:
+          - url: "http://host.docker.internal:4000"
+        # responseForwarding: { flushInterval: "-1" }   # only if a backend buffers

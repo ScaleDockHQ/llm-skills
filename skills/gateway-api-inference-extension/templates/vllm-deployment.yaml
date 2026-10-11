@@ -1,0 +1,40 @@
+# vLLM replicas for an InferencePool. Adapted from the vLLM Kubernetes docs; verify image tag and flags (skill vllm).
+# Secret from a 0600 file: kubectl create secret generic hf-token --from-file=token=./hf-token.txt
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vllm-qwen3-32b
+spec:
+  replicas: 3
+  selector:
+    matchLabels: { app: vllm-qwen3-32b }
+  template:
+    metadata:
+      labels: { app: vllm-qwen3-32b } # the pool selector matches this
+    spec:
+      containers:
+        - name: vllm
+          image: vllm/vllm-openai:v0.31.0 # pin; see skill vllm
+          args:
+            - Qwen/Qwen3-32B
+            - --served-model-name=qwen3-32b
+            - --max-model-len=32768
+            - --port=8000
+          env:
+            - name: HF_TOKEN
+              valueFrom:
+                secretKeyRef: { name: hf-token, key: token, optional: true }
+          ports:
+            - { containerPort: 8000, name: http }
+          readinessProbe:
+            httpGet: { path: /health, port: 8000 }
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            failureThreshold: 90 # model load and compile are slow
+          resources:
+            limits: { nvidia.com/gpu: "2" }
+          volumeMounts:
+            - { name: shm, mountPath: /dev/shm }
+      volumes:
+        - name: shm
+          emptyDir: { medium: Memory, sizeLimit: 16Gi }

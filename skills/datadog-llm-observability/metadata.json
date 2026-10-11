@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Operate Datadog Agent Observability (LLM Observability) for LLM traces, cost and evaluations. Covers ddtrace and dd-trace install, agentless versus Agent mode, tracing vLLM, llama.cpp, SGLang, Ollama and a LiteLLM proxy, OTLP with a Collector, span-processor redaction and retention, manual cost for local models, ml_obs metric monitors, updates and troubleshooting.",
+  "references": [
+    "https://docs.datadoghq.com/llm_observability/",
+    "https://docs.datadoghq.com/llm_observability/quickstart/",
+    "https://docs.datadoghq.com/llm_observability/instrument/sdk/",
+    "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/",
+    "https://docs.datadoghq.com/llm_observability/instrument/otel_instrumentation/",
+    "https://docs.datadoghq.com/llm_observability/instrument/api/",
+    "https://docs.datadoghq.com/llm_observability/guide/monitor_proxy_services/",
+    "https://docs.datadoghq.com/llm_observability/data_governance/",
+    "https://docs.datadoghq.com/llm_observability/investigate/cost/",
+    "https://docs.datadoghq.com/llm_observability/investigate/metrics/",
+    "https://docs.datadoghq.com/llm_observability/lapdog/",
+    "https://github.com/DataDog/dd-trace-py",
+    "https://pypi.org/project/ddtrace/"
+  ],
+  "kind": "product"
+}

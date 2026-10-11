@@ -1,0 +1,19 @@
+# llama-swap entry that runs Speaches in Docker on demand.
+# Verified against llama-swap v263 (docs/config.example.yaml Docker example) and Speaches master, 2026-10-11.
+# Merge into your config.yaml. ${PORT} and ${MODEL_ID} are llama-swap macros.
+# The file named by --env-file holds API_KEY=... (0600). Clients send model=speaches to llama-swap.
+models:
+  "speaches":
+    proxy: http://127.0.0.1:${PORT}
+    cmd: |
+      docker run --name ${MODEL_ID} --init --rm
+      --publish 127.0.0.1:${PORT}:8000
+      --volume hf-hub-cache:/home/ubuntu/.cache/huggingface/hub
+      --env-file ${env.HOME}/.config/speaches.env
+      --gpus=all
+      ghcr.io/speaches-ai/speaches:latest-cuda
+    cmdStop: docker stop ${MODEL_ID}
+    useModelName: Systran/faster-whisper-small # the Speaches model id the container expects
+    checkEndpoint: /health # public in Speaches even with API_KEY set
+    ttl: 600
+    unloadTimeout: 30 # docker stop can take a few seconds

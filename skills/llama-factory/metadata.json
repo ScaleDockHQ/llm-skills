@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Agent skill for LLaMA-Factory: install from source or Docker, register datasets, write YAML for LoRA/QLoRA/full SFT, DPO, KTO and reward training, scale out with torchrun and DeepSpeed ZeRO, merge adapters, serve an OpenAI-style API, secure the web UI, update and troubleshoot.",
+  "references": [
+    "https://github.com/hiyouga/LLaMA-Factory",
+    "https://github.com/hiyouga/LLaMA-Factory/releases",
+    "https://llamafactory.readthedocs.io/",
+    "https://github.com/hiyouga/LLaMA-Factory/blob/main/data/README.md",
+    "https://github.com/hiyouga/LLaMA-Factory/blob/main/examples/README.md",
+    "https://github.com/hiyouga/LLaMA-Factory/blob/main/pyproject.toml",
+    "https://hub.docker.com/r/hiyouga/llamafactory/tags",
+    "https://pypi.org/project/llamafactory/"
+  ],
+  "kind": "product"
+}

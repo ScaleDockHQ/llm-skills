@@ -1,0 +1,25 @@
+# /etc/systemd/system/trtllm-serve.service. Untested template.
+# /etc/trtllm/env (mode 0600, owner root) contains: HF_TOKEN=...
+[Unit]
+Description=TensorRT-LLM trtllm-serve (Qwen3-8B-FP8)
+After=docker.service network-online.target
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/trtllm/env
+ExecStartPre=-/usr/bin/docker rm -f trtllm-serve
+ExecStart=/usr/bin/docker run --rm --name trtllm-serve --gpus all --ipc=host \
+  --ulimit memlock=-1 --ulimit stack=67108864 \
+  -p 127.0.0.1:8000:8000 \
+  -e HF_TOKEN \
+  -v /var/lib/trtllm/hf:/root/.cache/huggingface \
+  -v /etc/trtllm/config.yml:/cfg/config.yml:ro \
+  nvcr.io/nvidia/tensorrt-llm/release:1.2.1 \
+  trtllm-serve nvidia/Qwen3-8B-FP8 --host 0.0.0.0 --port 8000 --config /cfg/config.yml
+ExecStop=/usr/bin/docker stop -t 60 trtllm-serve
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target

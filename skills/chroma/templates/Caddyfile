@@ -1,0 +1,10 @@
+{
+	auto_https off
+}
+:8001 {
+	@authed header Authorization "Bearer {env.CHROMA_PROXY_TOKEN}"
+	handle @authed {
+		reverse_proxy chroma:8000
+	}
+	respond "unauthorized" 401
+}

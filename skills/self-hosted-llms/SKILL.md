@@ -4,7 +4,7 @@ description: Plan, set up, operate, update, benchmark, optimize and clean up a s
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.0.1"
+  version: "1.2.0"
 compatibility: Linux hosts with NVIDIA GPUs (DGX Spark first-class); Docker, NVIDIA Container Toolkit, systemd, bash, curl, jq; shell/SSH access to the nodes.
 ---
 
@@ -175,7 +175,7 @@ Rationale and the incidents behind each rule: `references/memory-safety.md` (rul
 | `references/models-and-weights.md`   | Formats and quants, HF CLI, cache layout, revisions, syncing nodes         |
 | `references/status.md`               | Read-only status snapshot checklist                                        |
 | `references/smoke-test.md`           | curl + jq checks through the public URL                                    |
-| `references/engine-vllm.md`          | vLLM                                                                       |
+| `references/engine-vllm.md`          | vLLM wrapper and stack entries; depth in `vllm`                            |
 | `references/engine-tensorfold.md`    | TensorFold and DGX Spark recipes                                           |
 | `references/engine-exllama.md`       | ExLlamaV3 / EXL3 via TabbyAPI or an OpenAI server                          |
 | `references/engine-sglang.md`        | SGLang                                                                     |
@@ -217,6 +217,12 @@ Install any of these with `npx skills add ScaleDockHQ/llms-skills --skill <name>
 - `llm-gateway` - LiteLLM and alternatives: keys, budgets, routing, fallbacks, API bridging.
 - `llm-clients` - per-client configuration for IDEs, CLIs, chat UIs and SDKs.
 - `llm-evals` - quality gates and task evals for model or option changes.
+- `stable-diffusion-cpp` - sd-server depth (the engine-sdcpp reference is now a stack note).
 - `model-quantization` - producing EXL3, NVFP4, FP8 and GGUF quants.
 - `fine-tuning-llms` - training adapters or full fine-tunes to serve here.
 - `llm-observability` - metrics, logs and tracing beyond the built-in endpoints.
+- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `exllamav3`, `tensorfold` - engine depth: install, flags, tuning, operating.
+- `llama-swap` - router depth: config schema, routing, API, operations.
+- `nvidia-dgx-spark` - DGX Spark platform depth: OS, memory, networking, dual node.
+- `litellm` - gateway depth beyond the stack minimum.
+- `cloudflare-tunnel`, `tailscale` - exposure depth.

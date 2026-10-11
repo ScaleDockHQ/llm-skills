@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run Inspect AI (UK AISI) evals: pinned install, Task, dataset and scorer code, model providers for vLLM, Ollama, llama.cpp and LiteLLM, reasoning-model handling, model-graded scoring with a separate grader role, concurrency, retries, eval sets, log files and the viewer, caching, sandboxes, troubleshooting and updating. References split by install, endpoints, tasks, scoring, running, troubleshooting and updating.",
+  "references": [
+    "https://github.com/UKGovernmentBEIS/inspect_ai",
+    "https://github.com/UKGovernmentBEIS/inspect_ai/releases",
+    "https://github.com/UKGovernmentBEIS/inspect_evals",
+    "https://pypi.org/project/inspect-ai/",
+    "https://inspect.aisi.org.uk/",
+    "https://inspect.aisi.org.uk/options.html",
+    "https://inspect.aisi.org.uk/providers.html",
+    "https://inspect.aisi.org.uk/reasoning.html",
+    "https://inspect.aisi.org.uk/tasks.html",
+    "https://inspect.aisi.org.uk/datasets.html",
+    "https://inspect.aisi.org.uk/scorers.html",
+    "https://inspect.aisi.org.uk/model-graded.html",
+    "https://inspect.aisi.org.uk/metrics.html",
+    "https://inspect.aisi.org.uk/scoring-workflow.html",
+    "https://inspect.aisi.org.uk/eval-sets.html",
+    "https://inspect.aisi.org.uk/eval-logs.html",
+    "https://inspect.aisi.org.uk/handling-errors.html",
+    "https://inspect.aisi.org.uk/models-concurrency.html",
+    "https://inspect.aisi.org.uk/caching.html",
+    "https://inspect.aisi.org.uk/sandboxing.html"
+  ],
+  "kind": "product"
+}

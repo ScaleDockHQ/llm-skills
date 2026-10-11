@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Operate Sentry Agent Tracing (AI monitoring) for LLM calls, agents and conversations. Covers sentry-sdk integrations and manual gen_ai spans for apps calling vLLM, llama.cpp, SGLang, Ollama and LiteLLM, direct OTLP and a Collector, PII and scrubbing, head-based sampling, custom cost for local models, self-hosted Sentry, updates and troubleshooting.",
+  "references": [
+    "https://docs.sentry.io/product/agents/",
+    "https://docs.sentry.io/product/agents/getting-started/",
+    "https://docs.sentry.io/product/agents/privacy/",
+    "https://docs.sentry.io/product/agents/costs/",
+    "https://docs.sentry.io/product/agents/sampling/",
+    "https://docs.sentry.io/product/agents/naming/",
+    "https://docs.sentry.io/product/agents/dashboards/",
+    "https://docs.sentry.io/platforms/python/tracing/instrumentation/custom-instrumentation/ai-agents-module/",
+    "https://docs.sentry.io/platforms/python/integrations/openai/",
+    "https://docs.sentry.io/platforms/python/integrations/litellm/",
+    "https://docs.sentry.io/concepts/otlp/",
+    "https://docs.sentry.io/concepts/otlp/direct/traces/",
+    "https://develop.sentry.dev/self-hosted/",
+    "https://docs.litellm.ai/docs/observability/sentry",
+    "https://pypi.org/project/sentry-sdk/"
+  ],
+  "kind": "product"
+}

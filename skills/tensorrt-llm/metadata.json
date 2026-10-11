@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve, tune, scale out, update and troubleshoot NVIDIA TensorRT-LLM (trtllm-serve, trtllm-bench, trtllm-eval, LLM API) on NVIDIA GPUs including Blackwell and DGX Spark. Covers NGC release containers, pip, the PyTorch backend versus legacy engine builds, the extra LLM API options YAML, FP8 and NVFP4 checkpoints, TP/PP/EP with MPI or Slurm, speculative decoding, parsers, metrics, and combos for Model Optimizer NVFP4 and NVIDIA Dynamo. References are split per topic, with untested compose, systemd and Kubernetes templates.",
+  "references": [
+    "https://github.com/NVIDIA/TensorRT-LLM",
+    "https://github.com/NVIDIA/TensorRT-LLM/releases",
+    "https://nvidia.github.io/TensorRT-LLM/",
+    "https://nvidia.github.io/TensorRT-LLM/installation/installation-guide.html",
+    "https://nvidia.github.io/TensorRT-LLM/commands/trtllm-serve/trtllm-serve.html",
+    "https://nvidia.github.io/TensorRT-LLM/commands/trtllm-bench.html",
+    "https://nvidia.github.io/TensorRT-LLM/commands/trtllm-eval.html",
+    "https://nvidia.github.io/TensorRT-LLM/features/quantization.html",
+    "https://nvidia.github.io/TensorRT-LLM/features/parallel-strategy.html",
+    "https://nvidia.github.io/TensorRT-LLM/features/speculative-decoding.html",
+    "https://nvidia.github.io/TensorRT-LLM/features/disagg-serving.html",
+    "https://nvidia.github.io/TensorRT-LLM/features/guided-decoding.html",
+    "https://nvidia.github.io/TensorRT-LLM/features/kvcache.html",
+    "https://nvidia.github.io/TensorRT-LLM/deployment-guide/index.html",
+    "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/tensorrt-llm/containers/release",
+    "https://github.com/NVIDIA/dgx-spark-playbooks/tree/main/nvidia/trt-llm",
+    "https://github.com/NVIDIA/Model-Optimizer",
+    "https://github.com/ai-dynamo/dynamo",
+    "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/ai-dynamo/containers/tensorrtllm-runtime",
+    "https://pypi.org/project/tensorrt-llm/"
+  ],
+  "kind": "product"
+}

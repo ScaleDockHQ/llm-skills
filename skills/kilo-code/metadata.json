@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Configure Kilo Code (VS Code, JetBrains, kilo CLI) for self-hosted endpoints (vLLM, llama.cpp, Ollama, LiteLLM, llama-swap). Covers the Custom provider dialog, kilo.jsonc providers with OpenAI Compatible, OpenAI Responses and Anthropic Messages wire APIs, key handling with env and file references, model id mapping, context and output limits, tool-calling and streaming caveats, troubleshooting and a read-only probe script.",
+  "references": [
+    "https://github.com/Kilo-Org/kilocode",
+    "https://github.com/Kilo-Org/kilocode/releases",
+    "https://kilo.ai/docs/llms.txt",
+    "https://kilo.ai/docs/ai-providers/openai-compatible",
+    "https://kilo.ai/docs/code-with-ai/agents/custom-models",
+    "https://kilo.ai/docs/ai-providers/ollama",
+    "https://kilo.ai/docs/ai-providers/lmstudio"
+  ],
+  "kind": "product"
+}

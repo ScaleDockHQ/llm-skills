@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Make multi-node NVIDIA GPU clusters use their RDMA fabric with NCCL. Covers a bottom-up test ladder (ibstat, ib_write_bw, nccl-tests, engine), InfiniBand and RoCE checks, GPUDirect RDMA via nvidia-peermem or DMA-BUF, ACS and IOMMU pitfalls, the NCCL variables that matter, container and Kubernetes requirements for vLLM and similar engines, tuning, updates and troubleshooting, with a read-only node check script.",
+  "references": [
+    "https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html",
+    "https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html",
+    "https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/troubleshooting.html",
+    "https://github.com/NVIDIA/nccl",
+    "https://github.com/NVIDIA/nccl/releases",
+    "https://github.com/NVIDIA/nccl-tests",
+    "https://github.com/NVIDIA/nccl-tests/blob/master/doc/PERFORMANCE.md",
+    "https://github.com/linux-rdma/perftest",
+    "https://docs.vllm.ai/en/latest/serving/parallelism_scaling/",
+    "https://docs.vllm.ai/en/latest/usage/troubleshooting/",
+    "https://pypi.org/project/nvidia-nccl-cu12/"
+  ],
+  "kind": "product"
+}

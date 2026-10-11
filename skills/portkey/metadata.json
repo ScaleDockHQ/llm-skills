@@ -1,0 +1,28 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run and use the Portkey AI Gateway, the open-source Node.js gateway, and the hosted Portkey platform. Covers install with npx, Docker and Kubernetes, headers and configs for fallbacks, load balancing, conditional routing, retries and timeouts, the custom-host SSRF guard, open-source versus hosted features, LiteLLM and Claude Code wiring, pinned updates and troubleshooting.",
+  "references": [
+    "https://github.com/Portkey-AI/gateway",
+    "https://github.com/Portkey-AI/gateway/releases",
+    "https://github.com/Portkey-AI/gateway/blob/main/docs/installation-deployments.md",
+    "https://hub.docker.com/r/portkeyai/gateway",
+    "https://www.npmjs.com/package/@portkey-ai/gateway",
+    "https://docs.portkey.ai/docs/product/ai-gateway/configs",
+    "https://docs.portkey.ai/docs/product/ai-gateway/fallbacks",
+    "https://docs.portkey.ai/docs/product/ai-gateway/load-balancing",
+    "https://docs.portkey.ai/docs/product/ai-gateway/conditional-routing",
+    "https://docs.portkey.ai/docs/product/ai-gateway/automatic-retries",
+    "https://docs.portkey.ai/docs/product/ai-gateway/request-timeouts",
+    "https://docs.portkey.ai/docs/product/ai-gateway/circuit-breaker",
+    "https://docs.portkey.ai/docs/product/ai-gateway/cache-simple-and-semantic",
+    "https://docs.portkey.ai/docs/product/ai-gateway/messages-api",
+    "https://docs.portkey.ai/docs/product/model-catalog",
+    "https://docs.portkey.ai/docs/product/ai-gateway/virtual-keys",
+    "https://docs.portkey.ai/docs/product/product-feature-comparison",
+    "https://docs.portkey.ai/docs/product/mcp-gateway",
+    "https://docs.litellm.ai/docs/providers/openai_compatible"
+  ],
+  "kind": "product"
+}

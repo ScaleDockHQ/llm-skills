@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Score code-generation LLMs with EvalPlus (HumanEval+, MBPP+, EvalPerf): pinned install, evalplus.codegen, sanitize and evaluate flows, backends (vLLM, OpenAI-compatible servers, Hugging Face, hosted APIs), sample JSONL formats, sandboxed execution in Docker, time and memory limits, pass@k reading, EvalPerf, a quantization code-ability check, troubleshooting and update notes including slow upstream maintenance.",
+  "references": [
+    "https://github.com/evalplus/evalplus",
+    "https://github.com/evalplus/evalplus/releases",
+    "https://pypi.org/project/evalplus/",
+    "https://github.com/evalplus/evalplus/blob/master/docs/cli.md",
+    "https://github.com/evalplus/evalplus/blob/master/docs/execution.md",
+    "https://github.com/evalplus/evalplus/blob/master/docs/evalperf.md",
+    "https://evalplus.github.io/leaderboard.html",
+    "https://hub.docker.com/r/ganler/evalplus"
+  ],
+  "kind": "product"
+}

@@ -1,0 +1,31 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Deploy and call models on Microsoft Foundry (formerly Azure AI Foundry and Azure OpenAI) with the az CLI, deployment types, the v1 API, Entra ID auth, quotas, budgets and private networking, and serve custom models on Azure Machine Learning online endpoints. Seven focused references cover setup, deployments, Azure ML, limits, private access, LiteLLM wiring and teardown.",
+  "references": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry",
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/api-version-lifecycle",
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types",
+    "https://learn.microsoft.com/en-us/azure/foundry/tutorials/quickstart-create-foundry-resources",
+    "https://learn.microsoft.com/en-us/azure/ai-services/multi-service-resource",
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/managed-identity",
+    "https://learn.microsoft.com/en-us/azure/developer/ai/keyless-connections",
+    "https://learn.microsoft.com/en-us/azure/ai-services/disable-local-auth",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/quotas-limits",
+    "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/quotas-limits",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/troubleshoot-errors",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/automate-quota-deployments",
+    "https://learn.microsoft.com/en-us/azure/foundry/how-to/create-projects",
+    "https://learn.microsoft.com/en-us/azure/ai-services/recover-purge-resources",
+    "https://learn.microsoft.com/en-us/cli/azure/cognitiveservices/account",
+    "https://learn.microsoft.com/en-us/cli/azure/consumption/budget",
+    "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/cost-management-budget-scenario",
+    "https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-endpoint-online",
+    "https://learn.microsoft.com/en-us/azure/machine-learning/how-to-authenticate-online-endpoint",
+    "https://learn.microsoft.com/en-us/azure/machine-learning/how-to-deploy-online-endpoints",
+    "https://docs.litellm.ai/docs/providers/azure/"
+  ],
+  "kind": "platform"
+}

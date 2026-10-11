@@ -1,0 +1,23 @@
+# /etc/systemd/system/llamafile.service  (install only with the user's approval)
+[Unit]
+Description=llamafile server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=llamafile
+Group=llamafile
+WorkingDirectory=/var/lib/llamafile
+# The APE loader unpacks into $TMPDIR/.ape-1.10; it must be writable and allow exec
+Environment=TMPDIR=/var/lib/llamafile/tmp
+# Key file mode 0600, owned by the service user; never use --api-key (visible in ps)
+# /bin/sh runs the polyglot file without binfmt_misc registration
+ExecStart=/bin/sh /opt/llamafile/Model.llamafile --server --host 127.0.0.1 --port 8080 \
+  --api-key-file /etc/llamafile/api-key --jinja -c 16384 -ngl 999
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=900
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install and serve vLLM-Omni, vLLM's omni-modality extension for diffusion image and video, TTS and audio generation and omni chat models. References cover installation and version pairing, supported models and the OpenAI-style endpoints, serve flags and stage configs, offload, parallelism, caching and quantization, updating and troubleshooting.",
+  "references": [
+    "https://github.com/vllm-project/vllm-omni",
+    "https://github.com/vllm-project/vllm-omni/releases",
+    "https://pypi.org/project/vllm-omni/",
+    "https://hub.docker.com/r/vllm/vllm-omni",
+    "https://docs.vllm.ai/projects/vllm-omni/en/latest/",
+    "https://docs.vllm.ai/projects/vllm-omni/en/latest/getting_started/installation/",
+    "https://docs.vllm.ai/projects/vllm-omni/en/latest/serving/",
+    "https://docs.vllm.ai/projects/vllm-omni/en/latest/models/supported_models/",
+    "https://docs.vllm.ai/projects/vllm-omni/en/latest/user_guide/diffusion_features/",
+    "https://docs.vllm.ai/projects/vllm-omni/en/latest/user_guide/quantization/overview/",
+    "https://recipes.vllm.ai"
+  ],
+  "kind": "product"
+}

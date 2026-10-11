@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, deploy, scale, roll out, update and troubleshoot KServe for LLMs on Kubernetes. Covers LLMInferenceService (llm-d based routing, prefill/decode, multi-node, WVA autoscaling, canary groups), InferenceService with the Hugging Face vLLM runtime, LocalModelCache, KEDA, Envoy AI Gateway and LiteLLM integration, plus Helm, kustomize and script installs. Verified against KServe v0.21.0.",
+  "references": [
+    "https://kserve.github.io/website/docs/intro",
+    "https://kserve.github.io/website/docs/install/overview",
+    "https://kserve.github.io/website/docs/install/dependencies",
+    "https://kserve.github.io/website/docs/install/llmisvc-install",
+    "https://kserve.github.io/website/docs/install/upgrade-guide",
+    "https://kserve.github.io/website/docs/getting-started/quickstart-guide",
+    "https://kserve.github.io/website/docs/model-serving/generative-inference/overview",
+    "https://kserve.github.io/website/docs/model-serving/generative-inference/llmisvc/llmisvc-overview",
+    "https://kserve.github.io/website/docs/model-serving/generative-inference/llmisvc/canary-rollout",
+    "https://kserve.github.io/website/docs/model-serving/generative-inference/modelcache/localmodel",
+    "https://github.com/kserve/kserve",
+    "https://github.com/kserve/kserve/releases",
+    "https://github.com/kserve/kserve/tree/v0.21.0/docs/samples/llmisvc"
+  ],
+  "kind": "product"
+}

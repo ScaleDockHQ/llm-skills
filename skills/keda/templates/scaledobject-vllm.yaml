@@ -1,0 +1,51 @@
+# Scale a vLLM Deployment on queue depth with a KV-cache guard. Verified against KEDA v2.21.0.
+# Set names, namespace, serverAddress and labels, then: kubectl apply -f scaledobject-vllm.yaml
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: vllm-qwen
+  namespace: llm
+spec:
+  scaleTargetRef:
+    name: vllm-qwen # Deployment in the same namespace
+  pollingInterval: 15
+  cooldownPeriod: 600 # only matters when minReplicaCount is 0
+  initialCooldownPeriod: 300 # do not cut a model that is still loading
+  minReplicaCount: 1 # 0 = cold start per wake-up (references/scale-to-zero.md)
+  maxReplicaCount: 4 # at most the GPUs you can schedule
+  fallback:
+    failureThreshold: 3
+    replicas: 2
+    behavior: currentReplicasIfHigher # hold the count if Prometheus is unreachable
+  advanced:
+    restoreToOriginalReplicaCount: false
+    horizontalPodAutoscalerConfig:
+      behavior:
+        scaleUp:
+          stabilizationWindowSeconds: 0
+          policies:
+            - { type: Pods, value: 2, periodSeconds: 60 }
+        scaleDown:
+          stabilizationWindowSeconds: 900
+          policies:
+            - { type: Pods, value: 1, periodSeconds: 300 }
+  triggers:
+    - type: prometheus
+      name: waiting
+      metricType: AverageValue # threshold is per replica
+      metadata:
+        serverAddress: http://prometheus-operated.monitoring.svc:9090
+        query: sum(vllm:num_requests_waiting{namespace="llm",model_name="qwen"})
+        threshold: "4"
+        activationThreshold: "0"
+        ignoreNullValues: "false"
+      # authenticationRef:                # uncomment with templates/triggerauth-prometheus.yaml
+      #   name: prometheus-auth
+    - type: prometheus
+      name: kv-cache
+      metricType: Value # whole-service ratio, not a per-pod average
+      metadata:
+        serverAddress: http://prometheus-operated.monitoring.svc:9090
+        query: max(vllm:kv_cache_usage_perc{namespace="llm",model_name="qwen"})
+        threshold: "0.85"
+        ignoreNullValues: "false"

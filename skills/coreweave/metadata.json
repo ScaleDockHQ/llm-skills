@@ -1,0 +1,27 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run LLMs on CoreWeave through Serverless Inference, Dedicated Inference (gateways and deployments with cwic) or your own serving on CKS Node Pools, with SUNK noted for Slurm. References cover tokens and kubeconfig, each product's API and limits, LiteLLM and OpenAI client wiring, billing and quotas, teardown order and error strings.",
+  "references": [
+    "https://docs.coreweave.com/products/cks",
+    "https://docs.coreweave.com/products/cks/clusters/create",
+    "https://docs.coreweave.com/products/cks/clusters/delete",
+    "https://docs.coreweave.com/products/cks/nodes/create",
+    "https://docs.coreweave.com/products/cks/nodes/manage",
+    "https://docs.coreweave.com/products/cks/deploy-model",
+    "https://docs.coreweave.com/platform/capacity-plans/spot-node-pools",
+    "https://docs.coreweave.com/products/sunk",
+    "https://docs.coreweave.com/products/inference",
+    "https://docs.coreweave.com/products/inference/getting-started",
+    "https://docs.coreweave.com/products/inference/scaling",
+    "https://docs.coreweave.com/products/inference/billing",
+    "https://docs.coreweave.com/products/inference/serverless",
+    "https://docs.coreweave.com/products/inference/serverless/api-reference",
+    "https://docs.coreweave.com/products/inference/serverless/usage-limits",
+    "https://docs.coreweave.com/security/authn-authz/manage-api-access-tokens",
+    "https://github.com/coreweave/cwic",
+    "https://docs.litellm.ai/docs/providers/wandb_inference"
+  ],
+  "kind": "platform"
+}

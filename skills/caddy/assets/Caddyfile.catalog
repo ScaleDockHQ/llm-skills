@@ -1,0 +1,39 @@
+# Caddyfile.catalog -> /etc/llm-stack/Caddyfile (Caddy 2.11)
+# Loopback front for an OpenAI-compatible gateway. Serves an enriched static
+# model list at /v1/models (and /models) only to callers whose key the gateway
+# accepts, and proxies everything else to the gateway with streaming intact.
+# Docs: https://caddyserver.com/docs/caddyfile/directives/forward_auth
+#
+# Environment (all optional):
+#   LLM_CATALOG_DIR   directory containing models.json   (default /var/lib/llm-stack/catalog)
+#   LLM_GATEWAY       gateway host:port                  (default 127.0.0.1:4000)
+#   LLM_FRONT_PORT    listen port on loopback            (default 8088)
+{
+	admin off
+	auto_https off
+}
+
+:{$LLM_FRONT_PORT:8088} {
+	bind 127.0.0.1
+
+	@models path /v1/models /v1/models/ /models /models/
+	handle @models {
+		# GET <gateway>/v1/models with the caller's Authorization header.
+		# 2xx: serve the catalog. Anything else (401, 403): the gateway's response is returned.
+		forward_auth {$LLM_GATEWAY:127.0.0.1:4000} {
+			uri /v1/models
+		}
+		root * {$LLM_CATALOG_DIR:/var/lib/llm-stack/catalog}
+		rewrite * /models.json
+		header Content-Type application/json
+		header Cache-Control no-store
+		file_server
+	}
+
+	handle {
+		reverse_proxy {$LLM_GATEWAY:127.0.0.1:4000} {
+			# Flush after every write: no response buffering for SSE or NDJSON.
+			flush_interval -1
+		}
+	}
+}

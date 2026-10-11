@@ -1,0 +1,17 @@
+# Codex CLI profile: ~/.codex/local.config.toml, used with `codex --profile local`.
+# Top-level keys only (do not nest under [profiles.local]).
+
+model = "<served-model-name>" # GET /v1/models lists the names
+model_provider = "local" # defined in ~/.codex/config.toml
+
+# Real limits of the served model. Codex cannot raise the server's window.
+model_context_window = 131072
+model_auto_compact_token_limit = 110000
+tool_output_token_limit = 8000
+
+# Chat or reasoning backends often reject reasoning summaries.
+model_reasoning_summary = "none"
+model_supports_reasoning_summaries = false
+
+# Hosted web search is not available with a self-hosted provider.
+web_search = "disabled"

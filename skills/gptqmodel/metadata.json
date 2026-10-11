@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Quantize and serve LLMs with GPT-QModel (gptqmodel): GPTQ and AWQ for vLLM, SGLang and Transformers, plus ParoQuant, QQQ, GGUF, FP8 and EXL3 through one API. Covers install and kernel caches, method and format choice, config fields, calibration, MoE routing and FailSafe, dynamic overrides, checkpoint and resume, evaluation with Evalution, EoRA, model and hardware support, and AutoGPTQ/AutoAWQ migration.",
+  "references": [
+    "https://github.com/ModelCloud/GPTQModel",
+    "https://github.com/ModelCloud/GPTQModel/releases",
+    "https://github.com/ModelCloud/GPTQModel/blob/main/README.md",
+    "https://github.com/ModelCloud/GPTQModel/blob/main/checkpoint.md",
+    "https://github.com/ModelCloud/GPTQModel/blob/main/requirements.txt",
+    "https://github.com/ModelCloud/GPTQModel/blob/main/pyproject.toml",
+    "https://github.com/ModelCloud/GPTQModel/blob/main/gptqmodel/quantization/config.py",
+    "https://github.com/ModelCloud/GPTQModel/tree/main/docs",
+    "https://github.com/ModelCloud/Evalution",
+    "https://pypi.org/project/gptqmodel/"
+  ],
+  "kind": "product"
+}

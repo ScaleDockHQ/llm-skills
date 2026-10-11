@@ -1,0 +1,49 @@
+# Troubleshoot LocalAI
+
+> Verified against LocalAI v4.11.0, 2026-10-11
+
+First step for almost every problem: read the server log, not the HTTP body. A 500 is usually a wrapped backend gRPC error.
+
+```bash
+docker logs --tail 300 local-ai          # or journalctl -u local-ai -n 300
+DEBUG=true local-ai run                  # backend stdout/stderr, load parameters, timings
+```
+
+Match on the LocalAI-side prefix; the text after it is the backend's own message and changes between backend versions.
+
+| Symptom                                                       | Likely cause                                                                                         | Fix                                                                                                                                                 |
+| ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `could not load model: ...`                                   | Backend started but rejected the model: bad or truncated GGUF, wrong architecture, unsupported quant | Read the wrapped message. Re-download the file. Match backend to model type                                                                         |
+| `could not load model (no success): ...`                      | Backend replied with failure and no fatal error                                                      | Same; look for out of memory, unsupported option, missing file                                                                                      |
+| `could not load model - all backends returned error`          | No installed backend can load it, or the file is unusable                                            | `local-ai backends install <backend>`; set `backend:` explicitly in the YAML                                                                        |
+| `grpc service not ready`                                      | Backend process started but not healthy in time, or died while loading                               | Use the stderr line and exit code in the message; check disk, libraries and VRAM; raise start timeouts only after finding the cause                 |
+| `failed to load model: ...`                                   | Model config could not be resolved or the load failed                                                | `local-ai models list`; validate the YAML; `parameters.model` must be relative                                                                      |
+| 503 with `Retry-After` right after a failed load              | Model-load failure cooldown stops respawning a crashing backend                                      | Fix the load error, wait out the window (`LOCALAI_MODEL_LOAD_FAILURE_COOLDOWN`, default 10s)                                                        |
+| 503 `no available nodes` or `no healthy nodes match selector` | Distributed: all nodes full or a `node_selector` excludes all                                        | Free a slot, add a node, fix the selector                                                                                                           |
+| 429 with `Retry-After`                                        | Per-model `max_concurrent` or process ceiling hit                                                    | Retry, raise the limit, or add replicas                                                                                                             |
+| 401                                                           | Missing or wrong API key                                                                             | Send `Authorization: Bearer`, `x-api-key` or `xi-api-key`                                                                                           |
+| Refuses to start: public address with no authentication       | Bind safety check                                                                                    | Set `LOCALAI_API_KEY` or auth, or bind a private address. Do not use `--allow-insecure-public-bind` unless a proxy enforces auth                    |
+| `invalid pitch` with CUDA                                     | Prompt exceeded the context size                                                                     | Shorten the prompt or raise `context_size`                                                                                                          |
+| `SIGILL` at startup                                           | Prebuilt backend uses CPU instructions your CPU lacks (AVX512, AVX2, F16C, FMA)                      | Rebuild the backend for your CPU; in a container set `REBUILD=true` and disable the instructions via `CMAKE_ARGS` (for example `-DGGML_AVX512=OFF`) |
+| CUDA or VRAM out of memory                                    | Model plus KV cache does not fit                                                                     | Smaller quant, lower `context_size`, lower `gpu_layers`, free other VRAM users, set `LOCALAI_VRAM_BUDGET`, use LRU or watchdog                      |
+| Backend killed by watchdog                                    | Idle or busy timeout expired                                                                         | Expected behavior; raise `--watchdog-busy-timeout` or disable the watchdog if requests are legitimately long                                        |
+| Models never unload                                           | Default keeps models loaded                                                                          | `LOCALAI_MAX_ACTIVE_BACKENDS` and the idle watchdog                                                                                                 |
+| Truncated or cut-off output                                   | Prompt plus generation exceeded the window                                                           | Raise `context_size` within memory                                                                                                                  |
+| Everything is slow                                            | HDD, too many threads, CPU backend serving a GPU model                                               | SSD or `mmap: false`; `threads` at physical cores; confirm layers offloaded in the debug log                                                        |
+| Wrong GPU backend picked                                      | Auto-detection error                                                                                 | `LOCALAI_FORCE_META_BACKEND_CAPABILITY=nvidia` (or `amd`, `intel`, `default`)                                                                       |
+| GPU not visible in container                                  | Missing passthrough                                                                                  | NVIDIA: `--gpus all` or CDI, test with `nvidia-smi` in a CUDA image; AMD: `/dev/kfd`, `/dev/dri`, `--group-add=video`; Intel and Vulkan: `/dev/dri` |
+| UI assets broken behind HTTPS proxy                           | Scheme not forwarded                                                                                 | Set `LOCALAI_BASE_URL` and forward `X-Forwarded-Proto`                                                                                              |
+| Generated image URLs use wrong host                           | Same                                                                                                 | Same                                                                                                                                                |
+| Settings and models gone after upgrade                        | Container paths not on volumes                                                                       | Mount `/models`, `/backends`, `/configuration`, `/data`                                                                                             |
+| Tool calls returned as text                                   | Old template and parser inherited in YAML                                                            | See `references/features.md` migration block                                                                                                        |
+| Reranker or Python backend fails on `core` image              | Core images lack Python                                                                              | Use a full GPU or CPU image                                                                                                                         |
+| `file://` model rejected                                      | Path outside the models dir                                                                          | Place the file under the models dir                                                                                                                 |
+| Gallery download fails on private or gated repo               | Missing token                                                                                        | Set `HF_TOKEN` in the environment                                                                                                                   |
+
+## Diagnose in order
+
+1. `curl -s http://127.0.0.1:8080/readyz -o /dev/null -w '%{http_code}\n'`
+2. `local-ai backends list` and `local-ai models list` show what is installed.
+3. Reproduce with a tiny request and `DEBUG=true`; capture the log from request to error.
+4. `nvidia-smi` (or `rocm-smi`) during load for memory.
+5. Take the backend's own error to that engine's skill (`llama-cpp`, `vllm`, `sglang`).

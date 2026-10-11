@@ -1,0 +1,42 @@
+# mistralrs from-config -f mistralrs.toml   (schema: reference/cli-toml-config upstream, v0.9.4)
+# Review `mistralrs tune -m <model> --emit-config` output before replacing these values.
+command = "serve"
+default_model_id = "Qwen/Qwen3-4B"
+
+[global]
+# Never put a literal token here. "cache" reads the token saved by `mistralrs login`; use env:HF_TOKEN or path:/etc/mistralrs/hf-token (0600) instead if preferred.
+token_source = "cache"
+
+[server]
+host = "127.0.0.1" # default is 0.0.0.0; the server has no authentication
+port = 1234
+no_ui = false # set true if /ui must not be reachable
+disable_metrics = false
+access_log_format = "json"
+
+[runtime]
+max_seqs = 32
+prefix_cache_n = 16
+# Agent tools execute model-written code on the host. Leave all of these off on any reachable server.
+# agent = false
+# agent_permission = "ask"
+
+[paged_attn]
+mode = "auto" # on for CUDA, off for Metal and CPU
+memory_fraction = 0.8 # size the KV pool explicitly; the implicit default is 90% of VRAM
+
+[sandbox]
+mode = "auto"
+network = "none" # developer profile defaults to full network when agent tools are on
+
+[[models]]
+model_id = "Qwen/Qwen3-4B"
+
+[models.quantization]
+quant = "4" # UQFF if published, else ISQ (Q4K on CUDA, AFQ4 on Metal)
+
+# Second model in the same process (shares the process-wide engine metrics):
+# [[models]]
+# model_id = "google/gemma-4-E4B-it"
+# [models.quantization]
+# quant = "4"

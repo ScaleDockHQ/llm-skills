@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Operate the first-party OpenAI API from code or a gateway: project and key setup, Responses and Chat Completions, streaming, tools, Structured Outputs, Batch, prompt caching, rate limits, spend limits, data retention and ZDR, LiteLLM routes, and teardown. References are split by task and carry verified error strings and commands.",
+  "references": [
+    "https://developers.openai.com/api/docs/quickstart",
+    "https://developers.openai.com/api/docs/guides/text",
+    "https://developers.openai.com/api/docs/guides/migrate-to-responses",
+    "https://developers.openai.com/api/docs/guides/streaming-responses",
+    "https://developers.openai.com/api/docs/guides/function-calling",
+    "https://developers.openai.com/api/docs/guides/structured-outputs",
+    "https://developers.openai.com/api/docs/guides/batch",
+    "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "https://developers.openai.com/api/docs/guides/rate-limits",
+    "https://developers.openai.com/api/docs/guides/spend-limits",
+    "https://developers.openai.com/api/docs/guides/your-data",
+    "https://developers.openai.com/api/docs/guides/production-best-practices",
+    "https://developers.openai.com/api/docs/guides/admin-apis",
+    "https://developers.openai.com/api/docs/api-reference/models/list",
+    "https://docs.litellm.ai/docs/providers/openai"
+  ],
+  "kind": "platform"
+}

@@ -1,0 +1,25 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Operating guide for Bifrost (maximhq/bifrost) gateway v2.2.6: npx and Docker install with storage options, config.json and provider setup, auth with a setup token, virtual keys with hierarchical budgets and rate limits, per-provider retries and per-request fallbacks, Prometheus, OpenTelemetry and semantic cache, SDK and Claude Code drop-ins, LiteLLM migration, updating, teardown and troubleshooting. Confirmed maintained (not archived, release 2026-10-06) before writing.",
+  "references": [
+    "https://github.com/maximhq/bifrost",
+    "https://github.com/maximhq/bifrost/releases",
+    "https://docs.getbifrost.ai/llms.txt",
+    "https://docs.getbifrost.ai/quickstart/gateway/setting-up",
+    "https://docs.getbifrost.ai/quickstart/gateway/setting-up-auth",
+    "https://docs.getbifrost.ai/quickstart/gateway/provider-configuration",
+    "https://docs.getbifrost.ai/deployment-guides/runtime-contract",
+    "https://docs.getbifrost.ai/deployment-guides/config-json",
+    "https://docs.getbifrost.ai/features/governance/virtual-keys",
+    "https://docs.getbifrost.ai/features/governance/budget-and-limits",
+    "https://docs.getbifrost.ai/features/retries-and-fallbacks",
+    "https://docs.getbifrost.ai/features/semantic-caching",
+    "https://docs.getbifrost.ai/features/observability/prometheus",
+    "https://docs.getbifrost.ai/cli-agents/claude-code",
+    "https://docs.getbifrost.ai/migration-guides/litellm",
+    "https://docs.getbifrost.ai/release-cadence"
+  ],
+  "kind": "product"
+}

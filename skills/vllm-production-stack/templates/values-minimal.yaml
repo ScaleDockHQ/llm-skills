@@ -1,0 +1,24 @@
+# Minimal vllm-stack values: one small model, one replica, one GPU.
+# helm install vllm vllm/vllm-stack --version 0.1.13 -f values-minimal.yaml
+servingEngineSpec:
+  runtimeClassName: "" # set "nvidia" (or remove) if the cluster has that RuntimeClass
+  modelSpec:
+    - name: opt125m
+      repository: vllm/vllm-openai
+      tag: v0.31.0 # pin; check Docker Hub for the tag you want
+      modelURL: facebook/opt-125m
+      replicaCount: 1
+      requestCPU: 4
+      requestMemory: 16Gi
+      requestGPU: 1
+      pvcStorage: 20Gi
+      vllmConfig:
+        maxModelLen: 2048
+        tensorParallelSize: 1
+      # Gated models: kubectl create secret generic hf-token --from-file=token=<0600 file>
+      # hf_token: {secretName: hf-token, secretKey: token}
+routerSpec:
+  repository: lmcache/lmstack-router
+  tag: v0.1.13
+  imagePullPolicy: IfNotPresent
+  routingLogic: roundrobin

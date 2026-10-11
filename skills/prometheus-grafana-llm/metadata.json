@@ -1,0 +1,28 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install and operate Prometheus, Alertmanager and Grafana for LLM serving. Covers a hardened Docker Compose stack, scrape configs for vLLM, llama.cpp, SGLang, llama-swap, LiteLLM and DCGM (and the Ollama gap), recording rules, dashboards, a 16-rule alert set with Alertmanager routing, remote_write and Alloy for managed backends, privacy of labels, updates and troubleshooting, with validated templates and a read-only health script.",
+  "references": [
+    "https://prometheus.io/docs/prometheus/latest/configuration/configuration/",
+    "https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/",
+    "https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/",
+    "https://prometheus.io/docs/prometheus/latest/storage/",
+    "https://prometheus.io/docs/alerting/latest/configuration/",
+    "https://prometheus.io/docs/practices/histograms/",
+    "https://prometheus.io/docs/operating/security/",
+    "https://github.com/prometheus/prometheus/releases",
+    "https://github.com/prometheus/alertmanager/releases",
+    "https://github.com/grafana/grafana/releases",
+    "https://github.com/prometheus/node_exporter",
+    "https://grafana.com/docs/grafana/latest/administration/provisioning/",
+    "https://grafana.com/docs/alloy/latest/",
+    "https://docs.vllm.ai/en/latest/usage/metrics.html",
+    "https://docs.sglang.io/references/production_metrics.html",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://github.com/mostlygeek/llama-swap",
+    "https://docs.litellm.ai/docs/proxy/prometheus",
+    "https://github.com/ollama/ollama/issues/3144"
+  ],
+  "kind": "product"
+}

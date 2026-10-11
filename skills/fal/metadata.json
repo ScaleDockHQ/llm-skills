@@ -1,0 +1,27 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Use fal end to end: hosted genmedia Model APIs through the queue, sync and webhook flows, the fal-client libraries and genmedia CLI, an OpenRouter-backed text endpoint, and fal serverless apps (fal.App, fal deploy, fal apps). References cover auth, scaling, billing and concurrency, retention, LiteLLM and troubleshooting.",
+  "references": [
+    "https://fal.ai/docs/llms.txt",
+    "https://fal.ai/docs/documentation/quickstart",
+    "https://fal.ai/docs/documentation/model-apis/overview",
+    "https://fal.ai/docs/documentation/model-apis/inference/queue",
+    "https://fal.ai/docs/documentation/model-apis/inference/reliability",
+    "https://fal.ai/docs/documentation/model-apis/concurrency-limits",
+    "https://fal.ai/docs/documentation/model-apis/pricing",
+    "https://fal.ai/docs/documentation/model-apis/media-expiration",
+    "https://fal.ai/docs/documentation/model-apis/inference/request-errors",
+    "https://fal.ai/docs/documentation/setting-up/genmedia",
+    "https://fal.ai/docs/documentation/serverless/index",
+    "https://fal.ai/docs/documentation/serverless/pricing",
+    "https://fal.ai/docs/documentation/development/getting-started/installation",
+    "https://fal.ai/docs/documentation/deployment/deploy-to-production",
+    "https://fal.ai/docs/documentation/deployment/scale-your-application",
+    "https://fal.ai/docs/documentation/deployment/manage-deployments",
+    "https://fal.ai/docs/documentation/deployment/machine-types",
+    "https://docs.litellm.ai/docs/providers/fal_ai"
+  ],
+  "kind": "platform"
+}

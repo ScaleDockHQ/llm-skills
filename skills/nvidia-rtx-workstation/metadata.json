@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Choose, size and run NVIDIA RTX PRO Blackwell workstation GPUs for local LLM inference on Linux. References cover the card lineup, the open kernel module requirement, CUDA and sm_120 builds, multi-GPU PCIe layout, power and cooling, MIG, troubleshooting and an engine matrix.",
+  "references": [
+    "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/",
+    "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000-max-q/",
+    "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-5000/",
+    "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-4000/",
+    "https://download.nvidia.com/XFree86/Linux-x86_64/580.159.03/README/kernel_open.html",
+    "https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html",
+    "https://docs.nvidia.com/cuda/archive/12.8.2/blackwell-compatibility-guide/index.html"
+  ],
+  "kind": "platform"
+}

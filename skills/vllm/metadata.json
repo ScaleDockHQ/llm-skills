@@ -1,0 +1,27 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve, tune, scale out, update and troubleshoot vLLM, the OpenAI-compatible LLM inference server. Covers pip/uv, Docker, NVIDIA NGC, ROCm and CPU installs; vllm serve flags and config files; tool-call and reasoning parsers, structured outputs, LoRA, multimodal and embeddings; FP8 and NVFP4 formats; tensor, pipeline, expert and data parallelism with Ray or multiprocessing multi-node; EAGLE-3; vllm bench, Prometheus metrics and Kubernetes. Includes combos for two DGX Sparks, AMD ROCm, RTX Blackwell, llm-compressor FP8 and EAGLE-3, plus compose, systemd and Kubernetes templates. Verified against vLLM v0.31.0.",
+  "references": [
+    "https://docs.vllm.ai/en/latest/",
+    "https://docs.vllm.ai/en/latest/cli/serve.html",
+    "https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html",
+    "https://docs.vllm.ai/en/latest/serving/parallelism_scaling.html",
+    "https://docs.vllm.ai/en/latest/deployment/docker.html",
+    "https://docs.vllm.ai/en/latest/deployment/k8s.html",
+    "https://docs.vllm.ai/en/latest/usage/troubleshooting.html",
+    "https://github.com/vllm-project/vllm",
+    "https://github.com/vllm-project/vllm/releases",
+    "https://github.com/vllm-project/vllm/blob/main/examples/ray_serving/run_cluster.sh",
+    "https://github.com/vllm-project/speculators",
+    "https://github.com/vllm-project/llm-compressor",
+    "https://hub.docker.com/r/vllm/vllm-openai",
+    "https://wheels.vllm.ai/",
+    "https://catalog.ngc.nvidia.com/orgs/nvidia/containers/vllm",
+    "https://docs.nvidia.com/deeplearning/frameworks/vllm-release-notes/",
+    "https://github.com/NVIDIA/dgx-spark-playbooks/tree/main/nvidia/vllm",
+    "https://build.nvidia.com/spark/connect-two-sparks"
+  ],
+  "kind": "product"
+}

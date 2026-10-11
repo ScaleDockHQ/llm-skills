@@ -1,0 +1,3 @@
+{"id": "capital-fr", "input": "What is the capital of France? Answer with one word.", "target": "Paris", "metadata": {"category": "geography", "critical": "yes"}}
+{"id": "sum-2", "input": "What is 17 + 25? Reply with the number only.", "target": "42", "metadata": {"category": "arithmetic", "critical": "yes"}}
+{"id": "json-1", "input": "Return a JSON object with the key \"ok\" set to true and nothing else.", "target": "{\"ok\": true}", "metadata": {"category": "format", "critical": "no"}}

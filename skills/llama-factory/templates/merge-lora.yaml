@@ -1,0 +1,15 @@
+# LLaMA-Factory LoRA merge. Run:  llamafactory-cli export merge-lora.yaml
+# Mirrors examples/merge_lora/qwen3_lora_sft.yaml at v0.9.5.
+# DO NOT use a quantized model or quantization_bit when merging LoRA adapters.
+
+### model
+model_name_or_path: Qwen/Qwen3-4B-Instruct-2507
+adapter_name_or_path: saves/my-sft/lora
+template: qwen3_nothink
+trust_remote_code: true
+
+### export
+export_dir: saves/my-sft-merged
+export_size: 5 # shard size in GB
+export_device: cpu # cpu or auto
+export_legacy_format: false # false = safetensors

@@ -1,0 +1,19 @@
+# exo: troubleshooting
+
+> Verified against exo v1.0.71 (source 0.3.70), 2026-10-11
+
+Sources: README, `PLATFORMS.md`, `src/exo/main.py`. Logs: `~/.cache/exo/exo_log/` on Linux; run with `-v` for more.
+
+| Symptom                                   | Likely cause                                                                                                                                            | Fix                                                                              |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Nodes do not see each other               | Different exo versions (default namespace is the version) or different `EXO_LIBP2P_NAMESPACE`; firewall blocks UDP 52413 or TCP 52414; different subnet | Align versions and namespace; open ports; use `--bootstrap-peers` across subnets |
+| Dashboard shows one node only             | Same as above, or the other node runs `--no-api`/`--no-worker` by design                                                                                | Check each node's `/state` and flags                                             |
+| No JACCL/RDMA placement                   | RDMA not enabled, Thunderbolt Bridge still active, non-TB5 cable, not a full mesh, forbidden Mac Studio port, macOS versions differ                     | Redo RDMA steps in `parallelism-multinode.md`; match macOS exactly               |
+| `rdma_ctl` not found in normal shell      | It runs from Recovery Terminal                                                                                                                          | Boot to Recovery, run `rdma_ctl enable`                                          |
+| Inference 404 or hangs right after create | Instance not ready                                                                                                                                      | `GET /instance/await?model_id=...` first                                         |
+| Preview returns only errors               | Model does not fit combined memory                                                                                                                      | Smaller quant, more nodes, free memory                                           |
+| App will not run                          | macOS older than 26.2                                                                                                                                   | Use a source build                                                               |
+| Linux is slow                             | Linux runs on CPU only                                                                                                                                  | Use macOS or watch `PLATFORMS.md`                                                |
+| Model download fills the disk             | Default models dir                                                                                                                                      | Set `EXO_MODELS_DIRS`                                                            |
+| Crash on M5 with Homebrew macmon          | Known upstream issue with macmon 0.6.1                                                                                                                  | Install the pinned fork revision from the README                                 |
+| Cannot remove app cleanly                 | Network profile left behind                                                                                                                             | Menu bar -> Advanced -> Uninstall, or `app/EXO/uninstall-exo.sh`                 |

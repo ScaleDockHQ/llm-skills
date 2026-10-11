@@ -1,0 +1,30 @@
+# DeepSeek-V4-Flash with the upstream prebuilt image (the only documented 0.7-era container). Start: docker compose up -d
+# Weights: download DeepSeek-V4-Flash to ./model first (about 340 GB). Needs the NVIDIA Container Toolkit and at least 200 GB RAM.
+# The image tag below is a commit-pinned tag from Docker Hub; the floating tag is `DSV4-specific`. Confirm it still exists before use.
+services:
+  ktransformers:
+    image: approachingai/ktransformers:DSV4-specific-6b8a81c
+    container_name: ktransformers
+    restart: unless-stopped
+    ipc: host
+    cap_add:
+      - SYS_NICE
+    ports:
+      - "127.0.0.1:30000:30000" # loopback only; the server has no authentication, front it with a proxy
+    volumes:
+      - ./model:/model:ro
+    environment:
+      CUDA_VISIBLE_DEVICES: "0"
+      TP: "1" # must not exceed the visible GPU count
+      MEM_FRACTION: "0.90"
+      CHUNKED_PREFILL_SIZE: "4096"
+      CONTEXT_LENGTH: "16384"
+      MAX_RUNNING_REQUESTS: "2"
+      KT_GPU_PREFILL_TOKEN_THRESHOLD: "2048" # 0 disables layerwise prefill (lower peak VRAM, slower long prompts)
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

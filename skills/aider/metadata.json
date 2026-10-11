@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Connect Aider to self-hosted and gateway models. Covers install and upgrades, OPENAI_API_BASE with the openai/ prefix, ollama_chat and Anthropic base URLs, .env key handling, model metadata and model settings files, edit formats, reasoning tags, per-engine setup for vLLM, llama.cpp, Ollama, llama-swap and LiteLLM, troubleshooting, and an endpoint probe script.",
+  "references": [
+    "https://github.com/Aider-AI/aider",
+    "https://github.com/Aider-AI/aider/releases",
+    "https://aider.chat/docs/llms/openai-compat.html",
+    "https://aider.chat/docs/llms/ollama.html",
+    "https://aider.chat/docs/config/adv-model-settings.html",
+    "https://aider.chat/docs/config/dotenv.html",
+    "https://aider.chat/docs/more/edit-formats.html"
+  ],
+  "kind": "product"
+}

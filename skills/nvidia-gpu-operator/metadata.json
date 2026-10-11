@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install and operate the NVIDIA GPU Operator on Kubernetes so LLM pods get nvidia.com/gpu: Helm install variants, driver ownership, ClusterPolicy and NVIDIADriver, time-slicing and MIG, DCGM exporter metrics, driver upgrade policy, CRD handling on upgrade and uninstall, and troubleshooting. Includes combos for vLLM and KEDA plus templates. Verified against GPU Operator v26.7.1.",
+  "references": [
+    "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/26.7/getting-started.html",
+    "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/26.7/platform-support.html",
+    "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/26.7/release-notes.html",
+    "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/26.7/upgrade.html",
+    "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/26.7/uninstall.html",
+    "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/26.7/troubleshooting.html",
+    "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/26.7/gpu-sharing.html",
+    "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/26.7/gpu-operator-mig.html",
+    "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/26.7/gpu-driver-upgrades.html",
+    "https://github.com/NVIDIA/gpu-operator",
+    "https://github.com/NVIDIA/gpu-operator/releases",
+    "https://github.com/NVIDIA/dcgm-exporter"
+  ],
+  "kind": "product"
+}

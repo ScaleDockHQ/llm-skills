@@ -1,0 +1,32 @@
+# TEI beside an LLM stack. Create tei.env first (0600) with API_KEY= and optional HF_TOKEN=.
+# Pick the image tag from references/install.md.
+services:
+  tei-embed:
+    image: ghcr.io/huggingface/text-embeddings-inference:89-1.9
+    command:
+      ["--model-id", "Qwen/Qwen3-Embedding-0.6B", "--max-batch-tokens", "16384"]
+    env_file: ./tei.env
+    ports:
+      - "127.0.0.1:8080:80" # loopback only
+    volumes:
+      - ./data:/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:80/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 10
+      start_period: 120s
+    networks: [llm]
+
+networks:
+  llm:
+    name: llm
+    external: false

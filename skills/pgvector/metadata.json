@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run PostgreSQL with pgvector beside a self-hosted LLM stack. References cover Docker images and data paths, bytes-per-vector and memory sizing, HNSW, IVFFlat, halfvec and binary quantization, tuning and iterative scans, security, extension and Postgres upgrades, troubleshooting, and the LiteLLM embeddings and Open WebUI wiring, plus compose and schema templates.",
+  "references": [
+    "https://github.com/pgvector/pgvector",
+    "https://hub.docker.com/r/pgvector/pgvector",
+    "https://github.com/docker-library/docs/blob/master/postgres/content.md",
+    "https://docs.openwebui.com/reference/env-configuration"
+  ],
+  "kind": "product"
+}

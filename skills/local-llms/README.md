@@ -50,6 +50,8 @@ From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); inst
 - `cloud-llms`: hosted APIs and GPU clouds.
 - `llm-clients`: connect Claude Code, Codex, OpenCode, Aider, Cursor, Continue, Cline/Roo/Kilo, Open WebUI, LobeHub, SDKs.
 - `llm-gateway`: one endpoint over several backends.
+- `llama-cpp`, `ollama`, `lm-studio`, `mlx`: runtime depth.
+- `llama-swap`: model swapping across local runtimes.
 - `model-quantization`: produce GGUF/MLX/EXL3 quants.
 - `fine-tuning-llms`, `llm-evals`, `llm-observability`, `self-hosted-genmedia`.
 

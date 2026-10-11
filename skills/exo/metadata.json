@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run and operate exo, the open-source cluster runtime that pools Macs and other devices behind one API. Covers app and source installs, discovery and namespaces, RDMA over Thunderbolt 5, pipeline and tensor placements, the instance lifecycle API with OpenAI, Claude, Responses and Ollama compatibility, custom Hugging Face models, benchmarking, updating and troubleshooting.",
+  "references": [
+    "https://github.com/exo-explore/exo",
+    "https://github.com/exo-explore/exo/releases",
+    "https://github.com/exo-explore/exo/blob/main/docs/api.md",
+    "https://github.com/exo-explore/exo/blob/main/PLATFORMS.md",
+    "https://github.com/exo-explore/exo/blob/main/pyproject.toml",
+    "https://github.com/exo-explore/exo/blob/main/src/exo/main.py"
+  ],
+  "kind": "product"
+}

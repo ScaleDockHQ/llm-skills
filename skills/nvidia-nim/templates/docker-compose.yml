@@ -1,0 +1,27 @@
+# NVIDIA NIM for LLMs: single container, loopback only.
+# Replace the image with the exact tag from the Support Matrix.
+# NGC_API_KEY and HF_TOKEN are read from your environment; they are never written here.
+services:
+  nim:
+    image: nvcr.io/nim/meta/llama-3.1-8b-instruct:2.0.13
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      - NGC_API_KEY
+      - NIM_LOG_LEVEL=INFO
+    volumes:
+      - ./nim-cache:/opt/nim/.cache
+    shm_size: 16gb
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://127.0.0.1:8000/v1/health/ready"]
+      interval: 30s
+      timeout: 5s
+      retries: 30
+      start_period: 300s

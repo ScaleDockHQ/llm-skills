@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Set up, size and operate NVIDIA DGX Station (GB300, 252 GB HBM3e plus 496 GB LPDDR5X, DGX OS) for LLM inference, single or two stations. References cover the software stack, CDMM coherent memory budgeting, BMC and power, ConnectX-8 two-station fabric, updates, troubleshooting and an engine matrix.",
+  "references": [
+    "https://www.nvidia.com/en-us/products/workstations/dgx-station/",
+    "https://docs.nvidia.com/dgx/dgx-station-development-guide/Intro.html",
+    "https://docs.nvidia.com/dgx/dgx-station-development-guide/porting/software-requirements.html",
+    "https://docs.nvidia.com/dgx/dgx-station-development-guide/coherency.html",
+    "https://docs.nvidia.com/dgx/dgx-os-7-user-guide/release_notes.html",
+    "https://build.nvidia.com/station/connect-two-stations",
+    "https://build.nvidia.com/station/vllm"
+  ],
+  "kind": "platform"
+}

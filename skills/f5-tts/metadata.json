@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install and run F5-TTS, the flow-matching zero-shot voice-cloning text-to-speech model. References cover PyTorch per device, the infer CLI and Python API with verified defaults, the Gradio app and socket server, checkpoints and the CC-BY-NC licence, community language models, fine-tuning entry points, updating and troubleshooting, with a TOML template and a guard-railed wrapper script.",
+  "references": [
+    "https://github.com/SWivid/F5-TTS",
+    "https://github.com/SWivid/F5-TTS/releases",
+    "https://github.com/SWivid/F5-TTS/blob/main/README.md",
+    "https://github.com/SWivid/F5-TTS/blob/main/src/f5_tts/infer/README.md",
+    "https://github.com/SWivid/F5-TTS/blob/main/src/f5_tts/infer/SHARED.md",
+    "https://github.com/SWivid/F5-TTS/blob/main/src/f5_tts/infer/infer_cli.py",
+    "https://github.com/SWivid/F5-TTS/blob/main/src/f5_tts/api.py",
+    "https://github.com/SWivid/F5-TTS/blob/main/src/f5_tts/socket_server.py",
+    "https://github.com/SWivid/F5-TTS/blob/main/src/f5_tts/train/README.md",
+    "https://huggingface.co/SWivid/F5-TTS",
+    "https://pypi.org/project/f5-tts/"
+  ],
+  "kind": "product"
+}

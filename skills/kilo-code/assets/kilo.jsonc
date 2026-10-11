@@ -1,0 +1,57 @@
+// Kilo Code -> self-hosted endpoints. Merge into ~/.config/kilo/kilo.jsonc (global, trusted config).
+// Keys: {env:NAME} (exported where kilo starts) or {file:/absolute/path} (0600 file). {env:} does NOT
+// resolve in a project-level kilo.json by design; never commit a literal apiKey.
+// Docs: https://kilo.ai/docs/ai-providers/openai-compatible and /docs/code-with-ai/agents/custom-models
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "model": "gateway/coder", // provider_id/model_id
+  "provider": {
+    // 1. Gateway or engine speaking OpenAI Chat Completions (LiteLLM, vLLM, llama-swap, llama.cpp).
+    "gateway": {
+      "npm": "@ai-sdk/openai-compatible", // default when omitted
+      "options": {
+        "baseURL": "https://llm.example.com/v1",
+        "apiKey": "{env:LLM_API_KEY}",
+        "timeout": 600000, // ms; default 300000. Raise for slow prefill or model swaps
+        "chunkTimeout": 30000, // abort and retry if streaming stalls this long
+      },
+      "models": {
+        "coder": {
+          "name": "Coder (gateway)",
+          "id": "coder", // API-facing id; defaults to the key
+          "tool_call": true,
+          "limit": { "context": 65536, "output": 8192 }, // at or below the engine's served context
+          "modalities": { "input": ["text"], "output": ["text"] },
+        },
+      },
+    },
+
+    // 2. Anthropic Messages through a gateway (LiteLLM /v1/messages and similar).
+    "gateway-claude": {
+      "npm": "@ai-sdk/anthropic",
+      "options": {
+        "baseURL": "https://llm.example.com/v1",
+        "apiKey": "{env:LLM_API_KEY}",
+      },
+      "models": {
+        "claude-coder": {
+          "name": "Claude-style (gateway)",
+          "tool_call": true,
+          "limit": { "context": 200000, "output": 16384 },
+        },
+      },
+    },
+
+    // 3. Ollama on this machine (built-in provider; register models it does not list).
+    "ollama": {
+      "baseURL": "http://localhost:11434/v1",
+      "models": {
+        "qwen3-coder:30b": {
+          "name": "Qwen3 Coder 30B (Ollama)",
+          "tool_call": true,
+          "limit": { "context": 32768, "output": 8192 },
+        },
+      },
+    },
+  },
+}

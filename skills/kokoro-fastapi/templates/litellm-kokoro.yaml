@@ -1,0 +1,12 @@
+# LiteLLM model_list entry for Kokoro-FastAPI.
+# Verified against LiteLLM v1.105.0 speech docs and Kokoro-FastAPI v0.9.0, 2026-10-11.
+# Kokoro-FastAPI has no auth; LiteLLM keys and budgets protect it. The api_key below is not checked by the server.
+model_list:
+  - model_name: tts
+    litellm_params:
+      model: openai/kokoro
+      api_base: http://127.0.0.1:8880/v1
+      api_key: placeholder-not-checked
+    model_info:
+      mode: audio_speech
+      health_check_voice: af_heart

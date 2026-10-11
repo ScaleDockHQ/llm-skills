@@ -1,0 +1,33 @@
+// Merge into ~/.config/zed/settings.json (macOS/Linux) or %APPDATA%\Zed\settings.json.
+// No key here. Enter it in Agent Settings, or export MY_GATEWAY_API_KEY before starting Zed
+// (variable = provider id, upper snake case, plus _API_KEY).
+{
+  "language_models": {
+    "openai_compatible": {
+      "my-gateway": {
+        "api_url": "http://localhost:4000/v1",
+        "available_models": [
+          {
+            "name": "coder", // sent as "model"; must match /v1/models
+            "display_name": "Coder (local)",
+            "max_tokens": 131072, // context window; at or below the engine's
+            "max_output_tokens": 8192,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false,
+              "max_tokens_parameter": false,
+            },
+          },
+        ],
+      },
+    },
+  },
+  "agent": {
+    // Provider value is the name you gave the provider; confirm by picking the model once in the UI.
+    "default_model": { "provider": "my-gateway", "model": "coder" },
+  },
+}

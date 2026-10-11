@@ -1,0 +1,7 @@
+model_list:
+  - model_name: local-llamafile
+    litellm_params:
+      model: openai/local-model # any placeholder, or the --alias value
+      api_base: http://127.0.0.1:8080/v1
+      api_key: os.environ/LLAMAFILE_API_KEY
+      timeout: 600 # first request can wait for model load

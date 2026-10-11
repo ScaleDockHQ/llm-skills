@@ -1,0 +1,31 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Use Replicate end to end: the predictions HTTP API and clients, webhooks, Cog packaging, deployments, billing semantics, spend controls and ordered teardown. Notes that Replicate is now part of Cloudflare, has no documented OpenAI-compatible endpoint and is reached from gateways through LiteLLM's replicate provider.",
+  "references": [
+    "https://replicate.com/docs/llms.txt",
+    "https://replicate.com/docs/reference/http",
+    "https://replicate.com/docs/reference/error-codes",
+    "https://replicate.com/docs/reference/client-libraries",
+    "https://replicate.com/docs/reference/mcp",
+    "https://replicate.com/docs/topics/predictions/lifecycle",
+    "https://replicate.com/docs/topics/predictions/streaming",
+    "https://replicate.com/docs/topics/predictions/input-files",
+    "https://replicate.com/docs/topics/predictions/data-retention",
+    "https://replicate.com/docs/topics/predictions/rate-limits",
+    "https://replicate.com/docs/topics/webhooks/verify-webhook",
+    "https://replicate.com/docs/topics/billing",
+    "https://replicate.com/docs/topics/billing/prepaid-credit",
+    "https://replicate.com/docs/topics/deployments",
+    "https://replicate.com/docs/topics/deployments/create-a-deployment",
+    "https://replicate.com/docs/topics/deployments/delete-a-deployment",
+    "https://replicate.com/docs/topics/models/hardware",
+    "https://replicate.com/docs/topics/models/delete-a-model",
+    "https://replicate.com/docs/guides/build/push-a-model",
+    "https://replicate.com/docs/topics/api-tokens",
+    "https://github.com/replicate/cli",
+    "https://docs.litellm.ai/docs/providers/replicate"
+  ],
+  "kind": "platform"
+}

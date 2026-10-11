@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Agent skill for Hugging Face PEFT: install, configure LoRA and other adapters, choose target modules and rank, train with Trainer, TRL or custom loops, QLoRA, DeepSpeed and FSDP, save, load, hot-swap and merge adapters, update and troubleshoot.",
+  "references": [
+    "https://github.com/huggingface/peft",
+    "https://github.com/huggingface/peft/releases",
+    "https://huggingface.co/docs/peft",
+    "https://huggingface.co/docs/peft/quicktour",
+    "https://huggingface.co/docs/peft/package_reference/lora",
+    "https://huggingface.co/docs/peft/developer_guides/quantization",
+    "https://huggingface.co/docs/peft/developer_guides/checkpoint",
+    "https://huggingface.co/docs/peft/developer_guides/troubleshooting",
+    "https://huggingface.co/docs/peft/accelerate/deepspeed",
+    "https://pypi.org/project/peft/"
+  ],
+  "kind": "product"
+}

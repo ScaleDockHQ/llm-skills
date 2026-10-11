@@ -1,0 +1,32 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install and operate Envoy AI Gateway, renamed Agent Router in v1.2.0, on Kubernetes with Envoy Gateway or standalone with aigw run. Covers AIGatewayRoute, AIServiceBackend and BackendSecurityPolicy, upstream credentials, priority fallback, token rate limits, QuotaPolicy, MCPRoute, InferencePool, metrics, tracing, the compatibility matrix, upgrades and troubleshooting.",
+  "references": [
+    "https://github.com/theagentrouter/agent-router",
+    "https://github.com/theagentrouter/agent-router/releases",
+    "https://github.com/theagentrouter/agent-router/blob/main/RELEASES.md",
+    "https://theagentrouter.ai/docs/getting-started/prerequisites",
+    "https://theagentrouter.ai/docs/getting-started/installation",
+    "https://theagentrouter.ai/docs/getting-started/basic-usage",
+    "https://theagentrouter.ai/docs/concepts/resources",
+    "https://theagentrouter.ai/docs/cli/aigwrun",
+    "https://theagentrouter.ai/docs/capabilities/llm-integrations/supported-providers",
+    "https://theagentrouter.ai/docs/capabilities/llm-integrations/supported-endpoints",
+    "https://theagentrouter.ai/docs/capabilities/security/upstream-auth",
+    "https://theagentrouter.ai/docs/capabilities/traffic/provider-fallback",
+    "https://theagentrouter.ai/docs/capabilities/traffic/usage-based-ratelimiting",
+    "https://theagentrouter.ai/docs/capabilities/traffic/quota-policy",
+    "https://theagentrouter.ai/docs/capabilities/traffic/model-name-virtualization",
+    "https://theagentrouter.ai/docs/capabilities/traffic/header-body-mutations",
+    "https://theagentrouter.ai/docs/capabilities/mcp",
+    "https://theagentrouter.ai/docs/capabilities/inference",
+    "https://theagentrouter.ai/docs/capabilities/observability",
+    "https://theagentrouter.ai/docs/capabilities/gateway-config",
+    "https://theagentrouter.ai/docs/compatibility",
+    "https://gateway.envoyproxy.io/docs/",
+    "https://hub.docker.com/r/envoyproxy/ai-gateway-cli"
+  ],
+  "kind": "product"
+}

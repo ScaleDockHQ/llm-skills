@@ -1,0 +1,27 @@
+# Strategic-merge patch for a vLLM model-server Deployment: model-aware probes (llm-d docs/operations/readiness-probes.md).
+# Use port 8000 for standalone and prefill pods, 8200 for decode pods behind the routing sidecar.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: decode
+spec:
+  template:
+    spec:
+      containers:
+        - name: modelserver
+          startupProbe:
+            httpGet: { path: /v1/models, port: 8000 }
+            initialDelaySeconds: 15
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 60
+          livenessProbe:
+            httpGet: { path: /health, port: 8000 }
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet: { path: /v1/models, port: 8000 }
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 3

@@ -1,0 +1,52 @@
+# Continue -> self-hosted endpoints. Merge into ~/.continue/config.yaml.
+# Keys: put NAME=value lines in ~/.continue/.env (chmod 600). IDE extensions cannot read
+# shell exports. Never commit a workspace .env. Docs: https://docs.continue.dev/reference
+name: Self-hosted
+version: 1.0.0
+schema: v1
+
+models:
+  # 1. Gateway or engine speaking OpenAI Chat Completions (LiteLLM, vLLM, llama-swap, llama.cpp).
+  - name: Coder (gateway)
+    provider: openai
+    model: coder # the alias the endpoint serves, sent verbatim
+    apiBase: https://llm.example.com/v1 # must end with /v1
+    apiKey: ${{ secrets.LLM_API_KEY }}
+    roles: [chat, edit, apply]
+    capabilities: [tool_use] # needed for Agent mode on custom models
+    defaultCompletionOptions:
+      contextLength: 65536 # at or below the engine's served context
+      maxTokens: 8192
+    useResponsesApi: false # keeps /chat/completions even for gpt-5/o-series-looking aliases
+
+  # 2. Anthropic Messages through a gateway (LiteLLM /v1/messages and similar).
+  - name: Claude-style (gateway)
+    provider: anthropic
+    model: claude-coder # gateway alias
+    apiBase: https://llm.example.com/v1 # source default is https://api.anthropic.com/v1/
+    apiKey: ${{ secrets.LLM_API_KEY }} # sent as x-api-key
+    roles: [chat, edit, apply]
+    capabilities: [tool_use]
+
+  # 3. Ollama directly (native API, bare host, no /v1).
+  - name: Ollama coder
+    provider: ollama
+    model: qwen3-coder:30b
+    apiBase: http://127.0.0.1:11434
+    roles: [chat, edit, apply]
+    capabilities: [tool_use]
+    defaultCompletionOptions:
+      contextLength: 32768 # lower this on "model requires more system memory"
+
+  # 4. Local autocomplete (needs a FIM-capable model).
+  - name: Autocomplete
+    provider: openai
+    model: autocomplete
+    apiBase: http://127.0.0.1:4000/v1
+    apiKey: ${{ secrets.LLM_API_KEY }}
+    roles: [autocomplete]
+    autocompleteOptions:
+      debounceDelay: 350
+      maxPromptTokens: 1024
+      onlyMyCode: true
+    # useLegacyCompletionsEndpoint: true # uncomment if the engine serves FIM on /completions

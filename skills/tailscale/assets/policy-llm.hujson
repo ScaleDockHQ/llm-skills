@@ -1,0 +1,35 @@
+// policy-llm.hujson: starter additions for an LLM server on a tailnet.
+// Template only: merge into your existing policy file, never replace it blindly.
+// Docs: https://tailscale.com/kb/1337 (syntax), https://tailscale.com/kb/1324 (grants)
+{
+	// Who may assign the tag to a node (authenticating with --advertise-tags or a tagged auth key).
+	"tagOwners": {
+		"tag:llm-server": ["autogroup:admin"],
+	},
+
+	// Only these people may open TCP 443 (the Tailscale Serve port) on LLM servers.
+	"groups": {
+		"group:llm-users": ["alice@example.com", "bob@example.com"],
+	},
+
+	"grants": [
+		{
+			"src": ["group:llm-users"],
+			"dst": ["tag:llm-server"],
+			"ip":  ["tcp:443"],
+		},
+	],
+
+	// Funnel is intentionally not granted to anyone here. To allow it for the
+	// server only, add:
+	//   "nodeAttrs": [{"target": ["tag:llm-server"], "attr": ["funnel"]}],
+
+	// Checked on every save; a failing test rejects the change.
+	"tests": [
+		{
+			"src":    "alice@example.com",
+			"accept": ["tag:llm-server:443"],
+			"deny":   ["tag:llm-server:11434", "tag:llm-server:4000"],
+		},
+	],
+}

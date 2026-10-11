@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Configure the Vercel AI SDK (ai 7, @ai-sdk/*) against self-hosted OpenAI- and Anthropic-compatible endpoints: vLLM, llama.cpp, Ollama, LiteLLM and llama-swap. Covers choosing createOpenAICompatible, createOpenAI or createAnthropic, base-URL shapes, key handling without printing secrets, model-name aliases with customProvider, structured output, tool calling, streaming and usage caveats, v6 to v7 changes, troubleshooting, and a curl and jq probe script.",
+  "references": [
+    "https://github.com/vercel/ai",
+    "https://github.com/vercel/ai/releases",
+    "https://www.npmjs.com/package/ai",
+    "https://ai-sdk.dev/providers/openai-compatible-providers",
+    "https://ai-sdk.dev/providers/ai-sdk-providers/openai",
+    "https://ai-sdk.dev/providers/ai-sdk-providers/anthropic",
+    "https://ai-sdk.dev/providers/community-providers/ollama",
+    "https://ai-sdk.dev/docs/ai-sdk-core/provider-management",
+    "https://ai-sdk.dev/docs/ai-sdk-core/generating-structured-data",
+    "https://ai-sdk.dev/docs/ai-sdk-core/tools-and-tool-calling",
+    "https://ai-sdk.dev/docs/ai-sdk-core/generating-text",
+    "https://ai-sdk.dev/docs/ai-sdk-core/settings",
+    "https://ai-sdk.dev/docs/ai-sdk-core/middleware",
+    "https://ai-sdk.dev/docs/ai-sdk-core/error-handling",
+    "https://ai-sdk.dev/docs/migration-guides/migration-guide-7-0"
+  ],
+  "kind": "product"
+}

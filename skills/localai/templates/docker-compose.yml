@@ -1,0 +1,39 @@
+# LocalAI on one NVIDIA GPU host. Pin the tag; do not run latest in production.
+services:
+  localai:
+    image: docker.io/localai/localai:latest-gpu-nvidia-cuda-12 # replace latest with a version tag
+    container_name: local-ai
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080" # put a TLS proxy in front before exposing
+    env_file:
+      - ./localai.env # chmod 600; holds LOCALAI_API_KEY and HF_TOKEN
+    environment:
+      - MODELS_PATH=/models
+      - LOCALAI_MAX_ACTIVE_BACKENDS=2
+      - LOCALAI_WATCHDOG_IDLE=true
+      - LOCALAI_WATCHDOG_IDLE_TIMEOUT=15m
+      - LOCALAI_VRAM_WARM_LIMIT=0 # skip startup probing of gallery sizes
+    volumes:
+      - models:/models
+      - backends:/backends
+      - configuration:/configuration
+      - data:/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu, utility] # utility enables nvidia-smi and free-VRAM reporting
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8080/readyz"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 120s
+volumes:
+  models:
+  backends:
+  configuration:
+  data:

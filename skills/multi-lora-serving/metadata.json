@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Serve many LoRA adapters over one base model with per-request adapter selection and runtime load and unload. Covers exact flags, defaults and constraints for vLLM, SGLang, TensorRT-LLM and llama.cpp, plus the documented status for TensorFold, Ollama and ExLlamaV3, with a quality gate for merges, scale blends and quantized bases and adapter isolation checks. References split into an engine flag matrix and a quality-gate procedure.",
+  "references": [
+    "https://github.com/vllm-project/vllm/blob/v0.31.0/docs/features/lora.md",
+    "https://github.com/vllm-project/vllm/blob/v0.31.0/vllm/config/lora.py",
+    "https://github.com/sgl-project/sglang/blob/v0.5.21/docs/docs/advanced_features/lora.mdx",
+    "https://github.com/sgl-project/sglang/blob/v0.5.21/docs/docs/advanced_features/server_arguments.mdx",
+    "https://github.com/NVIDIA/TensorRT-LLM/blob/v1.2.1/docs/source/features/lora.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/convert_lora_to_gguf.py",
+    "https://docs.ollama.com/modelfile",
+    "https://docs.ollama.com/import",
+    "https://github.com/ashhart/TensorFold",
+    "https://github.com/turboderp-org/exllamav3",
+    "https://arxiv.org/abs/2106.09685",
+    "https://arxiv.org/abs/2311.03285"
+  ],
+  "kind": "technique"
+}

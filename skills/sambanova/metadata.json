@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Operating guide for SambaNova SambaCloud: API keys, listing Production and Preview models, the OpenAI Chat Completions, Responses and Anthropic Messages endpoints and their differences, tier rate limits and 429 variants, prompt caching, the deprecation record, LiteLLM and Claude Code wiring, teardown and troubleshooting. Checked against the official SambaNova docs on 2026-10-11; spend caps, key deletion UI and data retention are marked unverified.",
+  "references": [
+    "https://docs.sambanova.ai/docs/llms.txt",
+    "https://docs.sambanova.ai/docs/en/get-started/api-keys-urls.md",
+    "https://docs.sambanova.ai/docs/en/features/openai-compatibility.md",
+    "https://docs.sambanova.ai/docs/en/features/anthropic-compatibility.md",
+    "https://docs.sambanova.ai/docs/en/features/prompt-caching.md",
+    "https://docs.sambanova.ai/docs/en/models/sambacloud-models.md",
+    "https://docs.sambanova.ai/docs/en/models/rate-limits.md",
+    "https://docs.sambanova.ai/docs/en/models/deprecations.md",
+    "https://docs.sambanova.ai/docs/en/api-reference/using-the-api/api-error-codes.md",
+    "https://docs.litellm.ai/docs/providers/sambanova"
+  ],
+  "kind": "platform"
+}

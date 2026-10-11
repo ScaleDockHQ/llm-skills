@@ -5,7 +5,7 @@ license: MIT
 compatibility: Commands assume bash, curl and jq; ruby for YAML checks. Works with any endpoint speaking OpenAI Chat Completions, OpenAI Responses or Anthropic Messages. Pairs with the llm-gateway skill for server-side fixes.
 metadata:
   author: ScaleDockHQ
-  version: "1.0.1"
+  version: "1.1.0"
 ---
 
 # LLM Clients
@@ -108,14 +108,14 @@ Ask the user only for what can't be discovered: the endpoint URL they want clien
 
 ## References
 
-| File                            | Read when                                                    |
-| ------------------------------- | ------------------------------------------------------------ |
-| `references/coding-agents.md`   | Claude Code, Codex CLI, OpenCode, Aider                      |
-| `references/ide-extensions.md`  | Cursor, Continue, Cline, Roo Code, Kilo Code                 |
-| `references/chat-uis.md`        | Open WebUI, LobeHub                                          |
-| `references/sdks.md`            | OpenAI SDK, Anthropic SDK, Vercel AI SDK                     |
-| `references/capabilities.md`    | Context window, tools, vision, reasoning detection and fixes |
-| `references/troubleshooting.md` | Symptom to cause to fix                                      |
+| File                            | Read when                                                                         |
+| ------------------------------- | --------------------------------------------------------------------------------- |
+| `references/coding-agents.md`   | Stack notes: Claude Code, Codex CLI, OpenCode, Aider; depth in product skills     |
+| `references/ide-extensions.md`  | Stack notes: Cursor, Continue, Cline, Kilo Code; depth in product skills          |
+| `references/chat-uis.md`        | Stack notes: Open WebUI, LobeHub, LibreChat, AnythingLLM, SillyTavern             |
+| `references/sdks.md`            | Stack notes: OpenAI, Anthropic, Vercel AI SDK, LangChain, LlamaIndex, Pydantic AI |
+| `references/capabilities.md`    | Context window, tools, vision, reasoning detection and fixes                      |
+| `references/troubleshooting.md` | Symptom to cause to fix                                                           |
 
 Templates: `assets/claude-code.env.example`, `assets/claude-code-settings.json`, `assets/codex-config.toml`, `assets/opencode.json`, `assets/continue-config.yaml`, `assets/aider.conf.yml`, `assets/aider.model.metadata.json`, `assets/open-webui.env.example`.
 
@@ -123,6 +123,7 @@ Templates: `assets/claude-code.env.example`, `assets/claude-code-settings.json`,
 
 Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
 
+- Per-client depth (config, capability flags, troubleshooting): `claude-code`, `codex-cli`, `opencode`, `aider`, `cursor`, `continue`, `cline`, `kilo-code`, `zed`, `goose`, `open-webui`, `lobehub`, `librechat`, `anythingllm`, `sillytavern`, `openai-sdk`, `anthropic-sdk`, `vercel-ai-sdk`, `langchain`, `llamaindex`, `pydantic-ai`.
 - `llm-gateway`: one endpoint, aliases, keys, API bridging; fix server-side causes here.
 - `local-llms`: endpoints on laptops and desktops.
 - `self-hosted-llms`: endpoints on servers.

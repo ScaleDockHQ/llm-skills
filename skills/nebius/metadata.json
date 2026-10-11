@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run LLMs on Nebius with Token Factory (formerly AI Studio) for OpenAI-compatible inference, batch, fine-tuning and dedicated endpoints, or with the nebius CLI for GPU VMs and Managed Kubernetes. Covers profiles and project-scoped keys, quotas and reservations, LiteLLM wiring, billing behaviour, teardown order and troubleshooting.",
+  "references": [
+    "https://docs.nebius.com/cli/configure",
+    "https://docs.nebius.com/cli/reference/iam",
+    "https://docs.nebius.com/cli/reference/iam/v2/project",
+    "https://docs.nebius.com/cli/reference/compute/instance",
+    "https://docs.nebius.com/cli/reference/quotas/quota-allowance",
+    "https://docs.nebius.com/compute/virtual-machines/stop-start",
+    "https://docs.nebius.com/compute/virtual-machines/reservations",
+    "https://docs.nebius.com/compute/resources/quotas-limits",
+    "https://docs.tokenfactory.nebius.com/api-reference/introduction",
+    "https://docs.tokenfactory.nebius.com/switch",
+    "https://docs.tokenfactory.nebius.com/other-capabilities/migration-guide",
+    "https://docs.tokenfactory.nebius.com/ai-models-inference/function-calling",
+    "https://docs.tokenfactory.nebius.com/ai-models-inference/json",
+    "https://docs.tokenfactory.nebius.com/api-reference/inference/create-embeddings",
+    "https://docs.tokenfactory.nebius.com/api-reference/files/upload-file",
+    "https://docs.tokenfactory.nebius.com/post-training/how-to-fine-tune",
+    "https://docs.litellm.ai/docs/providers/nebius"
+  ],
+  "kind": "platform"
+}

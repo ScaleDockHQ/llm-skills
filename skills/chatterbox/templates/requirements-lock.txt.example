@@ -1,0 +1,10 @@
+# Freeze a known-good Chatterbox environment:
+#   pip freeze > requirements-lock.txt
+# For a source install also record the commit:
+#   git -C ~/src/chatterbox rev-parse HEAD
+# Restore into a fresh venv:
+#   pip install -r requirements-lock.txt
+#   pip install -e ~/src/chatterbox --no-deps
+#
+# The source dependency below is unpinned upstream; pin it to a reviewed commit:
+# resemble-perth @ git+https://github.com/resemble-ai/Perth.git@<commit>

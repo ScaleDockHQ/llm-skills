@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, configure, operate, update and troubleshoot llama-swap, the proxy that hot-swaps local inference servers behind one OpenAI and Anthropic compatible endpoint. References cover install methods and Docker images, the full config schema, groups and matrix routing, API surface, operation, integrations and combos with LiteLLM, ComfyUI and DGX Spark, plus templates for config, systemd and compose.",
+  "references": [
+    "https://github.com/mostlygeek/llama-swap",
+    "https://github.com/mostlygeek/llama-swap/blob/main/docs/config.example.yaml",
+    "https://github.com/mostlygeek/llama-swap/tree/main/docs/kb",
+    "https://github.com/mostlygeek/llama-swap/blob/main/docker/unified/README.md",
+    "https://github.com/mostlygeek/llama-swap/releases",
+    "https://docs.litellm.ai/docs/providers/openai_compatible"
+  ],
+  "kind": "product"
+}

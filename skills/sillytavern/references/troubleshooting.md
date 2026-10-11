@@ -1,0 +1,41 @@
+# SillyTavern troubleshooting
+
+> Verified against SillyTavern 1.19.0 (docs FAQ and API connections, source endpoints/backends and config.yaml defaults), vLLM v0.31.0, llama.cpp server README, 2026-10-11
+
+Triage order: probe the server from the ST host with `scripts/check-endpoint.sh` (read-only), then read the ST server console (the terminal or `docker logs`), which shows the upstream status and body. The browser console only shows ST's own errors.
+
+| Symptom                                             | Likely cause                                                                                                                                            | Fix                                                                                                                                          |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Connect fails, "Could not get status" or timeouts   | URL unreachable from the ST server. In Docker, `localhost` is the ST container                                                                          | Use `host.docker.internal`, the LAN IP or a Compose service name; test with `curl` from inside the container                                 |
+| Status check fails but server works                 | Server lacks `/v1/models` or answers it differently                                                                                                     | Tick **Bypass status check** (Custom source) and type the model id                                                                           |
+| `404` on a message                                  | URL includes `/chat/completions`, or the Text Completion type does not match the server (for example `llama.cpp` type against an OpenAI-only server)    | Chat Completion Custom: base ending `/v1` only. Text Completion: server root; pick the matching type or Generic                              |
+| `404` with Claude reverse proxy                     | Reverse proxy set to the bare root, or already ending `/messages`                                                                                       | Use `<root>/v1`; ST appends `/messages`                                                                                                      |
+| `401` / `403`                                       | Missing or wrong key; Claude proxy sends `x-api-key` only, and vLLM `--api-key` accepts Bearer only                                                     | Re-save the key in the correct field; for vLLM use the Custom OpenAI source; confirm with `check-endpoint.sh` (Bearer vs `x-api-key` lines)  |
+| `400` about roles, "system role", alternate roles   | Strict chat template                                                                                                                                    | Set **Prompt Post-Processing** to Semi-strict or Strict (use a `with tools` variant if you need tools)                                       |
+| `400` about an unknown field                        | Server rejects a parameter ST sends                                                                                                                     | List it under _Exclude Body Parameters_                                                                                                      |
+| Model dropdown empty (Ollama Text Completion)       | No models pulled or wrong URL                                                                                                                           | Pull a model; URL is `http://host:11434` with no `/v1`                                                                                       |
+| Wrong model replies / "model not found"             | Typed id not on the server                                                                                                                              | List ids with `GET /v1/models`; use gateway aliases                                                                                          |
+| Function calling toggle does nothing, no tool calls | Server has no tool parser, model lacks tool support, or post-processing strips tools                                                                    | vLLM `--enable-auto-tool-choice --tool-call-parser`, llama.cpp `--jinja`; use a `with tools` post-processing mode; probe `tool_call:`        |
+| Reply appears all at once or stalls mid-stream      | Proxy buffering or idle timeout between ST and server                                                                                                   | Disable response buffering and raise timeouts in the reverse proxy; check **Streaming** is on                                                |
+| Rambling output, role leaks (Text Completion)       | Wrong instruct or context template, missing stop strings                                                                                                | Match the templates to the model, or switch to Chat Completion                                                                               |
+| Thinking text shows in the reply                    | Reasoning not parsed                                                                                                                                    | Enable reasoning formatting (Advanced Formatting) with the model's tags, or use a server reasoning parser that fills `reasoning_content`     |
+| Cannot open ST from another device                  | `listen` off or whitelist miss                                                                                                                          | `listen: true`, add the client IP/CIDR to `whitelist`, or enable accounts or `basicAuthMode`; restart ST. The console logs the connecting IP |
+| Requests to your LAN model server blocked           | `privateAddressWhitelist.enabled: true` and the server's range is not in `allowedRanges` (a blocked request is logged when `log.blockedRequests` is on) | Add the exact range or host to `allowedRanges`; leave the feature on if ST is exposed                                                        |
+| Keys vanished after update or move                  | `data/` folder was not kept                                                                                                                             | Back up and restore `data/<user>/secrets.json` (mode `0600`), or mount `data/` in Docker                                                     |
+| Settings do not persist in Docker                   | No volume for `config` and `data`                                                                                                                       | Mount both as in `references/install.md`                                                                                                     |
+| `git pull` conflicts                                | Local edits to tracked files                                                                                                                            | Stash or revert, keep changes in `data/` and `config.yaml` only                                                                              |
+
+## Capture a clean failure
+
+1. Re-run the failing message with the ST console visible.
+2. Note the upstream status code and body line.
+3. Replay the same call with `scripts/check-endpoint.sh` (set `BASE`, `MODEL`, `LLM_API_KEY_FILE`).
+4. If curl works but ST fails, compare URL shape, key field and post-processing; if curl fails too, fix the server (see the engine skill).
+
+Never paste keys, `secrets.json` or settings files into issues or chat; `settings.json` can hold custom headers.
+
+## Official links
+
+- Docs repo (FAQ, API connections): https://github.com/SillyTavern/SillyTavern-Docs
+- Issues: https://github.com/SillyTavern/SillyTavern/issues
+- Releases: https://github.com/SillyTavern/SillyTavern/releases

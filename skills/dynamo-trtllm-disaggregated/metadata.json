@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Deploy TensorRT-LLM with NVIDIA Dynamo on Kubernetes as disaggregated prefill and decode workers. Covers the dynamo-platform chart, Grove with KAI Scheduler or LeaderWorkerSet with Volcano, DynamoGraphDeployment v1beta1 templates, engine YAMLs with cache_transceiver_config, NIXL over RDMA or EFA, the KV-aware router, Planner scaling, the TRT-LLM release-candidate pin, failure modes and verification gaps. References are split into platform install, deployment, KV transfer and networking, and routing, scaling and operations.",
+  "references": [
+    "https://github.com/ai-dynamo/dynamo",
+    "https://github.com/ai-dynamo/dynamo/releases/tag/v1.5.1",
+    "https://github.com/ai-dynamo/nixl",
+    "https://github.com/NVIDIA/TensorRT-LLM",
+    "https://nvidia.github.io/TensorRT-LLM/features/disagg-serving.html",
+    "https://github.com/NVIDIA/grove",
+    "https://github.com/NVIDIA/KAI-Scheduler",
+    "https://lws.sigs.k8s.io/docs/",
+    "https://github.com/volcano-sh/volcano"
+  ],
+  "kind": "stack"
+}

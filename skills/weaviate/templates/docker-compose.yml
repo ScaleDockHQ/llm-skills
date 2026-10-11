@@ -1,0 +1,31 @@
+# Single-node Weaviate with API-key auth. Create weaviate.env first (0600):
+#   AUTHENTICATION_APIKEY_ALLOWED_KEYS=<key>   AUTHENTICATION_APIKEY_USERS=admin   OPENAI_APIKEY=<key for your embeddings endpoint>
+services:
+  weaviate:
+    image: cr.weaviate.io/semitechnologies/weaviate:1.40.0 # pin; confirm the tag in references/install.md
+    env_file: ./weaviate.env
+    environment:
+      PERSISTENCE_DATA_PATH: /var/lib/weaviate
+      CLUSTER_HOSTNAME: node1
+      ENABLE_MODULES: text2vec-openai,backup-filesystem
+      BACKUP_FILESYSTEM_PATH: /var/lib/weaviate/backups
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: "false"
+      AUTHENTICATION_APIKEY_ENABLED: "true"
+      QUERY_DEFAULTS_LIMIT: "25"
+      PROMETHEUS_MONITORING_ENABLED: "true"
+      GOMEMLIMIT: 6GiB # set below the container memory limit
+    ports:
+      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:50051:50051"
+    volumes:
+      - weaviate_data:/var/lib/weaviate
+    mem_limit: 8g
+    restart: unless-stopped
+    networks: [llm]
+
+volumes:
+  weaviate_data:
+
+networks:
+  llm:
+    name: llm

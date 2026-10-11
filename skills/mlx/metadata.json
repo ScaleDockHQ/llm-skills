@@ -1,0 +1,23 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run, serve, convert, quantize and LoRA fine-tune models on Apple Silicon with MLX: mlx-lm (mlx_lm.generate, server, convert, lora, fuse) and mlx-vlm (vision, audio, omni). References cover install, serving, vision, conversion, fine-tuning, Apple Silicon memory and the wired limit, updating and troubleshooting, with combos for LoRA to GGUF and llama-swap.",
+  "references": [
+    "https://github.com/ml-explore/mlx-lm",
+    "https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/SERVER.md",
+    "https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/LORA.md",
+    "https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/server.py",
+    "https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/convert.py",
+    "https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/fuse.py",
+    "https://github.com/ml-explore/mlx",
+    "https://ml-explore.github.io/mlx/build/html/install.html",
+    "https://github.com/Blaizzy/mlx-vlm",
+    "https://github.com/Blaizzy/mlx-vlm/blob/main/mlx_vlm/LORA.MD",
+    "https://pypi.org/project/mlx-lm/",
+    "https://pypi.org/project/mlx-vlm/",
+    "https://huggingface.co/mlx-community",
+    "https://github.com/mostlygeek/llama-swap"
+  ],
+  "kind": "product"
+}

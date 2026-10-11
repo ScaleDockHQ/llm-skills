@@ -1,0 +1,34 @@
+# /etc/systemd/system/sglang.service: SGLang from a pip/uv virtualenv.
+# Verified against SGLang v0.5.21, 2026-10-11.
+# Install: sudo install -m 0644 sglang.service /etc/systemd/system/ && sudo systemctl daemon-reload
+# Secrets: /etc/sglang/env must be chmod 600, owner root, containing e.g. HF_TOKEN=... (never inline them here).
+[Unit]
+Description=SGLang inference server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sglang
+Group=sglang
+EnvironmentFile=-/etc/sglang/env
+Environment=HF_HOME=/var/lib/sglang/hf
+Environment=SGLANG_CACHE_DIR=/var/lib/sglang/cache
+WorkingDirectory=/var/lib/sglang
+ExecStart=/opt/sglang/venv/bin/python -m sglang.launch_server \
+  --model-path Qwen/Qwen3-8B \
+  --served-model-name qwen3-8b \
+  --host 127.0.0.1 --port 30000 \
+  --mem-fraction-static 0.85 \
+  --enable-metrics
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=900
+LimitMEMLOCK=infinity
+LimitNOFILE=1048576
+# The server spawns scheduler/detokenizer subprocesses: stop the whole group.
+KillMode=control-group
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target

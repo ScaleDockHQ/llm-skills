@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve, tune, scale and troubleshoot NVIDIA Triton Inference Server. Covers NGC container flavors, model repository layout and config.pbtxt, model-control modes, dynamic batching, instance groups, ensembles, the vLLM and TensorRT-LLM backends, the OpenAI frontend, KServe v2 HTTP/gRPC, perf_analyzer, Prometheus metrics, Kubernetes, upgrades and error fixes. Includes config, compose and Kubernetes templates. Verified against Triton v2.73.0 (NGC 26.09).",
+  "references": [
+    "https://github.com/triton-inference-server/server",
+    "https://github.com/triton-inference-server/server/releases",
+    "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html",
+    "https://github.com/triton-inference-server/server/blob/main/docs/introduction/compatibility.md",
+    "https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tritonserver",
+    "https://github.com/triton-inference-server/vllm_backend",
+    "https://github.com/triton-inference-server/tensorrtllm_backend",
+    "https://github.com/triton-inference-server/perf_analyzer",
+    "https://github.com/triton-inference-server/model_analyzer",
+    "https://github.com/triton-inference-server/tutorials"
+  ],
+  "kind": "product"
+}

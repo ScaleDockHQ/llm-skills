@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Use Caddy as the reverse proxy in front of self-hosted LLM endpoints. Covers installation, streaming-safe reverse_proxy settings for SSE and NDJSON, timeouts, request body limits and websockets, automatic and tailnet TLS, bearer and forward_auth patterns for engines without auth, the Ollama Host-header fix, an enriched /v1/models catalog with a builder script, operations and troubleshooting.",
+  "references": [
+    "https://github.com/caddyserver/caddy",
+    "https://github.com/caddyserver/caddy/releases",
+    "https://caddyserver.com/docs/install",
+    "https://caddyserver.com/docs/running",
+    "https://caddyserver.com/docs/command-line",
+    "https://caddyserver.com/docs/caddyfile/options",
+    "https://caddyserver.com/docs/caddyfile/directives/reverse_proxy",
+    "https://caddyserver.com/docs/caddyfile/directives/forward_auth",
+    "https://caddyserver.com/docs/caddyfile/directives/basic_auth",
+    "https://caddyserver.com/docs/caddyfile/directives/request_body",
+    "https://caddyserver.com/docs/caddyfile/directives/encode",
+    "https://caddyserver.com/docs/caddyfile/directives/log",
+    "https://caddyserver.com/docs/caddyfile/directives/tls",
+    "https://caddyserver.com/docs/caddyfile/directives/file_server",
+    "https://caddyserver.com/docs/caddyfile/directives/handle",
+    "https://tailscale.com/kb/1190/caddy-certificates",
+    "https://github.com/ollama/ollama/blob/main/server/routes.go"
+  ],
+  "kind": "product"
+}

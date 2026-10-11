@@ -1,0 +1,44 @@
+# NIM Operator (3.0.2 or later). Create ngc-secret (docker-registry) and ngc-api-secret
+# (generic, key NGC_API_KEY) in the namespace first. Apply NIMCache, wait for Ready, then NIMService.
+apiVersion: apps.nvidia.com/v1alpha1
+kind: NIMCache
+metadata:
+  name: my-model
+spec:
+  source:
+    ngc:
+      modelPuller: <NIM_LLM_MODEL_SPECIFIC_IMAGE>:2.0.13
+      pullSecret: ngc-secret
+      authSecret: ngc-api-secret
+      model:
+        engine: "vllm" # match the image backend (vllm or sglang)
+        tensorParallelism: "1"
+  storage:
+    pvc:
+      create: true
+      size: "80Gi"
+      volumeAccessMode: ReadWriteOnce
+---
+apiVersion: apps.nvidia.com/v1alpha1
+kind: NIMService
+metadata:
+  name: my-model
+spec:
+  image:
+    repository: <NIM_LLM_MODEL_SPECIFIC_IMAGE>
+    tag: "2.0.13"
+    pullPolicy: IfNotPresent
+    pullSecrets:
+      - ngc-secret
+  authSecret: ngc-api-secret
+  storage:
+    nimCache:
+      name: my-model
+      profile: ""
+  resources:
+    limits:
+      nvidia.com/gpu: 1
+  expose:
+    service:
+      type: ClusterIP
+      port: 8000

@@ -1,0 +1,14 @@
+# vllm serve --config config.yaml
+# Long flag names without the leading "--". Command line overrides this file; this file overrides defaults.
+# Secrets (HF_TOKEN, VLLM_API_KEY) do NOT belong here: use the environment or a 0600 env file.
+model: Qwen/Qwen3-Coder-30B-A3B-Instruct
+host: 127.0.0.1 # loopback; put a gateway or reverse proxy in front for remote access
+port: 8000
+served-model-name: qwen-coder # the ID clients send; keep it equal to the router's model ID
+max-model-len: 65536 # biggest lever on KV cache fit
+gpu-memory-utilization: 0.80 # lower (0.7) on unified-memory boxes such as DGX Spark
+enable-auto-tool-choice: true
+tool-call-parser: qwen3_xml # per model family; see references/features.md
+# reasoning-parser: qwen3 # only for reasoning models
+# max-num-seqs: 64
+# kv-cache-dtype: fp8 # more context per GB; check quality

@@ -1,0 +1,23 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Decision skill for choosing and sizing hardware to run LLMs. Gives a decision flow from model size, quantization, context and concurrency to a memory budget and a memory-bandwidth ceiling, with verified specs for NVIDIA consumer, workstation, datacenter, Blackwell and DGX Spark, AMD Instinct, Radeon and Strix Halo, Apple Silicon, Intel and CPU-only, and worked sizing math. Numerics-changing options are gated with llm-evals.",
+  "references": [
+    "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/",
+    "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000/",
+    "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+    "https://www.nvidia.com/en-us/data-center/h100/",
+    "https://www.nvidia.com/en-us/data-center/h200/",
+    "https://www.nvidia.com/en-us/data-center/dgx-b200/",
+    "https://www.nvidia.com/en-us/data-center/gb200-nvl72/",
+    "https://rocm.docs.amd.com/en/latest/reference/gpu-arch-specs.html",
+    "https://www.apple.com/mac-studio/specs/",
+    "https://developer.apple.com/documentation/metal/mtldevice/recommendedmaxworkingsetsize",
+    "https://www.intel.com/content/www/us/en/products/sku/241598/intel-arc-pro-b60-graphics/specifications.html",
+    "https://docs.ollama.com/gpu",
+    "https://docs.ollama.com/faq",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md"
+  ],
+  "kind": "technique"
+}

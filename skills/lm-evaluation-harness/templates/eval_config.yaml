@@ -1,0 +1,23 @@
+# lm-eval config file: lm-eval run --config eval_config.yaml
+# Verified against lm-evaluation-harness v0.4.13 (docs/config_files.md), 2026-10-11.
+# CLI arguments override these values. The API key is NOT set here: export OPENAI_API_KEY
+# in the environment (never put keys in model_args).
+model: local-chat-completions
+model_args:
+  model: my-model # ID exactly as listed by GET /v1/models
+  base_url: http://localhost:8000/v1/chat/completions # full endpoint URL
+  num_concurrent: 4
+  max_retries: 3
+  timeout: 300
+  # think_end_token: "</think>" # reasoning models; the server must keep the delimiter in content
+tasks:
+  - gsm8k
+apply_chat_template: true
+num_fewshot: null # keep the task default, or set it and use the same value on every compared run
+gen_kwargs:
+  temperature: 0
+  max_gen_toks: 1024
+seed: [0, 1234, 1234, 1234]
+log_samples: true
+output_path: ./lm-eval-results
+limit: 20 # smoke run only; delete for a real run

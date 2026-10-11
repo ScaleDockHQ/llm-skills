@@ -1,0 +1,19 @@
+# /etc/systemd/system/llm-catalog.service - Caddy catalog front on 127.0.0.1:8088
+# Rebuild models.json with /opt/llm-stack/build-catalog.sh after any model change.
+[Unit]
+Description=LLM catalog front (Caddy)
+After=network-online.target litellm.service
+Wants=network-online.target
+
+[Service]
+User=llm
+Group=llm
+Environment=LLM_CATALOG_DIR=/var/lib/llm-stack/catalog
+Environment=LLM_GATEWAY=127.0.0.1:4000
+Environment=LLM_FRONT_PORT=8088
+ExecStart=/usr/bin/caddy run --config /etc/llm-stack/Caddyfile --adapter caddyfile
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

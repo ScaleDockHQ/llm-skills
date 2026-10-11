@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Grade coding-agent patches with SWE-bench: pinned install of the swebench v5 CLI, Docker sizing, gold-patch validation, swebench eval and report, images and dataset commands, datasets (Verified, Lite, Multilingual, Multimodal, full), predictions JSONL, run_id caching, Modal and sb-cli, generating predictions with mini-SWE-agent against a local OpenAI-compatible server, troubleshooting and the PyPI-versus-main drift.",
+  "references": [
+    "https://github.com/SWE-bench/SWE-bench",
+    "https://pypi.org/project/swebench/",
+    "https://github.com/SWE-bench/SWE-bench/blob/main/docs/reference/cli.md",
+    "https://github.com/SWE-bench/SWE-bench/blob/main/docs/guides/evaluation.md",
+    "https://github.com/SWE-bench/SWE-bench/blob/main/docs/guides/docker_setup.md",
+    "https://github.com/SWE-bench/SWE-bench/blob/main/docs/faq.md",
+    "https://github.com/SWE-bench/swe-bench-tasks",
+    "https://github.com/SWE-agent/mini-swe-agent",
+    "https://www.swebench.com"
+  ],
+  "kind": "product"
+}

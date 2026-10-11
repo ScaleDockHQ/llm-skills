@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Build a self-hosted voice assistant from whisper.cpp, an LLM and Kokoro-FastAPI behind Open WebUI Voice Mode, with a path to Pipecat or LiveKit Agents. Covers the STT and TTS servers, Open WebUI audio settings, per-hop smoke tests, latency and GPU sharing, a maintenance and licence table for each component, and a symptom table.",
+  "references": [
+    "https://github.com/open-webui/open-webui/releases",
+    "https://docs.openwebui.com/features/chat-conversations/chat-features/voice-mode",
+    "https://docs.openwebui.com/features/chat-conversations/audio/text-to-speech/Kokoro-FastAPI-integration",
+    "https://docs.openwebui.com/reference/env-configuration",
+    "https://github.com/ggml-org/whisper.cpp/releases",
+    "https://github.com/remsky/Kokoro-FastAPI",
+    "https://github.com/remsky/Kokoro-FastAPI/releases",
+    "https://github.com/OHF-Voice/piper1-gpl",
+    "https://github.com/rhasspy/piper",
+    "https://github.com/pipecat-ai/pipecat",
+    "https://github.com/livekit/agents",
+    "https://github.com/livekit/livekit",
+    "https://github.com/speaches-ai/speaches"
+  ],
+  "kind": "stack"
+}

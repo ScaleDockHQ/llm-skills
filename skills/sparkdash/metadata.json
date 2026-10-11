@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, operate and secure sparkDash, the community web dashboard for NVIDIA DGX Spark and other NVIDIA GPU hosts. Covers Docker and bare installs, adding local, SSH and Windows units, engine probes for vLLM, llama.cpp, SGLang and Ollama, the opt-in Prometheus export with alert rules, power controls, remote access, privacy, updates and troubleshooting.",
+  "references": [
+    "https://github.com/MiaAI-Lab/sparkDash",
+    "https://github.com/MiaAI-Lab/sparkDash/releases",
+    "https://github.com/MiaAI-Lab/sparkDash/blob/main/README.md",
+    "https://github.com/MiaAI-Lab/sparkDash/blob/main/docs/REMOTE-ACCESS.md",
+    "https://github.com/MiaAI-Lab/sparkDash/blob/main/docker-compose.yml",
+    "https://github.com/MiaAI-Lab/sparkDash/blob/main/CHANGELOG.md",
+    "https://tailscale.com/kb/1242/tailscale-serve"
+  ],
+  "kind": "product"
+}

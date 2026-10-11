@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Autoscale LLM serving pods on Kubernetes with KEDA: ScaledObject and TriggerAuthentication on vLLM queue depth, KV-cache pressure, work queues and GPU metrics. Covers install, trigger queries and thresholds, HPA behavior, fallback, scale to zero and the HTTP add-on, authentication including the 2.21 token-audience change, upgrades, troubleshooting and combos with vLLM, the GPU operator, the inference gateway and Ray Serve. Verified against KEDA v2.21.0.",
+  "references": [
+    "https://keda.sh/docs/2.21/",
+    "https://keda.sh/docs/2.21/deploy/",
+    "https://keda.sh/docs/2.21/concepts/scaling-deployments/",
+    "https://keda.sh/docs/2.21/reference/scaledobject-spec/",
+    "https://keda.sh/docs/2.21/scalers/prometheus/",
+    "https://keda.sh/docs/2.21/scalers/metrics-api/",
+    "https://keda.sh/docs/2.21/scalers/rabbitmq-queue/",
+    "https://keda.sh/docs/2.21/scalers/redis-lists/",
+    "https://keda.sh/docs/2.21/scalers/aws-sqs/",
+    "https://keda.sh/docs/2.21/scalers/nats-jetstream/",
+    "https://keda.sh/docs/2.21/concepts/authentication/",
+    "https://keda.sh/docs/2.21/authentication-providers/bound-service-account-token/",
+    "https://keda.sh/docs/2.21/integrations/prometheus/",
+    "https://keda.sh/docs/2.21/migration/",
+    "https://github.com/kedacore/keda/releases/tag/v2.21.0",
+    "https://github.com/kedacore/charts",
+    "https://github.com/kedacore/http-add-on/releases/tag/v0.16.0"
+  ],
+  "kind": "product"
+}

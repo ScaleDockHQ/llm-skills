@@ -4,7 +4,7 @@ description: Metrics, tracing, logging, cost tracking and alerting for LLM servi
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.0.1"
+  version: "1.2.1"
 compatibility: Assumes OpenAI-compatible serving (engines directly or behind LiteLLM / llama-swap) and Prometheus-format metrics. Uses curl and jq for discovery; Prometheus, Grafana, DCGM exporter, Langfuse or Phoenix are optional components the workflows install or connect to.
 ---
 
@@ -111,8 +111,8 @@ Order of work: **metrics → traces → logs**. Metrics are cheap and safe; trac
 
 ### 5. Request tracing
 
-- [ ] Decide the backend: Langfuse (LLM-centric UI, costs, prompts) or Phoenix (OTel-native, evals) or any OTLP backend.
-- [ ] Instrument the app (OpenLLMetry or OTel GenAI instrumentation) and/or the gateway (LiteLLM `otel` / `langfuse_otel` callback).
+- [ ] Decide the backend: Langfuse (LLM-centric UI, costs, prompts; deep dive in the `langfuse` skill) or Phoenix (OTel-native, evals) or any OTLP backend.
+- [ ] Instrument the app (OpenLLMetry or OTel GenAI instrumentation) and/or the gateway (LiteLLM `otel` / `langfuse_otel` callback; the latter needs `LITELLM_OTEL_V2=true`).
 - [ ] Turn content capture **off** first; enable per environment only after the privacy review.
 - [ ] Propagate `traceparent` from app to gateway. → `references/tracing.md`
 
@@ -152,9 +152,9 @@ Order of work: **metrics → traces → logs**. Metrics are cheap and safe; trac
 | Reference                          | Load when                                                                |
 | ---------------------------------- | ------------------------------------------------------------------------ |
 | `references/metrics-engines.md`    | Enabling and reading vLLM, SGLang, llama.cpp, TGI and llama-swap metrics |
-| `references/gpu-metrics.md`        | DCGM exporter, nvidia-smi, unified-memory (DGX Spark/GB10) caveats       |
-| `references/prometheus-grafana.md` | Scrape configs, auth, recording rules, official dashboards               |
-| `references/tracing.md`            | OpenTelemetry GenAI conventions, Langfuse, Phoenix, OpenLLMetry          |
+| `references/gpu-metrics.md`        | Stack notes: DCGM exporter, nvidia-smi, unified-memory caveats           |
+| `references/prometheus-grafana.md` | Stack notes: scrape targets, ports, auth, dashboards                     |
+| `references/tracing.md`            | Stack notes: where spans come from, propagation, content capture         |
 | `references/gateway-logging.md`    | LiteLLM callbacks, Prometheus metrics, spend logs, OSS vs Enterprise     |
 | `references/cost-tracking.md`      | Pricing config, spend by key/team/model, self-hosted cost per token      |
 | `references/alerting.md`           | Alert rule design and examples                                           |
@@ -167,6 +167,8 @@ Templates: `assets/prometheus.yml` (vLLM, SGLang, llama.cpp, llama-swap, LiteLLM
 Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
 
 - `self-hosted-llms` — engines and llama-swap being monitored; its sparkDash reference covers DGX-specific monitoring.
+- Tracing and metrics depth: `opentelemetry-genai`, `openllmetry`, `arize-phoenix`, `mlflow-tracing`, `weave`, `posthog-llm-analytics`, `datadog-llm-observability`, `sentry-ai-monitoring`, `prometheus-grafana-llm`, `dcgm-exporter`, `sparkdash`.
+- `langfuse` — installing, operating and upgrading Langfuse, its SDK and OTLP ingestion, retention and masking.
 - `llm-gateway` — LiteLLM setup, keys, teams and budgets behind the spend metrics.
 - `llm-evals` — quality signals; production failures become golden-set items.
 - `local-llms`, `cloud-llms`, `choosing-llm-hosting` — where the traffic runs.

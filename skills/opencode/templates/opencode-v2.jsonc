@@ -1,0 +1,28 @@
+// OpenCode 2 config. OpenCode 1 uses "provider" and "npm" instead (see templates/opencode.json).
+// Docs: https://v2.opencode.ai/docs/providers and /docs/models
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "local/coder",
+  "providers": {
+    "local": {
+      "name": "Local server",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://HOST:PORT/v1",
+        "apiKey": "{env:LOCAL_LLM_API_KEY}", // omit for keyless endpoints
+        "chunkTimeout": 600000,
+      },
+      "models": {
+        "coder": {
+          "modelID": "<served-model-name>", // ID sent to the server
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"],
+          },
+          "limit": { "context": 131072, "output": 16384 },
+        },
+      },
+    },
+  },
+}

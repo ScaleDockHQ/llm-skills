@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run DeepEval LLM evals as pytest tests: pinned install, telemetry and Confident AI data-egress controls, local, Ollama, LiteLLM and hosted judge setup with JSON reliability, test cases, metric requirements and thresholds, datasets, deepeval test run flags, caching and storage, and CI gating. References split by install, judges, tests and metrics, running and CI, troubleshooting and updating.",
+  "references": [
+    "https://github.com/confident-ai/deepeval",
+    "https://github.com/confident-ai/deepeval/releases",
+    "https://pypi.org/project/deepeval/",
+    "https://deepeval.com/docs/getting-started",
+    "https://deepeval.com/docs/metrics-introduction",
+    "https://deepeval.com/docs/evaluation-datasets",
+    "https://deepeval.com/docs/evaluation-unit-testing-in-ci-cd",
+    "https://deepeval.com/docs/evaluation-flags-and-configs",
+    "https://deepeval.com/docs/evaluation-local-backend-storage",
+    "https://deepeval.com/docs/command-line-interface",
+    "https://deepeval.com/docs/environment-variables",
+    "https://deepeval.com/docs/data-privacy",
+    "https://deepeval.com/docs/troubleshooting",
+    "https://deepeval.com/guides/guides-using-custom-llms",
+    "https://deepeval.com/integrations/models/vllm",
+    "https://deepeval.com/integrations/models/ollama",
+    "https://deepeval.com/integrations/models/litellm"
+  ],
+  "kind": "product"
+}

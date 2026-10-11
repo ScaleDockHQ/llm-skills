@@ -1,0 +1,20 @@
+# /etc/systemd/system/aphrodite.service. Review user, venv and paths, then:
+#   sudo systemctl daemon-reload && sudo systemctl enable --now aphrodite
+# Put APHRODITE_API_KEY=... and HF_TOKEN=... in /etc/aphrodite.env (chmod 600, root-owned), never in this file.
+[Unit]
+Description=Aphrodite Engine (Sonar)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=aphrodite
+EnvironmentFile=-/etc/aphrodite.env
+Environment=HF_HOME=/srv/aphrodite/hf APHRODITE_CACHE_ROOT=/srv/aphrodite/cache
+ExecStart=/opt/aphrodite/venv/bin/aphrodite serve --config /etc/aphrodite/serve.yaml
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=900
+LimitNOFILE=1048576
+
+[Install]
+WantedBy=multi-user.target

@@ -23,9 +23,9 @@ npx skills add ScaleDockHQ/llms-skills --skill model-quantization
 - [`references/formats.md`](references/formats.md) — formats, format-to-engine matrix, hardware notes.
 - [`references/gguf.md`](references/gguf.md) — llama.cpp build, `convert_hf_to_gguf.py`, `llama-quantize`, `llama-imatrix`.
 - [`references/exl3.md`](references/exl3.md) — ExLlamaV3 `convert.py` and TabbyAPI.
-- [`references/llm-compressor.md`](references/llm-compressor.md) — AWQ, GPTQ, FP8, NVFP4 recipes and vLLM serving.
-- [`references/modelopt-nvfp4.md`](references/modelopt-nvfp4.md) — ModelOpt `hf_ptq.py` NVFP4/FP8 and deployment.
-- [`references/mlx.md`](references/mlx.md) — `mlx_lm.convert` and `mlx_lm.server`.
+- [`references/llm-compressor.md`](references/llm-compressor.md) — how LLM Compressor plugs into this stack (depth: `llm-compressor` skill).
+- [`references/modelopt-nvfp4.md`](references/modelopt-nvfp4.md) — how NVIDIA Model Optimizer plugs into this stack (depth: `nvidia-modelopt` skill).
+- [`references/mlx.md`](references/mlx.md) — how MLX quantization plugs into this stack (depth: `mlx` skill).
 - [`references/quality-checks.md`](references/quality-checks.md) — smoke prompts, KL divergence, perplexity.
 - [`references/memory-safety.md`](references/memory-safety.md) — memory caps, disk planning, hf-xet settings.
 - [`references/publishing.md`](references/publishing.md) — `hf upload`, model card metadata, licenses, naming.
@@ -33,6 +33,10 @@ npx skills add ScaleDockHQ/llms-skills --skill model-quantization
 
 ## Companion skills
 
+- `gguf-quantization`, `exl3-quantization`, `gptqmodel`, `bitsandbytes`, `torchao`, `hqq` — per-format depth (install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`)
+- `llm-compressor` — AWQ, GPTQ, FP8, NVFP4 with LLM Compressor in depth (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`)
+- `nvidia-modelopt` — NVIDIA Model Optimizer PTQ and export in depth (install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-modelopt`)
+- `mlx` — mlx-lm conversion and serving in depth (install: `npx skills add ScaleDockHQ/llms-skills --skill mlx`)
 - `self-hosted-llms` — choose/download existing quants and run the serving stack (install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`)
 - `local-llms` — Ollama, LM Studio, llama.cpp on a laptop or desktop (install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`)
 - `llm-evals` — task evals and quality gates (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`)

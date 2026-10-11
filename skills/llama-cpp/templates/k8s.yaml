@@ -1,0 +1,96 @@
+# llama.cpp server on one NVIDIA GPU node. Needs the NVIDIA device plugin and a model volume.
+# Pin the image by digest in production. One replica per model; scale with several Deployments behind a gateway.
+# Create the key secret from a 0600 file, never from a literal on the command line:
+#   kubectl create secret generic llama-server-keys --from-file=keys=$HOME/.config/llama-server/keys
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: llama-models
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 100Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llama-server
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate # one GPU: do not run old and new pods together
+  selector:
+    matchLabels:
+      app: llama-server
+  template:
+    metadata:
+      labels:
+        app: llama-server
+    spec:
+      containers:
+        - name: llama-server
+          image: ghcr.io/ggml-org/llama.cpp:server-cuda13
+          args:
+            - -m
+            - /models/model-Q4_K_M.gguf
+            - -a
+            - local-model
+            - -c
+            - "32768"
+            - -ngl
+            - all
+            - -fa
+            - "on"
+            - -np
+            - "4"
+            - --metrics
+            - --host
+            - 0.0.0.0
+            - --port
+            - "8080"
+            - --api-key-file
+            - /run/secrets/llama/keys
+          ports:
+            - containerPort: 8080
+              name: http
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+          volumeMounts:
+            - name: models
+              mountPath: /models
+              readOnly: true
+            - name: keys
+              mountPath: /run/secrets/llama
+              readOnly: true
+          startupProbe: # /health returns 503 while the model loads
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+            failureThreshold: 60
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+      volumes:
+        - name: models
+          persistentVolumeClaim:
+            claimName: llama-models
+        - name: keys
+          secret:
+            secretName: llama-server-keys
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: llama-server
+spec:
+  selector:
+    app: llama-server
+  ports:
+    - name: http
+      port: 80
+      targetPort: http

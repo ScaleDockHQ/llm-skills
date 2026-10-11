@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.2.0",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Self-host image, video, speech-to-text and text-to-speech servers in the same LiteLLM -> llama-swap stack as your LLMs: stable-diffusion.cpp sd-server and ComfyUI for images, ComfyUI native workflows for open video models, whisper.cpp, Speaches and vLLM for STT, Kokoro-FastAPI and Speaches for TTS. Covers OpenAI-compatible routes, llama-swap groups (exclusive vs co-resident), LiteLLM image/audio modes, end-to-end timeouts including Cloudflare 524, memory planning on discrete and unified GPUs, smoke tests and model licenses.",
@@ -23,5 +23,6 @@
     "https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/",
     "https://www.freedesktop.org/software/systemd/man/latest/systemd.resource-control.html",
     "https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables"
-  ]
+  ],
+  "kind": "workflow"
 }

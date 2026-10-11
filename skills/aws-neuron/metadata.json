@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Set up and operate AWS Inferentia2 and Trainium with the Neuron SDK for LLM serving through vLLM Neuron or vLLM with NxD Inference. References cover instances, NeuronCores and SDK versions, DLAMI and DLC setup, serving and compile cache, troubleshooting and teardown.",
+  "references": [
+    "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/",
+    "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/release-notes/index.html",
+    "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/libraries/vllm-neuron/neuron-inference-overview.html",
+    "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/libraries/nxd-inference/developer_guides/vllm-user-guide-v1.html",
+    "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/environments/dlami.html",
+    "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/about-neuron/arch/neuron-features/logical-neuroncore-config.html",
+    "https://github.com/vllm-project/vllm-neuron",
+    "https://github.com/aws-neuron/deep-learning-containers"
+  ],
+  "kind": "platform"
+}

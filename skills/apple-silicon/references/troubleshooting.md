@@ -1,0 +1,18 @@
+# Troubleshooting Apple Silicon inference
+
+> Verified against mlx-lm 0.32.0 README, llama.cpp issue #16646, Ollama v0.40.3 docs, macOS 26.6 tooling, 2026-10-11
+
+| Symptom                                                        | Cause                                                                     | Fix                                                                                                    |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Runtime shows 100% CPU, slow                                   | x86_64 binary or Python under Rosetta, or model larger than the wired cap | `sysctl -n sysctl.proc_translated`, `file $(command -v <bin>)`; reinstall arm64 (`hardware-and-os.md`) |
+| `[WARNING] Generating with a model that requires ...` (mlx-lm) | Model large relative to the wired limit                                   | Smaller quant first; else raise `iogpu.wired_limit_mb` with approval (`memory.md`)                     |
+| `kIOGPUCommandBufferCallbackErrorOutOfMemory`                  | Weights + KV + compute buffers cross the Metal working-set cap            | Lower `-c`, smaller quant, quantized KV; see `memory.md`                                               |
+| Generation slows over a long run                               | Thermal throttling (fanless Air) or Low Power Mode or battery             | `pmset -g therm`, AC power, cool-down; `power-and-thermals.md`                                         |
+| Swap grows while generating                                    | Model does not fit alongside macOS and apps                               | Smaller model or context; close apps; do not raise the limit further                                   |
+| First request after idle is very slow                          | Weights paged out or model unloaded after sleep                           | Keep awake (`operating.md`), keep the server warm, `mlock` in llama.cpp                                |
+| Server unreachable after reboot                                | `launchctl setenv` or `sysctl` value did not persist                      | Re-apply deliberately; the wired limit resets at reboot (community)                                    |
+| LAN client cannot connect                                      | Bound to loopback (the default) or firewall prompt declined               | Use Tailscale Serve or a gateway; change the bind only with a token                                    |
+| `pip install mlx` fails or `import mlx` crashes                | Rosetta Python, Python < 3.10, macOS < 14                                 | Native arm64 Python 3.11+, macOS 14+ (`hardware-and-os.md`)                                            |
+| Container inference is slow                                    | Docker Desktop has no Metal passthrough                                   | Run the runtime on the host                                                                            |
+| Port 8080 already in use (`mlx_lm.server`)                     | Common dev-server port                                                    | `lsof -nP -iTCP:8080 -sTCP:LISTEN`, choose `--port`                                                    |
+| `ggml_metal` compile errors after a macOS update               | Build older than the OS SDK                                               | Update llama.cpp (`brew upgrade llama.cpp`)                                                            |

@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Serve Z.ai GLM open-weight models (GLM-5.3, GLM-5.3-Flash, GLM-5.2, GLM-4.7 and GLM-4.7-Flash) on DGX Spark, consumer RTX, Apple Silicon and H100 to B200 servers. Covers model sizes, context and licences, glm45 and glm47 tool and reasoning parsers for vLLM, SGLang and TensorRT-LLM, llama.cpp and Ollama notes, reasoning_effort and clear_thinking toggles, sampling, official and community quants, and known bugs. References are split into models, parsers and templates, platforms and quants, and known issues.",
+  "references": [
+    "https://github.com/zai-org/GLM-5",
+    "https://huggingface.co/zai-org/GLM-5.3",
+    "https://huggingface.co/zai-org/GLM-5.3-Flash",
+    "https://huggingface.co/zai-org/GLM-5.3/raw/main/LICENSE",
+    "https://huggingface.co/zai-org/GLM-4.7",
+    "https://huggingface.co/zai-org/GLM-4.7-Flash",
+    "https://huggingface.co/nvidia/GLM-5.3-Flash-NVFP4",
+    "https://huggingface.co/Vontra/GLM-5.3-Flash-MLX-oQ4-MTP",
+    "https://huggingface.co/SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+    "https://recipes.vllm.ai/zai-org/GLM-5.3",
+    "https://recipes.vllm.ai/zai-org/GLM-5.3-Flash",
+    "https://cookbook.sglang.io/autoregressive/GLM/GLM-5.3",
+    "https://cookbook.sglang.io/autoregressive/GLM/GLM-5.3-Flash",
+    "https://nvidia.github.io/TensorRT-LLM/latest/deployment-guide/deployment-guide-for-glm-5-on-trtllm.html",
+    "https://unsloth.ai/docs/models/glm-5.3",
+    "https://unsloth.ai/docs/models/glm-5.3-flash",
+    "https://ollama.com/library/glm-4.7-flash",
+    "https://github.com/ashhart/TensorFold",
+    "https://github.com/zai-org/GLM-5/issues",
+    "https://rohitghumare.com/guides/glm-5-3-flash/"
+  ],
+  "kind": "model-family"
+}

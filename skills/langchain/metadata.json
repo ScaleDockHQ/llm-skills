@@ -1,0 +1,23 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Configure LangChain (Python langchain 1.x, langchain-openai, langchain-anthropic, langchain-ollama) against self-hosted OpenAI- and Anthropic-compatible endpoints: vLLM, llama.cpp, Ollama, LiteLLM and llama-swap. Covers ChatOpenAI, ChatAnthropic and ChatOllama base URLs, key handling without printing secrets, env vars that silently redirect, model names and profiles, with_structured_output methods, tool calling, create_agent strategies, streaming usage, dropped reasoning content, troubleshooting, and a curl and jq probe script.",
+  "references": [
+    "https://github.com/langchain-ai/langchain",
+    "https://github.com/langchain-ai/langchain/releases",
+    "https://pypi.org/project/langchain/",
+    "https://pypi.org/project/langchain-openai/",
+    "https://docs.langchain.com/oss/python/integrations/chat",
+    "https://docs.langchain.com/oss/python/integrations/chat/openai",
+    "https://docs.langchain.com/oss/python/integrations/chat/anthropic",
+    "https://docs.langchain.com/oss/python/integrations/chat/ollama",
+    "https://docs.langchain.com/oss/python/integrations/chat/vllm",
+    "https://docs.langchain.com/oss/python/integrations/chat/litellm",
+    "https://docs.langchain.com/oss/python/langchain/models",
+    "https://docs.langchain.com/oss/python/langchain/structured-output",
+    "https://docs.langchain.com/oss/python/langchain/tools",
+    "https://docs.langchain.com/oss/javascript/integrations/chat/openai"
+  ],
+  "kind": "product"
+}

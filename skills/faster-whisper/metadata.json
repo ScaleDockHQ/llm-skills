@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, run and tune faster-whisper, the CTranslate2 Whisper speech-to-text library for Python. References cover pip and CUDA 12 installs, the WhisperModel and batched APIs with verified defaults, model names and conversion, compute types and benchmarks, related projects such as Speaches and WhisperX, updating and troubleshooting, plus a read-only doctor script.",
+  "references": [
+    "https://github.com/SYSTRAN/faster-whisper",
+    "https://github.com/SYSTRAN/faster-whisper/releases",
+    "https://github.com/SYSTRAN/faster-whisper/blob/master/README.md",
+    "https://github.com/SYSTRAN/faster-whisper/blob/master/faster_whisper/transcribe.py",
+    "https://github.com/SYSTRAN/faster-whisper/blob/master/faster_whisper/utils.py",
+    "https://github.com/SYSTRAN/faster-whisper/blob/master/faster_whisper/vad.py",
+    "https://github.com/SYSTRAN/faster-whisper/blob/master/requirements.txt",
+    "https://github.com/OpenNMT/CTranslate2",
+    "https://opennmt.net/CTranslate2/quantization.html",
+    "https://pypi.org/project/faster-whisper/",
+    "https://huggingface.co/Systran"
+  ],
+  "kind": "product"
+}

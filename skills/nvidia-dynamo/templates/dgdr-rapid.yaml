@@ -1,0 +1,14 @@
+# From ai-dynamo/dynamo v1.5.1 examples/deployments/dgdr/rapid.yaml (Apache-2.0), with an SLA block from the README.
+# DGDR is beta. autoApply: false stops after generation so you can review the DGD first.
+apiVersion: nvidia.com/v1beta1
+kind: DynamoGraphDeploymentRequest
+metadata:
+  name: qwen-rapid
+spec:
+  model: Qwen/Qwen3-0.6B
+  backend: vllm
+  searchStrategy: rapid
+  sla:
+    ttft: 200.0 # ms
+    itl: 20.0 # ms
+  autoApply: false

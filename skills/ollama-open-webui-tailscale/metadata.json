@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run Ollama behind Open WebUI and reach it privately over Tailscale with HTTPS. Covers the Open WebUI container and image tags, connecting it to Ollama on loopback, tailscale serve, access control, sign-in choices, backup, updates, removal and troubleshooting. Open WebUI has no skill yet, so its essentials are verified in the references.",
+  "references": [
+    "https://github.com/open-webui/open-webui",
+    "https://github.com/open-webui/open-webui/releases",
+    "https://github.com/open-webui/docs",
+    "https://docs.openwebui.com/getting-started/quick-start",
+    "https://docs.openwebui.com/troubleshooting/connection-error",
+    "https://docs.openwebui.com/reference/env-configuration",
+    "https://docs.openwebui.com/features/authentication-access/auth/sso",
+    "https://github.com/ollama/ollama/releases",
+    "https://docs.ollama.com/faq",
+    "https://tailscale.com/kb/1312/serve",
+    "https://tailscale.com/kb/1153/enabling-https"
+  ],
+  "kind": "stack"
+}

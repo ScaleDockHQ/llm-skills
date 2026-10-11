@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run Weaviate beside a self-hosted LLM stack. References cover Docker install, memory sizing and quantization, API-key auth and RBAC, REST and GraphQL basics with text2vec-openai pointed at an OpenAI-compatible endpoint, backups and upgrades, troubleshooting, and LiteLLM, llama-swap and Open WebUI wiring, plus a compose template.",
+  "references": [
+    "https://github.com/weaviate/weaviate",
+    "https://docs.weaviate.io/deploy/installation-guides/docker-installation",
+    "https://docs.weaviate.io/deploy/configuration/authentication",
+    "https://docs.weaviate.io/weaviate/concepts/resources",
+    "https://docs.weaviate.io/weaviate/model-providers/openai/embeddings",
+    "https://github.com/weaviate/weaviate/blob/main/openapi-specs/schema.json",
+    "https://docs.openwebui.com/reference/env-configuration"
+  ],
+  "kind": "product"
+}

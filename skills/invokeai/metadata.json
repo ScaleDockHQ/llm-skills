@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install and operate InvokeAI, the node-based creative engine and web UI for diffusion models. References cover hardware, launcher, uv and Docker installs, invokeai.yaml and multi-user mode, the Model Manager, external providers and custom nodes, the queue API, partial loading and memory settings, updating and troubleshooting.",
+  "references": [
+    "https://github.com/invoke-ai/InvokeAI",
+    "https://github.com/invoke-ai/InvokeAI/releases",
+    "https://github.com/invoke-ai/launcher/releases",
+    "https://pypi.org/project/InvokeAI/",
+    "https://invoke.ai/start-here/installation/",
+    "https://invoke.ai/start-here/manual/",
+    "https://invoke.ai/start-here/system-requirements/",
+    "https://invoke.ai/configuration/invokeai-yaml/",
+    "https://invoke.ai/configuration/docker/",
+    "https://invoke.ai/configuration/low-vram-mode/",
+    "https://invoke.ai/concepts/models/",
+    "https://invoke.ai/features/external-models/",
+    "https://invoke.ai/features/workflows/custom-node-manager/",
+    "https://invoke.ai/features/multi-user-mode/api-guide/",
+    "https://invoke.ai/development/guides/workflow-api/",
+    "https://invoke.ai/troubleshooting/faq/",
+    "https://github.com/invoke-ai/InvokeAI/blob/v6.14.2/invokeai/app/services/config/config_default.py",
+    "https://github.com/invoke-ai/InvokeAI/pkgs/container/invokeai"
+  ],
+  "kind": "product"
+}

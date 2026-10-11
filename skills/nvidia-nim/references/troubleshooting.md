@@ -1,0 +1,38 @@
+# NVIDIA NIM troubleshooting
+
+> Verified against NIM LLM 2.0.13, 2026-10-11
+
+Sources: troubleshooting pages (CUDA driver, memory, requests, OpenShift SCC) and release notes.
+
+Always read `docker logs` first and raise `NIM_LOG_LEVEL=INFO` (or `DEBUG`) if needed. Release notes list
+model-specific startup failures; the steps below do not fix backend defects.
+
+| Symptom                                              | Cause                                                                   | Fix                                                                                                                                                                                                                          |
+| ---------------------------------------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RuntimeError: CUDA driver failed to initialize`     | Host driver not mounted; image's CUDA compat libs loaded instead        | Install and configure the NVIDIA Container Toolkit; run with `--runtime=nvidia --gpus all`; check which `libcuda.so` is loaded (must be the host's, not `/usr/local/cuda-*/compat/`); check CDI config and `LD_LIBRARY_PATH` |
+| CUDA Error 803                                       | Compat driver does not match host kernel driver                         | Same as above                                                                                                                                                                                                                |
+| CUDA Error 802                                       | Kernel driver not loaded or fabric manager down (NVSwitch systems)      | Start `nvidia-fabricmanager` with a version matching the driver                                                                                                                                                              |
+| GPU out of memory at startup                         | Profile does not fit GPU, or memory setting too high                    | Check the `[requires >=N GB/gpu]` annotation, pick another profile, lower `NIM_MAX_MODEL_LEN`, raise TP via a profile, free other GPU users                                                                                  |
+| Illegal memory access or crash during warm-up        | Not necessarily OOM                                                     | Check release notes for the model, GPU and profile                                                                                                                                                                           |
+| Profile listed as incompatible                       | TP exceeds visible GPUs, or GPU unsupported                             | `nvidia-smi`, expose more GPUs, choose a supported profile                                                                                                                                                                   |
+| Pull denied or unauthorized                          | Image needs credentials (Production Branch, pre-2.0.10, private, gated) | `docker login nvcr.io -u '$oauthtoken'` with the key from an env var or file                                                                                                                                                 |
+| Download fails at start                              | Missing `NGC_API_KEY` or `HF_TOKEN`, or no network                      | Forward the token with `-e NAME`; for air-gap use `download-to-cache` and a mounted cache                                                                                                                                    |
+| Slow or stuck at cache probe                         | `NIM_CACHE_PATH` on a dead NFS, CIFS or FUSE mount                      | Fix the mount or raise `NIM_CACHE_PROBE_TIMEOUT`                                                                                                                                                                             |
+| Cache not writable                                   | Host directory ownership                                                | Make the mounted cache writable by the container user                                                                                                                                                                        |
+| Multi-node workers fail to start                     | JSON logging enabled                                                    | Set `model.jsonLogging=false`                                                                                                                                                                                                |
+| Helm `customArgs` or env args ignored or conflicting | `NIM_PASSTHROUGH_ARGS` replaced by env, or strict mode                  | Use `customArgs`; avoid overriding `NIM_PASSTHROUGH_ARGS`; check `NIM_STRICT_ARG_PROCESSING`                                                                                                                                 |
+| HTTP 400 on `tool_choice: auto`                      | Tool calling not enabled                                                | Add `--enable-auto-tool-choice` and `--tool-call-parser`                                                                                                                                                                     |
+| Forced tool call missing with HTTP 200               | Known behaviour on some models                                          | Validate `tool_calls`; see release notes                                                                                                                                                                                     |
+| Request exceeds client timeout                       | Slow decode, proxy timeout, or hang                                     | Check `/v1/health/ready` and logs, bound `max_tokens`, raise client and proxy timeouts, compare a short request                                                                                                              |
+| Stop string not honoured on `/v1/completions`        | Check `finish_reason`; `length` means it never reached the sequence     | Bound output; read release note for affected models                                                                                                                                                                          |
+| OpenShift pod rejected                               | Security context constraint                                             | See the OpenShift SCC page in the NIM docs                                                                                                                                                                                   |
+| `model not found`                                    | Wrong `model` value                                                     | Use the id from `/v1/models` (model-free names derive from the URI)                                                                                                                                                          |
+
+Diagnostic commands:
+
+```bash
+docker logs --tail 200 nim
+docker run --rm --gpus=all <image> list-model-profiles
+docker run --rm --gpus=all <image> nim-serve --dry-run
+docker exec nim python3 -c "import torch;print(torch.cuda.is_available())"
+```

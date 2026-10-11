@@ -1,0 +1,12 @@
+# Bearer-token proxy in front of a streamable HTTP MCP server on the internal network.
+# Set MCP_PROXY_TOKEN in a 0600 env file.
+{
+	auto_https off
+}
+:8080 {
+	@authed header Authorization "Bearer {env.MCP_PROXY_TOKEN}"
+	handle @authed {
+		reverse_proxy mcp-qdrant:8000
+	}
+	respond "unauthorized" 401
+}

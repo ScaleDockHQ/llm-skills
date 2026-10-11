@@ -1,0 +1,31 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve, tune, secure and update LM Studio (desktop app, lms CLI, llmster headless daemon) as a local OpenAI-, Anthropic- and REST-compatible server for GGUF and MLX models. References split into install, configuration, features (MCP, runtimes, speculative decoding), API, updating and troubleshooting, with combos for Claude Code, Codex and LM Link.",
+  "references": [
+    "https://lmstudio.ai/docs",
+    "https://lmstudio.ai/docs/cli",
+    "https://lmstudio.ai/docs/app/system-requirements",
+    "https://lmstudio.ai/docs/app/basics/lmstudio-vs-llmster-vs-lms",
+    "https://lmstudio.ai/docs/developer/core/headless",
+    "https://lmstudio.ai/docs/developer/core/headless_llmster",
+    "https://lmstudio.ai/docs/developer/core/authentication",
+    "https://lmstudio.ai/docs/developer/core/server/settings",
+    "https://lmstudio.ai/docs/developer/core/server/serve-on-network",
+    "https://lmstudio.ai/docs/developer/core/ttl-and-auto-evict",
+    "https://lmstudio.ai/docs/developer/core/mcp",
+    "https://lmstudio.ai/docs/developer/rest",
+    "https://lmstudio.ai/docs/developer/openai-compat",
+    "https://lmstudio.ai/docs/developer/anthropic-compat",
+    "https://lmstudio.ai/docs/developer/api-changelog",
+    "https://lmstudio.ai/docs/integrations/claude-code",
+    "https://lmstudio.ai/docs/integrations/codex",
+    "https://lmstudio.ai/docs/lmlink",
+    "https://lmstudio.ai/docs/lmlink/basics/faq",
+    "https://lmstudio.ai/download",
+    "https://github.com/lmstudio-ai/lms",
+    "https://github.com/lmstudio-ai/mlx-engine"
+  ],
+  "kind": "product"
+}

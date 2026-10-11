@@ -4,7 +4,7 @@ description: Produce quantized LLM checkpoints and publish them. Covers GGUF (ll
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.0.1"
+  version: "1.2.0"
 compatibility: Linux (x86_64 or arm64 incl. NVIDIA DGX Spark) with NVIDIA GPU for EXL3, LLM Compressor and ModelOpt; macOS on Apple Silicon for MLX; GGUF works on Linux, macOS and CPU-only. Needs git, cmake, Python 3 venvs, curl, jq, and the Hugging Face hf CLI. systemd-run for memory caps on Linux.
 ---
 
@@ -136,9 +136,9 @@ Full format-to-engine matrix and hardware notes: `references/formats.md`. If a t
 - `references/formats.md` — every format, format-to-engine matrix, hardware notes (Ampere to Blackwell, DGX Spark GB10, Apple Silicon).
 - `references/gguf.md` — llama.cpp build (CUDA arm64/x86, Metal), `convert_hf_to_gguf.py`, `llama-quantize` types and options, `llama-imatrix`.
 - `references/exl3.md` — ExLlamaV3 install and `convert.py` arguments, TabbyAPI serving.
-- `references/llm-compressor.md` — `oneshot()` recipes for W4A16 GPTQ/AWQ, FP8, NVFP4; compressed-tensors; `vllm serve`.
-- `references/modelopt-nvfp4.md` — NVIDIA Model Optimizer `hf_ptq.py` for NVFP4/FP8, export and serving on TensorRT-LLM, vLLM, SGLang.
-- `references/mlx.md` — `mlx_lm.convert` quantization flags and modes, `mlx_lm.server`.
+- `references/llm-compressor.md` — how LLM Compressor (W4A16 GPTQ/AWQ, FP8, NVFP4, compressed-tensors) plugs into this stack; depth is in the `llm-compressor` skill.
+- `references/modelopt-nvfp4.md` — how NVIDIA Model Optimizer (`hf_ptq.py`, NVFP4/FP8, unified HF export) plugs into this stack; depth is in the `nvidia-modelopt` skill.
+- `references/mlx.md` — how MLX quantization plugs into this stack; depth is in the `mlx` skill.
 - `references/quality-checks.md` — smoke prompts, KL divergence and perplexity vs base, hand-off to task evals.
 - `references/memory-safety.md` — memory/disk planning, `systemd-run` caps, hf-xet env vars, macOS limits.
 - `references/publishing.md` — `hf` CLI upload, model card metadata, license inheritance, naming.
@@ -146,6 +146,15 @@ Full format-to-engine matrix and hardware notes: `references/formats.md`. If a t
 
 ## Companion skills
 
+- `gguf-quantization` — llama-quantize, imatrix and GGUF recipes in depth: `npx skills add ScaleDockHQ/llms-skills --skill gguf-quantization`
+- `exl3-quantization` — ExLlamaV3 convert.py and bpw choices in depth: `npx skills add ScaleDockHQ/llms-skills --skill exl3-quantization`
+- `gptqmodel` — GPTQ quantization and its backends: `npx skills add ScaleDockHQ/llms-skills --skill gptqmodel`
+- `bitsandbytes` — 8-bit and 4-bit (NF4) loading: `npx skills add ScaleDockHQ/llms-skills --skill bitsandbytes`
+- `torchao` — PyTorch-native int4, int8 and float8 quantization: `npx skills add ScaleDockHQ/llms-skills --skill torchao`
+- `hqq` — calibration-free HQQ quantization: `npx skills add ScaleDockHQ/llms-skills --skill hqq`
+- `llm-compressor` — AWQ, GPTQ, FP8, NVFP4 recipes and vLLM serving in depth: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`
+- `nvidia-modelopt` — `hf_ptq.py` NVFP4/FP8 PTQ and unified HF export in depth: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-modelopt`
+- `mlx` — `mlx_lm.convert`, flags, modes and `mlx_lm.server` in depth: `npx skills add ScaleDockHQ/llms-skills --skill mlx`
 - `self-hosted-llms` — choosing/downloading existing quants and running the serving stack: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`
 - `local-llms` — Ollama, LM Studio and llama.cpp on a laptop or desktop: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`
 - `llm-evals` — task evals and quality gates for a quant: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`

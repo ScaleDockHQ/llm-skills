@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Use GroqCloud from an agent: OpenAI-compatible and Responses API calls, service tiers, tools and structured outputs, Batch API, LoRA inference, spend limits and model permissions, LiteLLM wiring, and teardown of files, batches, adapters and keys. Groq has no CLI or self-serve dedicated deployments.",
+  "references": [
+    "https://console.groq.com/docs/quickstart",
+    "https://console.groq.com/docs/openai",
+    "https://console.groq.com/docs/responses-api",
+    "https://console.groq.com/docs/service-tiers",
+    "https://console.groq.com/docs/flex-processing",
+    "https://console.groq.com/docs/tool-use",
+    "https://console.groq.com/docs/structured-outputs",
+    "https://console.groq.com/docs/reasoning",
+    "https://console.groq.com/docs/prompt-caching",
+    "https://console.groq.com/docs/batch",
+    "https://console.groq.com/docs/lora",
+    "https://console.groq.com/docs/rate-limits",
+    "https://console.groq.com/docs/spend-limits",
+    "https://console.groq.com/docs/model-permissions",
+    "https://console.groq.com/docs/projects",
+    "https://console.groq.com/docs/billing-faqs",
+    "https://console.groq.com/docs/your-data",
+    "https://console.groq.com/docs/errors",
+    "https://console.groq.com/docs/api-reference",
+    "https://console.groq.com/docs/litellm"
+  ],
+  "kind": "platform"
+}

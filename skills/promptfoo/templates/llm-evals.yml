@@ -1,0 +1,80 @@
+# .github/workflows/llm-evals.yml
+# Regression evals with promptfoo. Verified against promptfoo 0.124.1 and the action
+# release tags on 2026-10-11 (checkout v7, setup-node v7, cache v6, upload-artifact v7).
+# Secrets and URLs come from repository secrets and variables; nothing is printed.
+# Replace the major tags with commit SHAs if your policy requires pinned actions.
+name: LLM evals
+on:
+  pull_request:
+    paths:
+      - "prompts/**"
+      - "evals/**"
+      - "promptfooconfig.yaml"
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest # or a self-hosted runner that can reach a private endpoint
+    timeout-minutes: 30
+    env:
+      PROMPTFOO_DISABLE_TELEMETRY: "1"
+      PROMPTFOO_DISABLE_UPDATE: "1"
+      PROMPTFOO_CACHE_PATH: ~/.cache/promptfoo
+      # 100 = no failures allowed on PRs; the nightly full tier tolerates a few known failures.
+      PROMPTFOO_PASS_RATE_THRESHOLD: ${{ github.event_name == 'pull_request' && '100' || '95' }}
+      BASELINE_BASE_URL: ${{ vars.BASELINE_BASE_URL }}
+      CANDIDATE_BASE_URL: ${{ vars.CANDIDATE_BASE_URL }}
+      BASELINE_API_KEY: ${{ secrets.BASELINE_API_KEY }}
+      CANDIDATE_API_KEY: ${{ secrets.CANDIDATE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+      - name: Cache promptfoo responses
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/promptfoo
+          key: ${{ runner.os }}-promptfoo-${{ hashFiles('prompts/**', 'evals/**', 'promptfooconfig.yaml') }}
+      - name: Check endpoints are reachable (key passed via curl config on stdin, not argv)
+        run: |
+          check() { printf 'header = "Authorization: Bearer %s"\n' "$2" | curl -fsS -K - -o /dev/null -w "%{http_code} models\n" "$1/models"; }
+          check "$BASELINE_BASE_URL" "$BASELINE_API_KEY"
+          check "$CANDIDATE_BASE_URL" "$CANDIDATE_API_KEY"
+      - name: Validate config
+        run: npx promptfoo@0.124.1 validate -c promptfooconfig.yaml
+      - name: Run PR subset
+        if: github.event_name == 'pull_request'
+        run: |
+          npx promptfoo@0.124.1 eval -c promptfooconfig.yaml \
+            --filter-metadata critical=yes \
+            --no-share --no-progress-bar \
+            -o results.json -o results.junit.xml -o report.html
+      - name: Run full set
+        if: github.event_name != 'pull_request'
+        run: |
+          npx promptfoo@0.124.1 eval -c promptfooconfig.yaml --no-cache \
+            --no-share --no-progress-bar \
+            -o results.json -o results.junit.xml -o report.html
+      - name: Summarize
+        if: always()
+        run: |
+          test -f results.json || exit 0
+          jq -r '"passes: \(.results.stats.successes)  failures: \(.results.stats.failures)"' results.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: llm-eval-results
+          path: |
+            results.json
+            results.junit.xml
+            report.html
+          retention-days: 14

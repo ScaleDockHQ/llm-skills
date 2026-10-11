@@ -1,0 +1,24 @@
+# Verified against Alertmanager v0.34.1 configuration docs, 2026-10-11.
+# Validate: amtool check-config alertmanager.yml
+route:
+  receiver: default
+  group_by: [alertname, requested_model, instance]
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 4h
+  routes:
+    - matchers: ['severity="page"']
+      receiver: pager
+      repeat_interval: 1h
+inhibit_rules:
+  # A down target makes its own cause alerts noise.
+  - source_matchers: ['alertname="LLMTargetDown"']
+    target_matchers: ['severity="warning"']
+    equal: [instance]
+receivers:
+  - name: default
+    webhook_configs:
+      - url: http://127.0.0.1:9000/alerts # replace with your chat or ticket bridge
+  - name: pager
+    webhook_configs:
+      - url_file: /etc/alertmanager/secrets/pager-webhook-url # secret URL in a 0600 file

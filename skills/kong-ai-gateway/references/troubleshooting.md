@@ -1,0 +1,41 @@
+# Troubleshooting and teardown
+
+> Verified against Kong AI Gateway 2.2.0, Kong Gateway OSS 3.9.3, Kong Gateway EE 3.16.0.0, 2026-10-11
+
+Read-only first: `curl -s http://127.0.0.1:8101/status | jq`, the Kong error log, the response headers, and `GET /plugins`.
+
+| Symptom                                                                                  | Likely cause                                                                                                              | Fix                                                                                                                                              |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `kong config parse` or startup says `expected one of: openai, azure, ...` for `provider` | the provider is not in this build (OSS 3.9.3 has no `vllm`)                                                               | use `llama2` with `llama2_format: openai` for self-hosted OpenAI-compatible servers, or upgrade; list providers from `/schemas/plugins/ai-proxy` |
+| `kong config parse` says `PostgreSQL error ... connection refused`                       | `KONG_DATABASE=off` missing                                                                                               | set it for DB-less validation                                                                                                                    |
+| Plugin `ai-proxy-advanced` (or another paid one) not found or fails at load              | OSS image, or Enterprise without a valid license                                                                          | check `/plugins/enabled`; use `kong/kong-gateway` with `KONG_LICENSE_DATA`; read the plugin page's tier                                          |
+| 401 from Kong                                                                            | `key-auth` header name mismatch; OpenAI SDKs send `Authorization: Bearer`                                                 | send the key in the `key_names` header, or use a bearer-token auth plugin                                                                        |
+| 401 or 403 from the provider                                                             | wrong `auth.header_name` or `header_value` format (`Bearer <key>` versus bare key); key forwarded from the client         | fix the auth block; set `hide_credentials: true` on the inbound auth plugin                                                                      |
+| 404 from Kong                                                                            | no Route matched, or wrong path for the route type                                                                        | check Route `paths`, `strip_path`, the request path and `route_type`; on 2.x compare `config.route.paths` and `capabilities`                     |
+| 400 or 413 on long prompts                                                               | `max_request_body_size` default 1048576, Nginx `client_max_body_size`                                                     | raise both deliberately                                                                                                                          |
+| Container cannot reach a host vLLM or Ollama                                             | `localhost` is the container                                                                                              | `host.docker.internal` with `extra_hosts: host-gateway`, or a LAN address; bind the upstream accordingly                                         |
+| Fallback never fires                                                                     | `failover_criteria` defaults to `error` and `timeout` only                                                                | add `http_429` or `http_5xx` codes you want; check `retries`                                                                                     |
+| 429 from Kong                                                                            | `ai-rate-limiting-advanced` counter; the limit unit is tokens (or cost)                                                   | read the `RateLimit` and `Retry-After` headers; adjust `limit`, `window_size`, `identifier`                                                      |
+| Limits ignored across several nodes                                                      | `strategy: local` is per node                                                                                             | use `redis`; `cluster` is not supported for DB-less or hybrid                                                                                    |
+| `ai-semantic-cache` error `expected 512 dimensions, not 1024` (numbers vary)             | embedding model dimension differs from the existing vector index                                                          | recreate the index for the new model or restore the old model (Kong support article)                                                             |
+| 403 signature mismatch with AzureOpenAI client in Bedrock mode                           | the SDK `api_version` query parameter breaks the SigV4 signature                                                          | use the OpenAI client or drop `api_version` for that route (Kong support article)                                                                |
+| 2.x: apply fails on a converted model                                                    | no model name or provider auth after conversion                                                                           | set both in the source plugin and reconvert                                                                                                      |
+| 2.x PII sanitizer returns errors                                                         | the anonymizer service at `host:port` is unreachable                                                                      | run the service or disable the policy; `stop_on_error` makes failures fatal                                                                      |
+| 2.x data plane never connects                                                            | wrong region, certificate not trusted for that control plane, or the pod cannot reach the control and telemetry endpoints | check kongctl region, the cert Secret, egress and the chart's `env.cluster_*` values                                                             |
+| Streaming looks buffered or cut off                                                      | proxy or tunnel in front buffers or times out                                                                             | disable buffering at the front proxy; `response_streaming` must be `allow` or `always`                                                           |
+
+## Logs
+
+```bash
+docker logs --tail 100 <kong-container> 2>&1 | grep -iE 'ai-proxy|error|warn' | head -40
+kubectl -n kong logs deploy/my-ai-gateway --tail=100 2>/dev/null | head -60
+curl -s -D - -o /dev/null http://127.0.0.1:8100/v1/chat/completions -H 'Content-Type: application/json' -d '{"model":"local","messages":[{"role":"user","content":"x"}]}' | head -20
+```
+
+## Teardown (ask first)
+
+- DB-less compose: `docker compose -f assets/docker-compose.yaml down`; delete `kong.rendered.yaml` (it holds secrets).
+- Enterprise compose with Postgres: `down` keeps the volume; `down -v` deletes the database. Confirm before `-v`.
+- Helm: `helm -n kong uninstall my-ai-gateway`; delete the cluster certificate Secret and revoke the cert in Konnect if you will not reuse it.
+- Konnect: `kongctl plan` shows deletions; `kongctl sync` deletes resources absent from the file, so read the plan. Delete the control plane in the Konnect UI or API only after the data planes are gone. Revoke the personal access token you created for the quickstart.
+- Provider keys used in the gateway: rotate them if they were ever written to a rendered file that left the machine.

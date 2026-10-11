@@ -1,0 +1,14 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Agent skill for OpenRLHF, the Ray + vLLM + DeepSpeed RLHF framework: install via the NGC container, SFT, reward model and DPO training, PPO, REINFORCE++, GRPO and RLOO on Ray, custom reward and agent functions, hybrid-engine and async placement, Slurm, LoRA merge, troubleshooting and updating. References split by install, SFT/RM/DPO, RL, rewards, scaling, troubleshooting and updating, plus a hybrid-engine template.",
+  "references": [
+    "https://github.com/OpenRLHF/OpenRLHF",
+    "https://openrlhf.readthedocs.io/en/latest/",
+    "https://openrlhf.readthedocs.io/en/latest/performance.html",
+    "https://pypi.org/project/openrlhf/",
+    "https://github.com/OpenRLHF/OpenRLHF/tree/main/examples/scripts"
+  ],
+  "kind": "product"
+}

@@ -1,0 +1,33 @@
+# Expert-only per upstream. Prebuilt binaries are the recommended path for local use.
+# Pin the image by digest after testing: docker images --digests koboldai/koboldcpp
+services:
+  koboldcpp:
+    image: koboldai/koboldcpp:latest # replace with a digest-pinned reference
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5001:5001"
+    volumes:
+      - /srv/models:/models:ro
+    environment:
+      - KCPP_PASSWORD # forwarded from the host environment, not written here
+    # Verify the image entrypoint with `docker inspect` on your pulled image before relying on `command`.
+    command:
+      [
+        "--model",
+        "/models/model.gguf",
+        "--usecuda",
+        "--contextsize",
+        "16384",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "5001",
+        "--skiplauncher",
+      ]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

@@ -1,0 +1,55 @@
+# AI Gateway 2.x entities for kongctl (Konnect only). Apply with:
+#   export KONNECT_TOKEN=...   AI_GATEWAY_ID=...   OPENAI_AUTH_HEADER="Bearer <key>"   (from a 0600 file)
+#   kongctl apply -f assets/ai-gateway-2.kongctl.yaml --pat "$KONNECT_TOKEN"     # review the plan first
+# Shapes follow the AI Gateway entity docs (get-started, ai-model, ai-auth-strategy, ai-policy); confirm against the live docs.
+ai_gateway_model_providers:
+  - ref: generic-openai
+    ai_gateway: !lookup { id: !env AI_GATEWAY_ID }
+    name: generic-openai
+    display_name: generic-openai
+    type: openai
+    config:
+      auth:
+        type: basic
+        headers:
+          - name: Authorization
+            value: !secret { source: !env OPENAI_AUTH_HEADER }
+ai_gateway_auth_strategies:
+  - ref: api-key-auth
+    ai_gateway: !lookup { id: !env AI_GATEWAY_ID }
+    display_name: API Key Auth
+    name: api-key-auth
+    type: key-auth
+    config:
+      key_names:
+        - X-API-Key
+      key_in_header: true
+      key_in_query: false
+      hide_credentials: true
+ai_gateway_models:
+  - ref: my-model
+    ai_gateway: !lookup { id: !env AI_GATEWAY_ID }
+    name: my-model
+    display_name: my-model
+    type: model
+    formats:
+      - type: openai
+    config:
+      route:
+        paths:
+          - /v1
+        model:
+          body_param: model
+          values:
+            - my-model # the name clients send
+    targets:
+      - name: <upstream-model-id>
+        provider: generic-openai
+        config:
+          type: openai
+    access:
+      auth_strategies:
+        - api-key-auth
+    policies: []
+    capabilities:
+      - generate

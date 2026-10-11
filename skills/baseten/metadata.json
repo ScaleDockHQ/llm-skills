@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Use Baseten end to end: hosted Model APIs over OpenAI and Anthropic-style endpoints, dedicated deployments with the baseten CLI and Truss, LiteLLM wiring, autoscaling, budget controls, deactivation and deletion. References cover auth, Model APIs, deployment configs, lifecycle and billing, clients and troubleshooting.",
+  "references": [
+    "https://docs.baseten.co/llms.txt",
+    "https://docs.baseten.co/overview",
+    "https://docs.baseten.co/agent-setup",
+    "https://docs.baseten.co/organization/api-keys",
+    "https://docs.baseten.co/organization/billing",
+    "https://docs.baseten.co/model-apis/overview",
+    "https://docs.baseten.co/model-apis/pricing-and-limits",
+    "https://docs.baseten.co/examples/deploy-your-first-model",
+    "https://docs.baseten.co/examples/vllm",
+    "https://docs.baseten.co/deployment/manage/overview",
+    "https://docs.baseten.co/deployment/manage/lifecycle",
+    "https://docs.baseten.co/deployment/manage/scaling",
+    "https://docs.baseten.co/deployment/autoscaling/overview",
+    "https://docs.baseten.co/deployment/resources",
+    "https://docs.baseten.co/inference/calling-your-model",
+    "https://docs.baseten.co/inference/errors",
+    "https://docs.baseten.co/troubleshooting/deployments",
+    "https://docs.baseten.co/development/model/overview",
+    "https://docs.baseten.co/development/model/secrets",
+    "https://docs.litellm.ai/docs/providers/baseten"
+  ],
+  "kind": "platform"
+}

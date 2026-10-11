@@ -1,0 +1,1991 @@
+{
+  "description": "Catalog of every published and planned skill. Statuses: planned, draft, stable, note-only. verifyStatus means confirm the project is still maintained before writing; if archived it becomes a note.",
+  "kinds": [
+    "workflow",
+    "product",
+    "platform",
+    "technique",
+    "model-family",
+    "stack"
+  ],
+  "statuses": ["planned", "draft", "stable", "note-only"],
+  "skills": [
+    {
+      "name": "choosing-llm-hosting",
+      "kind": "workflow",
+      "category": "decide",
+      "status": "stable",
+      "wave": 0,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "local-llms",
+      "kind": "workflow",
+      "category": "run",
+      "status": "stable",
+      "wave": 0,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "self-hosted-llms",
+      "kind": "workflow",
+      "category": "run",
+      "status": "stable",
+      "wave": 0,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "cloud-llms",
+      "kind": "workflow",
+      "category": "run",
+      "status": "stable",
+      "wave": 0,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "self-hosted-genmedia",
+      "kind": "workflow",
+      "category": "run",
+      "status": "stable",
+      "wave": 0,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "llm-gateway",
+      "kind": "workflow",
+      "category": "connect",
+      "status": "stable",
+      "wave": 0,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "llm-clients",
+      "kind": "workflow",
+      "category": "connect",
+      "status": "stable",
+      "wave": 0,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "llm-evals",
+      "kind": "workflow",
+      "category": "improve",
+      "status": "stable",
+      "wave": 0,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "model-quantization",
+      "kind": "workflow",
+      "category": "improve",
+      "status": "stable",
+      "wave": 0,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "fine-tuning-llms",
+      "kind": "workflow",
+      "category": "improve",
+      "status": "stable",
+      "wave": 0,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "llm-observability",
+      "kind": "workflow",
+      "category": "operate",
+      "status": "stable",
+      "wave": 0,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "vllm",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 1,
+      "upstream": "https://github.com/vllm-project/vllm",
+      "replaces": "skills/self-hosted-llms/references/engine-vllm.md"
+    },
+    {
+      "name": "sglang",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 1,
+      "upstream": "https://github.com/sgl-project/sglang",
+      "replaces": "skills/self-hosted-llms/references/engine-sglang.md"
+    },
+    {
+      "name": "tensorrt-llm",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 1,
+      "upstream": "https://github.com/NVIDIA/TensorRT-LLM",
+      "replaces": "skills/self-hosted-llms/references/engine-trtllm.md"
+    },
+    {
+      "name": "llama-cpp",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 1,
+      "upstream": "https://github.com/ggml-org/llama.cpp",
+      "replaces": "skills/self-hosted-llms/references/engine-llamacpp.md"
+    },
+    {
+      "name": "ollama",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 1,
+      "upstream": "https://github.com/ollama/ollama",
+      "replaces": "skills/self-hosted-llms/references/engine-ollama.md"
+    },
+    {
+      "name": "tensorfold",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 1,
+      "upstream": "https://github.com/ashhart/TensorFold",
+      "replaces": "skills/self-hosted-llms/references/engine-tensorfold.md"
+    },
+    {
+      "name": "exllamav3",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 1,
+      "upstream": "https://github.com/turboderp-org/exllamav3",
+      "replaces": "skills/self-hosted-llms/references/engine-exllama.md"
+    },
+    {
+      "name": "nvidia-dynamo",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/ai-dynamo/dynamo",
+      "replaces": null
+    },
+    {
+      "name": "nvidia-nim",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://docs.nvidia.com/nim/",
+      "replaces": null
+    },
+    {
+      "name": "triton-inference-server",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/triton-inference-server/server",
+      "replaces": null
+    },
+    {
+      "name": "lmdeploy",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/InternLM/lmdeploy",
+      "replaces": null
+    },
+    {
+      "name": "mistral-rs",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/EricLBuehler/mistral.rs",
+      "replaces": null
+    },
+    {
+      "name": "ktransformers",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/kvcache-ai/ktransformers",
+      "replaces": null
+    },
+    {
+      "name": "ik-llama-cpp",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/ikawrakow/ik_llama.cpp",
+      "replaces": null
+    },
+    {
+      "name": "mlc-llm",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/mlc-ai/mlc-llm",
+      "replaces": null
+    },
+    {
+      "name": "localai",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/mudler/LocalAI",
+      "replaces": null
+    },
+    {
+      "name": "llamafile",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/Mozilla-Ocho/llamafile",
+      "replaces": null
+    },
+    {
+      "name": "koboldcpp",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/LostRuins/koboldcpp",
+      "replaces": null
+    },
+    {
+      "name": "aphrodite-engine",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 9,
+      "upstream": "https://github.com/aphrodite-engine/aphrodite-engine",
+      "replaces": null,
+      "verifyStatus": true
+    },
+    {
+      "name": "text-generation-inference",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "note-only",
+      "wave": 9,
+      "upstream": "https://github.com/huggingface/text-generation-inference",
+      "replaces": null,
+      "verifyStatus": true,
+      "note": "text-generation-inference is archived: the GitHub repository is read-only, its README says it is in maintenance mode and recommends vLLM, SGLang, llama.cpp or MLX, and the last release is v3.3.7 (2025-12-19)."
+    },
+    {
+      "name": "deepspeed-mii",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "note-only",
+      "wave": 9,
+      "upstream": "https://github.com/deepspeedai/DeepSpeed-MII",
+      "replaces": null,
+      "verifyStatus": true,
+      "note": "DeepSpeed-MII is dormant: the last release is v0.3.3 (2025-03-25), the last code commit is 2025-06-30 and open issues report unsupported newer model types such as qwen3."
+    },
+    {
+      "name": "xinference",
+      "kind": "product",
+      "category": "inference-engines",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/xorbitsai/inference",
+      "replaces": null
+    },
+    {
+      "name": "lm-studio",
+      "kind": "product",
+      "category": "local-runtimes",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://lmstudio.ai/docs",
+      "replaces": "skills/local-llms/references/lm-studio.md"
+    },
+    {
+      "name": "mlx",
+      "kind": "product",
+      "category": "local-runtimes",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/ml-explore/mlx-lm",
+      "replaces": "skills/local-llms/references/mlx.md"
+    },
+    {
+      "name": "jan",
+      "kind": "product",
+      "category": "local-runtimes",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/janhq/jan",
+      "replaces": null
+    },
+    {
+      "name": "exo",
+      "kind": "product",
+      "category": "local-runtimes",
+      "status": "stable",
+      "wave": 4,
+      "upstream": "https://github.com/exo-explore/exo",
+      "replaces": null
+    },
+    {
+      "name": "gpt4all",
+      "kind": "product",
+      "category": "local-runtimes",
+      "status": "note-only",
+      "wave": 9,
+      "upstream": "https://github.com/nomic-ai/gpt4all",
+      "replaces": null,
+      "verifyStatus": true,
+      "note": "GPT4All is dormant: the last release is v3.10.0 (2025-02-25), the last code commit is 2025-02-25 (a CI-only change followed on 2025-05-27), and since then the repository has received only translation proposals and unanswered issues."
+    },
+    {
+      "name": "llama-swap",
+      "kind": "product",
+      "category": "orchestration",
+      "status": "stable",
+      "wave": 1,
+      "upstream": "https://github.com/mostlygeek/llama-swap",
+      "replaces": "skills/self-hosted-llms/references/llama-swap.md"
+    },
+    {
+      "name": "kserve",
+      "kind": "product",
+      "category": "orchestration",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/kserve/kserve",
+      "replaces": "skills/cloud-llms/references/kubernetes.md"
+    },
+    {
+      "name": "llm-d",
+      "kind": "product",
+      "category": "orchestration",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/llm-d/llm-d",
+      "replaces": "skills/cloud-llms/references/kubernetes.md"
+    },
+    {
+      "name": "vllm-production-stack",
+      "kind": "product",
+      "category": "orchestration",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/vllm-project/production-stack",
+      "replaces": "skills/cloud-llms/references/kubernetes.md"
+    },
+    {
+      "name": "aibrix",
+      "kind": "product",
+      "category": "orchestration",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/vllm-project/aibrix",
+      "replaces": null
+    },
+    {
+      "name": "ray-serve",
+      "kind": "product",
+      "category": "orchestration",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://docs.ray.io/en/latest/serve/",
+      "replaces": null
+    },
+    {
+      "name": "gateway-api-inference-extension",
+      "kind": "product",
+      "category": "orchestration",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/kubernetes-sigs/gateway-api-inference-extension",
+      "replaces": null
+    },
+    {
+      "name": "nvidia-gpu-operator",
+      "kind": "product",
+      "category": "orchestration",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://github.com/NVIDIA/gpu-operator",
+      "replaces": null
+    },
+    {
+      "name": "keda",
+      "kind": "product",
+      "category": "orchestration",
+      "status": "stable",
+      "wave": 5,
+      "upstream": "https://keda.sh",
+      "replaces": null
+    },
+    {
+      "name": "litellm",
+      "kind": "product",
+      "category": "gateways",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/BerriAI/litellm",
+      "replaces": "skills/self-hosted-llms/references/litellm.md"
+    },
+    {
+      "name": "openrouter",
+      "kind": "product",
+      "category": "gateways",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://openrouter.ai/docs",
+      "replaces": null
+    },
+    {
+      "name": "portkey",
+      "kind": "product",
+      "category": "gateways",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/Portkey-AI/gateway",
+      "replaces": null
+    },
+    {
+      "name": "envoy-ai-gateway",
+      "kind": "product",
+      "category": "gateways",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/envoyproxy/ai-gateway",
+      "replaces": null
+    },
+    {
+      "name": "kong-ai-gateway",
+      "kind": "product",
+      "category": "gateways",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://developer.konghq.com/ai-gateway/",
+      "replaces": null
+    },
+    {
+      "name": "cloudflare-ai-gateway",
+      "kind": "product",
+      "category": "gateways",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://developers.cloudflare.com/ai-gateway/",
+      "replaces": null
+    },
+    {
+      "name": "vercel-ai-gateway",
+      "kind": "product",
+      "category": "gateways",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://vercel.com/docs/ai-gateway",
+      "replaces": null
+    },
+    {
+      "name": "helicone",
+      "kind": "product",
+      "category": "gateways",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/Helicone/helicone",
+      "replaces": null
+    },
+    {
+      "name": "bifrost",
+      "kind": "product",
+      "category": "gateways",
+      "status": "stable",
+      "wave": 9,
+      "upstream": "https://github.com/maximhq/bifrost",
+      "replaces": null,
+      "verifyStatus": true
+    },
+    {
+      "name": "cloudflare-tunnel",
+      "kind": "product",
+      "category": "exposure-networking",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/",
+      "replaces": "skills/self-hosted-llms/references/exposure-cloudflare.md"
+    },
+    {
+      "name": "tailscale",
+      "kind": "product",
+      "category": "exposure-networking",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://tailscale.com/kb",
+      "replaces": "skills/self-hosted-llms/references/exposure-tailscale.md"
+    },
+    {
+      "name": "caddy",
+      "kind": "product",
+      "category": "exposure-networking",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://caddyserver.com/docs/",
+      "replaces": "skills/self-hosted-llms/references/model-catalog.md"
+    },
+    {
+      "name": "traefik",
+      "kind": "product",
+      "category": "exposure-networking",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://doc.traefik.io/traefik/",
+      "replaces": null
+    },
+    {
+      "name": "nccl-rdma-networking",
+      "kind": "product",
+      "category": "exposure-networking",
+      "status": "stable",
+      "wave": 4,
+      "upstream": "https://docs.nvidia.com/deeplearning/nccl/",
+      "replaces": null
+    },
+    {
+      "name": "nvidia-dgx-spark",
+      "kind": "platform",
+      "category": "hardware-platforms",
+      "status": "stable",
+      "wave": 1,
+      "upstream": "https://docs.nvidia.com/dgx/dgx-spark/",
+      "replaces": "skills/self-hosted-llms/references/hardware-dgx-spark.md"
+    },
+    {
+      "name": "nvidia-dgx-station",
+      "kind": "platform",
+      "category": "hardware-platforms",
+      "status": "stable",
+      "wave": 4,
+      "upstream": "https://docs.nvidia.com/dgx/dgx-station-development-guide/",
+      "replaces": null,
+      "verifyStatus": true
+    },
+    {
+      "name": "nvidia-rtx-workstation",
+      "kind": "platform",
+      "category": "hardware-platforms",
+      "status": "stable",
+      "wave": 4,
+      "upstream": "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/",
+      "replaces": null
+    },
+    {
+      "name": "nvidia-datacenter-gpus",
+      "kind": "platform",
+      "category": "hardware-platforms",
+      "status": "stable",
+      "wave": 4,
+      "upstream": "https://docs.nvidia.com/datacenter/tesla/",
+      "replaces": null
+    },
+    {
+      "name": "amd-instinct",
+      "kind": "platform",
+      "category": "hardware-platforms",
+      "status": "stable",
+      "wave": 4,
+      "upstream": "https://rocm.docs.amd.com",
+      "replaces": null
+    },
+    {
+      "name": "amd-strix-halo",
+      "kind": "platform",
+      "category": "hardware-platforms",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "apple-silicon",
+      "kind": "platform",
+      "category": "hardware-platforms",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": "skills/local-llms/references/macos-apple-silicon.md"
+    },
+    {
+      "name": "intel-gpu-gaudi",
+      "kind": "platform",
+      "category": "hardware-platforms",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "google-tpu",
+      "kind": "platform",
+      "category": "hardware-platforms",
+      "status": "stable",
+      "wave": 4,
+      "upstream": "https://cloud.google.com/tpu/docs",
+      "replaces": null
+    },
+    {
+      "name": "aws-neuron",
+      "kind": "platform",
+      "category": "hardware-platforms",
+      "status": "stable",
+      "wave": 4,
+      "upstream": "https://awsdocs-neuron.readthedocs-hosted.com",
+      "replaces": null
+    },
+    {
+      "name": "cpu-inference",
+      "kind": "platform",
+      "category": "hardware-platforms",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "runpod",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.runpod.io",
+      "replaces": "skills/cloud-llms/references/serverless-gpu.md"
+    },
+    {
+      "name": "modal",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://modal.com/docs",
+      "replaces": "skills/cloud-llms/references/serverless-gpu.md"
+    },
+    {
+      "name": "lambda-cloud",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.lambda.ai",
+      "replaces": "skills/cloud-llms/references/gpu-vms.md"
+    },
+    {
+      "name": "vast-ai",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.vast.ai",
+      "replaces": "skills/cloud-llms/references/gpu-vms.md"
+    },
+    {
+      "name": "coreweave",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.coreweave.com",
+      "replaces": null
+    },
+    {
+      "name": "nebius",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.nebius.com",
+      "replaces": null
+    },
+    {
+      "name": "baseten",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.baseten.co",
+      "replaces": "skills/cloud-llms/references/managed-endpoints.md"
+    },
+    {
+      "name": "replicate",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://replicate.com/docs",
+      "replaces": null
+    },
+    {
+      "name": "fal",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.fal.ai",
+      "replaces": null
+    },
+    {
+      "name": "crusoe",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.crusoecloud.com",
+      "replaces": null
+    },
+    {
+      "name": "hyperbolic",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.hyperbolic.xyz",
+      "replaces": null
+    },
+    {
+      "name": "together-ai",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.together.ai",
+      "replaces": "skills/cloud-llms/references/open-model-apis.md"
+    },
+    {
+      "name": "fireworks-ai",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.fireworks.ai",
+      "replaces": "skills/cloud-llms/references/open-model-apis.md"
+    },
+    {
+      "name": "groq",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://console.groq.com/docs",
+      "replaces": "skills/cloud-llms/references/open-model-apis.md"
+    },
+    {
+      "name": "cerebras",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://inference-docs.cerebras.ai",
+      "replaces": "skills/cloud-llms/references/open-model-apis.md"
+    },
+    {
+      "name": "sambanova",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.sambanova.ai",
+      "replaces": "skills/cloud-llms/references/open-model-apis.md"
+    },
+    {
+      "name": "deepinfra",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://deepinfra.com/docs",
+      "replaces": "skills/cloud-llms/references/open-model-apis.md"
+    },
+    {
+      "name": "hugging-face",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://huggingface.co/docs",
+      "replaces": "skills/cloud-llms/references/managed-endpoints.md"
+    },
+    {
+      "name": "openai-api",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://developers.openai.com/api/docs/quickstart",
+      "replaces": "skills/cloud-llms/references/frontier-apis.md"
+    },
+    {
+      "name": "anthropic-api",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://platform.claude.com/docs/en/get-started",
+      "replaces": "skills/cloud-llms/references/frontier-apis.md"
+    },
+    {
+      "name": "gemini-api",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://ai.google.dev/gemini-api/docs",
+      "replaces": "skills/cloud-llms/references/frontier-apis.md"
+    },
+    {
+      "name": "aws-bedrock",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.aws.amazon.com/bedrock/",
+      "replaces": "skills/cloud-llms/references/hyperscalers.md"
+    },
+    {
+      "name": "aws-sagemaker",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.aws.amazon.com/sagemaker/",
+      "replaces": "skills/cloud-llms/references/hyperscalers.md"
+    },
+    {
+      "name": "google-vertex-ai",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/vertex-ai-name-changes",
+      "replaces": "skills/cloud-llms/references/hyperscalers.md"
+    },
+    {
+      "name": "azure-foundry",
+      "kind": "platform",
+      "category": "cloud-providers",
+      "status": "stable",
+      "wave": 6,
+      "upstream": "https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry",
+      "replaces": "skills/cloud-llms/references/hyperscalers.md"
+    },
+    {
+      "name": "llm-compressor",
+      "kind": "product",
+      "category": "quantization",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/vllm-project/llm-compressor",
+      "replaces": "skills/model-quantization/references/llm-compressor.md"
+    },
+    {
+      "name": "nvidia-modelopt",
+      "kind": "product",
+      "category": "quantization",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/NVIDIA/Model-Optimizer",
+      "replaces": "skills/model-quantization/references/modelopt-nvfp4.md"
+    },
+    {
+      "name": "gguf-quantization",
+      "kind": "product",
+      "category": "quantization",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md",
+      "replaces": "skills/model-quantization/references/gguf.md"
+    },
+    {
+      "name": "exl3-quantization",
+      "kind": "product",
+      "category": "quantization",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/turboderp-org/exllamav3",
+      "replaces": "skills/model-quantization/references/exl3.md"
+    },
+    {
+      "name": "gptqmodel",
+      "kind": "product",
+      "category": "quantization",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/ModelCloud/GPTQModel",
+      "replaces": null
+    },
+    {
+      "name": "bitsandbytes",
+      "kind": "product",
+      "category": "quantization",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/bitsandbytes-foundation/bitsandbytes",
+      "replaces": null
+    },
+    {
+      "name": "torchao",
+      "kind": "product",
+      "category": "quantization",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/pytorch/ao",
+      "replaces": null
+    },
+    {
+      "name": "hqq",
+      "kind": "product",
+      "category": "quantization",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/dropbox/hqq",
+      "replaces": null
+    },
+    {
+      "name": "autoawq",
+      "kind": "product",
+      "category": "quantization",
+      "status": "note-only",
+      "wave": 9,
+      "upstream": "https://github.com/casper-hansen/AutoAWQ",
+      "replaces": null,
+      "verifyStatus": true,
+      "note": "Upstream AutoAWQ is archived and officially deprecated (last release v0.2.9, 2025-05-11); use llm-compressor for AWQ."
+    },
+    {
+      "name": "axolotl",
+      "kind": "product",
+      "category": "fine-tuning",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/axolotl-ai-cloud/axolotl",
+      "replaces": "skills/fine-tuning-llms/references/axolotl.md"
+    },
+    {
+      "name": "unsloth",
+      "kind": "product",
+      "category": "fine-tuning",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/unslothai/unsloth",
+      "replaces": "skills/fine-tuning-llms/references/unsloth.md"
+    },
+    {
+      "name": "trl",
+      "kind": "product",
+      "category": "fine-tuning",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/huggingface/trl",
+      "replaces": "skills/fine-tuning-llms/references/trl.md"
+    },
+    {
+      "name": "llama-factory",
+      "kind": "product",
+      "category": "fine-tuning",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/hiyouga/LLaMA-Factory",
+      "replaces": null
+    },
+    {
+      "name": "peft",
+      "kind": "product",
+      "category": "fine-tuning",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/huggingface/peft",
+      "replaces": null
+    },
+    {
+      "name": "nvidia-nemo",
+      "kind": "product",
+      "category": "fine-tuning",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/NVIDIA-NeMo",
+      "replaces": null
+    },
+    {
+      "name": "verl",
+      "kind": "product",
+      "category": "fine-tuning",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/verl-project/verl",
+      "replaces": null
+    },
+    {
+      "name": "openrlhf",
+      "kind": "product",
+      "category": "fine-tuning",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/OpenRLHF/OpenRLHF",
+      "replaces": null
+    },
+    {
+      "name": "deepspeed",
+      "kind": "product",
+      "category": "fine-tuning",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/deepspeedai/DeepSpeed",
+      "replaces": null
+    },
+    {
+      "name": "torchtune",
+      "kind": "product",
+      "category": "fine-tuning",
+      "status": "note-only",
+      "wave": 9,
+      "upstream": "https://github.com/pytorch/torchtune",
+      "replaces": null,
+      "note": "torchtune is no longer actively maintained: its README says development wound down in 2025, and the last release is v0.6.1 (2025-04-07).",
+      "verifyStatus": true
+    },
+    {
+      "name": "promptfoo",
+      "kind": "product",
+      "category": "evals-benchmarks",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/promptfoo/promptfoo",
+      "replaces": "skills/llm-evals/references/promptfoo.md"
+    },
+    {
+      "name": "lm-evaluation-harness",
+      "kind": "product",
+      "category": "evals-benchmarks",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/EleutherAI/lm-evaluation-harness",
+      "replaces": "skills/llm-evals/references/lm-eval-harness.md"
+    },
+    {
+      "name": "inspect-ai",
+      "kind": "product",
+      "category": "evals-benchmarks",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/UKGovernmentBEIS/inspect_ai",
+      "replaces": null
+    },
+    {
+      "name": "lighteval",
+      "kind": "product",
+      "category": "evals-benchmarks",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/huggingface/lighteval",
+      "replaces": null
+    },
+    {
+      "name": "deepeval",
+      "kind": "product",
+      "category": "evals-benchmarks",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/confident-ai/deepeval",
+      "replaces": null
+    },
+    {
+      "name": "ragas",
+      "kind": "product",
+      "category": "evals-benchmarks",
+      "status": "note-only",
+      "wave": 8,
+      "upstream": "https://github.com/explodinggradients/ragas",
+      "replaces": null,
+      "verifyStatus": true,
+      "note": "Ragas is dormant: the last release is v0.4.3 (2026-01-13), the last code commit is 2026-02-24, 600+ issues are open and the repository moved to vibrantlabsai/ragas."
+    },
+    {
+      "name": "evalplus",
+      "kind": "product",
+      "category": "evals-benchmarks",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/evalplus/evalplus",
+      "replaces": null
+    },
+    {
+      "name": "swe-bench",
+      "kind": "product",
+      "category": "evals-benchmarks",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/SWE-bench/SWE-bench",
+      "replaces": null
+    },
+    {
+      "name": "guidellm",
+      "kind": "product",
+      "category": "evals-benchmarks",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/vllm-project/guidellm",
+      "replaces": null
+    },
+    {
+      "name": "nvidia-aiperf",
+      "kind": "product",
+      "category": "evals-benchmarks",
+      "status": "stable",
+      "wave": 9,
+      "upstream": "https://github.com/ai-dynamo/aiperf",
+      "replaces": null,
+      "verifyStatus": true
+    },
+    {
+      "name": "langfuse",
+      "kind": "product",
+      "category": "observability",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/langfuse/langfuse",
+      "replaces": "skills/llm-observability/references/tracing.md"
+    },
+    {
+      "name": "arize-phoenix",
+      "kind": "product",
+      "category": "observability",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/Arize-ai/phoenix",
+      "replaces": "skills/llm-observability/references/tracing.md"
+    },
+    {
+      "name": "openllmetry",
+      "kind": "product",
+      "category": "observability",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/traceloop/openllmetry",
+      "replaces": "skills/llm-observability/references/tracing.md"
+    },
+    {
+      "name": "opentelemetry-genai",
+      "kind": "product",
+      "category": "observability",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://opentelemetry.io/docs/specs/semconv/gen-ai/",
+      "replaces": "skills/llm-observability/references/tracing.md"
+    },
+    {
+      "name": "prometheus-grafana-llm",
+      "kind": "product",
+      "category": "observability",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://prometheus.io/docs",
+      "replaces": "skills/llm-observability/references/prometheus-grafana.md"
+    },
+    {
+      "name": "dcgm-exporter",
+      "kind": "product",
+      "category": "observability",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/NVIDIA/dcgm-exporter",
+      "replaces": "skills/llm-observability/references/gpu-metrics.md"
+    },
+    {
+      "name": "sparkdash",
+      "kind": "product",
+      "category": "observability",
+      "status": "stable",
+      "wave": 8,
+      "upstream": null,
+      "replaces": "skills/self-hosted-llms/references/monitoring-sparkdash.md"
+    },
+    {
+      "name": "posthog-llm-analytics",
+      "kind": "product",
+      "category": "observability",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://posthog.com/docs/llm-analytics",
+      "replaces": null
+    },
+    {
+      "name": "mlflow-tracing",
+      "kind": "product",
+      "category": "observability",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://mlflow.org/docs/latest/genai/tracing/",
+      "replaces": null
+    },
+    {
+      "name": "weave",
+      "kind": "product",
+      "category": "observability",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/wandb/weave",
+      "replaces": null
+    },
+    {
+      "name": "datadog-llm-observability",
+      "kind": "product",
+      "category": "observability",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://docs.datadoghq.com/llm_observability/",
+      "replaces": null
+    },
+    {
+      "name": "sentry-ai-monitoring",
+      "kind": "product",
+      "category": "observability",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://docs.sentry.io/product/insights/ai/",
+      "replaces": null
+    },
+    {
+      "name": "claude-code",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/anthropics/claude-code",
+      "replaces": "skills/llm-clients/references/coding-agents.md"
+    },
+    {
+      "name": "codex-cli",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/openai/codex",
+      "replaces": "skills/llm-clients/references/coding-agents.md"
+    },
+    {
+      "name": "opencode",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/sst/opencode",
+      "replaces": "skills/llm-clients/references/coding-agents.md"
+    },
+    {
+      "name": "aider",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/Aider-AI/aider",
+      "replaces": "skills/llm-clients/references/coding-agents.md"
+    },
+    {
+      "name": "cursor",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://cursor.com/docs",
+      "replaces": "skills/llm-clients/references/ide-extensions.md"
+    },
+    {
+      "name": "continue",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/continuedev/continue",
+      "replaces": "skills/llm-clients/references/ide-extensions.md"
+    },
+    {
+      "name": "cline",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/cline/cline",
+      "replaces": "skills/llm-clients/references/ide-extensions.md"
+    },
+    {
+      "name": "roo-code",
+      "kind": "product",
+      "category": "clients",
+      "status": "note-only",
+      "wave": 8,
+      "upstream": "https://github.com/RooCodeInc/Roo-Code",
+      "replaces": "skills/llm-clients/references/ide-extensions.md",
+      "note": "Archived upstream (May 2026, last release v3.54.0); use kilo-code or cline."
+    },
+    {
+      "name": "kilo-code",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/Kilo-Org/kilocode",
+      "replaces": "skills/llm-clients/references/ide-extensions.md"
+    },
+    {
+      "name": "zed",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://zed.dev/docs",
+      "replaces": null
+    },
+    {
+      "name": "goose",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/block/goose",
+      "replaces": null
+    },
+    {
+      "name": "open-webui",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/open-webui/open-webui",
+      "replaces": "skills/llm-clients/references/chat-uis.md"
+    },
+    {
+      "name": "lobehub",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/lobehub/lobe-chat",
+      "replaces": "skills/llm-clients/references/chat-uis.md"
+    },
+    {
+      "name": "librechat",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/danny-avila/LibreChat",
+      "replaces": null
+    },
+    {
+      "name": "anythingllm",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/Mintplex-Labs/anything-llm",
+      "replaces": null
+    },
+    {
+      "name": "sillytavern",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/SillyTavern/SillyTavern",
+      "replaces": null
+    },
+    {
+      "name": "openai-sdk",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/openai/openai-python",
+      "replaces": "skills/llm-clients/references/sdks.md"
+    },
+    {
+      "name": "anthropic-sdk",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/anthropics/anthropic-sdk-python",
+      "replaces": "skills/llm-clients/references/sdks.md"
+    },
+    {
+      "name": "vercel-ai-sdk",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/vercel/ai",
+      "replaces": "skills/llm-clients/references/sdks.md"
+    },
+    {
+      "name": "langchain",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/langchain-ai/langchain",
+      "replaces": null
+    },
+    {
+      "name": "llamaindex",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/run-llama/llama_index",
+      "replaces": null
+    },
+    {
+      "name": "pydantic-ai",
+      "kind": "product",
+      "category": "clients",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/pydantic/pydantic-ai",
+      "replaces": null
+    },
+    {
+      "name": "comfyui",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/Comfy-Org/ComfyUI",
+      "replaces": "skills/self-hosted-genmedia/references/comfyui.md"
+    },
+    {
+      "name": "stable-diffusion-cpp",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/leejet/stable-diffusion.cpp",
+      "replaces": "skills/self-hosted-llms/references/engine-sdcpp.md"
+    },
+    {
+      "name": "diffusers",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/huggingface/diffusers",
+      "replaces": null
+    },
+    {
+      "name": "whisper-cpp",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 2,
+      "upstream": "https://github.com/ggml-org/whisper.cpp",
+      "replaces": "skills/self-hosted-genmedia/references/speech-to-text.md"
+    },
+    {
+      "name": "faster-whisper",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/SYSTRAN/faster-whisper",
+      "replaces": "skills/self-hosted-genmedia/references/speech-to-text.md"
+    },
+    {
+      "name": "speaches",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/speaches-ai/speaches",
+      "replaces": "skills/self-hosted-genmedia/references/speech-to-text.md"
+    },
+    {
+      "name": "kokoro-fastapi",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/remsky/Kokoro-FastAPI",
+      "replaces": "skills/self-hosted-genmedia/references/text-to-speech.md"
+    },
+    {
+      "name": "f5-tts",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/SWivid/F5-TTS",
+      "replaces": null,
+      "verifyStatus": true
+    },
+    {
+      "name": "chatterbox",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/resemble-ai/chatterbox",
+      "replaces": null,
+      "verifyStatus": true
+    },
+    {
+      "name": "vllm-omni",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 9,
+      "upstream": "https://github.com/vllm-project/vllm-omni",
+      "replaces": null,
+      "verifyStatus": true
+    },
+    {
+      "name": "sglang-diffusion",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 9,
+      "upstream": "https://github.com/sgl-project/sglang",
+      "replaces": null,
+      "verifyStatus": true
+    },
+    {
+      "name": "invokeai",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "stable",
+      "wave": 8,
+      "upstream": "https://github.com/invoke-ai/InvokeAI",
+      "replaces": null
+    },
+    {
+      "name": "open-tts-servers",
+      "kind": "product",
+      "category": "generative-media",
+      "status": "note-only",
+      "wave": 9,
+      "upstream": null,
+      "replaces": null,
+      "verifyStatus": true,
+      "reason": "Umbrella placeholder; built as separate f5-tts and chatterbox skills"
+    },
+    {
+      "name": "text-embeddings-inference",
+      "kind": "product",
+      "category": "embeddings-rag",
+      "status": "stable",
+      "wave": 9,
+      "upstream": "https://github.com/huggingface/text-embeddings-inference",
+      "replaces": null
+    },
+    {
+      "name": "infinity",
+      "kind": "product",
+      "category": "embeddings-rag",
+      "status": "stable",
+      "wave": 9,
+      "upstream": "https://github.com/michaelfeil/infinity",
+      "replaces": null
+    },
+    {
+      "name": "qdrant",
+      "kind": "product",
+      "category": "embeddings-rag",
+      "status": "stable",
+      "wave": 9,
+      "upstream": "https://github.com/qdrant/qdrant",
+      "replaces": null
+    },
+    {
+      "name": "pgvector",
+      "kind": "product",
+      "category": "embeddings-rag",
+      "status": "stable",
+      "wave": 9,
+      "upstream": "https://github.com/pgvector/pgvector",
+      "replaces": null
+    },
+    {
+      "name": "milvus",
+      "kind": "product",
+      "category": "embeddings-rag",
+      "status": "stable",
+      "wave": 9,
+      "upstream": "https://github.com/milvus-io/milvus",
+      "replaces": null
+    },
+    {
+      "name": "weaviate",
+      "kind": "product",
+      "category": "embeddings-rag",
+      "status": "stable",
+      "wave": 9,
+      "upstream": "https://github.com/weaviate/weaviate",
+      "replaces": null
+    },
+    {
+      "name": "chroma",
+      "kind": "product",
+      "category": "embeddings-rag",
+      "status": "stable",
+      "wave": 9,
+      "upstream": "https://github.com/chroma-core/chroma",
+      "replaces": null
+    },
+    {
+      "name": "mcp-servers",
+      "kind": "product",
+      "category": "embeddings-rag",
+      "status": "stable",
+      "wave": 9,
+      "upstream": "https://modelcontextprotocol.io",
+      "replaces": null,
+      "verifyStatus": true
+    },
+    {
+      "name": "speculative-decoding",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "disaggregated-serving",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "kv-cache-offloading",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "prefix-aware-routing",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "multi-node-inference",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "moe-serving",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "structured-outputs",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "tool-calling-parsers",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "reasoning-models",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": "skills/self-hosted-llms/references/reasoning-effort.md"
+    },
+    {
+      "name": "long-context",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "multi-lora-serving",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": "skills/fine-tuning-llms/references/serving-adapters.md"
+    },
+    {
+      "name": "kv-cache-quantization",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "choosing-inference-engine",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": "skills/local-llms/references/choosing-a-runtime.md"
+    },
+    {
+      "name": "choosing-hardware",
+      "kind": "technique",
+      "category": "techniques",
+      "status": "stable",
+      "wave": 3,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "qwen",
+      "kind": "model-family",
+      "category": "model-families",
+      "status": "stable",
+      "wave": 7,
+      "upstream": "https://huggingface.co/Qwen",
+      "replaces": null
+    },
+    {
+      "name": "llama",
+      "kind": "model-family",
+      "category": "model-families",
+      "status": "stable",
+      "wave": 7,
+      "upstream": "https://www.llama.com",
+      "replaces": null
+    },
+    {
+      "name": "deepseek",
+      "kind": "model-family",
+      "category": "model-families",
+      "status": "stable",
+      "wave": 7,
+      "upstream": "https://huggingface.co/deepseek-ai",
+      "replaces": null
+    },
+    {
+      "name": "gpt-oss",
+      "kind": "model-family",
+      "category": "model-families",
+      "status": "stable",
+      "wave": 7,
+      "upstream": "https://github.com/openai/gpt-oss",
+      "replaces": null
+    },
+    {
+      "name": "gemma",
+      "kind": "model-family",
+      "category": "model-families",
+      "status": "stable",
+      "wave": 7,
+      "upstream": "https://ai.google.dev/gemma",
+      "replaces": null
+    },
+    {
+      "name": "mistral",
+      "kind": "model-family",
+      "category": "model-families",
+      "status": "stable",
+      "wave": 7,
+      "upstream": "https://huggingface.co/mistralai",
+      "replaces": null
+    },
+    {
+      "name": "glm",
+      "kind": "model-family",
+      "category": "model-families",
+      "status": "stable",
+      "wave": 7,
+      "upstream": "https://huggingface.co/zai-org",
+      "replaces": null
+    },
+    {
+      "name": "kimi",
+      "kind": "model-family",
+      "category": "model-families",
+      "status": "stable",
+      "wave": 7,
+      "upstream": "https://huggingface.co/moonshotai",
+      "replaces": null
+    },
+    {
+      "name": "nemotron",
+      "kind": "model-family",
+      "category": "model-families",
+      "status": "stable",
+      "wave": 7,
+      "upstream": "https://huggingface.co/nvidia",
+      "replaces": null
+    },
+    {
+      "name": "minimax",
+      "kind": "model-family",
+      "category": "model-families",
+      "status": "stable",
+      "wave": 7,
+      "upstream": "https://huggingface.co/MiniMaxAI",
+      "replaces": null
+    },
+    {
+      "name": "phi",
+      "kind": "model-family",
+      "category": "model-families",
+      "status": "stable",
+      "wave": 7,
+      "upstream": "https://huggingface.co/microsoft",
+      "replaces": null
+    },
+    {
+      "name": "ollama-open-webui-tailscale",
+      "kind": "stack",
+      "category": "stacks",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "lm-studio-claude-code",
+      "kind": "stack",
+      "category": "stacks",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "vllm-kserve-keda",
+      "kind": "stack",
+      "category": "stacks",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "llm-d-vllm-kubernetes",
+      "kind": "stack",
+      "category": "stacks",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "dynamo-trtllm-disaggregated",
+      "kind": "stack",
+      "category": "stacks",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "runpod-serverless-vllm",
+      "kind": "stack",
+      "category": "stacks",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "modal-vllm",
+      "kind": "stack",
+      "category": "stacks",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "litellm-langfuse-prometheus",
+      "kind": "stack",
+      "category": "stacks",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "voice-stack",
+      "kind": "stack",
+      "category": "stacks",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "mac-cluster-exo-mlx",
+      "kind": "stack",
+      "category": "stacks",
+      "status": "stable",
+      "wave": 4,
+      "upstream": null,
+      "replaces": null
+    },
+    {
+      "name": "vllm-bench",
+      "kind": "product",
+      "category": "evals-benchmarks",
+      "status": "note-only",
+      "wave": 1,
+      "upstream": "https://docs.vllm.ai/en/latest/benchmarking/",
+      "replaces": null
+    }
+  ]
+}

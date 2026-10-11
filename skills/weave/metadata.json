@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install and operate W&B Weave for tracing and evaluating LLM apps and agents. Covers weave.init and ops, tracing self-hosted OpenAI-compatible endpoints (vLLM, llama.cpp, Ollama) and LiteLLM, OTLP and a validated OpenTelemetry Collector, the LiteLLM weave_otel callback, PII and key redaction, evaluations, Cloud versus Dedicated versus Self-Managed hosting, SDK updates and troubleshooting.",
+  "references": [
+    "https://github.com/wandb/weave",
+    "https://github.com/wandb/weave/releases",
+    "https://pypi.org/project/weave/",
+    "https://docs.coreweave.com/products/wandb/weave/reference",
+    "https://docs.coreweave.com/products/wandb/weave/guides/tracking/tracing",
+    "https://docs.coreweave.com/products/wandb/weave/guides/tracking/otel",
+    "https://docs.coreweave.com/products/wandb/weave/guides/tracking/redact-pii",
+    "https://docs.coreweave.com/products/wandb/weave/guides/tracking/trace-disable",
+    "https://docs.coreweave.com/products/wandb/weave/guides/integrations/local_models",
+    "https://docs.coreweave.com/products/wandb/weave/guides/integrations/litellm",
+    "https://docs.coreweave.com/products/wandb/weave/guides/core-types/evaluations",
+    "https://docs.coreweave.com/products/wandb/weave/guides/platform/weave-self-managed",
+    "https://docs.coreweave.com/products/wandb/platform/hosting/self-managed",
+    "https://docs.coreweave.com/release-notes/weave-sdk-releases",
+    "https://github.com/BerriAI/litellm/blob/main/litellm/integrations/weave/weave_otel.py"
+  ],
+  "kind": "product"
+}

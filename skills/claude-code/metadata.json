@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Connect Claude Code to self-hosted and gateway models over the Anthropic Messages API. Covers install and updates, ANTHROPIC_BASE_URL with ANTHROPIC_AUTH_TOKEN, ANTHROPIC_API_KEY or apiKeyHelper without printing secrets, per-engine setup for vLLM, llama.cpp, Ollama, llama-swap and LiteLLM, model slot mapping and discovery, context and output limits, compatibility switches for non-Anthropic backends (betas, thinking, tools, streaming), troubleshooting, and an endpoint probe script.",
+  "references": [
+    "https://github.com/anthropics/claude-code",
+    "https://github.com/anthropics/claude-code/releases",
+    "https://code.claude.com/docs/en/setup",
+    "https://code.claude.com/docs/en/llm-gateway",
+    "https://code.claude.com/docs/en/llm-gateway-connect",
+    "https://code.claude.com/docs/en/llm-gateway-protocol",
+    "https://code.claude.com/docs/en/env-vars",
+    "https://code.claude.com/docs/en/model-config",
+    "https://code.claude.com/docs/en/settings"
+  ],
+  "kind": "product"
+}

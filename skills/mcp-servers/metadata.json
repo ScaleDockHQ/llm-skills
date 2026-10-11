@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Connect a self-hosted OpenAI-compatible model and vector store to MCP tools. References cover the 2026-07-28 spec transports (stdio, streamable HTTP) and authorization, the Qdrant, Chroma and Postgres MCP servers, the LiteLLM MCP gateway, hardening, and troubleshooting, with config templates.",
+  "references": [
+    "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+    "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http",
+    "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization",
+    "https://github.com/qdrant/mcp-server-qdrant",
+    "https://github.com/chroma-core/chroma-mcp",
+    "https://github.com/crystaldba/postgres-mcp",
+    "https://docs.litellm.ai/docs/mcp"
+  ],
+  "kind": "product"
+}

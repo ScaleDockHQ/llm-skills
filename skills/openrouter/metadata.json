@@ -1,0 +1,32 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Use the OpenRouter hosted gateway from an agent: keys and credit limits, model IDs and variants, provider routing and model fallbacks, data controls with ZDR, guardrails and BYOK, presets and response caching, Broadcast and generation stats, LiteLLM and Claude Code wiring, teardown and error troubleshooting. OpenRouter is hosted only, so there is no install workflow.",
+  "references": [
+    "https://openrouter.ai/docs/quickstart",
+    "https://openrouter.ai/docs/api_reference/overview",
+    "https://openrouter.ai/docs/api_reference/authentication",
+    "https://openrouter.ai/docs/api_reference/limits",
+    "https://openrouter.ai/docs/api_reference/errors-and-debugging",
+    "https://openrouter.ai/docs/api_reference/versioning",
+    "https://openrouter.ai/docs/guides/overview/models",
+    "https://openrouter.ai/docs/guides/routing/provider-selection",
+    "https://openrouter.ai/docs/guides/routing/model-fallbacks",
+    "https://openrouter.ai/docs/guides/routing/model-variants/overview",
+    "https://openrouter.ai/docs/guides/routing/routers/auto-router",
+    "https://openrouter.ai/docs/guides/overview/auth/byok",
+    "https://openrouter.ai/docs/guides/overview/auth/management-api-keys",
+    "https://openrouter.ai/docs/guides/features/zdr",
+    "https://openrouter.ai/docs/guides/features/guardrails",
+    "https://openrouter.ai/docs/guides/features/workspaces",
+    "https://openrouter.ai/docs/guides/features/presets",
+    "https://openrouter.ai/docs/guides/features/response-caching",
+    "https://openrouter.ai/docs/guides/features/structured-outputs",
+    "https://openrouter.ai/docs/guides/features/broadcast",
+    "https://openrouter.ai/docs/cookbook/coding-agents/claude-code-integration",
+    "https://openrouter.ai/docs/llms-full.txt",
+    "https://docs.litellm.ai/docs/providers/openrouter"
+  ],
+  "kind": "product"
+}

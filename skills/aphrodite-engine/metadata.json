@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve and tune Aphrodite Engine (Sonar), the vLLM-derived inference server with OpenAI, Anthropic and Kobold APIs. References cover installation and the rename, serve flags and config, parallelism and multi-node, features (tools, speculation, quantization, LoRA, multimodal), API and security, tuning, observability, updating and troubleshooting, with a YAML config and systemd unit.",
+  "references": [
+    "https://github.com/dphnAI/sonar",
+    "https://github.com/dphnAI/sonar/releases",
+    "https://sonar.dphn.ai",
+    "https://sonar.dphn.ai/reference/server-arguments/",
+    "https://pypi.org/project/aphrodite-engine/"
+  ],
+  "kind": "product"
+}

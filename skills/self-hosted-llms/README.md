@@ -64,6 +64,7 @@ Script: [`scripts/bench.sh`](scripts/bench.sh), a curl + jq benchmark for any Op
 
 From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
 
+- `stable-diffusion-cpp`: sd-server depth; engine-sdcpp is now a stack note.
 - `choosing-llm-hosting`: decide local vs self-hosted vs cloud vs hybrid before building anything.
 - `local-llms`: laptops and desktops (Ollama, LM Studio, llama.cpp, MLX).
 - `cloud-llms`: frontier and open-model APIs, GPU VMs, serverless GPU, managed endpoints.
@@ -74,6 +75,10 @@ From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); inst
 - `model-quantization`: producing EXL3, NVFP4, FP8 and GGUF quants.
 - `fine-tuning-llms`: training adapters or full fine-tunes to serve here.
 - `llm-observability`: metrics, logs and tracing beyond the built-in endpoints.
+- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `exllamav3`, `tensorfold`: engine depth.
+- `llama-swap`: router depth.
+- `nvidia-dgx-spark`: DGX Spark platform depth.
+- `litellm`, `cloudflare-tunnel`, `tailscale`: gateway and exposure depth.
 
 ## License
 

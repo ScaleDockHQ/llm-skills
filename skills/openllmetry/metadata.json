@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Trace LLM apps with OpenLLMetry (traceloop-sdk), the Apache-2.0 OpenTelemetry instrumentation library. Covers install and TRACELOOP_* configuration, sending spans to Phoenix, Langfuse, MLflow, Jaeger or a Collector, self-hosted OpenAI-compatible engines, LiteLLM and vLLM, content capture, redaction and sampling, upgrades and troubleshooting, with a read-only check script.",
+  "references": [
+    "https://github.com/traceloop/openllmetry",
+    "https://github.com/traceloop/openllmetry/blob/main/CHANGELOG.md",
+    "https://pypi.org/project/traceloop-sdk/",
+    "https://www.npmjs.com/package/@traceloop/node-server-sdk",
+    "https://www.traceloop.com/docs/openllmetry/configuration",
+    "https://www.traceloop.com/docs/openllmetry/privacy/traces",
+    "https://www.traceloop.com/docs/openllmetry/privacy/telemetry"
+  ],
+  "kind": "product"
+}

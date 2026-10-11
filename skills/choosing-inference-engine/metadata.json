@@ -1,0 +1,31 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Decision skill for choosing an LLM inference engine from hardware, model format, features and concurrency. Includes a decision flow and a dated engine matrix for vLLM, SGLang, TensorRT-LLM, llama.cpp, Ollama, TensorFold and ExLlamaV3 by hardware, by model format and quantization, and by feature, plus the status of MLX, LM Studio, NVIDIA Dynamo and Text Generation Inference. Numerics-changing options are gated with llm-evals.",
+  "references": [
+    "https://github.com/vllm-project/vllm",
+    "https://docs.vllm.ai/en/latest/getting_started/installation/",
+    "https://docs.vllm.ai/en/latest/features/quantization/",
+    "https://docs.vllm.ai/en/latest/features/",
+    "https://github.com/sgl-project/sglang",
+    "https://docs.sglang.io/llms.txt",
+    "https://github.com/NVIDIA/TensorRT-LLM",
+    "https://nvidia.github.io/TensorRT-LLM/reference/support-matrix.html",
+    "https://nvidia.github.io/TensorRT-LLM/features/feature-combination-matrix.html",
+    "https://github.com/ggml-org/llama.cpp",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://docs.ollama.com/gpu",
+    "https://docs.ollama.com/import",
+    "https://docs.ollama.com/faq",
+    "https://github.com/ashhart/TensorFold",
+    "https://github.com/turboderp-org/exllamav3",
+    "https://github.com/theroyallab/tabbyAPI",
+    "https://github.com/ml-explore/mlx",
+    "https://github.com/ml-explore/mlx-lm",
+    "https://lmstudio.ai/docs/app",
+    "https://github.com/ai-dynamo/dynamo",
+    "https://github.com/huggingface/text-generation-inference"
+  ],
+  "kind": "technique"
+}

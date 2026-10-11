@@ -1,0 +1,12 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Installs and operates AIBrix v0.7.0 on Kubernetes: Envoy gateway with LLM-aware routing, PodAutoscaler, LoRA ModelAdapter, StormService P/D and multi-node, and KV cache offload. References are split by install, model deployment, routing, autoscaling, features, upgrades and troubleshooting.",
+  "references": [
+    "https://github.com/vllm-project/aibrix",
+    "https://aibrix.readthedocs.io/latest/",
+    "https://github.com/vllm-project/aibrix/releases/tag/v0.7.0"
+  ],
+  "kind": "product"
+}

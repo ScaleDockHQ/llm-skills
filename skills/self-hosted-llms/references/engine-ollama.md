@@ -2,34 +2,9 @@
 
 > Verified against Ollama v0.40.3, 2026-10-11
 
-## What it is and when to choose it
+This page keeps only what is specific to this stack: the wrapper script, the llama-swap and LiteLLM entries, and the stack pitfalls. Install, flags, tuning and operating detail live in the product skill.
 
-Ollama is a model runner with its own model library (`ollama pull`), Modelfiles and an always-on server
-that loads and unloads models on demand. In this stack it is a **backend**, not the front door: useful
-when a model is only conveniently packaged for Ollama, when users already maintain an Ollama library, or
-for quick experiments. For anything you tune seriously, llama.cpp (same GGUF family, explicit flags) or
-vLLM/SGLang fit the stack better.
-
-The key design issue: **Ollama schedules models itself** (keep-alive timers, max loaded models, queueing
-when memory is short). llama-swap also schedules. Two schedulers sharing one memory pool will fight, so
-pick one of these patterns:
-
-1. **One Ollama instance per llama-swap model ID** (recommended behind llama-swap): the wrapper starts a
-   dedicated Ollama container for that model with `OLLAMA_MAX_LOADED_MODELS=1` and `OLLAMA_KEEP_ALIVE=-1`;
-   llama-swap's group, `ttl` and swaps decide lifetime. Several IDs can share one read-only model store.
-2. **One persistent Ollama with a fixed memory slice**, outside llama-swap: run it as its own service,
-   size it (`OLLAMA_MAX_LOADED_MODELS`, `OLLAMA_CONTEXT_LENGTH`, `OLLAMA_NUM_PARALLEL`) so its worst case
-   fits beside your llama-swap groups, and point LiteLLM straight at it. Never let llama-swap swap
-   exclusive models into the memory Ollama believes it owns.
-
-## Install (DGX Spark/arm64 and generic x86)
-
-- **Container (stack default):** `ollama/ollama:0.40.3` (amd64 + arm64). GPU via NVIDIA Container
-  Toolkit and `--gpus=all`. The image listens on all interfaces inside the container; publish on loopback.
-- **Native:** `curl -fsSL https://ollama.com/install.sh | sh` installs a systemd unit `ollama.service`
-  (NVIDIA's DGX Spark Ollama playbook uses this). Set variables with `sudo systemctl edit ollama` →
-  `[Service]` `Environment="OLLAMA_HOST=127.0.0.1:11434"`, then `daemon-reload` and restart.
-- Keep models out of the image: mount a volume at `/root/.ollama` (or set `OLLAMA_MODELS`).
+Depth: install the ollama skill (`npx skills add ScaleDockHQ/llms-skills --skill ollama`).
 
 ## Minimal working config
 
@@ -89,28 +64,6 @@ model load. To warm it, send an empty generate after start (`curl .../api/genera
     api_base: http://127.0.0.1:8080/v1
     api_key: os.environ/LLAMA_SWAP_API_KEY
 ```
-
-## Operating
-
-- Loaded models: `docker exec <name> ollama ps` or `curl -s http://127.0.0.1:11434/api/ps | jq .`
-- Unload now: `ollama stop <model>` or a generate with `"keep_alive": 0`.
-- Pull/delete: `ollama pull <model>`, `ollama rm <model>`; pulls are large, run them in a capped scope.
-- Logs: `docker logs -f <name>` or `journalctl -u ollama -f` for the native service.
-- Update: pull the new image tag, restart, check `/api/version`, smoke test each Ollama-backed model.
-
-## Tuning knobs worth knowing
-
-All from Ollama's `envconfig`:
-
-- `OLLAMA_HOST` (default `127.0.0.1:11434`), `OLLAMA_MODELS` (store path), `OLLAMA_ORIGINS` (CORS).
-- `OLLAMA_KEEP_ALIVE` (default `5m`; negative = forever, `0` = unload after each response). Request
-  `keep_alive` overrides it on `/api/*` calls.
-- `OLLAMA_MAX_LOADED_MODELS` (per GPU), `OLLAMA_NUM_PARALLEL` (memory scales with parallel x context),
-  `OLLAMA_MAX_QUEUE` (503 when exceeded), `OLLAMA_LOAD_TIMEOUT` (default `5m` of stalled loading).
-- `OLLAMA_CONTEXT_LENGTH`: default context unless requested (default depends on detected VRAM: 4k/32k/256k).
-  Set it explicitly; on GB10 the VRAM heuristic sees shared memory.
-- `OLLAMA_FLASH_ATTENTION`, `OLLAMA_KV_CACHE_TYPE` (default f16; quantized types change numerics).
-- `OLLAMA_GPU_OVERHEAD` reserves bytes per GPU; `OLLAMA_NO_CLOUD` disables cloud inference and web search.
 
 ## Known pitfalls
 

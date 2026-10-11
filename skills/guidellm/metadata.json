@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Load-test LLM servers with GuideLLM against vLLM and OpenAI-compatible endpoints: pinned install, guidellm run option format, traffic profiles (sweep, concurrent, constant, Poisson, throughput, knee, goodput, replay), constraints and over-saturation stopping, synthetic and real data, backend and key handling, SLO attainment and goodput, report formats, 0.6 to 0.8 CLI migration and troubleshooting.",
+  "references": [
+    "https://github.com/vllm-project/guidellm",
+    "https://github.com/vllm-project/guidellm/releases",
+    "https://pypi.org/project/guidellm/",
+    "https://github.com/vllm-project/guidellm/blob/v0.8.1/docs/en/getting-started/install.md",
+    "https://github.com/vllm-project/guidellm/blob/v0.8.1/docs/en/getting-started/benchmark.md",
+    "https://github.com/vllm-project/guidellm/blob/v0.8.1/docs/en/guides/backends.md",
+    "https://github.com/vllm-project/guidellm/blob/v0.8.1/docs/en/guides/datasets.md",
+    "https://github.com/vllm-project/guidellm/blob/v0.8.1/docs/en/guides/metrics.md",
+    "https://github.com/vllm-project/guidellm/blob/v0.8.1/docs/en/guides/outputs.md",
+    "https://github.com/vllm-project/guidellm/blob/v0.8.1/docs/en/guides/service_level_objectives.md",
+    "https://github.com/vllm-project/guidellm/blob/v0.8.1/docs/en/guides/over_saturation_stopping.md",
+    "https://github.com/vllm-project/guidellm/blob/v0.8.1/docs/en/guides/troubleshooting.md",
+    "https://github.com/vllm-project/guidellm/blob/v0.8.1/docs/en/guides/v0.7.0_migration_guide.md"
+  ],
+  "kind": "product"
+}

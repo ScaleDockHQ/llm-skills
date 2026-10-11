@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.1.0",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Connect coding agents, IDE extensions, chat UIs and SDK apps to OpenAI- or Anthropic-compatible LLM endpoints and gateways. Covers Claude Code, Codex CLI, OpenCode, Aider, Cursor, Continue, Cline, Roo Code, Kilo Code, Open WebUI, LobeHub and the OpenAI, Anthropic and Vercel AI SDKs: matching each client to Chat Completions, Responses or Anthropic Messages, client-local versus vendor-cloud requests, declaring context window, tool, vision and reasoning support, keeping keys out of shared config, and troubleshooting.",
@@ -27,5 +27,6 @@
     "https://github.com/openai/openai-python",
     "https://github.com/anthropics/anthropic-sdk-python",
     "https://ai-sdk.dev/providers/openai-compatible-providers"
-  ]
+  ],
+  "kind": "workflow"
 }

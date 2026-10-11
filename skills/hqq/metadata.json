@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Quantize LLMs with HQQ (Half-Quadratic Quantization) at 8 to 1 bit without calibration data: HqqConfig and hqq-lib paths, per-layer configs, axis and group_size choices, GemLite and torchao_int4 backends, saving, vLLM on-the-fly use, PEFT and HQQ+. Verified against hqq v0.2.8.post1.",
+  "references": [
+    "https://github.com/dropbox/hqq",
+    "https://github.com/dropbox/hqq/releases",
+    "https://pypi.org/project/hqq/",
+    "https://dropbox.github.io/hqq_blog/",
+    "https://dropbox.github.io/1bit_blog/",
+    "https://huggingface.co/docs/transformers/quantization/hqq",
+    "https://github.com/dropbox/gemlite"
+  ],
+  "kind": "product"
+}

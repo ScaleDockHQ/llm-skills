@@ -1,0 +1,46 @@
+# llama-swap entry for ComfyUI through the dedicated /comfyui/ endpoint (reserved id comfyui_auto).
+# Verified against llama-swap v263 (docs/config.example.yaml, docs/kb/guides/upstreams/comfyui.md) and
+# ComfyUI v0.39.0, 2026-10-11. Merge into your config.yaml; LLM entries come from the llama-cpp / vllm skills.
+healthCheckTimeout: 600 # seconds a load may go without progress
+startPort: 10001
+
+apiKeys:
+  - "${env.LLAMA_SWAP_API_KEY}"
+
+models:
+  "comfyui_auto":
+    cmd: |
+      ${env.HOME}/ComfyUI/.venv/bin/python ${env.HOME}/ComfyUI/main.py
+      --listen 127.0.0.1 --port ${PORT}
+      --disable-all-custom-nodes --offline --disable-auto-launch
+      --extra-model-paths-config ${env.HOME}/ComfyUI/extra_model_paths.yaml
+    checkEndpoint: / # ComfyUI has no /health
+    ttl: 600 # websocket traffic does not reset this; raise it for long renders
+    unloadTimeout: 30
+    unlisted: true # keep it out of /v1/models
+
+  # Container variant (community image, amd64 only when checked; review it first). cmdStop is required.
+  # "comfyui_auto":
+  #   cmd: |
+  #     docker run --rm --name comfyui-auto --gpus all -p 127.0.0.1:${PORT}:8188
+  #     -v /srv/models/comfy:/root/ComfyUI/models -v /srv/comfy/output:/root/ComfyUI/output
+  #     yanwk/comfyui-boot:cu130-slim-v2
+  #   proxy: "http://127.0.0.1:${PORT}"
+  #   cmdStop: docker stop comfyui-auto
+  #   checkEndpoint: /
+  #   unloadTimeout: 30
+  #   ttl: 600
+  #   unlisted: true
+
+routing:
+  router:
+    use: group
+    settings:
+      groups:
+        # ComfyUI and the big LLM take turns; loading one evicts the other
+        "heavy":
+          swap: true
+          exclusive: true
+          members:
+            - "comfyui_auto"
+            # - "<your-big-llm>"

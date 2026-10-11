@@ -1,0 +1,6 @@
+# /etc/default/earlyoom
+# -m 5        act when available memory is below 5 percent (tune from the memory plan; test with --dryrun)
+# -s 100      make the swap condition always true so only available memory decides
+# -r 3600     memory report interval in seconds
+# --prefer / --avoid take unquoted regexes without spaces (systemd does not strip quotes)
+EARLYOOM_ARGS="-m 5 -s 100 -r 3600 --prefer (^|/)(cc1plus|nvcc|ninja|rsync|hf)$ --avoid (^|/)(init|systemd|sshd|dockerd|containerd|llama-swap|cloudflared)$"

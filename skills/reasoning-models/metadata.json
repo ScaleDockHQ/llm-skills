@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Configure and verify reasoning (thinking) output on each inference engine. Covers vLLM --reasoning-parser and thinking_token_budget, SGLang --reasoning-parser and strict thinking, llama.cpp --reasoning-format, --reasoning-budget and --reasoning-effort, TensorRT-LLM, Ollama think, TensorFold and TabbyAPI, the chat_template_kwargs key per model family, reasoning versus reasoning_content, llama-swap and LiteLLM mapping, a probe script and an accuracy-versus-cost gate with rollback.",
+  "references": [
+    "https://docs.vllm.ai/en/latest/features/reasoning_outputs/",
+    "https://docs.sglang.io/docs/advanced_features/separate_reasoning.md",
+    "https://docs.sglang.io/docs/advanced_features/thinking_budget.md",
+    "https://nvidia.github.io/TensorRT-LLM/commands/trtllm-serve/trtllm-serve.html",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://docs.ollama.com/capabilities/thinking",
+    "https://github.com/ashhart/TensorFold/blob/main/docs/api.md",
+    "https://github.com/theroyallab/tabbyAPI/blob/main/docs/10.-Tool-Calling.md",
+    "https://github.com/mostlygeek/llama-swap/blob/main/docs/config.example.yaml",
+    "https://docs.litellm.ai/docs/reasoning_content"
+  ],
+  "kind": "technique"
+}

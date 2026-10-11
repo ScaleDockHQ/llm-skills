@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Load LLMs in 8-bit and 4-bit with bitsandbytes (LLM.int8(), NF4/FP4), fine-tune with QLoRA and FSDP-QLoRA, use 8-bit and paged optimizers, serve bnb checkpoints in vLLM, pick the right backend and fix install errors. Verified against bitsandbytes 0.50.2.",
+  "references": [
+    "https://github.com/bitsandbytes-foundation/bitsandbytes",
+    "https://huggingface.co/docs/bitsandbytes/main",
+    "https://github.com/bitsandbytes-foundation/bitsandbytes/releases",
+    "https://pypi.org/project/bitsandbytes/",
+    "https://huggingface.co/docs/transformers/quantization/bitsandbytes",
+    "https://huggingface.co/docs/peft/developer_guides/quantization",
+    "https://docs.vllm.ai/en/latest/features/quantization/bnb.html"
+  ],
+  "kind": "product"
+}

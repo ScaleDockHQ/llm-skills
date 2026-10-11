@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.1.1",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Run open-weight LLMs on a personal laptop or desktop (macOS on Apple Silicon, Windows, Linux) with Ollama, LM Studio, llama.cpp (llama-server) or MLX (mlx-lm). The skill discovers hardware and installed runtimes first, picks the native accelerator path (Metal/MLX, CUDA, ROCm/Vulkan), sizes weights plus KV cache against VRAM or unified memory, serves an OpenAI- or Anthropic-compatible endpoint on localhost, and covers secure LAN sharing (SSH, Tailscale Serve, API keys, firewall), fixed-protocol benchmarking with scripts/bench.sh, updates, disk cleanup and troubleshooting.",
@@ -27,5 +27,6 @@
     "https://tailscale.com/kb/1312/serve",
     "https://tailscale.com/kb/1242/tailscale-serve",
     "https://agentskills.io/specification"
-  ]
+  ],
+  "kind": "workflow"
 }

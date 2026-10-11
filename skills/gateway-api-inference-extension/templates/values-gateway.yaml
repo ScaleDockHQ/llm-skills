@@ -1,0 +1,29 @@
+# Values for oci://ghcr.io/llm-d/charts/llm-d-router-gateway --version v0 (llm-d router v0.11.0 layout).
+# helm install vllm-qwen3-32b oci://ghcr.io/llm-d/charts/llm-d-router-gateway --version v0 -f values-gateway.yaml
+router:
+  modelServers:
+    type: vllm # vllm, sglang, triton-tensorrt-llm, trtllm-serve, triton
+    matchLabels:
+      app: vllm-qwen3-32b
+    targetPorts:
+      - number: 8000
+  inferencePool:
+    create: true
+    failureMode: FailOpen
+  epp:
+    replicas: 1 # >1 means active-passive leader election; see references/epp-and-routing.md
+    image:
+      tag: v0.11.0 # pin; the chart default is "main" with pullPolicy Always
+      pullPolicy: IfNotPresent
+    resources:
+      requests: { cpu: "8", memory: 8Gi } # chart defaults; measure before lowering
+      limits: { memory: 16Gi }
+  monitoring:
+    prometheus:
+      enabled: false # needs the Prometheus Operator CRDs; see references/observability.md
+provider:
+  name: none # none, gke, istio
+httpRoute:
+  create: false # use templates/httproute.yaml instead, or set true with inferenceGatewayName
+  inferenceGatewayName: inference-gateway
+  requestTimeout: 300s

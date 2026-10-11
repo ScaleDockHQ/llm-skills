@@ -1,0 +1,53 @@
+# Enterprise tier (license required): ai-proxy-advanced balancing and ai-rate-limiting-advanced.
+# Field names come from the plugin reference for Kong Gateway 3.16; confirm them before use
+# (deck gateway validate, or the schema at https://developer.konghq.com/plugins/ai-proxy-advanced/reference/).
+# Render with: DECK_VLLM_URL=... DECK_OPENAI_API_KEY=... deck file render assets/kong-ai-proxy-advanced.yaml -o kong.rendered.yaml
+_format_version: "3.0"
+consumers:
+  - username: team-a
+    keyauth_credentials:
+      - key: ${{ env "DECK_TEAM_A_KEY" }}
+services:
+  - name: llm
+    url: http://localhost:32000 # placeholder, never called
+    routes:
+      - name: llm-chat
+        paths:
+          - /v1/chat/completions
+        strip_path: false
+    plugins:
+      - name: key-auth
+        config:
+          key_names: [apikey]
+          hide_credentials: true
+      - name: ai-proxy-advanced
+        config:
+          balancer:
+            algorithm: round-robin # also: consistent-hashing, least-connections, lowest-latency, lowest-usage, priority, semantic
+            retries: 2
+            failover_criteria: [error, timeout, http_429, http_502, http_503]
+          targets:
+            - route_type: llm/v1/chat
+              weight: 100
+              model:
+                provider: vllm
+                name: local
+                options:
+                  upstream_url: ${{ env "DECK_VLLM_URL" }}
+            - route_type: llm/v1/chat
+              weight: 50
+              auth:
+                header_name: Authorization
+                header_value: 'Bearer ${{ env "DECK_OPENAI_API_KEY" }}'
+              model:
+                provider: openai
+                name: <model-id>
+      - name: ai-rate-limiting-advanced
+        config:
+          llm_providers:
+            - name: openai
+              limit: [100000] # tokens per window
+              window_size: [3600] # seconds
+          identifier: consumer
+          strategy: local # redis for several nodes
+          tokens_count_strategy: total_tokens

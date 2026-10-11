@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve, scale and troubleshoot NVIDIA Dynamo, the orchestration layer above vLLM, SGLang and TensorRT-LLM. Covers containers and ai-dynamo wheels, etcd or file discovery, the Kubernetes platform chart, DynamoGraphDeployment and DGDR manifests, disaggregated prefill/decode with NIXL, KV-aware routing, Planner, KVBM, load shedding, the OpenAI, Anthropic and KServe APIs, Prometheus metrics, upgrades and error fixes. Includes compose and Kubernetes templates. Verified against Dynamo v1.5.1.",
+  "references": [
+    "https://github.com/ai-dynamo/dynamo",
+    "https://github.com/ai-dynamo/dynamo/releases",
+    "https://docs.nvidia.com/dynamo/",
+    "https://docs.nvidia.com/dynamo/resources/release-artifacts",
+    "https://docs.nvidia.com/dynamo/resources/feature-matrix",
+    "https://docs.nvidia.com/dynamo/kubernetes-deployment/start-here/installation-guide",
+    "https://pypi.org/project/ai-dynamo/",
+    "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/ai-dynamo/collections/ai-dynamo",
+    "https://github.com/ai-dynamo/dynamo/tree/main/recipes",
+    "https://github.com/ai-dynamo/grove"
+  ],
+  "kind": "product"
+}

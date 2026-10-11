@@ -1,0 +1,32 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Call LLMs through Amazon Bedrock: model access, the bedrock-runtime and bedrock-mantle endpoints, Converse, InvokeModel, OpenAI-compatible and Anthropic Messages routes, inference profiles and cross-Region residency, API keys, IAM, VPC endpoints, batch inference, Custom Model Import, quotas and budgets, LiteLLM entries and teardown. References are split by task with a symptom-to-fix troubleshooting table.",
+  "references": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/endpoints.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-prereq.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-create.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-create.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model-job.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/quotas-runtime.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html",
+    "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html",
+    "https://docs.aws.amazon.com/cli/latest/reference/bedrock-runtime/converse.html",
+    "https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html",
+    "https://docs.litellm.ai/docs/providers/bedrock"
+  ],
+  "kind": "platform"
+}
