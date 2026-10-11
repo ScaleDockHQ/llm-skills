@@ -1,6 +1,6 @@
 ---
 name: sentry-ai-monitoring
-description: Sentry AI monitoring (Agent Tracing, formerly AI Insights): gen_ai spans, Conversations, model cost and agent dashboards next to errors and traces. Use to trace apps calling vLLM, llama.cpp, SGLang, Ollama or LiteLLM with sentry-sdk, send OTLP, set include_prompts and send_default_pii, sample agent runs, price local models, self-host Sentry, or fix empty Agents and zero cost. Not for choosing a stack (llm-observability).
+description: "Sentry AI monitoring (Agent Tracing, formerly AI Insights): gen_ai spans, Conversations, model cost and agent dashboards next to errors and traces. Use to trace apps calling vLLM, llama.cpp, SGLang, Ollama or LiteLLM with sentry-sdk, send OTLP, set include_prompts and send_default_pii, sample agent runs, price local models, self-host Sentry, or fix empty Agents and zero cost. Not for choosing a stack (llm-observability)."
 license: MIT
 compatibility: Python 3.9+ or Node 18+ with pip or npm, bash, curl and jq; optional Docker for an OpenTelemetry Collector. Needs a Sentry project DSN (SaaS or self-hosted). Sending prompts to a hosted service and installs need the user's explicit approval.
 metadata:

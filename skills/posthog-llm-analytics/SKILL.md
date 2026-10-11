@@ -1,6 +1,6 @@
 ---
 name: posthog-llm-analytics
-description: PostHog AI Observability (formerly LLM analytics): traces, cost, latency and evaluations built on $ai_generation events. Use to send traces from vLLM, llama.cpp, SGLang, Ollama or LiteLLM into PostHog, wrap OpenAI clients, export OTLP, set privacy_mode, price local models, alert on insights, self-host or update PostHog, or fix missing traces and empty cost. Not for choosing a stack (llm-observability).
+description: "PostHog AI Observability (formerly LLM analytics): traces, cost, latency and evaluations built on $ai_generation events. Use to send traces from vLLM, llama.cpp, SGLang, Ollama or LiteLLM into PostHog, wrap OpenAI clients, export OTLP, set privacy_mode, price local models, alert on insights, self-host or update PostHog, or fix missing traces and empty cost. Not for choosing a stack (llm-observability)."
 license: MIT
 compatibility: Python 3.9+ or Node 18+ with pip or npm, bash, curl and jq; optional Docker for an OpenTelemetry Collector. Needs a PostHog project token (Cloud or self-hosted). Sending prompts to a hosted service and installs need the user's explicit approval.
 metadata:

@@ -1,6 +1,6 @@
 ---
 name: datadog-llm-observability
-description: Datadog Agent Observability (formerly LLM Observability): traces, cost, evaluations and ml_obs metrics for LLM apps. Use to instrument Python or Node with ddtrace and dd-trace, trace vLLM, llama.cpp, SGLang, Ollama or a LiteLLM proxy, send OTLP, redact with span processors, price local models, alert with monitors, or fix no spans, 403 and missing cost. Not for choosing a stack (llm-observability).
+description: "Datadog Agent Observability (formerly LLM Observability): traces, cost, evaluations and ml_obs metrics for LLM apps. Use to instrument Python or Node with ddtrace and dd-trace, trace vLLM, llama.cpp, SGLang, Ollama or a LiteLLM proxy, send OTLP, redact with span processors, price local models, alert with monitors, or fix no spans, 403 and missing cost. Not for choosing a stack (llm-observability)."
 license: MIT
 compatibility: Python 3.8+ or Node 18+ with pip or npm, bash, curl and jq; optional Docker for an OpenTelemetry Collector. Needs a Datadog account and API key on a supported site. Sending prompts to a hosted service and installs need the user's explicit approval.
 metadata:
