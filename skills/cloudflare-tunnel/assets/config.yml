@@ -1,0 +1,57 @@
+# config.yml -> /etc/cloudflared/config.yml (locally managed tunnel)
+# Docs: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/configuration-file/
+#
+# Create the tunnel and DNS routes first:
+#   cloudflared tunnel login
+#   cloudflared tunnel create llm-stack
+#   cloudflared tunnel route dns llm-stack llm.example.com
+#   cloudflared tunnel route dns llm-stack dash.example.com
+# Then validate and install as a service:
+#   cloudflared --config /etc/cloudflared/config.yml tunnel ingress validate
+#   sudo cloudflared --config /etc/cloudflared/config.yml service install
+#
+# Rules are matched top to bottom. `path` is a Go regular expression and is
+# NOT stripped: the origin receives the full path. The last rule must be a
+# catch-all. Use 127.0.0.1, not localhost.
+
+tunnel: <tunnel-uuid>
+credentials-file: /etc/cloudflared/<tunnel-uuid>.json # mode 0600
+
+# Defaults shown by the docs: connectTimeout 30s, keepAliveTimeout 1m30s.
+# There is no read-timeout setting here: Cloudflare's 125 s proxy read
+# timeout (HTTP 524) applies regardless. Keep long jobs streaming.
+originRequest:
+  connectTimeout: 30s
+  keepAliveTimeout: 90s
+
+ingress:
+  # Optional: enriched model list from a local Caddy front (skills: caddy)
+  - hostname: llm.example.com
+    path: ^/(v1/)?models/?$
+    service: http://127.0.0.1:8088
+
+  # Everything else on the API host goes to the gateway, which enforces keys
+  - hostname: llm.example.com
+    service: http://127.0.0.1:4000
+
+  # Dashboard: behind a Cloudflare Access application; cloudflared also
+  # validates the Access JWT before forwarding.
+  - hostname: dash.example.com
+    service: http://127.0.0.1:5555
+    originRequest:
+      access:
+        required: true
+        teamName: <team>
+        audTag:
+          - <aud-tag>
+
+  # Ollama has no auth and answers 403 to a foreign Host header when bound to
+  # loopback. Prefer a guarded loopback proxy (skill: caddy, Caddyfile.ollama-guard).
+  # Ollama's FAQ shows the Host override for tunnels; as an ingress rule:
+  #   - hostname: ollama.example.com
+  #     service: http://127.0.0.1:11434
+  #     originRequest:
+  #       httpHostHeader: localhost:11434
+  # and then protect the hostname with Access, because Ollama itself has no keys.
+
+  - service: http_status:404

@@ -1,0 +1,30 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Publish a self-hosted LLM endpoint through Cloudflare Tunnel (cloudflared). Covers installation, locally and remotely managed tunnels, ingress rules and origin parameters, running as a systemd service, Cloudflare Access for dashboards, service tokens for automated API callers, SSE streaming and the 125 second proxy read timeout, websockets, metrics, updates and troubleshooting of HTTP 524, 530 and 502, with combos for a Caddy catalog front and Access-protected APIs.",
+  "references": [
+    "https://github.com/cloudflare/cloudflared",
+    "https://github.com/cloudflare/cloudflared/releases",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/downloads/",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/downloads/update-cloudflared/",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/create-local-tunnel/",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/configuration-file/",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/as-a-service/linux/",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/create-remote-tunnel/",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/origin-parameters/",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/run-parameters/",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/tunnel-availability/",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/monitor-tunnels/metrics/",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/monitor-tunnels/logs/",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/troubleshoot-tunnels/common-errors/",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/troubleshoot-tunnels/connectivity-prechecks/",
+    "https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/service-tokens/",
+    "https://developers.cloudflare.com/fundamentals/reference/connection-limits/",
+    "https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/",
+    "https://developers.cloudflare.com/network/websockets/",
+    "https://pkg.cloudflare.com/"
+  ],
+  "kind": "product"
+}
