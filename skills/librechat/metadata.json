@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install and configure LibreChat, the self-hosted multi-user chat UI, against self-hosted LLM servers. Covers Docker Compose install and pinning, librechat.yaml custom endpoints for OpenAI-compatible and Anthropic Messages APIs (vLLM, llama.cpp, Ollama, LiteLLM, llama-swap), model-name mapping, key handling, tool calling, agents, reasoning replay, MCP servers, context and cost config, and troubleshooting, with templates and a read-only endpoint probe script.",
+  "references": [
+    "https://github.com/LibreChat-AI/LibreChat",
+    "https://github.com/LibreChat-AI/LibreChat/releases",
+    "https://www.librechat.ai/docs/configuration/librechat_yaml/object_structure/custom_endpoint",
+    "https://www.librechat.ai/docs/configuration/librechat_yaml/object_structure/default_params",
+    "https://www.librechat.ai/docs/configuration/librechat_yaml/ai_endpoints",
+    "https://www.librechat.ai/docs/configuration/docker_override",
+    "https://www.librechat.ai/docs/configuration/dotenv",
+    "https://www.librechat.ai/docs/local/docker",
+    "https://www.librechat.ai/docs/features/agents",
+    "https://www.librechat.ai/docs/configuration/librechat_yaml/object_structure/mcp_servers",
+    "https://docs.vllm.ai/en/latest/features/tool_calling/",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://github.com/mostlygeek/llama-swap"
+  ],
+  "kind": "product"
+}

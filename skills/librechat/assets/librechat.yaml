@@ -1,0 +1,74 @@
+# librechat.yaml: custom endpoints for self-hosted LLM servers.
+# Mount it at /app/librechat.yaml (see assets/docker-compose.override.yml).
+# Keys and URLs come from ${ENV_VARS} defined in LibreChat's .env (mode 0600), never inline.
+# Verified against LibreChat v0.8.8 / config v1.3.17, 2026-10-11.
+version: 1.3.17
+cache: true
+
+endpoints:
+  custom:
+    # 1) One OpenAI-compatible gateway in front of everything (recommended): LiteLLM or llama-swap.
+    - name: "Gateway"
+      apiKey: "${GATEWAY_API_KEY}"
+      baseURL: "${GATEWAY_BASE_URL}" # e.g. http://litellm:4000/v1 (must end in /v1)
+      models:
+        default: ["coder"] # fallback list; the names your gateway exposes
+        fetch: true # list /v1/models
+      titleConvo: true
+      titleModel: "current_model" # do not load a second model just for titles
+      titleMessageRole: "user" # some chat templates reject a lone system message
+      modelDisplayLabel: "Gateway"
+      # Context windows and cost per million tokens are not discoverable from /v1/models.
+      tokenConfig:
+        coder:
+          prompt: 0
+          completion: 0
+          context: 131072
+
+    # 2) A single vLLM server (auth only if started with --api-key / VLLM_API_KEY).
+    - name: "vLLM"
+      apiKey: "${VLLM_API_KEY}" # any non-empty placeholder if the server has no key
+      baseURL: "http://host.docker.internal:8000/v1"
+      models:
+        default: ["Qwen/Qwen3-8B"] # the exact id from GET /v1/models
+        fetch: true
+      titleConvo: true
+      titleModel: "current_model"
+      titleMessageRole: "user"
+
+    # 3) Ollama. Name starting with "ollama" makes LibreChat list models through /api/tags.
+    - name: "Ollama"
+      apiKey: "ollama" # ignored by Ollama but must be non-empty
+      baseURL: "http://host.docker.internal:11434/v1/"
+      models:
+        default: ["qwen3:8b"]
+        fetch: true
+      titleConvo: true
+      titleModel: "current_model"
+
+    # 4) llama.cpp llama-server (start with --jinja for tool calls; --api-key optional).
+    - name: "llama.cpp"
+      apiKey: "${LLAMACPP_API_KEY}"
+      baseURL: "http://host.docker.internal:8080/v1"
+      models:
+        default: ["local-model"] # the id from GET /v1/models
+        fetch: true
+      titleConvo: true
+      titleModel: "current_model"
+      addParams:
+        max_tokens: 4096 # some servers default to a tiny limit when max_tokens is absent
+
+    # 5) Anthropic Messages API on a gateway that serves /v1/messages (LiteLLM, llama-swap, vLLM, ...).
+    #    baseURL is the server ROOT: LibreChat appends /v1/messages itself.
+    - name: "Gateway-Anthropic"
+      provider: "anthropic"
+      apiKey: "${GATEWAY_API_KEY}"
+      baseURL: "${GATEWAY_ROOT_URL}" # e.g. http://litellm:4000 (no /v1)
+      headers:
+        anthropic-version: "2023-06-01"
+      models:
+        default: ["claude-main"] # explicit list; models.fetch is not used for provider: anthropic
+        fetch: false
+      titleConvo: true
+      titleModel: "claude-main"
+      modelDisplayLabel: "Gateway (Messages)"
