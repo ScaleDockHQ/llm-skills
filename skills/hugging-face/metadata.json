@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Operating guide for Hugging Face: the hf CLI for tokens, download, upload and cache, Inference Providers through router.huggingface.co with provider policies and billing routes, and Inference Endpoints (hardware, deploy, scale, pause, scale-to-zero behavior, delete), with Spaces and Jobs covered briefly. Includes LiteLLM wiring, teardown and troubleshooting. Checked against the official Hugging Face docs and the live router model list on 2026-10-11; exact rate limits and personal spend caps are marked unverified.",
+  "references": [
+    "https://huggingface.co/docs/huggingface_hub/guides/cli",
+    "https://huggingface.co/docs/huggingface_hub/guides/inference_endpoints",
+    "https://huggingface.co/docs/hub/security-tokens",
+    "https://huggingface.co/docs/inference-providers/en/index",
+    "https://huggingface.co/docs/inference-providers/en/pricing",
+    "https://huggingface.co/docs/inference-providers/en/tasks/chat-completion",
+    "https://huggingface.co/docs/inference-endpoints/en/engines/vllm",
+    "https://huggingface.co/docs/inference-endpoints",
+    "https://router.huggingface.co/v1/models",
+    "https://docs.litellm.ai/docs/providers/huggingface"
+  ],
+  "kind": "platform"
+}
