@@ -176,7 +176,7 @@
       "name": "nvidia-dynamo",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://github.com/ai-dynamo/dynamo",
       "replaces": null
@@ -185,7 +185,7 @@
       "name": "nvidia-nim",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://docs.nvidia.com/nim/",
       "replaces": null
@@ -194,7 +194,7 @@
       "name": "triton-inference-server",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://github.com/triton-inference-server/server",
       "replaces": null
@@ -562,7 +562,7 @@
       "name": "nccl-rdma-networking",
       "kind": "product",
       "category": "exposure-networking",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": "https://docs.nvidia.com/deeplearning/nccl/",
       "replaces": null
@@ -635,7 +635,7 @@
       "name": "intel-gpu-gaudi",
       "kind": "platform",
       "category": "hardware-platforms",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": null,
       "replaces": null
@@ -923,7 +923,7 @@
       "name": "exl3-quantization",
       "kind": "product",
       "category": "quantization",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://github.com/turboderp-org/exllamav3",
       "replaces": "skills/model-quantization/references/exl3.md"
@@ -932,7 +932,7 @@
       "name": "gptqmodel",
       "kind": "product",
       "category": "quantization",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/ModelCloud/GPTQModel",
       "replaces": null
@@ -1024,7 +1024,7 @@
       "name": "nvidia-nemo",
       "kind": "product",
       "category": "fine-tuning",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/NVIDIA-NeMo",
       "replaces": null
@@ -1042,7 +1042,7 @@
       "name": "openrlhf",
       "kind": "product",
       "category": "fine-tuning",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/OpenRLHF/OpenRLHF",
       "replaces": null
@@ -1098,7 +1098,7 @@
       "name": "lighteval",
       "kind": "product",
       "category": "evals-benchmarks",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/huggingface/lighteval",
       "replaces": null
@@ -1107,7 +1107,7 @@
       "name": "deepeval",
       "kind": "product",
       "category": "evals-benchmarks",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/confident-ai/deepeval",
       "replaces": null
@@ -1324,7 +1324,7 @@
       "name": "cline",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/cline/cline",
       "replaces": "skills/llm-clients/references/ide-extensions.md"
@@ -1342,7 +1342,7 @@
       "name": "kilo-code",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/Kilo-Org/kilocode",
       "replaces": "skills/llm-clients/references/ide-extensions.md"
@@ -1378,7 +1378,7 @@
       "name": "lobehub",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/lobehub/lobe-chat",
       "replaces": "skills/llm-clients/references/chat-uis.md"
