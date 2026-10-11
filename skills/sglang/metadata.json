@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve, tune and scale SGLang v0.5.x on NVIDIA, AMD, DGX Spark and other hardware: pip/uv and lmsysorg/sglang images, launch flags, parallelism and multi-node, parsers, structured output, speculative decoding, LoRA, multimodal, embeddings, benchmarking, metrics and updates. Detail lives in references, with DGX Spark and PD-disaggregation combos and deployment templates.",
+  "references": [
+    "https://docs.sglang.io/",
+    "https://github.com/sgl-project/sglang",
+    "https://github.com/sgl-project/sglang/releases",
+    "https://hub.docker.com/r/lmsysorg/sglang/tags",
+    "https://pypi.org/project/sglang/",
+    "https://pypi.org/project/sglang-router/",
+    "https://pypi.org/project/mooncake-transfer-engine/",
+    "https://github.com/NVIDIA/dgx-spark-playbooks/tree/main/nvidia/sglang",
+    "https://github.com/NVIDIA/dgx-spark-playbooks/tree/main/nvidia/connect-two-sparks",
+    "https://lmsys.org/blog/"
+  ],
+  "kind": "product"
+}

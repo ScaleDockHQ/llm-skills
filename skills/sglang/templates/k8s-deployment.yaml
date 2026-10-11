@@ -1,0 +1,101 @@
+# SGLang single-node Deployment + Service. Adapted from upstream docker/k8s-sglang-service.yaml.
+# Verified against SGLang v0.5.21, 2026-10-11. Needs the NVIDIA device plugin (and a "nvidia" RuntimeClass if your cluster uses one).
+# Create the token Secret outside this file:  kubectl create secret generic hf-token --from-literal=HF_TOKEN="$(cat ~/.config/hf/token)"
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sglang-hf-cache
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 100Gi
+  # storageClassName: <your class>
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sglang
+  labels: { app: sglang }
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate # one GPU: no surge pods
+  selector:
+    matchLabels: { app: sglang }
+  template:
+    metadata:
+      labels: { app: sglang }
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "30000"
+        prometheus.io/path: /metrics
+    spec:
+      containers:
+        - name: sglang
+          image: lmsysorg/sglang:v0.5.21-cu130 # pin a tag or digest
+          command: ["python3", "-m", "sglang.launch_server"]
+          args:
+            - --model-path
+            - Qwen/Qwen3-8B
+            - --served-model-name
+            - qwen3-8b
+            - --host
+            - 0.0.0.0
+            - --port
+            - "30000"
+            - --mem-fraction-static
+            - "0.85"
+            - --enable-metrics
+          env:
+            - name: HF_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: hf-token
+                  key: HF_TOKEN
+                  optional: true
+          ports:
+            - containerPort: 30000
+              name: http
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+              memory: 40Gi
+            requests:
+              nvidia.com/gpu: 1
+              cpu: "4"
+              memory: 16Gi
+          volumeMounts:
+            - { name: shm, mountPath: /dev/shm } # shared memory is required
+            - { name: hf-cache, mountPath: /root/.cache/huggingface }
+          startupProbe: # model load + CUDA graph capture can take many minutes
+            httpGet: { path: /health, port: 30000 }
+            periodSeconds: 10
+            failureThreshold: 90
+          livenessProbe:
+            httpGet: { path: /health, port: 30000 }
+            periodSeconds: 30
+            failureThreshold: 5
+          readinessProbe:
+            httpGet: { path: /health, port: 30000 }
+            periodSeconds: 10
+      volumes:
+        - name: shm
+          emptyDir:
+            medium: Memory
+            sizeLimit: 32Gi
+        - name: hf-cache
+          persistentVolumeClaim:
+            claimName: sglang-hf-cache
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sglang
+spec:
+  type: ClusterIP # expose through an authenticated gateway, not a public LoadBalancer
+  selector: { app: sglang }
+  ports:
+    - name: http
+      port: 30000
+      targetPort: 30000
