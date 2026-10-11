@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Extend LLM KV cache capacity by offloading to CPU RAM, disk, object storage or peer instances across vLLM, LMCache, SGLang HiCache, TensorRT-LLM, llama.cpp, TabbyAPI and TensorFold. Covers exact per-engine flags, defaults and constraints, tier sizing, sharing scope, cache-key and tenant isolation security, troubleshooting, and a quality gate with the llm-evals skill including rollback.",
+  "references": [
+    "https://github.com/vllm-project/vllm/blob/v0.31.0/docs/features/kv_offloading_usage.md",
+    "https://github.com/vllm-project/vllm/blob/v0.31.0/vllm/config/cache.py",
+    "https://docs.lmcache.ai/mp/quickstart.html",
+    "https://docs.sglang.ai/advanced_features/hicache_design.html",
+    "https://docs.sglang.ai/advanced_features/hicache_best_practices.html",
+    "https://docs.sglang.ai/advanced_features/server_arguments.html",
+    "https://github.com/NVIDIA/TensorRT-LLM/blob/v1.2.1/docs/source/features/kvcache.md",
+    "https://github.com/NVIDIA/TensorRT-LLM/blob/v1.2.1/docs/source/features/kv-cache-connector.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://github.com/theroyallab/tabbyAPI/blob/main/config_sample.yml",
+    "https://github.com/ashhart/TensorFold",
+    "https://docs.ollama.com/faq"
+  ],
+  "kind": "technique"
+}
