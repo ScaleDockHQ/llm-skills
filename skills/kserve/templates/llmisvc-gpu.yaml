@@ -1,0 +1,37 @@
+# LLMInferenceService on one GPU per replica with the managed gateway, route and scheduler (llm-d EPP).
+# Based on docs/samples/llmisvc/single-node-gpu in kserve v0.21.0. Requires the llmisvc install.
+apiVersion: serving.kserve.io/v1alpha2
+kind: LLMInferenceService
+metadata:
+  name: qwen-single
+spec:
+  model:
+    uri: hf://Qwen/Qwen2.5-7B-Instruct
+    name: Qwen/Qwen2.5-7B-Instruct
+  replicas: 2
+  router:
+    scheduler: {}
+    route: {}
+    gateway: {}
+  template:
+    containers:
+      - name: main
+        # Pin your own vLLM image here if you do not want the preset (ghcr.io/llm-d/llm-d-cuda in v0.21.0).
+        resources:
+          limits:
+            cpu: "4"
+            memory: 32Gi
+            nvidia.com/gpu: "1"
+          requests:
+            cpu: "2"
+            memory: 16Gi
+            nvidia.com/gpu: "1"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+            scheme: HTTPS
+          initialDelaySeconds: 120
+          periodSeconds: 30
+          timeoutSeconds: 30
+          failureThreshold: 5
