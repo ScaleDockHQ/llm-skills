@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Stack recipe for vLLM on Runpod Serverless (worker-vllm) behind a LiteLLM gateway. References cover deploy and smoke test, the LiteLLM entry with timeouts and fallback, and cost watching and teardown, linking the runpod, vllm and litellm skills for depth.",
+  "references": [
+    "https://docs.runpod.io/serverless/vllm/get-started",
+    "https://github.com/runpod-workers/worker-vllm",
+    "https://github.com/runpod/runpodctl",
+    "https://docs.litellm.ai/docs/providers/openai_compatible"
+  ],
+  "kind": "stack"
+}
