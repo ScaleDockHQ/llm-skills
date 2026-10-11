@@ -1,0 +1,25 @@
+// Anthropic Messages shape (/v1/messages): LiteLLM, llama-swap, vLLM, llama.cpp, Claude-shaped gateways.
+// Key: Agent Settings, or export MY_ANTHROPIC_GATEWAY_API_KEY (provider name upper snake case + _API_KEY).
+{
+  "language_models": {
+    "anthropic_compatible": {
+      "My Anthropic Gateway": {
+        "api_url": "http://localhost:4000", // documented example has no /v1 suffix; verify in the server log
+        "custom_headers": {},
+        "available_models": [
+          {
+            "name": "coder",
+            "display_name": "Coder (Messages)",
+            "max_tokens": 131072,
+            "max_output_tokens": 8192,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "prompt_caching": false,
+            },
+          },
+        ],
+      },
+    },
+  },
+}

@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Connect Zed, the Rust code editor with Agent Panel, Inline Assistant and edit prediction, to self-hosted and gateway model endpoints. Covers openai_compatible and anthropic_compatible providers for vLLM, llama.cpp, Ollama, LM Studio, LiteLLM and llama-swap, model-name and context mapping, key handling, tool calling, reasoning and streaming caveats, built-in local providers, self-hosted edit prediction, update, and troubleshooting, with settings templates.",
+  "references": [
+    "https://github.com/zed-industries/zed",
+    "https://github.com/zed-industries/zed/releases",
+    "https://zed.dev/docs/ai/llm-providers",
+    "https://zed.dev/docs/ai/use-api-access",
+    "https://zed.dev/docs/ai/use-a-gateway",
+    "https://zed.dev/docs/ai/use-a-local-model",
+    "https://zed.dev/docs/ai/agent-settings",
+    "https://zed.dev/docs/ai/tool-permissions",
+    "https://zed.dev/docs/ai/edit-prediction",
+    "https://zed.dev/docs/installation",
+    "https://zed.dev/docs/linux",
+    "https://zed.dev/docs/configuring-zed",
+    "https://zed.dev/docs/environment"
+  ],
+  "kind": "product"
+}
