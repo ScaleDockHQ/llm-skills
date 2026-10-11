@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Operate PostHog AI Observability for LLM traces, cost and latency. Covers wrapped OpenAI clients for vLLM, llama.cpp, SGLang and Ollama, the LiteLLM callback, OTLP with a validated Collector, privacy mode and 30-day retention, pricing for local models, insight alerts, Cloud versus self-hosted PostHog, updates and troubleshooting.",
+  "references": [
+    "https://posthog.com/docs/ai-observability",
+    "https://posthog.com/docs/ai-observability/installation",
+    "https://posthog.com/docs/ai-observability/installation/openai",
+    "https://posthog.com/docs/ai-observability/installation/ollama",
+    "https://posthog.com/docs/ai-observability/installation/litellm",
+    "https://posthog.com/docs/ai-observability/installation/opentelemetry",
+    "https://posthog.com/docs/ai-observability/installation/manual-capture",
+    "https://posthog.com/docs/ai-observability/privacy-mode",
+    "https://posthog.com/docs/ai-observability/data-retention",
+    "https://posthog.com/docs/ai-observability/calculating-costs",
+    "https://posthog.com/docs/ai-observability/troubleshooting",
+    "https://posthog.com/docs/alerts",
+    "https://posthog.com/docs/self-host",
+    "https://github.com/PostHog/posthog-python",
+    "https://pypi.org/project/posthog/"
+  ],
+  "kind": "product"
+}
