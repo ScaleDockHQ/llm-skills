@@ -1,0 +1,35 @@
+# OpenTelemetry Collector in front of Sentry's OTLP traces endpoint: strips message content, batches.
+# Verified against Sentry docs "Direct OTLP Traces" (open beta), validated with collector-contrib 0.162.0, 2026-10-11.
+# Env (set values from a 0600 env file): SENTRY_OTLP_TRACES_ENDPOINT, SENTRY_PUBLIC_KEY
+#   Endpoint form: https://o<orgId>.ingest.sentry.io/api/<projectId>/integration/otlp/v1/traces
+#   Both come from Project settings > Client Keys (DSN). Self-hosted Sentry: use your own host in the same path.
+# Known limits from the docs: span events are dropped at ingestion (put GenAI content in span attributes), array attributes are display-only.
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 127.0.0.1:4318
+
+processors:
+  attributes/strip-content:
+    actions:
+      # Remove these to keep prompts, tool arguments and responses in Sentry.
+      - { key: gen_ai.input.messages, action: delete }
+      - { key: gen_ai.output.messages, action: delete }
+      - { key: gen_ai.system_instructions, action: delete }
+      - { key: gen_ai.tool.call.arguments, action: delete }
+      - { key: gen_ai.tool.call.result, action: delete }
+  batch: {}
+
+exporters:
+  otlphttp/sentry:
+    traces_endpoint: ${env:SENTRY_OTLP_TRACES_ENDPOINT}
+    headers:
+      x-sentry-auth: "sentry sentry_key=${env:SENTRY_PUBLIC_KEY}"
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [attributes/strip-content, batch]
+      exporters: [otlphttp/sentry]
