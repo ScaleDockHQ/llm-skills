@@ -1,0 +1,33 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Choose, size and serve MiniMax open-weight models: MiniMax-M3 (428B MoE, multimodal, 1M context) and the text-only M2 line (M2.7, M2.5, M2.1, M2). Covers chat templates, interleaved thinking and thinking_mode toggles, exact minimax_m2 and minimax_m3 tool and reasoning parsers for vLLM, SGLang, TensorRT-LLM and llama.cpp, recommended quants per platform (DGX Spark, RTX, Apple Silicon, Hopper, Blackwell), licenses and known bugs, split into four references.",
+  "references": [
+    "https://huggingface.co/MiniMaxAI/MiniMax-M3",
+    "https://huggingface.co/MiniMaxAI/MiniMax-M3/blob/main/LICENSE",
+    "https://huggingface.co/MiniMaxAI/MiniMax-M3/blob/main/chat_template.jinja",
+    "https://huggingface.co/MiniMaxAI/MiniMax-M2.7",
+    "https://github.com/MiniMax-AI/MiniMax-M2.7",
+    "https://huggingface.co/MiniMaxAI/MiniMax-M2",
+    "https://huggingface.co/MiniMaxAI/MiniMax-M2/discussions/38",
+    "https://recipes.vllm.ai/MiniMaxAI/MiniMax-M3",
+    "https://github.com/vllm-project/vllm/releases",
+    "https://docs.sglang.io/cookbook/autoregressive/MiniMax/MiniMax-M3",
+    "https://nvidia.github.io/TensorRT-LLM/latest/deployment-guide/deployment-guide-for-minimax-m3-on-trtllm.html",
+    "https://nvidia.github.io/TensorRT-LLM/latest/models/supported-models.html",
+    "https://github.com/ggml-org/llama.cpp/pull/24908",
+    "https://github.com/ggml-org/llama.cpp/pull/16946",
+    "https://github.com/ggml-org/llama.cpp/pull/22106",
+    "https://unsloth.ai/docs/models/minimax-m3",
+    "https://unsloth.ai/docs/models/minimax-m27",
+    "https://huggingface.co/nvidia/MiniMax-M3-NVFP4",
+    "https://huggingface.co/nvidia/MiniMax-M2.7-NVFP4",
+    "https://forums.developer.nvidia.com/t/minimax-m2-7-nfvp4-recipe-benchmarks/366324",
+    "https://huggingface.co/mlx-community/MiniMax-M2.7-4bit",
+    "https://ollama.com/library/minimax-m3",
+    "https://platform.minimax.io/docs/api-reference/text-openai-api",
+    "https://github.com/ashhart/TensorFold"
+  ],
+  "kind": "model-family"
+}
