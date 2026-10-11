@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve and tune stable-diffusion.cpp, the ggml C/C++ engine for image and video diffusion. References cover release zips, container images and CMake backends, weight files and GGUF quantization, sd-server flags and its OpenAI, WebUI and native async APIs, memory and speed options, updating, troubleshooting and a combo with llama-swap and LiteLLM.",
+  "references": [
+    "https://github.com/leejet/stable-diffusion.cpp",
+    "https://github.com/leejet/stable-diffusion.cpp/releases",
+    "https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/build.md",
+    "https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/docker.md",
+    "https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/performance.md",
+    "https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/backend.md",
+    "https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/caching.md",
+    "https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/lora.md",
+    "https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/quantization_and_gguf.md",
+    "https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/troubleshooting.md",
+    "https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/z_image.md",
+    "https://github.com/leejet/stable-diffusion.cpp/tree/master/examples/server",
+    "https://github.com/leejet/stable-diffusion.cpp/blob/master/examples/server/api.md",
+    "https://github.com/leejet/stable-diffusion.cpp/blob/master/examples/cli/README.md",
+    "https://github.com/mostlygeek/llama-swap",
+    "https://docs.litellm.ai/docs/image_generation"
+  ],
+  "kind": "product"
+}
