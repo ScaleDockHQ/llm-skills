@@ -5,7 +5,7 @@ license: MIT
 compatibility: Commands assume bash, curl, jq and Docker for validating Collector configs; Python 3.10+ for the instrumentation packages. Installing packages, running a Collector and enabling content capture need the user's explicit approval.
 metadata:
   author: ScaleDockHQ
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # OpenTelemetry for GenAI

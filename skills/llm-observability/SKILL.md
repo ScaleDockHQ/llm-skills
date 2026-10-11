@@ -4,7 +4,7 @@ description: Metrics, tracing, logging, cost tracking and alerting for LLM servi
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.2.0"
+  version: "1.2.1"
 compatibility: Assumes OpenAI-compatible serving (engines directly or behind LiteLLM / llama-swap) and Prometheus-format metrics. Uses curl and jq for discovery; Prometheus, Grafana, DCGM exporter, Langfuse or Phoenix are optional components the workflows install or connect to.
 ---
 
@@ -112,7 +112,7 @@ Order of work: **metrics → traces → logs**. Metrics are cheap and safe; trac
 ### 5. Request tracing
 
 - [ ] Decide the backend: Langfuse (LLM-centric UI, costs, prompts; deep dive in the `langfuse` skill) or Phoenix (OTel-native, evals) or any OTLP backend.
-- [ ] Instrument the app (OpenLLMetry or OTel GenAI instrumentation) and/or the gateway (LiteLLM `otel` / `langfuse_otel` callback).
+- [ ] Instrument the app (OpenLLMetry or OTel GenAI instrumentation) and/or the gateway (LiteLLM `otel` / `langfuse_otel` callback; the latter needs `LITELLM_OTEL_V2=true`).
 - [ ] Turn content capture **off** first; enable per environment only after the privacy review.
 - [ ] Propagate `traceparent` from app to gateway. → `references/tracing.md`
 

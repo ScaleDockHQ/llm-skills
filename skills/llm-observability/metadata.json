@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.2.1",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Metrics, tracing, logging, cost tracking and alerting for LLM serving and LLM apps. Covers Prometheus metrics from vLLM, SGLang, llama.cpp, TGI and llama-swap (including which /metrics endpoints are unauthenticated), NVIDIA GPU metrics with DCGM exporter and the unified-memory reporting caveats on DGX Spark / GB10, Prometheus and Grafana setup with validated scrape and alert templates, OpenTelemetry GenAI tracing with Langfuse, Arize Phoenix and OpenLLMetry, LiteLLM gateway metrics, logging callbacks, spend logs and pricing, symptom-first alerting, and a privacy review for prompt and PII logging, redaction and retention.",

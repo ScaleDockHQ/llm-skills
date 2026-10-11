@@ -68,7 +68,7 @@ litellm_settings:
 OTEL_EXPORTER=otlp_http
 OTEL_ENDPOINT=http://otel-collector:4318/v1/traces        # LiteLLM takes the full traces URL
 OTEL_HEADERS="<name>=<value>"                              # real values only in a 0600 env file; not needed for an unauthenticated Collector
-LITELLM_OTEL_V2=true                                      # newer GenAI semconv path and presets such as arize_phoenix
+LITELLM_OTEL_V2=true                                      # required for the arize_phoenix and langfuse_otel presets; read once at startup, restart the proxy
 ```
 
 - Check the LiteLLM docs for the exact variables in your version; preset callbacks exist for Phoenix (`arize_phoenix`) and Langfuse (`langfuse_otel`), and `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` is honored by the generic callback (`true` maps to event-only there).

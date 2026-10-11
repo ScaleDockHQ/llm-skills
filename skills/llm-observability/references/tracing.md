@@ -8,11 +8,11 @@ Stack notes only. Backend install, SDK setup, retention and troubleshooting live
 
 Where spans come from:
 
-| Layer           | How                                                                                                                                                          |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| App             | OpenLLMetry (`Traceloop.init()`), OpenInference instrumentors (Phoenix), Langfuse SDK, or OTel GenAI instrumentation                                         |
-| LiteLLM gateway | `litellm_settings.callbacks: ["otel"]` with `OTEL_EXPORTER`, `OTEL_ENDPOINT`, `OTEL_HEADERS`; or `["langfuse_otel"]`. Content switches: `gateway-logging.md` |
-| vLLM            | `--otlp-traces-endpoint <url>`; `OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=http/protobuf` for HTTP (default gRPC); `--collect-detailed-traces` costs performance    |
+| Layer           | How                                                                                                                                                                                                          |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| App             | OpenLLMetry (`Traceloop.init()`), OpenInference instrumentors (Phoenix), Langfuse SDK, or OTel GenAI instrumentation                                                                                         |
+| LiteLLM gateway | `litellm_settings.callbacks: ["otel"]` with `OTEL_EXPORTER`, `OTEL_ENDPOINT`, `OTEL_HEADERS`; or `["langfuse_otel"]` with `LITELLM_OTEL_V2=true` (restart the proxy). Content switches: `gateway-logging.md` |
+| vLLM            | `--otlp-traces-endpoint <url>`; `OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=http/protobuf` for HTTP (default gRPC); `--collect-detailed-traces` costs performance                                                    |
 
 Stack pitfalls:
 

@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.2.1",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Run one OpenAI- and Anthropic-compatible LLM gateway in front of local engines and cloud providers. Covers choosing a gateway (LiteLLM, OpenRouter, Portkey, Envoy AI Gateway, Kong, Cloudflare), installing the LiteLLM proxy with Postgres, stable model aliases with explicit model_info, virtual keys and budgets, routing and fallbacks, bridging /v1/messages and /v1/responses clients onto chat-completions backends, pinned upgrades with rollback, and troubleshooting.",

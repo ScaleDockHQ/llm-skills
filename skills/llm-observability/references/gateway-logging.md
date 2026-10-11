@@ -92,7 +92,7 @@ sum by (team_alias) (increase(litellm_spend_metric_total[1h]))
 
 ```yaml
 litellm_settings:
-  callbacks: ["prometheus", "otel"] # or "langfuse_otel"
+  callbacks: ["prometheus", "otel"] # or "langfuse_otel" (needs LITELLM_OTEL_V2=true)
   turn_off_message_logging: true
 callback_settings:
   otel:
@@ -100,10 +100,10 @@ callback_settings:
 ```
 
 - OTel: env `OTEL_EXPORTER` (`otlp_http`, `otlp_grpc`, `console`), `OTEL_ENDPOINT`, `OTEL_HEADERS`.
-- Langfuse: `callbacks: ["langfuse_otel"]` (or `["otel"]` pointed at a Collector). Keys, hosts, classic-callback and per-team details: see the Langfuse note below.
+- Langfuse: `callbacks: ["langfuse_otel"]` plus `LITELLM_OTEL_V2=true` in the proxy env (read once at startup, so restart the proxy; OTel v2 replaces the v1 `otel` integration, pick one) (or `["otel"]` pointed at a Collector). Keys, hosts, classic-callback and per-team details: see the Langfuse note below.
 - Keep secrets in env/secret store, never in the YAML committed to git.
 
-**Langfuse in this stack.** Use the `langfuse_otel` preset so gateway generations carry model, usage, cost and key/team attribution; keep `turn_off_message_logging: true` until content logging is approved.
+**Langfuse in this stack.** Use the `langfuse_otel` preset (needs `LITELLM_OTEL_V2=true`) so gateway generations carry model, usage, cost and key/team attribution; keep `turn_off_message_logging: true` until content logging is approved.
 
 Depth: install the langfuse skill (npx skills add ScaleDockHQ/llms-skills --skill langfuse)
 

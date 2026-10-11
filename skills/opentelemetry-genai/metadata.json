@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Trace LLM apps with OpenTelemetry: the GenAI semantic conventions and their Development status, official Python instrumentation packages and the openai-v2 migration, content capture and privacy, and an OpenTelemetry Collector that strips prompts, samples and fans out to Phoenix, Langfuse, MLflow or any OTLP backend, with LiteLLM, vLLM and OpenAI-compatible endpoints and a validated Collector config.",
