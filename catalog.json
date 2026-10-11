@@ -1358,7 +1358,7 @@
       "name": "goose",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/block/goose",
       "replaces": null
