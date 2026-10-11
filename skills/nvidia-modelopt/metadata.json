@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Quantize LLMs with NVIDIA Model Optimizer (nvidia-modelopt, NVIDIA/Model-Optimizer): hf_ptq.py post-training quantization to NVFP4, FP8, INT4 AWQ and MXFP8, qformat and recipe choice, AutoQuantize, KV cache formats, memory options, export to a unified Hugging Face checkpoint, and deployment checks on TensorRT-LLM, vLLM and SGLang. Verified against ModelOpt 0.47.0 and vLLM v0.31.0.",
+  "references": [
+    "https://github.com/NVIDIA/Model-Optimizer",
+    "https://nvidia.github.io/Model-Optimizer/",
+    "https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/hf_ptq",
+    "https://nvidia.github.io/Model-Optimizer/deployment/3_unified_hf.html",
+    "https://nvidia.github.io/Model-Optimizer/getting_started/2_installation.html",
+    "https://pypi.org/project/nvidia-modelopt/",
+    "https://huggingface.co/collections/nvidia/inference-optimized-checkpoints-with-model-optimizer",
+    "https://docs.vllm.ai/en/latest/features/quantization/modelopt.html",
+    "https://github.com/NVIDIA/TensorRT-LLM/blob/main/docs/source/features/quantization.md",
+    "https://github.com/sgl-project/sglang"
+  ],
+  "kind": "product"
+}
