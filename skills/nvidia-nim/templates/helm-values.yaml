@@ -1,0 +1,18 @@
+# Values for the nim-llm Helm chart (helm install my-nim nim-llm/ -f helm-values.yaml).
+# Create the secrets first from your environment; do not put keys in this file.
+image:
+  repository: <NIM_LLM_MODEL_SPECIFIC_IMAGE>
+  tag: "2.0.13"
+model:
+  ngcAPISecret: "nvidia-nim-secrets" # empty string for keyless public images
+imagePullSecrets:
+  - name: ngc-secret # remove for keyless public images
+persistence:
+  enabled: true
+  storageClass: "<your-storage-class>"
+  accessMode: ReadWriteMany
+  size: 50Gi
+resources:
+  limits:
+    nvidia.com/gpu: 1
+customArgs: [] # e.g. ["--enable-auto-tool-choice", "--tool-call-parser", "llama3_json"]
