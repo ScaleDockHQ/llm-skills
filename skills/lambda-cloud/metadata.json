@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Launch, serve and tear down LLMs on Lambda Cloud GPU instances and 1-Click Clusters through the Cloud API, with filesystems, firewall rules, LiteLLM and OpenAI client wiring, billing and quota checks. References cover auth, the instances API, serving, storage and clusters, limits, teardown and troubleshooting, including the announced sunset of the hosted Inference API.",
+  "references": [
+    "https://docs.lambda.ai/api/cloud",
+    "https://docs.lambda.ai/public-cloud/on-demand/",
+    "https://docs.lambda.ai/public-cloud/on-demand/creating-managing-instances/",
+    "https://docs.lambda.ai/public-cloud/filesystems/",
+    "https://docs.lambda.ai/public-cloud/1-click-clusters/",
+    "https://docs.lambda.ai/public-cloud/billing/",
+    "https://docs.lambda.ai/public-cloud/access-security/",
+    "https://docs.lambda.ai/public-cloud/console/",
+    "https://docs.lambda.ai/public-cloud/resource-hierarchy/",
+    "https://docs.lambda.ai/education/large-language-models/serving-llama-3-1-docker/",
+    "https://docs.lambda.ai/education/large-language-models/deploying-nemotron-3-nano/",
+    "https://docs.lambda.ai/education/large-language-models/serving-llama-3-1-405b/",
+    "https://deeptalk.lambda.ai/t/sunsetting-chat-sunsetting-inference/4744"
+  ],
+  "kind": "platform"
+}
