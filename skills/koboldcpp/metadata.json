@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, run, tune, update and troubleshoot KoboldCpp, the single-file GGUF server with the KoboldAI Lite UI and OpenAI, Ollama, Anthropic and media APIs. References cover platform binaries and builds, flags and .kcpps configs, models and mmproj, features (tools, MCP, vision, image, speech, music), API and admin routes, tuning, llama-swap and LiteLLM integration, observability, updating and troubleshooting, with systemd, compose and config templates.",
+  "references": [
+    "https://github.com/LostRuins/koboldcpp",
+    "https://github.com/LostRuins/koboldcpp/releases",
+    "https://github.com/LostRuins/koboldcpp/wiki",
+    "https://github.com/LostRuins/koboldcpp/blob/concedo/koboldcpp.py",
+    "https://lite.koboldai.net/koboldcpp_api",
+    "https://hub.docker.com/r/koboldai/koboldcpp",
+    "https://koboldcpp.net"
+  ],
+  "kind": "product"
+}

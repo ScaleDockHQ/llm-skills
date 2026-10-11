@@ -1,0 +1,10 @@
+{
+  "model_param": "/models/model.gguf",
+  "usecuda": ["normal"],
+  "gpulayers": -1,
+  "contextsize": 16384,
+  "host": "127.0.0.1",
+  "port": 5001,
+  "jinja": true,
+  "skiplauncher": true
+}

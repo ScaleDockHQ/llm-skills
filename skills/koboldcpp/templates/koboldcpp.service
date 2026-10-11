@@ -1,0 +1,18 @@
+# /etc/systemd/system/koboldcpp.service. Review paths and user, then:
+#   sudo systemctl daemon-reload && sudo systemctl enable --now koboldcpp
+# Passwords: put KCPP_PASSWORD=... in /etc/koboldcpp.env (chmod 600, root-owned), never in this file.
+[Unit]
+Description=KoboldCpp
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=koboldcpp
+EnvironmentFile=-/etc/koboldcpp.env
+WorkingDirectory=/opt/koboldcpp
+ExecStart=/opt/koboldcpp/koboldcpp-linux-x64 --config /opt/koboldcpp/config.kcpps --skiplauncher
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
