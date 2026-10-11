@@ -589,9 +589,9 @@
       "name": "nvidia-rtx-workstation",
       "kind": "platform",
       "category": "hardware-platforms",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
-      "upstream": null,
+      "upstream": "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/",
       "replaces": null
     },
     {
