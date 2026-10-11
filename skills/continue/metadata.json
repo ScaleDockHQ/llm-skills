@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Configure Continue (VS Code, JetBrains, cn CLI) for self-hosted OpenAI-compatible and Anthropic-compatible endpoints (vLLM, llama.cpp, Ollama, LiteLLM, llama-swap). Covers config.yaml models, apiBase rules, secrets in ~/.continue/.env, roles, capabilities, model-name mapping, the Responses API trap, tool-calling and streaming caveats, troubleshooting, a validated template and a read-only probe script.",
+  "references": [
+    "https://github.com/continuedev/continue",
+    "https://github.com/continuedev/continue/releases",
+    "https://github.com/continuedev/continue/blob/main/extensions/cli/README.md",
+    "https://docs.continue.dev/reference",
+    "https://docs.continue.dev/faqs",
+    "https://docs.continue.dev/customize/deep-dives/model-capabilities",
+    "https://docs.continue.dev/customize/model-providers/top-level/openai",
+    "https://docs.continue.dev/customize/model-providers/top-level/anthropic",
+    "https://docs.continue.dev/customize/model-providers/top-level/ollama",
+    "https://docs.continue.dev/customize/model-providers/more/llamacpp"
+  ],
+  "kind": "product"
+}
