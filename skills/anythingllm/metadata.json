@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run AnythingLLM, the all-in-one chat, RAG and agent app, against self-hosted LLM servers. Covers the persistent Docker install, Generic OpenAI, Ollama, LiteLLM and LocalAI providers with env variable names, key and custom-header handling, model-name and context-window settings, recipes for vLLM, llama.cpp, llama-swap, LiteLLM and Ollama, @agent tool calling (native versus prompt-based), MCP servers and troubleshooting, with an env template and a read-only endpoint probe script.",
+  "references": [
+    "https://github.com/Mintplex-Labs/anything-llm",
+    "https://github.com/Mintplex-Labs/anything-llm/releases",
+    "https://github.com/Mintplex-Labs/anything-llm/blob/master/server/.env.example",
+    "https://github.com/Mintplex-Labs/anything-llm/blob/master/docker/HOW_TO_USE_DOCKER.md",
+    "https://docs.anythingllm.com/setup/llm-configuration/overview",
+    "https://docs.anythingllm.com/setup/llm-configuration/cloud/openai-generic",
+    "https://docs.anythingllm.com/installation-docker/local-docker",
+    "https://docs.anythingllm.com/installation-docker/localhost",
+    "https://docs.anythingllm.com/ollama-connection-troubleshooting",
+    "https://docs.anythingllm.com/agent-not-using-tools",
+    "https://docs.anythingllm.com/agent/intelligent-tool-selection",
+    "https://docs.anythingllm.com/mcp-compatibility/docker",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md"
+  ],
+  "kind": "product"
+}
