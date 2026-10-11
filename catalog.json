@@ -1622,7 +1622,7 @@
       "name": "chroma",
       "kind": "product",
       "category": "embeddings-rag",
-      "status": "planned",
+      "status": "stable",
       "wave": 9,
       "upstream": "https://github.com/chroma-core/chroma",
       "replaces": null

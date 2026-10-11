@@ -204,6 +204,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`text-embeddings-inference`](skills/text-embeddings-inference) | Run Hugging Face Text Embeddings Inference (TEI) for embedding and rerank models beside your LLM stack: image per GPU, sizing, API key, LiteLLM entries, update, teardown.             | `npx skills add ScaleDockHQ/llms-skills@text-embeddings-inference` |
 | [`milvus`](skills/milvus)                                       | Run Milvus (Lite, single container or Compose standalone) beside your LLM stack: requirements, hardened compose, index memory math, auth, upgrades, LiteLLM embeddings and Open WebUI. | `npx skills add ScaleDockHQ/llms-skills@milvus`                    |
 | [`weaviate`](skills/weaviate)                                   | Run Weaviate beside your LLM stack: Docker install, memory sizing and quantization, API-key auth and RBAC, text2vec-openai via LiteLLM or TEI, backups, upgrades.                      | `npx skills add ScaleDockHQ/llms-skills@weaviate`                  |
+| [`chroma`](skills/chroma)                                       | Run Chroma beside your LLM stack: Docker install, RAM sizing, token proxy (v1 has no built-in auth), OpenAI-compatible embedding function via LiteLLM or TEI, backups, upgrades.       | `npx skills add ScaleDockHQ/llms-skills@chroma`                    |
 
 ### Platform skills
 
@@ -305,7 +306,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 143 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 144 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
