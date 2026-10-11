@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Connect SillyTavern, the local character-chat and roleplay front end, to self-hosted LLM servers. Covers the git and Docker install, Chat Completion with the Custom OpenAI-compatible source and the Claude reverse proxy, Text Completion types for vLLM, llama.cpp, Ollama and Generic, key handling in secrets.json, additional body parameters and headers, prompt post-processing, tool calling, streaming, Connection Profiles, listen, whitelist and SSRF settings, and troubleshooting, with a config.yaml snippet and a read-only endpoint probe script.",
+  "references": [
+    "https://github.com/SillyTavern/SillyTavern",
+    "https://github.com/SillyTavern/SillyTavern/releases",
+    "https://github.com/SillyTavern/SillyTavern/blob/release/default/config.yaml",
+    "https://github.com/SillyTavern/SillyTavern-Docs",
+    "https://docs.sillytavern.app/usage/api-connections/",
+    "https://docs.sillytavern.app/usage/core-concepts/connection-profiles/",
+    "https://github.com/vllm-project/vllm",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md"
+  ],
+  "kind": "product"
+}
