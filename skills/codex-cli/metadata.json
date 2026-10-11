@@ -1,0 +1,14 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Connect OpenAI's Codex CLI to self-hosted and gateway models over the Responses API. Covers install and updates, config.toml model_providers with base_url, env_key or auth commands and wire_api responses, profiles and --oss, per-engine setup for vLLM, llama.cpp, Ollama, llama-swap and LiteLLM, context window and compaction limits, reasoning settings, known compatibility issues with non-OpenAI backends (MCP, history items, tool calls, streaming), troubleshooting, and an endpoint probe script.",
+  "references": [
+    "https://github.com/openai/codex",
+    "https://github.com/openai/codex/releases",
+    "https://github.com/openai/codex/issues",
+    "https://learn.chatgpt.com/docs/config-file/config-advanced",
+    "https://learn.chatgpt.com/docs/config-file/config-reference"
+  ],
+  "kind": "product"
+}

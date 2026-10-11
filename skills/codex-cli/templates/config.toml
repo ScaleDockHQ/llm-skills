@@ -1,0 +1,23 @@
+# Codex CLI user config: ~/.codex/config.toml
+# Providers must live here (or in a profile file); project .codex/config.toml ignores them.
+# Docs: https://learn.chatgpt.com/docs/config-file/config-reference
+# Keep your normal default here; select the self-hosted setup with `codex --profile local`.
+
+[model_providers.local]
+name = "Local engine"
+base_url = "http://HOST:PORT/v1" # Codex appends /responses
+env_key = "LOCAL_LLM_API_KEY" # NAME of the env var; omit for keyless local engines
+env_key_instructions = "Export LOCAL_LLM_API_KEY from ~/.config/llm/key (mode 0600)."
+wire_api = "responses" # the only supported value
+request_max_retries = 4
+stream_max_retries = 5
+stream_idle_timeout_ms = 600000 # cold model loads and long prefill
+
+# Optional: token from a helper instead of env_key (do not combine with env_key).
+# [model_providers.local.auth]
+# command = "security"
+# args = ["find-generic-password", "-s", "local-llm", "-w"]
+# refresh_interval_ms = 3600000
+
+# Optional: secret header from an env var (value never stored in this file).
+# env_http_headers = { "X-Tenant-Token" = "TENANT_TOKEN" }
