@@ -248,7 +248,7 @@
       "name": "localai",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://github.com/mudler/LocalAI",
       "replaces": null

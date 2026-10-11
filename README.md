@@ -96,6 +96,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`llamafile`](skills/llamafile)       | Run and package LLMs as single-file executables with llamafile, with chat, CLI and OpenAI compatible server modes                                                                                                                                                                                                                                                                                                                                                                                                                 | `npx skills add ScaleDockHQ/llms-skills@llamafile`    |
 | [`mlc-llm`](skills/mlc-llm)           | Install, serve and compile models with MLC LLM (MLCEngine on TVM): mlc_llm serve/chat/convert_weight/compile on CUDA, ROCm, Vulkan, Metal, WebGPU and mobile.                                                                                                                                                                                                                                                                                                                                                                     | `npx skills add ScaleDockHQ/llms-skills@mlc-llm`      |
 | [`mistral-rs`](skills/mistral-rs)     | Rust LLM inference engine with ISQ/UQFF quantization, paged attention, OpenAI, Responses and Anthropic APIs and a web UI                                                                                                                                                                                                                                                                                                                                                                                                          | `npx skills add ScaleDockHQ/llms-skills@mistral-rs`   |
+| [`localai`](skills/localai)           | Install, run and operate LocalAI, the self-hosted OpenAI, Anthropic and Ollama compatible server with gallery and backends                                                                                                                                                                                                                                                                                                                                                                                                        | `npx skills add ScaleDockHQ/llms-skills@localai`      |
 
 #### Local runtimes
 
@@ -306,7 +307,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 144 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 145 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
