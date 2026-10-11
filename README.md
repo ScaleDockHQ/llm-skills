@@ -108,11 +108,12 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 #### Orchestration
 
-| Skill                             | Description                                                                                                                                                                                        | Install                                             |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| [`llama-swap`](skills/llama-swap) | Install, configure and operate llama-swap, the Go proxy that hot-swaps local models behind one OpenAI/Anthropic-compatible URL.                                                                    | `npx skills add ScaleDockHQ/llms-skills@llama-swap` |
-| [`kserve`](skills/kserve)         | Install and operate KServe on Kubernetes for LLMs: LLMInferenceService (llm-d routing, prefill/decode, multi-node, WVA autoscaling, canary) and InferenceService with the vLLM runtime.            | `npx skills add ScaleDockHQ/llms-skills@kserve`     |
-| [`llm-d`](skills/llm-d)           | Install and operate llm-d on Kubernetes: Router (EPP) with precise prefix-cache and predicted-latency routing, prefill/decode disaggregation, wide expert parallelism, KV offload and autoscaling. | `npx skills add ScaleDockHQ/llms-skills@llm-d`      |
+| Skill                                                   | Description                                                                                                                                                                                        | Install                                                        |
+| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| [`llama-swap`](skills/llama-swap)                       | Install, configure and operate llama-swap, the Go proxy that hot-swaps local models behind one OpenAI/Anthropic-compatible URL.                                                                    | `npx skills add ScaleDockHQ/llms-skills@llama-swap`            |
+| [`kserve`](skills/kserve)                               | Install and operate KServe on Kubernetes for LLMs: LLMInferenceService (llm-d routing, prefill/decode, multi-node, WVA autoscaling, canary) and InferenceService with the vLLM runtime.            | `npx skills add ScaleDockHQ/llms-skills@kserve`                |
+| [`llm-d`](skills/llm-d)                                 | Install and operate llm-d on Kubernetes: Router (EPP) with precise prefix-cache and predicted-latency routing, prefill/decode disaggregation, wide expert parallelism, KV offload and autoscaling. | `npx skills add ScaleDockHQ/llms-skills@llm-d`                 |
+| [`vllm-production-stack`](skills/vllm-production-stack) | Deploy the vLLM production-stack Helm chart on Kubernetes: router plus vLLM engines with LMCache offload, session/prefix/KV-aware routing, KEDA and Grafana.                                       | `npx skills add ScaleDockHQ/llms-skills@vllm-production-stack` |
 
 #### Gateways
 
