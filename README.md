@@ -25,13 +25,28 @@ Add `-g` to install globally (user level) instead of per project. Run `npx skill
 
 ## Skills
 
-### Decide
+Every skill has a `kind` (see `metadata.json`):
+
+| Kind           | What it is                                                                   |
+| -------------- | ---------------------------------------------------------------------------- |
+| `workflow`     | Decide, run, connect, improve or operate: the entry points, listed below.    |
+| `product`      | One tool or service in depth (for example an inference engine or a gateway). |
+| `platform`     | A hardware platform or a cloud provider.                                     |
+| `technique`    | A cross-product architecture technique (for example speculative decoding).   |
+| `model-family` | Chat templates, parsers and recommended quants for a model family.           |
+| `stack`        | A named, opinionated combination of products.                                |
+
+Only the `workflow` skills exist today, so only they are listed. Skills of the other kinds appear in their own sections as they are published.
+
+### Workflow skills
+
+#### Decide
 
 | Skill                                                 | Description                                                                                                            |
 | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | [`choosing-llm-hosting`](skills/choosing-llm-hosting) | Decide where models should run (local, owned server, rented GPUs, serverless, APIs or hybrid) and record the decision. |
 
-### Run
+#### Run
 
 | Skill                                                 | Description                                                                                                                                               |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -40,14 +55,14 @@ Add `-g` to install globally (user level) instead of per project. Run `npx skill
 | [`cloud-llms`](skills/cloud-llms)                     | Run and consume models in the cloud: APIs, GPU VMs, serverless GPUs and managed endpoints, with budgets and teardown.                                     |
 | [`self-hosted-genmedia`](skills/self-hosted-genmedia) | Self-host image, video, speech-to-text and text-to-speech servers next to your LLMs.                                                                      |
 
-### Connect
+#### Connect
 
 | Skill                               | Description                                                                                                               |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | [`llm-gateway`](skills/llm-gateway) | One OpenAI- and Anthropic-compatible gateway in front of many providers: keys, budgets, routing, fallbacks, API bridging. |
 | [`llm-clients`](skills/llm-clients) | Connect coding agents, IDEs, chat UIs and SDKs to any OpenAI- or Anthropic-compatible endpoint.                           |
 
-### Improve
+#### Improve
 
 | Skill                                             | Description                                                                                  |
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------- |
@@ -55,11 +70,15 @@ Add `-g` to install globally (user level) instead of per project. Run `npx skill
 | [`model-quantization`](skills/model-quantization) | Produce and publish quantized checkpoints (GGUF, EXL3, FP8, NVFP4 and more).                 |
 | [`fine-tuning-llms`](skills/fine-tuning-llms)     | Fine-tune open-weight models locally or on rented GPUs, then serve the result.               |
 
-### Operate
+#### Operate
 
 | Skill                                           | Description                                                                         |
 | ----------------------------------------------- | ----------------------------------------------------------------------------------- |
 | [`llm-observability`](skills/llm-observability) | Metrics, tracing, logging, cost tracking and alerting for LLM serving and LLM apps. |
+
+## Roadmap
+
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. Planned skills are not installable until they are published and listed above.
 
 ## Repository layout
 
@@ -72,7 +91,9 @@ skills/<name>/
   assets/         config and shell templates (some skills)
   scripts/        bench.sh, a shared curl + jq benchmark (some skills)
 template/skill/   starting point for a new skill
+tools/            new-skill.sh and tools/skeleton/<kind>/ scaffolds
 scripts/          validate-skills.mjs and the git hook installer
+catalog.json      every published and planned skill
 docs/decisions/   architecture decision records
 ```
 
