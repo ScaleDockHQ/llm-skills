@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Route LLM traffic to vLLM or SGLang pods on Kubernetes with the Gateway API Inference Extension: InferencePool, HTTPRoute, the Endpoint Picker from llm-d-router and its Helm charts, gateway and standalone modes. Covers install order, model-server requirements, plugin config, priorities, flow control, HA, observability, migration from the old GAIE charts and troubleshooting. Verified against GAIE v1.6.2 and llm-d router v0.11.0.",
+  "references": [
+    "https://gateway-api-inference-extension.sigs.k8s.io/",
+    "https://github.com/kubernetes-sigs/gateway-api-inference-extension",
+    "https://github.com/kubernetes-sigs/gateway-api-inference-extension/releases",
+    "https://github.com/kubernetes-sigs/gateway-api-inference-extension/blob/v1.6.2/site-src/api-types/inferencepool.md",
+    "https://github.com/kubernetes-sigs/gateway-api-inference-extension/blob/v1.6.2/docs/proposals/003-model-server-protocol/README.md",
+    "https://github.com/llm-d/llm-d-router",
+    "https://github.com/llm-d/llm-d-router/blob/main/config/charts/README.md",
+    "https://github.com/llm-d/llm-d-router/blob/main/docs/architecture.md",
+    "https://github.com/llm-d/llm-d-router/blob/main/docs/operations.md",
+    "https://github.com/llm-d/llm-d-router/blob/main/docs/metrics.md",
+    "https://github.com/llm-d/llm-d/blob/main/docs/api-reference/artifacts.md",
+    "https://gateway-api.sigs.k8s.io/"
+  ],
+  "kind": "product"
+}
