@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Use the official Anthropic Python and TypeScript SDKs against self-hosted Messages endpoints. Covers base URL without /v1, auth_token versus api_key per server, keys without printing secrets, custom headers, timeouts, retries, proxies, streaming, tool use, thinking, betas, recipes for vLLM, llama.cpp, Ollama, LiteLLM and llama-swap with model-name mapping, and troubleshooting, with a Node smoke test and a read-only endpoint probe script.",
+  "references": [
+    "https://github.com/anthropics/anthropic-sdk-python",
+    "https://github.com/anthropics/anthropic-sdk-typescript",
+    "https://platform.claude.com/docs/en/api/client-sdks",
+    "https://platform.claude.com/docs/en/api/messages",
+    "https://docs.ollama.com/api/anthropic-compatibility",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://github.com/mostlygeek/llama-swap",
+    "https://github.com/vllm-project/vllm"
+  ],
+  "kind": "product"
+}
