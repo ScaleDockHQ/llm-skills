@@ -1,0 +1,28 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Use Fireworks AI from an agent: serverless OpenAI and Anthropic compatible inference, on-demand deployments with firectl, batch, fine-tuning, quotas and spend limits, and teardown of every billable resource. References are split by setup, API, deployments, batch and fine-tuning, limits, LiteLLM wiring, teardown and troubleshooting.",
+  "references": [
+    "https://docs.fireworks.ai/getting-started/quickstart",
+    "https://docs.fireworks.ai/getting-started/ondemand-quickstart",
+    "https://docs.fireworks.ai/guides/ondemand-deployments",
+    "https://docs.fireworks.ai/deployments/autoscaling",
+    "https://docs.fireworks.ai/deployments/reservations",
+    "https://docs.fireworks.ai/tools-sdks/openai-compatibility",
+    "https://docs.fireworks.ai/tools-sdks/anthropic-compatibility",
+    "https://docs.fireworks.ai/guides/function-calling",
+    "https://docs.fireworks.ai/structured-responses/structured-response-formatting",
+    "https://docs.fireworks.ai/serverless/rate-limits",
+    "https://docs.fireworks.ai/serverless/serverless-modes",
+    "https://docs.fireworks.ai/guides/quotas_usage/account-quotas",
+    "https://docs.fireworks.ai/guides/batch-inference",
+    "https://docs.fireworks.ai/fine-tuning/fine-tuning-models",
+    "https://docs.fireworks.ai/fine-tuning/deploying-loras",
+    "https://docs.fireworks.ai/accounts/service-accounts",
+    "https://docs.fireworks.ai/guides/security_compliance/data_handling",
+    "https://docs.fireworks.ai/tools-sdks/firectl/commands/deployment-delete",
+    "https://docs.litellm.ai/docs/providers/fireworks_ai"
+  ],
+  "kind": "platform"
+}
