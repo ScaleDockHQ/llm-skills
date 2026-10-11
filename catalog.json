@@ -266,7 +266,7 @@
       "name": "koboldcpp",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://github.com/LostRuins/koboldcpp",
       "replaces": null
@@ -285,21 +285,23 @@
       "name": "text-generation-inference",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "note-only",
       "wave": 9,
       "upstream": "https://github.com/huggingface/text-generation-inference",
       "replaces": null,
-      "verifyStatus": true
+      "verifyStatus": true,
+      "note": "text-generation-inference is archived: the GitHub repository is read-only, its README says it is in maintenance mode and recommends vLLM, SGLang, llama.cpp or MLX, and the last release is v3.3.7 (2025-12-19)."
     },
     {
       "name": "deepspeed-mii",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "note-only",
       "wave": 9,
       "upstream": "https://github.com/deepspeedai/DeepSpeed-MII",
       "replaces": null,
-      "verifyStatus": true
+      "verifyStatus": true,
+      "note": "DeepSpeed-MII is dormant: the last release is v0.3.3 (2025-03-25), the last code commit is 2025-06-30 and open issues report unsupported newer model types such as qwen3."
     },
     {
       "name": "xinference",
