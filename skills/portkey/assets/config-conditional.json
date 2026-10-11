@@ -1,0 +1,24 @@
+{
+  "strategy": {
+    "mode": "conditional",
+    "conditions": [
+      { "query": { "metadata.tier": { "$eq": "premium" } }, "then": "strong" },
+      { "query": { "params.model": { "$eq": "fast" } }, "then": "cheap" }
+    ],
+    "default": "cheap"
+  },
+  "targets": [
+    {
+      "name": "strong",
+      "provider": "anthropic",
+      "api_key": "REPLACE_FROM_ENV_AT_RENDER_TIME",
+      "override_params": { "model": "REPLACE_STRONG_MODEL" }
+    },
+    {
+      "name": "cheap",
+      "provider": "openai",
+      "api_key": "REPLACE_FROM_ENV_AT_RENDER_TIME",
+      "override_params": { "model": "REPLACE_CHEAP_MODEL" }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "strategy": { "mode": "loadbalance" },
+  "targets": [
+    {
+      "provider": "openai",
+      "api_key": "REPLACE_FROM_ENV_AT_RENDER_TIME",
+      "weight": 0.7,
+      "override_params": { "model": "REPLACE_MODEL" }
+    },
+    {
+      "provider": "openai",
+      "api_key": "REPLACE_SECOND_KEY_FROM_ENV",
+      "weight": 0.3,
+      "override_params": { "model": "REPLACE_MODEL" }
+    }
+  ]
+}

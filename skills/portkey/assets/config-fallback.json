@@ -1,0 +1,20 @@
+{
+  "strategy": {
+    "mode": "fallback",
+    "on_status_codes": [429, 500, 502, 503, 504]
+  },
+  "retry": { "attempts": 2, "on_status_codes": [429, 503] },
+  "request_timeout": 60000,
+  "targets": [
+    {
+      "provider": "openai",
+      "api_key": "REPLACE_FROM_ENV_AT_RENDER_TIME",
+      "override_params": { "model": "REPLACE_PRIMARY_MODEL" }
+    },
+    {
+      "provider": "anthropic",
+      "api_key": "REPLACE_FROM_ENV_AT_RENDER_TIME",
+      "override_params": { "model": "REPLACE_BACKUP_MODEL" }
+    }
+  ]
+}

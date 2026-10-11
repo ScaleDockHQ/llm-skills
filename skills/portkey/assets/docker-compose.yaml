@@ -1,0 +1,19 @@
+# Portkey AI Gateway, open source 1.x, single host.
+# Pin to a release tag (add @sha256:<digest> once you have recorded it:
+#   curl -fsS https://hub.docker.com/v2/repositories/portkeyai/gateway/tags/1.15.2 | jq -r .digest)
+# The gateway has no inbound auth: keep the port on loopback and put an
+# authenticating proxy in front before exposing it.
+services:
+  portkey-gateway:
+    image: portkeyai/gateway:1.15.2
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8787:8787"
+    # Provider keys are normally sent per request in the Authorization header.
+    # If you put them in the environment, use an env file with mode 0600:
+    # env_file: ./portkey.env
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
