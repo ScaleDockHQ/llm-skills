@@ -488,7 +488,7 @@
       "name": "cloudflare-ai-gateway",
       "kind": "product",
       "category": "gateways",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://developers.cloudflare.com/ai-gateway/",
       "replaces": null
@@ -497,7 +497,7 @@
       "name": "vercel-ai-gateway",
       "kind": "product",
       "category": "gateways",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://vercel.com/docs/ai-gateway",
       "replaces": null
