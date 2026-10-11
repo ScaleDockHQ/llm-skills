@@ -577,9 +577,9 @@
       "name": "nvidia-dgx-station",
       "kind": "platform",
       "category": "hardware-platforms",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
-      "upstream": null,
+      "upstream": "https://docs.nvidia.com/dgx/dgx-station-development-guide/",
       "replaces": null,
       "verifyStatus": true
     },
