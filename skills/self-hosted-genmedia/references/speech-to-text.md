@@ -16,17 +16,7 @@ Pick whisper.cpp for a lean, single-model service; Speaches for OpenAI-compatibl
 
 ## Install
 
-**whisper.cpp (build; CUDA on x86 or DGX Spark):**
-
-```bash
-git clone https://github.com/ggml-org/whisper.cpp && cd whisper.cpp
-systemd-run --user --scope -p MemoryMax=16G -p MemorySwapMax=0 -- \
-  bash -c 'cmake -B build -DGGML_CUDA=1 && cmake --build build -j --config Release'
-sh ./models/download-ggml-model.sh large-v3-turbo     # writes models/ggml-large-v3-turbo.bin
-ls build/bin/whisper-server
-```
-
-Add `-DCMAKE_CUDA_ARCHITECTURES="<arch>"` if detection fails. Docker images exist (`ghcr.io/ggml-org/whisper.cpp:main`, `:main-cuda`, ...). On 2026-10-11 the registry listed both tags for `linux/amd64` only (the README claims arm64 for `main`), so build from source on arm64.
+**whisper.cpp:** build from source with the backend you need and download a ggml model. Build flags, the Docker platform caveat and models are in the whisper-cpp skill (depth line at the end of this file).
 
 **Speaches (Docker, amd64 and arm64 images):**
 
@@ -48,22 +38,7 @@ docker run --rm --detach --name speaches \
 
 ## Minimal working config/command
 
-**whisper-server with an OpenAI-shaped path.** `--request-path` prefixes every route and `--inference-path` names the transcription route, so:
-
-```bash
-build/bin/whisper-server --host 127.0.0.1 --port 8080 \
-  -m models/ggml-large-v3-turbo.bin -l auto -fa --convert \
-  --request-path /v1/audio --inference-path /transcriptions
-```
-
-This serves `POST /v1/audio/transcriptions` and `GET /v1/audio/health` (the path mapping comes from reading `server.cpp`, not from the README). `--convert` uses ffmpeg to accept non-WAV input; without it, send 16 kHz WAV.
-
-```bash
-curl -sS http://127.0.0.1:8080/v1/audio/transcriptions \
-  -F file=@sample.wav -F response_format=json | jq -r .text > transcript.txt
-```
-
-`response_format` accepts `json`, `text`, `srt`, `vtt`, `verbose_json`.
+**whisper-server with an OpenAI-shaped path:** start it with `--request-path /v1/audio --inference-path /transcriptions` (plus `-l auto`, and `--convert` if ffmpeg is installed). That serves `POST /v1/audio/transcriptions` and `GET /v1/audio/health`.
 
 **Speaches:**
 
@@ -102,34 +77,29 @@ Browse STT models with `uvx speaches-cli registry ls --task automatic-speech-rec
 
 ## Operating
 
-- whisper-server holds one model. `POST /load` with `-F model=<path>` swaps it in place. In a llama-swap setup, prefer separate entries.
+- whisper-server holds one model and serves one request at a time. In a llama-swap setup, prefer separate entries per model.
 - Speaches unloads idle models after `STT_MODEL_TTL` seconds (default 300; `-1` never, `0` immediately). `GET /api/ps` lists loaded models; `DELETE /api/ps/{model}` unloads one.
 - Speaches `PRELOAD_MODELS='["Systran/faster-whisper-large-v3"]'` downloads models at startup and exits if any download fails. Use it to fail fast when a node lacks weights.
 - Long recordings take a while. Over Cloudflare a synchronous transcription of a long file can exceed the 125 s read timeout; split audio or use a tailnet path.
 
 ## Tuning knobs worth knowing
 
-| Server         | Knob                         | Effect                                                       |
-| -------------- | ---------------------------- | ------------------------------------------------------------ |
-| whisper-server | `-t N`                       | CPU threads                                                  |
-| whisper-server | `-fa`                        | flash attention                                              |
-| whisper-server | `-ng`                        | no GPU                                                       |
-| whisper-server | `--vad -vm <model>`          | voice activity detection to skip silence                     |
-| whisper-server | `-l auto`                    | language auto-detect (default is `en`)                       |
-| whisper-server | `-tr`                        | translate to English                                         |
-| Speaches       | `WHISPER__INFERENCE_DEVICE`  | device selection (nested settings use `__`)                  |
-| Speaches       | `WHISPER__COMPUTE_TYPE=int8` | quantized compute                                            |
-| Speaches       | `STT_MODEL_TTL`              | idle unload time                                             |
-| Speaches       | `LOG_LEVEL`                  | log verbosity (default `debug`)                              |
-| vLLM           | see the vLLM docs            | beam search is supported but slow for encoder-decoder models |
+| Server   | Knob                         | Effect                                                       |
+| -------- | ---------------------------- | ------------------------------------------------------------ |
+| Speaches | `WHISPER__INFERENCE_DEVICE`  | device selection (nested settings use `__`)                  |
+| Speaches | `WHISPER__COMPUTE_TYPE=int8` | quantized compute                                            |
+| Speaches | `STT_MODEL_TTL`              | idle unload time                                             |
+| Speaches | `LOG_LEVEL`                  | log verbosity (default `debug`)                              |
+| vLLM     | see the vLLM docs            | beam search is supported but slow for encoder-decoder models |
 
 ## Known pitfalls
 
-- whisper-server defaults to `-l en`. Non-English audio comes back as English garbage until you pass `-l auto` or the language.
-- Upstream warns: don't run whisper-server as admin; it accepts uploads and shells out to ffmpeg. Sandbox it (container or unprivileged user).
+- whisper-server defaults to `-l en`; pass `-l auto`. It has no auth and accepts uploads: sandbox it. Details are in the whisper-cpp skill.
 - `openai/whisper-large-v3-turbo` doesn't translate (per the vLLM docs). Use a non-turbo model for `/v1/audio/translations`.
 - OpenAI SDKs need a non-empty API key even when the server has none. Use any placeholder when talking to an auth-less backend directly.
 - Whisper weights: the openai/whisper repo says MIT; some HF cards list Apache-2.0. Both are permissive; see `licenses.md`.
+
+Depth: install the whisper-cpp skill (npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp)
 
 ## Official links
 

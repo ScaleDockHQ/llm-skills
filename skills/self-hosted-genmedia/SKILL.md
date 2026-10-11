@@ -4,7 +4,7 @@ description: Self-host generative media servers (image, video, speech-to-text, t
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.0.1"
+  version: "1.1.0"
 compatibility: Linux servers with NVIDIA GPUs (x86_64 or arm64, including DGX Spark unified memory); CPU fallback for STT/TTS. Assumes an existing LiteLLM + llama-swap stack. Needs curl, jq, Docker or a C++/CUDA toolchain, and optionally Python for ComfyUI.
 ---
 
@@ -176,9 +176,9 @@ curl -s http://127.0.0.1:8080/running | jq .
 ## Reference index
 
 - `references/image-servers.md`: sd-server endpoints, build (CUDA x86 and DGX Spark), model files per family, async jobs, comparison with ComfyUI.
-- `references/comfyui.md`: ComfyUI install, model folders, native API (`/prompt`, `/history`, `/view`, `/ws`), flags, custom-node and Manager security, wrapping.
+- `references/comfyui.md`: how ComfyUI plugs into this stack (no OpenAI route, `/comfyui/`, auth, memory); depth is in the `comfyui` skill.
 - `references/video.md`: natively supported open video models, workflow setup, async job pattern, memory and time expectations.
-- `references/speech-to-text.md`: whisper-server (OpenAI path mapping), Speaches, vLLM Whisper, LiteLLM entry.
+- `references/speech-to-text.md`: Speaches, vLLM Whisper, whisper-server in the stack (OpenAI path mapping), LiteLLM entry; whisper.cpp depth is in the `whisper-cpp` skill.
 - `references/text-to-speech.md`: Kokoro-FastAPI images and API, Speaches TTS, LiteLLM entry.
 - `references/stack-integration.md`: llama-swap keys, groups, `/comfyui/`, LiteLLM modes, end-to-end timeouts, auth and binding.
 - `references/memory-planning.md`: budgeting discrete and unified memory, co-resident vs swap, capped scopes, hf-xet limits, weight staging.
@@ -188,6 +188,8 @@ curl -s http://127.0.0.1:8080/running | jq .
 
 ## Companion skills
 
+- `comfyui`: install, headless API, custom nodes, memory flags and updates for ComfyUI. `npx skills add ScaleDockHQ/llms-skills --skill comfyui`
+- `whisper-cpp`: build, models, server API and tuning for whisper.cpp. `npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp`
 - `self-hosted-llms`: the LLM stack this skill plugs into (engines, llama-swap, models and weights, the engine-sdcpp reference). `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`
 - `llm-gateway`: LiteLLM keys, budgets, routing and fallbacks. `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`
 - `llm-clients`: point apps and agents at the new image/audio endpoints. `npx skills add ScaleDockHQ/llms-skills --skill llm-clients`
