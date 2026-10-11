@@ -1583,11 +1583,12 @@
       "name": "open-tts-servers",
       "kind": "product",
       "category": "generative-media",
-      "status": "planned",
+      "status": "note-only",
       "wave": 9,
       "upstream": null,
       "replaces": null,
-      "verifyStatus": true
+      "verifyStatus": true,
+      "reason": "Umbrella placeholder; built as separate f5-tts and chatterbox skills"
     },
     {
       "name": "text-embeddings-inference",
