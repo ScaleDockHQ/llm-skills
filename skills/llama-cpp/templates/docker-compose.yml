@@ -1,0 +1,37 @@
+# llama.cpp server with NVIDIA GPUs (CUDA 13: Ampere through Blackwell, amd64 + arm64).
+# Pin the image by digest in production: docker buildx imagetools inspect ghcr.io/ggml-org/llama.cpp:server-cuda13
+# Variants: server (CPU), server-cuda (CUDA 12), server-vulkan, server-rocm, server-intel.
+# Config is env-driven: every llama-server flag has a LLAMA_ARG_* variable (llama-server --help).
+services:
+  llama-server:
+    image: ghcr.io/ggml-org/llama.cpp:server-cuda13
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8081:8080" # loopback only; put a gateway or tunnel in front
+    volumes:
+      - /srv/models/gguf:/models:ro
+      - /srv/secrets/llama-server-keys:/run/secrets/llama_keys:ro # file mode 0600, one key per line
+    environment:
+      LLAMA_ARG_MODEL: /models/model-Q4_K_M.gguf
+      LLAMA_ARG_ALIAS: local-model
+      LLAMA_ARG_CTX_SIZE: "32768"
+      LLAMA_ARG_N_GPU_LAYERS: all
+      LLAMA_ARG_FLASH_ATTN: "on"
+      LLAMA_ARG_N_PARALLEL: "4"
+      LLAMA_ARG_HOST: 0.0.0.0 # inside the container; the published port is loopback-only
+      LLAMA_ARG_PORT: "8080"
+      LLAMA_ARG_ENDPOINT_METRICS: "1"
+      LLAMA_ARG_API_KEY_FILE: /run/secrets/llama_keys
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "curl", "-fs", "http://127.0.0.1:8080/health"] # confirm curl exists in the image you use
+      interval: 15s
+      timeout: 5s
+      retries: 20
+      start_period: 120s

@@ -1,0 +1,33 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve, tune, scale out, update and troubleshoot llama.cpp (llama-server and the GGUF tools) on Metal, CUDA, Vulkan, ROCm, SYCL and CPU, with router mode, tool calling, multimodal, speculative decoding and RPC, plus verified combinations for Apple Metal, AMD Strix Halo Vulkan and llama-swap. References are split by install, serving, models, parallelism, features, API, tuning, integrations, observability, updating and troubleshooting.",
+  "references": [
+    "https://github.com/ggml-org/llama.cpp",
+    "https://github.com/ggml-org/llama.cpp/releases",
+    "https://github.com/ggml-org/llama.cpp/blob/master/docs/install.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/docs/docker.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/docs/backend/SYCL.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/docs/function-calling.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/docs/multimodal.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/docs/speculative.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/grammars/README.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/imatrix/README.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/perplexity/README.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/llama-bench/README.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/rpc/README.md",
+    "https://llama.app",
+    "https://github.com/mostlygeek/llama-swap/blob/main/docs/config.example.yaml",
+    "https://github.com/mostlygeek/llama-swap/tree/main/docker/unified",
+    "https://strixhalo.wiki/AI/llamacpp-performance",
+    "https://github.com/Lychee-Technology/llama-cpp-for-strix-halo/",
+    "https://github.com/ROCm/ROCm/issues/5595",
+    "https://github.com/ggml-org/llama.cpp/discussions/2182",
+    "https://github.com/ggml-org/llama.cpp/issues/16646"
+  ],
+  "kind": "product"
+}
