@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Deploy vLLM behind the llm-d router on Kubernetes with Gateway API Inference Extension. Covers the optimized-baseline guide (standalone and gateway router, single-host vLLM, monitoring, calibration, flow control), prefill/decode disaggregation with NIXL, KEDA autoscaling on endpoint-picker metrics, the deprecated WVA, version pins, troubleshooting and verification gaps. References are split into install, P/D, autoscaling and troubleshooting.",
+  "references": [
+    "https://github.com/llm-d/llm-d",
+    "https://github.com/llm-d/llm-d/releases/tag/v0.10.0",
+    "https://github.com/llm-d/llm-d-router",
+    "https://github.com/kubernetes-sigs/gateway-api-inference-extension",
+    "https://gateway-api.sigs.k8s.io/",
+    "https://keda.sh/docs/2.21/scalers/prometheus/",
+    "https://docs.vllm.ai/en/latest/features/nixl_connector_usage/",
+    "https://hub.docker.com/r/vllm/vllm-openai"
+  ],
+  "kind": "stack"
+}
