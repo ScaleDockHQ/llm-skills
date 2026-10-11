@@ -31,7 +31,7 @@ The `SKILL.md` overview is always loaded; the agent pulls a reference only when 
 - [`references/managed-endpoints.md`](references/managed-endpoints.md): stack note. Depth in `aws-sagemaker`, `google-vertex-ai`, `azure-foundry`, `hugging-face`.
 - [`references/gpu-vms.md`](references/gpu-vms.md): stack note. Depth in `runpod`, `lambda-cloud`, `vast-ai`, `coreweave`, `nebius`, `crusoe`, `hyperbolic`.
 - [`references/serverless-gpu.md`](references/serverless-gpu.md): stack note. Depth in `runpod`, `modal`, `baseten`.
-- [`references/kubernetes.md`](references/kubernetes.md): GPU Operator, vLLM, production-stack, KServe, llm-d, LeaderWorkerSet.
+- [`references/kubernetes.md`](references/kubernetes.md): stack note. Depth in `kserve`, `llm-d`, `vllm-production-stack`, `aibrix`, `ray-serve`, `gateway-api-inference-extension`, `nvidia-gpu-operator`, `keda`.
 - [`references/gateway-hybrid.md`](references/gateway-hybrid.md): cloud entries, fallbacks and budgets in LiteLLM next to local models.
 - [`references/cost-and-quotas.md`](references/cost-and-quotas.md): budgets, alerts, quotas, cost formulas, teardown checks.
 - [`references/security-compliance.md`](references/security-compliance.md): IAM, secrets, private endpoints, logging and PII, residency.

@@ -1,11 +1,11 @@
 ---
 name: cloud-llms
-description: Run and consume LLMs in the cloud - pick a tier, provision, deploy, connect to one gateway endpoint, secure, set budgets, benchmark, scale, update and tear down. Covers frontier APIs (OpenAI, Anthropic Claude, Google Gemini), managed open-model APIs (Together AI, Fireworks AI, Groq, DeepInfra, OpenRouter, Hugging Face Inference Providers), hyperscalers (AWS Bedrock, Google Gemini Enterprise Agent Platform / Vertex AI, Microsoft Foundry / Azure OpenAI), managed endpoints (SageMaker, Agent Platform endpoints, Azure ML online endpoints, Hugging Face Inference Endpoints), rented GPU VMs (Lambda, RunPod, Vast.ai, CoreWeave, EC2/GCE/Azure GPU instances), serverless GPU (RunPod Serverless vLLM worker, Modal) and Kubernetes (NVIDIA GPU Operator, vLLM, production-stack, KServe, llm-d, LeaderWorkerSet). Use for cloud LLM setup, LiteLLM cloud providers and fallbacks, hybrid local plus cloud routing, quotas, rate limits, IAM, private endpoints, data retention, GPU cost, cold starts, egress, cloud benchmarking.
+description: Run and consume LLMs in the cloud - pick a tier, provision, deploy, connect to one gateway endpoint, secure, set budgets, benchmark, scale, update and tear down. Covers frontier APIs (OpenAI, Anthropic Claude, Google Gemini), managed open-model APIs (Together AI, Fireworks AI, Groq, DeepInfra, OpenRouter, Hugging Face Inference Providers), hyperscalers (AWS Bedrock, Google Gemini Enterprise Agent Platform / Vertex AI, Microsoft Foundry / Azure OpenAI), managed endpoints (SageMaker, Agent Platform endpoints, Azure ML online endpoints, Hugging Face Inference Endpoints), rented GPU VMs (Lambda, RunPod, Vast.ai, CoreWeave, EC2/GCE/Azure GPU instances), serverless GPU (RunPod Serverless vLLM worker, Modal) and Kubernetes (NVIDIA GPU Operator, vLLM, production-stack, KServe, llm-d, AIBrix, LeaderWorkerSet). Use for cloud LLM setup, LiteLLM cloud providers and fallbacks, hybrid local plus cloud routing, quotas, rate limits, IAM, private endpoints, data retention, GPU cost, cold starts, egress, cloud benchmarking.
 license: MIT
 compatibility: Cloud CLIs as needed (aws, gcloud, az, kubectl, helm, runpodctl, vastai, hf, modal); bash, curl, jq. Network access to the chosen providers.
 metadata:
   author: ScaleDockHQ
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Cloud LLMs
@@ -157,7 +157,7 @@ When something fails at any step → `references/troubleshooting.md`.
 - `references/managed-endpoints.md`: stack note for managed endpoints. Depth: `aws-sagemaker`, `google-vertex-ai`, `azure-foundry`, `hugging-face`.
 - `references/gpu-vms.md`: stack note for rented GPU VMs. Depth: `runpod`, `lambda-cloud`, `vast-ai`, `coreweave`, `nebius`, `crusoe`, `hyperbolic`.
 - `references/serverless-gpu.md`: stack note for serverless GPU. Depth: `runpod`, `modal`, `baseten`.
-- `references/kubernetes.md`: GPU Operator, vLLM manifests, production-stack, KServe, llm-d, LeaderWorkerSet, model caching, autoscaling.
+- `references/kubernetes.md`: stack note for Kubernetes serving (GPU Operator, vLLM manifests, LWS, model caching). Depth: `kserve`, `llm-d`, `vllm-production-stack`, `aibrix`, `ray-serve`, `gateway-api-inference-extension`, `nvidia-gpu-operator`, `keda`.
 - `references/gateway-hybrid.md`: LiteLLM entries for cloud providers, fallbacks and budgets next to local models.
 - `references/cost-and-quotas.md`: budgets, alerts, quota requests, cost formulas, teardown checks.
 - `references/security-compliance.md`: IAM, secret managers, private endpoints, logging and PII, residency.
