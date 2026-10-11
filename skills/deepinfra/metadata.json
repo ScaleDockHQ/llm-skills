@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Operating guide for DeepInfra: API keys with per-key monthly spend limits, scoped JWTs, the OpenAI and Anthropic compatible endpoints, concurrency rate limits, the Batch API, private LLM deployments and GPU container rentals billed per GPU-hour, LiteLLM and Claude Code wiring, teardown and troubleshooting. Checked against docs.deepinfra.com and the live model list on 2026-10-11; service tiers and a few lifecycle details are marked unverified.",
+  "references": [
+    "https://docs.deepinfra.com/llms.txt",
+    "https://docs.deepinfra.com/quickstart.md",
+    "https://docs.deepinfra.com/account/authentication.md",
+    "https://docs.deepinfra.com/account/rate-limits.md",
+    "https://docs.deepinfra.com/account/data-privacy.md",
+    "https://docs.deepinfra.com/integrations/anthropic.md",
+    "https://docs.deepinfra.com/batch/introduction.md",
+    "https://docs.deepinfra.com/private-models/overview.md",
+    "https://docs.deepinfra.com/private-models/custom-llms.md",
+    "https://docs.deepinfra.com/gpu-instances/overview.md",
+    "https://docs.deepinfra.com/api-reference/billing/set-key-limit.md",
+    "https://docs.deepinfra.com/api-reference/dedicated-models/deploy-create-llm.md",
+    "https://docs.litellm.ai/docs/providers/deepinfra"
+  ],
+  "kind": "platform"
+}
