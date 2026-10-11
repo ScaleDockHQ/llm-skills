@@ -1896,7 +1896,7 @@
       "name": "lm-studio-claude-code",
       "kind": "stack",
       "category": "stacks",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": null,
       "replaces": null
