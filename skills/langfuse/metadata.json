@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Install, operate and integrate Langfuse, the open-source LLM observability, prompt management and evaluation platform. Covers self-hosting with Docker Compose and Helm on the current v4 architecture (web, worker, ClickHouse, Redis, Postgres, S3), tracing from the Python and JS SDKs, OTLP and OpenTelemetry Collectors, LiteLLM callbacks, prompts, scores, datasets and evaluators, privacy, masking and retention (including what needs an Enterprise license), v3 to v4 upgrades, and troubleshooting, with a hardened Compose template and helper scripts.",

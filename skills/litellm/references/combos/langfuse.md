@@ -12,7 +12,7 @@ litellm_settings:
   turn_off_message_logging: false # true = metadata only, no prompts or completions
 ```
 
-Environment, set in the env file (`chmod 600`), names only here: `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST` (self-hosted URL or `https://cloud.langfuse.com` for EU; the preset defaults to the US cloud, `https://us.cloud.langfuse.com`).
+Environment, set in the env file (`chmod 600`), names only here: `LITELLM_OTEL_V2=true` (required: OTel v2 is off by default, nothing in it runs without it, the flag is read once at startup so restart the proxy, and it replaces the v1 `otel` integration rather than adding to it), `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST` (self-hosted URL or `https://cloud.langfuse.com` for EU; the preset defaults to the US cloud, `https://us.cloud.langfuse.com`).
 
 Classic alternative: `success_callback: ["langfuse"]`, which needs Langfuse Python SDK v4 (`langfuse>=4.7,<5`) and a self-hosted Langfuse server of 3.63.0 or newer; a v2 server answers 404 on `/api/public/otel/v1/traces` and traces are rejected.
 

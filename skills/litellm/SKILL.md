@@ -5,7 +5,7 @@ license: MIT
 compatibility: Commands assume bash, curl, jq and Docker Compose (pip and Helm paths also covered). Installs, exposure, key creation and upgrades need the user's explicit approval. Needs Postgres for keys and budgets.
 metadata:
   author: ScaleDockHQ
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # LiteLLM
@@ -90,7 +90,7 @@ Ask only what discovery cannot show: providers and backends, consumers (people, 
 
 ### Observe
 
-- [ ] Add `callbacks` (`prometheus`, `langfuse_otel`) and set provider env vars -> `references/observability.md`, `references/combos/langfuse.md`.
+- [ ] Add `callbacks` (`prometheus`, `langfuse_otel`; the latter needs `LITELLM_OTEL_V2=true`) and set provider env vars -> `references/observability.md`, `references/combos/langfuse.md`.
 
 ## Reference index
 

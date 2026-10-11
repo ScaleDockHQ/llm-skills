@@ -11,7 +11,7 @@ Langfuse v4 is observations-first: a trace is the root observation of a tree of 
 | Python app                                       | Langfuse Python SDK v4 (OTel-native): `pip install langfuse`                                       |
 | JS/TS app                                        | JS/TS SDK v5: `npm install @langfuse/tracing @langfuse/otel @opentelemetry/sdk-node`               |
 | Any other language or an OTel collector          | OTLP over HTTP to `<host>/api/public/otel` (HTTP/protobuf or HTTP/JSON; **gRPC is not supported**) |
-| LiteLLM proxy                                    | `callbacks: ["langfuse_otel"]`, see `references/combos/litellm.md`                                 |
+| LiteLLM proxy                                    | `callbacks: ["langfuse_otel"]` + `LITELLM_OTEL_V2=true`, see `references/combos/litellm.md`        |
 | OpenLLMetry, OpenLIT, other OTel GenAI libraries | OTLP endpoint above; Langfuse maps `gen_ai.*` attributes to its data model                         |
 
 Minimum SDK versions for real-time visibility on a v4 server: Python SDK >= 4.7.0, JS/TS SDK >= 5.4.0, or `x-langfuse-ingestion-version: 4` on direct OTel exporters. Older producers can appear after ~10-15 minutes. Python SDK v2 and older and JS/TS SDK v3 and older are rejected by a v4 server on default settings.

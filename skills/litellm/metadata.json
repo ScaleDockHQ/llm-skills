@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Run and operate the LiteLLM proxy as a self-hosted OpenAI- and Anthropic-compatible gateway. Covers install with Docker, Compose, pip and Helm, config.yaml with model_list and model_info, virtual keys, teams and budgets, routing and fallbacks, bridging /v1/messages and /v1/responses onto chat backends, callbacks and hooks, Langfuse and Prometheus observability, release cycle, pinned updates and rollback, troubleshooting, and combos with llama-swap, Langfuse and Claude Code.",

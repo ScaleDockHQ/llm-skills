@@ -5,7 +5,7 @@ license: MIT
 compatibility: Commands assume bash, curl, jq, openssl and Docker Compose (Helm path covered). Needs ~4 cores and 16 GiB for self-hosting. Installs, exposure, upgrades and data deletion need the user's explicit approval.
 metadata:
   author: ScaleDockHQ
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # Langfuse
@@ -66,7 +66,7 @@ Ask only what discovery cannot show: Cloud or self-hosted, one VM or Kubernetes,
 
 ### Connect a gateway or app
 
-- [ ] LiteLLM: `callbacks: ["langfuse_otel"]` with keys and `LANGFUSE_OTEL_HOST` -> `references/combos/litellm.md`.
+- [ ] LiteLLM: `callbacks: ["langfuse_otel"]` with keys, `LANGFUSE_OTEL_HOST` and `LITELLM_OTEL_V2=true` -> `references/combos/litellm.md`.
 - [ ] Other OTel sources or content stripping: Collector -> `references/combos/otel-collector.md`.
 - [ ] Put user, session and tags on every span.
 

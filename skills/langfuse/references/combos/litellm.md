@@ -19,6 +19,7 @@ Environment on the proxy container (names; values from the `0600` env file):
 LANGFUSE_PUBLIC_KEY=...             # project keys from Langfuse project settings
 LANGFUSE_SECRET_KEY=...
 LANGFUSE_OTEL_HOST=http://langfuse-web:3000   # self-hosted URL as the proxy sees it; the preset defaults to the US cloud
+LITELLM_OTEL_V2=true                 # required: OTel v2 is off by default, so the langfuse_otel preset does nothing without it; read once at startup, restart the proxy
 ```
 
 Langfuse's integration page documents `LANGFUSE_OTEL_HOST` (US cloud default `https://us.cloud.langfuse.com`; EU `https://cloud.langfuse.com`). LiteLLM's docs also list `LANGFUSE_HOST`; check `docs.litellm.ai/docs/observability/langfuse_integration` for the proxy version in use.

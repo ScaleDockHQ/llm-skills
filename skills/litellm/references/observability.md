@@ -9,7 +9,7 @@ LiteLLM emits logs and metrics through named callbacks configured in `litellm_se
 | Need                       | Callback                                | Notes                                                                                                                                                 |
 | -------------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Metrics for Prometheus     | `callbacks: ["prometheus"]`             | `/metrics` on the proxy port; image already has `prometheus_client`, the pip CLI needs it installed                                                   |
-| Traces to Langfuse (v3/v4) | `callbacks: ["langfuse_otel"]`          | Upstream recommends the OTel preset for Langfuse v3 and v4                                                                                            |
+| Traces to Langfuse (v3/v4) | `callbacks: ["langfuse_otel"]`          | Upstream recommends the OTel v2 preset for Langfuse v3 and v4; needs `LITELLM_OTEL_V2=true` in the proxy env                                          |
 | Langfuse SDK callback      | `success_callback: ["langfuse"]`        | Needs Langfuse Python SDK v4 (`langfuse>=4.7,<5`); self-hosted Langfuse must be server 3.63.0 or newer; older v2 servers return 404 on the OTLP route |
 | Generic traces             | `callbacks: ["otel"]`                   | Exporter settings via env                                                                                                                             |
 | Success or failure only    | `success_callback` / `failure_callback` | `callbacks` runs on both                                                                                                                              |
@@ -22,7 +22,7 @@ litellm_settings:
 
 ## Langfuse
 
-Env vars (names only): `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST` (takes precedence over `LANGFUSE_BASE_URL`). For the `langfuse_otel` preset (OTel v2 guide) endpoint resolution is `LANGFUSE_OTEL_HOST`, then `LANGFUSE_HOST`, then the US cloud default (`https://us.cloud.langfuse.com`; EU is `https://cloud.langfuse.com`), and auth is built from the key pair. Per-team or per-key Langfuse projects: see `proxy/team_logging`. Combined stack recipe: `combos/langfuse.md`.
+Env vars (names only): `LITELLM_OTEL_V2=true` (required for `langfuse_otel`: OTel v2 is off by default and the flag is read once at startup, so restart after setting it; OTel v2 and the older `otel` integration are alternatives, pick one), `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST` (takes precedence over `LANGFUSE_BASE_URL`). For the `langfuse_otel` preset (OTel v2 guide) endpoint resolution is `LANGFUSE_OTEL_HOST`, then `LANGFUSE_HOST`, then the US cloud default (`https://us.cloud.langfuse.com`; EU is `https://cloud.langfuse.com`), and auth is built from the key pair. Per-team or per-key Langfuse projects: see `proxy/team_logging`. Combined stack recipe: `combos/langfuse.md`.
 
 ## Prometheus
 
