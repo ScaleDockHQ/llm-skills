@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Wire a LiteLLM gateway to Langfuse traces and Prometheus metrics. Covers the langfuse_otel and prometheus callbacks including the LITELLM_OTEL_V2 opt-in, the dedicated metrics port and scrape job, PromQL for latency, errors and spend, privacy and retention settings, and an end-to-end verification ladder with a symptom table.",
+  "references": [
+    "https://github.com/BerriAI/litellm/releases",
+    "https://docs.litellm.ai/docs/proxy/prometheus",
+    "https://docs.litellm.ai/docs/proxy/logging",
+    "https://docs.litellm.ai/docs/observability/opentelemetry_v2",
+    "https://docs.litellm.ai/docs/observability/langfuse_integration",
+    "https://github.com/langfuse/langfuse/releases",
+    "https://langfuse.com/self-hosting/configuration/health-readiness-endpoints",
+    "https://github.com/prometheus/prometheus/releases",
+    "https://prometheus.io/docs/prometheus/latest/configuration/configuration/"
+  ],
+  "kind": "stack"
+}
