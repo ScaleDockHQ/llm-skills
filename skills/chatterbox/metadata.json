@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install and run Chatterbox, the MIT-licensed open TTS family with zero-shot cloning. References cover the model zoo (Turbo, Nano, Multilingual V3, Single Language Pack, original), PyPI versus source installs and torch pins, code and tuning per model, the exposure of the shipped Gradio demos, PerTh watermark checks, updating and troubleshooting, with a lock-file recipe and a one-shot generation script.",
+  "references": [
+    "https://github.com/resemble-ai/chatterbox",
+    "https://github.com/resemble-ai/chatterbox/blob/master/README.md",
+    "https://github.com/resemble-ai/chatterbox/blob/master/pyproject.toml",
+    "https://github.com/resemble-ai/chatterbox/blob/master/src/chatterbox/tts_turbo.py",
+    "https://github.com/resemble-ai/chatterbox/blob/master/src/chatterbox/mtl_tts.py",
+    "https://github.com/resemble-ai/Perth",
+    "https://huggingface.co/ResembleAI/chatterbox",
+    "https://huggingface.co/ResembleAI/chatterbox-turbo",
+    "https://huggingface.co/ResembleAI/chatterbox-nano",
+    "https://pypi.org/project/chatterbox-tts/"
+  ],
+  "kind": "product"
+}
