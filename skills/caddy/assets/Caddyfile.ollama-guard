@@ -1,0 +1,32 @@
+# Caddyfile.ollama-guard -> /etc/caddy/Caddyfile (or a separate instance)
+# Puts a bearer-token check and a Host-header fix in front of Ollama so it can
+# be reached through Tailscale Serve or Cloudflare Tunnel. Ollama has no auth
+# of its own, and when bound to loopback it answers 403 to a Host header that
+# is not localhost, a loopback or private IP, this machine's hostname, or a
+# *.local / *.internal / *.localhost name (server/routes.go, allowedHostsMiddleware).
+#
+# Token: put OLLAMA_PROXY_TOKEN=<random> in a 0600 EnvironmentFile (systemd),
+# never in this file. Clients send "Authorization: Bearer <token>".
+# Listens on 127.0.0.1:8089; point Tailscale Serve or cloudflared at it.
+{
+	admin off
+	auto_https off
+}
+
+:8089 {
+	bind 127.0.0.1
+
+	@ok header Authorization "Bearer {$OLLAMA_PROXY_TOKEN}"
+	handle @ok {
+		reverse_proxy 127.0.0.1:11434 {
+			# Present a loopback Host to Ollama: passes its host check.
+			header_up Host {upstream_hostport}
+			# No buffering: Ollama streams NDJSON and SSE.
+			flush_interval -1
+		}
+	}
+
+	handle {
+		respond "unauthorized" 401
+	}
+}

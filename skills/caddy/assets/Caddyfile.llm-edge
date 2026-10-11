@@ -1,0 +1,46 @@
+# Caddyfile.llm-edge -> /etc/caddy/Caddyfile
+# Internet- or LAN-facing TLS terminator for an LLM gateway on the same host.
+# Caddy obtains and renews a certificate automatically for the site name
+# (ports 80 and 443 must reach this host and DNS must point here). If a
+# Cloudflare Tunnel or Tailscale Serve terminates TLS instead, use
+# Caddyfile.catalog (loopback, no TLS).
+# Docs: https://caddyserver.com/docs/caddyfile/directives/reverse_proxy
+{
+	# Admin API stays on its loopback default (localhost:2019); do not expose it.
+	servers {
+		# Streams must not be cut by a write timeout. The defaults (write_idle 1m,
+		# read_body_idle 1m) abort only stalled reads/writes, so SSE is fine;
+		# raise read_body_idle for large uploads over slow links.
+		timeouts {
+			read_header 10s
+			idle 5m
+		}
+	}
+}
+
+llm.example.com {
+	encode zstd gzip
+
+	# Reject oversized bodies early (images in prompts need room).
+	request_body {
+		max_size 50MB
+	}
+
+	reverse_proxy 127.0.0.1:4000 {
+		flush_interval -1 # flush every write; also keeps SSE live
+		transport http {
+			dial_timeout 5s
+			# response_header_timeout is unset (no timeout): non-streaming calls on cold
+			# models can take minutes. Set it only if you prefer to fail early.
+		}
+		# Keep WebSocket streams open across config reloads for a while.
+		stream_close_delay 5m
+	}
+
+	log {
+		output file /var/log/caddy/llm.access.log
+		format json
+		# Authorization, Cookie, Set-Cookie and Proxy-Authorization are logged as
+		# REDACTED by default. Never enable log_credentials.
+	}
+}
