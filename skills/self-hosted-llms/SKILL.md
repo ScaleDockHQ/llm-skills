@@ -4,7 +4,7 @@ description: Plan, set up, operate, update, benchmark, optimize and clean up a s
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.1.0"
+  version: "1.2.0"
 compatibility: Linux hosts with NVIDIA GPUs (DGX Spark first-class); Docker, NVIDIA Container Toolkit, systemd, bash, curl, jq; shell/SSH access to the nodes.
 ---
 
@@ -217,6 +217,7 @@ Install any of these with `npx skills add ScaleDockHQ/llms-skills --skill <name>
 - `llm-gateway` - LiteLLM and alternatives: keys, budgets, routing, fallbacks, API bridging.
 - `llm-clients` - per-client configuration for IDEs, CLIs, chat UIs and SDKs.
 - `llm-evals` - quality gates and task evals for model or option changes.
+- `stable-diffusion-cpp` - sd-server depth (the engine-sdcpp reference is now a stack note).
 - `model-quantization` - producing EXL3, NVFP4, FP8 and GGUF quants.
 - `fine-tuning-llms` - training adapters or full fine-tunes to serve here.
 - `llm-observability` - metrics, logs and tracing beyond the built-in endpoints.

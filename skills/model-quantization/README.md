@@ -33,6 +33,7 @@ npx skills add ScaleDockHQ/llms-skills --skill model-quantization
 
 ## Companion skills
 
+- `gguf-quantization`, `exl3-quantization`, `gptqmodel`, `bitsandbytes`, `torchao`, `hqq` — per-format depth (install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`)
 - `llm-compressor` — AWQ, GPTQ, FP8, NVFP4 with LLM Compressor in depth (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`)
 - `nvidia-modelopt` — NVIDIA Model Optimizer PTQ and export in depth (install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-modelopt`)
 - `mlx` — mlx-lm conversion and serving in depth (install: `npx skills add ScaleDockHQ/llms-skills --skill mlx`)

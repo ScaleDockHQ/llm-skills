@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Produce quantized LLMs for a target engine and hardware: GGUF (llama.cpp), EXL3 (ExLlamaV3/TabbyAPI), AWQ/GPTQ/FP8/NVFP4 (LLM Compressor, NVIDIA Model Optimizer) for vLLM, SGLang and TensorRT-LLM, and MLX (mlx-lm). Includes calibration, quality checks against the base model (KL divergence, perplexity, smoke prompts), memory-safe execution on unified-memory machines like DGX Spark, and publishing to Hugging Face with base_model metadata and the full recipe.",

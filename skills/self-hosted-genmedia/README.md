@@ -32,6 +32,7 @@ npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia
 
 ## Companion skills
 
+- `faster-whisper`, `speaches`, `kokoro-fastapi`, `f5-tts`, `chatterbox`, `stable-diffusion-cpp`, `diffusers`, `invokeai`, `vllm-omni`, `sglang-diffusion`: speech, image and video server depth (install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`)
 - `comfyui`: ComfyUI install, API, custom nodes and memory (install: `npx skills add ScaleDockHQ/llms-skills --skill comfyui`)
 - `whisper-cpp`: whisper.cpp build, models, server API and tuning (install: `npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp`)
 - `self-hosted-llms`: the LLM stack this plugs into, including the engine-sdcpp reference (install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`)

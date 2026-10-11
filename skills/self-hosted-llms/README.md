@@ -64,6 +64,7 @@ Script: [`scripts/bench.sh`](scripts/bench.sh), a curl + jq benchmark for any Op
 
 From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
 
+- `stable-diffusion-cpp`: sd-server depth; engine-sdcpp is now a stack note.
 - `choosing-llm-hosting`: decide local vs self-hosted vs cloud vs hybrid before building anything.
 - `local-llms`: laptops and desktops (Ollama, LM Studio, llama.cpp, MLX).
 - `cloud-llms`: frontier and open-model APIs, GPU VMs, serverless GPU, managed endpoints.

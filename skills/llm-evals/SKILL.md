@@ -4,7 +4,7 @@ description: Evaluate LLMs on your own tasks against any OpenAI-compatible endpo
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.1.0"
+  version: "1.2.0"
 compatibility: Needs an OpenAI-compatible /v1 endpoint, curl and jq. promptfoo runs via npx (Node.js). lm-evaluation-harness is an upstream Python CLI (lm_eval) installed separately. Works for local, self-hosted, gateway and cloud endpoints.
 ---
 
@@ -151,6 +151,13 @@ Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`
 
 - `promptfoo` — depth on the task-eval runner: config, assertions, CLI, CI workflow, quantization A/B gate.
 - `lm-evaluation-harness` — depth on public benchmarks: endpoint model types, backends, tasks, results.
+- `inspect-ai` — agent and benchmark evals with Inspect.
+- `lighteval` — Hugging Face benchmark runner.
+- `deepeval` — pytest-style LLM unit tests and metrics.
+- `evalplus` — HumanEval+ and MBPP+ code benchmarks.
+- `swe-bench` — repository-level software-engineering benchmark.
+- `guidellm` — load and latency benchmarks of OpenAI-compatible servers.
+- `nvidia-aiperf` — NVIDIA AIPerf serving benchmarks.
 - `self-hosted-llms` — serving stacks whose numerics changes this skill gates.
 - `model-quantization` — produces the quantized candidates; send task evals here.
 - `llm-gateway` — LiteLLM endpoint and keys that evals run through.

@@ -47,6 +47,7 @@ The `SKILL.md` overview is always loaded; the agent pulls a reference only when 
 
 From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
 
+- `inspect-ai`, `lighteval`, `deepeval`, `evalplus`, `swe-bench`, `guidellm`, `nvidia-aiperf` — eval runner and benchmark depth.
 - `promptfoo` — task-eval runner in depth: config, assertions, CLI, CI workflow, quantization A/B gate.
 - `lm-evaluation-harness` — public benchmarks in depth: endpoint model types, backends, tasks, results.
 - `self-hosted-llms` — serving stacks; its "numerics-changing options need a quality gate" rule points here.

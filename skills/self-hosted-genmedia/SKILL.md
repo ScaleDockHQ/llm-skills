@@ -4,7 +4,7 @@ description: Self-host generative media servers (image, video, speech-to-text, t
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.1.0"
+  version: "1.2.0"
 compatibility: Linux servers with NVIDIA GPUs (x86_64 or arm64, including DGX Spark unified memory); CPU fallback for STT/TTS. Assumes an existing LiteLLM + llama-swap stack. Needs curl, jq, Docker or a C++/CUDA toolchain, and optionally Python for ComfyUI.
 ---
 
@@ -189,6 +189,8 @@ curl -s http://127.0.0.1:8080/running | jq .
 ## Companion skills
 
 - `comfyui`: install, headless API, custom nodes, memory flags and updates for ComfyUI. `npx skills add ScaleDockHQ/llms-skills --skill comfyui`
+- `faster-whisper`, `speaches`, `kokoro-fastapi`, `f5-tts`, `chatterbox`: speech depth (STT, OpenAI-compatible audio server, TTS, voice cloning). `npx skills add ScaleDockHQ/llms-skills --skill <name>`
+- `stable-diffusion-cpp`, `diffusers`, `invokeai`, `vllm-omni`, `sglang-diffusion`: image, video and multimodal server depth. `npx skills add ScaleDockHQ/llms-skills --skill <name>`
 - `whisper-cpp`: build, models, server API and tuning for whisper.cpp. `npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp`
 - `self-hosted-llms`: the LLM stack this skill plugs into (engines, llama-swap, models and weights, the engine-sdcpp reference). `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`
 - `llm-gateway`: LiteLLM keys, budgets, routing and fallbacks. `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`

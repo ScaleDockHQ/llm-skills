@@ -4,7 +4,7 @@ description: Fine-tune open-weight LLMs locally (NVIDIA DGX Spark unified memory
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.1.0"
+  version: "1.2.0"
 compatibility: Linux with an NVIDIA GPU (x86_64 or arm64, incl. DGX Spark) for training; Docker optional. Uses Python CLIs (axolotl, trl, llama.cpp converters) via shell, plus curl, jq and optionally systemd-run for memory caps.
 ---
 
@@ -158,6 +158,12 @@ Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
 - `axolotl` — config-driven training, multi-GPU, merge and export, the default trainer.
 - `unsloth` — memory-tight single-GPU training, Studio, merged and GGUF export.
 - `trl` — custom Python trainers, reward functions, GRPO with vLLM.
+- `llama-factory` — web UI and YAML-driven training across many models.
+- `peft` — LoRA and other adapters on Transformers.
+- `deepspeed` — ZeRO sharding and offload for multi-GPU training.
+- `verl` — RL post-training (GRPO, PPO) at scale.
+- `openrlhf` — Ray and vLLM based RLHF.
+- `nvidia-nemo` — NeMo AutoModel, Megatron-Bridge and NeMo RL.
 - `llm-evals` — build the eval set, metrics and quality gates used to compare base vs fine-tune.
 - `model-quantization` — quantize merged models (GGUF types, imatrix, AWQ/GPTQ/FP8).
 - `cloud-llms` — rent cloud GPUs when local memory isn't enough.

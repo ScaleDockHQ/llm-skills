@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Evaluate LLMs on your own tasks against any OpenAI-compatible endpoint (local, self-hosted, gateway or cloud). Covers golden-set design, comparing models and endpoints with promptfoo, public benchmarks with lm-evaluation-harness (local-completions vs local-chat-completions, logprob and tokenizer requirements), calibrated LLM-as-judge, A/B quality gates with decision records for numerics-changing changes such as quantization, speculative decoding, KV-cache dtype and engine upgrades (task evals vs perplexity and KL divergence), regression evals in GitHub Actions, and common eval pitfalls.",

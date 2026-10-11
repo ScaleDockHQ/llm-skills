@@ -34,6 +34,7 @@ npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms
 
 ## Companion skills
 
+- `llama-factory`, `peft`, `deepspeed`, `verl`, `openrlhf`, `nvidia-nemo` — trainer, adapter, sharding and RL depth (install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`)
 - `axolotl` — config-driven training and merge/export (install: `npx skills add ScaleDockHQ/llms-skills --skill axolotl`)
 - `unsloth` — memory-tight single-GPU training (install: `npx skills add ScaleDockHQ/llms-skills --skill unsloth`)
 - `trl` — custom Python trainers and GRPO (install: `npx skills add ScaleDockHQ/llms-skills --skill trl`)

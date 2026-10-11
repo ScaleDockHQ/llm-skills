@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Agent skill for fine-tuning open-weight LLMs locally (DGX Spark unified memory, consumer GPUs) or on cloud GPUs: when to fine-tune vs prompt/RAG, dataset prep, LoRA/QLoRA/full, SFT/DPO/KTO/ORPO/GRPO with Axolotl, Unsloth or TRL, memory-capped runs, evaluation vs base, merging adapters, GGUF export, serving LoRA adapters with vLLM and llama.cpp, and license checks.",
