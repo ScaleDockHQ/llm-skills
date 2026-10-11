@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Connect OpenCode to self-hosted and gateway models. Covers install and upgrades, opencode.json custom providers for OpenAI-compatible and Anthropic-compatible endpoints, {env:} and {file:} key references, model limits and capability flags, per-engine setup for vLLM, llama.cpp, Ollama, llama-swap and LiteLLM, the OpenCode 1 versus 2 config split, tool-calling, streaming and reasoning caveats, troubleshooting, and an endpoint probe script.",
+  "references": [
+    "https://github.com/anomalyco/opencode",
+    "https://github.com/anomalyco/opencode/releases",
+    "https://github.com/anomalyco/opencode/issues",
+    "https://opencode.ai/docs/providers/",
+    "https://opencode.ai/docs/models/",
+    "https://opencode.ai/docs/config/",
+    "https://v2.opencode.ai/docs/providers"
+  ],
+  "kind": "product"
+}
