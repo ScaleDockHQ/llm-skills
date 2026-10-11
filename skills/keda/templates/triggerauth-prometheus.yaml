@@ -1,0 +1,18 @@
+# Bearer token for a protected Prometheus. Verified against KEDA v2.21.0.
+# Create the Secret from a 0600 file, never from a literal on the command line:
+#   kubectl create secret generic prometheus-token -n llm --from-file=bearerToken=<path-to-0600-file>
+# Reference it from the trigger: authModes: "bearer" in metadata and authenticationRef.name: prometheus-auth.
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: prometheus-auth
+  namespace: llm
+spec:
+  secretTargetRef:
+    - parameter: bearerToken
+      name: prometheus-token
+      key: bearerToken
+  # Optional private CA for the Prometheus endpoint:
+  # - parameter: ca
+  #   name: prometheus-ca
+  #   key: ca.crt

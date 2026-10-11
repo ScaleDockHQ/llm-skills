@@ -1,0 +1,36 @@
+# Scale a worker Deployment that pulls LLM jobs from RabbitMQ. Verified against KEDA v2.21.0.
+# Long jobs: set terminationGracePeriodSeconds on the worker pod (plus a preStop hook) so scale-in lets a job finish,
+# or run each job as a ScaledJob (keda.sh/v1alpha1) instead of a Deployment.
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: rabbitmq-auth
+  namespace: llm
+spec:
+  secretTargetRef:
+    - parameter: host # AMQP URI, kept in the Secret
+      name: rabbitmq-conn # kubectl create secret generic rabbitmq-conn --from-file=host=<0600 file>
+      key: host
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: llm-worker
+  namespace: llm
+spec:
+  scaleTargetRef:
+    name: llm-worker
+  pollingInterval: 15
+  cooldownPeriod: 300
+  minReplicaCount: 0 # idle workers cost nothing; the model servers behind them scale separately
+  maxReplicaCount: 8
+  triggers:
+    - type: rabbitmq
+      metadata:
+        protocol: amqp
+        queueName: llm-jobs
+        mode: QueueLength
+        value: "20" # messages per replica
+        activationValue: "1"
+      authenticationRef:
+        name: rabbitmq-auth
