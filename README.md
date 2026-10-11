@@ -140,6 +140,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | [`promptfoo`](skills/promptfoo)                         | Run promptfoo (npx promptfoo eval, promptfooconfig.yaml) to test prompts and compare models on a golden set against any OpenAI-compatible endpoint (vLLM, llama.cpp,... | `npx skills add ScaleDockHQ/llms-skills@promptfoo`             |
 | [`lm-evaluation-harness`](skills/lm-evaluation-harness) | Run EleutherAI's lm-evaluation-harness (lm_eval, lm-eval CLI) for public benchmarks (MMLU, GSM8K, HellaSwag, IFEval) on HF, vLLM or OpenAI-compatible endpoints via...  | `npx skills add ScaleDockHQ/llms-skills@lm-evaluation-harness` |
+| [`inspect-ai`](skills/inspect-ai)                       | Run Inspect AI (UK AISI) evals with the `inspect eval` CLI, Python Task/dataset/solver/scorer code, model_graded_qa judges, log files and Inspect View, again...        | `npx skills add ScaleDockHQ/llms-skills@inspect-ai`            |
 
 #### Observability
 
@@ -234,7 +235,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 89 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 90 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
