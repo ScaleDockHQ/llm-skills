@@ -1,0 +1,25 @@
+# /etc/systemd/system/tabbyapi.service  (bare-metal install from the start script/venv)
+# Edit User, WorkingDirectory and paths. Enable with: systemctl enable --now tabbyapi
+[Unit]
+Description=TabbyAPI (ExLlamaV3)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=tabby
+WorkingDirectory=/opt/tabbyAPI
+# Uses the venv created by start.sh; main.py does not touch dependencies.
+ExecStart=/opt/tabbyAPI/venv/bin/python main.py
+Restart=on-failure
+RestartSec=5
+# Cap build/serve memory on shared or unified-memory hosts; adjust or remove.
+# MemoryMax=96G
+LimitMEMLOCK=infinity
+LimitNOFILE=1048576
+# Keep Hugging Face tokens out of the unit file; use a 0600 EnvironmentFile if needed.
+# EnvironmentFile=/etc/tabbyapi.env
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

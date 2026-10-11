@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve, tune, scale out, update and troubleshoot ExLlamaV3 (EXL3 quantization format) and its recommended server TabbyAPI, on single or multi-GPU NVIDIA (and AMD ROCm) hosts. Covers EXL3 bitrates, config.yml, model load/unload API, tensor and expert parallel, KV cache quantization, speculative decoding, tool calling and the MiaAI-Lab aarch64/DGX Spark fork. References are split by task.",
+  "references": [
+    "https://github.com/turboderp-org/exllamav3",
+    "https://github.com/turboderp-org/exllamav3/releases",
+    "https://github.com/turboderp-org/exllamav3/blob/v1.6.1/doc/convert.md",
+    "https://github.com/turboderp-org/exllamav3/blob/v1.6.1/doc/env_vars.md",
+    "https://github.com/turboderp-org/exllamav3/blob/v1.6.1/doc/optimize.md",
+    "https://github.com/theroyallab/tabbyAPI",
+    "https://github.com/theroyallab/tabbyAPI/blob/main/config_sample.yml",
+    "https://github.com/theroyallab/tabbyAPI/tree/main/docs",
+    "https://github.com/theroyallab/tabbyAPI/blob/main/docker/docker-compose.yml",
+    "https://theroyallab.github.io/tabbyAPI",
+    "https://github.com/MiaAI-Lab/exllamav3"
+  ],
+  "kind": "product"
+}

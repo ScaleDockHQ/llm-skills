@@ -1,0 +1,39 @@
+# TabbyAPI config.yml starting point. Defaults and full comments: config_sample.yml of your version.
+network:
+  host: 0.0.0.0 # inside Docker; use 127.0.0.1 on bare metal. Publish the port on loopback only.
+  port: 5000
+  disable_auth: false # true only on loopback behind a gateway that holds the keys
+  allowed_origins: [] # block browser cross-origin callers
+
+logging:
+  log_live_status: true
+  log_chat_completion_requests: false # privacy: writes prompts to logs/debug
+
+model:
+  model_dir: models
+  model_name: CHANGE-ME-exl3-4.0bpw # folder under model_dir
+  max_seq_len: 32768
+  cache_size: 32768 # tokens, multiple of 256; shared by all concurrent requests
+  cache_mode: "8,8" # k_bits,v_bits (2-8) or FP16; quality-gate it
+  tensor_parallel: false # true for multi-GPU; needs shm_size
+  tensor_parallel_backend: native # nccl on NVLink
+  gpu_split_auto: true
+  autosplit_reserve: [512]
+  chunk_size: 2048
+  max_batch_size: # blank = engine default
+  warmup: true
+  reasoning: true
+  tool_format: auto # or qwen3_coder, hermes, glm4_5, mistral, harmony, ...
+  inline_model_loading: false # keep false behind llama-swap
+  use_as_default: ["max_seq_len", "cache_mode"]
+
+draft_model:
+  draft_mode: disabled # model | mtp | ngram
+  # draft_model_name: Qwen3-0.6B-exl3
+  # draft_cache_mode: "8,8"
+
+sampling:
+  override_preset: safe_defaults # clear when benchmarking
+
+memory:
+  sysmem_kv_cache: 0 # MB of host-RAM second-tier KV cache

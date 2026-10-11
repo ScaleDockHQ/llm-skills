@@ -1,0 +1,27 @@
+# TabbyAPI (ExLlamaV3) on one or more NVIDIA GPUs. Based on upstream docker/docker-compose.yml.
+# Pin the image by digest once it works: image: ghcr.io/theroyallab/tabbyapi@sha256:<digest>
+services:
+  tabbyapi:
+    image: ghcr.io/theroyallab/tabbyapi:latest # :cu13 for CUDA 13; :latest-extras adds embeddings
+    gpus: all
+    ports:
+      - "127.0.0.1:5000:5000" # loopback only; put a gateway or tunnel in front
+    # Tensor parallel, CPU MoE offload and NCCL need /dev/shm (default 64 MiB is too small).
+    shm_size: "8g"
+    ulimits:
+      memlock: -1
+      nofile: 1048576
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    environment:
+      - NAME=TabbyAPI
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - /srv/models/exl3:/app/models # change me
+      - ./config.yml:/app/config.yml:ro # see tabby-config.yml
+      # api_tokens.yml is generated on first start; mount a 0600 file to persist keys:
+      # - ./api_tokens.yml:/app/api_tokens.yml
+    restart: unless-stopped
