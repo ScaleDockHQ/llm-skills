@@ -1,0 +1,30 @@
+# Xinference single node. Pin the tag after testing. Auth is on by default (v3.0+):
+# create the admin once with POST /v1/admin/setup (see references/api-and-auth.md).
+services:
+  xinference:
+    image: xprobe/xinference:v4.0.0
+    restart: unless-stopped
+    command: ["xinference-local", "-H", "0.0.0.0", "-p", "9997"]
+    ports:
+      - "127.0.0.1:9997:9997"
+    shm_size: 8g # vLLM and multi-GPU need more than the 64 MB default
+    environment:
+      - XINFERENCE_HOME=/data
+      - XINFERENCE_AUTH_JWT_SECRET_KEY # forwarded from the host environment, not written here
+      - XINFERENCE_AUTH_ENCRYPTION_KEY
+    volumes:
+      - /srv/xinference:/data
+      - ${HOME}/.cache/huggingface:/root/.cache/huggingface
+    healthcheck:
+      test: ["CMD", "curl", "-fs", "http://127.0.0.1:9997/status"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

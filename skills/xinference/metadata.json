@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, serve and operate Xinference, the multi-engine model server for LLM, embedding, rerank, image, audio and video models with OpenAI, Responses and Anthropic APIs. References cover installers, Docker and Helm, engines and virtualenvs, launch options, replicas and clusters, Xavier and P/D, features, API and auth, tuning, integrations, observability, updating and troubleshooting, with compose and launch templates.",
+  "references": [
+    "https://github.com/xorbitsai/inference",
+    "https://github.com/xorbitsai/inference/releases",
+    "https://inference.readthedocs.io",
+    "https://hub.docker.com/r/xprobe/xinference",
+    "https://github.com/xorbitsai/xinference-helm-charts"
+  ],
+  "kind": "product"
+}
