@@ -1212,7 +1212,7 @@
       "name": "sparkdash",
       "kind": "product",
       "category": "observability",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": null,
       "replaces": "skills/self-hosted-llms/references/monitoring-sparkdash.md"

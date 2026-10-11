@@ -144,9 +144,10 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 #### Observability
 
-| Skill                         | Description                                                                               | Install                                           |
-| ----------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| [`langfuse`](skills/langfuse) | Langfuse, open-source LLM observability with traces, prompt management, evals and scores. | `npx skills add ScaleDockHQ/llms-skills@langfuse` |
+| Skill                           | Description                                                                                                                                         | Install                                            |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| [`langfuse`](skills/langfuse)   | Langfuse, open-source LLM observability with traces, prompt management, evals and scores.                                                           | `npx skills add ScaleDockHQ/llms-skills@langfuse`  |
+| [`sparkdash`](skills/sparkdash) | sparkDash, a web dashboard for DGX Spark and NVIDIA GPU hosts showing GPU, memory, network, RoCE, LLM engine probes, benchmarks and power controls. | `npx skills add ScaleDockHQ/llms-skills@sparkdash` |
 
 #### Generative media
 
@@ -235,7 +236,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 90 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 91 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
