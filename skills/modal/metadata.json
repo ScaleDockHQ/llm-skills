@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run LLMs on Modal serverless GPUs: deploy a vLLM Server with @app.server, create managed Shared or Dedicated Endpoints, secure them with proxy auth tokens, cache weights in Volumes, control autoscaling and spend, connect to LiteLLM and OpenAI-compatible clients, and tear everything down. Covers the modal 1.6.1 CLI and Python SDK, GPU choices, cold starts, limits and a symptom-to-fix table for 401, 403, 429 and 503.",
+  "references": [
+    "https://modal.com/llms.txt",
+    "https://modal.com/docs/examples/vllm_inference",
+    "https://modal.com/docs/guide",
+    "https://modal.com/docs/reference/cli/app",
+    "https://modal.com/docs/guide/gpu",
+    "https://modal.com/docs/guide/webhooks",
+    "https://modal.com/docs/guide/cold-start",
+    "https://modal.com/docs/guide/volumes",
+    "https://pypi.org/project/modal/"
+  ],
+  "kind": "platform"
+}
