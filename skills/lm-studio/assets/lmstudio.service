@@ -1,0 +1,21 @@
+# llmster as a Linux startup task. Source: https://lmstudio.ai/docs/developer/core/headless_llmster
+# Replace YOUR_USERNAME and the model key (run `lms ls` for keys), then:
+#   sudo cp lmstudio.service /etc/systemd/system/lmstudio.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now lmstudio.service
+# Remove the `lms load` line to rely on JIT loading instead of preloading.
+# The server binds to 127.0.0.1 by default. Do not add `--bind 0.0.0.0` unless Require Authentication is on.
+[Unit]
+Description=LM Studio Server
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+User=YOUR_USERNAME
+Environment="HOME=/home/YOUR_USERNAME"
+ExecStartPre=/home/YOUR_USERNAME/.lmstudio/bin/lms daemon up
+ExecStartPre=/home/YOUR_USERNAME/.lmstudio/bin/lms load openai/gpt-oss-20b --yes
+ExecStart=/home/YOUR_USERNAME/.lmstudio/bin/lms server start
+ExecStop=/home/YOUR_USERNAME/.lmstudio/bin/lms daemon down
+
+[Install]
+WantedBy=multi-user.target
