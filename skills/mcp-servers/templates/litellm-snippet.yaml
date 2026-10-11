@@ -1,0 +1,14 @@
+# Embedding route plus an MCP gateway entry. Keys come from the environment.
+model_list:
+  - model_name: embed-default
+    litellm_params:
+      model: openai/Qwen/Qwen3-Embedding-0.6B
+      api_base: http://tei-embed:80/v1
+      api_key: os.environ/TEI_API_KEY
+    model_info:
+      mode: embedding
+mcp_servers:
+  qdrant_mcp:
+    url: "http://mcp-qdrant:8000/mcp"
+    transport: "http"
+    description: "Read-only document search"

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "qdrant-readonly": {
+      "command": "uvx",
+      "args": ["mcp-server-qdrant==0.8.1"],
+      "env": {
+        "QDRANT_URL": "http://127.0.0.1:6333",
+        "COLLECTION_NAME": "docs",
+        "QDRANT_READ_ONLY": "true"
+      }
+    }
+  }
+}
