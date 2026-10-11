@@ -1,0 +1,23 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Operate the Google Gemini Developer API from code or a gateway: key types and restrictions, Prepay and Postpay billing, tiers, spend caps, generateContent and the Interactions API, OpenAI compatibility, streaming, structured output, Batch, context caching, Files, paid vs unpaid data terms and teardown. References are split by task and carry verified error strings and commands.",
+  "references": [
+    "https://ai.google.dev/gemini-api/docs/api-key",
+    "https://ai.google.dev/gemini-api/docs/billing",
+    "https://ai.google.dev/gemini-api/docs/rate-limits",
+    "https://ai.google.dev/gemini-api/docs/openai",
+    "https://ai.google.dev/api/generate-content",
+    "https://ai.google.dev/gemini-api/docs/structured-output",
+    "https://ai.google.dev/gemini-api/docs/batch-mode",
+    "https://ai.google.dev/gemini-api/docs/caching",
+    "https://ai.google.dev/api/caching",
+    "https://ai.google.dev/gemini-api/docs/files",
+    "https://ai.google.dev/api/files",
+    "https://ai.google.dev/gemini-api/docs/troubleshooting",
+    "https://ai.google.dev/gemini-api/terms",
+    "https://docs.litellm.ai/docs/providers/gemini"
+  ],
+  "kind": "platform"
+}
