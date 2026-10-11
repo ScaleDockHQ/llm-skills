@@ -607,7 +607,7 @@
       "name": "amd-instinct",
       "kind": "platform",
       "category": "hardware-platforms",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": "https://rocm.docs.amd.com",
       "replaces": null
@@ -616,7 +616,7 @@
       "name": "amd-strix-halo",
       "kind": "platform",
       "category": "hardware-platforms",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": null,
       "replaces": null

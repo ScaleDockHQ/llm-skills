@@ -187,6 +187,8 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`nvidia-dgx-spark`](skills/nvidia-dgx-spark)     | Set up, size, network and operate NVIDIA DGX Spark (GB10 Grace Blackwell, 128 GB unified memory, DGX OS) for LLM inference, single or dual node over ConnectX-7. | `npx skills add ScaleDockHQ/llms-skills@nvidia-dgx-spark`   |
 | [`nvidia-dgx-station`](skills/nvidia-dgx-station) | Set up, size and operate NVIDIA DGX Station (GB300 Grace Blackwell Ultra, 252 GB HBM3e plus 496 GB LPDDR5X, DGX OS) for LLM inference, single or two stations.   | `npx skills add ScaleDockHQ/llms-skills@nvidia-dgx-station` |
 | [`apple-silicon`](skills/apple-silicon)           | Size, tune and operate Apple Silicon Macs (M-series MacBook, Mac mini, Mac Studio) for local LLM inference with Metal and MLX. Use for unified memory...         | `npx skills add ScaleDockHQ/llms-skills@apple-silicon`      |
+| [`amd-instinct`](skills/amd-instinct)             | Set up, verify and operate AMD Instinct GPUs (MI300X, MI325X, MI350X, MI355X, MI250, MI210) with ROCm 10.x for LLM inference.                                    | `npx skills add ScaleDockHQ/llms-skills@amd-instinct`       |
+| [`amd-strix-halo`](skills/amd-strix-halo)         | Set up, size and operate AMD Ryzen AI Max (Strix Halo, gfx1151, Radeon 8060S, up to 128 GB unified memory) for local LLM inference on Linux or Windows.          | `npx skills add ScaleDockHQ/llms-skills@amd-strix-halo`     |
 
 #### Cloud providers
 
@@ -259,7 +261,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 104 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 106 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
