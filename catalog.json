@@ -341,7 +341,7 @@
       "name": "exo",
       "kind": "product",
       "category": "local-runtimes",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": "https://github.com/exo-explore/exo",
       "replaces": null

@@ -92,10 +92,11 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 #### Local runtimes
 
-| Skill                           | Description                                                                                                                                     | Install                                            |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| [`lm-studio`](skills/lm-studio) | Install, serve, tune and update LM Studio (desktop app, `lms` CLI, llmster headless daemon) for GGUF and MLX models on a local server at :1234. | `npx skills add ScaleDockHQ/llms-skills@lm-studio` |
-| [`mlx`](skills/mlx)             | Run, serve, convert, quantize and LoRA fine-tune models on Apple Silicon with MLX (mlx-lm, mlx-vlm, mlx_lm.server).                             | `npx skills add ScaleDockHQ/llms-skills@mlx`       |
+| Skill                           | Description                                                                                                                                                   | Install                                            |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| [`lm-studio`](skills/lm-studio) | Install, serve, tune and update LM Studio (desktop app, `lms` CLI, llmster headless daemon) for GGUF and MLX models on a local server at :1234.               | `npx skills add ScaleDockHQ/llms-skills@lm-studio` |
+| [`mlx`](skills/mlx)             | Run, serve, convert, quantize and LoRA fine-tune models on Apple Silicon with MLX (mlx-lm, mlx-vlm, mlx_lm.server).                                           | `npx skills add ScaleDockHQ/llms-skills@mlx`       |
+| [`exo`](skills/exo)             | Pool Macs and other devices with exo: install, enable RDMA over Thunderbolt 5, place pipeline or tensor instances, call the :52415 API, update, troubleshoot. | `npx skills add ScaleDockHQ/llms-skills@exo`       |
 
 #### Orchestration
 
@@ -232,7 +233,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 87 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 88 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
