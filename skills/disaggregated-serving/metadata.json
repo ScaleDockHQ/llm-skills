@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Decide whether to split LLM inference into prefill and decode pools, then configure and validate it. Covers vLLM NixlConnector and MooncakeConnector, SGLang --disaggregation-* flags, TensorRT-LLM cache_transceiver_config, NVIDIA Dynamo, llm-d, vLLM production-stack, AIBrix and the NIXL and Mooncake transports, with flags, defaults, constraints, failure behaviour and a concrete numerics gate through llm-evals. References split into engine flags, orchestrators, and when-it-helps plus gates.",
+  "references": [
+    "https://docs.vllm.ai/en/latest/features/disagg_prefill/",
+    "https://docs.vllm.ai/en/latest/features/nixl_connector_usage/",
+    "https://docs.vllm.ai/en/latest/features/mooncake_connector_usage/",
+    "https://github.com/vllm-project/vllm",
+    "https://docs.sglang.ai/advanced_features/pd_disaggregation.html",
+    "https://github.com/sgl-project/sglang",
+    "https://nvidia.github.io/TensorRT-LLM/features/disagg-serving.html",
+    "https://github.com/NVIDIA/TensorRT-LLM",
+    "https://github.com/ai-dynamo/dynamo",
+    "https://github.com/llm-d/llm-d",
+    "https://github.com/llm-d/llm-d-router",
+    "https://github.com/vllm-project/production-stack",
+    "https://github.com/vllm-project/aibrix",
+    "https://github.com/ai-dynamo/nixl",
+    "https://github.com/kvcache-ai/Mooncake"
+  ],
+  "kind": "technique"
+}
