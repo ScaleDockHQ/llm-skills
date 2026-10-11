@@ -159,12 +159,13 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 #### Clients and SDKs
 
-| Skill                                   | Description                                                                                                                                                           | Install                                                |
-| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| [`vercel-ai-sdk`](skills/vercel-ai-sdk) | Configure the Vercel AI SDK (ai, @ai-sdk/*) against self-hosted OpenAI- and Anthropic-compatible endpoints: keys, model aliases, tools, structured output, streaming. | `npx skills add ScaleDockHQ/llms-skills@vercel-ai-sdk` |
-| [`zed`](skills/zed)                     | Connect Zed (Agent Panel, Inline Assistant, edit prediction) to self-hosted OpenAI- and Anthropic-compatible endpoints: providers, model mapping, keys, tools.        | `npx skills add ScaleDockHQ/llms-skills@zed`           |
-| [`cursor`](skills/cursor)               | Connect Cursor to self-hosted OpenAI-compatible endpoints (Override OpenAI Base URL, public HTTPS requirement, scoped keys, model names, tools).                      | `npx skills add ScaleDockHQ/llms-skills@cursor`        |
-| [`continue`](skills/continue)           | Configure Continue (VS Code, JetBrains, cn CLI) for self-hosted OpenAI- and Anthropic-compatible endpoints: config.yaml, apiBase, secrets, capabilities.              | `npx skills add ScaleDockHQ/llms-skills@continue`      |
+| Skill                                   | Description                                                                                                                                                                              | Install                                                |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| [`vercel-ai-sdk`](skills/vercel-ai-sdk) | Configure the Vercel AI SDK (ai, @ai-sdk/*) against self-hosted OpenAI- and Anthropic-compatible endpoints: keys, model aliases, tools, structured output, streaming.                    | `npx skills add ScaleDockHQ/llms-skills@vercel-ai-sdk` |
+| [`zed`](skills/zed)                     | Connect Zed (Agent Panel, Inline Assistant, edit prediction) to self-hosted OpenAI- and Anthropic-compatible endpoints: providers, model mapping, keys, tools.                           | `npx skills add ScaleDockHQ/llms-skills@zed`           |
+| [`cursor`](skills/cursor)               | Connect Cursor to self-hosted OpenAI-compatible endpoints (Override OpenAI Base URL, public HTTPS requirement, scoped keys, model names, tools).                                         | `npx skills add ScaleDockHQ/llms-skills@cursor`        |
+| [`continue`](skills/continue)           | Configure Continue (VS Code, JetBrains, cn CLI) for self-hosted OpenAI- and Anthropic-compatible endpoints: config.yaml, apiBase, secrets, capabilities.                                 | `npx skills add ScaleDockHQ/llms-skills@continue`      |
+| [`pydantic-ai`](skills/pydantic-ai)     | Configure Pydantic AI (OpenAIChatModel, VLLMProvider, OllamaProvider, LiteLLMProvider, AnthropicProvider) against self-hosted endpoints: keys, profiles, output modes, tools, streaming. | `npx skills add ScaleDockHQ/llms-skills@pydantic-ai`   |
 
 #### Generative media
 
@@ -264,7 +265,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 109 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 110 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
