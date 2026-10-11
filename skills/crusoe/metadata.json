@@ -1,0 +1,14 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run LLMs on Crusoe Cloud with the crusoe CLI for GPU VMs and Managed Kubernetes, or with Managed Inference (Intelligence Foundry) for OpenAI-compatible serverless calls and self-serve deployments. Covers CLI and API keys, quotas, LiteLLM wiring, billing behaviour, teardown order and troubleshooting.",
+  "references": [
+    "https://docs.crusoecloud.com/quickstart/self-serve-deployments.md",
+    "https://docs.crusoecloud.com/api/managed-ai/",
+    "https://support.crusoecloud.com/hc/en-us/articles/56533535142427-How-To-Deploy-a-Fine-Tuned-Checkpoint-or-LoRA-Adapter-to-a-Self-Serve-Deployment",
+    "https://apis.io/apis/crusoe/crusoe-foundry-api/",
+    "https://docs.litellm.ai/docs/providers/crusoe"
+  ],
+  "kind": "platform"
+}
