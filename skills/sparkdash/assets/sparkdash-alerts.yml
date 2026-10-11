@@ -1,0 +1,47 @@
+# Alert rules for sparkDash /metrics. Validate: promtool check rules sparkdash-alerts.yml
+# Verified against sparkDash v2.32.0 README (Prometheus section). Thresholds are starting points.
+groups:
+  - name: sparkdash
+    rules:
+      - alert: SparkDashScrapeDown
+        expr: up{job="sparkdash"} == 0
+        for: 3m
+        labels: { severity: warning }
+        annotations:
+          summary: "Prometheus cannot scrape sparkDash"
+      - alert: SparkUnitDown
+        expr: sparkdash_up == 0
+        for: 3m
+        labels: { severity: page }
+        annotations:
+          summary: "Unit {{ $labels.unit_name }} is unreachable"
+      - alert: SparkCollectorStale
+        expr: time() - sparkdash_collector_last_success_timestamp_seconds > 60
+        for: 5m
+        labels: { severity: warning }
+        annotations:
+          summary: "{{ $labels.collector }} collector stuck on {{ $labels.unit_name }}"
+      - alert: SparkGPUThrottled
+        expr: sparkdash_gpu_throttled == 1
+        for: 10m
+        labels: { severity: warning }
+        annotations:
+          summary: "GPU {{ $labels.gpu }} on {{ $labels.unit_name }} throttled ({{ $labels.reason }})"
+      - alert: SparkMemoryLow
+        expr: sparkdash_memory_available_bytes < 8 * 1024 * 1024 * 1024
+        for: 10m
+        labels: { severity: warning }
+        annotations:
+          summary: "Less than 8 GiB headroom for GPU work on {{ $labels.unit_name }}"
+      - alert: SparkLLMEndpointDown
+        expr: sparkdash_llm_up == 0
+        for: 5m
+        labels: { severity: warning }
+        annotations:
+          summary: "LLM endpoint :{{ $labels.port }} ({{ $labels.backend }}) down on {{ $labels.unit_name }}"
+      - alert: SparkLLMQueueing
+        expr: sparkdash_llm_requests_waiting > 0
+        for: 10m
+        labels: { severity: warning }
+        annotations:
+          summary: "Requests waiting on {{ $labels.unit_name }}:{{ $labels.port }}"
