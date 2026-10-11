@@ -5,7 +5,7 @@ license: MIT
 compatibility: Commands assume bash, curl, jq and Docker Compose. Examples target the LiteLLM proxy; other gateways are covered at decision level. Works with any OpenAI-compatible backend (llama.cpp, llama-swap, vLLM, SGLang, Ollama) and hosted APIs.
 metadata:
   author: ScaleDockHQ
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # LLM Gateway

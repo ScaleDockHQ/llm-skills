@@ -1,6 +1,6 @@
 # Choosing a gateway
 
-> Verified against LiteLLM v1.105.0, Portkey gateway v1.15.2, Agent Router (formerly Envoy AI Gateway) v1.2.0, Kong AI Gateway docs, Cloudflare AI Gateway docs, OpenRouter docs, 2026-10-11
+> Verified against LiteLLM v1.105.0, Portkey gateway v1.15.2, Agent Router (formerly Envoy AI Gateway) v1.2.0, Kong AI Gateway docs, Cloudflare AI Gateway docs, OpenRouter docs, Vercel AI Gateway docs, Bifrost v2.2.6, Helicone docs, 2026-10-11
 
 ## What a gateway is and when to choose one
 
@@ -18,6 +18,9 @@ Skip the gateway when one client talks to one backend that already speaks the cl
 | Agent Router (formerly Envoy AI Gateway) | Kubernetes (Envoy Gateway CRDs), or `aigw run` standalone on port 1975 | Envoy data plane, CRD-based routing (`AIGatewayRoute`, `AIServiceBackend`), token rate limits, two-tier pattern for self-hosted inference, MCP routing | Kubernetes and Envoy expertise required; heavier to start                                                                                                                  | Platform team already runs Envoy Gateway on Kubernetes                                    |
 | Kong AI Gateway                          | Kong Gateway data plane, managed via Konnect                           | AI Model and AI Model Provider entities (2.x), prompt guard, semantic plugins, enterprise governance                                                   | Many AI features need Konnect or an enterprise license; v1 AI Proxy plugins being replaced                                                                                 | Organization already standardised on Kong                                                 |
 | Cloudflare AI Gateway                    | Hosted at the edge                                                     | Caching, rate limiting, logging and analytics for cloud providers, provider-native and unified endpoints                                               | Cannot reach private backends without tunnels; unified OpenAI-compat `/compat/chat/completions` endpoint marked deprecated for single-model chat in favour of the REST API | Cloud-only traffic, existing Cloudflare account, want observability with near-zero setup  |
+| Vercel AI Gateway                        | Hosted                                                                 | One OpenAI-, Anthropic- and AI SDK-compatible endpoint, provider routing and fallbacks, BYOK, budgets, zero data retention                             | Cannot reach private backends; best fit for Vercel and AI SDK stacks                                                                                                       | Cloud-only traffic on Vercel, want budgets and routing with no infrastructure             |
+| Bifrost                                  | Self-hosted (Docker, `npx @maximhq/bifrost`)                           | Go binary with web UI, virtual keys, budgets, fallbacks, semantic cache, MCP                                                                           | Governance state split between config file and database; OSS is single-node                                                                                                | You want a fast self-hosted alternative to LiteLLM with a UI                              |
+| Helicone                                 | Hosted or self-hosted                                                  | Observability with logging, cost tracking and a model-string gateway                                                                                   | In maintenance mode since March 2026; do not start new projects on it                                                                                                      | You already run it; see the skill for migration                                           |
 
 ## How each plugs into the stack
 
@@ -27,6 +30,20 @@ Skip the gateway when one client talks to one backend that already speaks the cl
 - **Agent Router**: OpenAI-compatible at `http://localhost:1975/v1` in standalone mode; on Kubernetes, through the Envoy Gateway listener you define. Resource names and the `aigw` CLI kept their Envoy AI Gateway names.
 - **Kong**: routes and AI Model entities you define on the Kong data plane.
 - **Cloudflare**: `https://gateway.ai.cloudflare.com/v1/{account_id}/{gateway_id}/...` per provider, or `/compat` for the unified OpenAI shape.
+
+## Per-gateway skills
+
+Each gateway below has its own skill with install, configuration, operations and troubleshooting. Install with the command shown.
+
+- litellm: `npx skills add ScaleDockHQ/llms-skills --skill litellm`
+- openrouter: `npx skills add ScaleDockHQ/llms-skills --skill openrouter`
+- portkey: `npx skills add ScaleDockHQ/llms-skills --skill portkey`
+- envoy-ai-gateway: `npx skills add ScaleDockHQ/llms-skills --skill envoy-ai-gateway`
+- kong-ai-gateway: `npx skills add ScaleDockHQ/llms-skills --skill kong-ai-gateway`
+- cloudflare-ai-gateway: `npx skills add ScaleDockHQ/llms-skills --skill cloudflare-ai-gateway`
+- vercel-ai-gateway: `npx skills add ScaleDockHQ/llms-skills --skill vercel-ai-gateway`
+- bifrost: `npx skills add ScaleDockHQ/llms-skills --skill bifrost`
+- helicone: `npx skills add ScaleDockHQ/llms-skills --skill helicone`
 
 ## Patterns that work
 
