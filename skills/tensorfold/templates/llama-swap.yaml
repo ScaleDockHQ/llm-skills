@@ -1,0 +1,10 @@
+# llama-swap entry for the native TensorFold binary (no container).
+# One model per process. Always pass --port ${PORT}; the engine default 8080 collides with llama-swap.
+models:
+  nemotron-tf:
+    cmd: |
+      /opt/tensorfold/current/bin/tensorfold-native serve /srv/models/nemotron-lightning
+      --name ${MODEL_ID} --host 127.0.0.1 --port ${PORT}
+      --context 32768 --parallel 4
+    checkEndpoint: /health
+    ttl: 0

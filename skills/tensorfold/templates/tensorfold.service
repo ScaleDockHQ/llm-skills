@@ -1,0 +1,23 @@
+# /etc/systemd/system/tensorfold.service
+# Native archive on one GPU host. Loopback only; put a gateway or tunnel in front.
+# Replace paths, model dir, name and port. Keys: key file mode 0600 owned by the service user.
+[Unit]
+Description=TensorFold server (tensorfold-native)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=tensorfold
+Group=tensorfold
+ExecStart=/opt/tensorfold/current/bin/tensorfold-native serve /srv/models/nemotron-lightning \
+  --name nemotron-tf --host 127.0.0.1 --port 8090 --context 32768 --parallel 4
+# Optional auth (do not pass --api-key on the command line):
+#   add:  --api-key-file /etc/tensorfold/keys.txt
+Restart=on-failure
+RestartSec=10
+# Model load can take minutes; do not let systemd kill it early.
+TimeoutStartSec=900
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
