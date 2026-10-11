@@ -1,0 +1,15 @@
+# llama-swap unified image with llama.cpp built in (NVIDIA, CUDA 13; amd64 and arm64 incl. DGX Spark).
+# Use unified-cuda for Pascal to Ada (amd64), unified-vulkan for AMD. Pin a dated tag for production.
+services:
+  llama-swap:
+    image: ghcr.io/mostlygeek/llama-swap:unified-cuda13
+    restart: unless-stopped
+    runtime: nvidia
+    ports:
+      - "127.0.0.1:9292:8080" # publish on loopback only
+    volumes:
+      - /srv/models:/models
+      - ./config.yaml:/etc/llama-swap/config/config.yaml:ro
+    environment:
+      LLAMA_SWAP_LISTEN: 0.0.0.0:8080 # must stay 0.0.0.0 when a port is published
+      LLAMA_SWAP_WATCH_CONFIG: "true"

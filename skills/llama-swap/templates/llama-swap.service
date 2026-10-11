@@ -1,0 +1,23 @@
+# /etc/systemd/system/llama-swap.service
+# Binary from https://github.com/mostlygeek/llama-swap/releases (linux_arm64 or linux_amd64).
+# Secrets (apiKeys, tokens) come from an EnvironmentFile with mode 0600, referenced as ${env.NAME} in the config.
+[Unit]
+Description=llama-swap model router
+After=network-online.target docker.service
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+User=llm
+Group=llm
+SupplementaryGroups=docker
+Environment=LLM_MODELS_DIR=/srv/models
+EnvironmentFile=-/etc/llama-swap/env
+ExecStart=/usr/local/bin/llama-swap -config /etc/llama-swap/config.yaml -listen 127.0.0.1:8080 -watch-config
+Restart=on-failure
+RestartSec=5
+# Time for cmdStop to stop engine containers on shutdown.
+TimeoutStopSec=180
+
+[Install]
+WantedBy=multi-user.target

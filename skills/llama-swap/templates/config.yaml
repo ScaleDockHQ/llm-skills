@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mostlygeek/llama-swap/refs/heads/main/config-schema.json
+# Starter llama-swap config. Reference: docs/config.example.yaml in the installed release.
+healthCheckTimeout: 900 # larger than the slowest cold load
+logToStdout: "proxy,upstream"
+startPort: 5800
+sendLoadingState: true # progress in the reasoning field during a swap
+unloadTimeout: 90 # docker stop needs more than the default 10 s
+
+macros:
+  models_dir: "${env.LLM_MODELS_DIR}" # loading fails if unset
+
+# apiKeys:                     # only if llama-swap is reachable beyond loopback
+#   - "${env.LLAMA_SWAP_KEY}"
+
+models:
+  # Container engine: cmd + cmdStop. Replace image and flags from the engine skill.
+  "big-model":
+    proxy: "http://127.0.0.1:${PORT}"
+    cmd: |
+      docker run --name ${MODEL_ID} --init --rm --gpus all
+      -p 127.0.0.1:${PORT}:8000 -v ${models_dir}:/models:ro
+      <engine image> <engine flags>
+    cmdStop: docker stop ${MODEL_ID}
+    checkEndpoint: /health
+    ttl: 0
+    filters:
+      setParamsByID: # variant without a second copy in memory
+        "${MODEL_ID}-nothink":
+          chat_template_kwargs:
+            enable_thinking: false
+
+  # Plain llama-server process
+  "small-gguf":
+    cmd: |
+      llama-server --port ${PORT} --model ${models_dir}/<file>.gguf
+      --ctx-size 16384 --jinja
+    disableKeepAlives: true # avoids 502 EOF after streamed responses
+    ttl: 1800
+
+routing:
+  router:
+    use: group
+    settings:
+      groups:
+        large: { swap: true, exclusive: false, members: ["big-model"] }
+        side: { swap: false, exclusive: false, members: ["small-gguf"] }
+
+hooks:
+  on_startup:
+    preload: ["big-model"]
