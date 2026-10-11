@@ -1,0 +1,25 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Operating guide for Cloudflare AI Gateway: account and token setup, the REST API, provider-native and compat endpoints, credential precedence across request keys, BYOK and Unified Billing, caching, rate and spend limits, retries and dynamic routing, logging and privacy, Claude Code and LiteLLM wiring, teardown and troubleshooting. Checked against developers.cloudflare.com/ai-gateway on 2026-10-11; the service has no version numbers, so references cite the changelog date.",
+  "references": [
+    "https://developers.cloudflare.com/ai-gateway/llms.txt",
+    "https://developers.cloudflare.com/ai-gateway/get-started/",
+    "https://developers.cloudflare.com/ai-gateway/usage/rest-api/",
+    "https://developers.cloudflare.com/ai-gateway/usage/chat-completion/",
+    "https://developers.cloudflare.com/ai-gateway/configuration/authentication/",
+    "https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/",
+    "https://developers.cloudflare.com/ai-gateway/configuration/manage-gateway/",
+    "https://developers.cloudflare.com/ai-gateway/features/unified-billing/",
+    "https://developers.cloudflare.com/ai-gateway/features/caching/",
+    "https://developers.cloudflare.com/ai-gateway/features/rate-limiting/",
+    "https://developers.cloudflare.com/ai-gateway/features/spend-limits/",
+    "https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/",
+    "https://developers.cloudflare.com/ai-gateway/observability/logging/",
+    "https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/claude-code/",
+    "https://developers.cloudflare.com/ai-gateway/changelog/",
+    "https://docs.litellm.ai/docs/providers/openai_compatible"
+  ],
+  "kind": "product"
+}
