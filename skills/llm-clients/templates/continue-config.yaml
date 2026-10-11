@@ -1,0 +1,48 @@
+# Continue -> LLM gateway. Save as ~/.continue/config.yaml.
+# Put LITELLM_API_KEY=<your-virtual-key> in ~/.continue/.env (the IDE extension
+# cannot read shell exports). Never commit a workspace .env with keys.
+# Docs: https://docs.continue.dev/reference
+name: LLM gateway
+version: 1.0.0
+schema: v1
+
+models:
+  - name: Coder (gateway)
+    provider: openai
+    model: coder
+    apiBase: https://llm.example.com/v1
+    apiKey: ${{ secrets.LITELLM_API_KEY }}
+    roles:
+      - chat
+      - edit
+      - apply
+    capabilities:
+      - tool_use
+    defaultCompletionOptions:
+      contextLength: 131072
+      maxTokens: 8192
+    # Forces /chat/completions if the alias name looks like an OpenAI model
+    # that Continue would otherwise send to /responses.
+    useResponsesApi: false
+
+  - name: Vision (gateway)
+    provider: openai
+    model: vision
+    apiBase: https://llm.example.com/v1
+    apiKey: ${{ secrets.LITELLM_API_KEY }}
+    roles:
+      - chat
+    capabilities:
+      - tool_use
+      - image_input
+    defaultCompletionOptions:
+      contextLength: 32768
+      maxTokens: 4096
+
+  - name: Autocomplete (gateway)
+    provider: openai
+    model: autocomplete
+    apiBase: https://llm.example.com/v1
+    apiKey: ${{ secrets.LITELLM_API_KEY }}
+    roles:
+      - autocomplete

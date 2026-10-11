@@ -1,0 +1,92 @@
+# litellm-config.yaml - template for /etc/llm-stack/litellm-config.yaml
+# Docs: https://docs.litellm.ai/docs/proxy/configs
+# Every deployment points at llama-swap on loopback; llama-swap starts the engine.
+# The master key comes from the environment (LITELLM_MASTER_KEY, set in
+# /etc/llm-stack/litellm.env by the systemd unit), never from this file.
+# Variants (reasoning effort, thinking off) are llama-swap aliases created by
+# filters.setParamsByID, so no LiteLLM Python callbacks are needed.
+
+model_list:
+  - model_name: qwen-coder
+    litellm_params:
+      model: openai/qwen-coder
+      api_base: http://127.0.0.1:8080/v1
+      api_key: "none"   # llama-swap has no keys on loopback; any non-empty value
+      use_chat_completions_api: true             # bridge /v1/responses to chat completions
+    model_info:
+      max_input_tokens: 65536
+      max_output_tokens: 16384
+      supports_function_calling: true
+      supports_reasoning: true
+      supports_vision: false
+
+  - model_name: qwen-coder-nothink
+    litellm_params:
+      model: openai/qwen-coder-nothink
+      api_base: http://127.0.0.1:8080/v1
+      api_key: "none"
+      use_chat_completions_api: true
+    model_info:
+      max_input_tokens: 65536
+      max_output_tokens: 16384
+      supports_function_calling: true
+      supports_reasoning: false
+
+  - model_name: gpt-oss
+    litellm_params:
+      model: openai/gpt-oss
+      api_base: http://127.0.0.1:8080/v1
+      api_key: "none"
+      use_chat_completions_api: true
+    model_info:
+      max_input_tokens: 131072
+      max_output_tokens: 32768
+      supports_function_calling: true
+      supports_reasoning: true
+
+  - model_name: gpt-oss-high
+    litellm_params:
+      model: openai/gpt-oss-high
+      api_base: http://127.0.0.1:8080/v1
+      api_key: "none"
+      use_chat_completions_api: true
+    model_info:
+      max_input_tokens: 131072
+      max_output_tokens: 32768
+      supports_function_calling: true
+      supports_reasoning: true
+
+  - model_name: small-gguf
+    litellm_params:
+      model: openai/small-gguf
+      api_base: http://127.0.0.1:8080/v1
+      api_key: "none"
+    model_info:
+      max_input_tokens: 16384
+      supports_function_calling: true
+
+  - model_name: image-sd
+    litellm_params:
+      model: openai/image-sd
+      api_base: http://127.0.0.1:8080/v1
+      api_key: "none"
+    model_info:
+      mode: image_generation
+
+router_settings:
+  # Stable public aliases -> model groups above. Clients keep working when the
+  # model behind an alias changes.
+  model_group_alias:
+    coder: qwen-coder
+    reasoning: gpt-oss
+  # Cold swaps can take minutes; do not retry onto the same swapping backend.
+  num_retries: 0
+  timeout: 1800
+
+litellm_settings:
+  drop_params: true
+  request_timeout: 1800
+
+# general_settings.master_key falls back to the LITELLM_MASTER_KEY environment
+# variable; the proxy refuses to start when it is unset, empty or a known weak value.
+general_settings: {}

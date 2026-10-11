@@ -1,0 +1,46 @@
+{
+  "_comment": "Per-model metadata merged into GET /v1/models by build-catalog.sh. Keys of .models are LiteLLM model_name values; .aliases maps a model_group_alias name to the entry it reuses. Unknown keys are copied into the model entry as-is. created is a Unix timestamp: use the model's real release or upload date.",
+  "aliases": { "coder": "qwen-coder", "reasoning": "gpt-oss", "gpt-oss-high": "gpt-oss" },
+  "defaults": {
+    "owned_by": "self-hosted"
+  },
+  "models": {
+    "qwen-coder": {
+      "created": 1767225600,
+      "name": "Qwen coder",
+      "description": "Coding model, thinking on by default",
+      "context_length": 65536,
+      "max_model_len": 65536,
+      "max_output_tokens": 16384,
+      "capabilities": { "tools": true, "vision": false, "reasoning": true }
+    },
+    "qwen-coder-nothink": {
+      "created": 1767225600,
+      "name": "Qwen coder (no thinking)",
+      "context_length": 65536,
+      "max_model_len": 65536,
+      "max_output_tokens": 16384,
+      "capabilities": { "tools": true, "vision": false, "reasoning": false }
+    },
+    "gpt-oss": {
+      "created": 1754352000,
+      "name": "gpt-oss",
+      "context_length": 131072,
+      "max_model_len": 131072,
+      "max_output_tokens": 32768,
+      "capabilities": { "tools": true, "vision": false, "reasoning": true }
+    },
+    "small-gguf": {
+      "created": 1735689600,
+      "name": "Small GGUF",
+      "context_length": 16384,
+      "max_model_len": 16384,
+      "capabilities": { "tools": true, "vision": false, "reasoning": false }
+    },
+    "image-sd": {
+      "created": 1735689600,
+      "name": "Image generation",
+      "capabilities": { "image_output": true }
+    }
+  }
+}

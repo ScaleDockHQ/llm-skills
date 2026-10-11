@@ -1,0 +1,17 @@
+# Aider -> LLM gateway. Save as .aider.conf.yml in the repo root or home directory.
+# Key: export OPENAI_API_KEY (or put it in a git-ignored .env read via env-file).
+# Never put openai-api-key in this file.
+# Docs: https://aider.chat/docs/config/aider_conf.html
+
+# openai/ prefix = any OpenAI-compatible endpoint.
+model: openai/coder
+weak-model: openai/coder-small
+openai-api-base: https://llm.example.com/v1
+
+# Context window and costs for the aliases above.
+model-metadata-file: .aider.model.metadata.json
+# Edit format and per-model behaviour (edit_format, use_temperature, extra_params).
+# model-settings-file: .aider.model.settings.yml
+
+env-file: .env
+show-model-warnings: true

@@ -1,0 +1,45 @@
+# cloudflared-config.yml -> /etc/cloudflared/config.yml (locally managed tunnel)
+# Docs: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/configuration-file/
+#
+# Create the tunnel and DNS routes first:
+#   cloudflared tunnel login
+#   cloudflared tunnel create llm-stack
+#   cloudflared tunnel route dns llm-stack llm.example.com
+#   cloudflared tunnel route dns llm-stack dash.example.com
+# Then install as a service:
+#   sudo cloudflared --config /etc/cloudflared/config.yml service install
+#
+# Rules are matched top to bottom; the path is a regular expression and is
+# passed to the origin unchanged. The last rule must be a catch-all.
+# There is no read/response timeout here: Cloudflare's proxy read timeout
+# (HTTP 524) applies regardless. Keep long jobs streaming, or use a tailnet path.
+
+tunnel: <tunnel-uuid>
+credentials-file: /etc/cloudflared/<tunnel-uuid>.json
+
+originRequest:
+  connectTimeout: 30s
+  keepAliveTimeout: 90s
+
+ingress:
+  # Enriched model list (Caddy catalog front, key checked against LiteLLM)
+  - hostname: llm.example.com
+    path: ^/(v1/)?models/?$
+    service: http://127.0.0.1:8088
+
+  # Everything else on the API host goes straight to LiteLLM (it enforces keys)
+  - hostname: llm.example.com
+    service: http://127.0.0.1:4000
+
+  # Dashboard: only behind a Cloudflare Access application; cloudflared also
+  # validates the Access token before forwarding.
+  - hostname: dash.example.com
+    service: http://127.0.0.1:5555
+    originRequest:
+      access:
+        required: true
+        teamName: <team>
+        audTag:
+          - <aud-tag>
+
+  - service: http_status:404

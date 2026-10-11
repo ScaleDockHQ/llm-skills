@@ -1,0 +1,24 @@
+# /etc/systemd/system/llama-swap.service
+# Binary from https://github.com/mostlygeek/llama-swap/releases (linux_arm64 on DGX Spark).
+[Unit]
+Description=llama-swap model router
+After=network-online.target docker.service
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+User=llm
+Group=llm
+SupplementaryGroups=docker
+Environment=LLM_STACK_DIR=/opt/llm-stack
+Environment=LLM_MODELS_DIR=/srv/models
+# Space-separated SSH hosts for dual-node models; leave empty on a single node.
+Environment=LLM_WORKER_HOSTS=node-b
+ExecStart=/usr/local/bin/llama-swap -config /etc/llm-stack/llama-swap.yaml -listen 127.0.0.1:8080
+Restart=on-failure
+RestartSec=5
+# Give wrapper scripts time to stop engine containers on shutdown.
+TimeoutStopSec=180
+
+[Install]
+WantedBy=multi-user.target

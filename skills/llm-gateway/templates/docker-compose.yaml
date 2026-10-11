@@ -1,0 +1,54 @@
+# LiteLLM proxy + Postgres. Secrets come from ./.env (chmod 600, never committed);
+# see litellm.env.example for the variable names.
+#
+#   cp litellm.env.example .env && chmod 600 .env   # then fill values in an editor
+#   docker compose up -d
+#   curl -fsS http://127.0.0.1:4000/health/readiness | jq '{status, db}'
+#
+# Pin the LiteLLM image to a release tag (and ideally a digest). Find the latest:
+#   curl -fsS https://api.github.com/repos/BerriAI/litellm/releases/latest | jq -r .tag_name
+
+services:
+  litellm:
+    image: ghcr.io/berriai/litellm:v1.105.0    # append @sha256:<digest> once recorded
+    restart: unless-stopped
+    command: ["--config", "/app/config.yaml", "--port", "4000"]
+    ports:
+      - "127.0.0.1:4000:4000"                   # widen only behind TLS or on a private network
+    env_file:
+      - .env                                    # LITELLM_MASTER_KEY, LITELLM_SALT_KEY, provider keys
+    environment:
+      DATABASE_URL: postgresql://litellm:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}@db:5432/litellm
+      STORE_MODEL_IN_DB: "False"                # config.yaml is the source of truth for models
+    volumes:
+      - ./litellm-config.yaml:/app/config.yaml:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"     # reach backends running on the Docker host
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python3 -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:4000/health/liveliness')\""]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: litellm
+      POSTGRES_DB: litellm
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - litellm_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U litellm -d litellm"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    # no published ports: only the litellm service reaches the database
+
+volumes:
+  litellm_pg:

@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Plan, set up, operate, update, benchmark, optimize and clean up a self-hosted LLM and generative-AI serving stack on Linux servers with NVIDIA GPUs, with NVIDIA DGX Spark (single or dual node) as the first-class profile. One authenticated OpenAI-compatible endpoint built from a LiteLLM gateway, llama-swap model swapping, engine containers (vLLM, SGLang, TensorRT-LLM, llama.cpp, Ollama, ExLlamaV3, TensorFold, stable-diffusion.cpp), an enriched /v1/models catalog behind Caddy, and Cloudflare Tunnel or Tailscale exposure, with memory safety, read-only status checks, a curl+jq benchmark script and a symptom-to-fix troubleshooting table.",
+  "references": [
+    "https://docs.nvidia.com/dgx/dgx-spark/index.html",
+    "https://github.com/NVIDIA/dgx-spark-playbooks",
+    "https://github.com/mostlygeek/llama-swap",
+    "https://docs.litellm.ai/docs/simple_proxy",
+    "https://docs.vllm.ai/en/latest/",
+    "https://docs.sglang.ai/",
+    "https://nvidia.github.io/TensorRT-LLM/",
+    "https://github.com/ggml-org/llama.cpp/tree/master/tools/server",
+    "https://docs.ollama.com/",
+    "https://github.com/turboderp-org/exllamav3",
+    "https://github.com/theroyallab/tabbyAPI",
+    "https://github.com/ashhart/TensorFold",
+    "https://github.com/leejet/stable-diffusion.cpp",
+    "https://caddyserver.com/docs/caddyfile/directives/forward_auth",
+    "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/",
+    "https://tailscale.com/kb/1312/serve",
+    "https://github.com/rfjakob/earlyoom",
+    "https://huggingface.co/docs/huggingface_hub/guides/manage-cache",
+    "https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html"
+  ]
+}

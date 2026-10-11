@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  macOS per-user LaunchAgent for llama-server.
+  launchd does not expand ~ or $HOME, so replace __HOME__ with your absolute home path:
+    sed "s|__HOME__|$HOME|g" llama-server.launchd.plist > ~/Library/LaunchAgents/com.example.llama-server.plist
+  Binary path: `command -v llama-server` (Homebrew on Apple Silicon: /opt/homebrew/bin/llama-server).
+  Load / restart / unload:
+    launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.example.llama-server.plist
+    launchctl kickstart -k gui/$(id -u)/com.example.llama-server
+    launchctl bootout gui/$(id -u)/com.example.llama-server
+  Logs: __HOME__/Library/Logs/llama-server.log
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.example.llama-server</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/llama-server</string>
+    <string>-m</string>
+    <string>__HOME__/models/model-Q4_K_M.gguf</string>
+    <string>-a</string>
+    <string>local-model</string>
+    <string>-c</string>
+    <string>32768</string>
+    <string>--host</string>
+    <string>127.0.0.1</string>
+    <string>--port</string>
+    <string>9931</string>
+    <string>--api-key-file</string>
+    <string>__HOME__/.config/llama-server/keys</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <dict>
+    <key>SuccessfulExit</key>
+    <false/>
+  </dict>
+  <key>ProcessType</key>
+  <string>Interactive</string>
+  <key>StandardOutPath</key>
+  <string>__HOME__/Library/Logs/llama-server.log</string>
+  <key>StandardErrorPath</key>
+  <string>__HOME__/Library/Logs/llama-server.log</string>
+</dict>
+</plist>

@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Decision guide for where LLMs should run: laptop local, owned server (DGX Spark or GPU box), rented GPU VM, serverless GPU, managed open-model API, frontier proprietary API, or hyperscaler platform (AWS Bedrock, Gemini Enterprise Agent Platform, Microsoft Foundry), with hybrid as an explicit outcome. Covers an intake checklist (data classification, quality bar, latency, volume and utilization, budget, ops capacity, compliance and residency), a decision flow, utilization break-even cost formulas, provider data-retention and residency terms, private evals, hybrid routing patterns, migration between tiers, and a decision record template.",
+  "references": [
+    "https://developers.openai.com/api/docs/guides/your-data",
+    "https://developers.openai.com/api/docs/guides/batch",
+    "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "https://developers.openai.com/api/docs/pricing",
+    "https://platform.claude.com/docs/en/build-with-claude/zero-data-retention",
+    "https://platform.claude.com/docs/en/build-with-claude/data-residency",
+    "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+    "https://platform.claude.com/docs/en/about-claude/pricing",
+    "https://ai.google.dev/gemini-api/terms",
+    "https://ai.google.dev/gemini-api/docs/batch-mode",
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/vertex-ai-name-changes",
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types",
+    "https://docs.runpod.io/serverless/endpoints/endpoint-configurations",
+    "https://huggingface.co/docs/inference-endpoints/en/autoscaling",
+    "https://huggingface.co/docs/inference-providers/security",
+    "https://openrouter.ai/docs/guides/privacy/data-collection",
+    "https://docs.litellm.ai/docs/proxy/reliability"
+  ]
+}

@@ -1,0 +1,21 @@
+# /etc/systemd/system/litellm.service
+# Pin the image tag you tested; see https://docs.litellm.ai/docs/proxy/deploy
+# Host networking so LiteLLM reaches llama-swap on 127.0.0.1:8080; --host keeps it on loopback.
+[Unit]
+Description=LiteLLM gateway
+After=docker.service llama-swap.service
+Requires=docker.service
+
+[Service]
+Environment=LITELLM_IMAGE=docker.litellm.ai/berriai/litellm:<pinned-tag>
+ExecStartPre=-/usr/bin/docker rm -f litellm
+ExecStart=/usr/bin/docker run --rm --name litellm --network host \
+  --env-file /etc/llm-stack/litellm.env \
+  -v /etc/llm-stack/litellm-config.yaml:/app/config.yaml:ro \
+  ${LITELLM_IMAGE} --config /app/config.yaml --host 127.0.0.1 --port 4000
+ExecStop=/usr/bin/docker stop -t 30 litellm
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

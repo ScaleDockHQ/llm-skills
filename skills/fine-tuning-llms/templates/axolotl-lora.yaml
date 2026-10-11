@@ -1,0 +1,106 @@
+# Axolotl LoRA SFT config (single GPU or unified-memory box).
+# Every key below is in the Axolotl config reference:
+#   https://docs.axolotl.ai/docs/config-reference.html
+# Modeled on examples/llama-3/instruct-lora-8b.yml in axolotl-ai-cloud/axolotl.
+#
+# Run:
+#   axolotl preprocess axolotl-lora.yaml --debug --debug-num-examples 3   # inspect masking first
+#   axolotl train axolotl-lora.yaml
+#   axolotl merge-lora axolotl-lora.yaml                                  # optional, see evaluate-and-merge.md
+
+# Hugging Face repo id or local path of the base model. Use the instruct
+# variant if you train on chat data; check its license first (licenses.md).
+base_model: <org>/<model>
+
+# Quantized loading. Both false = LoRA on bf16 weights.
+# For QLoRA set load_in_4bit: true and adapter: qlora.
+load_in_8bit: false
+load_in_4bit: false
+
+# Chat template used to render `messages` into tokens. tokenizer_default uses the
+# template shipped in the base model's tokenizer_config.json, so training and
+# serving see the same prompt format.
+chat_template: tokenizer_default
+
+datasets:
+  # Local JSONL file with one {"messages": [{"role": ..., "content": ...}, ...]} per line.
+  # ds_type is inferred from the extension; set it explicitly for clarity.
+  - path: data/train.jsonl
+    ds_type: json
+    type: chat_template
+    # Key in each row that holds the message list (OpenAI-style default).
+    field_messages: messages
+    # Only assistant turns contribute to the loss; system/user tokens are masked.
+    roles_to_train: ["assistant"]
+    # Train on the EOS token that ends each trainable turn, so the model learns to stop.
+    train_on_eos: turn
+
+# Held-out eval data you split off BEFORE training (never seen by the trainer).
+# Mutually exclusive with val_set_size; use one or the other.
+test_datasets:
+  - path: data/eval.jsonl
+    ds_type: json
+    type: chat_template
+    field_messages: messages
+    roles_to_train: ["assistant"]
+    train_on_eos: turn
+
+# Cache directory for tokenized data; reused by `axolotl preprocess` and `train`.
+dataset_prepared_path: ./prepared/lora-run
+# Where checkpoints and the final adapter (adapter_model.safetensors) are written.
+output_dir: ./outputs/lora-run
+
+# Max tokens per training row. Activation memory grows with this; keep it at
+# the real length of your data, not the model's max context.
+sequence_len: 4096
+# Pack several short rows into one sequence for throughput.
+sample_packing: true
+# Pad to sequence_len for stable memory use (defaults to true with packing).
+pad_to_sequence_len: true
+
+# Parameter-efficient method: lora (or qlora with load_in_4bit: true).
+adapter: lora
+# Set to an existing adapter dir to continue training it; empty for a fresh run.
+lora_model_dir:
+# Rank of the low-rank update. 16-32 is a common start; vLLM caps served rank
+# via --max-lora-rank, so keep it at a value your server allows.
+lora_r: 16
+# Scaling factor; a common choice is alpha = r or 2*r.
+lora_alpha: 32
+lora_dropout: 0.05
+# Attach LoRA to all linear layers (attention + MLP).
+lora_target_linear: true
+
+# Effective batch = micro_batch_size * gradient_accumulation_steps * num_gpus.
+micro_batch_size: 2
+gradient_accumulation_steps: 4
+num_epochs: 2
+# 8-bit AdamW from bitsandbytes cuts optimizer memory; adamw_torch_fused is the default.
+optimizer: adamw_bnb_8bit
+lr_scheduler: cosine
+# Typical LoRA learning rate; full fine-tuning usually needs ~10x lower.
+learning_rate: 0.0002
+warmup_ratio: 0.05
+weight_decay: 0.0
+
+# Mixed precision: auto picks bf16 on Ampere or newer.
+bf16: auto
+tf32: auto
+# Recompute activations in backward pass: less memory, ~30% slower.
+gradient_checkpointing: true
+# Attention backend; sdpa works everywhere, flash_attention_2 is faster where installed.
+attn_implementation: sdpa
+
+logging_steps: 10
+# Eval loss on test_datasets this many times per epoch.
+evals_per_epoch: 4
+# Checkpoints per epoch, and how many to keep on disk.
+saves_per_epoch: 2
+save_total_limit: 3
+# Path to a checkpoint dir to resume an interrupted run; empty for a fresh run.
+resume_from_checkpoint:
+
+seed: 42
+
+# Uncomment to push the adapter to the Hub (needs $HF_TOKEN; respect the base license naming rules).
+# hub_model_id: <org>/<model>-lora

@@ -1,0 +1,16 @@
+# Ollama Modelfile: give a model a larger default context and fixed sampling.
+# Build and run:
+#   ollama create my-model -f ./Modelfile.example
+#   ollama run my-model
+# Reference: https://docs.ollama.com/modelfile
+
+# A library tag (ollama pull <tag>) or a local GGUF: FROM ./model-Q4_K_M.gguf
+# No ADAPTER line: current Ollama rejects LoRA adapters ("LoRA adapters are no longer
+# supported"). Merge the adapter into the base, convert to GGUF and use FROM instead.
+FROM qwen3:8b
+
+# Context window used for /v1 clients that cannot pass num_ctx. Size the KV cache first.
+PARAMETER num_ctx 32768
+PARAMETER temperature 0.6
+
+SYSTEM """You are a concise, accurate assistant."""

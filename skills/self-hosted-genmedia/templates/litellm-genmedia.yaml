@@ -1,0 +1,39 @@
+# LiteLLM proxy model_list entries for genmedia routes behind llama-swap.
+# Verified against docs.litellm.ai (image_generation, audio_transcription, text_to_speech,
+# providers/openai_compatible, proxy/timeout, proxy/health) for LiteLLM v1.105.0, 2026-10-11.
+# Merge into your gateway config; gateway ownership (keys, budgets, DB) lives in the llm-gateway skill.
+
+model_list:
+  - model_name: flux-schnell
+    litellm_params:
+      model: openai/flux-schnell            # openai/ prefix + llama-swap model id
+      api_base: http://127.0.0.1:8080/v1    # llama-swap; keep the /v1 suffix
+      api_key: os.environ/LLAMA_SWAP_API_KEY
+      timeout: 900                           # whole-call timeout (seconds) for slow images and cold swaps
+    model_info:
+      mode: image_generation
+
+  - model_name: whisper
+    litellm_params:
+      model: openai/whisper
+      api_base: http://127.0.0.1:8080/v1
+      api_key: os.environ/LLAMA_SWAP_API_KEY
+      timeout: 600
+    model_info:
+      mode: audio_transcription
+
+  - model_name: tts
+    litellm_params:
+      model: openai/tts
+      api_base: http://127.0.0.1:8080/v1
+      api_key: os.environ/LLAMA_SWAP_API_KEY
+      timeout: 300
+    model_info:
+      mode: audio_speech
+      health_check_voice: af_heart
+
+litellm_settings:
+  request_timeout: 900                       # proxy-wide default when no deployment/router timeout is set
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY

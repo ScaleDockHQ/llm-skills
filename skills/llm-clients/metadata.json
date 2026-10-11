@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Connect coding agents, IDE extensions, chat UIs and SDK apps to OpenAI- or Anthropic-compatible LLM endpoints and gateways. Covers Claude Code, Codex CLI, OpenCode, Aider, Cursor, Continue, Cline, Roo Code, Kilo Code, Open WebUI, LobeHub and the OpenAI, Anthropic and Vercel AI SDKs: matching each client to Chat Completions, Responses or Anthropic Messages, client-local versus vendor-cloud requests, declaring context window, tool, vision and reasoning support, keeping keys out of shared config, and troubleshooting.",
+  "references": [
+    "https://code.claude.com/docs/en/llm-gateway",
+    "https://code.claude.com/docs/en/llm-gateway-connect",
+    "https://code.claude.com/docs/en/llm-gateway-protocol",
+    "https://code.claude.com/docs/en/env-vars",
+    "https://code.claude.com/docs/en/model-config",
+    "https://learn.chatgpt.com/docs/config-file/config-reference",
+    "https://learn.chatgpt.com/docs/config-file/config-advanced",
+    "https://opencode.ai/docs/providers/",
+    "https://opencode.ai/docs/models/",
+    "https://aider.chat/docs/llms/openai-compat.html",
+    "https://aider.chat/docs/config/adv-model-settings.html",
+    "https://cursor.com/help/models-and-usage/api-keys",
+    "https://docs.continue.dev/reference",
+    "https://docs.continue.dev/customize/deep-dives/model-capabilities",
+    "https://docs.cline.bot/provider-config/openai-compatible",
+    "https://roocodeinc.github.io/Roo-Code/providers/openai-compatible",
+    "https://kilo.ai/docs/ai-providers/openai-compatible",
+    "https://docs.openwebui.com/getting-started/quick-start/connect-a-provider/starting-with-openai-compatible",
+    "https://docs.openwebui.com/reference/env-configuration",
+    "https://lobehub.com/docs/self-hosting/advanced/model-list",
+    "https://github.com/openai/openai-python",
+    "https://github.com/anthropics/anthropic-sdk-python",
+    "https://ai-sdk.dev/providers/openai-compatible-providers"
+  ]
+}

@@ -1,0 +1,91 @@
+# llama-swap entries for generative-media servers next to LLMs.
+# Verified against llama-swap v263 docs/config.example.yaml (2026-10-11).
+# Merge into your existing config.yaml; the LLM entries come from the self-hosted-llms skill.
+# Paths use ${env.HOME}; replace binaries, model files and images with yours.
+
+healthCheckTimeout: 600      # seconds a load may go without progress; image/video weights load slowly
+startPort: 10001
+
+apiKeys:
+  - "${env.LLAMA_SWAP_API_KEY}"
+
+macros:
+  "models": "${env.HOME}/models"
+
+models:
+  # --- image: stable-diffusion.cpp sd-server (no /health; /v1/models answers once listening)
+  "flux-schnell":
+    cmd: |
+      ${env.HOME}/src/stable-diffusion.cpp/build/bin/sd-server
+      --listen-ip 127.0.0.1 --listen-port ${PORT}
+      --diffusion-model ${models}/flux/flux1-schnell-q8_0.gguf
+      --vae ${models}/flux/ae.safetensors
+      --clip_l ${models}/flux/clip_l.safetensors
+      --t5xxl ${models}/flux/t5xxl_fp16.safetensors
+      --cfg-scale 1.0 --steps 4 --diffusion-fa
+    checkEndpoint: /v1/models
+    ttl: 900
+    timeouts:
+      responseHeader: 0      # sync image requests send no headers until the image is done
+
+  # --- speech-to-text: whisper.cpp mounted at the OpenAI path
+  "whisper":
+    cmd: |
+      ${env.HOME}/src/whisper.cpp/build/bin/whisper-server
+      --host 127.0.0.1 --port ${PORT}
+      -m ${models}/whisper/ggml-large-v3-turbo.bin -l auto -fa --convert
+      --request-path /v1/audio --inference-path /transcriptions
+    checkEndpoint: /v1/audio/health
+    ttl: 0
+
+  # --- text-to-speech: Kokoro-FastAPI in Docker (container listens on 8880)
+  "tts":
+    proxy: "http://127.0.0.1:${PORT}"
+    cmd: |
+      docker run --rm --name ${MODEL_ID} --gpus all
+      -p 127.0.0.1:${PORT}:8880
+      ghcr.io/remsky/kokoro-fastapi-gpu:latest
+    cmdStop: docker stop ${MODEL_ID}
+    unloadTimeout: 30
+    checkEndpoint: /health
+    useModelName: kokoro
+    ttl: 0
+
+  # --- ComfyUI through the dedicated /comfyui/ endpoint (reserved id comfyui_auto)
+  "comfyui_auto":
+    cmd: |
+      ${env.HOME}/ComfyUI/.venv/bin/python ${env.HOME}/ComfyUI/main.py
+      --listen 127.0.0.1 --port ${PORT}
+      --disable-all-custom-nodes --offline
+    checkEndpoint: /
+    unlisted: true
+    ttl: 600
+    unloadTimeout: 30
+
+routing:
+  router:
+    use: group
+    settings:
+      groups:
+        # big LLMs, image and video take turns; loading one evicts the other groups
+        "heavy":
+          swap: true
+          exclusive: true
+          members:
+            - "flux-schnell"
+            - "comfyui_auto"
+            # - "<your-big-llm>"
+        # small speech services stay loaded and are never evicted
+        "voice":
+          persistent: true
+          swap: false
+          exclusive: false
+          members:
+            - "whisper"
+            - "tts"
+
+hooks:
+  on_startup:
+    preload:
+      - "whisper"
+      - "tts"

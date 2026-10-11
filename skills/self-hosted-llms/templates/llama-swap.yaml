@@ -1,0 +1,113 @@
+# llama-swap.yaml - template for /etc/llm-stack/llama-swap.yaml
+# Upstream reference: https://github.com/mostlygeek/llama-swap/blob/main/docs/config.example.yaml
+# llama-swap listens on 127.0.0.1:8080 (set by the systemd unit). It has no API
+# keys here on purpose: only LiteLLM on loopback talks to it.
+# Model IDs below are the names LiteLLM uses in api_base calls; clients never see them
+# unless you choose the same names in LiteLLM.
+
+# Large models can take minutes to load; progress reports reset this countdown.
+healthCheckTimeout: 900
+logLevel: info
+logToStdout: "proxy,upstream"
+startPort: 5800
+# Stream loading messages in the reasoning field while a model swaps in. Keeps
+# streaming clients (and proxies with read timeouts) from seeing a silent connection.
+sendLoadingState: true
+# Graceful unload budget before force-kill; docker stop needs more than the default.
+unloadTimeout: 90
+
+macros:
+  stack: "/opt/llm-stack"
+  models_dir: "${env.LLM_MODELS_DIR}"     # loading fails if the env var is unset
+
+models:
+  # Large model, container engine through the wrapper (models.d/qwen-coder.sh).
+  "qwen-coder":
+    name: "Qwen coder (vLLM)"
+    cmd: ${stack}/start-model.sh run ${MODEL_ID} ${PORT}
+    cmdStop: ${stack}/start-model.sh stop ${MODEL_ID}
+    checkEndpoint: /health
+    ttl: 0                      # never auto-unload; swaps happen on demand
+    capabilities:
+      in: [text]
+      out: [text]
+      tools: true
+      context: 65536
+    filters:
+      setParamsByID:
+        # Alias "qwen-coder-nothink" disables thinking via the chat template.
+        "${MODEL_ID}-nothink":
+          chat_template_kwargs:
+            enable_thinking: false
+
+  # Second large model; swapping between the two is exclusive.
+  "gpt-oss":
+    name: "gpt-oss (vLLM)"
+    cmd: ${stack}/start-model.sh run ${MODEL_ID} ${PORT}
+    cmdStop: ${stack}/start-model.sh stop ${MODEL_ID}
+    checkEndpoint: /health
+    capabilities:
+      in: [text]
+      out: [text]
+      tools: true
+      context: 131072
+    filters:
+      setParamsByID:
+        "${MODEL_ID}-low":
+          reasoning_effort: low
+        "${MODEL_ID}-high":
+          reasoning_effort: high
+
+  # Small GGUF model, plain docker run (pattern from the upstream example).
+  "small-gguf":
+    name: "Small GGUF (llama.cpp)"
+    proxy: "http://127.0.0.1:${PORT}"
+    cmd: |
+      docker run --name ${MODEL_ID} --init --rm --gpus all
+      --label llm-stack.role=engine
+      -p 127.0.0.1:${PORT}:8080 -v ${models_dir}:/models:ro
+      ghcr.io/ggml-org/llama.cpp:server-cuda13
+      --host 0.0.0.0 --port 8080
+      --model /models/<file>.gguf --ctx-size 16384 --alias ${MODEL_ID}
+    cmdStop: docker stop ${MODEL_ID}
+    # llama-server can close keep-alive connections after a stream (502 "proxy error: EOF").
+    disableKeepAlives: true
+    ttl: 1800
+
+  # Image server (stable-diffusion.cpp sd-server, host binary).
+  "image-sd":
+    name: "Image generation (sd-server)"
+    cmd: |
+      /usr/local/bin/sd-server --listen-ip 127.0.0.1 --listen-port ${PORT}
+      --diffusion-model ${models_dir}/<diffusion>.safetensors
+      --vae ${models_dir}/<vae>.safetensors
+      --llm ${models_dir}/<text-encoder>.safetensors
+    # sd-server loads the model before it starts listening, so any route answering means ready.
+    checkEndpoint: /v1/models
+    ttl: 600
+    capabilities:
+      in: [text]
+      out: [image]
+
+routing:
+  router:
+    use: group
+    settings:
+      groups:
+        # One large model at a time. exclusive: false keeps the side group loaded;
+        # set it to true if a side model does not fit next to a large one.
+        "large":
+          swap: true
+          exclusive: false
+          members: ["qwen-coder", "gpt-oss"]
+        # Small models that stay loaded next to each other and next to a large
+        # model. Only if the memory plan says they all fit together.
+        "side":
+          swap: false
+          exclusive: false
+          members: ["small-gguf", "image-sd"]
+
+hooks:
+  on_startup:
+    preload:
+      - "qwen-coder"

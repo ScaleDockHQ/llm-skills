@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Metrics, tracing, logging, cost tracking and alerting for LLM serving and LLM apps. Covers Prometheus metrics from vLLM, SGLang, llama.cpp, TGI and llama-swap (including which /metrics endpoints are unauthenticated), NVIDIA GPU metrics with DCGM exporter and the unified-memory reporting caveats on DGX Spark / GB10, Prometheus and Grafana setup with validated scrape and alert templates, OpenTelemetry GenAI tracing with Langfuse, Arize Phoenix and OpenLLMetry, LiteLLM gateway metrics, logging callbacks, spend logs and pricing, symptom-first alerting, and a privacy review for prompt and PII logging, redaction and retention.",
+  "references": [
+    "https://docs.vllm.ai/en/latest/design/metrics.html",
+    "https://docs.vllm.ai/en/latest/usage/metrics.html",
+    "https://docs.sglang.io/references/production_metrics.html",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://huggingface.co/docs/text-generation-inference/reference/metrics",
+    "https://github.com/mostlygeek/llama-swap",
+    "https://docs.nvidia.com/datacenter/dcgm/latest/gpu-telemetry/dcgm-exporter.html",
+    "https://github.com/NVIDIA/dcgm-exporter",
+    "https://docs.nvidia.com/dgx/dgx-spark/known-issues.html",
+    "https://prometheus.io/docs/prometheus/latest/configuration/configuration/",
+    "https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/",
+    "https://grafana.com/docs/grafana/latest/administration/provisioning/",
+    "https://github.com/open-telemetry/semantic-conventions-genai",
+    "https://opentelemetry.io/docs/specs/semconv/gen-ai/",
+    "https://langfuse.com/integrations/native/opentelemetry",
+    "https://langfuse.com/docs/administration/data-retention",
+    "https://arize.com/docs/phoenix",
+    "https://github.com/traceloop/openllmetry",
+    "https://docs.litellm.ai/docs/proxy/prometheus",
+    "https://docs.litellm.ai/docs/proxy/logging",
+    "https://docs.litellm.ai/docs/proxy/config_settings",
+    "https://docs.litellm.ai/docs/proxy/custom_pricing"
+  ]
+}

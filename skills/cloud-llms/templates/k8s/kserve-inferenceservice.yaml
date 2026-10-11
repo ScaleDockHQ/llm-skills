@@ -1,0 +1,88 @@
+# KServe InferenceService serving an LLM with the Hugging Face runtime (vLLM backend by default).
+# Based on KServe's official "Text Generation" and "KEDA autoscaling" guides (KServe website docs, checked 2026-10-11):
+#   https://kserve.github.io/website/docs/model-serving/generative-inference/tasks/text-generation
+#   https://kserve.github.io/website/docs/model-serving/generative-inference/autoscaling
+#
+# Before applying:
+#   1. KServe installed (Standard mode if you use the KEDA autoscaling block), GPU nodes available.
+#   2. Create the token Secret from a file (never inline the token):
+#        kubectl create secret generic hf-secret --from-file=HF_TOKEN=<path-to-token-file>
+#   3. Replace every <placeholder>.
+#
+# Test (see KServe docs to set INGRESS_HOST / INGRESS_PORT):
+#   kubectl get inferenceservice chat-llm
+#   SERVICE_HOSTNAME=$(kubectl get inferenceservice chat-llm -o jsonpath='{.status.url}' | cut -d "/" -f 3)
+#   curl -s http://${INGRESS_HOST}:${INGRESS_PORT}/openai/v1/chat/completions \
+#     -H "Host: ${SERVICE_HOSTNAME}" -H "Content-Type: application/json" \
+#     -d '{"model":"<alias>","messages":[{"role":"user","content":"ping"}],"max_tokens":16}'
+---
+# Lets the storage initializer download hf:// URIs with the token above.
+apiVersion: serving.kserve.io/v1alpha1
+kind: ClusterStorageContainer
+metadata:
+  name: hf-hub
+spec:
+  container:
+    name: storage-initializer
+    image: kserve/storage-initializer:<kserve-version>
+    env:
+      - name: HF_TOKEN
+        valueFrom:
+          secretKeyRef:
+            name: hf-secret
+            key: HF_TOKEN
+            optional: false
+    resources:
+      requests:
+        memory: 2Gi
+        cpu: "1"
+      limits:
+        memory: 4Gi
+        cpu: "1"
+  supportedUriFormats:
+    - prefix: "hf://"
+---
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: chat-llm
+  annotations:
+    serving.kserve.io/deploymentMode: "Standard"
+    # Uncomment with the autoScaling block below to scale on vLLM queue metrics via KEDA + Prometheus.
+    # serving.kserve.io/autoscalerClass: "keda"
+    # serving.kserve.io/enable-prometheus-scraping: "true"
+    # prometheus.io/scrape: "true"
+    # prometheus.io/path: "/metrics"
+    # prometheus.io/port: "8080"
+    # prometheus.io/scheme: "http"
+spec:
+  predictor:
+    minReplicas: 1
+    maxReplicas: 1
+    model:
+      modelFormat:
+        name: huggingface
+      args:
+        - --model_name=<alias>
+        # - --backend=huggingface   # only to force the plain Transformers backend instead of vLLM
+      storageUri: hf://<hf-org>/<model>
+      resources:
+        limits:
+          cpu: "6"
+          memory: 24Gi
+          nvidia.com/gpu: "1"
+        requests:
+          cpu: "6"
+          memory: 24Gi
+          nvidia.com/gpu: "1"
+    # autoScaling:
+    #   metrics:
+    #     - type: External
+    #       external:
+    #         metric:
+    #           backend: "prometheus"
+    #           serverAddress: "http://<prometheus-service>.<namespace>.svc.cluster.local:9090"
+    #           query: vllm:num_requests_running
+    #         target:
+    #           type: Value
+    #           value: "2"
