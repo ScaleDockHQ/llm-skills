@@ -480,7 +480,7 @@
       "name": "kong-ai-gateway",
       "kind": "product",
       "category": "gateways",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://developer.konghq.com/ai-gateway/",
       "replaces": null

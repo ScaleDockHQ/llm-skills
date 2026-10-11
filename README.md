@@ -340,10 +340,11 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`openrouter`](skills/openrouter)                                   | OpenRouter hosted gateway: one OpenAI-compatible API for hundreds of models with provider routing, fallbacks, presets, BYOK, guardrails and spend limits.                            | `npx skills add ScaleDockHQ/llms-skills@openrouter`                  |
 | [`portkey`](skills/portkey)                                         | Portkey AI Gateway: open-source Node.js gateway with configs for fallbacks, load balancing, retries and conditional routing, plus the hosted Portkey platform.                       | `npx skills add ScaleDockHQ/llms-skills@portkey`                     |
 | [`envoy-ai-gateway`](skills/envoy-ai-gateway)                       | Envoy AI Gateway (Agent Router): Kubernetes and standalone aigw gateway for LLM and MCP traffic, with model routing, upstream auth, fallback, token limits and InferencePool.        | `npx skills add ScaleDockHQ/llms-skills@envoy-ai-gateway`            |
+| [`kong-ai-gateway`](skills/kong-ai-gateway)                         | Kong AI Gateway: ai-proxy on Kong OSS, Enterprise balancing and token limits, and the 2.x Konnect model with kongctl, for OpenAI-compatible LLM traffic.                             | `npx skills add ScaleDockHQ/llms-skills@kong-ai-gateway`             |
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 176 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 177 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
