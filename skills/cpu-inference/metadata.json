@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run, size and tune LLM inference on CPU-only hosts with llama.cpp. References cover CPU instruction sets (AVX2, AVX-512, AMX, NEON, KleidiAI), prebuilt and source builds, thread, affinity and NUMA tuning, the memory-bandwidth speed ceiling, quant and MoE sizing, troubleshooting and updates.",
+  "references": [
+    "https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/docs/docker.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/ggml/CMakeLists.txt",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/llama-bench/README.md",
+    "https://github.com/ggml-org/llama.cpp/releases"
+  ],
+  "kind": "platform"
+}
