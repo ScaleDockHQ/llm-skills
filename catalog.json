@@ -221,7 +221,7 @@
       "name": "ktransformers",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://github.com/kvcache-ai/ktransformers",
       "replaces": null

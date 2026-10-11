@@ -98,6 +98,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`mistral-rs`](skills/mistral-rs)             | Rust LLM inference engine with ISQ/UQFF quantization, paged attention, OpenAI, Responses and Anthropic APIs and a web UI                                                                                                                                                                                                                                                                                                                                                                                                          | `npx skills add ScaleDockHQ/llms-skills@mistral-rs`       |
 | [`localai`](skills/localai)                   | Install, run and operate LocalAI, the self-hosted OpenAI, Anthropic and Ollama compatible server with gallery and backends                                                                                                                                                                                                                                                                                                                                                                                                        | `npx skills add ScaleDockHQ/llms-skills@localai`          |
 | [`aphrodite-engine`](skills/aphrodite-engine) | Install, serve and tune Aphrodite Engine (now branded Sonar), the vLLM-derived LLM inference server with OpenAI, Anthropic and Kobold APIs. Use for the aphrodite CLI, aphrodite serve, aphrodite-engine pip package, sonar.dphn.ai, port 2242, quantization (exl3, gptq, awq, fp8), speculative decoding, LoRA, multi-node, upgrades. Fixes CUDA OOM, unsupported architecture, parser errors. Not for choosing an engine (choosing-inference-engine).                                                                           | `npx skills add ScaleDockHQ/llms-skills@aphrodite-engine` |
+| [`ktransformers`](skills/ktransformers)       | CPU+GPU hybrid inference for huge MoE models with kt-kernel, the sglang-kt fork and the kt CLI                                                                                                                                                                                                                                                                                                                                                                                                                                    | `npx skills add ScaleDockHQ/llms-skills@ktransformers`    |
 
 #### Local runtimes
 
@@ -344,7 +345,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 177 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 178 of 217 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 
