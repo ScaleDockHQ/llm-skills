@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Force LLM output to match a JSON schema, regex, choice list or grammar with guided decoding. Covers exact flags and request shapes for vLLM, SGLang, TensorRT-LLM, llama.cpp, Ollama, TensorFold and ExLlamaV3/TabbyAPI, the xgrammar, guidance, outlines and llguidance backends, schema-subset limits, and a validity and accuracy quality gate with rollback. References hold the per-engine matrix and the gate; a probe script checks a constraint end to end.",
+  "references": [
+    "https://docs.vllm.ai/en/latest/features/structured_outputs/",
+    "https://docs.vllm.ai/en/latest/features/tool_calling/",
+    "https://github.com/vllm-project/vllm/blob/v0.31.0/vllm/config/structured_outputs.py",
+    "https://docs.sglang.ai/advanced_features/structured_outputs.html",
+    "https://nvidia.github.io/TensorRT-LLM/latest/features/guided-decoding.html",
+    "https://github.com/NVIDIA/TensorRT-LLM/blob/v1.2.1/tensorrt_llm/serve/openai_protocol.py",
+    "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+    "https://github.com/ggml-org/llama.cpp/blob/master/grammars/README.md",
+    "https://docs.ollama.com/capabilities/structured-outputs",
+    "https://github.com/ashhart/TensorFold/blob/main/docs/api.md",
+    "https://github.com/turboderp-org/exllamav3",
+    "https://github.com/theroyallab/tabbyAPI",
+    "https://github.com/mlc-ai/xgrammar"
+  ],
+  "kind": "technique"
+}
