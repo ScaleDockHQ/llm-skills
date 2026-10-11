@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Set up, size and operate AMD Ryzen AI Max (Strix Halo, gfx1151, up to 128 GB unified memory) for local LLM inference. References cover ROCm 10.1.0 support and OS and kernel notes, the GTT and TTM memory pool and kernel parameters, Vulkan versus ROCm, toolbox containers and Lemonade, tuning, updates and troubleshooting.",
+  "references": [
+    "https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html",
+    "https://rocm.docs.amd.com/en/latest/install/rocm.html",
+    "https://rocm.docs.amd.com/en/latest/about/release-notes.html",
+    "https://docs.kernel.org/gpu/amdgpu/driver-misc.html",
+    "https://strix-halo-toolboxes.com/",
+    "https://github.com/kyuz0/amd-strix-halo-toolboxes",
+    "https://strixhalo.wiki/AI/AI_Capabilities_Overview",
+    "https://github.com/lemonade-sdk/lemonade",
+    "https://docs.vllm.ai/en/latest/getting_started/installation/gpu/"
+  ],
+  "kind": "platform"
+}
