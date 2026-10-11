@@ -1,6 +1,6 @@
 # GGUF quantization: convert Hugging Face to GGUF
 
-> Verified against llama.cpp master b11556 (convert_hf_to_gguf.py --help source, tools/quantize/README.md, tools/gguf-split/README.md), 2026-10-11
+> Verified against llama.cpp v0.6.0 and master b11556, 2026-10-11
 
 Phase 1 of two: write a 16-bit (or 32-bit) GGUF that every quant is derived from.
 

@@ -1,6 +1,6 @@
 # EXL3 quantization: evaluation
 
-> Verified against exllamav3 v1.6.1 (eval/ppl.py, eval/model_diff.py, eval/qbench*.py argparse and doc/optimize.md), 2026-10-11
+> Verified against exllamav3 v1.6.1, 2026-10-11
 
 Check every output against the original before it ships. Upstream's `eval/` scripts take the standard model-loading arguments (`-m MODEL_DIR`, `-gs`, `-cs`, `-cq`, ...), so run them from the repo root with the venv active and read `-h`.
 

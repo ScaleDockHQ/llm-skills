@@ -1,6 +1,6 @@
 # EXL3 quantization: publishing a bitrate ladder
 
-> Verified against exllamav3 v1.6.1, huggingface_hub CLI docs and the turboderp Hub repositories (branches per bitrate), 2026-10-11
+> Verified against exllamav3 v1.6.1, 2026-10-11
 
 Publishing redistributes derivative weights: confirm the source license, and get explicit approval before any upload.
 

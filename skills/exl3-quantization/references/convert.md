@@ -1,6 +1,6 @@
 # EXL3 quantization: convert.py
 
-> Verified against exllamav3 v1.6.1 (README.md, doc/convert.md, convert.py and exllamav3/conversion/convert_model.py argparse), 2026-10-11
+> Verified against exllamav3 v1.6.1, 2026-10-11
 
 `convert.py` lives in the repository (it is a thin wrapper over `exllamav3.conversion.convert_model`). The PyPI package and wheels give you the library; clone the repo for the scripts (`convert.py`, `eval/`, `util/`, `sc_*.py`) and check out the tag that matches the installed version. Install steps, wheels and aarch64 builds: `exllamav3` skill.
 

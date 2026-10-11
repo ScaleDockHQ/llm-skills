@@ -1,6 +1,6 @@
 # EXL3 quantization: post-processing utilities
 
-> Verified against exllamav3 v1.6.1 (util/*.py argparse and docstrings), 2026-10-11
+> Verified against exllamav3 v1.6.1, 2026-10-11
 
 Scripts in `util/` of the repository (run from the repo root with the converter venv). Read `-h` before use; some are specialized and lightly documented.
 

@@ -1,6 +1,6 @@
 # GGUF quantization: types, options and recipes
 
-> Verified against llama.cpp master b11556 (tools/quantize/quantize.cpp, tools/quantize/README.md, tools/perplexity/README.md), 2026-10-11
+> Verified against llama.cpp v0.6.0 and master b11556, 2026-10-11
 
 `llama-quantize [options] model-f32.gguf [model-quant.gguf] type [nthreads]`. The output name is optional (default `ggml-model-<type>.gguf` in the input's directory per the README example). Always input a 16-bit or 32-bit GGUF.
 

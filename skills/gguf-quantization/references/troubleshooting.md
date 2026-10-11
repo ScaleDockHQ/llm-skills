@@ -1,6 +1,6 @@
 # GGUF quantization: troubleshooting
 
-> Verified against llama.cpp master b11556 (convert_hf_to_gguf.py, tools/quantize/quantize.cpp, tools/imatrix/README.md), 2026-10-11
+> Verified against llama.cpp v0.6.0 and master b11556, 2026-10-11
 
 | Symptom                                             | Likely cause                                                                       | Fix                                                                                                                                     |
 | --------------------------------------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |

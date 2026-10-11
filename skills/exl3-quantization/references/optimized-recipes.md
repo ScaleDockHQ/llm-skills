@@ -1,6 +1,6 @@
 # EXL3 quantization: optimized recipes and in-domain calibration
 
-> Verified against exllamav3 v1.6.1 (doc/optimize.md and the argparse of sc_trace.py, sc_rfn_probe.py, sc_measure.py, sc_optimize.py), 2026-10-11
+> Verified against exllamav3 v1.6.1, 2026-10-11
 
 Upstream marks this pipeline **experimental and "currently untested on sparse models"**. It replaces `--bits`' uniform allocation (with head/tail promotions) by a per-tensor bitrate recipe and calibrates on the model's own sampled outputs. Use it when you need the best quality at a small size, or for aligned/reasoning/tool-calling models. Everything below is read from upstream docs; run each script with `-h` on your version.
 

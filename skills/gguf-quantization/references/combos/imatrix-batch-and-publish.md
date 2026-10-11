@@ -1,6 +1,6 @@
 # GGUF quantization: one imatrix, many quants, one table
 
-> Verified against llama.cpp master b11556 and huggingface_hub CLI docs, 2026-10-11
+> Verified against llama.cpp v0.6.0 and master b11556, 2026-10-11
 
 Goal: from one BF16 GGUF produce several quants that share one imatrix, measure each against the BF16 reference with KLD, and publish the winners.
 

@@ -1,6 +1,6 @@
 # GGUF quantization: split, name, document and publish
 
-> Verified against llama.cpp master b11556 (tools/gguf-split/README.md, gguf-py scripts), huggingface_hub CLI docs and Hugging Face GGUF docs, 2026-10-11
+> Verified against llama.cpp v0.6.0 and master b11556, 2026-10-11
 
 Publishing uploads someone's weights under your account: confirm the source license allows redistribution of derivatives, and get explicit approval before any upload.
 

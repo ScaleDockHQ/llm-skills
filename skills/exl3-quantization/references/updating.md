@@ -1,6 +1,6 @@
 # EXL3 quantization: updating ExLlamaV3 and redoing quants
 
-> Verified against exllamav3 v1.6.1 (GitHub releases, README.md), 2026-10-11
+> Verified against exllamav3 v1.6.1, 2026-10-11
 
 ExLlamaV3 releases fast (v1.5.4 on 2026-10-03, v1.6.0 on 2026-10-07, v1.6.1 on 2026-10-10), and TabbyAPI enforces the matching library version at runtime. Converter and server versions should stay compatible.
 

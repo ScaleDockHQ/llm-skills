@@ -1,6 +1,6 @@
 # GGUF quantization: install llama.cpp and the converter
 
-> Verified against llama.cpp v0.6.0 and master b11556 (docs/build.md, tools/quantize/README.md, requirements.txt), 2026-10-11
+> Verified against llama.cpp v0.6.0 and master b11556, 2026-10-11
 
 Both halves must come from the same source tree: the Python converter (`convert_hf_to_gguf.py`) writes GGUF metadata that the compiled tools read. Build from a pinned tag, not a distro package.
 

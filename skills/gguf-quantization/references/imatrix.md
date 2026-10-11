@@ -1,6 +1,6 @@
 # GGUF quantization: importance matrix (llama-imatrix)
 
-> Verified against llama.cpp master b11556 (tools/imatrix/README.md, tools/perplexity/README.md), 2026-10-11
+> Verified against llama.cpp v0.6.0 and master b11556, 2026-10-11
 
 The importance matrix records activation statistics per tensor on calibration text; `llama-quantize --imatrix` uses it to spend precision where it matters. Upstream: it "can be used during quantization to enhance the quality of the quantized models".
 

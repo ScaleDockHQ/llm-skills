@@ -1,6 +1,6 @@
 # EXL3 quantization with TabbyAPI
 
-> Verified against exllamav3 v1.6.1 and TabbyAPI main (config_sample.yml, docs), 2026-10-11
+> Verified against exllamav3 v1.6.1 and TabbyAPI main, 2026-10-11
 
 Convert a model, check it, and serve it for a smoke test.
 

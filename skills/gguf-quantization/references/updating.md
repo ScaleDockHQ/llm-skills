@@ -1,6 +1,6 @@
 # GGUF quantization: updating llama.cpp and redoing quants
 
-> Verified against llama.cpp master b11556 (GitHub releases and docs/build.md), 2026-10-11
+> Verified against llama.cpp v0.6.0 and master b11556, 2026-10-11
 
 llama.cpp publishes a build tag for nearly every merge (b11556, b11557 ... on 2026-10-11) and also a versioned release (v0.6.0 on 2026-10-05). The GGUF container is stable; quant layouts and metadata keys change slowly but converters change daily.
 

@@ -1,6 +1,6 @@
 # GGUF quantization: quality checks (KL divergence and perplexity)
 
-> Verified against llama.cpp master b11556 (tools/perplexity/README.md, common/arg.cpp, scripts/get-wikitext-2.sh), 2026-10-11
+> Verified against llama.cpp v0.6.0 and master b11556, 2026-10-11
 
 Decide with numbers, not feel. The metric that separates quants best is KL divergence (KLD) of the quant's logits against the 16-bit model's logits on the same text.
 

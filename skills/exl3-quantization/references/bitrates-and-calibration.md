@@ -1,6 +1,6 @@
 # EXL3 quantization: bitrates, special tensors and calibration
 
-> Verified against exllamav3 v1.6.1 (doc/convert.md, doc/optimize.md, README.md) and the turboderp Hugging Face EXL3 repositories, 2026-10-11
+> Verified against exllamav3 v1.6.1, 2026-10-11
 
 ## Sizing
 
