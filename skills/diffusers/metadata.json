@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Install, run and tune Hugging Face Diffusers for image, video and audio generation. References cover environment setup, pipeline loading and the diffusers-cli, ordered memory and speed fixes, quantization, GGUF and LoRA, the example FastAPI server and its limits, upgrades and troubleshooting.",
+  "references": [
+    "https://github.com/huggingface/diffusers",
+    "https://github.com/huggingface/diffusers/releases",
+    "https://pypi.org/project/diffusers/",
+    "https://huggingface.co/docs/diffusers/installation",
+    "https://huggingface.co/docs/diffusers/quicktour",
+    "https://huggingface.co/docs/diffusers/using-diffusers/loading",
+    "https://huggingface.co/docs/diffusers/using-diffusers/cli",
+    "https://huggingface.co/docs/diffusers/optimization/memory",
+    "https://huggingface.co/docs/diffusers/optimization/fp16",
+    "https://huggingface.co/docs/diffusers/optimization/mps",
+    "https://huggingface.co/docs/diffusers/optimization/cache",
+    "https://huggingface.co/docs/diffusers/quantization/overview",
+    "https://huggingface.co/docs/diffusers/quantization/gguf",
+    "https://huggingface.co/docs/diffusers/tutorials/using_peft_for_inference",
+    "https://huggingface.co/docs/diffusers/using-diffusers/create_a_server",
+    "https://github.com/huggingface/diffusers/tree/main/examples/server",
+    "https://github.com/huggingface/diffusers/tree/main/examples/server-async"
+  ],
+  "kind": "product"
+}
