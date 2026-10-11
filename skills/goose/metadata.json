@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Connect goose, the open-source AI agent (Desktop and CLI, aaif-goose/goose, formerly block/goose), to self-hosted and gateway endpoints. Covers the OpenAI provider host and base path, custom provider JSON for OpenAI, Anthropic and Ollama engines, built-in LM Studio, llama-swap, LiteLLM and Ollama providers, key storage and command-based credentials, model and context mapping, tool calling and the tool shim, streaming, update, and troubleshooting, with provider and environment templates.",
+  "references": [
+    "https://github.com/aaif-goose/goose",
+    "https://github.com/aaif-goose/goose/releases",
+    "https://goose-docs.ai/docs/getting-started/providers",
+    "https://goose-docs.ai/docs/getting-started/installation",
+    "https://goose-docs.ai/docs/guides/config-files",
+    "https://goose-docs.ai/docs/guides/environment-variables",
+    "https://goose-docs.ai/docs/guides/tool-shim",
+    "https://goose-docs.ai/docs/guides/updating-goose",
+    "https://goose-docs.ai/docs/guides/sessions/smart-context-management",
+    "https://goose-docs.ai/docs/troubleshooting/known-issues",
+    "https://github.com/aaif-goose/goose/tree/main/crates/goose-providers/src/declarative"
+  ],
+  "kind": "product"
+}
