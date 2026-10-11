@@ -51,7 +51,7 @@ file, for example `curl -H "Authorization: Bearer $(cat ~/.xinference-key)" .../
    audio, video), a Web UI, per-model virtual environments and a supervisor/worker cluster. For raw LLM
    throughput on one engine use that engine directly (vLLM, SGLang): see `choosing-inference-engine`.
 2. **No Xinference yet** -> `references/install.md`: the one-command installer (uv, isolated), `pip install
-xinference`, `xprobe/xinference` Docker or Helm. Pin the version.
+   xinference`, `xprobe/xinference` Docker or Helm. Pin the version.
 3. **Authentication**: on by default. First start has no admin: create it with `POST /v1/admin/setup` before
    exposing the port (`references/api-and-auth.md`).
 4. **Pick the engine per model** with `xinference engine -n <model>`: vLLM or SGLang on Linux+CUDA, MLX on

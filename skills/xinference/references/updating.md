@@ -9,7 +9,7 @@ or https://github.com/xorbitsai/inference/releases.
 ## Procedure
 
 1. Record the current state: `xinference --version`, `xinference list`, launch commands, `pip freeze | grep -E
-'xinference|xoscar|xllamacpp'`. Back up `XINFERENCE_HOME/auth/` and `launch_history.db`.
+   'xinference|xoscar|xllamacpp'`. Back up `XINFERENCE_HOME/auth/` and `launch_history.db`.
 2. Read release notes since your version. Check engine minimums you rely on (vLLM, SGLang, mlx-lm).
 3. Upgrade the same way you installed:
    - One-command installer: re-run it (pin `XINFERENCE_VERSION` each time). It prepares the candidate,

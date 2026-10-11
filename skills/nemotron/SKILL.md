@@ -60,7 +60,7 @@ ps -eo pid,args | grep -i -E 'vllm|sglang|trtllm|llama-server|tensorfold' | grep
   `HF_TOKEN` or the login cache, never on a command line.
 - **Verify upstream.** Versions, flags and defaults come from upstream docs read on the writing date.
 - **Parsers are mandatory for agents.** On vLLM use `--reasoning-parser nemotron_v3 --enable-auto-tool-choice
---tool-call-parser qwen3_coder` for Lightning, Super (current vLLM), Ultra and Omni. Nano 30B and Nano 4B cards
+  --tool-call-parser qwen3_coder` for Lightning, Super (current vLLM), Ultra and Omni. Nano 30B and Nano 4B cards
   still ship a plugin: `--reasoning-parser-plugin nano_v3_reasoning_parser.py --reasoning-parser nano_v3`.
 - **Reasoning is on by default.** Turn it off per request with `chat_template_kwargs {"enable_thinking": false}`.
   Give tool-calling requests a large `max_tokens`: reasoning runs before the tool call.

@@ -42,8 +42,8 @@ langfuse.flush()   # required in short-lived scripts and serverless
 Register the span processor once at startup (`instrumentation.ts`) and import it first:
 
 ```ts
-import { NodeSDK } from "@opentelemetry/sdk-node";
 import { LangfuseSpanProcessor } from "@langfuse/otel";
+import { NodeSDK } from "@opentelemetry/sdk-node";
 
 export const sdk = new NodeSDK({
   spanProcessors: [new LangfuseSpanProcessor()],

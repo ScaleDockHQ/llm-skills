@@ -86,7 +86,7 @@ vllm serve /models/<model> --tensor-parallel-size 8 --pipeline-parallel-size 2 -
   sets `UCX_NET_DEVICES`, `TP_SOCKET_IFNAME`, `OMPI_MCA_btl_tcp_if_include`).
 - Verify GPU-to-GPU communication before blaming vLLM: the NCCL/Gloo/vLLM `PyNcclCommunicator` test script in
   `docs/usage/troubleshooting.md`, run with `torchrun --nnodes 2 --nproc-per-node=<n> --rdzv_backend=static
---rdzv_endpoint=$MASTER_ADDR --node-rank $NODE_RANK test.py`. Use `static` rendezvous, not `c10d`.
+  --rdzv_endpoint=$MASTER_ADDR --node-rank $NODE_RANK test.py`. Use `static` rendezvous, not `c10d`.
 - Error `Error: No available node types can fulfill resource request` with enough GPUs usually means the
   node has several IPs: set `VLLM_HOST_IP` per node and compare with `ray status`.
 

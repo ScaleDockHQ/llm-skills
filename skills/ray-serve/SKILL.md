@@ -118,7 +118,7 @@ with a gateway or network policy. Use `serve deploy config.yaml` to hand the con
   group `minReplicas`/`maxReplicas`) to add GPU nodes.
 - Prefix-aware routing needs `enable_prefix_caching: true` in `engine_kwargs`; it is alpha, as is `KVAwareRouter`.
 - Data-parallel deployments force `STRICT_PACK`; GPUs needed = `num_replicas * data_parallel_size *
-tensor_parallel_size`.
+  tensor_parallel_size`.
 - Multi-LoRA: `max_loras` must equal `max_num_adapters_per_replica`; query as `<model_id>:<adapter_folder>`.
 - The Ray/vLLM compatibility table lags: it listed 2.58.0 with vLLM 0.26.0 and nightly with 0.27.0, with no
   2.59.0 row, when verified. Check `pip show vllm` inside the image.

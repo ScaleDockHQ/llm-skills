@@ -151,7 +151,7 @@ only; Tab uses Cursor's built-in model.
 - `401` from `/v1/models` but not from chat: the Caddy `forward_auth` path is misconfigured
   (`model-catalog.md`).
 - A model missing from a picker: the key's model access excludes it, or `model_info.discoverable:
-false` hides it from listings.
+  false` hides it from listings.
 - Wrong model name: use the exact `model_name`/alias, not the Hugging Face repo id.
 
 ## Official links

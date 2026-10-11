@@ -11,6 +11,7 @@ Use `generateText` or `streamText` with `output`:
 ```ts
 import { generateText, Output } from "ai";
 import { z } from "zod";
+
 import { llm } from "./llm";
 
 const { output } = await generateText({
