@@ -6,10 +6,10 @@ Run a fast eval on every change that can affect model behaviour (prompts, system
 
 ## Two tiers
 
-| Tier | Trigger | Set | Budget |
-| --- | --- | --- | --- |
-| PR gate | `pull_request` touching prompts, eval config, model config | 20–100 deterministic items, `critical` first | Minutes |
-| Full | nightly `schedule`, release tag, or manual | Full golden set, judges allowed | As needed |
+| Tier    | Trigger                                                    | Set                                          | Budget    |
+| ------- | ---------------------------------------------------------- | -------------------------------------------- | --------- |
+| PR gate | `pull_request` touching prompts, eval config, model config | 20–100 deterministic items, `critical` first | Minutes   |
+| Full    | nightly `schedule`, release tag, or manual                 | Full golden set, judges allowed              | As needed |
 
 Keep the PR gate deterministic (`contains`, `regex`, `is-json`, tool-call checks). Model-graded assertions add cost and variance; reserve them for the full tier unless the judge is calibrated (`llm-as-judge.md`).
 
@@ -21,11 +21,11 @@ name: LLM evals
 on:
   pull_request:
     paths:
-      - 'prompts/**'
-      - 'evals/**'
-      - 'promptfooconfig.yaml'
+      - "prompts/**"
+      - "evals/**"
+      - "promptfooconfig.yaml"
   schedule:
-    - cron: '0 3 * * *'
+    - cron: "0 3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -33,10 +33,10 @@ permissions:
 
 jobs:
   eval:
-    runs-on: ubuntu-latest          # or a self-hosted runner that can reach a private endpoint
+    runs-on: ubuntu-latest # or a self-hosted runner that can reach a private endpoint
     timeout-minutes: 30
     env:
-      PROMPTFOO_DISABLE_TELEMETRY: '1'
+      PROMPTFOO_DISABLE_TELEMETRY: "1"
       PROMPTFOO_CACHE_PATH: ~/.cache/promptfoo
       # Allow a small number of known failures on the full tier; 100 = no failures allowed
       PROMPTFOO_PASS_RATE_THRESHOLD: ${{ github.event_name == 'pull_request' && '100' || '95' }}
@@ -48,7 +48,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: "24"
       - name: Cache promptfoo responses
         uses: actions/cache@v4
         with:

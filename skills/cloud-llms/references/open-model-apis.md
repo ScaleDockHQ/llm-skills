@@ -10,14 +10,14 @@ Providers that host open-weight models behind per-token APIs, usually OpenAI-com
 
 Base URLs below were checked in each provider's documentation on 2026-10-11.
 
-| Provider | OpenAI-compatible base URL | Key env var (LiteLLM convention) | LiteLLM prefix |
-| --- | --- | --- | --- |
-| Together AI | `https://api.together.ai/v1` | `TOGETHERAI_API_KEY` | `together_ai/` |
-| Fireworks AI | `https://api.fireworks.ai/inference/v1` | `FIREWORKS_AI_API_KEY` | `fireworks_ai/` |
-| Groq | `https://api.groq.com/openai/v1` | `GROQ_API_KEY` | `groq/` |
-| DeepInfra | `https://api.deepinfra.com/v1/openai` | `DEEPINFRA_API_KEY` | `deepinfra/` |
-| OpenRouter | `https://openrouter.ai/api/v1` | `OPENROUTER_API_KEY` | `openrouter/` |
-| Hugging Face Inference Providers | `https://router.huggingface.co/v1` | `HF_TOKEN` | `huggingface/` |
+| Provider                         | OpenAI-compatible base URL              | Key env var (LiteLLM convention) | LiteLLM prefix  |
+| -------------------------------- | --------------------------------------- | -------------------------------- | --------------- |
+| Together AI                      | `https://api.together.ai/v1`            | `TOGETHERAI_API_KEY`             | `together_ai/`  |
+| Fireworks AI                     | `https://api.fireworks.ai/inference/v1` | `FIREWORKS_AI_API_KEY`           | `fireworks_ai/` |
+| Groq                             | `https://api.groq.com/openai/v1`        | `GROQ_API_KEY`                   | `groq/`         |
+| DeepInfra                        | `https://api.deepinfra.com/v1/openai`   | `DEEPINFRA_API_KEY`              | `deepinfra/`    |
+| OpenRouter                       | `https://openrouter.ai/api/v1`          | `OPENROUTER_API_KEY`             | `openrouter/`   |
+| Hugging Face Inference Providers | `https://router.huggingface.co/v1`      | `HF_TOKEN`                       | `huggingface/`  |
 
 Notes:
 
@@ -35,7 +35,7 @@ curl -s "$BASE/models" -H "Authorization: Bearer $TOGETHERAI_API_KEY" | jq -r '.
 ## How it plugs into the stack
 
 - Use LiteLLM's native provider prefix when available (it handles provider quirks), or the generic `openai/` prefix with `api_base` set to the base URL above.
-- Put the same open model you run locally under the same alias as a second deployment or a fallback. See `templates/litellm-hybrid.yaml`.
+- Put the same open model you run locally under the same alias as a second deployment or a fallback. See `assets/litellm-hybrid.yaml`.
 - API coverage: all six expose Chat Completions; Groq also documents Responses, batches and files under its OpenAI path. Check each provider's docs for embeddings, tool calling and structured output per model.
 
 ## Operating

@@ -18,7 +18,7 @@ unloadTimeout: 90
 
 macros:
   stack: "/opt/llm-stack"
-  models_dir: "${env.LLM_MODELS_DIR}"     # loading fails if the env var is unset
+  models_dir: "${env.LLM_MODELS_DIR}" # loading fails if the env var is unset
 
 models:
   # Large model, container engine through the wrapper (models.d/qwen-coder.sh).
@@ -27,7 +27,7 @@ models:
     cmd: ${stack}/start-model.sh run ${MODEL_ID} ${PORT}
     cmdStop: ${stack}/start-model.sh stop ${MODEL_ID}
     checkEndpoint: /health
-    ttl: 0                      # never auto-unload; swaps happen on demand
+    ttl: 0 # never auto-unload; swaps happen on demand
     capabilities:
       in: [text]
       out: [text]

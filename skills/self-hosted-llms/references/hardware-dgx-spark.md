@@ -73,7 +73,7 @@ Then for the stack:
 
 - Same service user, UID, paths (`/opt/llm-stack`, HF cache) on both nodes.
 - Engines select the link by interface: set `NCCL_SOCKET_IFNAME` / `GLOO_SOCKET_IFNAME` to the
-  ConnectX-7 interface (see `templates/models.d/example-vllm.sh`).
+  ConnectX-7 interface (see `assets/models.d/example-vllm.sh`).
 - The head node's wrapper starts the worker on node-b first and stops it on every exit path.
 - Validate with NVIDIA's NCCL playbook before blaming the engine.
 
@@ -90,7 +90,7 @@ ssh node-b "docker image inspect --format '{{.Id}}' $ref"
 ```
 
 For a locally built image, move it with `docker save "$ref" | ssh node-b docker load`.
-`templates/common.sh` (`check_image_ids`) refuses to start when IDs differ.
+`assets/common.sh` (`check_image_ids`) refuses to start when IDs differ.
 
 ## Known pitfalls
 

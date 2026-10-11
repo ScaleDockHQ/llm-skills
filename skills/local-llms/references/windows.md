@@ -22,12 +22,14 @@ Get-Command ollama, lms, llama-server -ErrorAction SilentlyContinue
 ## Install
 
 **NVIDIA (CUDA)**
+
 - Update the GeForce/Studio driver first. Ollama needs NVIDIA 551.61 or newer on Windows.
 - Ollama: `irm https://ollama.com/install.ps1 | iex`, or `OllamaSetup.exe`. Both install per-user without admin rights.
 - LM Studio: the installer from lmstudio.ai. x64 needs AVX2; ARM64 (Snapdragon) is supported too.
 - llama.cpp: `winget install llama.cpp`, or download `llama-<build>-bin-win-cuda-<ver>-x64.zip` **plus** the matching `cudart-llama-bin-win-cuda-<ver>-x64.zip` and extract both into the same folder.
 
 **AMD**
+
 - Ollama uses ROCm v7 / HIP7-capable drivers on supported Radeon RX 7000-series and PRO W7000 cards, and uses Vulkan otherwise. Vulkan is on by default and is the recommended fallback for RDNA2 (RX 6000) cards.
 - llama.cpp: `llama-<build>-bin-win-vulkan-x64.zip` works on any recent AMD/Intel/NVIDIA driver. A `win-rocm` zip also exists.
 - LM Studio: pick the Vulkan or ROCm runtime with `lms runtime ls` / `lms runtime select`, or in the app's runtime settings.
@@ -49,16 +51,16 @@ ollama run <model> "hello"
 
 ## How it plugs in
 
-Same ports as on other OSes (Ollama 11434, LM Studio 1234, llama-server 9931). Environment variables for Ollama: quit Ollama from the tray, set the user variable under *Edit environment variables for your account* (or run `setx OLLAMA_HOST 127.0.0.1:11434`), then start Ollama again.
+Same ports as on other OSes (Ollama 11434, LM Studio 1234, llama-server 9931). Environment variables for Ollama: quit Ollama from the tray, set the user variable under _Edit environment variables for your account_ (or run `setx OLLAMA_HOST 127.0.0.1:11434`), then start Ollama again.
 
 ## WSL2 vs native
 
-| | Native | WSL2 |
-| --- | --- | --- |
-| GPU | Full CUDA/ROCm/Vulkan | CUDA via the Windows driver (do **not** install a Linux NVIDIA driver inside WSL) |
-| Model files on `C:` | Fast | Slow through `/mnt/c`; keep models inside the WSL filesystem |
-| Reaching the server from Windows apps | `localhost` | `localhost` forwarding usually works; mirrored networking mode makes it reliable |
-| Memory | All RAM | WSL2 VM limit (set in `%UserProfile%\.wslconfig`) |
+|                                       | Native                | WSL2                                                                              |
+| ------------------------------------- | --------------------- | --------------------------------------------------------------------------------- |
+| GPU                                   | Full CUDA/ROCm/Vulkan | CUDA via the Windows driver (do **not** install a Linux NVIDIA driver inside WSL) |
+| Model files on `C:`                   | Fast                  | Slow through `/mnt/c`; keep models inside the WSL filesystem                      |
+| Reaching the server from Windows apps | `localhost`           | `localhost` forwarding usually works; mirrored networking mode makes it reliable  |
+| Memory                                | All RAM               | WSL2 VM limit (set in `%UserProfile%\.wslconfig`)                                 |
 
 Pick one side. Don't run Ollama on both Windows and WSL2: they would both try to use port 11434 (see "one runtime per port").
 

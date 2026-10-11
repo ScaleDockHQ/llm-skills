@@ -56,24 +56,24 @@ Timeouts on the client side for slow local prefill: Claude Code `API_TIMEOUT_MS`
 
 ## Known pitfalls
 
-| Symptom | Likely cause | Fix |
-|---|---|---|
-| 404 on every request | Base URL missing or doubling `/v1` | OpenAI clients: end with `/v1`. Claude Code and Anthropic SDK: no `/v1`. AI SDK Anthropic: with `/v1` |
-| 404 only from Codex or AI SDK `openai()` | Endpoint has no `/v1/responses` | Bridge in the gateway (`llm-gateway`), or `openai.chat()` in AI SDK |
-| 404 only from Claude Code | Endpoint has no `/v1/messages` | Gateway with an Anthropic route |
-| Cursor: connection error with a local URL | Requests come from Cursor's servers | Public HTTPS endpoint or tunnel, with a scoped key |
-| Container UI: connection refused | `localhost` is the container | `host.docker.internal` (+ `host-gateway` on Linux) or a shared network |
-| 401 with a key that works in curl | Wrong header (`x-api-key` vs Bearer), stale key in client store, IDE cannot read shell env | Match `ANTHROPIC_AUTH_TOKEN` vs `ANTHROPIC_API_KEY`; re-enter key; Continue: use `~/.continue/.env` |
-| Model list empty | Allowlist or virtual key restricts models; `/v1/models` unsupported | Add model IDs manually; check key's `models` |
-| Model missing in Claude Code picker | Discovery keeps only IDs containing `claude` or `anthropic` | `ANTHROPIC_CUSTOM_MODEL_OPTION` or name aliases accordingly |
-| New model not showing | Client caches the model list | Open WebUI: save Connections or restart; others: restart or refetch |
-| Session overflows or truncates early | Client does not know the context window | Declare it (`capabilities.md`) |
-| Claude Code never auto-compacts, then 400s | Gateway rewrote the context error | `/compact`, set `CLAUDE_CODE_MAX_CONTEXT_TOKENS` / `CLAUDE_CODE_AUTO_COMPACT_WINDOW` |
-| Chat works, agent never edits files | Tools not offered or model ignores tool schema | Declare tool support; Open WebUI Native mode; test tool call with curl |
-| 400 "unsupported parameter" | Client sends fields the backend rejects (reasoning, betas, `reasoningSummary`) | `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1`, or drop params in the gateway |
-| Images ignored | Vision not declared or backend not multimodal | Declare vision; confirm with an image request in curl |
-| Stream stalls then times out | Long prefill on local engines | Raise client timeout; check gateway `stream_timeout` |
-| Reasoning text shows up as answer | Engine puts `<think>` in content | Configure the client's reasoning tag or the engine's reasoning parser |
+| Symptom                                    | Likely cause                                                                               | Fix                                                                                                   |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| 404 on every request                       | Base URL missing or doubling `/v1`                                                         | OpenAI clients: end with `/v1`. Claude Code and Anthropic SDK: no `/v1`. AI SDK Anthropic: with `/v1` |
+| 404 only from Codex or AI SDK `openai()`   | Endpoint has no `/v1/responses`                                                            | Bridge in the gateway (`llm-gateway`), or `openai.chat()` in AI SDK                                   |
+| 404 only from Claude Code                  | Endpoint has no `/v1/messages`                                                             | Gateway with an Anthropic route                                                                       |
+| Cursor: connection error with a local URL  | Requests come from Cursor's servers                                                        | Public HTTPS endpoint or tunnel, with a scoped key                                                    |
+| Container UI: connection refused           | `localhost` is the container                                                               | `host.docker.internal` (+ `host-gateway` on Linux) or a shared network                                |
+| 401 with a key that works in curl          | Wrong header (`x-api-key` vs Bearer), stale key in client store, IDE cannot read shell env | Match `ANTHROPIC_AUTH_TOKEN` vs `ANTHROPIC_API_KEY`; re-enter key; Continue: use `~/.continue/.env`   |
+| Model list empty                           | Allowlist or virtual key restricts models; `/v1/models` unsupported                        | Add model IDs manually; check key's `models`                                                          |
+| Model missing in Claude Code picker        | Discovery keeps only IDs containing `claude` or `anthropic`                                | `ANTHROPIC_CUSTOM_MODEL_OPTION` or name aliases accordingly                                           |
+| New model not showing                      | Client caches the model list                                                               | Open WebUI: save Connections or restart; others: restart or refetch                                   |
+| Session overflows or truncates early       | Client does not know the context window                                                    | Declare it (`capabilities.md`)                                                                        |
+| Claude Code never auto-compacts, then 400s | Gateway rewrote the context error                                                          | `/compact`, set `CLAUDE_CODE_MAX_CONTEXT_TOKENS` / `CLAUDE_CODE_AUTO_COMPACT_WINDOW`                  |
+| Chat works, agent never edits files        | Tools not offered or model ignores tool schema                                             | Declare tool support; Open WebUI Native mode; test tool call with curl                                |
+| 400 "unsupported parameter"                | Client sends fields the backend rejects (reasoning, betas, `reasoningSummary`)             | `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1`, or drop params in the gateway                             |
+| Images ignored                             | Vision not declared or backend not multimodal                                              | Declare vision; confirm with an image request in curl                                                 |
+| Stream stalls then times out               | Long prefill on local engines                                                              | Raise client timeout; check gateway `stream_timeout`                                                  |
+| Reasoning text shows up as answer          | Engine puts `<think>` in content                                                           | Configure the client's reasoning tag or the engine's reasoning parser                                 |
 
 ## Official links
 

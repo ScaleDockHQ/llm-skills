@@ -4,7 +4,7 @@ description: Metrics, tracing, logging, cost tracking and alerting for LLM servi
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.0.0"
+  version: "1.0.1"
 compatibility: Assumes OpenAI-compatible serving (engines directly or behind LiteLLM / llama-swap) and Prometheus-format metrics. Uses curl and jq for discovery; Prometheus, Grafana, DCGM exporter, Langfuse or Phoenix are optional components the workflows install or connect to.
 ---
 
@@ -25,7 +25,7 @@ Read-only. Replace hosts/ports with what exists; never print keys (presence chec
 ls prometheus.yml prometheus/ grafana/ docker-compose*.y*ml compose*.y*ml 2>/dev/null
 grep -rIl -E 'job_name|scrape_configs' . 2>/dev/null | head
 grep -rIl -E 'langfuse|phoenix|otel|OTEL_EXPORTER|traceloop|success_callback|callbacks:' --include='*.y*ml' --include='*.env*' . 2>/dev/null | head
-docker ps --format '{{.Names}}\t{{.Image}}\t{{.Ports}}' 2>/dev/null | grep -iE 'vllm|sglang|llama|litellm|tgi|text-generation|prometheus|grafana|dcgm|langfuse|phoenix|otel' 
+docker ps --format '{{.Names}}\t{{.Image}}\t{{.Ports}}' 2>/dev/null | grep -iE 'vllm|sglang|llama|litellm|tgi|text-generation|prometheus|grafana|dcgm|langfuse|phoenix|otel'
 command -v prometheus promtool grafana-server nvidia-smi dcgm-exporter docker 2>/dev/null
 
 # Prometheus / Grafana already running?
@@ -92,7 +92,7 @@ Order of work: **metrics → traces → logs**. Metrics are cheap and safe; trac
 
 ### 2. Scrape engine and gateway metrics
 
-- [ ] Start from `templates/prometheus.yml`; one job per component type, a `model` / `backend` label per target.
+- [ ] Start from `assets/prometheus.yml`; one job per component type, a `model` / `backend` label per target.
 - [ ] Add auth for LiteLLM `/metrics` (bearer key via `credentials_file`) or use its dedicated metrics port on a private network.
 - [ ] llama.cpp in router mode needs `?model=` on `/metrics`.
 - [ ] `promtool check config prometheus.yml`, reload, confirm targets are `up`. → `references/prometheus-grafana.md`
@@ -130,7 +130,7 @@ Order of work: **metrics → traces → logs**. Metrics are cheap and safe; trac
 
 ### 8. Alerting
 
-- [ ] Start from `templates/alert-rules.yml`; set thresholds from your SLOs, not from the template.
+- [ ] Start from `assets/alert-rules.yml`; set thresholds from your SLOs, not from the template.
 - [ ] Page on symptoms (availability, error ratio, latency/TTFT SLO); warn on causes (queueing, KV cache, GPU temperature, XID errors).
 - [ ] `promtool check rules alert-rules.yml`; test each alert by forcing it once. → `references/alerting.md`
 
@@ -149,18 +149,18 @@ Order of work: **metrics → traces → logs**. Metrics are cheap and safe; trac
 
 ## Reference index
 
-| Reference | Load when |
-| --- | --- |
-| `references/metrics-engines.md` | Enabling and reading vLLM, SGLang, llama.cpp, TGI and llama-swap metrics |
-| `references/gpu-metrics.md` | DCGM exporter, nvidia-smi, unified-memory (DGX Spark/GB10) caveats |
-| `references/prometheus-grafana.md` | Scrape configs, auth, recording rules, official dashboards |
-| `references/tracing.md` | OpenTelemetry GenAI conventions, Langfuse, Phoenix, OpenLLMetry |
-| `references/gateway-logging.md` | LiteLLM callbacks, Prometheus metrics, spend logs, OSS vs Enterprise |
-| `references/cost-tracking.md` | Pricing config, spend by key/team/model, self-hosted cost per token |
-| `references/alerting.md` | Alert rule design and examples |
-| `references/privacy.md` | Prompt/PII logging, redaction, retention, access |
+| Reference                          | Load when                                                                |
+| ---------------------------------- | ------------------------------------------------------------------------ |
+| `references/metrics-engines.md`    | Enabling and reading vLLM, SGLang, llama.cpp, TGI and llama-swap metrics |
+| `references/gpu-metrics.md`        | DCGM exporter, nvidia-smi, unified-memory (DGX Spark/GB10) caveats       |
+| `references/prometheus-grafana.md` | Scrape configs, auth, recording rules, official dashboards               |
+| `references/tracing.md`            | OpenTelemetry GenAI conventions, Langfuse, Phoenix, OpenLLMetry          |
+| `references/gateway-logging.md`    | LiteLLM callbacks, Prometheus metrics, spend logs, OSS vs Enterprise     |
+| `references/cost-tracking.md`      | Pricing config, spend by key/team/model, self-hosted cost per token      |
+| `references/alerting.md`           | Alert rule design and examples                                           |
+| `references/privacy.md`            | Prompt/PII logging, redaction, retention, access                         |
 
-Templates: `templates/prometheus.yml` (vLLM, SGLang, llama.cpp, llama-swap, LiteLLM, DCGM targets with placeholders), `templates/alert-rules.yml` (symptom and cause alerts).
+Templates: `assets/prometheus.yml` (vLLM, SGLang, llama.cpp, llama-swap, LiteLLM, DCGM targets with placeholders), `assets/alert-rules.yml` (symptom and cause alerts).
 
 ## Companion skills
 

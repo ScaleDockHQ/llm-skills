@@ -9,6 +9,7 @@ Upstream: [Comfy-Org/ComfyUI](https://github.com/Comfy-Org/ComfyUI) (GPL-3.0; `c
 ComfyUI is a node-graph engine for diffusion models, written in Python on PyTorch. A "workflow" is a graph of nodes (loaders, text encoders, samplers, VAE decode, save). The server runs any graph you POST to it and loads models on demand.
 
 Choose it when:
+
 - you need a model family or pipeline that sd-server doesn't cover (most new video models land in ComfyUI first, with official templates),
 - you need multi-stage pipelines (ControlNet, inpainting, upscaling, frame interpolation),
 - you want one process that can run many different models over time.
@@ -57,29 +58,29 @@ python main.py --listen 127.0.0.1 --port 8188 \
 
 Models folder layout (subfolders of `ComfyUI/models/`):
 
-| Folder | Holds |
-|---|---|
-| `checkpoints/` | all-in-one checkpoints (SD1.x/SDXL, LTX-2.x) |
-| `diffusion_models/` (`unet/` legacy) | standalone diffusion/transformer weights (FLUX, Wan, HunyuanVideo) |
-| `text_encoders/` (`clip/` legacy) | T5, CLIP, UMT5, Qwen/Gemma encoders |
-| `vae/` | VAEs |
-| `loras/` | LoRAs |
-| `clip_vision/`, `controlnet/`, `upscale_models/`, `vae_approx/`, `embeddings/`, `audio_encoders/`, ... | as named |
+| Folder                                                                                                 | Holds                                                              |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `checkpoints/`                                                                                         | all-in-one checkpoints (SD1.x/SDXL, LTX-2.x)                       |
+| `diffusion_models/` (`unet/` legacy)                                                                   | standalone diffusion/transformer weights (FLUX, Wan, HunyuanVideo) |
+| `text_encoders/` (`clip/` legacy)                                                                      | T5, CLIP, UMT5, Qwen/Gemma encoders                                |
+| `vae/`                                                                                                 | VAEs                                                               |
+| `loras/`                                                                                               | LoRAs                                                              |
+| `clip_vision/`, `controlnet/`, `upscale_models/`, `vae_approx/`, `embeddings/`, `audio_encoders/`, ... | as named                                                           |
 
 ## How it plugs into the stack
 
 **Native API** (from `server.py`):
 
-| Route | Use |
-|---|---|
-| `POST /prompt` | queue a workflow. Body: `{"prompt": <API-format graph>, "client_id": "...", "prompt_id": "<uuid, optional>"}`. Returns `{"prompt_id", "number", "node_errors"}`; 400 with `node_errors` on validation failure |
-| `GET /history/{prompt_id}` | outputs once done: `outputs.<node_id>.images[]` with `filename`, `subfolder`, `type` |
-| `GET /view?filename=&subfolder=&type=` | download an output file |
-| `GET /ws?clientId=` | websocket progress; `executing` with `node: null` for your `prompt_id` means done |
-| `GET /queue`, `POST /interrupt`, `GET /api/jobs`, `GET /api/jobs/{id}`, `POST /api/jobs/{id}/cancel` | queue and job control |
-| `POST /upload/image` | upload an input image |
-| `GET /system_stats` | device and memory info |
-| `POST /free` | `{"unload_models": true, "free_memory": true}` to release memory without restarting |
+| Route                                                                                                | Use                                                                                                                                                                                                           |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `POST /prompt`                                                                                       | queue a workflow. Body: `{"prompt": <API-format graph>, "client_id": "...", "prompt_id": "<uuid, optional>"}`. Returns `{"prompt_id", "number", "node_errors"}`; 400 with `node_errors` on validation failure |
+| `GET /history/{prompt_id}`                                                                           | outputs once done: `outputs.<node_id>.images[]` with `filename`, `subfolder`, `type`                                                                                                                          |
+| `GET /view?filename=&subfolder=&type=`                                                               | download an output file                                                                                                                                                                                       |
+| `GET /ws?clientId=`                                                                                  | websocket progress; `executing` with `node: null` for your `prompt_id` means done                                                                                                                             |
+| `GET /queue`, `POST /interrupt`, `GET /api/jobs`, `GET /api/jobs/{id}`, `POST /api/jobs/{id}/cancel` | queue and job control                                                                                                                                                                                         |
+| `POST /upload/image`                                                                                 | upload an input image                                                                                                                                                                                         |
+| `GET /system_stats`                                                                                  | device and memory info                                                                                                                                                                                        |
+| `POST /free`                                                                                         | `{"unload_models": true, "free_memory": true}` to release memory without restarting                                                                                                                           |
 
 The `prompt` body is the **API-format** graph (node id → `class_type` + `inputs`), not the UI save format. Export it from the UI's workflow menu in API format, then template the fields you vary (prompt text, seed, size).
 
@@ -99,6 +100,7 @@ curl -sS "$B/history/$PID" | jq -r --arg p "$PID" \
 Node `"6"` is the positive-prompt node in the default text-to-image graph. Check the ids in your exported file.
 
 **OpenAI compatibility: wrap it.** Clients that speak `/v1/images/generations` need a small adapter that:
+
 1. accepts the OpenAI body (`prompt`, `size`, `n`),
 2. fills those into a stored API-format workflow,
 3. `POST /prompt`, then waits on `/ws` or polls `/history/{id}`,
@@ -121,15 +123,15 @@ Write it in whatever language the team maintains, bind it to loopback, and regis
 
 ## Tuning knobs worth knowing
 
-| Flag | Effect |
-|---|---|
-| `--highvram` / `--gpu-only` | keep models on the GPU (fast; use when the GPU isn't shared) |
-| `--lowvram` / `--novram` / `--cpu` | progressively more offload |
-| `--reserve-vram <GB>` | leave headroom for other processes. Set this when LLMs share the GPU |
-| `--disable-smart-memory` | offload aggressively to RAM instead of caching in VRAM |
-| `--cache-none` / `--cache-lru N` / `--cache-ram` | node-result caching vs memory use |
-| `--preview-method` | sampler previews; leave off for headless |
-| `--max-upload-size` | MB limit for uploads (default 100) |
+| Flag                                             | Effect                                                               |
+| ------------------------------------------------ | -------------------------------------------------------------------- |
+| `--highvram` / `--gpu-only`                      | keep models on the GPU (fast; use when the GPU isn't shared)         |
+| `--lowvram` / `--novram` / `--cpu`               | progressively more offload                                           |
+| `--reserve-vram <GB>`                            | leave headroom for other processes. Set this when LLMs share the GPU |
+| `--disable-smart-memory`                         | offload aggressively to RAM instead of caching in VRAM               |
+| `--cache-none` / `--cache-lru N` / `--cache-ram` | node-result caching vs memory use                                    |
+| `--preview-method`                               | sampler previews; leave off for headless                             |
+| `--max-upload-size`                              | MB limit for uploads (default 100)                                   |
 
 ## Known pitfalls
 

@@ -7,7 +7,7 @@ Fine-tuning changes model weights. It is the most expensive way to change model 
 ## The ladder: try in this order
 
 1. **Prompting.** System prompt, few-shot examples, output format instructions, structured output / JSON schema at the server. Hours, not days.
-2. **Retrieval (RAG) and tools.** If the model lacks *facts* (docs, tickets, product data) give it the facts at request time. Facts change; weights don't.
+2. **Retrieval (RAG) and tools.** If the model lacks _facts_ (docs, tickets, product data) give it the facts at request time. Facts change; weights don't.
 3. **A bigger or different base model.** Often cheaper than training: try the next size up or a model specialized for the domain (code, math, multilingual).
 4. **Fine-tuning** (this skill). Usually LoRA SFT first; preference tuning (DPO/KTO/ORPO) or RL (GRPO) only after SFT.
 
@@ -41,15 +41,15 @@ Measure each rung with the same eval set (owned by the `llm-evals` skill) so you
 
 ## Decision summary
 
-| Situation | Do this |
-|---|---|
-| Model doesn't know facts | Retrieval, not fine-tuning |
-| Output format/style inconsistent | Prompt + structured output first; LoRA SFT if still failing |
-| Have input/output examples | SFT (LoRA) |
-| Have chosen/rejected pairs | SFT first, then DPO (or ORPO in one stage) |
-| Have only good/bad labels | KTO |
-| Have a programmatic reward | GRPO (needs a generation server; more compute) |
-| Need maximum quality, lots of GPU | Full fine-tune, only after LoRA proved the data works |
+| Situation                         | Do this                                                     |
+| --------------------------------- | ----------------------------------------------------------- |
+| Model doesn't know facts          | Retrieval, not fine-tuning                                  |
+| Output format/style inconsistent  | Prompt + structured output first; LoRA SFT if still failing |
+| Have input/output examples        | SFT (LoRA)                                                  |
+| Have chosen/rejected pairs        | SFT first, then DPO (or ORPO in one stage)                  |
+| Have only good/bad labels         | KTO                                                         |
+| Have a programmatic reward        | GRPO (needs a generation server; more compute)              |
+| Need maximum quality, lots of GPU | Full fine-tune, only after LoRA proved the data works       |
 
 ## Official links
 

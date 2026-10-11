@@ -25,7 +25,7 @@ npx skills add ScaleDockHQ/llms-skills --skill llm-clients
 - [`references/capabilities.md`](references/capabilities.md): where clients get context, tool, vision and reasoning info, and how to declare it.
 - [`references/troubleshooting.md`](references/troubleshooting.md): symptom to cause to fix.
 
-Templates: [`claude-code.env.example`](templates/claude-code.env.example), [`claude-code-settings.json`](templates/claude-code-settings.json), [`codex-config.toml`](templates/codex-config.toml), [`opencode.json`](templates/opencode.json), [`continue-config.yaml`](templates/continue-config.yaml), [`aider.conf.yml`](templates/aider.conf.yml), [`aider.model.metadata.json`](templates/aider.model.metadata.json), [`open-webui.env.example`](templates/open-webui.env.example).
+Templates: [`claude-code.env.example`](assets/claude-code.env.example), [`claude-code-settings.json`](assets/claude-code-settings.json), [`codex-config.toml`](assets/codex-config.toml), [`opencode.json`](assets/opencode.json), [`continue-config.yaml`](assets/continue-config.yaml), [`aider.conf.yml`](assets/aider.conf.yml), [`aider.model.metadata.json`](assets/aider.model.metadata.json), [`open-webui.env.example`](assets/open-webui.env.example).
 
 ## Companion skills
 

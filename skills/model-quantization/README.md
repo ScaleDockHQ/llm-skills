@@ -29,7 +29,7 @@ npx skills add ScaleDockHQ/llms-skills --skill model-quantization
 - [`references/quality-checks.md`](references/quality-checks.md) — smoke prompts, KL divergence, perplexity.
 - [`references/memory-safety.md`](references/memory-safety.md) — memory caps, disk planning, hf-xet settings.
 - [`references/publishing.md`](references/publishing.md) — `hf upload`, model card metadata, licenses, naming.
-- [`templates/model-card.md`](templates/model-card.md) — model card skeleton.
+- [`assets/model-card.md`](assets/model-card.md) — model card skeleton.
 
 ## Companion skills
 

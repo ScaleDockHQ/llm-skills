@@ -39,13 +39,13 @@ output, logs, shell history, process lists, commits or `tee`.
 
 ## File modes
 
-| File | Owner | Mode |
-| --- | --- | --- |
-| `/etc/llm-stack/litellm.env` (`LITELLM_MASTER_KEY`, database URL) | root:root | 600 |
-| Client key files under `~/.config/...` | user | 600 (directory 700) |
-| sparkDash `.env` with `SPARKDASH_TOKEN` | service user | 600 |
-| cloudflared credentials JSON | root | 600 |
-| `/etc/llm-stack/*.yaml` without secrets | root:llm | 640 |
+| File                                                              | Owner        | Mode                |
+| ----------------------------------------------------------------- | ------------ | ------------------- |
+| `/etc/llm-stack/litellm.env` (`LITELLM_MASTER_KEY`, database URL) | root:root    | 600                 |
+| Client key files under `~/.config/...`                            | user         | 600 (directory 700) |
+| sparkDash `.env` with `SPARKDASH_TOKEN`                           | service user | 600                 |
+| cloudflared credentials JSON                                      | root         | 600                 |
+| `/etc/llm-stack/*.yaml` without secrets                           | root:llm     | 640                 |
 
 Create secret files empty with the mode set first, then edit:
 `sudo install -m 600 -o root -g root /dev/null <file>` and `sudoedit <file>`.

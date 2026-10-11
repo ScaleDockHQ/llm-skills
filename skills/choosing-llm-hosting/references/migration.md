@@ -38,14 +38,14 @@ Moving between tiers changes more than the URL. Check each item for the new targ
 
 ## Common moves
 
-| From → To | Why | Watch out for |
-| --- | --- | --- |
-| Frontier API → open-model API | Cost at volume | Quality on hard cases; keep frontier for an escalation subset |
-| Open-model API → owned/rented GPUs | Utilization now above break-even, or data floor rose | Ops capacity, same model and quantization to keep behavior |
-| Owned → rented GPU | Hardware end of life, need bigger accelerators | Egress, quotas, ephemeral disks |
-| Rented GPU → serverless | Traffic became spiky | Cold starts |
-| Any → hyperscaler | Enterprise contract, BAA, private networking | Regional model availability, quotas |
-| Laptop → owned server | Team adoption | Concurrency; move to a batching engine such as vLLM |
+| From → To                          | Why                                                  | Watch out for                                                 |
+| ---------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------- |
+| Frontier API → open-model API      | Cost at volume                                       | Quality on hard cases; keep frontier for an escalation subset |
+| Open-model API → owned/rented GPUs | Utilization now above break-even, or data floor rose | Ops capacity, same model and quantization to keep behavior    |
+| Owned → rented GPU                 | Hardware end of life, need bigger accelerators       | Egress, quotas, ephemeral disks                               |
+| Rented GPU → serverless            | Traffic became spiky                                 | Cold starts                                                   |
+| Any → hyperscaler                  | Enterprise contract, BAA, private networking         | Regional model availability, quotas                           |
+| Laptop → owned server              | Team adoption                                        | Concurrency; move to a batching engine such as vLLM           |
 
 ## Rollback
 

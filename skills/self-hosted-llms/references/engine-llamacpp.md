@@ -54,24 +54,23 @@ models:
     cmdStop: /opt/llm-stack/start-model.sh stop small-gguf
     proxy: http://127.0.0.1:${PORT}
     checkEndpoint: /health
-    disableKeepAlives: true   # avoids 502 "proxy error: EOF" right after a stream
+    disableKeepAlives: true # avoids 502 "proxy error: EOF" right after a stream
     ttl: 900
 ```
 
 Direct variant when llama-swap runs from the unified image (llama-server listens on loopback by default):
 
 ```yaml
-  small-gguf:
-    cmd: llama-server --port ${PORT} -m /models/Qwen3-8B-Q4_K_M.gguf -a ${MODEL_ID} -c 32768 -ngl all -fa on
-    disableKeepAlives: true
+small-gguf:
+  cmd: llama-server --port ${PORT} -m /models/Qwen3-8B-Q4_K_M.gguf -a ${MODEL_ID} -c 32768 -ngl all -fa on
+  disableKeepAlives: true
 ```
 
 ## How it plugs into the stack
 
 - **Port:** llama-swap `${PORT}`. Native defaults are `--host 127.0.0.1 --port 9931` since b11521
   (8080 in v0.6.0 and earlier, which collides with llama-swap), so always pass `--port`.
-- **Health:** `GET /health` (also `/v1/health`) is public, returns 503 "Loading model" until ready, then
-  200. It is exempt from the idle-sleep timer and never triggers a reload, as are `GET /props`, `/models`
+- **Health:** `GET /health` (also `/v1/health`) is public, returns 503 "Loading model" until ready, then 200. It is exempt from the idle-sleep timer and never triggers a reload, as are `GET /props`, `/models`
   and `/metrics`.
 - **Auth:** leave `--api-key`/`--api-key-file` unset on loopback; LiteLLM holds the keys. If you ever set
   one, use `--api-key-file` so the key is not visible in `ps`.
@@ -84,11 +83,11 @@ Direct variant when llama-swap runs from the unified image (llama-server listens
 - **LiteLLM entry:**
 
 ```yaml
-  - model_name: small-gguf
-    litellm_params:
-      model: openai/small-gguf
-      api_base: http://127.0.0.1:8080/v1
-      api_key: os.environ/LLAMA_SWAP_API_KEY
+- model_name: small-gguf
+  litellm_params:
+    model: openai/small-gguf
+    api_base: http://127.0.0.1:8080/v1
+    api_key: os.environ/LLAMA_SWAP_API_KEY
 ```
 
 ## Operating

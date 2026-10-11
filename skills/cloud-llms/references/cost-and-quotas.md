@@ -29,16 +29,16 @@ Create budgets with alerts at several thresholds (for example 50%, 80%, 100% of 
 
 ## Quotas: request before you need them
 
-| Platform | What is limited | Where to check / request |
-| --- | --- | --- |
-| OpenAI | RPM, TPM, RPD, TPD per model; usage tier (Build, Launch, Grow) | Console limits page; tier rises with credit purchases |
-| Anthropic | Rate limits and spend limits by usage tier | Console Rate limits page; request higher limits |
-| Gemini API | Per-model limits by project tier | Rate limits page; billing enabled raises tier |
-| AWS Bedrock | Tokens and requests per minute per model and Region; applied values may be below defaults | Service Quotas (`aws service-quotas list-service-quotas --service-code bedrock`) |
-| Agent Platform | Per-model quotas, shared pay-as-you-go capacity, provisioned throughput | Console quotas page |
-| Microsoft Foundry | TPM per model, region and deployment type | Foundry quota page / Azure quotas |
-| EC2 / GCE / Azure GPU VMs | GPU instance or vCPU quotas per region, often zero by default | Service Quotas, Cloud Quotas, Azure quotas |
-| RunPod Serverless | Max workers per endpoint, account limits | Endpoint settings, support |
+| Platform                  | What is limited                                                                           | Where to check / request                                                         |
+| ------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| OpenAI                    | RPM, TPM, RPD, TPD per model; usage tier (Build, Launch, Grow)                            | Console limits page; tier rises with credit purchases                            |
+| Anthropic                 | Rate limits and spend limits by usage tier                                                | Console Rate limits page; request higher limits                                  |
+| Gemini API                | Per-model limits by project tier                                                          | Rate limits page; billing enabled raises tier                                    |
+| AWS Bedrock               | Tokens and requests per minute per model and Region; applied values may be below defaults | Service Quotas (`aws service-quotas list-service-quotas --service-code bedrock`) |
+| Agent Platform            | Per-model quotas, shared pay-as-you-go capacity, provisioned throughput                   | Console quotas page                                                              |
+| Microsoft Foundry         | TPM per model, region and deployment type                                                 | Foundry quota page / Azure quotas                                                |
+| EC2 / GCE / Azure GPU VMs | GPU instance or vCPU quotas per region, often zero by default                             | Service Quotas, Cloud Quotas, Azure quotas                                       |
+| RunPod Serverless         | Max workers per endpoint, account limits                                                  | Endpoint settings, support                                                       |
 
 Request increases days to weeks ahead of launch, in every region you plan to use as a fallback, and keep the approval reference in the decision record.
 

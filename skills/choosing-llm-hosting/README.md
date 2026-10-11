@@ -28,7 +28,7 @@ The `SKILL.md` overview is always loaded; the agent pulls a reference only when 
 - [`references/hybrid-patterns.md`](references/hybrid-patterns.md): local-first with fallback, routing by task, burst to cloud, dev local / prod cloud, privacy-tiered routing.
 - [`references/migration.md`](references/migration.md): moving between tiers without breaking clients.
 - [`references/example.md`](references/example.md): three anonymized personas and their decisions.
-- [`templates/decision-record.md`](templates/decision-record.md): the decision record template.
+- [`assets/decision-record.md`](assets/decision-record.md): the decision record template.
 
 ## Companion skills
 

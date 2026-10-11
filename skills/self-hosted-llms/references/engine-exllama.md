@@ -98,12 +98,12 @@ models:
 - **LiteLLM entry:**
 
 ```yaml
-  - model_name: exl3-model
-    litellm_params:
-      model: openai/exl3-model
-      api_base: http://127.0.0.1:8080/v1
-      api_key: os.environ/LLAMA_SWAP_API_KEY
-      use_chat_completions_api: true   # engine has no /v1/responses
+- model_name: exl3-model
+  litellm_params:
+    model: openai/exl3-model
+    api_base: http://127.0.0.1:8080/v1
+    api_key: os.environ/LLAMA_SWAP_API_KEY
+    use_chat_completions_api: true # engine has no /v1/responses
 ```
 
 ## Operating

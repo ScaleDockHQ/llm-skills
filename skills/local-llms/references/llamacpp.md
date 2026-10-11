@@ -10,7 +10,7 @@ llama.cpp is the C/C++ inference engine for GGUF models. Ollama, LM Studio, Jan,
 
 - **macOS/Linux:** `brew install llama.cpp` (Metal on macOS). Also MacPorts (`sudo port install llama.cpp`), Nix (`nix profile install nixpkgs#llama-cpp`), and conda-forge (`conda install -c conda-forge llama.cpp`).
 - **Windows:** `winget install llama.cpp`.
-- **Official installer:** `curl -LsSf https://llama.app/install.sh | sh` (macOS/Linux) or `irm https://llama.app/install.ps1 | iex` (Windows). This installs a single `llama` binary into `~/.local/bin`, used as `llama serve -hf <repo>` and `llama cli -hf <repo>`. It probes for CUDA/ROCm at install time. The rest of this page uses `llama-server`; `llama serve` is the equivalent subcommand *(argument parity with `llama-server` is assumed; confirm with `llama serve --help`)*.
+- **Official installer:** `curl -LsSf https://llama.app/install.sh | sh` (macOS/Linux) or `irm https://llama.app/install.ps1 | iex` (Windows). This installs a single `llama` binary into `~/.local/bin`, used as `llama serve -hf <repo>` and `llama cli -hf <repo>`. It probes for CUDA/ROCm at install time. The rest of this page uses `llama-server`; `llama serve` is the equivalent subcommand _(argument parity with `llama-server` is assumed; confirm with `llama serve --help`)_.
 - **Release archives** (https://github.com/ggml-org/llama.cpp/releases), named `llama-<build>-bin-<os>-<backend>-<arch>`:
   - macOS: `macos-arm64`, `macos-x64`
   - Windows: `win-cuda-<ver>-x64` (plus `cudart-llama-bin-win-cuda-<ver>-x64.zip` in the same folder), `win-vulkan-x64`, `win-rocm-<ver>-x64`, `win-sycl-x64`, `win-cpu-x64`, `win-cpu-arm64`, `win-vulkan-arm64`
@@ -30,50 +30,50 @@ llama-server -m ~/models/<model>-Q4_K_M.gguf -c 32768 -ngl all \
 
 ## How it plugs in
 
-| Item | Value |
-| --- | --- |
-| Default bind | `127.0.0.1:9931` (`--host`, `--port`; env `LLAMA_ARG_HOST`, `LLAMA_ARG_PORT`). **Builds before b11521 (including the v0.6.0 release) use 8080, and the Docker examples pass `--port 8080`** |
-| Health | `GET /health` (also `/v1/health`), public: `503` while loading, `200 {"status":"ok"}` when ready |
-| OpenAI-compatible | `http://localhost:9931/v1`: `/v1/models`, `/v1/chat/completions`, `/v1/completions`, `/v1/responses`, `/v1/embeddings` |
-| Anthropic-compatible | `/v1/messages`, `/v1/messages/count_tokens` |
-| Other | `/props`, `/slots`, `/metrics` (with `--metrics`), `/tokenize`, `/infill`, `/reranking`; web UI at `/` |
-| Auth | `--api-key KEY[,KEY2]` (env `LLAMA_API_KEY`) or `--api-key-file PATH` (one key per line, `#` comments). Clients send `Authorization: Bearer <key>` (Anthropic clients: `x-api-key`) |
-| TLS | `--ssl-key-file`, `--ssl-cert-file` |
+| Item                 | Value                                                                                                                                                                                       |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default bind         | `127.0.0.1:9931` (`--host`, `--port`; env `LLAMA_ARG_HOST`, `LLAMA_ARG_PORT`). **Builds before b11521 (including the v0.6.0 release) use 8080, and the Docker examples pass `--port 8080`** |
+| Health               | `GET /health` (also `/v1/health`), public: `503` while loading, `200 {"status":"ok"}` when ready                                                                                            |
+| OpenAI-compatible    | `http://localhost:9931/v1`: `/v1/models`, `/v1/chat/completions`, `/v1/completions`, `/v1/responses`, `/v1/embeddings`                                                                      |
+| Anthropic-compatible | `/v1/messages`, `/v1/messages/count_tokens`                                                                                                                                                 |
+| Other                | `/props`, `/slots`, `/metrics` (with `--metrics`), `/tokenize`, `/infill`, `/reranking`; web UI at `/`                                                                                      |
+| Auth                 | `--api-key KEY[,KEY2]` (env `LLAMA_API_KEY`) or `--api-key-file PATH` (one key per line, `#` comments). Clients send `Authorization: Bearer <key>` (Anthropic clients: `x-api-key`)         |
+| TLS                  | `--ssl-key-file`, `--ssl-cert-file`                                                                                                                                                         |
 
 Prefer `--api-key-file` to `--api-key`: command lines show up in `ps` output and shell history.
 
 ## Flags worth knowing
 
-| Flag | Meaning |
-| --- | --- |
-| `-m, --model FNAME` / `-hf <user>/<model>[:quant]` | Local GGUF / Hugging Face download (`HF_TOKEN` for gated repos) |
-| `-c, --ctx-size N` | Context size. `0` = the model's trained maximum (default) |
-| `-ngl, --n-gpu-layers N\|auto\|all` | Layers on the GPU (default `auto`) |
-| `--fit on\|off` | Auto-adjust unset arguments to fit device memory (default `on`); `--fit-target MiB` sets the margin (default 1024) |
-| `-fa, --flash-attn on\|off\|auto` | Flash attention (default `auto`) |
-| `-ctk` / `-ctv TYPE` | KV cache type: `f16` (default), `q8_0`, `q4_0`, ... |
-| `-np, --parallel N` | Server slots (default auto) |
-| `--jinja` / `--no-jinja` | Jinja chat templates (enabled by default; needed for tool calling) |
-| `--chat-template-file` | Override a broken embedded template |
-| `--reasoning-format`, `--reasoning-budget N` | Control thinking output |
-| `-a, --alias NAME` | Model name returned by `/v1/models` and accepted in requests |
-| `-cmoe, --cpu-moe` / `-ncmoe, --n-cpu-moe N` | Keep MoE expert weights in system RAM |
-| `-ot, --override-tensor PATTERN=BUFTYPE` | Place specific tensors on specific devices |
-| `-dev, --device` / `--list-devices` | Choose or list backends/devices |
-| `-t, --threads N` | CPU threads |
-| `--metrics` | Prometheus `/metrics` |
-| `--sleep-idle-seconds N` | Unload the model after N idle seconds; it reloads on the next request |
-| `--models-dir PATH`, `--models-preset INI` | Router mode (start without `-m` to serve several models) |
-| `--no-webui` | Disable the built-in UI |
-| `--offline` | Use the cache only, no network |
-| `--log-file FNAME`, `-v` | Logging |
+| Flag                                               | Meaning                                                                                                            |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `-m, --model FNAME` / `-hf <user>/<model>[:quant]` | Local GGUF / Hugging Face download (`HF_TOKEN` for gated repos)                                                    |
+| `-c, --ctx-size N`                                 | Context size. `0` = the model's trained maximum (default)                                                          |
+| `-ngl, --n-gpu-layers N\|auto\|all`                | Layers on the GPU (default `auto`)                                                                                 |
+| `--fit on\|off`                                    | Auto-adjust unset arguments to fit device memory (default `on`); `--fit-target MiB` sets the margin (default 1024) |
+| `-fa, --flash-attn on\|off\|auto`                  | Flash attention (default `auto`)                                                                                   |
+| `-ctk` / `-ctv TYPE`                               | KV cache type: `f16` (default), `q8_0`, `q4_0`, ...                                                                |
+| `-np, --parallel N`                                | Server slots (default auto)                                                                                        |
+| `--jinja` / `--no-jinja`                           | Jinja chat templates (enabled by default; needed for tool calling)                                                 |
+| `--chat-template-file`                             | Override a broken embedded template                                                                                |
+| `--reasoning-format`, `--reasoning-budget N`       | Control thinking output                                                                                            |
+| `-a, --alias NAME`                                 | Model name returned by `/v1/models` and accepted in requests                                                       |
+| `-cmoe, --cpu-moe` / `-ncmoe, --n-cpu-moe N`       | Keep MoE expert weights in system RAM                                                                              |
+| `-ot, --override-tensor PATTERN=BUFTYPE`           | Place specific tensors on specific devices                                                                         |
+| `-dev, --device` / `--list-devices`                | Choose or list backends/devices                                                                                    |
+| `-t, --threads N`                                  | CPU threads                                                                                                        |
+| `--metrics`                                        | Prometheus `/metrics`                                                                                              |
+| `--sleep-idle-seconds N`                           | Unload the model after N idle seconds; it reloads on the next request                                              |
+| `--models-dir PATH`, `--models-preset INI`         | Router mode (start without `-m` to serve several models)                                                           |
+| `--no-webui`                                       | Disable the built-in UI                                                                                            |
+| `--offline`                                        | Use the cache only, no network                                                                                     |
+| `--log-file FNAME`, `-v`                           | Logging                                                                                                            |
 
 Nearly every flag has a `LLAMA_ARG_*` environment variable, which is handy in service files. `llama-server --help` is the authority for the binary you have installed.
 
 ## Operating
 
 - Foreground: run it in a terminal; Ctrl-C stops it.
-- Background: `templates/llama-server.service` (Linux systemd user unit) or `templates/llama-server.launchd.plist` (macOS LaunchAgent).
+- Background: `assets/llama-server.service` (Linux systemd user unit) or `assets/llama-server.launchd.plist` (macOS LaunchAgent).
 - Logs: stdout/stderr, or `--log-file`. Under systemd, `journalctl --user -u llama-server -f`.
 - Update: `brew upgrade llama.cpp`, `winget upgrade llama.cpp`, re-run the llama.app installer, or download a newer release. Builds are published several times a day; update on purpose, not constantly.
 - Model cache for `-hf`: controlled by `LLAMA_CACHE`; `-cl, --cache-list` lists it.

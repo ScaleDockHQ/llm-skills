@@ -32,38 +32,38 @@ Models download to the Hugging Face cache (`~/.cache/huggingface/hub`, or `HF_HO
 
 ## How it plugs in
 
-| Item | Value |
-| --- | --- |
-| Default bind | `127.0.0.1:8080` (`--host`, `--port`) |
-| Health | `GET /health` |
-| OpenAI-style | `http://localhost:8080/v1`: `/v1/chat/completions`, `/v1/completions`, `/v1/models` |
-| Anthropic | Not provided |
-| Auth | **None.** Upstream: "not recommended for production as it only implements basic security checks" |
-| CORS | `--allowed-origins` defaults to `*`. Restrict it if a browser can reach the server |
+| Item         | Value                                                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------ |
+| Default bind | `127.0.0.1:8080` (`--host`, `--port`)                                                            |
+| Health       | `GET /health`                                                                                    |
+| OpenAI-style | `http://localhost:8080/v1`: `/v1/chat/completions`, `/v1/completions`, `/v1/models`              |
+| Anthropic    | Not provided                                                                                     |
+| Auth         | **None.** Upstream: "not recommended for production as it only implements basic security checks" |
+| CORS         | `--allowed-origins` defaults to `*`. Restrict it if a browser can reach the server               |
 
 Port 8080 is also the old llama.cpp default and a common dev-server port. Pick another `--port` if 8080 is taken (`lsof -nP -iTCP:8080 -sTCP:LISTEN`).
 
 ## Server flags (from `mlx_lm.server --help`)
 
-| Flag | Default | Purpose |
-| --- | --- | --- |
-| `--model` | — | Local path or HF repo |
-| `--adapter-path` | — | LoRA adapter |
-| `--host` / `--port` | `127.0.0.1` / `8080` | Bind |
-| `--draft-model`, `--num-draft-tokens` | —, `3` | Speculative decoding |
-| `--max-tokens` | `512` | Default max tokens per response. **Raise it for agents** |
-| `--temp`, `--top-p`, `--top-k`, `--min-p` | `0.0`, `1.0`, `0`, `0.0` | Default sampling |
-| `--chat-template`, `--use-default-chat-template`, `--chat-template-args '{"enable_thinking":false}'` | | Template control |
-| `--decode-concurrency`, `--prompt-concurrency` | `32`, `8` | Batching for batchable requests |
-| `--prefill-step-size` | `2048` | Lower it to reduce peak memory on long prompts |
-| `--prompt-cache-size`, `--prompt-cache-bytes` | | Prompt cache limits |
-| `--kv-bits`, `--kv-group-size`, `--quantized-kv-start` | —, —, `5000` | KV cache quantization (disables batching) |
-| `--trust-remote-code` | off | Only for repos you trust |
-| `--log-level` | `INFO` | `DEBUG` for troubleshooting |
+| Flag                                                                                                 | Default                  | Purpose                                                  |
+| ---------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------------------- |
+| `--model`                                                                                            | —                        | Local path or HF repo                                    |
+| `--adapter-path`                                                                                     | —                        | LoRA adapter                                             |
+| `--host` / `--port`                                                                                  | `127.0.0.1` / `8080`     | Bind                                                     |
+| `--draft-model`, `--num-draft-tokens`                                                                | —, `3`                   | Speculative decoding                                     |
+| `--max-tokens`                                                                                       | `512`                    | Default max tokens per response. **Raise it for agents** |
+| `--temp`, `--top-p`, `--top-k`, `--min-p`                                                            | `0.0`, `1.0`, `0`, `0.0` | Default sampling                                         |
+| `--chat-template`, `--use-default-chat-template`, `--chat-template-args '{"enable_thinking":false}'` |                          | Template control                                         |
+| `--decode-concurrency`, `--prompt-concurrency`                                                       | `32`, `8`                | Batching for batchable requests                          |
+| `--prefill-step-size`                                                                                | `2048`                   | Lower it to reduce peak memory on long prompts           |
+| `--prompt-cache-size`, `--prompt-cache-bytes`                                                        |                          | Prompt cache limits                                      |
+| `--kv-bits`, `--kv-group-size`, `--quantized-kv-start`                                               | —, —, `5000`             | KV cache quantization (disables batching)                |
+| `--trust-remote-code`                                                                                | off                      | Only for repos you trust                                 |
+| `--log-level`                                                                                        | `INFO`                   | `DEBUG` for troubleshooting                              |
 
 ## Operating
 
-- Start/stop: foreground process, Ctrl-C to stop. To run it in the background, adapt `templates/llama-server.launchd.plist`: point `ProgramArguments` at `~/.venvs/mlx/bin/mlx_lm.server` (as an absolute path) with its flags.
+- Start/stop: foreground process, Ctrl-C to stop. To run it in the background, adapt `assets/llama-server.launchd.plist`: point `ProgramArguments` at `~/.venvs/mlx/bin/mlx_lm.server` (as an absolute path) with its flags.
 - Update: `pip install -U mlx-lm` inside the venv. MLX moves fast, so pin a version in scripts.
 - Disk: `hf cache ls` / `hf cache rm <repo>` for downloaded models.
 - Benchmark: `mlx_lm.benchmark --model <repo> -p 2048 -g 128` (engine only); `scripts/bench.sh` for HTTP end-to-end.

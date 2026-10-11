@@ -11,37 +11,53 @@ Every `model_name` is a model group. When several `model_list` entries share a n
 ```yaml
 model_list:
   - model_name: coder
-    litellm_params: { model: openai/qwen-coder, api_base: http://node-a:8080/v1, api_key: "none", rpm: 30 }
+    litellm_params:
+      {
+        model: openai/qwen-coder,
+        api_base: http://node-a:8080/v1,
+        api_key: "none",
+        rpm: 30,
+      }
   - model_name: coder
-    litellm_params: { model: openai/qwen-coder, api_base: http://node-b:8080/v1, api_key: "none", rpm: 30 }
+    litellm_params:
+      {
+        model: openai/qwen-coder,
+        api_base: http://node-b:8080/v1,
+        api_key: "none",
+        rpm: 30,
+      }
   - model_name: coder-cloud
-    litellm_params: { model: openrouter/<vendor>/<model>, api_key: os.environ/OPENROUTER_API_KEY }
+    litellm_params:
+      {
+        model: openrouter/<vendor>/<model>,
+        api_key: os.environ/OPENROUTER_API_KEY,
+      }
 
 router_settings:
-  routing_strategy: simple-shuffle     # weighted by rpm/tpm when set
+  routing_strategy: simple-shuffle # weighted by rpm/tpm when set
   num_retries: 2
-  timeout: 120                         # seconds, per request
-  stream_timeout: 60                   # seconds to first chunk on streaming requests
-  allowed_fails: 3                     # failures per minute before cooldown
-  cooldown_time: 30                    # seconds a deployment stays out
+  timeout: 120 # seconds, per request
+  stream_timeout: 60 # seconds to first chunk on streaming requests
+  allowed_fails: 3 # failures per minute before cooldown
+  cooldown_time: 30 # seconds a deployment stays out
   fallbacks:
     - coder: [coder-cloud]
   context_window_fallbacks:
     - coder: [coder-cloud]
-  enable_pre_call_checks: true         # enforce model_info.max_input_tokens before calling
+  enable_pre_call_checks: true # enforce model_info.max_input_tokens before calling
 ```
 
 `fallbacks`, `context_window_fallbacks`, `num_retries`, `allowed_fails` and `cooldown_time` are accepted under both `litellm_settings` and `router_settings` in upstream examples; keep them in one place (`router_settings`) to avoid confusion.
 
 ## Routing strategies
 
-| `routing_strategy` | Picks | Use when |
-|---|---|---|
+| `routing_strategy`         | Picks                                             | Use when                                                             |
+| -------------------------- | ------------------------------------------------- | -------------------------------------------------------------------- |
 | `simple-shuffle` (default) | Random, weighted by `rpm`/`tpm`/`weight` when set | Default; best throughput in upstream load tests when rpm/tpm are set |
-| `least-busy` | Fewest in-flight requests | Uneven request lengths on equal hardware |
-| `latency-based-routing` | Lowest recent latency | Mixed hardware or regions |
-| `usage-based-routing` | Lowest TPM/RPM usage against limits | Hard provider rate limits |
-| `cost-based-routing` | Cheapest deployment | Cost-sensitive cloud mixes |
+| `least-busy`               | Fewest in-flight requests                         | Uneven request lengths on equal hardware                             |
+| `latency-based-routing`    | Lowest recent latency                             | Mixed hardware or regions                                            |
+| `usage-based-routing`      | Lowest TPM/RPM usage against limits               | Hard provider rate limits                                            |
+| `cost-based-routing`       | Cheapest deployment                               | Cost-sensitive cloud mixes                                           |
 
 Other ordering tools: `litellm_params.order` (lower number = higher priority, the strategy picks among equal orders) and routing groups that apply a different strategy to a subset of model names. With more than one LiteLLM instance, share router state through Redis (`router_settings.redis_host`, `redis_port`, `redis_password`).
 

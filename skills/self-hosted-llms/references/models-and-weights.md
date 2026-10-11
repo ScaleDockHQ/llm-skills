@@ -4,13 +4,13 @@
 
 ## Formats and which engine reads them
 
-| Format | Typical quant | Engines |
-| --- | --- | --- |
-| safetensors (Hugging Face layout) | BF16, FP8, NVFP4, AWQ/GPTQ | vLLM, SGLang, TensorRT-LLM |
-| GGUF | Q4_K_M ... Q8_0, IQ quants | llama.cpp, Ollama |
-| EXL3 | 2-8 bits per weight | ExLlamaV3 (TabbyAPI or an OpenAI server) |
-| TensorFold model dirs | engine-specific | TensorFold |
-| diffusion safetensors / GGUF | FP16, FP8, Q8_0 ... | stable-diffusion.cpp, ComfyUI |
+| Format                            | Typical quant              | Engines                                  |
+| --------------------------------- | -------------------------- | ---------------------------------------- |
+| safetensors (Hugging Face layout) | BF16, FP8, NVFP4, AWQ/GPTQ | vLLM, SGLang, TensorRT-LLM               |
+| GGUF                              | Q4_K_M ... Q8_0, IQ quants | llama.cpp, Ollama                        |
+| EXL3                              | 2-8 bits per weight        | ExLlamaV3 (TabbyAPI or an OpenAI server) |
+| TensorFold model dirs             | engine-specific            | TensorFold                               |
+| diffusion safetensors / GGUF      | FP16, FP8, Q8_0 ...        | stable-diffusion.cpp, ComfyUI            |
 
 Pick the quant from the memory plan (`hardware-dgx-spark.md`), then confirm the engine supports it
 on your GPU (FP8 and NVFP4 kernels depend on architecture and engine version). Producing quants

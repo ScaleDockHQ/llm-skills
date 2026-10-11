@@ -5,7 +5,7 @@ license: MIT
 compatibility: Personal machines (macOS on Apple Silicon, Windows 10/11, Linux desktops). Discovery commands need a shell (bash/zsh or PowerShell); benchmarking needs curl and jq. Installs, sysctl changes, firewall rules and LAN exposure require the user's explicit approval.
 metadata:
   author: ScaleDockHQ
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Local LLMs
@@ -21,6 +21,7 @@ Work through the steps in order. Load a reference only when a step names it.
 Run these read-only commands before you recommend anything. Install nothing yet.
 
 **macOS**
+
 ```bash
 uname -m; sw_vers -productVersion
 sysctl -n machdep.cpu.brand_string; sysctl -n hw.memsize          # chip, RAM bytes
@@ -30,6 +31,7 @@ df -h ~                                                          # free disk
 ```
 
 **Linux**
+
 ```bash
 uname -m; head -4 /etc/os-release; free -h; df -h ~
 lspci | grep -i -E 'vga|3d|display'
@@ -39,6 +41,7 @@ vulkaninfo --summary; groups
 ```
 
 **Windows (PowerShell)**
+
 ```powershell
 $env:PROCESSOR_ARCHITECTURE; (Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB
 Get-CimInstance Win32_VideoController | Select-Object Name, DriverVersion
@@ -47,6 +50,7 @@ Get-PSDrive C
 ```
 
 **Runtimes already installed or running (any OS)**
+
 ```bash
 command -v ollama lms llama-server llama mlx_lm.server     # Windows: Get-Command ollama, lms, llama-server
 ollama list; ollama ps
@@ -66,13 +70,13 @@ Don't print API keys, tokens, or the contents of key files. Check that a key exi
 
 **Runtime from OS and accelerator** (details: `references/choosing-a-runtime.md`)
 
-| Machine | Default | Alternatives |
-| --- | --- | --- |
-| Apple Silicon Mac | LM Studio (GUI) or Ollama (CLI) | mlx-lm for MLX models; llama-server for flags or an API key |
-| Windows + NVIDIA | Ollama or LM Studio (native CUDA) | llama.cpp CUDA zip; WSL2 only if the toolchain lives there |
-| Windows/Linux + AMD | Ollama (ROCm or Vulkan) or LM Studio (Vulkan) | llama.cpp Vulkan or ROCm build |
-| Linux + NVIDIA | Ollama (systemd service) | llama-server as a systemd user unit |
-| Intel GPU / CPU only | llama.cpp (Vulkan/SYCL/CPU) | LM Studio, Ollama (CPU) |
+| Machine              | Default                                       | Alternatives                                                |
+| -------------------- | --------------------------------------------- | ----------------------------------------------------------- |
+| Apple Silicon Mac    | LM Studio (GUI) or Ollama (CLI)               | mlx-lm for MLX models; llama-server for flags or an API key |
+| Windows + NVIDIA     | Ollama or LM Studio (native CUDA)             | llama.cpp CUDA zip; WSL2 only if the toolchain lives there  |
+| Windows/Linux + AMD  | Ollama (ROCm or Vulkan) or LM Studio (Vulkan) | llama.cpp Vulkan or ROCm build                              |
+| Linux + NVIDIA       | Ollama (systemd service)                      | llama-server as a systemd user unit                         |
+| Intel GPU / CPU only | llama.cpp (Vulkan/SYCL/CPU)                   | LM Studio, Ollama (CPU)                                     |
 
 **Model size vs memory** (`references/sizing.md`): weights + KV cache at the needed context × parallel slots + overhead + OS headroom must fit in VRAM (or the Metal wired limit). If it doesn't fit, use a smaller quant, then a shorter context or quantized KV, then a smaller model. Partial CPU offload comes last.
 
@@ -94,12 +98,14 @@ Don't print API keys, tokens, or the contents of key files. Check that a key exi
 ## Workflows
 
 ### Install a runtime
+
 - [ ] Discovery done; runtime chosen from the table above.
 - [ ] Driver prerequisites met (`references/windows.md`, `references/linux-desktop.md`, `references/macos-apple-silicon.md`).
 - [ ] Install with the official method from the runtime reference (`references/ollama.md`, `references/lm-studio.md`, `references/llamacpp.md`, `references/mlx.md`), after the user approves.
 - [ ] Verify the binary is native (`file "$(command -v <bin>)"`) and the GPU is visible (`llama-server --list-devices`, Ollama log, `lms runtime ls`).
 
 ### Pick and size a model
+
 - [ ] Use case and needed context known.
 - [ ] Usable memory computed; weights + KV cache + headroom fit (`references/sizing.md`).
 - [ ] Pick the format for the runtime: GGUF (Ollama, LM Studio, llama.cpp) or MLX (mlx-lm, LM Studio on a Mac).
@@ -107,6 +113,7 @@ Don't print API keys, tokens, or the contents of key files. Check that a key exi
 - [ ] Check free disk before downloading. LM Studio: `lms load --estimate-only`.
 
 ### Run and serve an OpenAI-compatible endpoint
+
 - [ ] Port free (one runtime per port).
 - [ ] Start bound to `127.0.0.1` with an explicit context size:
   - Ollama: `OLLAMA_CONTEXT_LENGTH` → `http://127.0.0.1:11434/v1`
@@ -114,57 +121,63 @@ Don't print API keys, tokens, or the contents of key files. Check that a key exi
   - llama.cpp: `llama-server -m|-hf ... -c N --host 127.0.0.1 --port 9931 -a local-model` → `http://127.0.0.1:9931/v1`
   - MLX: `mlx_lm.server --model ... --max-tokens N` → `http://127.0.0.1:8080/v1`
 - [ ] Smoke test: `curl -s <base>/models`, then one `chat/completions` request.
-- [ ] Optional background service: Ollama/LM Studio login items, `templates/llama-server.service` (Linux user unit), `templates/llama-server.launchd.plist` (macOS).
-- [ ] Optional Ollama defaults: `templates/Modelfile.example`.
+- [ ] Optional background service: Ollama/LM Studio login items, `assets/llama-server.service` (Linux user unit), `assets/llama-server.launchd.plist` (macOS).
+- [ ] Optional Ollama defaults: `assets/Modelfile.example`.
 
 ### Connect a client
+
 - [ ] Give the client the base URL including `/v1`, the model name exactly as `/v1/models` reports it, and a key from a file or environment variable (or any placeholder string for keyless local servers).
 - [ ] Anthropic-protocol clients: Ollama, LM Studio, and llama-server serve `/v1/messages` (base URL without `/v1`).
 - [ ] For per-tool setup (Claude Code, Codex, OpenCode, Aider, Cursor, Continue, Cline/Roo/Kilo, Open WebUI, LobeHub, SDKs), use **llm-clients**. To put several backends behind one endpoint, use **llm-gateway**.
 
 ### Share on LAN securely
+
 - [ ] User explicitly wants it; prefer an SSH tunnel or `tailscale serve` (never `funnel`).
 - [ ] Runtime-enforced key (llama-server `--api-key-file`, LM Studio Require Authentication) or an authenticating proxy. Ollama and mlx_lm.server have no auth.
 - [ ] Firewall scoped to the subnet and port; undo documented; 401 without a key and 200 with it, verified from a second device (`references/sharing-on-lan.md`).
 
 ### Benchmark
+
 - [ ] Fixed protocol from `references/benchmarking.md`: AC power, one server, model fully on the GPU, warmup, same prompt/max tokens, median of N runs.
 - [ ] `scripts/bench.sh --base-url URL --model NAME [--runs N] [--warmup N] [--max-tokens N] [--prompt-tokens N] [--concurrency N] [--key-file PATH] [--timeout SECONDS]` (env `LLM_BASE_URL`, `LLM_MODEL`, `LLM_API_KEY`; `--help` for details). It reports median TTFB and decode tok/s, plus prefill tok/s with `--prompt-tokens` and aggregate tok/s with `--concurrency`.
 - [ ] Record versions, quant, context, flags, and power state with the results.
 - [ ] For quality rather than speed, use **llm-evals**.
 
 ### Update
+
 - [ ] Benchmark first, so you have a baseline.
 - [ ] Ollama: app auto-update, or re-run the install script on Linux. LM Studio: in-app update, or `lms daemon update` (with the daemon down) and `lms runtime update`. llama.cpp: `brew upgrade` / `winget upgrade` / a new release. MLX: `pip install -U mlx-lm` in its venv.
 - [ ] Re-run the smoke test and the benchmark. Watch for changed defaults (for example, llama-server's default port).
 
 ### Clean up disk
+
 - [ ] Inventory first: `ollama ls`; `lms ls`; `hf cache ls`; `llama-server -cl`; `du -sh` on the model directories.
 - [ ] Delete only what the user confirms: `ollama rm <m>`; LM Studio My Models; `hf cache rm <repo>` / `hf cache prune`.
 - [ ] Move stores rather than deleting them when space is the issue (`OLLAMA_MODELS`, LM Studio models directory, `HF_HOME`, `LLAMA_CACHE`).
 
 ### Troubleshoot
+
 - [ ] Re-run discovery and read the runtime's logs.
 - [ ] Match the symptom in `references/troubleshooting.md`: wrong port, CPU offload, wired limit, context too small, template/tool-call errors, 401/403, CORS.
 - [ ] Change one thing at a time; re-run the smoke test and benchmark.
 
 ## Reference index
 
-| File | Load when |
-| --- | --- |
-| `references/choosing-a-runtime.md` | Comparing Ollama, LM Studio, llama.cpp, MLX (plus Jan) |
-| `references/sizing.md` | Will it fit: quants, KV cache formula, headroom, offloading |
+| File                                | Load when                                                    |
+| ----------------------------------- | ------------------------------------------------------------ |
+| `references/choosing-a-runtime.md`  | Comparing Ollama, LM Studio, llama.cpp, MLX (plus Jan)       |
+| `references/sizing.md`              | Will it fit: quants, KV cache formula, headroom, offloading  |
 | `references/macos-apple-silicon.md` | Unified memory, Metal, MLX, `iogpu.wired_limit_mb`, thermals |
-| `references/windows.md` | CUDA, AMD ROCm/Vulkan, WSL2 vs native, firewall prompts |
-| `references/linux-desktop.md` | Drivers, CUDA/ROCm/Vulkan builds, systemd user services |
-| `references/ollama.md` | Ollama install, environment variables, endpoints, pitfalls |
-| `references/lm-studio.md` | LM Studio GUI, `lms` CLI, llmster headless, API tokens |
-| `references/llamacpp.md` | `llama-server` install, flags, auth, router mode |
-| `references/mlx.md` | `mlx-lm` install, `mlx_lm.server` flags |
-| `references/sharing-on-lan.md` | SSH tunnel, Tailscale Serve, API keys, firewall rules |
-| `references/benchmarking.md` | Fixed protocol with `scripts/bench.sh`, fair comparisons |
-| `references/troubleshooting.md` | Symptom → cause → fix |
-| `templates/` | systemd user unit, launchd plist, Ollama Modelfile |
+| `references/windows.md`             | CUDA, AMD ROCm/Vulkan, WSL2 vs native, firewall prompts      |
+| `references/linux-desktop.md`       | Drivers, CUDA/ROCm/Vulkan builds, systemd user services      |
+| `references/ollama.md`              | Ollama install, environment variables, endpoints, pitfalls   |
+| `references/lm-studio.md`           | LM Studio GUI, `lms` CLI, llmster headless, API tokens       |
+| `references/llamacpp.md`            | `llama-server` install, flags, auth, router mode             |
+| `references/mlx.md`                 | `mlx-lm` install, `mlx_lm.server` flags                      |
+| `references/sharing-on-lan.md`      | SSH tunnel, Tailscale Serve, API keys, firewall rules        |
+| `references/benchmarking.md`        | Fixed protocol with `scripts/bench.sh`, fair comparisons     |
+| `references/troubleshooting.md`     | Symptom → cause → fix                                        |
+| `assets/`                           | systemd user unit, launchd plist, Ollama Modelfile           |
 
 ## Companion skills
 

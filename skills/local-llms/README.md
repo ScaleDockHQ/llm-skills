@@ -35,7 +35,7 @@ npx skills add ScaleDockHQ/llms-skills --skill local-llms
 - [`references/sharing-on-lan.md`](references/sharing-on-lan.md): SSH tunnel, Tailscale Serve, API keys, firewall rules.
 - [`references/benchmarking.md`](references/benchmarking.md): a fixed protocol with `scripts/bench.sh`, and fair comparisons.
 - [`references/troubleshooting.md`](references/troubleshooting.md): symptom → cause → fix.
-- [`templates/`](templates/): systemd user unit and launchd plist for `llama-server`, plus an Ollama Modelfile.
+- [`assets/`](assets/): systemd user unit and launchd plist for `llama-server`, plus an Ollama Modelfile.
 
 `scripts/bench.sh` is shared with `self-hosted-llms`. It's bash 3.2-compatible and needs `curl` and `jq`.
 

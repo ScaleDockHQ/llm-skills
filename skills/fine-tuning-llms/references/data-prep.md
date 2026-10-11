@@ -10,7 +10,8 @@ Most failed fine-tunes are data problems: wrong chat template, unmasked user tur
 
 Store training data as JSONL, one conversation per line, OpenAI-style:
 
-```json
+<!-- prettier-ignore -->
+```jsonl
 {"messages": [{"role": "system", "content": "You are a support agent."}, {"role": "user", "content": "Reset my password"}, {"role": "assistant", "content": "Go to Settings > Security ..."}]}
 ```
 
@@ -18,14 +19,14 @@ Both Axolotl and TRL accept this directly, and it renders through the model's ow
 
 ## Formats Axolotl accepts (`datasets[].type`)
 
-| `type` | Row shape | Use for |
-|---|---|---|
-| `chat_template` | `{"messages": [{role, content}, ...]}` (keys remappable via `field_messages`, `message_property_mappings`, `roles`) | SFT on chats (recommended) |
-| `alpaca` | `{"instruction", "input", "output"}` | Single-turn instruction data |
-| `completion` | `{"text": ...}` | Continued pretraining on raw text (no masking) |
-| `input_output` | `{"segments": [{"text", "label": bool}, ...]}` | Template-free, you control every token and mask |
-| *(empty)* | `input_ids`, `attention_mask`, `labels` | Pre-tokenized data |
-| custom dict | `field_instruction`, `field_output`, `format`, `no_input_format` | Custom instruct formats |
+| `type`          | Row shape                                                                                                           | Use for                                         |
+| --------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| `chat_template` | `{"messages": [{role, content}, ...]}` (keys remappable via `field_messages`, `message_property_mappings`, `roles`) | SFT on chats (recommended)                      |
+| `alpaca`        | `{"instruction", "input", "output"}`                                                                                | Single-turn instruction data                    |
+| `completion`    | `{"text": ...}`                                                                                                     | Continued pretraining on raw text (no masking)  |
+| `input_output`  | `{"segments": [{"text", "label": bool}, ...]}`                                                                      | Template-free, you control every token and mask |
+| _(empty)_       | `input_ids`, `attention_mask`, `labels`                                                                             | Pre-tokenized data                              |
+| custom dict     | `field_instruction`, `field_output`, `format`, `no_input_format`                                                    | Custom instruct formats                         |
 
 Older ShareGPT data (`{"conversations": [{"from", "value"}]}`) works with `chat_template` by mapping keys: `field_messages: conversations`, `message_property_mappings: {role: from, content: value}`, and `roles` mapping `human`/`gpt` to `user`/`assistant`.
 
@@ -41,19 +42,19 @@ Local files: `path: data/train.jsonl` with optional `ds_type: json` (CSV, JSON, 
 
 TRL distinguishes **format** (standard text vs conversational message lists) from **type**:
 
-| Type | Standard example | Conversational example |
-|---|---|---|
-| Language modeling | `{"text": ...}` | `{"messages": [...]}` |
-| Prompt-only | `{"prompt": ...}` | `{"prompt": [{role, content}]}` |
-| Prompt-completion | `{"prompt", "completion"}` | `{"prompt": [user msgs], "completion": [assistant msgs]}` |
-| Preference | `{"prompt", "chosen", "rejected"}` | same keys with message lists |
-| Unpaired preference | `{"prompt", "completion", "label": bool}` | same with message lists |
+| Type                | Standard example                          | Conversational example                                    |
+| ------------------- | ----------------------------------------- | --------------------------------------------------------- |
+| Language modeling   | `{"text": ...}`                           | `{"messages": [...]}`                                     |
+| Prompt-only         | `{"prompt": ...}`                         | `{"prompt": [{role, content}]}`                           |
+| Prompt-completion   | `{"prompt", "completion"}`                | `{"prompt": [user msgs], "completion": [assistant msgs]}` |
+| Preference          | `{"prompt", "chosen", "rejected"}`        | same keys with message lists                              |
+| Unpaired preference | `{"prompt", "completion", "label": bool}` | same with message lists                                   |
 
 Which trainer needs what (TRL docs): `SFTTrainer` language modeling or prompt-completion; `DPOTrainer` preference (explicit prompt recommended); `KTOTrainer` unpaired preference or preference; `GRPOTrainer` and `RLOOTrainer` prompt-only; `RewardTrainer` preference (implicit prompt recommended); `experimental.orpo.ORPOTrainer` preference.
 
 ## Cleaning checklist
 
-- **Split first.** Hold out an eval set (typically 5-10%, at least a few hundred rows if you have them) *before* dedup/augmentation decisions leak across the split. Split by source/user/document, not just by row, so near-duplicates don't straddle train and eval.
+- **Split first.** Hold out an eval set (typically 5-10%, at least a few hundred rows if you have them) _before_ dedup/augmentation decisions leak across the split. Split by source/user/document, not just by row, so near-duplicates don't straddle train and eval.
 - **Dedup.** Exact dedup on normalized text (lowercase, collapse whitespace) with `jq`/`sort -u` on a canonical field; near-dup with MinHash tools if the data is scraped. Check eval-vs-train overlap explicitly.
 - **PII scrub.** Remove or replace emails, phone numbers, addresses, account IDs, API keys and tokens before training; a model can memorize and regurgitate them. Use a dedicated PII tool (e.g. Microsoft Presidio) plus regexes for your own ID formats, then spot-check by hand.
 - **Secrets.** Grep training data for key-like strings; never train on credentials.

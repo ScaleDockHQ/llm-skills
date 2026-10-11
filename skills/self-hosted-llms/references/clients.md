@@ -11,10 +11,10 @@ npx skills add ScaleDockHQ/llms-skills --skill llm-clients
 
 ## The three values every client needs
 
-| Value | Use |
-| --- | --- |
-| Base URL | `https://llm.example.com/v1` (Cloudflare) or `https://node-a.<tailnet>.ts.net/v1` (Tailscale) |
-| API key | A LiteLLM **virtual key** for that client, never the master key (`security.md`) |
+| Value      | Use                                                                                                  |
+| ---------- | ---------------------------------------------------------------------------------------------------- |
+| Base URL   | `https://llm.example.com/v1` (Cloudflare) or `https://node-a.<tailnet>.ts.net/v1` (Tailscale)        |
+| API key    | A LiteLLM **virtual key** for that client, never the master key (`security.md`)                      |
 | Model name | A LiteLLM `model_name` (e.g. `qwen-coder`, `gpt-oss`) or a `router_settings.model_group_alias` alias |
 
 Check what a key can see (key read from a file, not echoed):
@@ -110,7 +110,7 @@ models:
     apiBase: https://llm.example.com/v1
     apiKey: <virtual key>
     capabilities:
-      - tool_use        # add image_input for vision models
+      - tool_use # add image_input for vision models
 ```
 
 Continue's autodetection goes by provider and model name and may miss self-hosted models;
@@ -151,7 +151,7 @@ only; Tab uses Cursor's built-in model.
 - `401` from `/v1/models` but not from chat: the Caddy `forward_auth` path is misconfigured
   (`model-catalog.md`).
 - A model missing from a picker: the key's model access excludes it, or `model_info.discoverable:
-  false` hides it from listings.
+false` hides it from listings.
 - Wrong model name: use the exact `model_name`/alias, not the Hugging Face repo id.
 
 ## Official links

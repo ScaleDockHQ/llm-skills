@@ -6,10 +6,10 @@
 
 Both serve the OpenAI `POST /v1/audio/speech` shape (`model`, `input`, `voice`, `response_format`, `speed`) and return audio bytes.
 
-| Server | Engine | Port | Fit |
-|---|---|---|---|
+| Server                                                                  | Engine                                                                        | Port | Fit                                                                                                  |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ---- | ---------------------------------------------------------------------------------------------------- |
 | [Kokoro-FastAPI](https://github.com/remsky/Kokoro-FastAPI) (Apache-2.0) | [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0), PyTorch | 8880 | TTS only; rich voice features (voice mixing, aliases, inline multi-speaker tags, captions, phonemes) |
-| [Speaches](https://github.com/speaches-ai/speaches) (MIT) | Kokoro (ONNX) and Piper | 8000 | STT and TTS in one OpenAI-compatible container, models by HF id with TTL unload |
+| [Speaches](https://github.com/speaches-ai/speaches) (MIT)               | Kokoro (ONNX) and Piper                                                       | 8000 | STT and TTS in one OpenAI-compatible container, models by HF id with TTL unload                      |
 
 Pick Kokoro-FastAPI for the best Kokoro feature set. Pick Speaches if you already run it for STT and want one container. No other TTS servers are covered here; their OpenAI compatibility wasn't verified.
 
@@ -19,12 +19,12 @@ Kokoro is small (82M parameters) and can run on CPU, so it's a natural **co-resi
 
 **Kokoro-FastAPI (Docker):**
 
-| Image | Platforms | Notes |
-|---|---|---|
-| `ghcr.io/remsky/kokoro-fastapi-cpu:latest` | amd64, arm64 | CPU |
+| Image                                                         | Platforms    | Notes                                                                                   |
+| ------------------------------------------------------------- | ------------ | --------------------------------------------------------------------------------------- |
+| `ghcr.io/remsky/kokoro-fastapi-cpu:latest`                    | amd64, arm64 | CPU                                                                                     |
 | `ghcr.io/remsky/kokoro-fastapi-gpu:latest` (= `latest-cu126`) | amd64, arm64 | README: GTX 900 through RTX 40 on amd64; the arm64 variant ships cu129 for Jetson/GH200 |
-| `ghcr.io/remsky/kokoro-fastapi-gpu:latest-cu128` | amd64 | RTX 50-series / Blackwell |
-| `ghcr.io/remsky/kokoro-fastapi-rocm:latest` | amd64 | experimental |
+| `ghcr.io/remsky/kokoro-fastapi-gpu:latest-cu128`              | amd64        | RTX 50-series / Blackwell                                                               |
+| `ghcr.io/remsky/kokoro-fastapi-rocm:latest`                   | amd64        | experimental                                                                            |
 
 ```bash
 docker run --rm --detach --name kokoro --gpus all \
@@ -77,7 +77,7 @@ curl -sS http://127.0.0.1:8000/v1/audio/speech \
   ```yaml
   - model_name: tts
     litellm_params:
-      model: openai/tts            # llama-swap model id after the prefix
+      model: openai/tts # llama-swap model id after the prefix
       api_base: http://127.0.0.1:8080/v1
       api_key: os.environ/LLAMA_SWAP_KEY
     model_info:
@@ -96,14 +96,14 @@ curl -sS http://127.0.0.1:8000/v1/audio/speech \
 
 ## Tuning knobs worth knowing
 
-| Variable | Default | Effect |
-|---|---|---|
-| `HOST` / `PORT` | `0.0.0.0` / `8880` | bind address inside the container |
-| `USE_GPU` | `true` | use the GPU if available |
-| `DEFAULT_VOICE` | `af_heart` | voice when a request omits one; warm-up voice |
-| `CORS_ORIGINS` | `["*"]` | allowed browser origins |
-| `API_LOG_LEVEL` | — | logging level |
-| Speaches `TTS_MODEL_TTL` | `300` | idle unload seconds (`-1` never) |
+| Variable                 | Default            | Effect                                        |
+| ------------------------ | ------------------ | --------------------------------------------- |
+| `HOST` / `PORT`          | `0.0.0.0` / `8880` | bind address inside the container             |
+| `USE_GPU`                | `true`             | use the GPU if available                      |
+| `DEFAULT_VOICE`          | `af_heart`         | voice when a request omits one; warm-up voice |
+| `CORS_ORIGINS`           | `["*"]`            | allowed browser origins                       |
+| `API_LOG_LEVEL`          | —                  | logging level                                 |
+| Speaches `TTS_MODEL_TTL` | `300`              | idle unload seconds (`-1` never)              |
 
 ## Known pitfalls
 

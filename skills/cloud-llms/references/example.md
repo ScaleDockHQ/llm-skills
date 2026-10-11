@@ -21,11 +21,11 @@ An anonymized team of eight engineers. Hosts, addresses and numbers are placehol
 
 ## Design
 
-| Alias | Primary | Fallback chain | Data allowed |
-| --- | --- | --- | --- |
-| `chat` | vLLM on node-a | same open model on Together AI → frontier chat model | Internal, confidential |
-| `private` | vLLM on node-a | none | Restricted (on-prem only) |
-| `frontier-code` | Anthropic API | same model family on Bedrock in `<region>` | Internal, confidential |
+| Alias           | Primary        | Fallback chain                                       | Data allowed              |
+| --------------- | -------------- | ---------------------------------------------------- | ------------------------- |
+| `chat`          | vLLM on node-a | same open model on Together AI → frontier chat model | Internal, confidential    |
+| `private`       | vLLM on node-a | none                                                 | Restricted (on-prem only) |
+| `frontier-code` | Anthropic API  | same model family on Bedrock in `<region>`           | Internal, confidential    |
 
 Why this shape:
 
@@ -38,7 +38,7 @@ Why this shape:
 1. **Pick a tier**: frontier API + hyperscaler for `frontier-code`; managed open-model API for overflow.
 2. **Provision**: Anthropic workspace key and Together AI key stored in the secret manager; IAM role for the gateway host with `bedrock:InvokeModel` on one inference profile; Bedrock quota checked in Service Quotas and an increase requested before release week.
 3. **Budgets before traffic**: AWS Budget with alerts at 50/80/100%; Anthropic spend limit; LiteLLM `provider_budget_config` for `anthropic` and `together_ai`, and `max_budget` on the overflow deployment. Database configured so key budgets enforce.
-4. **Connect to the gateway**: entries added from `templates/litellm-hybrid.yaml` (OpenAI, Gemini, Vertex and Azure entries deleted as unused).
+4. **Connect to the gateway**: entries added from `assets/litellm-hybrid.yaml` (OpenAI, Gemini, Vertex and Azure entries deleted as unused).
 5. **Secure**: engines stay on the private network; only the gateway is public; logging set to metadata-only for `private`.
 6. **Benchmark**: `scripts/bench.sh` against `chat` through the gateway and directly against node-a, at concurrency 1 and 16, recorded with date and region; repeated against `chat-overflow` to confirm acceptable latency from the gateway's location.
 7. **Test fallbacks**: stopped vLLM on node-a in a maintenance window and confirmed `chat` was served by the overflow deployment (gateway logs show the backend). Mock fallback flags were not used because the proxy ignores them.

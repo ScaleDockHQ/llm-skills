@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "End-to-end workflows for running and consuming LLMs in the cloud: pick a tier, provision, deploy, connect to one LiteLLM endpoint alongside local models, secure, set budgets, benchmark, scale, update and tear down. Covers frontier APIs (OpenAI, Anthropic, Google Gemini), managed open-model APIs (Together AI, Fireworks AI, Groq, DeepInfra, OpenRouter, Hugging Face Inference Providers), hyperscalers (AWS Bedrock, Gemini Enterprise Agent Platform / Vertex AI, Microsoft Foundry / Azure OpenAI), managed endpoints, rented GPU VMs, serverless GPU (RunPod, Modal) and Kubernetes (NVIDIA GPU Operator, vLLM, production-stack, KServe, llm-d, LeaderWorkerSet), with templates for a hybrid LiteLLM config and Kubernetes manifests.",

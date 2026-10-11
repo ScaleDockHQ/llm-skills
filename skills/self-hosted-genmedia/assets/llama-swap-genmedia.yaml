@@ -3,7 +3,7 @@
 # Merge into your existing config.yaml; the LLM entries come from the self-hosted-llms skill.
 # Paths use ${env.HOME}; replace binaries, model files and images with yours.
 
-healthCheckTimeout: 600      # seconds a load may go without progress; image/video weights load slowly
+healthCheckTimeout: 600 # seconds a load may go without progress; image/video weights load slowly
 startPort: 10001
 
 apiKeys:
@@ -26,7 +26,7 @@ models:
     checkEndpoint: /v1/models
     ttl: 900
     timeouts:
-      responseHeader: 0      # sync image requests send no headers until the image is done
+      responseHeader: 0 # sync image requests send no headers until the image is done
 
   # --- speech-to-text: whisper.cpp mounted at the OpenAI path
   "whisper":

@@ -8,27 +8,27 @@ A single LiteLLM proxy that serves local models and cloud models under stable al
 
 ## Install / setup
 
-Use the gateway that already exists (discovery step in `SKILL.md`). If none exists, install LiteLLM per `llm-gateway` or `self-hosted-llms`, then start from `templates/litellm-hybrid.yaml`.
+Use the gateway that already exists (discovery step in `SKILL.md`). If none exists, install LiteLLM per `llm-gateway` or `self-hosted-llms`, then start from `assets/litellm-hybrid.yaml`.
 
 ## Minimal working config
 
 One entry per provider, using LiteLLM's provider prefixes:
 
-| Provider | `model:` prefix | Credentials in `litellm_params` |
-| --- | --- | --- |
-| Local vLLM / any OpenAI-compatible server | `hosted_vllm/` (or `openai/` + `api_base`) | `api_base`, `api_key: os.environ/...` |
-| OpenAI | `openai/` | `api_key: os.environ/OPENAI_API_KEY` |
-| Anthropic | `anthropic/` | `api_key: os.environ/ANTHROPIC_API_KEY` |
-| Gemini API | `gemini/` | `api_key: os.environ/GEMINI_API_KEY` |
-| AWS Bedrock | `bedrock/` | `aws_region_name`; credentials from the AWS chain, or `aws_profile_name` / `aws_role_name` |
-| Agent Platform (Vertex AI) | `vertex_ai/` | `vertex_project`, `vertex_location`; Application Default Credentials |
-| Azure OpenAI (Foundry) | `azure/<deployment>` | `api_base`, `api_version`, `api_key` or Entra ID |
-| Together AI | `together_ai/` | `TOGETHERAI_API_KEY` |
-| Fireworks AI | `fireworks_ai/` | `FIREWORKS_AI_API_KEY` |
-| Groq | `groq/` | `GROQ_API_KEY` |
-| DeepInfra | `deepinfra/` | `DEEPINFRA_API_KEY` |
-| OpenRouter | `openrouter/` | `OPENROUTER_API_KEY` |
-| Hugging Face Inference Providers | `huggingface/` | `HF_TOKEN` |
+| Provider                                  | `model:` prefix                            | Credentials in `litellm_params`                                                            |
+| ----------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| Local vLLM / any OpenAI-compatible server | `hosted_vllm/` (or `openai/` + `api_base`) | `api_base`, `api_key: os.environ/...`                                                      |
+| OpenAI                                    | `openai/`                                  | `api_key: os.environ/OPENAI_API_KEY`                                                       |
+| Anthropic                                 | `anthropic/`                               | `api_key: os.environ/ANTHROPIC_API_KEY`                                                    |
+| Gemini API                                | `gemini/`                                  | `api_key: os.environ/GEMINI_API_KEY`                                                       |
+| AWS Bedrock                               | `bedrock/`                                 | `aws_region_name`; credentials from the AWS chain, or `aws_profile_name` / `aws_role_name` |
+| Agent Platform (Vertex AI)                | `vertex_ai/`                               | `vertex_project`, `vertex_location`; Application Default Credentials                       |
+| Azure OpenAI (Foundry)                    | `azure/<deployment>`                       | `api_base`, `api_version`, `api_key` or Entra ID                                           |
+| Together AI                               | `together_ai/`                             | `TOGETHERAI_API_KEY`                                                                       |
+| Fireworks AI                              | `fireworks_ai/`                            | `FIREWORKS_AI_API_KEY`                                                                     |
+| Groq                                      | `groq/`                                    | `GROQ_API_KEY`                                                                             |
+| DeepInfra                                 | `deepinfra/`                               | `DEEPINFRA_API_KEY`                                                                        |
+| OpenRouter                                | `openrouter/`                              | `OPENROUTER_API_KEY`                                                                       |
+| Hugging Face Inference Providers          | `huggingface/`                             | `HF_TOKEN`                                                                                 |
 
 `os.environ/NAME` tells LiteLLM to read the value from the environment at startup, so the file itself contains no secrets.
 
@@ -43,7 +43,7 @@ router_settings:
   num_retries: 2
   provider_budget_config:
     openai:
-      budget_limit: 200     # USD
+      budget_limit: 200 # USD
       time_period: 1mo
 litellm_settings:
   allowed_fails: 3

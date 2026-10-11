@@ -54,7 +54,7 @@ Show structure without credentials. Never `cat` env files, key files or unfilter
 ```bash
 SECRETS='key|token|secret|password|credential'
 grep -v -i -E "$SECRETS" /etc/llm-stack/llama-swap.yaml | grep -E '^\s*("?[a-z0-9-]+"?:|cmd|ttl|checkEndpoint|members)' | head -80
-grep -v -i -E "$SECRETS" /etc/llm-stack/litellm-config.yaml | grep -E 'model_name|model:|api_base|model_group_alias|use_chat_completions_api|reasoning_effort' 
+grep -v -i -E "$SECRETS" /etc/llm-stack/litellm-config.yaml | grep -E 'model_name|model:|api_base|model_group_alias|use_chat_completions_api|reasoning_effort'
 sudo grep -v -i -E "$SECRETS" /etc/cloudflared/config.yml
 systemctl cat litellm llama-swap | grep -v -i -E "$SECRETS"
 docker inspect --format '{{.Name}} image={{.Config.Image}} id={{.Image}} restart={{.HostConfig.RestartPolicy.Name}}' $(docker ps -q) 2>/dev/null

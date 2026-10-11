@@ -4,23 +4,23 @@
 
 ## Rules of thumb for memory
 
-Assumptions: dense decoder model with P billion parameters, AdamW, bf16 compute, short context (512-2048 tokens), micro-batch 1-2, gradient checkpointing on. Long context and larger batches add activation memory on top; MoE models need memory for *all* experts' weights.
+Assumptions: dense decoder model with P billion parameters, AdamW, bf16 compute, short context (512-2048 tokens), micro-batch 1-2, gradient checkpointing on. Long context and larger batches add activation memory on top; MoE models need memory for _all_ experts' weights.
 
-| Method | Weights | Gradients + optimizer | Rough total |
-|---|---|---|---|
-| Full FT (bf16 + AdamW) | 2 bytes x P | ~2 bytes grads + 8-12 bytes optimizer states x P | ~12-16 bytes x P (8B model: ~100 GB+, needs multi-GPU or offload) |
-| LoRA (bf16 base) | 2 bytes x P | tiny (adapter only) | ~2 bytes x P + a few GB |
-| QLoRA (4-bit base) | ~0.5-0.6 bytes x P | tiny | ~0.6 bytes x P + a few GB |
+| Method                 | Weights            | Gradients + optimizer                            | Rough total                                                       |
+| ---------------------- | ------------------ | ------------------------------------------------ | ----------------------------------------------------------------- |
+| Full FT (bf16 + AdamW) | 2 bytes x P        | ~2 bytes grads + 8-12 bytes optimizer states x P | ~12-16 bytes x P (8B model: ~100 GB+, needs multi-GPU or offload) |
+| LoRA (bf16 base)       | 2 bytes x P        | tiny (adapter only)                              | ~2 bytes x P + a few GB                                           |
+| QLoRA (4-bit base)     | ~0.5-0.6 bytes x P | tiny                                             | ~0.6 bytes x P + a few GB                                         |
 
 Axolotl's own approximate table (same short-context assumptions):
 
 | Model size | QLoRA (4-bit) | LoRA (bf16) | Full (bf16 + AdamW) |
-|---|---|---|---|
-| 1-3B | 6-8 GB | 8-12 GB | 24-32 GB |
-| 7-8B | 10-14 GB | 16-24 GB | 60-80 GB |
-| 13-14B | 16-20 GB | 28-40 GB | 120+ GB |
-| 30-34B | 24-32 GB | 64-80 GB | 2-4x 80 GB |
-| 70-72B | 40-48 GB | 2x 80 GB | 4-8x 80 GB |
+| ---------- | ------------- | ----------- | ------------------- |
+| 1-3B       | 6-8 GB        | 8-12 GB     | 24-32 GB            |
+| 7-8B       | 10-14 GB      | 16-24 GB    | 60-80 GB            |
+| 13-14B     | 16-20 GB      | 28-40 GB    | 120+ GB             |
+| 30-34B     | 24-32 GB      | 64-80 GB    | 2-4x 80 GB          |
+| 70-72B     | 40-48 GB      | 2x 80 GB    | 4-8x 80 GB          |
 
 GRPO additionally needs memory for a vLLM generation engine (Axolotl recommends separate GPU(s); single GPU uses `vllm_mode: colocate` with sleep mode, practical only for small models).
 

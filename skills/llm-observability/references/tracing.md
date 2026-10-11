@@ -4,14 +4,14 @@
 
 ## What it is and when to choose it
 
-A trace follows one request (or one agent run) through app → gateway → engine, with spans carrying model, token usage, latency and, optionally, prompt and completion content. Add tracing after metrics, when you need to answer "what happened in *this* request" or "which step of the chain is slow or wrong".
+A trace follows one request (or one agent run) through app → gateway → engine, with spans carrying model, token usage, latency and, optionally, prompt and completion content. Add tracing after metrics, when you need to answer "what happened in _this_ request" or "which step of the chain is slow or wrong".
 
-| Option | Choose when | Notes |
-| --- | --- | --- |
-| **OpenTelemetry + any OTLP backend** (Jaeger, Tempo, vendor) | You already run OTel; you want latency/topology, not prompt review | Vendor-neutral; GenAI conventions define attribute names |
-| **Langfuse** | LLM-centric UI: traces, sessions, costs, prompt management, evals, human review | OSS (MIT core), self-host via Docker Compose; receives OTLP over HTTP |
-| **Arize Phoenix** | OTel-native LLM tracing plus evals and experiments, single container | Receives OTLP HTTP on 6006 and gRPC on 4317 |
-| **OpenLLMetry (Traceloop SDK)** | Instrumentation library, not a backend: auto-instruments OpenAI/Anthropic/LangChain/etc. clients and emits OTel | Send to any of the above |
+| Option                                                       | Choose when                                                                                                     | Notes                                                                 |
+| ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **OpenTelemetry + any OTLP backend** (Jaeger, Tempo, vendor) | You already run OTel; you want latency/topology, not prompt review                                              | Vendor-neutral; GenAI conventions define attribute names              |
+| **Langfuse**                                                 | LLM-centric UI: traces, sessions, costs, prompt management, evals, human review                                 | OSS (MIT core), self-host via Docker Compose; receives OTLP over HTTP |
+| **Arize Phoenix**                                            | OTel-native LLM tracing plus evals and experiments, single container                                            | Receives OTLP HTTP on 6006 and gRPC on 4317                           |
+| **OpenLLMetry (Traceloop SDK)**                              | Instrumentation library, not a backend: auto-instruments OpenAI/Anthropic/LangChain/etc. clients and emits OTel | Send to any of the above                                              |
 
 ## Install
 
@@ -104,11 +104,11 @@ The `attributes` processor ships in the core and contrib Collector distributions
 
 **Where spans come from:**
 
-| Layer | How |
-| --- | --- |
-| App | OpenLLMetry (`Traceloop.init()`), OpenInference instrumentors (Phoenix), Langfuse SDK, or vendor OTel GenAI instrumentation |
+| Layer           | How                                                                                                                                                                                                                                                                                                                                                     |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| App             | OpenLLMetry (`Traceloop.init()`), OpenInference instrumentors (Phoenix), Langfuse SDK, or vendor OTel GenAI instrumentation                                                                                                                                                                                                                             |
 | LiteLLM gateway | `litellm_settings.callbacks: ["otel"]` with `OTEL_EXPORTER` (`otlp_http`, `otlp_grpc`, `console`), `OTEL_ENDPOINT`, `OTEL_HEADERS`; or `["langfuse_otel"]` with `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_OTEL_HOST`; or the classic `success_callback: ["langfuse"]` with `LANGFUSE_HOST`. See `gateway-logging.md` for content switches |
-| vLLM | `--otlp-traces-endpoint <url>`; `OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=http/protobuf` to use HTTP (default is gRPC); `--collect-detailed-traces` (`model`, `worker` or `all`) adds timing detail at a performance cost. OTel packages are bundled. Whether vLLM spans include prompt text is unverified; inspect a span before sending to a shared backend |
+| vLLM            | `--otlp-traces-endpoint <url>`; `OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=http/protobuf` to use HTTP (default is gRPC); `--collect-detailed-traces` (`model`, `worker` or `all`) adds timing detail at a performance cost. OTel packages are bundled. Whether vLLM spans include prompt text is unverified; inspect a span before sending to a shared backend |
 
 **Propagation:** the app must forward W3C `traceparent` to the gateway and engine for one connected trace. Most OTel HTTP client instrumentations do this automatically; check that your gateway's callback continues the incoming trace instead of starting a new one.
 

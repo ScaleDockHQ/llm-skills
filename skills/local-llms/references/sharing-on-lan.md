@@ -18,14 +18,14 @@ Every runtime here binds to `127.0.0.1` by default, and that's the right default
 
 ## Per-runtime
 
-| Runtime | Built-in auth | LAN bind |
-| --- | --- | --- |
-| llama.cpp | `--api-key-file PATH` | `--host 0.0.0.0` (or a specific LAN IP such as `192.168.1.10`) |
-| LM Studio | Developer → Server Settings → **Require Authentication**, plus tokens | `lms server start --bind 0.0.0.0`, or "Serve on Local Network" |
-| Ollama | **None** | `OLLAMA_HOST=0.0.0.0:11434` |
-| mlx_lm.server | **None** | `--host 0.0.0.0` |
+| Runtime       | Built-in auth                                                         | LAN bind                                                       |
+| ------------- | --------------------------------------------------------------------- | -------------------------------------------------------------- |
+| llama.cpp     | `--api-key-file PATH`                                                 | `--host 0.0.0.0` (or a specific LAN IP such as `192.168.1.10`) |
+| LM Studio     | Developer → Server Settings → **Require Authentication**, plus tokens | `lms server start --bind 0.0.0.0`, or "Serve on Local Network" |
+| Ollama        | **None**                                                              | `OLLAMA_HOST=0.0.0.0:11434`                                    |
+| mlx_lm.server | **None**                                                              | `--host 0.0.0.0`                                               |
 
-For Ollama and mlx_lm.server, don't bind to the LAN. Keep them on localhost and either use options 1–2 or put an authenticating reverse proxy in front. A proxy with key checks, a gateway (see the **llm-gateway** skill), or `llama-server` itself are all options. When a proxy forwards to a loopback-bound Ollama, set the upstream Host header to `localhost:11434`, or Ollama returns 403. *(Whether `tailscale serve` rewrites the Host header wasn't verified. If Ollama returns 403 through Serve, put a small proxy that sets the Host header in between.)*
+For Ollama and mlx_lm.server, don't bind to the LAN. Keep them on localhost and either use options 1–2 or put an authenticating reverse proxy in front. A proxy with key checks, a gateway (see the **llm-gateway** skill), or `llama-server` itself are all options. When a proxy forwards to a loopback-bound Ollama, set the upstream Host header to `localhost:11434`, or Ollama returns 403. _(Whether `tailscale serve` rewrites the Host header wasn't verified. If Ollama returns 403 through Serve, put a small proxy that sets the Host header in between.)_
 
 ## Creating and storing a key
 
@@ -44,7 +44,7 @@ llama-server -m ~/models/<model>.gguf --host 0.0.0.0 --port 9931 --api-key-file 
 Allow only your subnet, only the one port, and remove the rule when you're done.
 
 - **macOS:** the Application Firewall asks once per binary. Check its state with `/usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate`. It can't restrict by subnet, so rely on the API key and on trusted networks.
-- **Windows (admin PowerShell):** `New-NetFirewallRule -DisplayName "llama-server LAN" -Direction Inbound -Protocol TCP -LocalPort 9931 -RemoteAddress LocalSubnet -Profile Private -Action Allow`. Make sure the network profile is *Private*, not Public.
+- **Windows (admin PowerShell):** `New-NetFirewallRule -DisplayName "llama-server LAN" -Direction Inbound -Protocol TCP -LocalPort 9931 -RemoteAddress LocalSubnet -Profile Private -Action Allow`. Make sure the network profile is _Private_, not Public.
 - **Linux (ufw):** `sudo ufw allow from 192.168.1.0/24 to any port 9931 proto tcp`; remove it with `sudo ufw delete allow from 192.168.1.0/24 to any port 9931 proto tcp`. With firewalld, use a rich rule scoped to the source subnet.
 
 All of these change system state. Ask the user first, and tell them how to undo it.

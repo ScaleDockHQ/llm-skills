@@ -10,28 +10,29 @@ The `self-hosted-llms` skill's engine-sdcpp reference uses sd-server as its exam
 
 `sd-server` is a single C++ binary built on ggml. It loads one image (or video) pipeline at startup and serves three API families:
 
-| Family | Prefix | Shape | Sync/async |
-|---|---|---|---|
-| OpenAI API | `/v1/...` | `POST /v1/images/generations`, `POST /v1/images/edits`, `GET /v1/models` | synchronous |
+| Family            | Prefix          | Shape                                                                                                    | Sync/async  |
+| ----------------- | --------------- | -------------------------------------------------------------------------------------------------------- | ----------- |
+| OpenAI API        | `/v1/...`       | `POST /v1/images/generations`, `POST /v1/images/edits`, `GET /v1/models`                                 | synchronous |
 | WebUI (A1111) API | `/sdapi/v1/...` | `txt2img`, `img2img`, `progress`, `loras`, `samplers`, `schedulers`, `sd-models`, `options`, `upscalers` | synchronous |
-| Native sdcpp API | `/sdcpp/v1/...` | `img_gen`, `vid_gen`, `upscale`, `jobs/{id}`, `jobs/{id}/cancel`, `capabilities` | async jobs |
+| Native sdcpp API  | `/sdcpp/v1/...` | `img_gen`, `vid_gen`, `upscale`, `jobs/{id}`, `jobs/{id}/cancel`, `capabilities`                         | async jobs  |
 
 Choose sd-server when:
+
 - you want a native OpenAI `/v1/images/generations` endpoint with no wrapper,
 - you want one model per process, so llama-swap can swap it in and out like an LLM,
 - you need GGUF-quantized diffusion weights to fit next to LLMs.
 
 Choose ComfyUI (see `comfyui.md`) when you need multi-step graphs (ControlNet chains, upscalers, inpainting pipelines), day-one support for new model families, or video workflows from the official templates.
 
-| | sd-server | ComfyUI |
-|---|---|---|
-| Runtime | C++/ggml binary | Python/PyTorch |
-| OpenAI images API | native | none, needs a wrapper |
-| Async job API | `/sdcpp/v1/img_gen` + poll | `POST /prompt` + `/history` or `/ws` |
-| Models per process | one pipeline, set by flags | any, loaded per workflow |
-| Quantized weights | GGUF (q8_0, q4_K, ...) | mostly fp16/bf16/fp8 safetensors; GGUF through custom nodes |
-| Supply-chain surface | one binary | custom nodes run arbitrary Python |
-| llama-swap fit | plain `cmd` + `${PORT}` | `/comfyui/` endpoint with `comfyui_auto` |
+|                      | sd-server                  | ComfyUI                                                     |
+| -------------------- | -------------------------- | ----------------------------------------------------------- |
+| Runtime              | C++/ggml binary            | Python/PyTorch                                              |
+| OpenAI images API    | native                     | none, needs a wrapper                                       |
+| Async job API        | `/sdcpp/v1/img_gen` + poll | `POST /prompt` + `/history` or `/ws`                        |
+| Models per process   | one pipeline, set by flags | any, loaded per workflow                                    |
+| Quantized weights    | GGUF (q8_0, q4_K, ...)     | mostly fp16/bf16/fp8 safetensors; GGUF through custom nodes |
+| Supply-chain surface | one binary                 | custom nodes run arbitrary Python                           |
+| llama-swap fit       | plain `cmd` + `${PORT}`    | `/comfyui/` endpoint with `comfyui_auto`                    |
 
 ## Install
 
@@ -55,12 +56,12 @@ ls build/bin/sd-server build/bin/sd-cli
 
 Model files depend on the family. The repo's `docs/` folder has one page per family (`flux.md`, `sd3.md`, `qwen_image.md`, `z_image.md`, `flux2.md`, `wan.md`, `ltx2.md`, ...). Two common layouts:
 
-| Family | Flags |
-|---|---|
-| FLUX.1 (dev/schnell) | `--diffusion-model flux1-*.gguf --vae ae.safetensors --clip_l clip_l.safetensors --t5xxl t5xxl_fp16.safetensors --cfg-scale 1.0` |
-| SD3.5 Large | `-m sd3.5_large.safetensors --clip_l ... --clip_g ... --t5xxl ...` |
-| Single-file SD1.x/SDXL | `-m model.safetensors` |
-| Newer LLM-encoder models (Qwen-Image, Z-Image, FLUX.2) | `--diffusion-model ... --vae ... --llm <text-encoder>` |
+| Family                                                 | Flags                                                                                                                            |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| FLUX.1 (dev/schnell)                                   | `--diffusion-model flux1-*.gguf --vae ae.safetensors --clip_l clip_l.safetensors --t5xxl t5xxl_fp16.safetensors --cfg-scale 1.0` |
+| SD3.5 Large                                            | `-m sd3.5_large.safetensors --clip_l ... --clip_g ... --t5xxl ...`                                                               |
+| Single-file SD1.x/SDXL                                 | `-m model.safetensors`                                                                                                           |
+| Newer LLM-encoder models (Qwen-Image, Z-Image, FLUX.2) | `--diffusion-model ... --vae ... --llm <text-encoder>`                                                                           |
 
 Preconverted FLUX GGUFs: [leejet/FLUX.1-dev-gguf](https://huggingface.co/leejet/FLUX.1-dev-gguf) and [leejet/FLUX.1-schnell-gguf](https://huggingface.co/leejet/FLUX.1-schnell-gguf). Check the license first (see `licenses.md`); FLUX.1-dev is non-commercial.
 
@@ -123,16 +124,16 @@ jq -r '.result.images[0].b64_json' job.json | base64 -d > out.png
 
 ## Tuning knobs worth knowing
 
-| Flag | Effect |
-|---|---|
-| `--diffusion-fa` / `--fa` | flash attention (diffusion model only / everywhere) |
-| `--offload-to-cpu` | keep weights in RAM and move them to VRAM when needed. Meant for discrete GPUs with little VRAM |
-| `--vae-tiling` | tiled VAE encode/decode to cut peak memory |
-| `--clip-on-cpu`, `--vae-on-cpu` | move text encoders / VAE off the GPU |
-| `--max-vram` | per-device budget in GiB for automatic graph-cut execution |
-| `--eager-load` | load all params at model-load time instead of lazily on first use. Pair with llama-swap preload so the first request isn't the one that pays |
-| `--type` | weight type at load (q8_0, q4_K, ...) |
-| `--lora-model-dir` | LoRA directory; server APIs take LoRAs as structured fields, not `<lora:...>` prompt tags |
+| Flag                            | Effect                                                                                                                                       |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--diffusion-fa` / `--fa`       | flash attention (diffusion model only / everywhere)                                                                                          |
+| `--offload-to-cpu`              | keep weights in RAM and move them to VRAM when needed. Meant for discrete GPUs with little VRAM                                              |
+| `--vae-tiling`                  | tiled VAE encode/decode to cut peak memory                                                                                                   |
+| `--clip-on-cpu`, `--vae-on-cpu` | move text encoders / VAE off the GPU                                                                                                         |
+| `--max-vram`                    | per-device budget in GiB for automatic graph-cut execution                                                                                   |
+| `--eager-load`                  | load all params at model-load time instead of lazily on first use. Pair with llama-swap preload so the first request isn't the one that pays |
+| `--type`                        | weight type at load (q8_0, q4_K, ...)                                                                                                        |
+| `--lora-model-dir`              | LoRA directory; server APIs take LoRAs as structured fields, not `<lora:...>` prompt tags                                                    |
 
 ## Known pitfalls
 

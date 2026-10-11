@@ -6,10 +6,10 @@
 model_list:
   - model_name: flux-schnell
     litellm_params:
-      model: openai/flux-schnell            # openai/ prefix + llama-swap model id
-      api_base: http://127.0.0.1:8080/v1    # llama-swap; keep the /v1 suffix
+      model: openai/flux-schnell # openai/ prefix + llama-swap model id
+      api_base: http://127.0.0.1:8080/v1 # llama-swap; keep the /v1 suffix
       api_key: os.environ/LLAMA_SWAP_API_KEY
-      timeout: 900                           # whole-call timeout (seconds) for slow images and cold swaps
+      timeout: 900 # whole-call timeout (seconds) for slow images and cold swaps
     model_info:
       mode: image_generation
 
@@ -33,7 +33,7 @@ model_list:
       health_check_voice: af_heart
 
 litellm_settings:
-  request_timeout: 900                       # proxy-wide default when no deployment/router timeout is set
+  request_timeout: 900 # proxy-wide default when no deployment/router timeout is set
 
 general_settings:
   master_key: os.environ/LITELLM_MASTER_KEY

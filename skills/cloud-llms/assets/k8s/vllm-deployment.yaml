@@ -21,10 +21,10 @@ metadata:
   namespace: default
 spec:
   accessModes:
-    - ReadWriteOnce            # one replica per PVC; use ReadWriteMany storage to share across replicas
+    - ReadWriteOnce # one replica per PVC; use ReadWriteMany storage to share across replicas
   resources:
     requests:
-      storage: 100Gi           # weights + room for one model update
+      storage: 100Gi # weights + room for one model update
   # storageClassName: <storage-class>
   volumeMode: Filesystem
 ---
@@ -40,7 +40,7 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 0              # no spare GPU for a surge pod; capacity dips during rollout
+      maxSurge: 0 # no spare GPU for a surge pod; capacity dips during rollout
       maxUnavailable: 1
   selector:
     matchLabels:
@@ -76,7 +76,7 @@ spec:
                 secretKeyRef:
                   name: hf-token-secret
                   key: token
-                  optional: true   # remove "optional" if the model is gated
+                  optional: true # remove "optional" if the model is gated
             # Uncomment to require a bearer key on /v1 routes (does not cover every route; keep the Service internal).
             # - name: VLLM_API_KEY
             #   valueFrom:
@@ -89,7 +89,7 @@ spec:
             limits:
               cpu: "10"
               memory: 40G
-              nvidia.com/gpu: "1"      # match --tensor-parallel-size if you add it
+              nvidia.com/gpu: "1" # match --tensor-parallel-size if you add it
             requests:
               cpu: "2"
               memory: 16G
@@ -131,4 +131,4 @@ spec:
       protocol: TCP
       targetPort: 8000
   sessionAffinity: None
-  type: ClusterIP              # internal only; expose through the gateway, not directly
+  type: ClusterIP # internal only; expose through the gateway, not directly

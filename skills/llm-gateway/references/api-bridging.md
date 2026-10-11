@@ -6,11 +6,11 @@
 
 Clients speak one of three wire formats; most self-hosted engines speak only the first:
 
-| Format | Endpoint | Typical clients |
-|---|---|---|
-| OpenAI Chat Completions | `/v1/chat/completions` | Most IDE extensions, chat UIs, OpenAI-compatible SDK providers, Aider |
-| OpenAI Responses | `/v1/responses` | Codex CLI (Responses is its only wire API), OpenAI Agents SDK, Vercel AI SDK `openai(...)` default, Kilo "OpenAI Responses" providers |
-| Anthropic Messages | `/v1/messages` (+ optional `/v1/messages/count_tokens`) | Claude Code, Claude Agent SDK, Anthropic SDKs, Kilo "Anthropic Messages" providers |
+| Format                  | Endpoint                                                | Typical clients                                                                                                                       |
+| ----------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| OpenAI Chat Completions | `/v1/chat/completions`                                  | Most IDE extensions, chat UIs, OpenAI-compatible SDK providers, Aider                                                                 |
+| OpenAI Responses        | `/v1/responses`                                         | Codex CLI (Responses is its only wire API), OpenAI Agents SDK, Vercel AI SDK `openai(...)` default, Kilo "OpenAI Responses" providers |
+| Anthropic Messages      | `/v1/messages` (+ optional `/v1/messages/count_tokens`) | Claude Code, Claude Agent SDK, Anthropic SDKs, Kilo "Anthropic Messages" providers                                                    |
 
 LiteLLM exposes all three on port 4000 and translates to whatever the deployment behind the alias speaks. Bridging is the main reason to put a gateway in front of a single local engine.
 
@@ -45,10 +45,11 @@ model_list:
       model: openai/qwen-coder
       api_base: http://127.0.0.1:8080/v1
       api_key: "none"
-      use_chat_completions_api: true      # /v1/responses -> backend /v1/chat/completions
+      use_chat_completions_api: true # /v1/responses -> backend /v1/chat/completions
 ```
 
-  Equivalent: `model: openai/chat_completions/qwen-coder`.
+Equivalent: `model: openai/chat_completions/qwen-coder`.
+
 - Stateful Responses features (`previous_response_id`, background mode, compaction) need care across replicas; see `model_group_affinity_config` (`deployment_affinity`, `session_affinity`, `responses_api_deployment_check`) in the Responses docs.
 
 Smoke test:

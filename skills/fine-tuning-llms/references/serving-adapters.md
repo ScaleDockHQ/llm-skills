@@ -6,11 +6,11 @@
 
 Serve one base model and attach fine-tuned adapters per request, instead of a full merged copy per fine-tune. Good for many small fine-tunes on one GPU, A/B testing base vs adapter, and fast rollback. Running and operating the serving stack itself belongs to `self-hosted-llms` (servers) and `local-llms` (desktop).
 
-| Runtime | Adapter format | Multi-adapter | Runtime load/unload |
-|---|---|---|---|
-| vLLM | PEFT dir (`adapter_config.json` + safetensors), local or HF repo | yes (`--max-loras`) | yes, opt-in env var |
-| llama.cpp `llama-server` | GGUF LoRA (`convert_lora_to_gguf.py`) | yes, per-request scales | scales only (adapters fixed at start) |
-| Ollama (current) | not supported | — | — |
+| Runtime                  | Adapter format                                                   | Multi-adapter           | Runtime load/unload                   |
+| ------------------------ | ---------------------------------------------------------------- | ----------------------- | ------------------------------------- |
+| vLLM                     | PEFT dir (`adapter_config.json` + safetensors), local or HF repo | yes (`--max-loras`)     | yes, opt-in env var                   |
+| llama.cpp `llama-server` | GGUF LoRA (`convert_lora_to_gguf.py`)                            | yes, per-request scales | scales only (adapters fixed at start) |
+| Ollama (current)         | not supported                                                    | —                       | —                                     |
 
 ## Install
 

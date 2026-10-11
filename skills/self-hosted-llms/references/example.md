@@ -7,20 +7,20 @@ placeholders; adapt sizes to your own memory plan.
 
 ## Layout
 
-| Item | Value |
-| --- | --- |
-| Nodes | node-a (head, all services), node-b (worker only) |
-| Link | ConnectX-7 direct cable, node-a 10.0.0.1, node-b 10.0.0.2 |
-| Service user | `llm` on both nodes, same UID, member of `docker`, passwordless SSH node-a -> node-b |
-| Public host | `llm.example.com` (Cloudflare Tunnel); dashboards on `dash.example.com` behind Access |
-| Private path | `node-a.<tailnet>.ts.net` via Tailscale Serve, for long image jobs |
+| Item         | Value                                                                                 |
+| ------------ | ------------------------------------------------------------------------------------- |
+| Nodes        | node-a (head, all services), node-b (worker only)                                     |
+| Link         | ConnectX-7 direct cable, node-a 10.0.0.1, node-b 10.0.0.2                             |
+| Service user | `llm` on both nodes, same UID, member of `docker`, passwordless SSH node-a -> node-b  |
+| Public host  | `llm.example.com` (Cloudflare Tunnel); dashboards on `dash.example.com` behind Access |
+| Private path | `node-a.<tailnet>.ts.net` via Tailscale Serve, for long image jobs                    |
 
-| Public name | llama-swap ID | Engine | Nodes | Group |
-| --- | --- | --- | --- | --- |
-| `qwen-coder`, `coder`, `qwen-coder-nothink` | `qwen-coder` | vLLM, tensor parallel 2 | node-a + node-b | `large` |
-| `gpt-oss`, `reasoning`, `gpt-oss-high` | `gpt-oss` | vLLM | node-a | `large` |
-| `small-gguf` | `small-gguf` | llama.cpp | node-a | `side` |
-| `image-sd` | `image-sd` | sd-server | node-a | `side` |
+| Public name                                 | llama-swap ID | Engine                  | Nodes           | Group   |
+| ------------------------------------------- | ------------- | ----------------------- | --------------- | ------- |
+| `qwen-coder`, `coder`, `qwen-coder-nothink` | `qwen-coder`  | vLLM, tensor parallel 2 | node-a + node-b | `large` |
+| `gpt-oss`, `reasoning`, `gpt-oss-high`      | `gpt-oss`     | vLLM                    | node-a          | `large` |
+| `small-gguf`                                | `small-gguf`  | llama.cpp               | node-a          | `side`  |
+| `image-sd`                                  | `image-sd`    | sd-server               | node-a          | `side`  |
 
 One large model at a time (they swap); the two side models stay loaded next to whichever large model
 runs, because the memory plan shows they fit together at peak.
@@ -28,18 +28,18 @@ runs, because the memory plan shows they fit together at peak.
 ## Files on node-a
 
 ```text
-/opt/llm-stack/start-model.sh          templates/start-model.sh
-/opt/llm-stack/common.sh               templates/common.sh
-/opt/llm-stack/models.d/qwen-coder.sh  templates/models.d/example-vllm.sh (with worker_run)
+/opt/llm-stack/start-model.sh          assets/start-model.sh
+/opt/llm-stack/common.sh               assets/common.sh
+/opt/llm-stack/models.d/qwen-coder.sh  assets/models.d/example-vllm.sh (with worker_run)
 /opt/llm-stack/models.d/gpt-oss.sh     same pattern, model_run only
-/opt/llm-stack/build-catalog.sh        templates/build-catalog.sh
-/opt/llm-stack/catalog.json            templates/catalog.example.json, edited
-/etc/llm-stack/llama-swap.yaml         templates/llama-swap.yaml
-/etc/llm-stack/litellm-config.yaml     templates/litellm-config.yaml
+/opt/llm-stack/build-catalog.sh        assets/build-catalog.sh
+/opt/llm-stack/catalog.json            assets/catalog.example.json, edited
+/etc/llm-stack/llama-swap.yaml         assets/llama-swap.yaml
+/etc/llm-stack/litellm-config.yaml     assets/litellm-config.yaml
 /etc/llm-stack/litellm.env             LITELLM_MASTER_KEY=... (root, mode 600)
-/etc/llm-stack/Caddyfile               templates/Caddyfile
-/etc/cloudflared/config.yml            templates/cloudflared-config.yml
-/etc/systemd/system/*.service          templates/systemd/
+/etc/llm-stack/Caddyfile               assets/Caddyfile
+/etc/cloudflared/config.yml            assets/cloudflared-config.yml
+/etc/systemd/system/*.service          assets/systemd/
 /etc/default/earlyoom                  -m <pct> -s 100 --prefer ... --avoid ...
 ```
 
@@ -65,14 +65,14 @@ Caddy or cloudflared runs there.
 
 ## Day-two operations in this deployment
 
-| Task | How |
-| --- | --- |
-| What is loaded | `curl -s 127.0.0.1:8080/running \| jq .` |
-| Free memory for a manual test | `curl -X POST 127.0.0.1:8080/api/models/unload` |
-| Add a model | `adding-a-server.md` steps, then rebuild the catalog |
-| Update vLLM | `updating.md`: pull on both nodes, compare IDs, baseline before and after |
-| Long image job | call `image-sd` via the tailnet hostname, not the public one |
-| Health in sparkDash | probes on 127.0.0.1:8080, dashboard behind Access (`monitoring-sparkdash.md`) |
+| Task                          | How                                                                           |
+| ----------------------------- | ----------------------------------------------------------------------------- |
+| What is loaded                | `curl -s 127.0.0.1:8080/running \| jq .`                                      |
+| Free memory for a manual test | `curl -X POST 127.0.0.1:8080/api/models/unload`                               |
+| Add a model                   | `adding-a-server.md` steps, then rebuild the catalog                          |
+| Update vLLM                   | `updating.md`: pull on both nodes, compare IDs, baseline before and after     |
+| Long image job                | call `image-sd` via the tailnet hostname, not the public one                  |
+| Health in sparkDash           | probes on 127.0.0.1:8080, dashboard behind Access (`monitoring-sparkdash.md`) |
 
 ## What went wrong on the way (and is now in the templates)
 

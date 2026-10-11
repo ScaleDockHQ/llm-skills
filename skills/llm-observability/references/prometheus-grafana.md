@@ -12,8 +12,8 @@ Docker on a monitoring host (node-b here):
 
 ```bash
 mkdir -p ~/monitoring && cd ~/monitoring
-cp /path/to/skill/templates/prometheus.yml ./prometheus.yml   # then edit targets
-cp /path/to/skill/templates/alert-rules.yml ./alert-rules.yml
+cp /path/to/skill/assets/prometheus.yml ./prometheus.yml   # then edit targets
+cp /path/to/skill/assets/alert-rules.yml ./alert-rules.yml
 
 docker run -d --name prometheus -p 9090:9090 \
   -v "$PWD/prometheus.yml:/etc/prometheus/prometheus.yml:ro" \
@@ -39,7 +39,7 @@ docker run --rm --entrypoint promtool -v "$PWD:/w:ro" -w /w prom/prometheus:<tag
 
 ## Minimal working config
 
-See `templates/prometheus.yml` for the full version. The core pattern, one job per component type with a `model` / `backend` label per target:
+See `assets/prometheus.yml` for the full version. The core pattern, one job per component type with a `model` / `backend` label per target:
 
 ```yaml
 global:
@@ -66,9 +66,9 @@ scrape_configs:
   - job_name: llamacpp-router
     metrics_path: /metrics
     params:
-      model: ["<model-id>"]      # router mode needs ?model=
+      model: ["<model-id>"] # router mode needs ?model=
     static_configs:
-      - targets: ["node-a:9931"]   # llama-server default since b11521; 8080 on older builds
+      - targets: ["node-a:9931"] # llama-server default since b11521; 8080 on older builds
         labels: { backend: llamacpp, model: "<model-id>" }
 ```
 
@@ -93,16 +93,16 @@ storage:
 
 ## How it plugs into the stack
 
-| Target | Port | Path | Auth |
-| --- | --- | --- | --- |
-| vLLM | 8000 | `/metrics` | none |
-| SGLang | 30000 | `/metrics` | none (needs `--enable-metrics`) |
-| llama.cpp | 9931 (8080 before b11521) | `/metrics` (`?model=` in router mode) | Bearer key if `--api-key` is set |
-| llama-swap | 8080 | `/metrics` | Bearer key if `apiKeys` is set |
-| LiteLLM proxy | 4000 | `/metrics` | key required by default; or a dedicated unauthenticated `--prometheus_metrics_port` |
-| DCGM exporter | 9400 | `/metrics` | none, or `--web-config-file` |
-| Prometheus | 9090 | UI, `/api/v1/*` | none by default (`--web.config.file` for TLS/basic auth) |
-| Grafana | 3000 | UI | Grafana users |
+| Target        | Port                      | Path                                  | Auth                                                                                |
+| ------------- | ------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------- |
+| vLLM          | 8000                      | `/metrics`                            | none                                                                                |
+| SGLang        | 30000                     | `/metrics`                            | none (needs `--enable-metrics`)                                                     |
+| llama.cpp     | 9931 (8080 before b11521) | `/metrics` (`?model=` in router mode) | Bearer key if `--api-key` is set                                                    |
+| llama-swap    | 8080                      | `/metrics`                            | Bearer key if `apiKeys` is set                                                      |
+| LiteLLM proxy | 4000                      | `/metrics`                            | key required by default; or a dedicated unauthenticated `--prometheus_metrics_port` |
+| DCGM exporter | 9400                      | `/metrics`                            | none, or `--web-config-file`                                                        |
+| Prometheus    | 9090                      | UI, `/api/v1/*`                       | none by default (`--web.config.file` for TLS/basic auth)                            |
+| Grafana       | 3000                      | UI                                    | Grafana users                                                                       |
 
 Grafana data source (provisioning file in `/etc/grafana/provisioning/datasources/`):
 

@@ -8,16 +8,16 @@ Using a model to grade another model's output. Powerful for open-ended tasks, an
 
 Use one only when a deterministic check cannot express "good":
 
-| Need | Prefer |
-| --- | --- |
-| Contains a fact, ID, number | `contains`, `icontains`, `contains-all`, `regex` |
-| Valid JSON / schema | `is-json` with schema, `contains-json` |
-| Tool call shape | `is-valid-openai-tools-call` |
-| Close to a reference text | `similar` (embeddings), `levenshtein`, `rouge-n` |
-| Tone, helpfulness, completeness, policy adherence | `llm-rubric` |
-| Factual agreement with a reference | `factuality` |
-| Pick the best of several outputs | `select-best` |
-| RAG grounding | `context-faithfulness`, `context-recall`, `context-relevance` |
+| Need                                              | Prefer                                                        |
+| ------------------------------------------------- | ------------------------------------------------------------- |
+| Contains a fact, ID, number                       | `contains`, `icontains`, `contains-all`, `regex`              |
+| Valid JSON / schema                               | `is-json` with schema, `contains-json`                        |
+| Tool call shape                                   | `is-valid-openai-tools-call`                                  |
+| Close to a reference text                         | `similar` (embeddings), `levenshtein`, `rouge-n`              |
+| Tone, helpfulness, completeness, policy adherence | `llm-rubric`                                                  |
+| Factual agreement with a reference                | `factuality`                                                  |
+| Pick the best of several outputs                  | `select-best`                                                 |
+| RAG grounding                                     | `context-faithfulness`, `context-recall`, `context-relevance` |
 
 ## Configure the judge once
 
@@ -30,11 +30,11 @@ defaultTest:
       id: openai:chat:<judge-model-id>
       label: judge
       config:
-        apiBaseUrl: '{{ env.JUDGE_BASE_URL }}'
+        apiBaseUrl: "{{ env.JUDGE_BASE_URL }}"
         apiKeyEnvar: JUDGE_API_KEY
         temperature: 0
         max_tokens: 2048
-        showThinking: false           # judges must not grade their own scratchpad
+        showThinking: false # judges must not grade their own scratchpad
 ```
 
 Do not also put `provider: openai:chat:<id>` on individual assertions: an assertion-level provider overrides the default object and drops its `apiBaseUrl`, key and `showThinking` settings. If only one assertion needs a different judge, give it the full provider object.

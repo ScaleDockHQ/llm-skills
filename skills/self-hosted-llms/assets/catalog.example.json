@@ -1,6 +1,10 @@
 {
   "_comment": "Per-model metadata merged into GET /v1/models by build-catalog.sh. Keys of .models are LiteLLM model_name values; .aliases maps a model_group_alias name to the entry it reuses. Unknown keys are copied into the model entry as-is. created is a Unix timestamp: use the model's real release or upload date.",
-  "aliases": { "coder": "qwen-coder", "reasoning": "gpt-oss", "gpt-oss-high": "gpt-oss" },
+  "aliases": {
+    "coder": "qwen-coder",
+    "reasoning": "gpt-oss",
+    "gpt-oss-high": "gpt-oss"
+  },
   "defaults": {
     "owned_by": "self-hosted"
   },

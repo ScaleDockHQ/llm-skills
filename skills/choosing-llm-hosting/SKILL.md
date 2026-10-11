@@ -5,7 +5,7 @@ license: MIT
 compatibility: Works in any agent. Optional read-only discovery uses bash, nvidia-smi, and cloud CLIs (aws, gcloud, az) if installed. No network calls required.
 metadata:
   author: ScaleDockHQ
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Choosing LLM hosting
@@ -22,15 +22,15 @@ Out of scope: installing runtimes, configuring gateways, running evals, quantizi
 
 ## The seven tiers
 
-| Tier | Short name | Example |
-| --- | --- | --- |
-| 1 | Laptop / desktop local | A model on a developer machine |
-| 2 | Owned server | A DGX Spark, a GPU workstation, a rack server you own |
-| 3 | Rented GPU VM | A cloud GPU instance running your own serving stack |
-| 4 | Serverless GPU | Your model in a container that scales with requests, including to zero |
-| 5 | Managed open-model API | Open-weight models behind a provider's per-token API |
-| 6 | Frontier proprietary API | Closed models from the labs that train them |
-| 7 | Hyperscaler platform | Models through your existing cloud account, IAM and network |
+| Tier | Short name               | Example                                                                |
+| ---- | ------------------------ | ---------------------------------------------------------------------- |
+| 1    | Laptop / desktop local   | A model on a developer machine                                         |
+| 2    | Owned server             | A DGX Spark, a GPU workstation, a rack server you own                  |
+| 3    | Rented GPU VM            | A cloud GPU instance running your own serving stack                    |
+| 4    | Serverless GPU           | Your model in a container that scales with requests, including to zero |
+| 5    | Managed open-model API   | Open-weight models behind a provider's per-token API                   |
+| 6    | Frontier proprietary API | Closed models from the labs that train them                            |
+| 7    | Hyperscaler platform     | Models through your existing cloud account, IAM and network            |
 
 Hybrid is not a fallback answer. It is an explicit outcome when different workloads land on different tiers. Full trade-offs: `references/options.md`.
 
@@ -83,7 +83,7 @@ Walk these in order. Each step removes tiers; do not skip ahead to vendors.
    - Air-gapped or secret: tiers 1-2 only (or tier 3 inside an isolated tenancy you control).
    - Regulated: tiers 1-3, or tiers 5-7 only with a signed BAA/DPA, zero or bounded retention, and the right region. Check each provider's data page, not its marketing page.
    - Internal or public: all tiers remain.
-   → `references/privacy-compliance.md`
+     → `references/privacy-compliance.md`
 2. **Apply the quality bar.** If only frontier models pass your own eval, tiers 1-5 drop out for that workload unless an open-weight model is close enough. If a small open model passes, tiers 1-4 stay cheap options.
    → `references/quality-and-capabilities.md`
 3. **Apply latency and shape.** Interactive and spiky favors APIs (5-7) or always-warm capacity. Batch and offline favors batch APIs or a busy owned box. Serverless GPU (4) fits only where cold starts are acceptable.
@@ -93,7 +93,7 @@ Walk these in order. Each step removes tiers; do not skip ahead to vendors.
 6. **Check fit with what exists.** An existing hyperscaler account with IAM, private networking and committed spend often makes tier 7 the lowest-friction choice for regulated workloads.
 7. **Decide per workload.** If different workloads land on different tiers, the outcome is hybrid.
    → `references/hybrid-patterns.md`
-8. **Write the decision record** from `templates/decision-record.md`, including the re-decision date and the exit plan.
+8. **Write the decision record** from `assets/decision-record.md`, including the re-decision date and the exit plan.
 
 Quick heuristics (not substitutes for the flow):
 
@@ -124,7 +124,7 @@ Quick heuristics (not substitutes for the flow):
 - [ ] Check data terms for every shortlisted provider → `references/privacy-compliance.md`.
 - [ ] Plan a private eval on real tasks → `references/quality-and-capabilities.md` (hand the eval itself to `llm-evals`).
 - [ ] If more than one tier wins, pick a hybrid pattern → `references/hybrid-patterns.md`.
-- [ ] Write the record from `templates/decision-record.md`.
+- [ ] Write the record from `assets/decision-record.md`.
 - [ ] Hand off to the build skill.
 
 ### Re-evaluate an existing choice
@@ -142,18 +142,18 @@ Quick heuristics (not substitutes for the flow):
 
 ## Hand-off
 
-| Outcome | Companion skill |
-| --- | --- |
-| Tier 1 (laptop/desktop) | `local-llms` |
-| Tier 2 (owned server, DGX Spark) | `self-hosted-llms` |
-| Tiers 3-7 (any cloud) | `cloud-llms` |
-| One endpoint, routing, fallbacks, keys, budgets | `llm-gateway` |
-| Choosing and validating models | `llm-evals` |
-| Fitting a model onto smaller hardware | `model-quantization` |
-| Custom model behavior | `fine-tuning-llms` |
-| Tracing, cost and latency dashboards | `llm-observability` |
-| Connecting apps and coding tools | `llm-clients` |
-| Image, video, audio generation | `self-hosted-genmedia` |
+| Outcome                                         | Companion skill        |
+| ----------------------------------------------- | ---------------------- |
+| Tier 1 (laptop/desktop)                         | `local-llms`           |
+| Tier 2 (owned server, DGX Spark)                | `self-hosted-llms`     |
+| Tiers 3-7 (any cloud)                           | `cloud-llms`           |
+| One endpoint, routing, fallbacks, keys, budgets | `llm-gateway`          |
+| Choosing and validating models                  | `llm-evals`            |
+| Fitting a model onto smaller hardware           | `model-quantization`   |
+| Custom model behavior                           | `fine-tuning-llms`     |
+| Tracing, cost and latency dashboards            | `llm-observability`    |
+| Connecting apps and coding tools                | `llm-clients`          |
+| Image, video, audio generation                  | `self-hosted-genmedia` |
 
 Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
 
@@ -166,4 +166,4 @@ Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`
 - `references/hybrid-patterns.md`: local-first with cloud fallback, routing by task, burst to cloud, dev local / prod cloud, privacy-tiered routing.
 - `references/migration.md`: moving between tiers without breaking clients.
 - `references/example.md`: three anonymized personas and their decisions.
-- `templates/decision-record.md`: the decision record to fill in.
+- `assets/decision-record.md`: the decision record to fill in.

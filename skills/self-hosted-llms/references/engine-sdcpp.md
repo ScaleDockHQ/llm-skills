@@ -45,7 +45,7 @@ models:
       --diffusion-model /models/sd/z_image_turbo_bf16.safetensors
       --vae /models/sd/ae.safetensors --llm /models/sd/qwen_3_4b.safetensors
       --diffusion-fa --cfg-scale 1.0
-    checkEndpoint: /v1/models   # no health route; the server listens only after loading the model
+    checkEndpoint: /v1/models # no health route; the server listens only after loading the model
     ttl: 600
     capabilities:
       in: [text]
@@ -83,11 +83,11 @@ stop image-sd`, `proxy: http://127.0.0.1:${PORT}` and the same `checkEndpoint`.
 - **LiteLLM entry** (image generation; smoke test it, response shapes differ between servers):
 
 ```yaml
-  - model_name: image-sd
-    litellm_params:
-      model: openai/image-sd
-      api_base: http://127.0.0.1:8080/v1
-      api_key: os.environ/LLAMA_SWAP_API_KEY
+- model_name: image-sd
+  litellm_params:
+    model: openai/image-sd
+    api_base: http://127.0.0.1:8080/v1
+    api_key: os.environ/LLAMA_SWAP_API_KEY
 ```
 
 ## Operating

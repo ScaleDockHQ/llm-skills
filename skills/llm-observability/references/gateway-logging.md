@@ -30,18 +30,18 @@ A privacy-first baseline: metrics on, labels trimmed, content off, spend logs bo
 ```yaml
 litellm_settings:
   callbacks: ["prometheus"]
-  prometheus_exclude_labels:          # drop PII / high-cardinality labels everywhere
+  prometheus_exclude_labels: # drop PII / high-cardinality labels everywhere
     - user_email
     - client_ip
     - user_agent
     - end_user
-  turn_off_message_logging: true      # no prompts/responses to logging callbacks
-  redact_user_api_key_info: true      # strip key/user info from logging callbacks
-  global_disable_no_log_param: false  # true = clients cannot opt out of logging with no-log
+  turn_off_message_logging: true # no prompts/responses to logging callbacks
+  redact_user_api_key_info: true # strip key/user info from logging callbacks
+  global_disable_no_log_param: false # true = clients cannot opt out of logging with no-log
 
 general_settings:
-  store_prompts_in_spend_logs: false            # default; keep it
-  maximum_spend_logs_retention_period: "30d"    # default null = never purged
+  store_prompts_in_spend_logs: false # default; keep it
+  maximum_spend_logs_retention_period: "30d" # default null = never purged
   maximum_spend_logs_retention_interval: "1d"
 ```
 
@@ -59,20 +59,20 @@ general_settings:
 
 Counters appear in exposition with a `_total` suffix (e.g. `litellm_proxy_total_requests_metric_total`); histograms with `_bucket`/`_sum`/`_count`. Confirm names against your `/metrics` output.
 
-| Question | Metric | Notes |
-| --- | --- | --- |
-| Request volume | `litellm_proxy_total_requests_metric` | labels incl. `requested_model`, `status_code`, `route`, `team`, key hash/alias |
-| Failures | `litellm_proxy_failed_requests_metric` | `exception_status`, `exception_class` |
-| End-to-end latency (SLO) | `litellm_request_total_latency_metric` | histogram; arrival → end of processing |
-| Upstream latency | `litellm_llm_api_latency_metric` | backend call only |
-| TTFT | `litellm_llm_api_time_to_first_token_metric` | streaming requests only |
-| Gateway wait | `litellm_request_queue_time_seconds`, `litellm_in_flight_requests` | overloaded proxy vs slow backend |
-| Tokens | `litellm_input_tokens_metric`, `litellm_output_tokens_metric`, `litellm_total_tokens_metric` | plus cached/reasoning token breakdowns |
-| Spend | `litellm_spend_metric` | USD, by key/team/model |
-| Backend health | `litellm_deployment_state` (0 healthy, 1 partial outage, 2 outage), `litellm_deployment_failure_responses`, `litellm_deployment_total_requests` | per `litellm_model_name`, `api_base` |
-| Budgets | `litellm_remaining_team_budget_metric`, `litellm_remaining_api_key_budget_metric`, … | `prometheus_initialize_budget_metrics: true` emits them for idle keys/teams too |
-| Pricing gaps | `litellm_zero_cost_requests_total` | `reason`: `missing_pricing_key`, `pricing_not_applied`, `cost_calculation_error` |
-| Logging health | `litellm_callback_logging_failures_metric` | failed deliveries to Langfuse, S3, … |
+| Question                 | Metric                                                                                                                                          | Notes                                                                            |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Request volume           | `litellm_proxy_total_requests_metric`                                                                                                           | labels incl. `requested_model`, `status_code`, `route`, `team`, key hash/alias   |
+| Failures                 | `litellm_proxy_failed_requests_metric`                                                                                                          | `exception_status`, `exception_class`                                            |
+| End-to-end latency (SLO) | `litellm_request_total_latency_metric`                                                                                                          | histogram; arrival → end of processing                                           |
+| Upstream latency         | `litellm_llm_api_latency_metric`                                                                                                                | backend call only                                                                |
+| TTFT                     | `litellm_llm_api_time_to_first_token_metric`                                                                                                    | streaming requests only                                                          |
+| Gateway wait             | `litellm_request_queue_time_seconds`, `litellm_in_flight_requests`                                                                              | overloaded proxy vs slow backend                                                 |
+| Tokens                   | `litellm_input_tokens_metric`, `litellm_output_tokens_metric`, `litellm_total_tokens_metric`                                                    | plus cached/reasoning token breakdowns                                           |
+| Spend                    | `litellm_spend_metric`                                                                                                                          | USD, by key/team/model                                                           |
+| Backend health           | `litellm_deployment_state` (0 healthy, 1 partial outage, 2 outage), `litellm_deployment_failure_responses`, `litellm_deployment_total_requests` | per `litellm_model_name`, `api_base`                                             |
+| Budgets                  | `litellm_remaining_team_budget_metric`, `litellm_remaining_api_key_budget_metric`, …                                                            | `prometheus_initialize_budget_metrics: true` emits them for idle keys/teams too  |
+| Pricing gaps             | `litellm_zero_cost_requests_total`                                                                                                              | `reason`: `missing_pricing_key`, `pricing_not_applied`, `cost_calculation_error` |
+| Logging health           | `litellm_callback_logging_failures_metric`                                                                                                      | failed deliveries to Langfuse, S3, …                                             |
 
 Example queries:
 
@@ -92,7 +92,7 @@ sum by (team_alias) (increase(litellm_spend_metric_total[1h]))
 
 ```yaml
 litellm_settings:
-  callbacks: ["prometheus", "otel"]   # or "langfuse_otel"
+  callbacks: ["prometheus", "otel"] # or "langfuse_otel"
   turn_off_message_logging: true
 callback_settings:
   otel:

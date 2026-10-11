@@ -6,12 +6,12 @@
 
 The cloud runs the serving infrastructure; you pick the model (open weights, your fine-tune, or a Hub model), the container and the instance type. You pay per instance-hour while the endpoint has replicas. Choose this tier when you need a model the APIs do not host (a fine-tune, a niche model, a specific quantization) but do not want to run VMs or Kubernetes.
 
-| Platform | Serving container options | Scale to zero | Notes |
-| --- | --- | --- | --- |
-| Amazon SageMaker AI real-time endpoints | AWS Large Model Inference (LMI) containers, which wrap engines such as vLLM; bring your own container | Yes, only for endpoints that host **inference components** | Deep AWS integration (IAM, VPC, CloudWatch) |
-| Agent Platform (Vertex AI) endpoints | Model Garden one-click deploy; prebuilt vLLM serving containers; custom containers | Check current docs for your model type | Same project IAM and VPC controls as the model APIs |
-| Azure Machine Learning managed online endpoints | Curated environments or custom containers; Foundry "managed compute" deployments | Check current docs | Blue/green traffic splitting between deployments |
-| Hugging Face Inference Endpoints | vLLM, TGI, SGLang, llama.cpp and custom images, chosen in the UI or API | Yes, after 15 minutes idle | Deploy straight from a Hub repo; cloud and region selectable |
+| Platform                                        | Serving container options                                                                             | Scale to zero                                              | Notes                                                        |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------ |
+| Amazon SageMaker AI real-time endpoints         | AWS Large Model Inference (LMI) containers, which wrap engines such as vLLM; bring your own container | Yes, only for endpoints that host **inference components** | Deep AWS integration (IAM, VPC, CloudWatch)                  |
+| Agent Platform (Vertex AI) endpoints            | Model Garden one-click deploy; prebuilt vLLM serving containers; custom containers                    | Check current docs for your model type                     | Same project IAM and VPC controls as the model APIs          |
+| Azure Machine Learning managed online endpoints | Curated environments or custom containers; Foundry "managed compute" deployments                      | Check current docs                                         | Blue/green traffic splitting between deployments             |
+| Hugging Face Inference Endpoints                | vLLM, TGI, SGLang, llama.cpp and custom images, chosen in the UI or API                               | Yes, after 15 minutes idle                                 | Deploy straight from a Hub repo; cloud and region selectable |
 
 ## Install / setup
 
@@ -41,7 +41,7 @@ model_list:
     litellm_params:
       model: openai/<served-model-name>
       api_base: https://<endpoint-host>/v1
-      api_key: os.environ/HF_TOKEN   # or the platform's token; never inline
+      api_key: os.environ/HF_TOKEN # or the platform's token; never inline
 ```
 
 SageMaker endpoints are invoked with SigV4 rather than a bearer token; LiteLLM has a `sagemaker/` provider for that (see its docs). Agent Platform and Azure ML endpoints have their own auth; check whether the endpoint exposes OpenAI-compatible routes before using the `openai/` prefix.

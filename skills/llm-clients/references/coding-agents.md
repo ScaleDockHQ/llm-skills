@@ -4,12 +4,12 @@
 
 Terminal coding agents run on the user's machine, so `localhost`, LAN and VPN addresses all work. What differs is the API each one speaks and where it reads model metadata.
 
-| Agent | API it sends | Config location | Key source |
-|---|---|---|---|
-| Claude Code | Anthropic Messages (`/v1/messages`) | env vars, or `env` block in `~/.claude/settings.json` / `.claude/settings.json` | `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_API_KEY` or `apiKeyHelper` |
-| Codex CLI | OpenAI Responses (`/v1/responses`) only | `~/.codex/config.toml` | `env_key` or `[model_providers.<id>.auth]` command |
-| OpenCode | Chat Completions (`@ai-sdk/openai-compatible`) or Responses (`@ai-sdk/openai`) | `~/.config/opencode/opencode.json`, project `opencode.json` | `{env:NAME}` or `opencode auth` store |
-| Aider | Chat Completions via LiteLLM client library | `.aider.conf.yml`, env vars | `OPENAI_API_KEY` env var or `.env` |
+| Agent       | API it sends                                                                   | Config location                                                                 | Key source                                                    |
+| ----------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Claude Code | Anthropic Messages (`/v1/messages`)                                            | env vars, or `env` block in `~/.claude/settings.json` / `.claude/settings.json` | `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_API_KEY` or `apiKeyHelper` |
+| Codex CLI   | OpenAI Responses (`/v1/responses`) only                                        | `~/.codex/config.toml`                                                          | `env_key` or `[model_providers.<id>.auth]` command            |
+| OpenCode    | Chat Completions (`@ai-sdk/openai-compatible`) or Responses (`@ai-sdk/openai`) | `~/.config/opencode/opencode.json`, project `opencode.json`                     | `{env:NAME}` or `opencode auth` store                         |
+| Aider       | Chat Completions via LiteLLM client library                                    | `.aider.conf.yml`, env vars                                                     | `OPENAI_API_KEY` env var or `.env`                            |
 
 ## Claude Code
 
@@ -36,7 +36,7 @@ export ANTHROPIC_MODEL="claude-main"                   # gateway alias
 - `CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1` makes the picker call `GET /v1/models` on the gateway and keep IDs containing `claude` or `anthropic`; other aliases are filtered out.
 - `ANTHROPIC_CUSTOM_HEADERS` adds headers (newline-separated `Name: value`).
 
-Template: `templates/claude-code.env.example`, `templates/claude-code-settings.json`.
+Template: `assets/claude-code.env.example`, `assets/claude-code-settings.json`.
 
 ### Capability flags
 
@@ -94,7 +94,7 @@ wire_api = "responses"
 - Command-backed tokens: `[model_providers.<id>.auth]` with `command`, `args`, `timeout_ms`, `refresh_interval_ms`. Do not combine with `env_key`, `experimental_bearer_token` or `requires_openai_auth`.
 - Retries and streaming: `request_max_retries`, `stream_max_retries`, `stream_idle_timeout_ms`.
 
-Template: `templates/codex-config.toml`.
+Template: `assets/codex-config.toml`.
 
 ### Capability flags
 
@@ -128,9 +128,16 @@ Global `~/.config/opencode/opencode.json`, project `opencode.json` (merged), or 
     "gateway": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "LLM gateway",
-      "options": { "baseURL": "https://llm.example.com/v1", "apiKey": "{env:LITELLM_API_KEY}" },
+      "options": {
+        "baseURL": "https://llm.example.com/v1",
+        "apiKey": "{env:LITELLM_API_KEY}"
+      },
       "models": {
-        "coder": { "name": "Coder", "limit": { "context": 131072, "output": 16384 }, "tool_call": true }
+        "coder": {
+          "name": "Coder",
+          "limit": { "context": 131072, "output": 16384 },
+          "tool_call": true
+        }
       }
     }
   },
@@ -141,7 +148,7 @@ Global `~/.config/opencode/opencode.json`, project `opencode.json` (merged), or 
 - `@ai-sdk/openai-compatible` sends Chat Completions; `@ai-sdk/openai` sends Responses. Pick by what the endpoint serves.
 - `{env:NAME}` and `{file:path}` substitutions keep secrets out of the file.
 
-Template: `templates/opencode.json`.
+Template: `assets/opencode.json`.
 
 ### Capability flags
 
@@ -173,7 +180,7 @@ aider --model openai/coder
 
 Or in `.aider.conf.yml`: `model: openai/coder`, `openai-api-base: https://llm.example.com/v1`. Keep `openai-api-key` out of the YAML; use the env var or `.env`.
 
-Template: `templates/aider.conf.yml`, `templates/aider.model.metadata.json`.
+Template: `assets/aider.conf.yml`, `assets/aider.model.metadata.json`.
 
 ### Capability flags
 

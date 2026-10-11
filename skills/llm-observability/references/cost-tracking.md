@@ -46,7 +46,7 @@ model_list:
       api_base: http://node-b:8000/v1
       api_key: os.environ/VLLM_API_KEY
     model_info:
-      input_cost_per_token: 0.0000001     # your internal rate; see "cost per token" below
+      input_cost_per_token: 0.0000001 # your internal rate; see "cost per token" below
       output_cost_per_token: 0.0000004
 
   # Time-billed backend (dedicated endpoint): v1.105.0+
@@ -65,13 +65,13 @@ Numbers are placeholders. Pricing keys can also be set directly in `litellm_para
 
 **Where the numbers live**
 
-| Source | Use for |
-| --- | --- |
-| `litellm_spend_metric` (Prometheus counter, labels incl. `team_alias`, `api_key_alias`, `model`, `requested_model`) | Dashboards and spend-rate alerts |
-| `LiteLLM_SpendLogs` via `GET /spend/logs/v2` (paginated) | Per-request audit, exports, reconciliation |
-| `/global/spend/report?group_by=team` (Enterprise) | Grouped reports |
-| Budget gauges (`litellm_remaining_team_budget_metric`, `litellm_remaining_api_key_budget_metric`, …) | "Budget almost exhausted" alerts |
-| `litellm_zero_cost_requests_total{reason=...}` | Detect models silently priced at $0 |
+| Source                                                                                                              | Use for                                    |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `litellm_spend_metric` (Prometheus counter, labels incl. `team_alias`, `api_key_alias`, `model`, `requested_model`) | Dashboards and spend-rate alerts           |
+| `LiteLLM_SpendLogs` via `GET /spend/logs/v2` (paginated)                                                            | Per-request audit, exports, reconciliation |
+| `/global/spend/report?group_by=team` (Enterprise)                                                                   | Grouped reports                            |
+| Budget gauges (`litellm_remaining_team_budget_metric`, `litellm_remaining_api_key_budget_metric`, …)                | "Budget almost exhausted" alerts           |
+| `litellm_zero_cost_requests_total{reason=...}`                                                                      | Detect models silently priced at $0        |
 
 **Queries**
 

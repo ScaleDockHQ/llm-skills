@@ -42,19 +42,19 @@ Hand the file to the consumer's secret store, then delete it. Notes and tickets 
 
 ## Key parameters worth knowing
 
-| Field | Meaning |
-|---|---|
-| `models` | Allowed model names or aliases; empty means all |
-| `max_budget` | USD cap |
-| `budget_duration` | Reset window, such as `30d`, `7d`, `1h` |
-| `rpm_limit`, `tpm_limit` | Requests and tokens per minute |
-| `max_parallel_requests` | Concurrency cap |
-| `duration` | Key expiry, such as `90d` |
-| `key_alias` | Human-readable name for logs and UI |
-| `team_id`, `user_id` | Attribution |
-| `metadata` | Free-form tags |
-| `aliases` | Per-key model name remapping |
-| `model_max_budget` | Per-model budget on one key |
+| Field                    | Meaning                                         |
+| ------------------------ | ----------------------------------------------- |
+| `models`                 | Allowed model names or aliases; empty means all |
+| `max_budget`             | USD cap                                         |
+| `budget_duration`        | Reset window, such as `30d`, `7d`, `1h`         |
+| `rpm_limit`, `tpm_limit` | Requests and tokens per minute                  |
+| `max_parallel_requests`  | Concurrency cap                                 |
+| `duration`               | Key expiry, such as `90d`                       |
+| `key_alias`              | Human-readable name for logs and UI             |
+| `team_id`, `user_id`     | Attribution                                     |
+| `metadata`               | Free-form tags                                  |
+| `aliases`                | Per-key model name remapping                    |
+| `model_max_budget`       | Per-model budget on one key                     |
 
 Proxy-wide guardrails on key creation: `general_settings.default_key_generate_params` fills defaults; `upperbound_key_generate_params` rejects anything above the bounds (for example `max_budget`, `budget_duration`, `duration`).
 

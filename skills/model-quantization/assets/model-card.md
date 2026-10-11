@@ -14,8 +14,8 @@ Quantized from [<base-org>/<base-model>](https://huggingface.co/<base-org>/<base
 
 ## Files
 
-| File / branch | Type | Size | Notes |
-|---|---|---|---|
+| File / branch         | Type             | Size   | Notes   |
+| --------------------- | ---------------- | ------ | ------- |
 | `<model>-Q4_K_M.gguf` | Q4_K_M (imatrix) | <size> | default |
 
 ## Recipe
@@ -33,9 +33,9 @@ Quantized from [<base-org>/<base-model>](https://huggingface.co/<base-org>/<base
 
 Compared against <BF16 / Q8_0 base> on <text>, context <N>, with <tool + version>.
 
-| Variant | Metric | Value | Base |
-|---|---|---|---|
-| Q4_K_M | mean KLD | <x> | 0 |
+| Variant | Metric   | Value | Base |
+| ------- | -------- | ----- | ---- |
+| Q4_K_M  | mean KLD | <x>   | 0    |
 
 Smoke prompts: <pass/fail summary>. Task evals: <link or summary>.
 

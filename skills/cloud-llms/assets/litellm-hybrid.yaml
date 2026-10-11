@@ -16,13 +16,13 @@ model_list:
   # ---------------------------------------------------------------------------
   # Local / self-hosted primary (vLLM or llama-swap on an owned server or GPU VM)
   # ---------------------------------------------------------------------------
-  - model_name: chat                      # alias clients call
+  - model_name: chat # alias clients call
     litellm_params:
       model: hosted_vllm/<served-model-name>
-      api_base: http://10.0.0.1:8000/v1   # node-a, private network only
+      api_base: http://10.0.0.1:8000/v1 # node-a, private network only
       api_key: os.environ/LOCAL_VLLM_API_KEY
       timeout: 120
-      stream_timeout: 30                  # fail over quickly if the local box stops streaming
+      stream_timeout: 30 # fail over quickly if the local box stops streaming
 
   # Data that must never leave your hardware: no cloud fallback is configured for this alias.
   - model_name: private
@@ -38,7 +38,7 @@ model_list:
     litellm_params:
       model: together_ai/<org>/<same-open-model>
       api_key: os.environ/TOGETHERAI_API_KEY
-      max_budget: 50                      # USD per budget_duration for this deployment
+      max_budget: 50 # USD per budget_duration for this deployment
       budget_duration: 30d
   # Alternative overflow targets (pick one):
   # - model_name: chat-overflow
@@ -65,7 +65,7 @@ model_list:
   - model_name: frontier-long-context
     litellm_params:
       model: gemini/<gemini-model-id>
-      api_key: os.environ/GEMINI_API_KEY  # use a billing-enabled (paid) project for non-public data
+      api_key: os.environ/GEMINI_API_KEY # use a billing-enabled (paid) project for non-public data
 
   # ---------------------------------------------------------------------------
   # Hyperscalers (same or similar models under your cloud account, IAM and region)
@@ -73,15 +73,15 @@ model_list:
   - model_name: frontier-code-bedrock
     litellm_params:
       model: bedrock/<inference-profile-or-model-id>
-      aws_region_name: <region>           # credentials from the AWS chain (instance role / AWS_PROFILE)
+      aws_region_name: <region> # credentials from the AWS chain (instance role / AWS_PROFILE)
   - model_name: frontier-long-context-vertex
     litellm_params:
       model: vertex_ai/<gemini-model-id>
       vertex_project: <project>
-      vertex_location: <location>         # Application Default Credentials / workload identity
+      vertex_location: <location> # Application Default Credentials / workload identity
   - model_name: frontier-chat-azure
     litellm_params:
-      model: azure/<deployment-name>      # the Foundry deployment name, not the model name
+      model: azure/<deployment-name> # the Foundry deployment name, not the model name
       api_base: https://<resource>.openai.azure.com/
       api_version: "<api-version>"
       api_key: os.environ/AZURE_API_KEY
@@ -101,7 +101,7 @@ router_settings:
   # Spend caps per provider; requests to a provider stop routing once its budget is used.
   provider_budget_config:
     openai:
-      budget_limit: 200                   # USD
+      budget_limit: 200 # USD
       time_period: 1mo
     anthropic:
       budget_limit: 200
@@ -118,12 +118,12 @@ router_settings:
   # redis_password: os.environ/REDIS_PASSWORD
 
 litellm_settings:
-  allowed_fails: 3                        # failures per minute before a deployment cools down
-  cooldown_time: 30                       # seconds
+  allowed_fails: 3 # failures per minute before a deployment cools down
+  cooldown_time: 30 # seconds
   request_timeout: 600
-  max_budget: 500                         # USD, whole proxy; enforced only with a database
+  max_budget: 500 # USD, whole proxy; enforced only with a database
   budget_duration: 30d
 
 general_settings:
   master_key: os.environ/LITELLM_MASTER_KEY
-  database_url: os.environ/DATABASE_URL   # required for virtual keys and key/team/global budgets
+  database_url: os.environ/DATABASE_URL # required for virtual keys and key/team/global budgets

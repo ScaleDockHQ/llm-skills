@@ -6,11 +6,11 @@
 
 All three expose Whisper-family transcription over HTTP. They differ in OpenAI compatibility and in how they manage models:
 
-| Server | Endpoint | Models | Fit |
-|---|---|---|---|
-| [whisper.cpp](https://github.com/ggml-org/whisper.cpp) `whisper-server` (MIT) | `/inference` by default; can be mounted at `/v1/audio/transcriptions` | one ggml model per process (`-m`), hot-swappable via `/load` | smallest footprint, C++ only, easy llama-swap entry |
-| [Speaches](https://github.com/speaches-ai/speaches) (MIT) | `/v1/audio/transcriptions`, `/v1/audio/translations` (plus TTS) | faster-whisper models by HF id, loaded on demand, unloaded after TTL | OpenAI-shaped multi-model server; STT and TTS in one container |
-| [vLLM](https://docs.vllm.ai) | `/v1/audio/transcriptions`, `/v1/audio/translations` | `openai/whisper-*` and other STT models | high throughput when vLLM is already your engine |
+| Server                                                                        | Endpoint                                                              | Models                                                               | Fit                                                            |
+| ----------------------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------- |
+| [whisper.cpp](https://github.com/ggml-org/whisper.cpp) `whisper-server` (MIT) | `/inference` by default; can be mounted at `/v1/audio/transcriptions` | one ggml model per process (`-m`), hot-swappable via `/load`         | smallest footprint, C++ only, easy llama-swap entry            |
+| [Speaches](https://github.com/speaches-ai/speaches) (MIT)                     | `/v1/audio/transcriptions`, `/v1/audio/translations` (plus TTS)       | faster-whisper models by HF id, loaded on demand, unloaded after TTL | OpenAI-shaped multi-model server; STT and TTS in one container |
+| [vLLM](https://docs.vllm.ai)                                                  | `/v1/audio/transcriptions`, `/v1/audio/translations`                  | `openai/whisper-*` and other STT models                              | high throughput when vLLM is already your engine               |
 
 Pick whisper.cpp for a lean, single-model service; Speaches for OpenAI-compatible STT plus TTS with built-in model management; vLLM when you're already running vLLM and need batching.
 
@@ -93,8 +93,8 @@ Browse STT models with `uvx speaches-cli registry ls --task automatic-speech-rec
   ```yaml
   - model_name: whisper
     litellm_params:
-      model: openai/whisper          # llama-swap model id after the prefix
-      api_base: http://127.0.0.1:8080/v1   # llama-swap
+      model: openai/whisper # llama-swap model id after the prefix
+      api_base: http://127.0.0.1:8080/v1 # llama-swap
       api_key: os.environ/LLAMA_SWAP_KEY
     model_info:
       mode: audio_transcription
@@ -109,19 +109,19 @@ Browse STT models with `uvx speaches-cli registry ls --task automatic-speech-rec
 
 ## Tuning knobs worth knowing
 
-| Server | Knob | Effect |
-|---|---|---|
-| whisper-server | `-t N` | CPU threads |
-| whisper-server | `-fa` | flash attention |
-| whisper-server | `-ng` | no GPU |
-| whisper-server | `--vad -vm <model>` | voice activity detection to skip silence |
-| whisper-server | `-l auto` | language auto-detect (default is `en`) |
-| whisper-server | `-tr` | translate to English |
-| Speaches | `WHISPER__INFERENCE_DEVICE` | device selection (nested settings use `__`) |
-| Speaches | `WHISPER__COMPUTE_TYPE=int8` | quantized compute |
-| Speaches | `STT_MODEL_TTL` | idle unload time |
-| Speaches | `LOG_LEVEL` | log verbosity (default `debug`) |
-| vLLM | see the vLLM docs | beam search is supported but slow for encoder-decoder models |
+| Server         | Knob                         | Effect                                                       |
+| -------------- | ---------------------------- | ------------------------------------------------------------ |
+| whisper-server | `-t N`                       | CPU threads                                                  |
+| whisper-server | `-fa`                        | flash attention                                              |
+| whisper-server | `-ng`                        | no GPU                                                       |
+| whisper-server | `--vad -vm <model>`          | voice activity detection to skip silence                     |
+| whisper-server | `-l auto`                    | language auto-detect (default is `en`)                       |
+| whisper-server | `-tr`                        | translate to English                                         |
+| Speaches       | `WHISPER__INFERENCE_DEVICE`  | device selection (nested settings use `__`)                  |
+| Speaches       | `WHISPER__COMPUTE_TYPE=int8` | quantized compute                                            |
+| Speaches       | `STT_MODEL_TTL`              | idle unload time                                             |
+| Speaches       | `LOG_LEVEL`                  | log verbosity (default `debug`)                              |
+| vLLM           | see the vLLM docs            | beam search is supported but slow for encoder-decoder models |
 
 ## Known pitfalls
 

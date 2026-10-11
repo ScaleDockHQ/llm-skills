@@ -32,18 +32,18 @@ printf 'LITELLM_MASTER_KEY=%s\n' "$KEY" | sudo tee /etc/llm-stack/litellm.env >/
 sudo chmod 600 /etc/llm-stack/litellm.env
 ```
 
-Run it as `templates/systemd/litellm.service` (host networking so it reaches llama-swap on
+Run it as `assets/systemd/litellm.service` (host networking so it reaches llama-swap on
 `127.0.0.1:8080`, `--host 127.0.0.1 --port 4000` so it listens on loopback only).
 
 ## Minimal working config
 
-`templates/litellm-config.yaml`. One entry per public name:
+`assets/litellm-config.yaml`. One entry per public name:
 
 ```yaml
 model_list:
   - model_name: qwen-coder
     litellm_params:
-      model: openai/qwen-coder            # openai/<llama-swap model ID>
+      model: openai/qwen-coder # openai/<llama-swap model ID>
       api_base: http://127.0.0.1:8080/v1
       api_key: "none"
       use_chat_completions_api: true
@@ -87,15 +87,15 @@ change between releases).
 
 ## Tuning knobs worth knowing
 
-| Key | Section | Use |
-| --- | --- | --- |
-| `model_group_alias` | `router_settings` | stable public names (`coder`) pointing at a model group |
-| `use_chat_completions_api` | `litellm_params` | serve `/v1/responses` by translating to chat completions |
-| `reasoning_effort` | `litellm_params` | fixed effort for an entry (alternative to llama-swap aliases) |
-| `drop_params` | `litellm_settings` | drop OpenAI params the backend does not accept instead of failing |
-| `num_retries`, `timeout` | `router_settings` | keep retries at 0 behind a swapper; long timeout for cold swaps |
-| `request_timeout` | `litellm_settings` | overall request timeout |
-| `model_info.*` | per entry | `max_input_tokens`, `max_output_tokens`, `supports_function_calling`, `supports_vision`, `supports_reasoning`, `mode` |
+| Key                        | Section            | Use                                                                                                                   |
+| -------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `model_group_alias`        | `router_settings`  | stable public names (`coder`) pointing at a model group                                                               |
+| `use_chat_completions_api` | `litellm_params`   | serve `/v1/responses` by translating to chat completions                                                              |
+| `reasoning_effort`         | `litellm_params`   | fixed effort for an entry (alternative to llama-swap aliases)                                                         |
+| `drop_params`              | `litellm_settings` | drop OpenAI params the backend does not accept instead of failing                                                     |
+| `num_retries`, `timeout`   | `router_settings`  | keep retries at 0 behind a swapper; long timeout for cold swaps                                                       |
+| `request_timeout`          | `litellm_settings` | overall request timeout                                                                                               |
+| `model_info.*`             | per entry          | `max_input_tokens`, `max_output_tokens`, `supports_function_calling`, `supports_vision`, `supports_reasoning`, `mode` |
 
 ## Known pitfalls
 

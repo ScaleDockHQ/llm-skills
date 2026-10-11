@@ -6,11 +6,11 @@ Prices change often. This reference gives formulas and links to pricing pages in
 
 ## The two cost shapes
 
-| Shape | Tiers | You pay for | Cost grows with |
-| --- | --- | --- | --- |
-| Per token (opex) | 5, 6, 7 on-demand | Input + output tokens | Usage |
-| Per hour of capacity (opex) | 3, 4, 7 provisioned | GPU time, busy or idle | Time the capacity exists |
-| Capex + running cost | 1, 2 | Hardware up front, then power, space, people | Time, mostly fixed |
+| Shape                       | Tiers               | You pay for                                  | Cost grows with          |
+| --------------------------- | ------------------- | -------------------------------------------- | ------------------------ |
+| Per token (opex)            | 5, 6, 7 on-demand   | Input + output tokens                        | Usage                    |
+| Per hour of capacity (opex) | 3, 4, 7 provisioned | GPU time, busy or idle                       | Time the capacity exists |
+| Capex + running cost        | 1, 2                | Hardware up front, then power, space, people | Time, mostly fixed       |
 
 The core question: **at the utilization you will really reach, is a token cheaper from capacity you pay for by the hour (or own) than from an API that bills per token?**
 

@@ -31,7 +31,7 @@ npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms
 - [`references/evaluate-and-merge.md`](references/evaluate-and-merge.md) — compare vs base, merge adapters, GGUF export.
 - [`references/serving-adapters.md`](references/serving-adapters.md) — vLLM multi-LoRA, llama-server LoRA, Ollama status, gateway wiring.
 - [`references/licenses.md`](references/licenses.md) — Llama, Gemma, Qwen, Mistral and dataset license checks.
-- [`templates/axolotl-lora.yaml`](templates/axolotl-lora.yaml) — commented Axolotl LoRA SFT config.
+- [`assets/axolotl-lora.yaml`](assets/axolotl-lora.yaml) — commented Axolotl LoRA SFT config.
 
 ## Companion skills
 

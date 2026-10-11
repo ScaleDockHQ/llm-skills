@@ -29,14 +29,14 @@ port) or the tailnet. Engines never see client keys; LiteLLM is the single authe
 
 ## Port map
 
-| Component | Listen | Health / status |
-| --- | --- | --- |
-| Caddy catalog front | 127.0.0.1:8088 | `GET /v1/models` with a valid key |
-| LiteLLM | 127.0.0.1:4000 | `GET /health/liveliness`, `GET /health/readiness` (no auth) |
-| llama-swap | 127.0.0.1:8080 | `GET /health`, `GET /running` |
-| Engines | 127.0.0.1:5800+ | engine-specific, usually `GET /health` |
-| sparkDash | 127.0.0.1:5555 | see `monitoring-sparkdash.md` |
-| cloudflared | outbound only | `cloudflared tunnel info <name>` |
+| Component           | Listen          | Health / status                                             |
+| ------------------- | --------------- | ----------------------------------------------------------- |
+| Caddy catalog front | 127.0.0.1:8088  | `GET /v1/models` with a valid key                           |
+| LiteLLM             | 127.0.0.1:4000  | `GET /health/liveliness`, `GET /health/readiness` (no auth) |
+| llama-swap          | 127.0.0.1:8080  | `GET /health`, `GET /running`                               |
+| Engines             | 127.0.0.1:5800+ | engine-specific, usually `GET /health`                      |
+| sparkDash           | 127.0.0.1:5555  | see `monitoring-sparkdash.md`                               |
+| cloudflared         | outbound only   | `cloudflared tunnel info <name>`                            |
 
 ## What each layer is for
 
@@ -53,13 +53,13 @@ port) or the tailnet. Engines never see client keys; LiteLLM is the single authe
 
 ## Layering options
 
-| Need | Layers |
-| --- | --- |
-| One model, local scripts only | engine on loopback |
-| Several models, one trusted client on the tailnet | llama-swap (+ its `apiKeys`) + Tailscale |
-| Public endpoint, one always-on model | engine + LiteLLM + tunnel |
-| Public endpoint, many models, swapping | engine + llama-swap + LiteLLM (+ catalog) + tunnel |
-| Rich gateway features (budgets, fallbacks, cloud providers) | as above; depth in `llm-gateway` |
+| Need                                                        | Layers                                             |
+| ----------------------------------------------------------- | -------------------------------------------------- |
+| One model, local scripts only                               | engine on loopback                                 |
+| Several models, one trusted client on the tailnet           | llama-swap (+ its `apiKeys`) + Tailscale           |
+| Public endpoint, one always-on model                        | engine + LiteLLM + tunnel                          |
+| Public endpoint, many models, swapping                      | engine + llama-swap + LiteLLM (+ catalog) + tunnel |
+| Rich gateway features (budgets, fallbacks, cloud providers) | as above; depth in `llm-gateway`                   |
 
 Drop the catalog front if your clients ignore `/v1/models` metadata. Drop llama-swap if every model
 fits and stays loaded; point LiteLLM straight at the engines.
@@ -68,8 +68,8 @@ fits and stays loaded; point LiteLLM straight at the engines.
 
 - **Single node**: all of the above on node-a.
 - **Dual node (2x DGX Spark)**: everything runs on node-a; node-b only runs worker containers that
-  the wrapper starts through SSH before the head starts (`templates/start-model.sh`,
-  `templates/models.d/example-vllm.sh`). Engine traffic between nodes uses the ConnectX-7 link
+  the wrapper starts through SSH before the head starts (`assets/start-model.sh`,
+  `assets/models.d/example-vllm.sh`). Engine traffic between nodes uses the ConnectX-7 link
   (10.0.0.1 / 10.0.0.2). Images, weights, configs and the service user must match on both nodes.
 
 ## Why loopback plus wrapper scripts

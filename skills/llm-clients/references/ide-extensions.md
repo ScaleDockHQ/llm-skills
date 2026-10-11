@@ -4,13 +4,13 @@
 
 The first question for any editor integration: **does the request leave from the user's machine or from the vendor's cloud?** That decides whether `localhost` works.
 
-| Extension | Request origin | API sent | Where models and capabilities are set |
-|---|---|---|---|
-| Cursor | Cursor's servers | OpenAI-style (custom keys, chat models only) | Cursor Settings > Models |
-| Continue | User's machine | Chat Completions (`provider: openai`); Responses for some OpenAI model names | `~/.continue/config.yaml` |
-| Cline | User's machine | Chat Completions ("OpenAI Compatible") | Provider settings > Model Configuration |
-| Roo Code | User's machine | Chat Completions ("OpenAI Compatible") | Provider settings > Model Configuration |
-| Kilo Code | User's machine | Chat Completions, Responses or Anthropic Messages (selectable) | Providers tab, or `kilo.json` |
+| Extension | Request origin   | API sent                                                                     | Where models and capabilities are set   |
+| --------- | ---------------- | ---------------------------------------------------------------------------- | --------------------------------------- |
+| Cursor    | Cursor's servers | OpenAI-style (custom keys, chat models only)                                 | Cursor Settings > Models                |
+| Continue  | User's machine   | Chat Completions (`provider: openai`); Responses for some OpenAI model names | `~/.continue/config.yaml`               |
+| Cline     | User's machine   | Chat Completions ("OpenAI Compatible")                                       | Provider settings > Model Configuration |
+| Roo Code  | User's machine   | Chat Completions ("OpenAI Compatible")                                       | Provider settings > Model Configuration |
+| Kilo Code | User's machine   | Chat Completions, Responses or Anthropic Messages (selectable)               | Providers tab, or `kilo.json`           |
 
 ## Cursor
 
@@ -70,7 +70,7 @@ models:
       maxTokens: 8192
 ```
 
-Template: `templates/continue-config.yaml`.
+Template: `assets/continue-config.yaml`.
 
 ### Capability flags
 
@@ -106,6 +106,7 @@ Model Configuration: Max Output Tokens, Context Window size, Image Support, Comp
 ### Pitfalls
 
 - Set Context Window and Max Output Tokens explicitly for every non-catalog model; otherwise Cline works from defaults that rarely match a local model.
+
 ## Roo Code
 
 ### What it is and when to choose it
@@ -149,7 +150,12 @@ Custom provider dialog: Provider ID (`gateway`), Display name, Provider API (Ope
       "npm": "@ai-sdk/openai-compatible",
       "env": ["LITELLM_API_KEY"],
       "options": { "baseURL": "https://llm.example.com/v1" },
-      "models": { "coder": { "name": "Coder", "limit": { "context": 131072, "output": 16384 } } }
+      "models": {
+        "coder": {
+          "name": "Coder",
+          "limit": { "context": 131072, "output": 16384 }
+        }
+      }
     }
   }
 }

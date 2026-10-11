@@ -32,15 +32,15 @@ curl -s http://localhost:1234/v1/models
 
 ## How it plugs in
 
-| Item | Value |
-| --- | --- |
-| Default bind | `127.0.0.1:1234`. `lms server start --port N`; `--bind 0.0.0.0` (or `LMS_SERVER_HOST`) for the LAN |
-| Health | `lms server status`; `GET /v1/models` |
-| OpenAI-compatible | `http://localhost:1234/v1`: `/v1/models`, `/v1/chat/completions`, `/v1/completions`, `/v1/responses`, `/v1/embeddings` |
-| Anthropic-compatible | `/v1/messages` with `ANTHROPIC_BASE_URL=http://localhost:1234` |
-| Native REST | `/api/v1/...` (chat, load, unload, download) |
-| Auth | Off by default. Turn on **Require Authentication** under Developer → Server Settings, create tokens with **Manage Tokens**, and send `Authorization: Bearer <token>` |
-| CORS | Off by default; `lms server start --cors` |
+| Item                 | Value                                                                                                                                                                |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default bind         | `127.0.0.1:1234`. `lms server start --port N`; `--bind 0.0.0.0` (or `LMS_SERVER_HOST`) for the LAN                                                                   |
+| Health               | `lms server status`; `GET /v1/models`                                                                                                                                |
+| OpenAI-compatible    | `http://localhost:1234/v1`: `/v1/models`, `/v1/chat/completions`, `/v1/completions`, `/v1/responses`, `/v1/embeddings`                                               |
+| Anthropic-compatible | `/v1/messages` with `ANTHROPIC_BASE_URL=http://localhost:1234`                                                                                                       |
+| Native REST          | `/api/v1/...` (chat, load, unload, download)                                                                                                                         |
+| Auth                 | Off by default. Turn on **Require Authentication** under Developer → Server Settings, create tokens with **Manage Tokens**, and send `Authorization: Bearer <token>` |
+| CORS                 | Off by default; `lms server start --cors`                                                                                                                            |
 
 Just-in-time loading: when JIT is on, `/v1/models` lists every downloaded model, and requests load models on demand. JIT-loaded models auto-unload after a TTL. Set the TTL per model with `lms load --ttl <seconds>`.
 
@@ -59,7 +59,7 @@ Just-in-time loading: when JIT is on, `/v1/models` lists every downloaded model,
 
 - `--context-length`: set it explicitly. Agents need tens of thousands of tokens.
 - `--gpu 0-1|max|off`: fraction of layers to offload. `max` is right when the estimate fits.
-- Flash attention and KV cache quantization are in the app's per-model load settings *(unverified: exact menu location varies between versions)*.
+- Flash attention and KV cache quantization are in the app's per-model load settings _(unverified: exact menu location varies between versions)_.
 - On Apple Silicon, prefer the MLX build of a model when one exists (`lms get --mlx`).
 - Resource guardrails in the app can block loads that the estimator thinks won't fit. Fix the size; don't disable the guardrail.
 

@@ -18,12 +18,12 @@ scripts/bench.sh --base-url URL --model NAME [--runs N] [--warmup N] [--max-toke
 
 Base URLs:
 
-| Runtime | `--base-url` | `--model` |
-| --- | --- | --- |
-| Ollama | `http://127.0.0.1:11434/v1` | the tag, e.g. `qwen3:8b` |
-| LM Studio | `http://127.0.0.1:1234/v1` | the model key or the `--identifier` you loaded it with |
-| llama-server | `http://127.0.0.1:9931/v1` | the `-a` alias (or the name from `/v1/models`) |
-| mlx_lm.server | `http://127.0.0.1:8080/v1` | the HF repo / path you started it with |
+| Runtime       | `--base-url`                | `--model`                                              |
+| ------------- | --------------------------- | ------------------------------------------------------ |
+| Ollama        | `http://127.0.0.1:11434/v1` | the tag, e.g. `qwen3:8b`                               |
+| LM Studio     | `http://127.0.0.1:1234/v1`  | the model key or the `--identifier` you loaded it with |
+| llama-server  | `http://127.0.0.1:9931/v1`  | the `-a` alias (or the name from `/v1/models`)         |
+| mlx_lm.server | `http://127.0.0.1:8080/v1`  | the HF repo / path you started it with                 |
 
 Use `--key-file ~/.config/llama-server/keys` (or `LLM_API_KEY`) for servers with auth. Never pass a key inline on the command line.
 

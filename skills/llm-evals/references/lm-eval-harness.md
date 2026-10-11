@@ -51,12 +51,12 @@ Remove `--limit` only after the smoke run's samples look correct.
 - **Auth:** `local-completions` and `local-chat-completions` read the bearer token from `OPENAI_API_KEY` (empty string if unset). Export it from your own variable; never put a key in `--model_args`, which ends up in logs and result files.
 - **Model types and what they can run:**
 
-| `--model` | Endpoint | Request types | Notes |
-| --- | --- | --- | --- |
-| `local-completions` | `/v1/completions` | `generate_until`, `loglikelihood`, `loglikelihood_rolling`, `multiple_choice` | Loglikelihood needs `echo` + `logprobs` support |
-| `local-chat-completions` | `/v1/chat/completions` | `generate_until` only | Batch size forced to 1; use `--apply_chat_template` |
-| `openai-completions` / `openai-chat-completions` | OpenAI API | as above | Require `OPENAI_API_KEY` |
-| `litellm`, `litellm-chat` | via LiteLLM SDK | `generate_until` | Alternative when going through a gateway |
+| `--model`                                        | Endpoint               | Request types                                                                 | Notes                                               |
+| ------------------------------------------------ | ---------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------- |
+| `local-completions`                              | `/v1/completions`      | `generate_until`, `loglikelihood`, `loglikelihood_rolling`, `multiple_choice` | Loglikelihood needs `echo` + `logprobs` support     |
+| `local-chat-completions`                         | `/v1/chat/completions` | `generate_until` only                                                         | Batch size forced to 1; use `--apply_chat_template` |
+| `openai-completions` / `openai-chat-completions` | OpenAI API             | as above                                                                      | Require `OPENAI_API_KEY`                            |
+| `litellm`, `litellm-chat`                        | via LiteLLM SDK        | `generate_until`                                                              | Alternative when going through a gateway            |
 
 - **Logprobs requirement:** for loglikelihood tasks the harness sends `prompt`, `max_tokens: 1`, `logprobs: 1`, `echo: true` and reads prompt token logprobs. vLLM's completions endpoint supports `echo` with `logprobs`. For other servers, test with the discovery `curl` in `SKILL.md`; if logprobs are missing, restrict yourself to generative tasks.
 - **Tokenizer requirement:** loglikelihood tasks need tokenization to find the context length. `local-completions` defaults to `tokenizer_backend=auto` (uses a remote tokenizer endpoint if the server offers one, otherwise Hugging Face). Set `tokenizer=<hf-repo-or-path>` when the served model name is an alias that is not a Hugging Face repo. Chat models default to `tokenizer_backend=None`.
@@ -66,19 +66,19 @@ Remove `--limit` only after the smoke run's samples look correct.
 
 Common flags:
 
-| Flag | Use |
-| --- | --- |
-| `--tasks a,b` | Task names; `lm-eval ls tasks` lists them |
-| `--limit N` | First N examples per task; smoke runs only, never for reported numbers |
-| `--num_fewshot N` | Few-shot count; keep identical across compared runs |
-| `--apply_chat_template` | Wrap prompts in the chat template (needed for chat endpoints) |
-| `--fewshot_as_multiturn` | Few-shot examples as separate chat turns |
-| `--system_instruction "..."` | Add a system prompt |
-| `--gen_kwargs temperature=0,max_gen_toks=512` | Generation settings |
-| `--seed` | Seeds for `python,numpy,torch,fewshot` (default `0,1234,1234,1234`) |
-| `--log_samples` | Save every prompt/response for inspection |
-| `--output_path DIR` | Where results JSON (and samples) are written |
-| `--use_cache PREFIX` | SQLite cache of model responses; leave off for gate runs |
+| Flag                                          | Use                                                                    |
+| --------------------------------------------- | ---------------------------------------------------------------------- |
+| `--tasks a,b`                                 | Task names; `lm-eval ls tasks` lists them                              |
+| `--limit N`                                   | First N examples per task; smoke runs only, never for reported numbers |
+| `--num_fewshot N`                             | Few-shot count; keep identical across compared runs                    |
+| `--apply_chat_template`                       | Wrap prompts in the chat template (needed for chat endpoints)          |
+| `--fewshot_as_multiturn`                      | Few-shot examples as separate chat turns                               |
+| `--system_instruction "..."`                  | Add a system prompt                                                    |
+| `--gen_kwargs temperature=0,max_gen_toks=512` | Generation settings                                                    |
+| `--seed`                                      | Seeds for `python,numpy,torch,fewshot` (default `0,1234,1234,1234`)    |
+| `--log_samples`                               | Save every prompt/response for inspection                              |
+| `--output_path DIR`                           | Where results JSON (and samples) are written                           |
+| `--use_cache PREFIX`                          | SQLite cache of model responses; leave off for gate runs               |
 
 The CLI is installed as both `lm_eval` and `lm-eval`; the single-command form used above is the legacy-compatible form of `lm-eval run`.
 

@@ -5,7 +5,7 @@ license: MIT
 compatibility: Commands assume bash, curl and jq; ruby for YAML checks. Works with any endpoint speaking OpenAI Chat Completions, OpenAI Responses or Anthropic Messages. Pairs with the llm-gateway skill for server-side fixes.
 metadata:
   author: ScaleDockHQ
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # LLM Clients
@@ -66,52 +66,58 @@ Ask the user only for what can't be discovered: the endpoint URL they want clien
 ## Workflows
 
 ### Connect a coding agent (Claude Code, Codex CLI, OpenCode, Aider)
+
 - [ ] Confirm the endpoint serves the agent's API: Messages for Claude Code, Responses for Codex, Chat Completions for OpenCode and Aider -> `references/coding-agents.md`.
-- [ ] Copy the matching template (`templates/claude-code.env.example`, `codex-config.toml`, `opencode.json`, `aider.conf.yml`) and fill placeholders.
+- [ ] Copy the matching template (`assets/claude-code.env.example`, `codex-config.toml`, `opencode.json`, `aider.conf.yml`) and fill placeholders.
 - [ ] Put the key in an env var or key helper; set model names to gateway aliases.
 - [ ] Declare context window and capabilities where the agent needs them.
 - [ ] Run one task that edits a file (forces tool calls) and check the agent's debug output.
 
 ### Connect an IDE extension (Cursor, Continue, Cline, Roo Code, Kilo Code)
+
 - [ ] Check whether the extension calls from the machine or from a vendor cloud -> `references/ide-extensions.md`.
 - [ ] Cursor: public HTTPS endpoint only; set the OpenAI key and base URL override, add the model name.
-- [ ] Continue: `templates/continue-config.yaml` with `capabilities` and `defaultCompletionOptions.contextLength`; key via `${{ secrets.NAME }}`.
+- [ ] Continue: `assets/continue-config.yaml` with `capabilities` and `defaultCompletionOptions.contextLength`; key via `${{ secrets.NAME }}`.
 - [ ] Cline, Roo Code, Kilo Code: OpenAI Compatible provider with base URL, key, model ID, then set context window and image or tool support in model configuration.
 - [ ] Run an agent-mode task that calls a tool.
 
 ### Connect a chat UI (Open WebUI, LobeHub)
+
 - [ ] Add the endpoint as an OpenAI connection; from Docker use `host.docker.internal` for host services -> `references/chat-uis.md`.
 - [ ] Restrict the model list to the aliases you want users to see.
 - [ ] Set per-model capabilities (vision, tools, context) in the UI or env-based model list.
 - [ ] Test image upload and a tool or web-search call on capable models.
 
 ### Connect an SDK app
+
 - [ ] Pick the SDK client matching the endpoint's API; set base URL and key from env -> `references/sdks.md`.
 - [ ] For chat-only endpoints in the Vercel AI SDK, use `createOpenAICompatible` or `openai.chat()`, not the Responses default.
 - [ ] Add a tool-call integration test to CI against a staging endpoint.
 
 ### Fix model detection and capabilities
+
 - [ ] Compare what the endpoint advertises (`/v1/models`, gateway `/v1/model/info`) with what the client shows -> `references/capabilities.md`.
 - [ ] Declare missing fields client-side; fix server-side metadata via `llm-gateway` where the client reads it.
 - [ ] Re-test tools, images and long prompts.
 
 ### Troubleshoot
+
 - [ ] Reproduce with `curl` against the same base URL, key and model name the client uses.
 - [ ] Match the symptom -> `references/troubleshooting.md`.
 - [ ] If the server is at fault (unsupported route, rejected params), switch to the `llm-gateway` skill.
 
 ## References
 
-| File | Read when |
-|---|---|
-| `references/coding-agents.md` | Claude Code, Codex CLI, OpenCode, Aider |
-| `references/ide-extensions.md` | Cursor, Continue, Cline, Roo Code, Kilo Code |
-| `references/chat-uis.md` | Open WebUI, LobeHub |
-| `references/sdks.md` | OpenAI SDK, Anthropic SDK, Vercel AI SDK |
-| `references/capabilities.md` | Context window, tools, vision, reasoning detection and fixes |
-| `references/troubleshooting.md` | Symptom to cause to fix |
+| File                            | Read when                                                    |
+| ------------------------------- | ------------------------------------------------------------ |
+| `references/coding-agents.md`   | Claude Code, Codex CLI, OpenCode, Aider                      |
+| `references/ide-extensions.md`  | Cursor, Continue, Cline, Roo Code, Kilo Code                 |
+| `references/chat-uis.md`        | Open WebUI, LobeHub                                          |
+| `references/sdks.md`            | OpenAI SDK, Anthropic SDK, Vercel AI SDK                     |
+| `references/capabilities.md`    | Context window, tools, vision, reasoning detection and fixes |
+| `references/troubleshooting.md` | Symptom to cause to fix                                      |
 
-Templates: `templates/claude-code.env.example`, `templates/claude-code-settings.json`, `templates/codex-config.toml`, `templates/opencode.json`, `templates/continue-config.yaml`, `templates/aider.conf.yml`, `templates/aider.model.metadata.json`, `templates/open-webui.env.example`.
+Templates: `assets/claude-code.env.example`, `assets/claude-code-settings.json`, `assets/codex-config.toml`, `assets/opencode.json`, `assets/continue-config.yaml`, `assets/aider.conf.yml`, `assets/aider.model.metadata.json`, `assets/open-webui.env.example`.
 
 ## Companion skills
 

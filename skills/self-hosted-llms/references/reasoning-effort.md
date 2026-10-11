@@ -10,13 +10,13 @@ custom gateway code.
 
 There is no common value set. Check each model's card and chat template; typical families:
 
-| Model family | Control | Values |
-| --- | --- | --- |
-| gpt-oss | `reasoning_effort` (top-level request field) | `low`, `medium`, `high` |
-| Qwen3-style templates | `chat_template_kwargs.enable_thinking` | `true` (default) / `false` |
-| DeepSeek-V3.1, IBM Granite 3.2 | `chat_template_kwargs.thinking` | `false` (default) / `true` |
-| Gemma 4 | `chat_template_kwargs.enable_thinking`, or any `reasoning_effort` | off by default |
-| Non-reasoning models | none | the field should be removed |
+| Model family                   | Control                                                           | Values                      |
+| ------------------------------ | ----------------------------------------------------------------- | --------------------------- |
+| gpt-oss                        | `reasoning_effort` (top-level request field)                      | `low`, `medium`, `high`     |
+| Qwen3-style templates          | `chat_template_kwargs.enable_thinking`                            | `true` (default) / `false`  |
+| DeepSeek-V3.1, IBM Granite 3.2 | `chat_template_kwargs.thinking`                                   | `false` (default) / `true`  |
+| Gemma 4                        | `chat_template_kwargs.enable_thinking`, or any `reasoning_effort` | off by default              |
+| Non-reasoning models           | none                                                              | the field should be removed |
 
 Engine behaviour on top of that:
 
@@ -55,7 +55,7 @@ alias per key that runs the **same** process with fields forced, so variants cos
           enable_thinking: false
 ```
 
-Then one LiteLLM entry per public variant (`templates/litellm-config.yaml`):
+Then one LiteLLM entry per public variant (`assets/litellm-config.yaml`):
 
 ```yaml
 - model_name: gpt-oss-high

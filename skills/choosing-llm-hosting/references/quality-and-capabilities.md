@@ -27,19 +27,19 @@ Hand the method, scoring and quality gates to `llm-evals`.
 
 Check each item against the actual model and serving path you plan to use. An open model may support a feature while a given provider or engine does not expose it.
 
-| Capability | What to verify |
-| --- | --- |
-| Tool / function calling | Parallel calls, `tool_choice`, streaming tool calls. Self-hosted engines often need explicit flags (vLLM: `--enable-auto-tool-choice` with the right `--tool-call-parser`). |
-| Structured output | JSON schema enforcement vs "JSON mode". Constrained decoding support in the engine or API. |
-| Vision / multimodal | Image and document input, number of images, resolution limits. |
-| Long context | Advertised vs usable context. Memory cost of KV cache on self-hosted hardware. Quality at the far end of the window. |
-| Reasoning | Thinking or reasoning modes, how reasoning tokens are billed, whether reasoning content is returned. |
-| API shape | OpenAI Chat Completions, OpenAI Responses, Anthropic Messages. Coding agents may require a specific one. vLLM serves OpenAI-compatible routes and also implements the Anthropic Messages API; a gateway can bridge the rest (`llm-gateway`). |
-| Embeddings and reranking | Separate models; often cheaper to self-host. |
-| Batch | Batch APIs exist on OpenAI, Anthropic and Gemini; self-hosted engines batch internally. |
-| Prompt caching | Automatic on OpenAI and Gemini 2.5+ models, `cache_control` on Anthropic; prefix caching in vLLM and similar engines. |
-| Fine-tuning | Possible on open weights (any tier that runs your weights); limited or unavailable for frontier models. See `fine-tuning-llms`. |
-| Determinism and versioning | Can you pin an exact model version? How much notice before deprecation? |
+| Capability                 | What to verify                                                                                                                                                                                                                               |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tool / function calling    | Parallel calls, `tool_choice`, streaming tool calls. Self-hosted engines often need explicit flags (vLLM: `--enable-auto-tool-choice` with the right `--tool-call-parser`).                                                                  |
+| Structured output          | JSON schema enforcement vs "JSON mode". Constrained decoding support in the engine or API.                                                                                                                                                   |
+| Vision / multimodal        | Image and document input, number of images, resolution limits.                                                                                                                                                                               |
+| Long context               | Advertised vs usable context. Memory cost of KV cache on self-hosted hardware. Quality at the far end of the window.                                                                                                                         |
+| Reasoning                  | Thinking or reasoning modes, how reasoning tokens are billed, whether reasoning content is returned.                                                                                                                                         |
+| API shape                  | OpenAI Chat Completions, OpenAI Responses, Anthropic Messages. Coding agents may require a specific one. vLLM serves OpenAI-compatible routes and also implements the Anthropic Messages API; a gateway can bridge the rest (`llm-gateway`). |
+| Embeddings and reranking   | Separate models; often cheaper to self-host.                                                                                                                                                                                                 |
+| Batch                      | Batch APIs exist on OpenAI, Anthropic and Gemini; self-hosted engines batch internally.                                                                                                                                                      |
+| Prompt caching             | Automatic on OpenAI and Gemini 2.5+ models, `cache_control` on Anthropic; prefix caching in vLLM and similar engines.                                                                                                                        |
+| Fine-tuning                | Possible on open weights (any tier that runs your weights); limited or unavailable for frontier models. See `fine-tuning-llms`.                                                                                                              |
+| Determinism and versioning | Can you pin an exact model version? How much notice before deprecation?                                                                                                                                                                      |
 
 ## Matching quality to tiers
 

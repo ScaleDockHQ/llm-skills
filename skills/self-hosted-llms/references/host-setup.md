@@ -84,7 +84,7 @@ Follow NVIDIA's "Connect two Sparks" playbook; the same steps work for other Con
      version: 2
      ethernets:
        <cx7-iface>:
-         addresses: [10.0.0.1/24]   # 10.0.0.2/24 on node-b
+         addresses: [10.0.0.1/24] # 10.0.0.2/24 on node-b
          dhcp4: no
    ```
 
@@ -94,6 +94,7 @@ Follow NVIDIA's "Connect two Sparks" playbook; the same steps work for other Con
 
    `ip addr add` also works but does not survive a reboot. With two cables, address all four
    interfaces. Rollback: `sudo rm /etc/netplan/40-cx7.yaml && sudo netplan apply`.
+
 4. Exchange keys both ways: the playbook's `discover-sparks` script, or
    `ssh-copy-id -i ~/.ssh/id_ed25519.pub llm@10.0.0.2` (and the reverse from node-b).
 5. Verify without a prompt from each side: `ssh 10.0.0.2 hostname`, `ssh 10.0.0.1 hostname`.
@@ -116,9 +117,9 @@ Add `node-b` as a host alias in `~/.ssh/config` so commands in this skill (`ssh 
 sudo install -d -m 755 -o root -g root /opt/llm-stack /opt/llm-stack/models.d
 sudo install -d -m 750 -o root -g llm  /etc/llm-stack
 sudo install -d -m 755 -o llm  -g llm  /var/lib/llm-stack /var/lib/llm-stack/catalog
-sudo install -m 755 templates/start-model.sh templates/common.sh /opt/llm-stack/
-sudo install -m 640 -o root -g llm templates/llama-swap.yaml /etc/llm-stack/llama-swap.yaml
-sudo install -m 640 -o root -g llm templates/litellm-config.yaml /etc/llm-stack/litellm-config.yaml
+sudo install -m 755 assets/start-model.sh assets/common.sh /opt/llm-stack/
+sudo install -m 640 -o root -g llm assets/llama-swap.yaml /etc/llm-stack/llama-swap.yaml
+sudo install -m 640 -o root -g llm assets/litellm-config.yaml /etc/llm-stack/litellm-config.yaml
 sudo install -m 600 -o root -g root /dev/null /etc/llm-stack/litellm.env  # then edit with sudoedit
 ```
 
@@ -128,10 +129,10 @@ tree to node-b (`rsync -a` then re-check owners and modes there).
 
 ## 7. systemd units
 
-Install the units from `templates/systemd/`:
+Install the units from `assets/systemd/`:
 
 ```bash
-sudo install -m 644 templates/systemd/*.service /etc/systemd/system/
+sudo install -m 644 assets/systemd/*.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable --now llama-swap.service litellm.service llm-catalog.service
 sudo systemctl enable --now cloudflared.service      # only with exposure-cloudflare.md

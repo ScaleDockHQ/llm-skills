@@ -4,7 +4,7 @@ description: Plan, set up, operate, update, benchmark, optimize and clean up a s
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.0.0"
+  version: "1.0.1"
 compatibility: Linux hosts with NVIDIA GPUs (DGX Spark first-class); Docker, NVIDIA Container Toolkit, systemd, bash, curl, jq; shell/SSH access to the nodes.
 ---
 
@@ -82,25 +82,28 @@ Rationale and the incidents behind each rule: `references/memory-safety.md` (rul
 ## Workflows
 
 ### Status
+
 - [ ] Run the discovery block above on every node; then the full checklist -> `references/status.md`
 - [ ] Report: loaded model(s), containers per node, memory/swap, disk, services, upstream drift
 - [ ] If anything is unhealthy, continue with Troubleshoot
 
 ### First-time setup (single node)
+
 - [ ] Confirm the hardware profile -> `references/hardware-dgx-spark.md` or `references/hardware-generic.md`
 - [ ] Prepare the OS, Docker, NVIDIA Container Toolkit, disk layout -> `references/host-setup.md`
 - [ ] Install earlyoom and the capped-job pattern before any large download -> `references/memory-safety.md`
 - [ ] Download the first model with a pinned revision -> `references/models-and-weights.md`
 - [ ] Get one engine serving on loopback and smoke it locally -> the engine reference
-- [ ] Put it under llama-swap with `templates/llama-swap.yaml` + `templates/start-model.sh` -> `references/llama-swap.md`
-- [ ] Add LiteLLM with `templates/litellm-config.yaml` and a master key -> `references/litellm.md`
-- [ ] Install the units from `templates/systemd/` -> `references/host-setup.md`
+- [ ] Put it under llama-swap with `assets/llama-swap.yaml` + `assets/start-model.sh` -> `references/llama-swap.md`
+- [ ] Add LiteLLM with `assets/litellm-config.yaml` and a master key -> `references/litellm.md`
+- [ ] Install the units from `assets/systemd/` -> `references/host-setup.md`
 - [ ] Build the catalog and Caddy front -> `references/model-catalog.md`
 - [ ] Expose -> `references/exposure-cloudflare.md` or `references/exposure-tailscale.md`
 - [ ] Smoke test through the public URL -> `references/smoke-test.md`
 - [ ] Record a baseline -> `references/benchmarking.md`
 
 ### First-time setup (dual node)
+
 - [ ] Everything in single node on node-a first, then:
 - [ ] Cable and address the ConnectX-7 link; passwordless SSH both ways -> `references/hardware-dgx-spark.md`, `references/host-setup.md`
 - [ ] Same user, same paths, same images (compare IDs) and same weights on node-b -> `references/models-and-weights.md`
@@ -108,6 +111,7 @@ Rationale and the incidents behind each rule: `references/memory-safety.md` (rul
 - [ ] Wrapper starts the worker on node-b before the head on node-a and stops both -> `references/adding-a-server.md`
 
 ### Add a model
+
 - [ ] Check fit and co-residence against the memory plan -> `references/hardware-dgx-spark.md` / `references/hardware-generic.md`
 - [ ] Download in a capped scope while serving continues; copy to every node -> `references/models-and-weights.md`
 - [ ] Add the llama-swap entry (group, ttl, checkEndpoint, capabilities) -> `references/llama-swap.md`
@@ -117,81 +121,90 @@ Rationale and the incidents behind each rule: `references/memory-safety.md` (rul
 - [ ] Smoke test and benchmark -> `references/smoke-test.md`, `references/benchmarking.md`
 
 ### Add a server/engine
+
 - [ ] Check the backend contract and follow the steps -> `references/adding-a-server.md`
 - [ ] Engine specifics -> the engine reference; image servers -> `references/engine-sdcpp.md`
 
 ### Update from upstream
+
 - [ ] Baseline first -> `references/benchmarking.md`
 - [ ] Run the update-check checklist (fetch, log, diff of defaults, image drift) -> `references/updating.md`
 - [ ] Download new weights while serving; announce downtime; rebuild while stopped -> `references/updating.md`
 - [ ] Same protocol after; keep the rollback image and revision until verified -> `references/updating.md`
 
 ### Benchmark
+
 - [ ] Fixed protocol with `scripts/bench.sh` against llama-swap, then through the public URL -> `references/benchmarking.md`
 
 ### Optimize
+
 - [ ] One change at a time, baseline vs candidate, quality gate when numerics change -> `references/optimization.md`
 
 ### Swap/switch
+
 - [ ] See what is loaded, unload or preload, change groups -> `references/llama-swap.md`
 - [ ] Cold swaps longer than the proxy timeout -> `references/exposure-cloudflare.md`
 
 ### Expose
+
 - [ ] Cloudflare Tunnel as a systemd service, path-based ingress, Access only on dashboards -> `references/exposure-cloudflare.md`
 - [ ] Tailscale Serve for tailnet-only -> `references/exposure-tailscale.md`
 - [ ] Re-run the smoke test through the new URL -> `references/smoke-test.md`
 
 ### Connect a client
+
 - [ ] Base URL, key, model names, capability flags -> `references/clients.md` (per-client depth -> `llm-clients`)
 
 ### Clean up
+
 - [ ] Verify the replacement first, then follow the safe order on both nodes -> `references/cleanup.md`
 
 ### Troubleshoot
+
 - [ ] Match the symptom -> `references/troubleshooting.md`; take a status snapshot -> `references/status.md`
 
 ## Reference index
 
-| Reference | Purpose |
-| --- | --- |
-| `references/architecture.md` | Reference stack, request path, port map, layering options |
-| `references/hardware-dgx-spark.md` | GB10 unified memory, single vs dual node, ConnectX-7, memory budgeting |
-| `references/hardware-generic.md` | Other NVIDIA Linux hosts, multi-GPU, VRAM vs UMA, rented GPU VMs |
-| `references/host-setup.md` | OS prep, Docker, NVIDIA Container Toolkit, SSH between nodes, disks, units |
-| `references/memory-safety.md` | earlyoom, capped scopes, container memory limits |
-| `references/models-and-weights.md` | Formats and quants, HF CLI, cache layout, revisions, syncing nodes |
-| `references/status.md` | Read-only status snapshot checklist |
-| `references/smoke-test.md` | curl + jq checks through the public URL |
-| `references/engine-vllm.md` | vLLM |
-| `references/engine-tensorfold.md` | TensorFold and DGX Spark recipes |
-| `references/engine-exllama.md` | ExLlamaV3 / EXL3 via TabbyAPI or an OpenAI server |
-| `references/engine-sglang.md` | SGLang |
-| `references/engine-trtllm.md` | TensorRT-LLM (`trtllm-serve`) |
-| `references/engine-llamacpp.md` | llama.cpp `llama-server` + GGUF |
-| `references/engine-ollama.md` | Ollama as a backend |
-| `references/engine-sdcpp.md` | stable-diffusion.cpp `sd-server`; ComfyUI alternative |
-| `references/adding-a-server.md` | Backend contract and step-by-step with worked examples |
-| `references/llama-swap.md` | Swapping, groups, timeouts, filters, hooks, API |
-| `references/litellm.md` | Stack-specific LiteLLM minimum |
-| `references/model-catalog.md` | Enriched static `/v1/models` behind Caddy forward_auth |
-| `references/reasoning-effort.md` | Per-model effort values and config-only mapping |
-| `references/exposure-cloudflare.md` | Tunnel as a service, ingress, Access, timeouts |
-| `references/exposure-tailscale.md` | Tailscale Serve, certificates, key expiry |
-| `references/monitoring-sparkdash.md` | sparkDash install, probes, allow-list, shutdown helper |
-| `references/benchmarking.md` | Fixed protocol with `scripts/bench.sh` |
-| `references/optimization.md` | Evaluating opt-ins: gain, cost, numerics, A/B, gates |
-| `references/updating.md` | Upstream update workflow, image drift, rollback |
-| `references/cleanup.md` | Safe cleanup order, HF orphans, root-owned files |
-| `references/clients.md` | Stack-specific client notes and short snippets |
-| `references/security.md` | Secrets, sudo scope, least exposure |
-| `references/troubleshooting.md` | Symptom -> cause -> fix |
-| `references/example.md` | Anonymized worked example: 2x DGX Spark, 4 models, one endpoint |
+| Reference                            | Purpose                                                                    |
+| ------------------------------------ | -------------------------------------------------------------------------- |
+| `references/architecture.md`         | Reference stack, request path, port map, layering options                  |
+| `references/hardware-dgx-spark.md`   | GB10 unified memory, single vs dual node, ConnectX-7, memory budgeting     |
+| `references/hardware-generic.md`     | Other NVIDIA Linux hosts, multi-GPU, VRAM vs UMA, rented GPU VMs           |
+| `references/host-setup.md`           | OS prep, Docker, NVIDIA Container Toolkit, SSH between nodes, disks, units |
+| `references/memory-safety.md`        | earlyoom, capped scopes, container memory limits                           |
+| `references/models-and-weights.md`   | Formats and quants, HF CLI, cache layout, revisions, syncing nodes         |
+| `references/status.md`               | Read-only status snapshot checklist                                        |
+| `references/smoke-test.md`           | curl + jq checks through the public URL                                    |
+| `references/engine-vllm.md`          | vLLM                                                                       |
+| `references/engine-tensorfold.md`    | TensorFold and DGX Spark recipes                                           |
+| `references/engine-exllama.md`       | ExLlamaV3 / EXL3 via TabbyAPI or an OpenAI server                          |
+| `references/engine-sglang.md`        | SGLang                                                                     |
+| `references/engine-trtllm.md`        | TensorRT-LLM (`trtllm-serve`)                                              |
+| `references/engine-llamacpp.md`      | llama.cpp `llama-server` + GGUF                                            |
+| `references/engine-ollama.md`        | Ollama as a backend                                                        |
+| `references/engine-sdcpp.md`         | stable-diffusion.cpp `sd-server`; ComfyUI alternative                      |
+| `references/adding-a-server.md`      | Backend contract and step-by-step with worked examples                     |
+| `references/llama-swap.md`           | Swapping, groups, timeouts, filters, hooks, API                            |
+| `references/litellm.md`              | Stack-specific LiteLLM minimum                                             |
+| `references/model-catalog.md`        | Enriched static `/v1/models` behind Caddy forward_auth                     |
+| `references/reasoning-effort.md`     | Per-model effort values and config-only mapping                            |
+| `references/exposure-cloudflare.md`  | Tunnel as a service, ingress, Access, timeouts                             |
+| `references/exposure-tailscale.md`   | Tailscale Serve, certificates, key expiry                                  |
+| `references/monitoring-sparkdash.md` | sparkDash install, probes, allow-list, shutdown helper                     |
+| `references/benchmarking.md`         | Fixed protocol with `scripts/bench.sh`                                     |
+| `references/optimization.md`         | Evaluating opt-ins: gain, cost, numerics, A/B, gates                       |
+| `references/updating.md`             | Upstream update workflow, image drift, rollback                            |
+| `references/cleanup.md`              | Safe cleanup order, HF orphans, root-owned files                           |
+| `references/clients.md`              | Stack-specific client notes and short snippets                             |
+| `references/security.md`             | Secrets, sudo scope, least exposure                                        |
+| `references/troubleshooting.md`      | Symptom -> cause -> fix                                                    |
+| `references/example.md`              | Anonymized worked example: 2x DGX Spark, 4 models, one endpoint            |
 
 Templates (copy, then edit; all hosts, ports and paths come from env vars or flags):
-`templates/llama-swap.yaml`, `templates/litellm-config.yaml`, `templates/build-catalog.sh`,
-`templates/catalog.example.json`, `templates/Caddyfile`, `templates/cloudflared-config.yml`,
-`templates/start-model.sh`, `templates/common.sh`, `templates/models.d/example-vllm.sh`,
-`templates/systemd/*.service`. Script: `scripts/bench.sh` (`--help` for usage).
+`assets/llama-swap.yaml`, `assets/litellm-config.yaml`, `assets/build-catalog.sh`,
+`assets/catalog.example.json`, `assets/Caddyfile`, `assets/cloudflared-config.yml`,
+`assets/start-model.sh`, `assets/common.sh`, `assets/models.d/example-vllm.sh`,
+`assets/systemd/*.service`. Script: `scripts/bench.sh` (`--help` for usage).
 
 ## Companion skills
 

@@ -18,16 +18,16 @@ weights_bytes ≈ parameters × bits_per_weight / 8
 
 Bits per weight for common GGUF quants, from the llama.cpp quantize README (measured on an 8B model; the ratio is similar for other sizes):
 
-| Quant | bits/weight | Notes |
-| --- | --- | --- |
-| Q8_0 | 8.50 | Near-lossless. Use it when it fits |
-| Q6_K | 6.56 | Very close to Q8_0 |
-| Q5_K_M | 5.70 | Good quality/size balance |
-| Q4_K_M | 4.89 | Common default (llama.cpp `-hf` picks it when present) |
-| IQ4_XS | 4.46 | Smaller than Q4_K_M with similar quality |
-| Q3_K_M | 4.00 | Noticeable quality loss |
-| IQ2_M | 2.93 | Only for very large models that won't fit otherwise |
-| F16 / BF16 | 16 | Unquantized |
+| Quant      | bits/weight | Notes                                                  |
+| ---------- | ----------- | ------------------------------------------------------ |
+| Q8_0       | 8.50        | Near-lossless. Use it when it fits                     |
+| Q6_K       | 6.56        | Very close to Q8_0                                     |
+| Q5_K_M     | 5.70        | Good quality/size balance                              |
+| Q4_K_M     | 4.89        | Common default (llama.cpp `-hf` picks it when present) |
+| IQ4_XS     | 4.46        | Smaller than Q4_K_M with similar quality               |
+| Q3_K_M     | 4.00        | Noticeable quality loss                                |
+| IQ2_M      | 2.93        | Only for very large models that won't fit otherwise    |
+| F16 / BF16 | 16          | Unquantized                                            |
 
 MLX quants are named by bits (`4bit`, `6bit`, `8bit`). MLX also stores scales per group, so a "4bit" MLX model takes a bit more than 4 bits per weight.
 
@@ -50,6 +50,7 @@ kv_bytes = 2 × n_layers × n_kv_heads × head_dim × context_tokens × bytes_pe
 Worked example: 32 layers, 8 KV heads, head_dim 128, 32,768 tokens, f16, 1 slot gives 2 × 32 × 8 × 128 × 32768 × 2 = 4 GiB.
 
 Notes:
+
 - Models with sliding-window or hybrid attention (for example SSM/attention mixes) need less than this formula says. Treat the formula as an upper bound.
 - Ollama: memory scales with `OLLAMA_NUM_PARALLEL` × context. KV cache quantization (`OLLAMA_KV_CACHE_TYPE=q8_0`) needs flash attention.
 - llama.cpp: `-ctk q8_0 -ctv q8_0` halves the cache. `-np` sets the number of slots.
@@ -62,16 +63,17 @@ Plan for roughly 0.5 to 2 GB for compute buffers, the CUDA/Metal context, and a 
 
 ## 4. Headroom and usable memory
 
-| Machine | Usable for the model |
-| --- | --- |
-| Discrete GPU (NVIDIA/AMD) | VRAM minus whatever the desktop already uses (`nvidia-smi` / `rocm-smi`). Leave about 1 GB free (llama.cpp's `--fit` defaults to a 1024 MiB margin per device) |
-| Apple Silicon | Unified memory, but Metal can only wire part of it by default (commonly reported as about two-thirds to three-quarters depending on RAM; Apple doesn't document the exact figure, and llama.cpp prints `recommendedMaxWorkingSetSize` at startup). Keep at least 8 GB for macOS and your apps on 32 GB+ machines. See `macos-apple-silicon.md` |
-| CPU only | System RAM minus OS/apps. Decode speed is limited by memory bandwidth |
-| Integrated GPU (Windows/Linux) | Shared RAM. The GPU may only see a BIOS-set carve-out or a driver limit |
+| Machine                        | Usable for the model                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Discrete GPU (NVIDIA/AMD)      | VRAM minus whatever the desktop already uses (`nvidia-smi` / `rocm-smi`). Leave about 1 GB free (llama.cpp's `--fit` defaults to a 1024 MiB margin per device)                                                                                                                                                                                 |
+| Apple Silicon                  | Unified memory, but Metal can only wire part of it by default (commonly reported as about two-thirds to three-quarters depending on RAM; Apple doesn't document the exact figure, and llama.cpp prints `recommendedMaxWorkingSetSize` at startup). Keep at least 8 GB for macOS and your apps on 32 GB+ machines. See `macos-apple-silicon.md` |
+| CPU only                       | System RAM minus OS/apps. Decode speed is limited by memory bandwidth                                                                                                                                                                                                                                                                          |
+| Integrated GPU (Windows/Linux) | Shared RAM. The GPU may only see a BIOS-set carve-out or a driver limit                                                                                                                                                                                                                                                                        |
 
 ## 5. Offloading layers
 
 When weights and KV cache don't fit in VRAM:
+
 - llama.cpp: `-ngl auto` (the default) together with `--fit on` picks the layer count for you. Set `-ngl N` to choose it yourself. `-ot` / `--cpu-moe` move specific tensors to the CPU.
 - Ollama: offloads automatically. `ollama ps` shows the split, for example `48%/52% CPU/GPU`.
 - LM Studio: `lms load <model> --gpu 0.5|max|off`, or the GPU offload slider in the app.

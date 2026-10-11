@@ -4,7 +4,7 @@ description: Evaluate LLMs on your own tasks against any OpenAI-compatible endpo
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.0.0"
+  version: "1.0.1"
 compatibility: Needs an OpenAI-compatible /v1 endpoint, curl and jq. promptfoo runs via npx (Node.js). lm-evaluation-harness is an upstream Python CLI (lm_eval) installed separately. Works for local, self-hosted, gateway and cloud endpoints.
 ---
 
@@ -80,14 +80,14 @@ What are you deciding?
 - [ ] Collect 20–200 real inputs from logs, tickets or user sessions; strip or replace PII before copying (see `llm-observability` privacy guidance).
 - [ ] For each item write the expected property, not the expected essay: a fact that must appear, a format, a refusal, a tool call.
 - [ ] Tag items with `metadata` (source, category, difficulty, `critical: "yes"` for must-not-regress).
-- [ ] Store as promptfoo JSONL tests, one per line; start from `templates/golden-set.example.jsonl`.
+- [ ] Store as promptfoo JSONL tests, one per line; start from `assets/golden-set.example.jsonl`.
 - [ ] Hand-run 5 items and read the outputs before trusting any automatic score.
 - [ ] Record provenance and the hold-out rule. → `references/eval-strategy.md`
 
 ### 2. Compare two models or endpoints
 
 - [ ] Confirm both model IDs via `/v1/models` on each endpoint.
-- [ ] Copy `templates/promptfooconfig.yaml`; set `BASELINE_*` and `CANDIDATE_*` env vars; keep sampling identical.
+- [ ] Copy `assets/promptfooconfig.yaml`; set `BASELINE_*` and `CANDIDATE_*` env vars; keep sampling identical.
 - [ ] `npx promptfoo@latest eval -c promptfooconfig.yaml --no-cache -o results.json -o report.html` (pin the version you verified).
 - [ ] Look at per-item flips (pass→fail and fail→pass), not only the aggregate pass rate.
 - [ ] Repeat with `--repeat` on a subset to see run-to-run noise before calling a difference real. → `references/promptfoo.md`, `references/quality-gates.md`
@@ -133,17 +133,17 @@ What are you deciding?
 
 ## Reference index
 
-| Reference | Load when |
-| --- | --- |
-| `references/eval-strategy.md` | Designing what to measure, golden sets, sizing, provenance and hold-out |
-| `references/promptfoo.md` | Writing or running promptfoo configs against OpenAI-compatible endpoints |
-| `references/lm-eval-harness.md` | Running public benchmarks against an endpoint; chat vs completions; logprobs and tokenizer requirements |
-| `references/llm-as-judge.md` | Model-graded assertions, judge selection, calibration, bias |
-| `references/quality-gates.md` | Gating quantization, speculative decoding, KV-cache dtype, engine upgrades; KL divergence vs task evals; decision record |
-| `references/regression-ci.md` | GitHub Actions workflow with promptfoo, thresholds, artifacts, self-hosted runners |
-| `references/pitfalls.md` | Contamination, temperature, chat template mismatches, reasoning tokens, truncation |
+| Reference                       | Load when                                                                                                                |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `references/eval-strategy.md`   | Designing what to measure, golden sets, sizing, provenance and hold-out                                                  |
+| `references/promptfoo.md`       | Writing or running promptfoo configs against OpenAI-compatible endpoints                                                 |
+| `references/lm-eval-harness.md` | Running public benchmarks against an endpoint; chat vs completions; logprobs and tokenizer requirements                  |
+| `references/llm-as-judge.md`    | Model-graded assertions, judge selection, calibration, bias                                                              |
+| `references/quality-gates.md`   | Gating quantization, speculative decoding, KV-cache dtype, engine upgrades; KL divergence vs task evals; decision record |
+| `references/regression-ci.md`   | GitHub Actions workflow with promptfoo, thresholds, artifacts, self-hosted runners                                       |
+| `references/pitfalls.md`        | Contamination, temperature, chat template mismatches, reasoning tokens, truncation                                       |
 
-Templates: `templates/promptfooconfig.yaml` (baseline vs candidate, OpenAI-compatible, env-driven), `templates/golden-set.example.jsonl` (promptfoo JSONL tests).
+Templates: `assets/promptfooconfig.yaml` (baseline vs candidate, OpenAI-compatible, env-driven), `assets/golden-set.example.jsonl` (promptfoo JSONL tests).
 
 ## Companion skills
 

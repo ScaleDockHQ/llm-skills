@@ -56,7 +56,7 @@ b=$(ssh node-b "docker image inspect --format '{{.Id}}' $ref")
 
 A locally built head image on node-a and a stale worker image on node-b can share a tag. The worker
 then runs different code than the head: startup hangs, version-mismatch errors, or crashes at the
-first request. `templates/common.sh` (`check_image_ids`, called from `start-model.sh` when
+first request. `assets/common.sh` (`check_image_ids`, called from `start-model.sh` when
 `MODEL_IMAGE` is set) refuses to start on a mismatch.
 
 Tag the old image before an update so rollback is one edit away:

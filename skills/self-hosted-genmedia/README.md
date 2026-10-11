@@ -27,8 +27,8 @@ npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia
 - [`references/stack-integration.md`](references/stack-integration.md): llama-swap entries and groups, `/comfyui/`, LiteLLM modes, end-to-end timeouts, auth.
 - [`references/memory-planning.md`](references/memory-planning.md): memory budgets on discrete and unified GPUs, co-resident vs swap, capped scopes, hf-xet limits.
 - [`references/licenses.md`](references/licenses.md): verified license terms for image, video and speech models and server software.
-- [`templates/llama-swap-genmedia.yaml`](templates/llama-swap-genmedia.yaml): llama-swap entries and groups for media servers.
-- [`templates/litellm-genmedia.yaml`](templates/litellm-genmedia.yaml): LiteLLM `model_list` entries for image and audio routes.
+- [`assets/llama-swap-genmedia.yaml`](assets/llama-swap-genmedia.yaml): llama-swap entries and groups for media servers.
+- [`assets/litellm-genmedia.yaml`](assets/litellm-genmedia.yaml): LiteLLM `model_list` entries for image and audio routes.
 
 ## Companion skills
 

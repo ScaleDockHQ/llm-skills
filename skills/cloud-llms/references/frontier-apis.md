@@ -8,11 +8,11 @@ Closed models consumed through the vendor's own API. Choose this tier when only 
 
 ## Setup
 
-| Provider | Native API | OpenAI-compatible base URL | Key env var (convention) | Console |
-| --- | --- | --- | --- | --- |
-| OpenAI | `https://api.openai.com/v1` (Chat Completions, Responses) | same | `OPENAI_API_KEY` | https://platform.openai.com/ |
-| Anthropic | `https://api.anthropic.com/v1/messages` (Messages) | `https://api.anthropic.com/v1/` | `ANTHROPIC_API_KEY` | https://platform.claude.com/ |
-| Google Gemini API | `generateContent` on `generativelanguage.googleapis.com` | `https://generativelanguage.googleapis.com/v1beta/openai/` | `GEMINI_API_KEY` | https://aistudio.google.com/ |
+| Provider          | Native API                                                | OpenAI-compatible base URL                                 | Key env var (convention) | Console                      |
+| ----------------- | --------------------------------------------------------- | ---------------------------------------------------------- | ------------------------ | ---------------------------- |
+| OpenAI            | `https://api.openai.com/v1` (Chat Completions, Responses) | same                                                       | `OPENAI_API_KEY`         | https://platform.openai.com/ |
+| Anthropic         | `https://api.anthropic.com/v1/messages` (Messages)        | `https://api.anthropic.com/v1/`                            | `ANTHROPIC_API_KEY`      | https://platform.claude.com/ |
+| Google Gemini API | `generateContent` on `generativelanguage.googleapis.com`  | `https://generativelanguage.googleapis.com/v1beta/openai/` | `GEMINI_API_KEY`         | https://aistudio.google.com/ |
 
 Keys:
 
@@ -30,7 +30,7 @@ curl -s "https://generativelanguage.googleapis.com/v1beta/openai/models" -H "Aut
 
 ## How it plugs into the stack
 
-- Add each provider as a deployment in LiteLLM using the native provider prefix (`openai/`, `anthropic/`, `gemini/`), with `api_key: os.environ/...`. See `templates/litellm-hybrid.yaml`.
+- Add each provider as a deployment in LiteLLM using the native provider prefix (`openai/`, `anthropic/`, `gemini/`), with `api_key: os.environ/...`. See `assets/litellm-hybrid.yaml`.
 - Clients call aliases on the gateway. Coding agents that speak the Anthropic Messages API can use the gateway's `/v1/messages` route (details in `llm-gateway`).
 - Health: there is no public health endpoint you should poll; use the gateway's health checks and the vendors' status pages.
 

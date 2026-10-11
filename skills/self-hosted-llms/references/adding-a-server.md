@@ -139,7 +139,7 @@ listening, so `/v1/models` answering means the weights are loaded. In LiteLLM us
   resets.
 - A wrapper that waits with `pgrep -f <pattern>`: the pattern matches the waiting shell itself
   (its own command line contains it), so the loop never ends. Wait on container state instead
-  (`templates/common.sh`).
+  (`assets/common.sh`).
 - Different image IDs behind the same tag on node-a and node-b (`updating.md`).
 
 ## Official links

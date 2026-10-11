@@ -56,7 +56,7 @@ npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms
 - [`references/troubleshooting.md`](references/troubleshooting.md): Symptom -> cause -> fix.
 - [`references/example.md`](references/example.md): Anonymized worked example: 2x DGX Spark, 4 models, one endpoint.
 
-Templates: [`templates/llama-swap.yaml`](templates/llama-swap.yaml), [`templates/litellm-config.yaml`](templates/litellm-config.yaml), [`templates/build-catalog.sh`](templates/build-catalog.sh), [`templates/catalog.example.json`](templates/catalog.example.json), [`templates/Caddyfile`](templates/Caddyfile), [`templates/cloudflared-config.yml`](templates/cloudflared-config.yml), [`templates/start-model.sh`](templates/start-model.sh), [`templates/common.sh`](templates/common.sh), [`templates/models.d/example-vllm.sh`](templates/models.d/example-vllm.sh), [`templates/systemd/`](templates/systemd/).
+Templates: [`assets/llama-swap.yaml`](assets/llama-swap.yaml), [`assets/litellm-config.yaml`](assets/litellm-config.yaml), [`assets/build-catalog.sh`](assets/build-catalog.sh), [`assets/catalog.example.json`](assets/catalog.example.json), [`assets/Caddyfile`](assets/Caddyfile), [`assets/cloudflared-config.yml`](assets/cloudflared-config.yml), [`assets/start-model.sh`](assets/start-model.sh), [`assets/common.sh`](assets/common.sh), [`assets/models.d/example-vllm.sh`](assets/models.d/example-vllm.sh), [`assets/systemd/`](assets/systemd/).
 
 Script: [`scripts/bench.sh`](scripts/bench.sh), a curl + jq benchmark for any OpenAI-compatible endpoint (TTFB, decode, prefill and aggregate tok/s; `--help` for usage).
 

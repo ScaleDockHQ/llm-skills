@@ -8,13 +8,13 @@ How to decide what to measure, how big the eval set should be, and how to keep i
 
 Every eval answers one question. Write it down first:
 
-| Decision | Eval type | Primary signal |
-| --- | --- | --- |
-| Which model for this product feature? | Task eval on a golden set, N providers | Pass rate on critical items, then overall |
-| Is this quantization / spec-decode / KV-dtype change safe? | A/B quality gate | Per-item flips vs baseline noise |
-| Did this prompt or code change break anything? | Regression eval in CI | No new failures on critical items |
-| How does the model compare publicly? | Standard benchmark | Benchmark metric, as context only |
-| Is the endpoint wired correctly? | Smoke eval (5–10 items) | All pass, outputs readable |
+| Decision                                                   | Eval type                              | Primary signal                            |
+| ---------------------------------------------------------- | -------------------------------------- | ----------------------------------------- |
+| Which model for this product feature?                      | Task eval on a golden set, N providers | Pass rate on critical items, then overall |
+| Is this quantization / spec-decode / KV-dtype change safe? | A/B quality gate                       | Per-item flips vs baseline noise          |
+| Did this prompt or code change break anything?             | Regression eval in CI                  | No new failures on critical items         |
+| How does the model compare publicly?                       | Standard benchmark                     | Benchmark metric, as context only         |
+| Is the endpoint wired correctly?                           | Smoke eval (5–10 items)                | All pass, outputs readable                |
 
 If the question is not on this list, it is probably a monitoring question (`llm-observability`) rather than an eval.
 

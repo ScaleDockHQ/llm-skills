@@ -8,12 +8,12 @@ Open video models are diffusion transformers that generate a short clip (seconds
 
 **Default path: ComfyUI native workflows.** ComfyUI's README lists native video support for Wan 2.1 and 2.2, LTX-Video 2 and 2.3, HunyuanVideo 1.5, Kandinsky 5 Video, CogVideoX, Cosmos Predict2 and Mochi, among others. docs.comfy.org has official template workflows and model download lists for each.
 
-| Family | Official ComfyUI tutorial | Notes from the tutorial |
-|---|---|---|
-| Wan 2.2 | [wan2_2](https://docs.comfy.org/tutorials/video/wan/wan2_2) | 5B TI2V model "should fit well on 8GB vram with the ComfyUI native offloading"; 14B T2V/I2V use separate high-noise and low-noise diffusion models; UMT5-XXL text encoder; Apache 2.0 |
-| LTX-2.3 | [ltx-2-3](https://docs.comfy.org/tutorials/video/ltx/ltx-2-3) | audio+video; six native workflows (T2V, I2V, FLF2V, image+audio→video, IC-LoRA control, ID-LoRA); checkpoint in `checkpoints/`, Gemma 3 12B text encoder |
-| HunyuanVideo 1.5 | [hunyuan-video-1-5](https://docs.comfy.org/tutorials/video/hunyuan/hunyuan-video-1-5) | 8.3B parameters, aimed at consumer GPUs (24GB VRAM), 5–10 s clips |
-| Others | [docs index](https://docs.comfy.org/llms.txt) | Wan VACE/Fun/Animate, Cosmos, Kandinsky 5, MiniMax H3 (under `tutorials/video/`) |
+| Family           | Official ComfyUI tutorial                                                             | Notes from the tutorial                                                                                                                                                               |
+| ---------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Wan 2.2          | [wan2_2](https://docs.comfy.org/tutorials/video/wan/wan2_2)                           | 5B TI2V model "should fit well on 8GB vram with the ComfyUI native offloading"; 14B T2V/I2V use separate high-noise and low-noise diffusion models; UMT5-XXL text encoder; Apache 2.0 |
+| LTX-2.3          | [ltx-2-3](https://docs.comfy.org/tutorials/video/ltx/ltx-2-3)                         | audio+video; six native workflows (T2V, I2V, FLF2V, image+audio→video, IC-LoRA control, ID-LoRA); checkpoint in `checkpoints/`, Gemma 3 12B text encoder                              |
+| HunyuanVideo 1.5 | [hunyuan-video-1-5](https://docs.comfy.org/tutorials/video/hunyuan/hunyuan-video-1-5) | 8.3B parameters, aimed at consumer GPUs (24GB VRAM), 5–10 s clips                                                                                                                     |
+| Others           | [docs index](https://docs.comfy.org/llms.txt)                                         | Wan VACE/Fun/Animate, Cosmos, Kandinsky 5, MiniMax H3 (under `tutorials/video/`)                                                                                                      |
 
 **Alternative: sd-server `vid_gen`.** stable-diffusion.cpp has docs for `wan.md`, `hunyuan_video.md` and `ltx2.md`, and its native API exposes `POST /sdcpp/v1/vid_gen` as an async job that returns one encoded container (webm by default, or animated webp / MJPG avi). Use it when you want a single binary and GGUF weights. Use ComfyUI when you want the official templates and the newest models first.
 
@@ -31,6 +31,7 @@ Video needs nothing beyond a working ComfyUI (see `comfyui.md`) on a recent vers
    ```
 
    Then move the files into `ComfyUI/models/<folder>/`. Check the `hf` CLI's current flags with `hf download --help`.
+
 3. Load the template from the UI once, run it at a small size, and export it in API format for headless use.
 
 ## Minimal working config/command

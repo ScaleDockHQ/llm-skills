@@ -23,7 +23,7 @@ ollama run <model> "Say hi"
 ollama ps                        # NAME, SIZE, PROCESSOR (100% GPU / CPU split), CONTEXT, UNTIL
 ```
 
-Custom defaults with a Modelfile (see `templates/Modelfile.example`):
+Custom defaults with a Modelfile (see `assets/Modelfile.example`):
 
 ```bash
 ollama create my-model -f ./Modelfile
@@ -32,14 +32,14 @@ ollama run my-model
 
 ## How it plugs in
 
-| Item | Value |
-| --- | --- |
-| Default bind | `127.0.0.1:11434` (`OLLAMA_HOST`) |
-| Health | `GET /` returns `Ollama is running`; `GET /api/version`; `GET /api/ps` lists loaded models |
-| OpenAI-compatible | base URL `http://localhost:11434/v1`: `/v1/chat/completions`, `/v1/completions`, `/v1/models`, `/v1/embeddings`, `/v1/responses` |
-| Anthropic-compatible | base URL `http://localhost:11434` → `/v1/messages` (`ANTHROPIC_BASE_URL=http://localhost:11434`) |
-| Native API | `/api/chat`, `/api/generate`, `/api/embed`, `/api/tags`, `/api/pull`, ... |
-| Auth | **None on the local server.** OpenAI clients need *some* `api_key` string, and Ollama ignores it |
+| Item                 | Value                                                                                                                            |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Default bind         | `127.0.0.1:11434` (`OLLAMA_HOST`)                                                                                                |
+| Health               | `GET /` returns `Ollama is running`; `GET /api/version`; `GET /api/ps` lists loaded models                                       |
+| OpenAI-compatible    | base URL `http://localhost:11434/v1`: `/v1/chat/completions`, `/v1/completions`, `/v1/models`, `/v1/embeddings`, `/v1/responses` |
+| Anthropic-compatible | base URL `http://localhost:11434` → `/v1/messages` (`ANTHROPIC_BASE_URL=http://localhost:11434`)                                 |
+| Native API           | `/api/chat`, `/api/generate`, `/api/embed`, `/api/tags`, `/api/pull`, ...                                                        |
+| Auth                 | **None on the local server.** OpenAI clients need _some_ `api_key` string, and Ollama ignores it                                 |
 
 `ollama launch` can configure and start supported integrations (Claude Code, Codex, OpenCode, VS Code, Droid) against your local Ollama. For client setup in general, see the **llm-clients** skill.
 
@@ -47,27 +47,28 @@ ollama run my-model
 
 Verified in `envconfig/config.go` and the FAQ:
 
-| Variable | Default | Purpose |
-| --- | --- | --- |
-| `OLLAMA_HOST` | `127.0.0.1:11434` | Bind address. `0.0.0.0:11434` exposes it on every interface |
-| `OLLAMA_CONTEXT_LENGTH` | 4k (<24 GiB VRAM), 32k (24–48 GiB), 256k (≥48 GiB) | Default context window. Agents and coding tools want at least 64000 |
-| `OLLAMA_KEEP_ALIVE` | `5m` | How long a model stays loaded. `-1` keeps it loaded forever, `0` unloads immediately |
-| `OLLAMA_NUM_PARALLEL` | `1` | Parallel requests per model. Memory scales with parallel × context |
-| `OLLAMA_MAX_LOADED_MODELS` | 3 × GPUs (3 on CPU) | Concurrent models |
-| `OLLAMA_MAX_QUEUE` | `512` | Queue length before 503s |
-| `OLLAMA_FLASH_ATTENTION` | auto | `1` forces it on, `0` forces it off |
-| `OLLAMA_KV_CACHE_TYPE` | `f16` | `q8_0` / `q4_0`. Global, needs flash attention |
-| `OLLAMA_MODELS` | `~/.ollama/models` (macOS), `/usr/share/ollama/.ollama/models` (Linux service), `C:\Users\%username%\.ollama\models` | Model store |
-| `OLLAMA_ORIGINS` | localhost origins | Extra CORS origins (browser extensions, web UIs) |
-| `OLLAMA_NO_CLOUD` | unset | `1` disables cloud models and web search (also `"disable_ollama_cloud": true` in `~/.ollama/server.json`) |
-| `OLLAMA_VULKAN` | enabled when available | `0` disables the Vulkan backend |
-| `OLLAMA_GPU_OVERHEAD` | `0` | Bytes of VRAM to reserve per GPU |
-| `OLLAMA_LOAD_TIMEOUT` | `5m` | How long a stalled model load may take before Ollama gives up |
-| `OLLAMA_DEBUG` | unset | `1` for verbose logs |
+| Variable                   | Default                                                                                                              | Purpose                                                                                                   |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `OLLAMA_HOST`              | `127.0.0.1:11434`                                                                                                    | Bind address. `0.0.0.0:11434` exposes it on every interface                                               |
+| `OLLAMA_CONTEXT_LENGTH`    | 4k (<24 GiB VRAM), 32k (24–48 GiB), 256k (≥48 GiB)                                                                   | Default context window. Agents and coding tools want at least 64000                                       |
+| `OLLAMA_KEEP_ALIVE`        | `5m`                                                                                                                 | How long a model stays loaded. `-1` keeps it loaded forever, `0` unloads immediately                      |
+| `OLLAMA_NUM_PARALLEL`      | `1`                                                                                                                  | Parallel requests per model. Memory scales with parallel × context                                        |
+| `OLLAMA_MAX_LOADED_MODELS` | 3 × GPUs (3 on CPU)                                                                                                  | Concurrent models                                                                                         |
+| `OLLAMA_MAX_QUEUE`         | `512`                                                                                                                | Queue length before 503s                                                                                  |
+| `OLLAMA_FLASH_ATTENTION`   | auto                                                                                                                 | `1` forces it on, `0` forces it off                                                                       |
+| `OLLAMA_KV_CACHE_TYPE`     | `f16`                                                                                                                | `q8_0` / `q4_0`. Global, needs flash attention                                                            |
+| `OLLAMA_MODELS`            | `~/.ollama/models` (macOS), `/usr/share/ollama/.ollama/models` (Linux service), `C:\Users\%username%\.ollama\models` | Model store                                                                                               |
+| `OLLAMA_ORIGINS`           | localhost origins                                                                                                    | Extra CORS origins (browser extensions, web UIs)                                                          |
+| `OLLAMA_NO_CLOUD`          | unset                                                                                                                | `1` disables cloud models and web search (also `"disable_ollama_cloud": true` in `~/.ollama/server.json`) |
+| `OLLAMA_VULKAN`            | enabled when available                                                                                               | `0` disables the Vulkan backend                                                                           |
+| `OLLAMA_GPU_OVERHEAD`      | `0`                                                                                                                  | Bytes of VRAM to reserve per GPU                                                                          |
+| `OLLAMA_LOAD_TIMEOUT`      | `5m`                                                                                                                 | How long a stalled model load may take before Ollama gives up                                             |
+| `OLLAMA_DEBUG`             | unset                                                                                                                | `1` for verbose logs                                                                                      |
 
 `ollama serve --help` lists all of them for the installed version.
 
 Where to set them:
+
 - **macOS app:** `launchctl setenv OLLAMA_CONTEXT_LENGTH 32768`, then quit and reopen Ollama. These values don't survive a reboot.
 - **Linux service:** `sudo systemctl edit ollama`, add `[Service]` / `Environment="OLLAMA_CONTEXT_LENGTH=32768"`, then `sudo systemctl daemon-reload && sudo systemctl restart ollama`.
 - **Windows:** quit from the tray, set the user environment variable, then start Ollama from the Start menu.

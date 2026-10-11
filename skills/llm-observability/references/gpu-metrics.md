@@ -67,14 +67,14 @@ docker run -d --rm --name dcgm-exporter --gpus all --cap-add SYS_ADMIN -p 9400:9
 
 What to read:
 
-| Question | Metric |
-| --- | --- |
-| Is the GPU busy? | `DCGM_FI_PROF_GR_ENGINE_ACTIVE` (better than `DCGM_FI_DEV_GPU_UTIL`, which only means "a kernel was running") |
-| Are tensor cores used? | `DCGM_FI_PROF_PIPE_TENSOR_ACTIVE` |
-| Memory-bandwidth bound (decode)? | `DCGM_FI_PROF_DRAM_ACTIVE` |
-| Memory headroom | `DCGM_FI_DEV_FB_USED`, `DCGM_FI_DEV_FB_FREE` (discrete GPUs only, see below) |
-| Thermal / power | `DCGM_FI_DEV_GPU_TEMP`, `DCGM_FI_DEV_POWER_USAGE` |
-| Hardware faults | `DCGM_FI_DEV_XID_ERRORS` (last XID value; non-zero means investigate) |
+| Question                         | Metric                                                                                                        |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Is the GPU busy?                 | `DCGM_FI_PROF_GR_ENGINE_ACTIVE` (better than `DCGM_FI_DEV_GPU_UTIL`, which only means "a kernel was running") |
+| Are tensor cores used?           | `DCGM_FI_PROF_PIPE_TENSOR_ACTIVE`                                                                             |
+| Memory-bandwidth bound (decode)? | `DCGM_FI_PROF_DRAM_ACTIVE`                                                                                    |
+| Memory headroom                  | `DCGM_FI_DEV_FB_USED`, `DCGM_FI_DEV_FB_FREE` (discrete GPUs only, see below)                                  |
+| Thermal / power                  | `DCGM_FI_DEV_GPU_TEMP`, `DCGM_FI_DEV_POWER_USAGE`                                                             |
+| Hardware faults                  | `DCGM_FI_DEV_XID_ERRORS` (last XID value; non-zero means investigate)                                         |
 
 Note: engines pre-allocate most GPU memory for KV cache (vLLM `--gpu-memory-utilization`), so FB used near 90%+ is normal and not an alert. Use the engine's KV-cache usage metric for real pressure.
 

@@ -65,10 +65,10 @@ models:
     cmdStop: /opt/llm-stack/start-model.sh stop qwen-coder
     proxy: http://127.0.0.1:${PORT}
     checkEndpoint: /health
-    ttl: 0               # slow cold start: let the router evict it only when needed
-    unloadTimeout: 60    # container shutdown frees memory slowly
+    ttl: 0 # slow cold start: let the router evict it only when needed
+    unloadTimeout: 60 # container shutdown frees memory slowly
     capabilities:
-      tools: true        # vLLM cannot report this; context is auto-read from max_model_len
+      tools: true # vLLM cannot report this; context is auto-read from max_model_len
 ```
 
 Put it in an exclusive group (see llama-swap.md) and raise top-level `healthCheckTimeout` above the
@@ -103,11 +103,11 @@ The inter-node traffic is unencrypted and can execute code if reached; keep it o
 - **LiteLLM entry** (no Responses bridge needed):
 
 ```yaml
-  - model_name: qwen-coder
-    litellm_params:
-      model: openai/qwen-coder
-      api_base: http://127.0.0.1:8080/v1
-      api_key: os.environ/LLAMA_SWAP_API_KEY   # any non-empty placeholder if llama-swap has no apiKeys
+- model_name: qwen-coder
+  litellm_params:
+    model: openai/qwen-coder
+    api_base: http://127.0.0.1:8080/v1
+    api_key: os.environ/LLAMA_SWAP_API_KEY # any non-empty placeholder if llama-swap has no apiKeys
 ```
 
 ## Operating

@@ -5,7 +5,7 @@ license: MIT
 compatibility: Cloud CLIs as needed (aws, gcloud, az, kubectl, helm, runpodctl, vastai, hf, modal); bash, curl, jq. Network access to the chosen providers.
 metadata:
   author: ScaleDockHQ
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Cloud LLMs
@@ -22,15 +22,15 @@ Out of scope, with the owning skill: deciding whether to use the cloud at all (`
 
 ## Cloud tiers
 
-| Tier | Use when | Reference |
-| --- | --- | --- |
-| Frontier API | Only a frontier model passes your eval | `references/frontier-apis.md` |
-| Managed open-model API | Open models, no ops team | `references/open-model-apis.md` |
-| Hyperscaler platform | Existing cloud contract, IAM, private networking, residency | `references/hyperscalers.md` |
-| Managed endpoint | Your own or fine-tuned model, managed serving | `references/managed-endpoints.md` |
-| Rented GPU VM | Run your own stack on rented hardware | `references/gpu-vms.md` |
-| Serverless GPU | Custom model, spiky traffic, cold starts acceptable | `references/serverless-gpu.md` |
-| Kubernetes | Many models or replicas, platform team, autoscaling | `references/kubernetes.md` |
+| Tier                   | Use when                                                    | Reference                         |
+| ---------------------- | ----------------------------------------------------------- | --------------------------------- |
+| Frontier API           | Only a frontier model passes your eval                      | `references/frontier-apis.md`     |
+| Managed open-model API | Open models, no ops team                                    | `references/open-model-apis.md`   |
+| Hyperscaler platform   | Existing cloud contract, IAM, private networking, residency | `references/hyperscalers.md`      |
+| Managed endpoint       | Your own or fine-tuned model, managed serving               | `references/managed-endpoints.md` |
+| Rented GPU VM          | Run your own stack on rented hardware                       | `references/gpu-vms.md`           |
+| Serverless GPU         | Custom model, spiky traffic, cold starts acceptable         | `references/serverless-gpu.md`    |
+| Kubernetes             | Many models or replicas, platform team, autoscaling         | `references/kubernetes.md`        |
 
 If the tier is not decided yet, use `choosing-llm-hosting` first.
 
@@ -102,12 +102,12 @@ From the output, note: authenticated clouds, default account/project/region, exi
 - [ ] Managed endpoint → `references/managed-endpoints.md`.
 - [ ] GPU VM: run the self-hosted stack (`self-hosted-llms`) with cloud specifics → `references/gpu-vms.md`.
 - [ ] Serverless → `references/serverless-gpu.md`.
-- [ ] Kubernetes: `templates/k8s/vllm-deployment.yaml` or `templates/k8s/kserve-inferenceservice.yaml` → `references/kubernetes.md`.
+- [ ] Kubernetes: `assets/k8s/vllm-deployment.yaml` or `assets/k8s/kserve-inferenceservice.yaml` → `references/kubernetes.md`.
 - [ ] Pin the image tag and model revision; verify `/health` and `/v1/models`.
 
 ### 4. Connect to the gateway
 
-- [ ] Add cloud entries next to local models in the same LiteLLM config: `templates/litellm-hybrid.yaml` → `references/gateway-hybrid.md`.
+- [ ] Add cloud entries next to local models in the same LiteLLM config: `assets/litellm-hybrid.yaml` → `references/gateway-hybrid.md`.
 - [ ] Map aliases clients already use; add fallbacks that respect the data floor.
 - [ ] Test each alias with a minimal request; confirm the response comes from the expected backend.
 
@@ -164,6 +164,6 @@ When something fails at any step → `references/troubleshooting.md`.
 - `references/benchmarking-cloud.md`: protocol, network latency, provider variance, `scripts/bench.sh`.
 - `references/troubleshooting.md`: symptoms, causes, fixes.
 - `references/example.md`: anonymized hybrid with a local DGX Spark primary and cloud overflow plus frontier behind one LiteLLM endpoint.
-- `templates/litellm-hybrid.yaml`, `templates/k8s/vllm-deployment.yaml`, `templates/k8s/kserve-inferenceservice.yaml`.
+- `assets/litellm-hybrid.yaml`, `assets/k8s/vllm-deployment.yaml`, `assets/k8s/kserve-inferenceservice.yaml`.
 
 Companion skills: `choosing-llm-hosting`, `self-hosted-llms`, `llm-gateway`, `llm-evals`, `llm-observability`, `llm-clients`, `local-llms`, `model-quantization`, `fine-tuning-llms`, `self-hosted-genmedia`. Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.

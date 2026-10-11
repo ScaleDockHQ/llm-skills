@@ -22,6 +22,7 @@ hf download <org>/<model> LICENSE --local-dir /tmp/lic-check 2>/dev/null; ls /tm
 ## Model families (high level; verify per repo)
 
 **Meta Llama (Llama 3.1 / 3.2 / 3.3 / 4 Community License).** Custom license, gated on the Hub. Clauses that matter for fine-tunes, quoted from the LICENSE files in meta-llama/llama-models:
+
 - If you distribute Llama Materials or derivatives, "provide a copy of this Agreement" and "prominently display 'Built with Llama'" on a related website, UI, blog post, about page, or product documentation.
 - "If you use the Llama Materials or any outputs or results of the Llama Materials to create, train, fine tune, or otherwise improve an AI model, which is distributed or made available, you shall also include 'Llama' at the beginning of any such AI model name." So a distributed fine-tune is named e.g. `Llama-<something>`.
 - A separate license is required if your (or your affiliates') products had more than 700 million monthly active users in the preceding calendar month.
@@ -29,7 +30,7 @@ hf download <org>/<model> LICENSE --local-dir /tmp/lic-check 2>/dev/null; ls /tm
 
 **Google Gemma.** Gemma models before Gemma 4 are under the Gemma Terms of Use (ai.google.dev/gemma/terms): fine-tuned weights are "Model Derivatives"; when distributing you must pass on the use restrictions (Prohibited Use Policy) and provide the terms to recipients, among other notice obligations. Gemma 4 is released under Apache 2.0 (ai.google.dev/gemma/apache_2; Gemma 4 Hub repos list `apache-2.0`). Check which applies to your exact checkpoint.
 
-**Qwen (Alibaba).** Varies by release *and size*: e.g. Qwen3-8B is `apache-2.0`, while Qwen2.5-72B-Instruct uses the custom "qwen" license and Qwen2.5-3B-Instruct the "qwen-research" license (Hub metadata). Read each repo's LICENSE.
+**Qwen (Alibaba).** Varies by release _and size_: e.g. Qwen3-8B is `apache-2.0`, while Qwen2.5-72B-Instruct uses the custom "qwen" license and Qwen2.5-3B-Instruct the "qwen-research" license (Hub metadata). Read each repo's LICENSE.
 
 **Mistral.** Varies by model: e.g. Mistral-7B-Instruct-v0.3 and Mistral-Small-3.2-24B-Instruct-2506 are `apache-2.0`; Mistral-Large-Instruct-2411 uses the Mistral Research License (MRL 0.1), which limits use of the models, derivatives and outputs to "Research Purposes" (personal, scientific or academic research, non-profit). Check each repo.
 

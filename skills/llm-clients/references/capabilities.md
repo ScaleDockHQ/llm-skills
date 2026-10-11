@@ -8,12 +8,12 @@ Clients decide how much history to send, whether to offer tools, whether to acce
 
 ## Where clients get capabilities
 
-| Source | What it carries | Who reads it |
-|---|---|---|
-| Built-in model table keyed by model name | Context, output, tools, vision, prices | Claude Code, Codex, Aider (LiteLLM model map), Continue, Cursor |
-| Client config | Whatever you declare | OpenCode, Kilo, Continue, Cline, Roo, Codex, Claude Code env, Aider metadata file, Open WebUI, LobeHub |
-| `GET /v1/models` (OpenAI shape) | `id`, `object`, `created`, `owned_by` only | Model pickers in most clients |
-| Gateway extensions (LiteLLM `/v1/model/info`, `/model_group/info`) | Full `model_info` | Few clients; use for checking, not as client input |
+| Source                                                             | What it carries                            | Who reads it                                                                                           |
+| ------------------------------------------------------------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| Built-in model table keyed by model name                           | Context, output, tools, vision, prices     | Claude Code, Codex, Aider (LiteLLM model map), Continue, Cursor                                        |
+| Client config                                                      | Whatever you declare                       | OpenCode, Kilo, Continue, Cline, Roo, Codex, Claude Code env, Aider metadata file, Open WebUI, LobeHub |
+| `GET /v1/models` (OpenAI shape)                                    | `id`, `object`, `created`, `owned_by` only | Model pickers in most clients                                                                          |
+| Gateway extensions (LiteLLM `/v1/model/info`, `/model_group/info`) | Full `model_info`                          | Few clients; use for checking, not as client input                                                     |
 
 The OpenAI `/v1/models` response has no context, tool or vision fields. A client that "auto-detects" from it only learns the names. Plan to declare capabilities client-side.
 
@@ -33,16 +33,16 @@ curl -fsS "$B/model_group/info" -H "Authorization: Bearer $LLM_API_KEY" \
 
 Per client, the fields that matter:
 
-| Client | Context | Output | Tools | Vision | Reasoning |
-|---|---|---|---|---|---|
-| Claude Code | `CLAUDE_CODE_MAX_CONTEXT_TOKENS` | `CLAUDE_CODE_MAX_OUTPUT_TOKENS` | always on | always on | `MAX_THINKING_TOKENS` |
-| Codex CLI | `model_context_window` | n/a | always on | n/a | `model_supports_reasoning_summaries`, `model_reasoning_effort` |
-| OpenCode / Kilo | `limit.context` | `limit.output` | `tool_call` | `attachment` + `modalities.input` | `reasoning` |
-| Aider | `max_input_tokens` (metadata file) | `max_output_tokens` | edit formats, not tools | n/a | `reasoning_tag`, `accepts_settings` |
-| Continue | `defaultCompletionOptions.contextLength` | `maxTokens` | `capabilities: [tool_use]` | `capabilities: [image_input]` | `defaultCompletionOptions.reasoning` |
-| Cline / Roo Code | Context Window | Max Output Tokens | Computer Use | Image Support | n/a |
-| Open WebUI | n/a (enforced by the backend) | Advanced Params (max tokens) | Function Calling Native/Legacy | Vision capability | Model controls (for example `reasoning_effort`) |
-| LobeHub | `<maxToken>` in model list | n/a | `fc` | `vision` | `reasoning` |
+| Client           | Context                                  | Output                          | Tools                          | Vision                            | Reasoning                                                      |
+| ---------------- | ---------------------------------------- | ------------------------------- | ------------------------------ | --------------------------------- | -------------------------------------------------------------- |
+| Claude Code      | `CLAUDE_CODE_MAX_CONTEXT_TOKENS`         | `CLAUDE_CODE_MAX_OUTPUT_TOKENS` | always on                      | always on                         | `MAX_THINKING_TOKENS`                                          |
+| Codex CLI        | `model_context_window`                   | n/a                             | always on                      | n/a                               | `model_supports_reasoning_summaries`, `model_reasoning_effort` |
+| OpenCode / Kilo  | `limit.context`                          | `limit.output`                  | `tool_call`                    | `attachment` + `modalities.input` | `reasoning`                                                    |
+| Aider            | `max_input_tokens` (metadata file)       | `max_output_tokens`             | edit formats, not tools        | n/a                               | `reasoning_tag`, `accepts_settings`                            |
+| Continue         | `defaultCompletionOptions.contextLength` | `maxTokens`                     | `capabilities: [tool_use]`     | `capabilities: [image_input]`     | `defaultCompletionOptions.reasoning`                           |
+| Cline / Roo Code | Context Window                           | Max Output Tokens               | Computer Use                   | Image Support                     | n/a                                                            |
+| Open WebUI       | n/a (enforced by the backend)            | Advanced Params (max tokens)    | Function Calling Native/Legacy | Vision capability                 | Model controls (for example `reasoning_effort`)                |
+| LobeHub          | `<maxToken>` in model list               | n/a                             | `fc`                           | `vision`                          | `reasoning`                                                    |
 
 ## How it plugs into the stack
 

@@ -6,13 +6,13 @@ This is not legal advice. It lists the questions to ask and where each provider 
 
 ## Classification sets the floor
 
-| Data class | Allowed tiers (typical) | Conditions |
-| --- | --- | --- |
-| Public | All | None beyond normal terms |
-| Internal | All | Paid tiers only (free tiers may train on data), no-training terms confirmed |
-| Confidential | 1-4; 5-7 with contract | No training, bounded or zero retention, DPA signed, region chosen |
-| Regulated (PHI, PCI, special-category) | 1-3; 5-7 only with BAA/DPA | Eligible service and region, zero data retention where required, audit logs |
-| Secret / air-gapped | 1-2 (3 inside an isolated tenancy you control) | No external network path at all |
+| Data class                             | Allowed tiers (typical)                        | Conditions                                                                  |
+| -------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------- |
+| Public                                 | All                                            | None beyond normal terms                                                    |
+| Internal                               | All                                            | Paid tiers only (free tiers may train on data), no-training terms confirmed |
+| Confidential                           | 1-4; 5-7 with contract                         | No training, bounded or zero retention, DPA signed, region chosen           |
+| Regulated (PHI, PCI, special-category) | 1-3; 5-7 only with BAA/DPA                     | Eligible service and region, zero data retention where required, audit logs |
+| Secret / air-gapped                    | 1-2 (3 inside an isolated tenancy you control) | No external network path at all                                             |
 
 ## Questions to answer per provider
 
@@ -46,6 +46,7 @@ Sources: https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.ht
 Sources: https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types, https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy
 
 **Open-model APIs (examples).**
+
 - Fireworks: does not log or store prompt or generation data for open models without opt-in; enterprise ZDR policy available; Responses API stores data when `store=true` (the default). https://docs.fireworks.ai/guides/security_compliance/data_handling
 - Groq: retains customer data only for features that need it (batch files for 30 days, fine-tuning artifacts) or as described on its page. https://console.groq.com/docs/your-data
 - DeepInfra: inference inputs are not stored to disk. https://docs.deepinfra.com/account/data-privacy

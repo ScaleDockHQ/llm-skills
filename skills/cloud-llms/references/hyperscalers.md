@@ -69,7 +69,7 @@ model_list:
       api_key: os.environ/AZURE_API_KEY
 ```
 
-Credentials: Bedrock uses the standard AWS credential chain (instance role, `AWS_PROFILE`, or LiteLLM's `aws_role_name` / `aws_profile_name` parameters); Vertex uses Application Default Credentials; Azure also supports Entra ID (see LiteLLM's Azure page for `azure_ad_token` and client-credential options). A fuller example is in `templates/litellm-hybrid.yaml`.
+Credentials: Bedrock uses the standard AWS credential chain (instance role, `AWS_PROFILE`, or LiteLLM's `aws_role_name` / `aws_profile_name` parameters); Vertex uses Application Default Credentials; Azure also supports Entra ID (see LiteLLM's Azure page for `azure_ad_token` and client-credential options). A fuller example is in `assets/litellm-hybrid.yaml`.
 
 ## How it plugs into the stack
 

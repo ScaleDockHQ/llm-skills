@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "organization": "ScaleDockHQ",
   "date": "October 2026",
   "abstract": "Decision guide for where LLMs should run: laptop local, owned server (DGX Spark or GPU box), rented GPU VM, serverless GPU, managed open-model API, frontier proprietary API, or hyperscaler platform (AWS Bedrock, Gemini Enterprise Agent Platform, Microsoft Foundry), with hybrid as an explicit outcome. Covers an intake checklist (data classification, quality bar, latency, volume and utilization, budget, ops capacity, compliance and residency), a decision flow, utilization break-even cost formulas, provider data-retention and residency terms, private evals, hybrid routing patterns, migration between tiers, and a decision record template.",

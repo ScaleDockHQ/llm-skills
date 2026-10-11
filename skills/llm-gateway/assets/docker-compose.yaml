@@ -10,25 +10,29 @@
 
 services:
   litellm:
-    image: ghcr.io/berriai/litellm:v1.105.0    # append @sha256:<digest> once recorded
+    image: ghcr.io/berriai/litellm:v1.105.0 # append @sha256:<digest> once recorded
     restart: unless-stopped
     command: ["--config", "/app/config.yaml", "--port", "4000"]
     ports:
-      - "127.0.0.1:4000:4000"                   # widen only behind TLS or on a private network
+      - "127.0.0.1:4000:4000" # widen only behind TLS or on a private network
     env_file:
-      - .env                                    # LITELLM_MASTER_KEY, LITELLM_SALT_KEY, provider keys
+      - .env # LITELLM_MASTER_KEY, LITELLM_SALT_KEY, provider keys
     environment:
       DATABASE_URL: postgresql://litellm:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}@db:5432/litellm
-      STORE_MODEL_IN_DB: "False"                # config.yaml is the source of truth for models
+      STORE_MODEL_IN_DB: "False" # config.yaml is the source of truth for models
     volumes:
       - ./litellm-config.yaml:/app/config.yaml:ro
     extra_hosts:
-      - "host.docker.internal:host-gateway"     # reach backends running on the Docker host
+      - "host.docker.internal:host-gateway" # reach backends running on the Docker host
     depends_on:
       db:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "python3 -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:4000/health/liveliness')\""]
+      test:
+        [
+          "CMD-SHELL",
+          'python3 -c "import urllib.request; urllib.request.urlopen(''http://127.0.0.1:4000/health/liveliness'')"',
+        ]
       interval: 30s
       timeout: 10s
       retries: 3

@@ -38,7 +38,7 @@ The `SKILL.md` overview is always loaded; the agent pulls a reference only when 
 - [`references/benchmarking-cloud.md`](references/benchmarking-cloud.md): protocol and `scripts/bench.sh`.
 - [`references/troubleshooting.md`](references/troubleshooting.md): symptom → cause → fix tables.
 - [`references/example.md`](references/example.md): anonymized hybrid with a DGX Spark primary and cloud overflow.
-- Templates: [`templates/litellm-hybrid.yaml`](templates/litellm-hybrid.yaml), [`templates/k8s/vllm-deployment.yaml`](templates/k8s/vllm-deployment.yaml), [`templates/k8s/kserve-inferenceservice.yaml`](templates/k8s/kserve-inferenceservice.yaml).
+- Templates: [`assets/litellm-hybrid.yaml`](assets/litellm-hybrid.yaml), [`assets/k8s/vllm-deployment.yaml`](assets/k8s/vllm-deployment.yaml), [`assets/k8s/kserve-inferenceservice.yaml`](assets/k8s/kserve-inferenceservice.yaml).
 
 Upstream credit: the Kubernetes templates follow [vLLM's Kubernetes guide](https://docs.vllm.ai/en/latest/deployment/k8s/) and [KServe's text generation guide](https://kserve.github.io/website/docs/model-serving/generative-inference/tasks/text-generation); gateway config follows the [LiteLLM docs](https://docs.litellm.ai/docs/proxy/configs); serverless guidance follows [runpod-workers/worker-vllm](https://github.com/runpod-workers/worker-vllm) and [Modal's vLLM example](https://modal.com/docs/examples/vllm_inference).
 

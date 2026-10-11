@@ -17,14 +17,14 @@ The official worker `runpod-workers/worker-vllm` wraps vLLM behind RunPod's queu
 1. Create a Serverless endpoint from the pre-built worker image (the README's "Option 1", recommended), or build an image with the model baked in ("Option 2").
 2. Configure with environment variables; the main ones:
 
-| Variable | Meaning |
-| --- | --- |
-| `MODEL_NAME` | Hugging Face repo ID or local path of the weights |
-| `HF_TOKEN` | Token for gated or private models (store as a RunPod secret) |
-| `MAX_MODEL_LEN` | Maximum context length (`--max-model-len`) |
-| `GPU_MEMORY_UTILIZATION` | Fraction of GPU memory for vLLM (default 0.9) |
-| `OPENAI_SERVED_MODEL_NAME_OVERRIDE` | Model name exposed on the API (`--served-model-name`) |
-| `MAX_CONCURRENCY` | Maximum concurrent requests per worker (default 30) |
+| Variable                            | Meaning                                                      |
+| ----------------------------------- | ------------------------------------------------------------ |
+| `MODEL_NAME`                        | Hugging Face repo ID or local path of the weights            |
+| `HF_TOKEN`                          | Token for gated or private models (store as a RunPod secret) |
+| `MAX_MODEL_LEN`                     | Maximum context length (`--max-model-len`)                   |
+| `GPU_MEMORY_UTILIZATION`            | Fraction of GPU memory for vLLM (default 0.9)                |
+| `OPENAI_SERVED_MODEL_NAME_OVERRIDE` | Model name exposed on the API (`--served-model-name`)        |
+| `MAX_CONCURRENCY`                   | Maximum concurrent requests per worker (default 30)          |
 
 3. Endpoint scaling settings: **active workers** (always on; removes cold starts but bills continuously), **max workers**, **idle timeout** (how long an idle worker stays up), **FlashBoot** (faster cold starts by retaining state), and cached models.
 4. Attach a network volume if you want the model cache to persist between workers (the worker's default `BASE_PATH` is `/runpod-volume`).

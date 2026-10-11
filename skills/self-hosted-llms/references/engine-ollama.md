@@ -64,7 +64,7 @@ models:
     cmdStop: /opt/llm-stack/start-model.sh stop ollama-qwen3
     proxy: http://127.0.0.1:${PORT}
     checkEndpoint: /api/version
-    useModelName: qwen3:8b       # the name Ollama knows the model by
+    useModelName: qwen3:8b # the name Ollama knows the model by
     ttl: 600
 ```
 
@@ -83,11 +83,11 @@ model load. To warm it, send an empty generate after start (`curl .../api/genera
   `model: openai/qwen3:8b`):
 
 ```yaml
-  - model_name: ollama-qwen3
-    litellm_params:
-      model: openai/ollama-qwen3
-      api_base: http://127.0.0.1:8080/v1
-      api_key: os.environ/LLAMA_SWAP_API_KEY
+- model_name: ollama-qwen3
+  litellm_params:
+    model: openai/ollama-qwen3
+    api_base: http://127.0.0.1:8080/v1
+    api_key: os.environ/LLAMA_SWAP_API_KEY
 ```
 
 ## Operating

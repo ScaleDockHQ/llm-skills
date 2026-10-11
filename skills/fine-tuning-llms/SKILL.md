@@ -4,7 +4,7 @@ description: Fine-tune open-weight LLMs locally (NVIDIA DGX Spark unified memory
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.0.0"
+  version: "1.0.1"
 compatibility: Linux with an NVIDIA GPU (x86_64 or arm64, incl. DGX Spark) for training; Docker optional. Uses Python CLIs (axolotl, trl, llama.cpp converters) via shell, plus curl, jq and optionally systemd-run for memory caps.
 ---
 
@@ -92,7 +92,7 @@ Ask only what can't be discovered:
 
 ### 4. Train
 
-- [ ] Copy `templates/axolotl-lora.yaml`; set `base_model`, data paths, `sequence_len`, `lora_r`, output dirs (`references/axolotl.md`).
+- [ ] Copy `assets/axolotl-lora.yaml`; set `base_model`, data paths, `sequence_len`, `lora_r`, output dirs (`references/axolotl.md`).
 - [ ] On shared or unified-memory machines, stop model servers or budget memory explicitly (`references/hardware.md`).
 - [ ] Launch inside `tmux` and a memory-capped scope: `systemd-run --user --scope -p MemoryMax=<cap> -p MemorySwapMax=0 -- axolotl train cfg.yaml`.
 - [ ] Watch train and eval loss; stop if eval loss rises steadily (overfitting) or loss is NaN.
@@ -150,7 +150,7 @@ Ask only what can't be discovered:
 - `references/evaluate-and-merge.md` — compare vs base, merge vs keep, merge recipes, GGUF export routes.
 - `references/serving-adapters.md` — vLLM multi-LoRA and dynamic loading, llama-server LoRA, Ollama status, LiteLLM/llama-swap wiring.
 - `references/licenses.md` — Llama, Gemma, Qwen, Mistral license checks, dataset and teacher-output terms, ship checklist.
-- `templates/axolotl-lora.yaml` — commented LoRA SFT config with held-out eval set.
+- `assets/axolotl-lora.yaml` — commented LoRA SFT config with held-out eval set.
 
 ## Companion skills
 

@@ -34,14 +34,14 @@ cloudflared tunnel create llm-stack                      # writes <tunnel-uuid>.
 cloudflared tunnel route dns llm-stack llm.example.com
 sudo install -d /etc/cloudflared
 sudo install -m 600 ~/.cloudflared/<tunnel-uuid>.json /etc/cloudflared/
-sudo install -m 644 templates/cloudflared-config.yml /etc/cloudflared/config.yml   # then edit
+sudo install -m 644 assets/cloudflared-config.yml /etc/cloudflared/config.yml   # then edit
 cloudflared --config /etc/cloudflared/config.yml tunnel ingress validate
 cloudflared --config /etc/cloudflared/config.yml tunnel ingress rule https://llm.example.com/v1/models
 sudo cloudflared --config /etc/cloudflared/config.yml service install
 sudo systemctl enable --now cloudflared
 ```
 
-The ingress in `templates/cloudflared-config.yml`:
+The ingress in `assets/cloudflared-config.yml`:
 
 1. `llm.example.com` + `path: ^/(v1/)?models/?$` -> `http://127.0.0.1:8088` (catalog front).
 2. `llm.example.com` -> `http://127.0.0.1:4000` (LiteLLM).

@@ -5,7 +5,7 @@ license: MIT
 compatibility: Commands assume bash, curl, jq and Docker Compose. Examples target the LiteLLM proxy; other gateways are covered at decision level. Works with any OpenAI-compatible backend (llama.cpp, llama-swap, vLLM, SGLang, Ollama) and hosted APIs.
 metadata:
   author: ScaleDockHQ
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # LLM Gateway
@@ -65,18 +65,21 @@ Ask the user only for what discovery can't reveal: which providers they have acc
 ## Workflows
 
 ### Choose a gateway
+
 - [ ] Run discovery; list backends, clients and the APIs each client speaks.
 - [ ] Score the options on hosting model, API coverage, keys and budgets, and ops cost -> `references/choosing-a-gateway.md`.
 - [ ] Record the choice and why in the user's repo (README or ADR), not in this skill.
 
 ### Set up LiteLLM
-- [ ] Copy `templates/docker-compose.yaml` and `templates/litellm-config.yaml`; create `.env` from `templates/litellm.env.example` with `chmod 600`.
+
+- [ ] Copy `assets/docker-compose.yaml` and `assets/litellm-config.yaml`; create `.env` from `assets/litellm.env.example` with `chmod 600`.
 - [ ] Generate master and salt keys into `.env` without printing them -> `references/litellm-setup.md`.
 - [ ] Pin the image tag; bind to `127.0.0.1` until auth and TLS are in place.
 - [ ] `docker compose up -d`, then check `/health/liveliness`, `/health/readiness` and `/v1/models`.
 - [ ] Send one chat request and one tool-call request per alias.
 
 ### Add a provider or model
+
 - [ ] Confirm the backend answers directly (`/v1/models`, one chat call) before touching the gateway.
 - [ ] Add a `model_list` entry: alias in `model_name`, provider-prefixed `model`, `api_base`, `api_key: os.environ/...` -> `references/models-and-providers.md`.
 - [ ] Fill `model_info` (context, output, capabilities) and set `drop_params` or `additional_drop_params` where the backend rejects params.
@@ -84,46 +87,51 @@ Ask the user only for what discovery can't reveal: which providers they have acc
 - [ ] Reload, list models, run the chat and tool-call smoke tests through the gateway.
 
 ### Keys and budgets
+
 - [ ] Ensure Postgres is connected (`/health/readiness` shows `"db": "connected"`); budgets are not enforced without a database.
 - [ ] Create teams, then virtual keys scoped to aliases with `max_budget`, `budget_duration`, `rpm_limit`, `tpm_limit` -> `references/keys-budgets.md`.
 - [ ] Store each key in the consumer's secret store; capture only the key alias in notes.
 
 ### Routing and fallbacks
+
 - [ ] Group deployments under one `model_name`; choose `routing_strategy` -> `references/routing-fallbacks.md`.
 - [ ] Add `fallbacks`, `context_window_fallbacks`, `num_retries`, `timeout`, `allowed_fails`, `cooldown_time`.
 - [ ] Kill one backend on purpose and verify the fallback path and cooldown.
 
 ### Bridge Anthropic and Responses clients
+
 - [ ] Anthropic clients (Claude Code, Anthropic SDK): point at the gateway root, test `/v1/messages` with `anthropic-version` header -> `references/api-bridging.md`.
 - [ ] Responses clients (Codex, OpenAI Agents SDK, AI SDK default): verify `/v1/responses` per alias; force the chat bridge for backends without `/v1/responses`.
 - [ ] Test streaming and a tool call through each bridged path.
 
 ### Upgrade
+
 - [ ] Read release notes between current and target tag; note DB migrations -> `references/operations.md`.
 - [ ] Back up Postgres; record the current image digest for rollback.
 - [ ] Bump the pinned tag, `docker compose pull && docker compose up -d`, watch logs and health.
 - [ ] Re-run smoke tests; roll back to the recorded digest on regression.
 
 ### Troubleshoot
+
 - [ ] Reproduce with `curl` against the backend directly, then through the gateway.
 - [ ] Match the symptom -> `references/troubleshooting.md`; check logs with `--detailed_debug` only temporarily.
 - [ ] For behavior that config cannot express, consider a hook -> `references/hooks-and-callbacks.md`.
 
 ## References
 
-| File | Read when |
-|---|---|
-| `references/choosing-a-gateway.md` | Comparing LiteLLM, OpenRouter, Portkey, Envoy AI Gateway, Kong, Cloudflare |
-| `references/litellm-setup.md` | Installing LiteLLM with Docker and Postgres, keys, health endpoints |
-| `references/models-and-providers.md` | Writing `model_list`, `model_info`, aliases, param dropping, passthrough |
-| `references/keys-budgets.md` | Virtual keys, teams, budgets, rate limits, rotation |
-| `references/routing-fallbacks.md` | Load balancing, retries, timeouts, fallbacks, cooldowns |
-| `references/api-bridging.md` | `/v1/messages` and `/v1/responses` clients over chat-completions backends |
-| `references/hooks-and-callbacks.md` | Logging callbacks, Prometheus, last-resort Python hooks |
-| `references/operations.md` | Pinning, upgrades, rollback, migrations, logs, backups |
-| `references/troubleshooting.md` | Symptom to cause to fix |
+| File                                 | Read when                                                                  |
+| ------------------------------------ | -------------------------------------------------------------------------- |
+| `references/choosing-a-gateway.md`   | Comparing LiteLLM, OpenRouter, Portkey, Envoy AI Gateway, Kong, Cloudflare |
+| `references/litellm-setup.md`        | Installing LiteLLM with Docker and Postgres, keys, health endpoints        |
+| `references/models-and-providers.md` | Writing `model_list`, `model_info`, aliases, param dropping, passthrough   |
+| `references/keys-budgets.md`         | Virtual keys, teams, budgets, rate limits, rotation                        |
+| `references/routing-fallbacks.md`    | Load balancing, retries, timeouts, fallbacks, cooldowns                    |
+| `references/api-bridging.md`         | `/v1/messages` and `/v1/responses` clients over chat-completions backends  |
+| `references/hooks-and-callbacks.md`  | Logging callbacks, Prometheus, last-resort Python hooks                    |
+| `references/operations.md`           | Pinning, upgrades, rollback, migrations, logs, backups                     |
+| `references/troubleshooting.md`      | Symptom to cause to fix                                                    |
 
-Templates: `templates/litellm-config.yaml`, `templates/docker-compose.yaml`, `templates/litellm.env.example`.
+Templates: `assets/litellm-config.yaml`, `assets/docker-compose.yaml`, `assets/litellm.env.example`.
 
 ## Companion skills
 

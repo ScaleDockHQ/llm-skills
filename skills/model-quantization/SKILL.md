@@ -4,7 +4,7 @@ description: Produce quantized LLM checkpoints and publish them. Covers GGUF (ll
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.0.0"
+  version: "1.0.1"
 compatibility: Linux (x86_64 or arm64 incl. NVIDIA DGX Spark) with NVIDIA GPU for EXL3, LLM Compressor and ModelOpt; macOS on Apple Silicon for MLX; GGUF works on Linux, macOS and CPU-only. Needs git, cmake, Python 3 venvs, curl, jq, and the Hugging Face hf CLI. systemd-run for memory caps on Linux.
 ---
 
@@ -49,6 +49,7 @@ hf auth whoami 2>/dev/null
 ```
 
 Then ask only what cannot be discovered:
+
 - Which base model (Hub id or local path), and which revision?
 - Which engine will serve it (llama.cpp/Ollama/LM Studio, TabbyAPI, vLLM, SGLang, TensorRT-LLM, mlx-lm), and on which hardware if not this machine?
 - Size or quality target (fits in N GB, a bit width, or "as close to BF16 as possible")?
@@ -58,15 +59,15 @@ Then ask only what cannot be discovered:
 
 ## Decision flow
 
-| Serving engine / hardware | Target format | Reference |
-|---|---|---|
-| llama.cpp, Ollama, LM Studio; CPU, Mac, mixed CPU+GPU | GGUF (imatrix for 4-bit and below) | `references/gguf.md` |
-| TabbyAPI / ExLlamaV3 on NVIDIA | EXL3 | `references/exl3.md` |
-| vLLM or SGLang on Ampere | W4A16 (GPTQ or AWQ) | `references/llm-compressor.md` |
-| vLLM or SGLang on Ada / Hopper | FP8 (or W4A16 for memory) | `references/llm-compressor.md` |
-| vLLM / SGLang / TensorRT-LLM on Blackwell or DGX Spark | NVFP4 or FP8 | `references/modelopt-nvfp4.md` or `references/llm-compressor.md` |
-| TensorRT-LLM anywhere | ModelOpt FP8 / NVFP4 | `references/modelopt-nvfp4.md` |
-| mlx-lm or LM Studio MLX on Apple Silicon | MLX | `references/mlx.md` |
+| Serving engine / hardware                              | Target format                      | Reference                                                        |
+| ------------------------------------------------------ | ---------------------------------- | ---------------------------------------------------------------- |
+| llama.cpp, Ollama, LM Studio; CPU, Mac, mixed CPU+GPU  | GGUF (imatrix for 4-bit and below) | `references/gguf.md`                                             |
+| TabbyAPI / ExLlamaV3 on NVIDIA                         | EXL3                               | `references/exl3.md`                                             |
+| vLLM or SGLang on Ampere                               | W4A16 (GPTQ or AWQ)                | `references/llm-compressor.md`                                   |
+| vLLM or SGLang on Ada / Hopper                         | FP8 (or W4A16 for memory)          | `references/llm-compressor.md`                                   |
+| vLLM / SGLang / TensorRT-LLM on Blackwell or DGX Spark | NVFP4 or FP8                       | `references/modelopt-nvfp4.md` or `references/llm-compressor.md` |
+| TensorRT-LLM anywhere                                  | ModelOpt FP8 / NVFP4               | `references/modelopt-nvfp4.md`                                   |
+| mlx-lm or LM Studio MLX on Apple Silicon               | MLX                                | `references/mlx.md`                                              |
 
 Full format-to-engine matrix and hardware notes: `references/formats.md`. If a trusted quant of the right format already exists, use it instead (`self-hosted-llms`).
 
@@ -83,6 +84,7 @@ Full format-to-engine matrix and hardware notes: `references/formats.md`. If a t
 ## Workflows
 
 ### Pick a target format
+
 - [ ] Run the discovery block; note GPU name, compute capability, RAM, disk.
 - [ ] Confirm the serving engine and hardware with the user.
 - [ ] Look up the row in the matrix and hardware notes in `references/formats.md`.
@@ -91,12 +93,14 @@ Full format-to-engine matrix and hardware notes: `references/formats.md`. If a t
 - [ ] Estimate disk and memory for the job (`references/memory-safety.md`, Plan before running).
 
 ### Convert (HF checkpoint to the tool's input)
+
 - [ ] Download the base at a pinned revision in its own capped step (`references/memory-safety.md`, Downloads).
 - [ ] GGUF: install llama.cpp and convert to BF16 GGUF (`references/gguf.md`, Install and Minimal command).
 - [ ] EXL3, LLM Compressor, ModelOpt, MLX: the tool reads the HF directory directly; install it in its own venv (`references/exl3.md`, `references/llm-compressor.md`, `references/modelopt-nvfp4.md`, `references/mlx.md`).
 - [ ] Stop or shrink serving on the node if memory is shared (`references/memory-safety.md`).
 
 ### Quantize (with calibration where applicable)
+
 - [ ] Choose calibration data: workload-like text, not your evaluation text; record it.
 - [ ] GGUF: `llama-imatrix`, then `llama-quantize` per type (`references/gguf.md`).
 - [ ] EXL3: `convert.py -b <bpw>` with a work dir (`references/exl3.md`).
@@ -106,6 +110,7 @@ Full format-to-engine matrix and hardware notes: `references/formats.md`. If a t
 - [ ] Wrap each heavy step in `systemd-run --user --scope -p MemoryMax=... -p MemorySwapMax=0` (`references/memory-safety.md`).
 
 ### Quality-check vs the base model
+
 - [ ] Serve the base and the quant the same way; run the smoke prompts (`references/quality-checks.md`, Smoke prompts).
 - [ ] GGUF: KL divergence with `llama-perplexity --kl-divergence-base` / `--kl-divergence` (`references/quality-checks.md`).
 - [ ] MLX: `mlx_lm.perplexity` with identical settings for base and quant (`references/quality-checks.md`).
@@ -113,12 +118,14 @@ Full format-to-engine matrix and hardware notes: `references/formats.md`. If a t
 - [ ] Apply the gate decided up front; drop variants that fail.
 
 ### Publish to Hugging Face
-- [ ] Write the model card from `templates/model-card.md`: `base_model`, `base_model_relation: quantized`, license, recipe, quality numbers (`references/publishing.md`).
+
+- [ ] Write the model card from `assets/model-card.md`: `base_model`, `base_model_relation: quantized`, license, recipe, quality numbers (`references/publishing.md`).
 - [ ] Copy the base license / notice files into the output folder.
 - [ ] `hf repos create <org>/<repo> --private`, then `hf upload` (`references/publishing.md`).
 - [ ] Download into a clean directory and smoke-test it; then make the repo public.
 
 ### Serve and smoke-test
+
 - [ ] Start the engine with the quant: llama-server (`references/gguf.md`), TabbyAPI (`references/exl3.md`), `vllm serve` / SGLang (`references/llm-compressor.md`, `references/modelopt-nvfp4.md`), TensorRT-LLM (`references/modelopt-nvfp4.md`), `mlx_lm.server` (`references/mlx.md`).
 - [ ] Check health and `/v1/models`, then run the smoke prompts (`references/quality-checks.md`).
 - [ ] Read the startup log for the kernel/quantization method actually used (for example NVFP4 weight-only fallback) (`references/formats.md`, Hardware notes).
@@ -135,7 +142,7 @@ Full format-to-engine matrix and hardware notes: `references/formats.md`. If a t
 - `references/quality-checks.md` — smoke prompts, KL divergence and perplexity vs base, hand-off to task evals.
 - `references/memory-safety.md` — memory/disk planning, `systemd-run` caps, hf-xet env vars, macOS limits.
 - `references/publishing.md` — `hf` CLI upload, model card metadata, license inheritance, naming.
-- `templates/model-card.md` — model card skeleton with recipe and quality sections.
+- `assets/model-card.md` — model card skeleton with recipe and quality sections.
 
 ## Companion skills
 

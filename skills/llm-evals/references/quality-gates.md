@@ -14,17 +14,17 @@ A quality gate is a pre-agreed test that a serving change must pass before it re
 - Chat template or tokenizer changes, including a new `tokenizer_config.json` from the model repo.
 - Tensor/pipeline parallel layout changes.
 
-Changes that are *not* numerics changes still need a smoke eval (routing, gateway config, timeouts).
+Changes that are _not_ numerics changes still need a smoke eval (routing, gateway config, timeouts).
 
 ## Signals: distribution metrics vs task evals
 
-| Signal | Tool | What it tells you | Limits |
-| --- | --- | --- | --- |
-| Perplexity (PPL) | `llama-perplexity` | Next-token prediction on a corpus | Not comparable across tokenizers or projects; fine-tunes can have higher PPL and better quality |
-| KL divergence (KLD) vs reference logits | `llama-perplexity --kl-divergence` | How far the candidate's token distribution moved from the reference | Needs both models locally and a large logits file; says nothing about task success |
-| Same-top-token %, Δp percentiles | same run | How often the greedy token changes; whether shifts are noise (symmetric) or degradation (skewed negative) | Same as KLD |
-| Benchmark subset | lm-evaluation-harness | Comparable public metric | Contamination; may not reflect your use |
-| Task eval on golden set | promptfoo | Whether *your* outputs still pass | Smaller sample, needs a good set |
+| Signal                                  | Tool                               | What it tells you                                                                                         | Limits                                                                                          |
+| --------------------------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Perplexity (PPL)                        | `llama-perplexity`                 | Next-token prediction on a corpus                                                                         | Not comparable across tokenizers or projects; fine-tunes can have higher PPL and better quality |
+| KL divergence (KLD) vs reference logits | `llama-perplexity --kl-divergence` | How far the candidate's token distribution moved from the reference                                       | Needs both models locally and a large logits file; says nothing about task success              |
+| Same-top-token %, Δp percentiles        | same run                           | How often the greedy token changes; whether shifts are noise (symmetric) or degradation (skewed negative) | Same as KLD                                                                                     |
+| Benchmark subset                        | lm-evaluation-harness              | Comparable public metric                                                                                  | Contamination; may not reflect your use                                                         |
+| Task eval on golden set                 | promptfoo                          | Whether _your_ outputs still pass                                                                         | Smaller sample, needs a good set                                                                |
 
 Use distribution metrics as an **early, cheap screen** (reject clearly bad quants fast) and task evals as the **decision**. A low KLD does not prove task quality; a high one is a strong reason to stop.
 
@@ -45,7 +45,7 @@ For non-GGUF engines, run the same golden set and a benchmark subset through the
 
 1. **Freeze the baseline.** Current production model, quant, engine version, flags and chat template. Record them.
 2. **One change at a time.** The candidate differs in exactly one numerics dimension.
-3. **Identical requests.** Same golden-set version, prompts, system prompt, chat template, `temperature`, `top_p`, `max_tokens`, `seed`, stop sequences. Use one promptfoo config with two providers (`templates/promptfooconfig.yaml`).
+3. **Identical requests.** Same golden-set version, prompts, system prompt, chat template, `temperature`, `top_p`, `max_tokens`, `seed`, stop sequences. Use one promptfoo config with two providers (`assets/promptfooconfig.yaml`).
 4. **Greedy where possible.** Use `temperature: 0` for gate runs so differences come from numerics, not sampling. If production samples, add a second run at production settings with `--repeat`.
 5. **Measure noise.** Run baseline vs baseline (two runs, or `--repeat 3` on a subset). Batching and scheduling make many engines non-deterministic even at temperature 0; vLLM only guarantees reproducibility with batch invariance enabled (`VLLM_BATCH_INVARIANT=1`) on the same hardware and version. The baseline-vs-baseline flip count is your noise floor.
 6. **Run the candidate** with `--no-cache` and capture `results.jsonl` per provider.
@@ -71,7 +71,8 @@ Store next to the results (markdown in the repo or the ticket):
 
 ```markdown
 # Quality gate: <change summary>
-- Date: <YYYY-MM-DD>            Owner: <name>
+
+- Date: <YYYY-MM-DD> Owner: <name>
 - Decision: PASS | FAIL | PASS WITH CONDITIONS
 - Baseline: <model id>, <quant>, <engine + version>, <key flags>, chat template <hash or version>
 - Candidate: <same fields; highlight the one change>

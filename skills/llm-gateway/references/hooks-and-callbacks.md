@@ -14,10 +14,10 @@ Callbacks observe traffic (logging, metrics, tracing). Hooks change it (rewrite 
 
 ```yaml
 litellm_settings:
-  callbacks: ["prometheus", "otel"]      # run on success and failure
+  callbacks: ["prometheus", "otel"] # run on success and failure
   # success_callback: ["langfuse"]       # success only
   # failure_callback: ["langfuse"]       # failure only
-  turn_off_message_logging: true         # log metadata, not prompts or completions
+  turn_off_message_logging: true # log metadata, not prompts or completions
 ```
 
 - Each integration reads its own env vars (for example Langfuse keys, OpenTelemetry exporter settings). Put them in the env file, never in YAML.
@@ -38,17 +38,17 @@ Hooks are methods on a `CustomLogger` subclass in a Python file mounted into the
 
 ```yaml
 litellm_settings:
-  callbacks: custom_callbacks.proxy_handler_instance   # file custom_callbacks.py, object proxy_handler_instance
+  callbacks: custom_callbacks.proxy_handler_instance # file custom_callbacks.py, object proxy_handler_instance
 ```
 
-| Hook | Runs | Typical use |
-|---|---|---|
-| `async_pre_call_hook` | Before the provider call | Rewrite or reject requests |
-| `async_moderation_hook` | In parallel with the call | Input checks without added latency |
-| `async_post_call_success_hook` | After a non-streaming success | Rewrite responses |
-| `async_post_call_streaming_hook` / `..._iterator_hook` | On streaming output | Stream filters |
-| `async_post_call_failure_hook` | After a failure | Friendlier client errors |
-| `async_filter_listed_models` | On model listing routes | Hide models per caller |
+| Hook                                                   | Runs                          | Typical use                        |
+| ------------------------------------------------------ | ----------------------------- | ---------------------------------- |
+| `async_pre_call_hook`                                  | Before the provider call      | Rewrite or reject requests         |
+| `async_moderation_hook`                                | In parallel with the call     | Input checks without added latency |
+| `async_post_call_success_hook`                         | After a non-streaming success | Rewrite responses                  |
+| `async_post_call_streaming_hook` / `..._iterator_hook` | On streaming output           | Stream filters                     |
+| `async_post_call_failure_hook`                         | After a failure               | Friendlier client errors           |
+| `async_filter_listed_models`                           | On model listing routes       | Hide models per caller             |
 
 Minimal pre-call hook, only if no config option covers the need (adapted from the call hooks doc):
 

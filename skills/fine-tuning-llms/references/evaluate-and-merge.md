@@ -21,12 +21,12 @@ Record: base model + revision, dataset hash, config file, commit/version of trai
 
 ## Merge or keep the adapter?
 
-| Keep adapter separate | Merge into base |
-|---|---|
-| Several fine-tunes share one base (multi-LoRA serving in vLLM / llama-server) | One model, one deployment |
-| Adapter is small (MBs) and easy to ship/roll back | Target runtime lacks adapter support (current Ollama, many hosted endpoints) |
-| You'll keep iterating | You'll quantize the result (quantize *after* merging) |
-| Base license or terms make redistributing merged weights awkward | Lowest inference overhead |
+| Keep adapter separate                                                         | Merge into base                                                              |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| Several fine-tunes share one base (multi-LoRA serving in vLLM / llama-server) | One model, one deployment                                                    |
+| Adapter is small (MBs) and easy to ship/roll back                             | Target runtime lacks adapter support (current Ollama, many hosted endpoints) |
+| You'll keep iterating                                                         | You'll quantize the result (quantize _after_ merging)                        |
+| Base license or terms make redistributing merged weights awkward              | Lowest inference overhead                                                    |
 
 ## Merge recipes
 

@@ -29,19 +29,19 @@ Any OpenAI-compatible server is reached through the OpenAI provider by changing 
 # yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
 description: Smoke test against an OpenAI-compatible endpoint
 prompts:
-  - '{{question}}'
+  - "{{question}}"
 providers:
-  - id: openai:chat:my-model            # model ID exactly as listed by GET /v1/models
+  - id: openai:chat:my-model # model ID exactly as listed by GET /v1/models
     label: candidate
     config:
-      apiBaseUrl: '{{ env.LLM_BASE_URL }}'   # the /v1 root, e.g. http://localhost:8000/v1
-      apiKeyEnvar: LLM_API_KEY               # name of the env var holding the key
+      apiBaseUrl: "{{ env.LLM_BASE_URL }}" # the /v1 root, e.g. http://localhost:8000/v1
+      apiKeyEnvar: LLM_API_KEY # name of the env var holding the key
       temperature: 0
       max_tokens: 512
       seed: 1234
 tests:
   - vars:
-      question: 'What is the capital of France?'
+      question: "What is the capital of France?"
     assert:
       - type: icontains
         value: Paris
@@ -56,7 +56,7 @@ npx promptfoo@0.124.1 eval -c promptfooconfig.yaml --no-cache
 npx promptfoo@0.124.1 view            # local web viewer
 ```
 
-A fuller two-provider template is in `templates/promptfooconfig.yaml`.
+A fuller two-provider template is in `assets/promptfooconfig.yaml`.
 
 ## How it plugs into the stack
 
@@ -71,21 +71,21 @@ A fuller two-provider template is in `templates/promptfooconfig.yaml`.
 
 Useful `eval` flags (all from the CLI reference):
 
-| Flag | Use |
-| --- | --- |
-| `-c, --config <paths...>` | Config file(s) |
-| `-o, --output <paths...>` | `results.json`, `results.jsonl`, `report.html`, `results.junit.xml`, `.csv`, `.yaml` |
-| `--no-cache` | Do not read/write the response cache; use for gate runs |
-| `--repeat <n>` | Run each test n times (noise estimation) |
-| `-j, --max-concurrency <n>` | Concurrent API calls; lower it for single-GPU servers |
-| `--filter-providers <regex>` | Run only providers whose id or label matches |
-| `--filter-metadata key=value` | Run a slice of the golden set |
-| `--filter-first-n <n>`, `--filter-sample <n>` + `--filter-sample-seed <n>` | Quick subsets |
-| `--filter-failing <path or id>` | Re-run only previously failing tests |
-| `--retry-errors` | Retry ERROR rows from the latest eval |
-| `--env-file <path>` | Load a `.env` file |
-| `--no-share` | Never create a share URL |
-| `--description <text>` | Label the run |
+| Flag                                                                       | Use                                                                                  |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `-c, --config <paths...>`                                                  | Config file(s)                                                                       |
+| `-o, --output <paths...>`                                                  | `results.json`, `results.jsonl`, `report.html`, `results.junit.xml`, `.csv`, `.yaml` |
+| `--no-cache`                                                               | Do not read/write the response cache; use for gate runs                              |
+| `--repeat <n>`                                                             | Run each test n times (noise estimation)                                             |
+| `-j, --max-concurrency <n>`                                                | Concurrent API calls; lower it for single-GPU servers                                |
+| `--filter-providers <regex>`                                               | Run only providers whose id or label matches                                         |
+| `--filter-metadata key=value`                                              | Run a slice of the golden set                                                        |
+| `--filter-first-n <n>`, `--filter-sample <n>` + `--filter-sample-seed <n>` | Quick subsets                                                                        |
+| `--filter-failing <path or id>`                                            | Re-run only previously failing tests                                                 |
+| `--retry-errors`                                                           | Retry ERROR rows from the latest eval                                                |
+| `--env-file <path>`                                                        | Load a `.env` file                                                                   |
+| `--no-share`                                                               | Never create a share URL                                                             |
+| `--description <text>`                                                     | Label the run                                                                        |
 
 Exit codes: `0` all passed, `100` at least one failure or pass rate below `PROMPTFOO_PASS_RATE_THRESHOLD` (percentage; default 100), `1` other errors. Override the failure code with `PROMPTFOO_FAILED_TEST_EXIT_CODE`.
 

@@ -29,7 +29,7 @@ providers:
   - id: openai:chat:baseline-model
     label: baseline
     config:
-      apiBaseUrl: '{{ env.BASELINE_BASE_URL }}'
+      apiBaseUrl: "{{ env.BASELINE_BASE_URL }}"
       apiKeyEnvar: BASELINE_API_KEY
       # Identical sampling on both sides is the whole point of the comparison.
       temperature: 0
@@ -41,7 +41,7 @@ providers:
   - id: openai:chat:candidate-model
     label: candidate
     config:
-      apiBaseUrl: '{{ env.CANDIDATE_BASE_URL }}'
+      apiBaseUrl: "{{ env.CANDIDATE_BASE_URL }}"
       apiKeyEnvar: CANDIDATE_API_KEY
       temperature: 0
       top_p: 1
@@ -58,7 +58,7 @@ defaultTest:
   # Applied to every test in addition to its own assertions.
   assert:
     - type: not-icontains
-      value: '<think>'
+      value: "<think>"
       metric: format
     - type: javascript
       value: output.trim().length > 0

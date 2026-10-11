@@ -30,7 +30,7 @@ npx skills add ScaleDockHQ/llms-skills --skill llm-gateway
 - [`references/operations.md`](references/operations.md): pinning, upgrades and rollback, migrations, backups, logs.
 - [`references/troubleshooting.md`](references/troubleshooting.md): symptom to cause to fix.
 
-Templates: [`templates/litellm-config.yaml`](templates/litellm-config.yaml), [`templates/docker-compose.yaml`](templates/docker-compose.yaml), [`templates/litellm.env.example`](templates/litellm.env.example).
+Templates: [`assets/litellm-config.yaml`](assets/litellm-config.yaml), [`assets/docker-compose.yaml`](assets/docker-compose.yaml), [`assets/litellm.env.example`](assets/litellm.env.example).
 
 ## Companion skills
 

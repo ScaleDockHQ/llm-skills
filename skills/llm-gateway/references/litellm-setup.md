@@ -8,7 +8,7 @@ The LiteLLM proxy is a self-hosted gateway that exposes OpenAI-compatible, OpenA
 
 ## Install
 
-Docker Compose with Postgres is the recommended single-host install. Start from `templates/docker-compose.yaml` and `templates/litellm-config.yaml`.
+Docker Compose with Postgres is the recommended single-host install. Start from `assets/docker-compose.yaml` and `assets/litellm-config.yaml`.
 
 Images are published at `ghcr.io/berriai/litellm` (mirrored at `docker.litellm.ai/berriai/litellm`). Since 1.84.0 stable releases use plain semver tags, published both bare (`1.105.0`) and `v`-prefixed (`v1.105.0`). Upstream examples still show `main-stable` or `latest`; pin a release tag instead.
 
@@ -39,7 +39,7 @@ LITELLM_MASTER_KEY="$(grep '^LITELLM_MASTER_KEY=' .env | cut -d= -f2-)"; export 
 model_list:
   - model_name: chat-local
     litellm_params:
-      model: openai/local-model          # openai/ prefix = generic OpenAI-compatible backend
+      model: openai/local-model # openai/ prefix = generic OpenAI-compatible backend
       api_base: http://127.0.0.1:8080/v1 # include /v1
       api_key: "none"
     model_info:

@@ -7,6 +7,7 @@ Three fictional teams walk through the intake checklist and decision flow. Names
 ## Persona A: solo consultant with client code
 
 **Intake**
+
 - Data: confidential client source code under NDA; contracts forbid sending it to third parties without consent.
 - Quality bar: code explanation, refactoring suggestions, test generation. Frontier quality is nice but not required for most tasks.
 - Latency: interactive, inside an editor.
@@ -18,6 +19,7 @@ Three fictional teams walk through the intake checklist and decision flow. Names
 **Discovery found** a laptop with plenty of unified memory, Ollama installed, no cloud accounts.
 
 **Decision flow**
+
 1. Data floor: third-party APIs excluded for client code unless a client consents. Tiers 1-2 remain for that work.
 2. Quality: a mid-size open coding model passed their private eval on 60 real tasks from past projects (with client consent, redacted).
 3. Cost: tier 1 costs nothing extra.
@@ -29,6 +31,7 @@ Three fictional teams walk through the intake checklist and decision flow. Names
 ## Persona B: 40-person product company with a support assistant
 
 **Intake**
+
 - Data: customer support tickets, containing personal data (names, emails, order details). GDPR applies.
 - Quality bar: answer drafting and classification with retrieval. A large open model and two frontier models were candidates.
 - Latency: interactive for agents; batch for nightly ticket tagging.
@@ -40,6 +43,7 @@ Three fictional teams walk through the intake checklist and decision flow. Names
 **Discovery found** an existing Google Cloud project (gcloud authenticated), no GPUs, provider keys for one open-model API in the environment.
 
 **Decision flow**
+
 1. Data floor: personal data → providers need a DPA, no training, EU region.
 2. Quality: the large open model matched frontier on classification; frontier was clearly better on drafting tricky replies.
 3. Latency/shape: drafting is interactive; tagging is batch.
@@ -54,6 +58,7 @@ Three fictional teams walk through the intake checklist and decision flow. Names
 ## Persona C: research lab with sensitive datasets and a DGX Spark
 
 **Intake**
+
 - Data: unpublished research data and health-adjacent records under a data-use agreement that requires on-prem processing.
 - Quality bar: summarization and extraction from long documents; coding help for researchers.
 - Latency: mixed; most jobs are batch.
@@ -65,6 +70,7 @@ Three fictional teams walk through the intake checklist and decision flow. Names
 **Discovery found** a DGX Spark on the lab network (node-a, 10.0.0.1), vLLM and LiteLLM installed, an AWS account used for other work.
 
 **Decision flow**
+
 1. Data floor: regulated dataset → tier 2 only. Other work (public papers, code) has no floor.
 2. Quality: an open model on the Spark passed extraction and summarization; frontier was better for complex coding.
 3. Cost: the Spark is already owned; marginal cost is power. Burst capacity before deadlines would otherwise mean long queues.
@@ -78,4 +84,4 @@ Three fictional teams walk through the intake checklist and decision flow. Names
 
 - Requirements first; vendors only after the data floor and eval.
 - One gateway endpoint so the decision stays reversible.
-- A written record with a review date (`templates/decision-record.md`).
+- A written record with a review date (`assets/decision-record.md`).

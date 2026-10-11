@@ -26,23 +26,23 @@ On **unified memory** (NVIDIA DGX Spark / GB10: CPU and GPU share one LPDDR5x po
 
 Measure your own: load the model alone, run one representative job, and read the peak (see "Measure" below). Rough classes:
 
-| Workload | Footprint class | Notes |
-|---|---|---|
-| Whisper (ggml/faster-whisper) | small (low single-digit GB for the largest models; tiny for small ones) | co-resident candidate |
-| Kokoro-82M TTS | very small; runs on CPU | co-resident candidate |
-| SD1.5 / SDXL | small to medium | co-resident with a mid-size LLM on large-memory hosts |
-| FLUX.1 / SD3.5 Large / Qwen-Image class | medium to large: diffusion transformer plus large text encoders (T5-XXL, LLM encoders) plus VAE | sd.cpp's FLUX doc lists q8_0 ≈ 12 GB and q4_0 ≈ 6.4 GB for the diffusion model alone; encoders come on top |
-| Video (Wan 2.2 14B, HunyuanVideo 1.5, LTX-2.3) | large, with a peak during VAE decode | ComfyUI docs: Wan 2.2 5B fits "8GB vram with native offloading"; HunyuanVideo 1.5 targets 24GB-VRAM consumer GPUs. 14B two-stage models load two diffusion models |
+| Workload                                       | Footprint class                                                                                 | Notes                                                                                                                                                             |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Whisper (ggml/faster-whisper)                  | small (low single-digit GB for the largest models; tiny for small ones)                         | co-resident candidate                                                                                                                                             |
+| Kokoro-82M TTS                                 | very small; runs on CPU                                                                         | co-resident candidate                                                                                                                                             |
+| SD1.5 / SDXL                                   | small to medium                                                                                 | co-resident with a mid-size LLM on large-memory hosts                                                                                                             |
+| FLUX.1 / SD3.5 Large / Qwen-Image class        | medium to large: diffusion transformer plus large text encoders (T5-XXL, LLM encoders) plus VAE | sd.cpp's FLUX doc lists q8_0 ≈ 12 GB and q4_0 ≈ 6.4 GB for the diffusion model alone; encoders come on top                                                        |
+| Video (Wan 2.2 14B, HunyuanVideo 1.5, LTX-2.3) | large, with a peak during VAE decode                                                            | ComfyUI docs: Wan 2.2 5B fits "8GB vram with native offloading"; HunyuanVideo 1.5 targets 24GB-VRAM consumer GPUs. 14B two-stage models load two diffusion models |
 
 Text encoders are often the surprise: a T5-XXL or 12B-class LLM encoder can rival the diffusion model in size. sd-server's `--clip-on-cpu` and ComfyUI's offload modes move them off the GPU on discrete cards.
 
 ## Co-resident vs swap
 
-| Choose | When |
-|---|---|
-| **Co-resident** (llama-swap `persistent` or `swap: false` group) | the service is small (STT, TTS), latency-sensitive, and fits next to your largest LLM with headroom |
-| **Swap** (same exclusive group as the LLM) | image/video models that would push the LLM out anyway; batch or occasional use; cold-start latency is acceptable or hidden by async jobs |
-| **Separate node** | heavy video or frequent image traffic on a multi-node setup; use llama-swap `peers` or a second llama-swap behind LiteLLM |
+| Choose                                                           | When                                                                                                                                     |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **Co-resident** (llama-swap `persistent` or `swap: false` group) | the service is small (STT, TTS), latency-sensitive, and fits next to your largest LLM with headroom                                      |
+| **Swap** (same exclusive group as the LLM)                       | image/video models that would push the LLM out anyway; batch or occasional use; cold-start latency is acceptable or hidden by async jobs |
+| **Separate node**                                                | heavy video or frequent image traffic on a multi-node setup; use llama-swap `peers` or a second llama-swap behind LiteLLM                |
 
 Swapping costs a cold load on each switch, and the request that triggers it waits. Combine swapping with async jobs or a long path (see `stack-integration.md`).
 

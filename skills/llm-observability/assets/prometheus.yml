@@ -21,7 +21,7 @@ rule_files:
 storage:
   tsdb:
     retention:
-      time: 30d          # retention is a decision; default is 15d
+      time: 30d # retention is a decision; default is 15d
 
 scrape_configs:
   # vLLM: /metrics on the API port, not protected by --api-key. Keep the port private.
@@ -50,7 +50,7 @@ scrape_configs:
       type: Bearer
       credentials_file: /etc/prometheus/secrets/llamacpp-api-key
     static_configs:
-      - targets: ["node-a:9931"]        # llama-server default port; 8080 on older builds
+      - targets: ["node-a:9931"] # llama-server default port; 8080 on older builds
         labels:
           backend: llamacpp
           model: "<model-id>"

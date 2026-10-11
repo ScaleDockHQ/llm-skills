@@ -34,8 +34,8 @@ The `SKILL.md` overview is always loaded; the agent pulls a reference only when 
 
 **Templates:**
 
-- [`templates/prometheus.yml`](templates/prometheus.yml): scrape jobs for vLLM, SGLang, llama.cpp, llama-swap, LiteLLM, DCGM and node_exporter with placeholders (validated with `promtool`).
-- [`templates/alert-rules.yml`](templates/alert-rules.yml): symptom (page) and cause (warning) alerts (validated with `promtool`).
+- [`assets/prometheus.yml`](assets/prometheus.yml): scrape jobs for vLLM, SGLang, llama.cpp, llama-swap, LiteLLM, DCGM and node_exporter with placeholders (validated with `promtool`).
+- [`assets/alert-rules.yml`](assets/alert-rules.yml): symptom (page) and cause (warning) alerts (validated with `promtool`).
 
 ## Upstream credits
 

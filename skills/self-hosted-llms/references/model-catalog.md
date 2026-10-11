@@ -25,13 +25,13 @@ GET /v1/models  ->  cloudflared (path ^/(v1/)?models/?$)  ->  Caddy 127.0.0.1:80
 all other paths  -> cloudflared -> LiteLLM 127.0.0.1:4000   (Tailscale: Caddy proxies them)
 ```
 
-- `templates/build-catalog.sh` fetches LiteLLM's list with a key (from `LLM_API_KEY` or a key file,
+- `assets/build-catalog.sh` fetches LiteLLM's list with a key (from `LLM_API_KEY` or a key file,
   never printed), merges `catalog.json` by model name (and `aliases` for `model_group_alias`
   names), and writes `models.json` atomically. It warns about models with no entry (`--strict` fails).
-- `templates/catalog.example.json` shows the fields: `created` (real release date, Unix time),
+- `assets/catalog.example.json` shows the fields: `created` (real release date, Unix time),
   `name`, `description`, `context_length`, `max_model_len`, `max_output_tokens`, `capabilities`.
   Any extra key is copied through, so add what your clients read.
-- `templates/Caddyfile` does the auth check and serving; `templates/systemd/llm-catalog.service`
+- `assets/Caddyfile` does the auth check and serving; `assets/systemd/llm-catalog.service`
   runs it.
 
 Which extension fields a given client reads differs and changes between client versions: check the
@@ -42,9 +42,9 @@ own lists: vLLM `max_model_len`, TensorFold both `context_length` and `max_model
 
 ```bash
 sudo install -d -o llm -g llm /var/lib/llm-stack/catalog
-sudo install -m 644 templates/catalog.example.json /opt/llm-stack/catalog.json   # then edit
-sudo install -m 755 templates/build-catalog.sh /opt/llm-stack/
-sudo install -m 644 templates/Caddyfile /etc/llm-stack/Caddyfile
+sudo install -m 644 assets/catalog.example.json /opt/llm-stack/catalog.json   # then edit
+sudo install -m 755 assets/build-catalog.sh /opt/llm-stack/
+sudo install -m 644 assets/Caddyfile /etc/llm-stack/Caddyfile
 sudo -u llm -H sh -c 'LLM_KEY_FILE="$HOME/.config/llm-stack/catalog.key" /opt/llm-stack/build-catalog.sh'
 sudo systemctl enable --now llm-catalog
 ```

@@ -33,8 +33,8 @@ The `SKILL.md` overview is always loaded; the agent pulls a reference only when 
 
 **Templates:**
 
-- [`templates/promptfooconfig.yaml`](templates/promptfooconfig.yaml) — baseline vs candidate on two OpenAI-compatible endpoints, env-driven, identical sampling.
-- [`templates/golden-set.example.jsonl`](templates/golden-set.example.jsonl) — promptfoo JSONL tests with metadata.
+- [`assets/promptfooconfig.yaml`](assets/promptfooconfig.yaml) — baseline vs candidate on two OpenAI-compatible endpoints, env-driven, identical sampling.
+- [`assets/golden-set.example.jsonl`](assets/golden-set.example.jsonl) — promptfoo JSONL tests with metadata.
 
 ## Upstream credits
 

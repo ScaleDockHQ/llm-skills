@@ -6,13 +6,13 @@
 
 Every common OpenAI-compatible engine exposes Prometheus metrics on its HTTP port. These are the cheapest, safest signal: no prompt content, low overhead, and they answer "is it fast, is it queueing, is it full". Scrape them directly from each engine; scrape the gateway separately (see `gateway-logging.md`) for the user-facing view.
 
-| Engine | Enable | Default port | Path | Auth on `/metrics` | Prefix |
-| --- | --- | --- | --- | --- | --- |
-| vLLM | always on | 8000 | `/metrics` | **none**, even with `--api-key` | `vllm:` |
-| SGLang | `--enable-metrics` | 30000 | `/metrics` | **none**, always exempt from `--api-key` | `sglang:` |
-| llama.cpp `llama-server` | `--metrics` (env `LLAMA_ARG_ENDPOINT_METRICS`) | 9931 (8080 before b11521, incl. v0.6.0) | `/metrics` | required when `--api-key` is set | `llamacpp:` |
-| TGI | always on | container port 80 (often mapped to 8080) | `/metrics` | n/a | `tgi_` |
-| llama-swap | always on | 8080 (`-listen`) | `/metrics` | see pitfalls | `llamaswap_` |
+| Engine                   | Enable                                         | Default port                             | Path       | Auth on `/metrics`                       | Prefix       |
+| ------------------------ | ---------------------------------------------- | ---------------------------------------- | ---------- | ---------------------------------------- | ------------ |
+| vLLM                     | always on                                      | 8000                                     | `/metrics` | **none**, even with `--api-key`          | `vllm:`      |
+| SGLang                   | `--enable-metrics`                             | 30000                                    | `/metrics` | **none**, always exempt from `--api-key` | `sglang:`    |
+| llama.cpp `llama-server` | `--metrics` (env `LLAMA_ARG_ENDPOINT_METRICS`) | 9931 (8080 before b11521, incl. v0.6.0)  | `/metrics` | required when `--api-key` is set         | `llamacpp:`  |
+| TGI                      | always on                                      | container port 80 (often mapped to 8080) | `/metrics` | n/a                                      | `tgi_`       |
+| llama-swap               | always on                                      | 8080 (`-listen`)                         | `/metrics` | see pitfalls                             | `llamaswap_` |
 
 vLLM's auth middleware guards only the `/v1`, `/v2`, `/inference` and `/cohere` route prefixes; SGLang exempts paths starting with `/health`, `/ready` and `/metrics`; llama.cpp's only public paths are `/health`, `/v1/health` and the web UI. Treat unauthenticated `/metrics` as a network-exposure question: bind or firewall it to the Prometheus host.
 
@@ -34,7 +34,7 @@ python -m sglang.launch_server --model-path <model> --enable-metrics --port 3000
 llama-server -m <model.gguf> --port 9931 --metrics
 ```
 
-Prometheus side: see `templates/prometheus.yml`.
+Prometheus side: see `assets/prometheus.yml`.
 
 ## How it plugs into the stack
 
@@ -42,14 +42,14 @@ Prometheus side: see `templates/prometheus.yml`.
 
 Labels: `model_name` (served model name) and `engine` (engine index). Counters are exposed with a `_total` suffix.
 
-| Question | Metric |
-| --- | --- |
-| Load | `vllm:num_requests_running`, `vllm:num_requests_waiting` |
-| KV-cache pressure | `vllm:kv_cache_usage_perc` (0–1), `vllm:num_preemptions_total` |
-| Throughput | `rate(vllm:prompt_tokens_total[5m])`, `rate(vllm:generation_tokens_total[5m])` |
-| Outcomes | `vllm:request_success_total{finished_reason=...}` (`stop`, `length`, `abort`, …) |
-| Latency split | `vllm:request_queue_time_seconds`, `vllm:time_to_first_token_seconds`, `vllm:inter_token_latency_seconds`, `vllm:request_prefill_time_seconds`, `vllm:request_decode_time_seconds`, `vllm:e2e_request_latency_seconds` (histograms) |
-| Prefix caching | `vllm:prefix_cache_hits_total` / `vllm:prefix_cache_queries_total` |
+| Question          | Metric                                                                                                                                                                                                                              |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Load              | `vllm:num_requests_running`, `vllm:num_requests_waiting`                                                                                                                                                                            |
+| KV-cache pressure | `vllm:kv_cache_usage_perc` (0–1), `vllm:num_preemptions_total`                                                                                                                                                                      |
+| Throughput        | `rate(vllm:prompt_tokens_total[5m])`, `rate(vllm:generation_tokens_total[5m])`                                                                                                                                                      |
+| Outcomes          | `vllm:request_success_total{finished_reason=...}` (`stop`, `length`, `abort`, …)                                                                                                                                                    |
+| Latency split     | `vllm:request_queue_time_seconds`, `vllm:time_to_first_token_seconds`, `vllm:inter_token_latency_seconds`, `vllm:request_prefill_time_seconds`, `vllm:request_decode_time_seconds`, `vllm:e2e_request_latency_seconds` (histograms) |
+| Prefix caching    | `vllm:prefix_cache_hits_total` / `vllm:prefix_cache_queries_total`                                                                                                                                                                  |
 
 Useful queries:
 
@@ -70,14 +70,14 @@ Official dashboards: `examples/observability/prometheus_grafana/grafana.json`, a
 
 Label: `model_name`. Key metrics:
 
-| Question | Metric |
-| --- | --- |
-| Load | `sglang:num_running_reqs`, `sglang:num_queue_reqs` |
-| KV pool usage | `sglang:token_usage`, `sglang:num_used_tokens` |
-| Throughput | `sglang:gen_throughput`, `rate(sglang:prompt_tokens_total[5m])`, `rate(sglang:generation_tokens_total[5m])` |
-| Latency | `sglang:time_to_first_token_seconds`, `sglang:inter_token_latency_seconds`, `sglang:e2e_request_latency_seconds`, `sglang:queue_time_seconds` (histograms) |
-| Outcomes | `sglang:num_requests_total`, `sglang:num_aborted_requests_total` |
-| Caching / spec decode | `sglang:cache_hit_rate`, `sglang:spec_accept_rate`, `sglang:spec_accept_length` |
+| Question              | Metric                                                                                                                                                     |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Load                  | `sglang:num_running_reqs`, `sglang:num_queue_reqs`                                                                                                         |
+| KV pool usage         | `sglang:token_usage`, `sglang:num_used_tokens`                                                                                                             |
+| Throughput            | `sglang:gen_throughput`, `rate(sglang:prompt_tokens_total[5m])`, `rate(sglang:generation_tokens_total[5m])`                                                |
+| Latency               | `sglang:time_to_first_token_seconds`, `sglang:inter_token_latency_seconds`, `sglang:e2e_request_latency_seconds`, `sglang:queue_time_seconds` (histograms) |
+| Outcomes              | `sglang:num_requests_total`, `sglang:num_aborted_requests_total`                                                                                           |
+| Caching / spec decode | `sglang:cache_hit_rate`, `sglang:spec_accept_rate`, `sglang:spec_accept_length`                                                                            |
 
 Official dashboard: `examples/monitoring/grafana/dashboards/json/sglang-dashboard.json` (with a compose setup in `examples/monitoring/`).
 
@@ -85,15 +85,15 @@ Official dashboard: `examples/monitoring/grafana/dashboards/json/sglang-dashboar
 
 No model label: one series set per process (add a `model` label in the scrape config). In router mode (multiple models in one server) `/metrics` needs `?model=<id>`; scrape once per model with `params`.
 
-| Metric | Type | Meaning |
-| --- | --- | --- |
-| `llamacpp:prompt_tokens_total`, `llamacpp:tokens_predicted_total` | counter | Prompt and generated tokens |
-| `llamacpp:prompt_seconds_total`, `llamacpp:tokens_predicted_seconds_total` | counter | Time spent in prefill / generation |
-| `llamacpp:prompt_tokens_seconds`, `llamacpp:predicted_tokens_seconds` | gauge | Average prefill / generation throughput |
-| `llamacpp:requests_processing`, `llamacpp:requests_deferred` | gauge | Busy slots and queued requests |
-| `llamacpp:n_tokens_max` | counter | High watermark of the context size observed |
-| `llamacpp:n_decode_total`, `llamacpp:n_busy_slots_per_decode` | counter / gauge | Decode calls, average batch occupancy |
-| `llamacpp:spec_decode_num_draft_tokens_total`, `llamacpp:spec_decode_num_accepted_tokens_total` | counter | Speculative decoding acceptance |
+| Metric                                                                                          | Type            | Meaning                                     |
+| ----------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------- |
+| `llamacpp:prompt_tokens_total`, `llamacpp:tokens_predicted_total`                               | counter         | Prompt and generated tokens                 |
+| `llamacpp:prompt_seconds_total`, `llamacpp:tokens_predicted_seconds_total`                      | counter         | Time spent in prefill / generation          |
+| `llamacpp:prompt_tokens_seconds`, `llamacpp:predicted_tokens_seconds`                           | gauge           | Average prefill / generation throughput     |
+| `llamacpp:requests_processing`, `llamacpp:requests_deferred`                                    | gauge           | Busy slots and queued requests              |
+| `llamacpp:n_tokens_max`                                                                         | counter         | High watermark of the context size observed |
+| `llamacpp:n_decode_total`, `llamacpp:n_busy_slots_per_decode`                                   | counter / gauge | Decode calls, average batch occupancy       |
+| `llamacpp:spec_decode_num_draft_tokens_total`, `llamacpp:spec_decode_num_accepted_tokens_total` | counter         | Speculative decoding acceptance             |
 
 `GET /slots` (on by default; `--no-slots` disables) gives per-slot state including sampling params; it is for debugging, not scraping, and can reveal request details.
 

@@ -30,7 +30,7 @@ llama.cpp and other servers). Configure with `LLAMA_SWAP_CONFIG` / `LLAMA_SWAP_L
 
 ## Minimal working config
 
-`templates/llama-swap.yaml` holds the full example (two exclusive large models, two co-resident
+`assets/llama-swap.yaml` holds the full example (two exclusive large models, two co-resident
 side models, aliases, preload). The smallest useful entry:
 
 ```yaml
@@ -43,7 +43,7 @@ models:
 ```
 
 Run: `llama-swap -config /etc/llm-stack/llama-swap.yaml -listen 127.0.0.1:8080` (the systemd unit in
-`templates/systemd/llama-swap.service`). `-watch-config` reloads on file change.
+`assets/systemd/llama-swap.service`). `-watch-config` reloads on file change.
 
 ## How it plugs into the stack
 
@@ -74,21 +74,21 @@ tunnel, not the public hostname).
 
 ## Tuning knobs worth knowing
 
-| Key | Where | Use |
-| --- | --- | --- |
-| `healthCheckTimeout` | global | seconds to wait for `checkEndpoint`; large models need many minutes |
-| `ttl` / `globalTTL` | model / global | idle seconds before unload; 0 = never |
-| `unloadTimeout` | global / model | graceful stop budget before force-kill (default 10); `docker stop` needs more |
-| `sendLoadingState` | global / model | streams loading messages in the reasoning field during a cold start |
-| `routing.router.settings.groups` | global | `swap` (one member at a time), `exclusive` (unloads other groups), `persistent` (cannot be unloaded by other groups), `members` |
-| `hooks.on_startup.preload` | global | models to load at startup; preload several only if they share a non-swapping group |
-| `filters.setParamsByID` | model | per-alias parameter overrides; each key becomes an alias |
-| `filters.stripParams` / `setParams` | model | remove or force request fields |
-| `useModelName` | model | name sent upstream when it differs from the ID |
-| `capabilities` | model | `in`, `out`, `tools`, `context` shown in `/v1/models` |
-| `disableKeepAlives` | model | new upstream connection per request |
-| `timeouts.*` | model | `connect`, `keepalive`, `responseHeader`, `tlsHandshake`, `idleConn` |
-| `macros`, `${env.VAR}` | global | reuse paths; environment values (loading fails if unset) |
+| Key                                 | Where          | Use                                                                                                                             |
+| ----------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `healthCheckTimeout`                | global         | seconds to wait for `checkEndpoint`; large models need many minutes                                                             |
+| `ttl` / `globalTTL`                 | model / global | idle seconds before unload; 0 = never                                                                                           |
+| `unloadTimeout`                     | global / model | graceful stop budget before force-kill (default 10); `docker stop` needs more                                                   |
+| `sendLoadingState`                  | global / model | streams loading messages in the reasoning field during a cold start                                                             |
+| `routing.router.settings.groups`    | global         | `swap` (one member at a time), `exclusive` (unloads other groups), `persistent` (cannot be unloaded by other groups), `members` |
+| `hooks.on_startup.preload`          | global         | models to load at startup; preload several only if they share a non-swapping group                                              |
+| `filters.setParamsByID`             | model          | per-alias parameter overrides; each key becomes an alias                                                                        |
+| `filters.stripParams` / `setParams` | model          | remove or force request fields                                                                                                  |
+| `useModelName`                      | model          | name sent upstream when it differs from the ID                                                                                  |
+| `capabilities`                      | model          | `in`, `out`, `tools`, `context` shown in `/v1/models`                                                                           |
+| `disableKeepAlives`                 | model          | new upstream connection per request                                                                                             |
+| `timeouts.*`                        | model          | `connect`, `keepalive`, `responseHeader`, `tlsHandshake`, `idleConn`                                                            |
+| `macros`, `${env.VAR}`              | global         | reuse paths; environment values (loading fails if unset)                                                                        |
 
 ### Groups in practice
 

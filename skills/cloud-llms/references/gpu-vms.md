@@ -8,11 +8,11 @@ A cloud machine with one or more GPUs, running the same self-hosted stack you wo
 
 Choose it for pilots before buying hardware, steady workloads where renting beats owning, burst capacity next to an owned server, or models that need datacenter GPUs.
 
-| Provider type | Examples | Notes |
-| --- | --- | --- |
-| GPU clouds | Lambda, RunPod Pods, CoreWeave | GPU-first; simpler pricing; CoreWeave is Kubernetes-centric (CKS) |
-| Marketplace | Vast.ai | Hosts of varying reliability; cheapest, least predictable |
-| Hyperscalers | AWS EC2 GPU instances, Google Compute Engine GPUs, Azure GPU VMs | Your existing IAM, VPC and billing; tighter quotas |
+| Provider type | Examples                                                         | Notes                                                             |
+| ------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------- |
+| GPU clouds    | Lambda, RunPod Pods, CoreWeave                                   | GPU-first; simpler pricing; CoreWeave is Kubernetes-centric (CKS) |
+| Marketplace   | Vast.ai                                                          | Hosts of varying reliability; cheapest, least predictable         |
+| Hyperscalers  | AWS EC2 GPU instances, Google Compute Engine GPUs, Azure GPU VMs | Your existing IAM, VPC and billing; tighter quotas                |
 
 ## Install / setup
 

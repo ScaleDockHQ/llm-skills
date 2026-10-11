@@ -40,8 +40,8 @@ docker compose up --build -d
 ```
 
 **Restart policy lives in the compose file**, not in systemd. Docker restarts the container after a
-crash or reboot as long as the Docker daemon starts. It is *not* one of this stack's systemd units
-(`templates/systemd/`) unless you wrap it in one yourself (a oneshot unit running
+crash or reboot as long as the Docker daemon starts. It is _not_ one of this stack's systemd units
+(`assets/systemd/`) unless you wrap it in one yourself (a oneshot unit running
 `docker compose up -d` in the clone directory). Status therefore comes from
 `docker compose ps` in the clone directory, not `systemctl`.
 
@@ -49,14 +49,14 @@ crash or reboot as long as the Docker daemon starts. It is *not* one of this sta
 
 Copy `.env.example` to `.env` in the clone and set only what you need:
 
-| Variable | Default | Use |
-| --- | --- | --- |
-| `BIND_HOST` | `127.0.0.1` | Listen address. Keep loopback. |
-| `SPARKDASH_TOKEN` | empty | Bearer token for mutations, WebSocket, and reads on a non-loopback bind |
-| `SPARKDASH_ALLOW_OPEN_REMOTE` | `1` | Set `0` so a non-loopback bind without a token refuses to start |
-| `SPARKDASH_ALLOWED_HOSTS` | empty | Only for a reverse proxy on a custom domain (see pitfalls) |
-| `PORT` | `5555` | Dashboard port |
-| `LLM_PORT` | `8888` | Default LLM probe port |
+| Variable                      | Default     | Use                                                                     |
+| ----------------------------- | ----------- | ----------------------------------------------------------------------- |
+| `BIND_HOST`                   | `127.0.0.1` | Listen address. Keep loopback.                                          |
+| `SPARKDASH_TOKEN`             | empty       | Bearer token for mutations, WebSocket, and reads on a non-loopback bind |
+| `SPARKDASH_ALLOW_OPEN_REMOTE` | `1`         | Set `0` so a non-loopback bind without a token refuses to start         |
+| `SPARKDASH_ALLOWED_HOSTS`     | empty       | Only for a reverse proxy on a custom domain (see pitfalls)              |
+| `PORT`                        | `5555`      | Dashboard port                                                          |
+| `LLM_PORT`                    | `8888`      | Default LLM probe port                                                  |
 
 Recommended `.env` for this stack: leave `BIND_HOST` at loopback, set `SPARKDASH_ALLOW_OPEN_REMOTE=0`,
 and set `SPARKDASH_TOKEN` from a file (mode 600; see `security.md`). `SPARKDASH_SECRETS_KEY` is
@@ -83,7 +83,7 @@ already uses 443 (`exposure-tailscale.md`). Over Cloudflare, put Cloudflare Acce
   probes. If a probed port requires a bearer key (LiteLLM on 4000, or an engine started with
   `--api-key`), probe the unauthenticated loopback port instead (llama-swap 8080 or the engine
   port). Whether the current UI has a key field for probes is unverified; check Settings.
-- **Remote units.** SSH runs *inside* the container, so it uses keys under `/root/.ssh` in the
+- **Remote units.** SSH runs _inside_ the container, so it uses keys under `/root/.ssh` in the
   container, not the host user's `~/.ssh`. Bind-mount a key (see the commented volume in
   `docker-compose.yml`) or set `SSH_IDENTITY_FILE`. Addresses are from node-a's point of view.
 - **Health.** `GET /api/health` reports `authMode`: `loopback-open`, `bearer`, `open-remote` or
@@ -94,9 +94,9 @@ already uses 443 (`exposure-tailscale.md`). Over Cloudflare, put Cloudflare Acce
 Shutdown (per unit and **Shutdown All**) runs the host helper `/usr/local/bin/spark-shutdown` with
 passwordless sudo. The helper must support two invocations:
 
-| Invocation | Behaviour |
-| --- | --- |
-| `spark-shutdown` | Schedule a graceful shutdown |
+| Invocation               | Behaviour                                        |
+| ------------------------ | ------------------------------------------------ |
+| `spark-shutdown`         | Schedule a graceful shutdown                     |
 | `spark-shutdown --check` | Print an acknowledgement, exit 0, change nothing |
 
 Install it root-owned (`sudo install -m 755 -o root -g root spark-shutdown /usr/local/bin/`) on every

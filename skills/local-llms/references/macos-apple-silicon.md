@@ -42,7 +42,7 @@ mlx_lm.server --model mlx-community/<model>-4bit --host 127.0.0.1 --port 8080
 
 ## GPU wired-memory limit (`iogpu.wired_limit_mb`)
 
-By default macOS caps how much unified memory the GPU may *wire*, meaning pin so it can't be paged out. Models larger than that cap load slowly, are refused, or spill to the CPU. mlx-lm's README documents raising it:
+By default macOS caps how much unified memory the GPU may _wire_, meaning pin so it can't be paged out. Models larger than that cap load slowly, are refused, or spill to the CPU. mlx-lm's README documents raising it:
 
 ```bash
 sysctl iogpu.wired_limit_mb                 # read; 0 means "system default", not unlimited
@@ -51,8 +51,9 @@ sudo sysctl iogpu.wired_limit_mb=0          # revert to the default
 ```
 
 Behavior and risks:
+
 - It takes effect immediately. Restart the runtime so it picks up the new limit.
-- It resets at reboot. Persisting it (`/etc/sysctl.conf` or a root LaunchDaemon) is possible but not recommended, because every boot then runs with less headroom. *(Reset-on-reboot and persistence methods come from community sources, not Apple documentation.)*
+- It resets at reboot. Persisting it (`/etc/sysctl.conf` or a root LaunchDaemon) is possible but not recommended, because every boot then runs with less headroom. _(Reset-on-reboot and persistence methods come from community sources, not Apple documentation.)_
 - Setting it close to total RAM can starve macOS and lead to heavy swapping, freezes, or a kernel panic. Leave at least 8 GB for the system on 32 GB+ machines, and more if you keep a browser, IDE, or VM open.
 - It does not create memory. It only changes how much of the existing RAM the GPU may lock.
 - It changes system state and needs `sudo`. **Ask the user before running it**, and say how to revert it.
@@ -67,7 +68,7 @@ Same as each runtime: Ollama `:11434`, LM Studio `:1234`, llama-server `:9931`, 
 - Ollama app logs: `~/.ollama/logs/server.log`. Models: `~/.ollama/models`.
 - LM Studio models: the directory shown in the app's **My Models** tab, where you can also change it (usually under `~/.lmstudio/`). Logs: `lms log stream`.
 - Hugging Face cache (llama.cpp `-hf` uses its own cache, `mlx-lm` uses the HF cache): `~/.cache/huggingface/hub` unless `HF_HOME` is set. List and clean it with `hf cache ls`, `hf cache rm`, and `hf cache prune` (huggingface_hub CLI).
-- Background service: Ollama and LM Studio register login items. For llama-server, use `templates/llama-server.launchd.plist`.
+- Background service: Ollama and LM Studio register login items. For llama-server, use `assets/llama-server.launchd.plist`.
 
 ## Thermals and power
 

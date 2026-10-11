@@ -6,7 +6,7 @@
 
 [Axolotl](https://github.com/axolotl-ai-cloud/axolotl) is a config-driven fine-tuning framework: one YAML file describes model, data, adapter, and trainer; the `axolotl` CLI preprocesses, trains, evaluates, merges, and exports. It wraps Hugging Face Transformers, PEFT, and TRL (for preference/RL methods).
 
-Choose it when you want **reproducible runs without writing Python**, multi-GPU (FSDP/DeepSpeed), many dataset formats, or SFT + DPO/KTO/ORPO/GRPO from the same config style. This skill's default trainer. Template: `templates/axolotl-lora.yaml`.
+Choose it when you want **reproducible runs without writing Python**, multi-GPU (FSDP/DeepSpeed), many dataset formats, or SFT + DPO/KTO/ORPO/GRPO from the same config style. This skill's default trainer. Template: `assets/axolotl-lora.yaml`.
 
 ## Install
 
@@ -39,7 +39,7 @@ docker run --gpus all --rm -it --ipc=host \
 ## Minimal working config/command
 
 ```bash
-cp templates/axolotl-lora.yaml my-run.yaml   # edit base_model, data paths
+cp assets/axolotl-lora.yaml my-run.yaml   # edit base_model, data paths
 axolotl preprocess my-run.yaml --debug --debug-num-examples 3   # check masking
 axolotl train my-run.yaml
 axolotl inference my-run.yaml --lora-model-dir ./outputs/lora-run --chat
@@ -54,23 +54,23 @@ Example configs: `axolotl fetch examples` (writes `examples/` locally; e.g. `exa
 - **In:** HF model id or local dir (`base_model`), datasets from HF Hub / local JSON/JSONL/CSV/Parquet/Arrow / `s3://` / `gs://`.
 - **Out:** `output_dir` with checkpoints and the adapter (`adapter_model.safetensors` + `adapter_config.json`) for LoRA/QLoRA, or full weights for full FT.
 - `axolotl merge-lora my-run.yaml` writes merged weights to `<output_dir>/merged` for vLLM/SGLang/TGI or GGUF conversion.
-- `axolotl export my-run.yaml --quantize Q4_K_M` converts a *merged* checkpoint to GGUF using a llama.cpp checkout in `$LLAMA_CPP_DIR` (refuses adapter-only dirs). GGUF details belong to the `model-quantization` skill.
+- `axolotl export my-run.yaml --quantize Q4_K_M` converts a _merged_ checkpoint to GGUF using a llama.cpp checkout in `$LLAMA_CPP_DIR` (refuses adapter-only dirs). GGUF details belong to the `model-quantization` skill.
 - `axolotl vllm-serve config.yaml` launches the vLLM generation server used by GRPO.
 
 ## Operating
 
-| Command | Purpose |
-|---|---|
-| `axolotl fetch examples` / `fetch deepspeed_configs` | Download example configs |
-| `axolotl preprocess cfg.yaml [--debug]` | Tokenize to `dataset_prepared_path`; inspect labels |
-| `axolotl train cfg.yaml` | Train (`--launcher torchrun -- --nproc_per_node=2` for multi-GPU; `--resume-from-checkpoint path`; `--sweep sweep.yaml`) |
-| `axolotl evaluate cfg.yaml` | Loss on train/eval sets |
-| `axolotl lm-eval cfg.yaml` | LM Evaluation Harness with `lm_eval_tasks` |
-| `axolotl inference cfg.yaml --lora-model-dir DIR [--chat|--gradio]` | Try the model |
-| `axolotl merge-lora cfg.yaml [--lora-model-dir DIR] [--dequant]` | Merge adapter into base; `CUDA_VISIBLE_DEVICES=""` merges on CPU |
-| `axolotl merge-sharded-fsdp-weights cfg.yaml` | Combine FSDP shards |
-| `axolotl quantize cfg.yaml` / `axolotl export cfg.yaml` | torchao quantization / GGUF export |
-| `axolotl train cfg.yaml --cloud cloud.yaml` | Remote run on Modal/Baseten/Nebius (see `cloud-llms` for renting GPUs generally) |
+| Command                                                          | Purpose                                                                                                                  |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `axolotl fetch examples` / `fetch deepspeed_configs`             | Download example configs                                                                                                 |
+| `axolotl preprocess cfg.yaml [--debug]`                          | Tokenize to `dataset_prepared_path`; inspect labels                                                                      |
+| `axolotl train cfg.yaml`                                         | Train (`--launcher torchrun -- --nproc_per_node=2` for multi-GPU; `--resume-from-checkpoint path`; `--sweep sweep.yaml`) |
+| `axolotl evaluate cfg.yaml`                                      | Loss on train/eval sets                                                                                                  |
+| `axolotl lm-eval cfg.yaml`                                       | LM Evaluation Harness with `lm_eval_tasks`                                                                               |
+| `axolotl inference cfg.yaml --lora-model-dir DIR [--chat         | --gradio]`                                                                                                               | Try the model |
+| `axolotl merge-lora cfg.yaml [--lora-model-dir DIR] [--dequant]` | Merge adapter into base; `CUDA_VISIBLE_DEVICES=""` merges on CPU                                                         |
+| `axolotl merge-sharded-fsdp-weights cfg.yaml`                    | Combine FSDP shards                                                                                                      |
+| `axolotl quantize cfg.yaml` / `axolotl export cfg.yaml`          | torchao quantization / GGUF export                                                                                       |
+| `axolotl train cfg.yaml --cloud cloud.yaml`                      | Remote run on Modal/Baseten/Nebius (see `cloud-llms` for renting GPUs generally)                                         |
 
 Wrap long runs in a memory-capped scope and `tmux`/`systemd-run` so SSH drops don't kill them (see `hardware.md`).
 
@@ -80,7 +80,7 @@ Wrap long runs in a memory-capped scope and `tmux`/`systemd-run` so SSH drops do
 - `sequence_len`, `sample_packing`, `pad_to_sequence_len`, `excess_length_strategy` (`drop`|`truncate`|`raise`).
 - `micro_batch_size`, `gradient_accumulation_steps`, `num_epochs` or `max_steps`, `learning_rate`, `lr_scheduler`, `warmup_ratio`, `optimizer` (default `adamw_torch_fused`; `adamw_bnb_8bit` saves memory).
 - `gradient_checkpointing: true|offload|offload_disk`, `attn_implementation` (`sdpa`, `flash_attention_2`, ...; `flash_attention: true` is deprecated).
-- `val_set_size` *or* `test_datasets` (not both), `evals_per_epoch` / `eval_steps`, `saves_per_epoch` / `save_steps`, `save_total_limit`.
+- `val_set_size` _or_ `test_datasets` (not both), `evals_per_epoch` / `eval_steps`, `saves_per_epoch` / `save_steps`, `save_total_limit`.
 - `rl: dpo|ipo|kto|orpo|simpo|grpo|...` for preference/RL; `trl:` block for GRPO/vLLM settings.
 - `gpu_memory_limit`, `lora_on_cpu` (for merging huge models).
 
@@ -90,7 +90,7 @@ Wrap long runs in a memory-capped scope and `tmux`/`systemd-run` so SSH drops do
 - Template/data mismatch shows as `Could not find content __ boundary` warnings in preprocess.
 - Changing `lora_rank_pattern` between runs breaks `resume_from_checkpoint` with shape mismatch.
 - Merging a QLoRA run: default merge into a quantized base is format-preserving; use `--dequant` to get a bf16 checkpoint for GGUF conversion (export rejects pre-quantized checkpoints).
-- GRPO with vLLM in server mode: vLLM must use the *last* N GPUs (TRL constraint); single GPU needs `vllm_mode: colocate`.
+- GRPO with vLLM in server mode: vLLM must use the _last_ N GPUs (TRL constraint); single GPU needs `vllm_mode: colocate`.
 - Don't `pip install` llama.cpp's requirements into the Axolotl venv; they pin older `transformers` and CPU `torch`.
 
 ## Official links

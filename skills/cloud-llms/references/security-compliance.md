@@ -31,12 +31,12 @@ kubectl create secret generic hf-token-secret --from-file=token=<path-to-token-f
 
 ## Network: private endpoints
 
-| Platform | Private access to model APIs |
-| --- | --- |
-| AWS Bedrock | Interface VPC endpoints (AWS PrivateLink) for the Bedrock runtime |
-| Agent Platform (Vertex AI) | Private Service Connect; VPC Service Controls perimeters |
-| Microsoft Foundry / Azure OpenAI | Private endpoints (Azure Private Link); disable public network access |
-| Self-hosted on VMs / Kubernetes | Private subnets, security groups / firewall rules, NetworkPolicies; only the gateway is exposed |
+| Platform                         | Private access to model APIs                                                                    |
+| -------------------------------- | ----------------------------------------------------------------------------------------------- |
+| AWS Bedrock                      | Interface VPC endpoints (AWS PrivateLink) for the Bedrock runtime                               |
+| Agent Platform (Vertex AI)       | Private Service Connect; VPC Service Controls perimeters                                        |
+| Microsoft Foundry / Azure OpenAI | Private endpoints (Azure Private Link); disable public network access                           |
+| Self-hosted on VMs / Kubernetes  | Private subnets, security groups / firewall rules, NetworkPolicies; only the gateway is exposed |
 
 - Run the gateway in the same VPC/VNet and region as the private endpoints.
 - Expose only the gateway, over TLS, behind authentication. Engines stay private: vLLM's `--api-key` protects only `/v1`, `/v2` and `/inference` routes, not `/invocations` and others.

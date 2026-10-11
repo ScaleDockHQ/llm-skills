@@ -114,8 +114,7 @@ auth -o /dev/null -w 'cold swap: %{http_code} in %{time_total}s\n' -H "$J" "$BAS
   -d '{"model":"gpt-oss","max_tokens":8,"messages":[{"role":"user","content":"hi"}]}'
 ```
 
-A non-streaming cold swap through Cloudflare that takes longer than the proxy read timeout returns
-524. Streaming requests survive because llama-swap sends loading progress
+A non-streaming cold swap through Cloudflare that takes longer than the proxy read timeout returns 524. Streaming requests survive because llama-swap sends loading progress
 (`exposure-cloudflare.md`).
 
 ## Official links

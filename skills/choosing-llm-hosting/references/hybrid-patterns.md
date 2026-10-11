@@ -51,14 +51,14 @@ Most traffic runs on an open model; a router or a confidence check escalates har
 
 ## Choosing a pattern
 
-| Situation | Pattern |
-| --- | --- |
-| Own a server, need uptime | 1 |
-| Several workloads, different quality bars | 2 |
-| Steady base plus spikes | 3 |
-| Developers want private, free iteration | 4 |
-| Mixed data classes | 5 |
-| High volume, few hard cases | 6 |
+| Situation                                 | Pattern |
+| ----------------------------------------- | ------- |
+| Own a server, need uptime                 | 1       |
+| Several workloads, different quality bars | 2       |
+| Steady base plus spikes                   | 3       |
+| Developers want private, free iteration   | 4       |
+| Mixed data classes                        | 5       |
+| High volume, few hard cases               | 6       |
 
 Patterns combine. A common shape: privacy-tiered routing (5) on top of local-first with cloud fallback (1) and routing by task (2).
 

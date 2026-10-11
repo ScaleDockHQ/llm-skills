@@ -6,9 +6,9 @@
 
 Prometheus evaluates alert rules and sends firing alerts to Alertmanager, which routes them to chat, email or a pager. For LLM serving the rule of thumb is: **page on what users feel, warn on what explains it**.
 
-| Severity | Fires on | Examples |
-| --- | --- | --- |
-| `page` | Symptoms (SLO breach) | Gateway error ratio, p95 latency/TTFT over target, target down, all deployments of a model in outage |
+| Severity  | Fires on                      | Examples                                                                                                                                            |
+| --------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `page`    | Symptoms (SLO breach)         | Gateway error ratio, p95 latency/TTFT over target, target down, all deployments of a model in outage                                                |
 | `warning` | Causes and leading indicators | Requests queueing, KV cache near full, preemptions, GPU XID error, high GPU temperature, spend spike, logging callback failures, $0-priced requests |
 
 ## Install
@@ -32,7 +32,7 @@ docker run --rm --entrypoint promtool -v "$PWD:/w:ro" -w /w prom/prometheus:<tag
 
 ## Minimal working config
 
-Start from `templates/alert-rules.yml`. Each rule has `alert`, `expr`, `for` (how long the condition must hold), optional `keep_firing_for`, `labels` (severity, routing) and `annotations` (summary, description, runbook link):
+Start from `assets/alert-rules.yml`. Each rule has `alert`, `expr`, `for` (how long the condition must hold), optional `keep_firing_for`, `labels` (severity, routing) and `annotations` (summary, description, runbook link):
 
 ```yaml
 groups:
@@ -53,21 +53,21 @@ groups:
 
 Recommended alert set (thresholds are starting points; set them from your SLOs and observed baselines):
 
-| Alert | Expression idea | Severity |
-| --- | --- | --- |
-| Engine/gateway down | `up{job=~"vllm\|sglang\|llamacpp\|litellm"} == 0` for 2–5m | page |
-| Gateway error ratio | failed / total LiteLLM requests per model > 5% for 10m | page |
-| Gateway p95 latency | `histogram_quantile(0.95, …litellm_request_total_latency_metric_bucket…)` > target | page |
-| Engine p95 TTFT | `histogram_quantile(0.95, …vllm:time_to_first_token_seconds_bucket…)` > target | page (if TTFT is an SLO) |
-| Deployment outage | `litellm_deployment_state == 2` | page if it's the only deployment for a model, else warning |
-| Queueing | `vllm:num_requests_waiting > 0` sustained, or `sglang:num_queue_reqs`, `llamacpp:requests_deferred` | warning |
-| KV-cache pressure | `vllm:kv_cache_usage_perc > 0.95` sustained, or `rate(vllm:num_preemptions_total[5m]) > 0` | warning |
-| Truncation | share of `vllm:request_success_total{finished_reason="length"}` rising | warning |
-| GPU XID | `DCGM_FI_DEV_XID_ERRORS > 0` | warning (page if it correlates with errors) |
-| GPU temperature | `DCGM_FI_DEV_GPU_TEMP` above vendor guidance for 10m | warning |
-| Spend spike | `sum(rate(litellm_spend_metric_total[1h]))` > N × its 7-day average | warning |
-| Pricing gap | `increase(litellm_zero_cost_requests_total[1h]) > 0` | warning |
-| Logging broken | `increase(litellm_callback_logging_failures_metric_total[15m]) > 0` | warning (page if audit logging is mandatory) |
+| Alert               | Expression idea                                                                                     | Severity                                                   |
+| ------------------- | --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| Engine/gateway down | `up{job=~"vllm\|sglang\|llamacpp\|litellm"} == 0` for 2–5m                                          | page                                                       |
+| Gateway error ratio | failed / total LiteLLM requests per model > 5% for 10m                                              | page                                                       |
+| Gateway p95 latency | `histogram_quantile(0.95, …litellm_request_total_latency_metric_bucket…)` > target                  | page                                                       |
+| Engine p95 TTFT     | `histogram_quantile(0.95, …vllm:time_to_first_token_seconds_bucket…)` > target                      | page (if TTFT is an SLO)                                   |
+| Deployment outage   | `litellm_deployment_state == 2`                                                                     | page if it's the only deployment for a model, else warning |
+| Queueing            | `vllm:num_requests_waiting > 0` sustained, or `sglang:num_queue_reqs`, `llamacpp:requests_deferred` | warning                                                    |
+| KV-cache pressure   | `vllm:kv_cache_usage_perc > 0.95` sustained, or `rate(vllm:num_preemptions_total[5m]) > 0`          | warning                                                    |
+| Truncation          | share of `vllm:request_success_total{finished_reason="length"}` rising                              | warning                                                    |
+| GPU XID             | `DCGM_FI_DEV_XID_ERRORS > 0`                                                                        | warning (page if it correlates with errors)                |
+| GPU temperature     | `DCGM_FI_DEV_GPU_TEMP` above vendor guidance for 10m                                                | warning                                                    |
+| Spend spike         | `sum(rate(litellm_spend_metric_total[1h]))` > N × its 7-day average                                 | warning                                                    |
+| Pricing gap         | `increase(litellm_zero_cost_requests_total[1h]) > 0`                                                | warning                                                    |
+| Logging broken      | `increase(litellm_callback_logging_failures_metric_total[15m]) > 0`                                 | warning (page if audit logging is mandatory)               |
 
 ## Operating
 

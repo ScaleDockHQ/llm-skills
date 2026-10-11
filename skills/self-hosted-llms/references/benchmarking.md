@@ -10,12 +10,12 @@ same stack before and after a change (Rule 2). For quality, not speed, use the `
 `scripts/bench.sh` streams chat completions with fixed built-in prompts and reports per run and
 median:
 
-| Metric | Meaning |
-| --- | --- |
-| `ttfb` | seconds to the first response byte; approximates time to first token (includes any cold swap, loading chunks or empty role chunk) |
-| `decode` | completion tokens / (total - ttfb), tok/s |
-| `prefill` | prompt tokens / ttfb, tok/s (long-prompt test, cold and warm) |
-| `aggregate` | total completion tokens / slowest request time, with `--concurrency N` |
+| Metric      | Meaning                                                                                                                           |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `ttfb`      | seconds to the first response byte; approximates time to first token (includes any cold swap, loading chunks or empty role chunk) |
+| `decode`    | completion tokens / (total - ttfb), tok/s                                                                                         |
+| `prefill`   | prompt tokens / ttfb, tok/s (long-prompt test, cold and warm)                                                                     |
+| `aggregate` | total completion tokens / slowest request time, with `--concurrency N`                                                            |
 
 Token counts come from the final usage chunk (`stream_options.include_usage`); a `~` marks a
 fallback count when the server sends no usage. `--help` lists every option. The key comes from

@@ -2,7 +2,7 @@
 
 > Verified against llama-swap v263 (docs/config.example.yaml, KB guides), LiteLLM v1.105.0 docs and Cloudflare "Error 524" docs (updated 2026-07-23), 2026-10-11
 
-The LLM stack (LiteLLM gateway → llama-swap swapper → engines) belongs to the `self-hosted-llms` skill; its engine-sdcpp reference shows the generic "add a non-LLM backend" pattern with sd-server. This file covers the genmedia specifics: which endpoints route, how to group media servers next to LLMs, and how to keep long jobs alive end to end. Ready-to-merge snippets: `templates/llama-swap-genmedia.yaml` and `templates/litellm-genmedia.yaml`.
+The LLM stack (LiteLLM gateway → llama-swap swapper → engines) belongs to the `self-hosted-llms` skill; its engine-sdcpp reference shows the generic "add a non-LLM backend" pattern with sd-server. This file covers the genmedia specifics: which endpoints route, how to group media servers next to LLMs, and how to keep long jobs alive end to end. Ready-to-merge snippets: `assets/llama-swap-genmedia.yaml` and `assets/litellm-genmedia.yaml`.
 
 ## What it is and when to choose it
 
@@ -23,6 +23,7 @@ Nothing new: use the existing LiteLLM and llama-swap. llama-swap's unified conta
 ### llama-swap: what routes
 
 The llama-swap README lists these as routed (the `model` field picks the entry):
+
 - `v1/images/generations` and `v1/images/edits`
 - `v1/audio/transcriptions`, `v1/audio/speech` and `v1/audio/voices`
 - `/sdapi/v1/txt2img`, `/sdapi/v1/img2img` and `/sdapi/v1/loras`
@@ -31,18 +32,18 @@ There are also the `/comfyui/` endpoint and `/upstream/:model_id/` passthrough. 
 
 ### llama-swap: model entry keys you need
 
-| Key | Use for media servers |
-|---|---|
-| `cmd` | start command; must use `${PORT}` (or set `proxy`) |
-| `proxy` | required for Docker: `http://127.0.0.1:${PORT}` with `-p 127.0.0.1:${PORT}:<inner-port>` |
-| `cmdStop` | `docker stop ${MODEL_ID}`. Without it, unloading stops only the `docker run` client and the container keeps the GPU |
-| `checkEndpoint` | readiness path (default `/health`; `none` skips). sd-server: `/v1/models`; whisper-server: `<request-path>/health`; Kokoro/Speaches: `/health`; ComfyUI: `/` |
-| `ttl` | idle seconds before unload (`0` = never) |
-| `unloadTimeout` | grace period on unload; raise to ~30 for Docker |
-| `useModelName` | rename `model` before forwarding (Kokoro wants `kokoro`; Speaches wants the HF id) |
-| `unlisted` | hide from `/v1/models` (ComfyUI) |
-| `timeouts.responseHeader` | seconds to wait for upstream response headers. Defaults to `0` (no timeout); keep it `0` or large for synchronous image jobs |
-| `concurrencyLimit` | per-model parallel requests (default 10); extra requests get 429 |
+| Key                       | Use for media servers                                                                                                                                        |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `cmd`                     | start command; must use `${PORT}` (or set `proxy`)                                                                                                           |
+| `proxy`                   | required for Docker: `http://127.0.0.1:${PORT}` with `-p 127.0.0.1:${PORT}:<inner-port>`                                                                     |
+| `cmdStop`                 | `docker stop ${MODEL_ID}`. Without it, unloading stops only the `docker run` client and the container keeps the GPU                                          |
+| `checkEndpoint`           | readiness path (default `/health`; `none` skips). sd-server: `/v1/models`; whisper-server: `<request-path>/health`; Kokoro/Speaches: `/health`; ComfyUI: `/` |
+| `ttl`                     | idle seconds before unload (`0` = never)                                                                                                                     |
+| `unloadTimeout`           | grace period on unload; raise to ~30 for Docker                                                                                                              |
+| `useModelName`            | rename `model` before forwarding (Kokoro wants `kokoro`; Speaches wants the HF id)                                                                           |
+| `unlisted`                | hide from `/v1/models` (ComfyUI)                                                                                                                             |
+| `timeouts.responseHeader` | seconds to wait for upstream response headers. Defaults to `0` (no timeout); keep it `0` or large for synchronous image jobs                                 |
+| `concurrencyLimit`        | per-model parallel requests (default 10); extra requests get 429                                                                                             |
 
 Macros: `${PORT}`, `${MODEL_ID}`, `${PID}` (only in `cmdStop`), `${env.VAR}`; `startPort` sets the first `${PORT}` (default 5800).
 
@@ -50,13 +51,14 @@ Macros: `${PORT}`, `${MODEL_ID}`, `${PID}` (only in `cmdStop`), `${env.VAR}`; `s
 
 Current configs put groups under `routing.router.settings.groups` (the schema still accepts the legacy top-level `groups:`/`matrix:` keys, but a config must not mix both styles):
 
-| Flag | Default | Meaning |
-|---|---|---|
-| `swap` | `true` | members take turns (`true`) or all run together (`false`) |
-| `exclusive` | `true` | loading a member unloads every other group |
-| `persistent` | `false` | other groups can never unload this group |
+| Flag         | Default | Meaning                                                   |
+| ------------ | ------- | --------------------------------------------------------- |
+| `swap`       | `true`  | members take turns (`true`) or all run together (`false`) |
+| `exclusive`  | `true`  | loading a member unloads every other group                |
+| `persistent` | `false` | other groups can never unload this group                  |
 
 Patterns:
+
 - **Heavy media in the LLM's exclusive group** (`swap: true, exclusive: true`): FLUX, ComfyUI and video take turns with the big LLM. Use this when memory can't hold both.
 - **Speech as a persistent side group** (`persistent: true, swap: false, exclusive: false`): whisper and Kokoro stay loaded and are never evicted by an LLM swap. Use this when the small footprint fits next to your largest model (see `memory-planning.md`).
 - **Small LLM plus image together** (`swap: false, exclusive: true`): an assistant model and an image model load as a pair.
@@ -72,12 +74,12 @@ Name the entry exactly `comfyui_auto` and use `http://<llama-swap>/comfyui/`. ll
 
 Route to llama-swap as an OpenAI-compatible provider: `model: openai/<llama-swap-id>` and `api_base` ending in `/v1`. Set `model_info.mode` so health checks hit the right API:
 
-| Route | `model_info.mode` | Extra |
-|---|---|---|
-| `/v1/images/generations` | `image_generation` | — |
-| `/v1/images/edits` | `image_edit` | — |
-| `/v1/audio/transcriptions` | `audio_transcription` | — |
-| `/v1/audio/speech` | `audio_speech` | `health_check_voice` required for health checks |
+| Route                      | `model_info.mode`     | Extra                                           |
+| -------------------------- | --------------------- | ----------------------------------------------- |
+| `/v1/images/generations`   | `image_generation`    | —                                               |
+| `/v1/images/edits`         | `image_edit`          | —                                               |
+| `/v1/audio/transcriptions` | `audio_transcription` | —                                               |
+| `/v1/audio/speech`         | `audio_speech`        | `health_check_voice` required for health checks |
 
 LiteLLM's `GET /health` sends a real request to every model. For image models that means a full generation, possibly a cold swap. Exclude them from background checks with `model_info.disable_background_health_check: true`, or scope checks with `general_settings.background_health_check_model_groups`.
 
@@ -87,14 +89,14 @@ LiteLLM's `GET /health` sends a real request to every model. For image models th
 
 A synchronous image request, or any request that triggers a cold swap, holds one HTTP connection open through every hop. The shortest timeout wins:
 
-| Hop | Setting | Default | Set it to |
-|---|---|---|---|
-| Client | OpenAI SDK timeout | 600 s (Python SDK, per LiteLLM docs) | above your slowest job |
-| Cloudflare proxy | Proxy Read Timeout → **524** | **125 s**; Enterprise can raise it up to 6,000 s; Proxy Write Timeout 30 s, not adjustable | can't change on non-Enterprise plans: avoid the hop for long jobs |
-| LiteLLM | `litellm_params.timeout` (per model), `router_settings.timeout`, `litellm_settings.request_timeout` | `request_timeout` 6000 s | per-model `timeout` above the slowest job + cold load |
-| llama-swap load | `healthCheckTimeout` | 120 s (min 15; restarts when the server reports progress) | above the slowest cold load (big video/ComfyUI weights) |
-| llama-swap proxy | `timeouts.responseHeader` per model | 0 (none) | leave `0` for media |
-| Server | sd-server and ComfyUI have no request timeout flag | — | — |
+| Hop              | Setting                                                                                             | Default                                                                                    | Set it to                                                         |
+| ---------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| Client           | OpenAI SDK timeout                                                                                  | 600 s (Python SDK, per LiteLLM docs)                                                       | above your slowest job                                            |
+| Cloudflare proxy | Proxy Read Timeout → **524**                                                                        | **125 s**; Enterprise can raise it up to 6,000 s; Proxy Write Timeout 30 s, not adjustable | can't change on non-Enterprise plans: avoid the hop for long jobs |
+| LiteLLM          | `litellm_params.timeout` (per model), `router_settings.timeout`, `litellm_settings.request_timeout` | `request_timeout` 6000 s                                                                   | per-model `timeout` above the slowest job + cold load             |
+| llama-swap load  | `healthCheckTimeout`                                                                                | 120 s (min 15; restarts when the server reports progress)                                  | above the slowest cold load (big video/ComfyUI weights)           |
+| llama-swap proxy | `timeouts.responseHeader` per model                                                                 | 0 (none)                                                                                   | leave `0` for media                                               |
+| Server           | sd-server and ComfyUI have no request timeout flag                                                  | —                                                                                          | —                                                                 |
 
 ### Long jobs need a long path
 

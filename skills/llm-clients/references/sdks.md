@@ -4,15 +4,15 @@
 
 Application code is the easiest client to point at a gateway: every official SDK takes a base URL and a key. The traps are base-URL shape (with or without `/v1`) and SDKs that default to a newer API than your endpoint serves.
 
-| SDK | Base URL option (env) | Expected shape | Default API |
-|---|---|---|---|
-| openai (Python) | `base_url` (`OPENAI_BASE_URL`) | `https://llm.example.com/v1` | whatever method you call (`chat.completions` or `responses`) |
-| openai (Node) | `baseURL` (`OPENAI_BASE_URL`) | `https://llm.example.com/v1` | same |
-| anthropic (Python) | `base_url` (`ANTHROPIC_BASE_URL`) | `https://llm.example.com` (no `/v1`) | Messages |
-| @anthropic-ai/sdk (Node) | `baseURL` (`ANTHROPIC_BASE_URL`) | `https://llm.example.com` (no `/v1`) | Messages |
-| @ai-sdk/openai | `baseURL` (`OPENAI_BASE_URL`) | `https://llm.example.com/v1` | **Responses** for `openai(id)` |
-| @ai-sdk/openai-compatible | `baseURL` | `https://llm.example.com/v1` | Chat Completions |
-| @ai-sdk/anthropic | `baseURL` | `https://llm.example.com/v1` (**includes** `/v1`) | Messages |
+| SDK                       | Base URL option (env)             | Expected shape                                    | Default API                                                  |
+| ------------------------- | --------------------------------- | ------------------------------------------------- | ------------------------------------------------------------ |
+| openai (Python)           | `base_url` (`OPENAI_BASE_URL`)    | `https://llm.example.com/v1`                      | whatever method you call (`chat.completions` or `responses`) |
+| openai (Node)             | `baseURL` (`OPENAI_BASE_URL`)     | `https://llm.example.com/v1`                      | same                                                         |
+| anthropic (Python)        | `base_url` (`ANTHROPIC_BASE_URL`) | `https://llm.example.com` (no `/v1`)              | Messages                                                     |
+| @anthropic-ai/sdk (Node)  | `baseURL` (`ANTHROPIC_BASE_URL`)  | `https://llm.example.com` (no `/v1`)              | Messages                                                     |
+| @ai-sdk/openai            | `baseURL` (`OPENAI_BASE_URL`)     | `https://llm.example.com/v1`                      | **Responses** for `openai(id)`                               |
+| @ai-sdk/openai-compatible | `baseURL`                         | `https://llm.example.com/v1`                      | Chat Completions                                             |
+| @ai-sdk/anthropic         | `baseURL`                         | `https://llm.example.com/v1` (**includes** `/v1`) | Messages                                                     |
 
 ## OpenAI SDK (Python and Node)
 
@@ -37,7 +37,10 @@ r = client.chat.completions.create(model="coder", messages=[{"role": "user", "co
 ```ts
 import OpenAI from "openai";
 
-const client = new OpenAI({ baseURL: "https://llm.example.com/v1", apiKey: process.env.LITELLM_API_KEY });
+const client = new OpenAI({
+  baseURL: "https://llm.example.com/v1",
+  apiKey: process.env.LITELLM_API_KEY,
+});
 ```
 
 ### Capability flags
@@ -106,7 +109,10 @@ const gateway = createOpenAICompatible({
   includeUsage: true,
 });
 
-const { text } = await generateText({ model: gateway("coder"), prompt: "ping" });
+const { text } = await generateText({
+  model: gateway("coder"),
+  prompt: "ping",
+});
 ```
 
 Responses endpoint: `createOpenAI({ baseURL, apiKey })` then `openai("coder")` or `openai.responses("coder")`. Chat-only endpoint with the OpenAI provider: `openai.chat("coder")`.

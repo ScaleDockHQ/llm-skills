@@ -10,14 +10,14 @@
 
 ```yaml
 model_list:
-  - model_name: coder                    # public alias clients use
-    litellm_params:                      # how to call the provider
-      model: openai/qwen-coder           # <provider>/<provider-model-id>
+  - model_name: coder # public alias clients use
+    litellm_params: # how to call the provider
+      model: openai/qwen-coder # <provider>/<provider-model-id>
       api_base: http://127.0.0.1:8080/v1
       api_key: "none"
-      rpm: 60                            # optional, used for weighted routing
-      drop_params: true                  # per-deployment param dropping
-    model_info:                          # what the model can do
+      rpm: 60 # optional, used for weighted routing
+      drop_params: true # per-deployment param dropping
+    model_info: # what the model can do
       max_input_tokens: 131072
       max_output_tokens: 16384
       supports_function_calling: true
@@ -28,15 +28,15 @@ model_list:
 
 ### Provider prefixes you will use most
 
-| Backend | `model` value | Notes |
-|---|---|---|
-| Any OpenAI-compatible server (llama.cpp, llama-swap, SGLang, LM Studio) | `openai/<served-id>` + `api_base` ending in `/v1` | Requires some `api_key` value even if the backend ignores it |
-| vLLM | `hosted_vllm/<served-id>` + `api_base` | Dedicated provider; no fake key needed |
-| Ollama | `ollama_chat/<model>` + `api_base: http://host:11434` | Or `openai/` against Ollama's `/v1` |
-| OpenAI | `openai/<model>` + `api_key: os.environ/OPENAI_API_KEY` | |
-| Anthropic | `anthropic/<model>` + `api_key: os.environ/ANTHROPIC_API_KEY` | |
-| OpenRouter | `openrouter/<vendor>/<model>` + `api_key: os.environ/OPENROUTER_API_KEY` | |
-| Wildcard | `model_name: "openai/*"`, `model: openai/*` | Exposes every model of a provider; pair with `litellm_settings.check_provider_endpoint: true` for accurate `/v1/models` |
+| Backend                                                                 | `model` value                                                            | Notes                                                                                                                   |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| Any OpenAI-compatible server (llama.cpp, llama-swap, SGLang, LM Studio) | `openai/<served-id>` + `api_base` ending in `/v1`                        | Requires some `api_key` value even if the backend ignores it                                                            |
+| vLLM                                                                    | `hosted_vllm/<served-id>` + `api_base`                                   | Dedicated provider; no fake key needed                                                                                  |
+| Ollama                                                                  | `ollama_chat/<model>` + `api_base: http://host:11434`                    | Or `openai/` against Ollama's `/v1`                                                                                     |
+| OpenAI                                                                  | `openai/<model>` + `api_key: os.environ/OPENAI_API_KEY`                  |                                                                                                                         |
+| Anthropic                                                               | `anthropic/<model>` + `api_key: os.environ/ANTHROPIC_API_KEY`            |                                                                                                                         |
+| OpenRouter                                                              | `openrouter/<vendor>/<model>` + `api_key: os.environ/OPENROUTER_API_KEY` |                                                                                                                         |
+| Wildcard                                                                | `model_name: "openai/*"`, `model: openai/*`                              | Exposes every model of a provider; pair with `litellm_settings.check_provider_endpoint: true` for accurate `/v1/models` |
 
 Check the provider page in the LiteLLM docs for exact prefixes of other providers; do not guess.
 
@@ -48,10 +48,10 @@ Check the provider page in the LiteLLM docs for exact prefixes of other provider
 ```yaml
 router_settings:
   model_group_alias:
-    old-coder: coder                      # shown in /v1/models
+    old-coder: coder # shown in /v1/models
     Coder:
       model: coder
-      hidden: true                        # works but not listed
+      hidden: true # works but not listed
 ```
 
 - `model_info.discoverable: false` hides a `model_list` entry from `/v1/models` while keeping it callable.

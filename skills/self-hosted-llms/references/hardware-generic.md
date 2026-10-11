@@ -20,13 +20,13 @@ Run it on every node. Record the GPU count, VRAM per GPU, interconnect and archi
 
 ## Discrete VRAM vs unified memory
 
-| | Discrete GPU (this file) | Unified memory (DGX Spark) |
-| --- | --- | --- |
-| Model memory | VRAM per GPU, fixed | Shared pool with the OS and every process |
-| `nvidia-smi` memory | Reported per GPU | "Not Supported" is expected |
-| Failure on overcommit | CUDA OOM in the engine; host survives | Host-wide OOM; can take down the node |
-| Engine memory knob | Fraction of *that GPU's* VRAM | Fraction of the *shared* pool |
-| Downloads/builds | Use host RAM, rarely hurt serving | Compete with serving (see `memory-safety.md`) |
+|                       | Discrete GPU (this file)              | Unified memory (DGX Spark)                    |
+| --------------------- | ------------------------------------- | --------------------------------------------- |
+| Model memory          | VRAM per GPU, fixed                   | Shared pool with the OS and every process     |
+| `nvidia-smi` memory   | Reported per GPU                      | "Not Supported" is expected                   |
+| Failure on overcommit | CUDA OOM in the engine; host survives | Host-wide OOM; can take down the node         |
+| Engine memory knob    | Fraction of _that GPU's_ VRAM         | Fraction of the _shared_ pool                 |
+| Downloads/builds      | Use host RAM, rarely hurt serving     | Compete with serving (see `memory-safety.md`) |
 
 On discrete GPUs, `--gpu-memory-utilization` (vLLM) and `--mem-fraction-static` (SGLang) apply per
 GPU. Host RAM still matters: weight loading, CPU offload, and llama.cpp layers left on the CPU.
@@ -47,12 +47,12 @@ With tensor parallel, weights and KV cache split across GPUs; overhead is paid p
 
 Knobs that shrink the budget:
 
-| Engine | Context | Concurrency | Memory cap |
-| --- | --- | --- | --- |
-| vLLM | `--max-model-len` | `--max-num-seqs` | `--gpu-memory-utilization` |
-| SGLang | `--context-length` | `--max-running-requests` | `--mem-fraction-static` |
-| TRT-LLM | engine build | `--max_batch_size` | `--kv_cache_free_gpu_memory_fraction` |
-| llama.cpp | `-c` | `-np` | `-ngl` (layers on GPU) |
+| Engine    | Context            | Concurrency              | Memory cap                            |
+| --------- | ------------------ | ------------------------ | ------------------------------------- |
+| vLLM      | `--max-model-len`  | `--max-num-seqs`         | `--gpu-memory-utilization`            |
+| SGLang    | `--context-length` | `--max-running-requests` | `--mem-fraction-static`               |
+| TRT-LLM   | engine build       | `--max_batch_size`       | `--kv_cache_free_gpu_memory_fraction` |
+| llama.cpp | `-c`               | `-np`                    | `-ngl` (layers on GPU)                |
 
 vLLM and SGLang pre-allocate the KV pool up to their memory cap. Two engines on one GPU must have
 caps that sum below 1.0 with headroom, or the second one fails to start.

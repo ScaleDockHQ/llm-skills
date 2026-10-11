@@ -4,7 +4,7 @@ description: Self-host generative media servers (image, video, speech-to-text, t
 license: MIT
 metadata:
   author: ScaleDockHQ
-  version: "1.0.0"
+  version: "1.0.1"
 compatibility: Linux servers with NVIDIA GPUs (x86_64 or arm64, including DGX Spark unified memory); CPU fallback for STT/TTS. Assumes an existing LiteLLM + llama-swap stack. Needs curl, jq, Docker or a C++/CUDA toolchain, and optionally Python for ComfyUI.
 ---
 
@@ -13,6 +13,7 @@ compatibility: Linux servers with NVIDIA GPUs (x86_64 or arm64, including DGX Sp
 Run image, video, speech-to-text (STT) and text-to-speech (TTS) servers on your own hardware, wired into the same LiteLLM → llama-swap stack that serves your LLMs. Clients get one base URL and one key system for chat, images and audio, and llama-swap decides what is loaded.
 
 **In scope:**
+
 - choosing a server per modality and installing it (x86 and DGX Spark/arm64),
 - exposing OpenAI-compatible routes or wrapping servers that lack them,
 - llama-swap and LiteLLM entries for media servers,
@@ -21,6 +22,7 @@ Run image, video, speech-to-text (STT) and text-to-speech (TTS) servers on your 
 - smoke tests, troubleshooting and model licenses.
 
 **Out of scope:**
+
 - the LLM stack itself (engines, llama-swap basics, models and weights) → `self-hosted-llms`. Its engine-sdcpp reference already covers sd-server as the example of adding a non-LLM backend; this skill builds on it.
 - gateway administration (keys, budgets, fallbacks) → `llm-gateway`.
 - app/client wiring → `llm-clients`.
@@ -47,6 +49,7 @@ curl -s http://127.0.0.1:8080/running 2>/dev/null     # llama-swap: loaded model
 Find the llama-swap and LiteLLM config files from the running units or containers above (`systemctl --user cat <unit>`, `docker inspect <name>`).
 
 **Ask only what can't be discovered:**
+
 - Which modalities are needed (image, video, STT, TTS), and for whom (personal, team, customers)? The answer decides the license check.
 - Interactive (seconds) or batch (minutes OK)?
 - How do clients reach the stack: Cloudflare proxy/tunnel, tailnet/VPN, or LAN only?
@@ -55,15 +58,15 @@ Find the llama-swap and LiteLLM config files from the running units or container
 
 ## Decision flow
 
-| Need | Default choice | Reference |
-|---|---|---|
-| OpenAI `/v1/images/generations`, one model per process | sd-server | `references/image-servers.md` |
-| Complex image pipelines, newest model families | ComfyUI (wrap for OpenAI shape) | `references/comfyui.md` |
-| Video | ComfyUI native workflows, async; sd-server `vid_gen` as an alternative | `references/video.md` |
-| STT, lean single model | whisper-server mounted at `/v1/audio/transcriptions` | `references/speech-to-text.md` |
-| STT + TTS in one OpenAI-compatible container | Speaches | `references/speech-to-text.md`, `references/text-to-speech.md` |
-| STT with high throughput on an existing vLLM | vLLM `/v1/audio/transcriptions` | `references/speech-to-text.md` |
-| TTS with rich voice features | Kokoro-FastAPI | `references/text-to-speech.md` |
+| Need                                                   | Default choice                                                         | Reference                                                      |
+| ------------------------------------------------------ | ---------------------------------------------------------------------- | -------------------------------------------------------------- |
+| OpenAI `/v1/images/generations`, one model per process | sd-server                                                              | `references/image-servers.md`                                  |
+| Complex image pipelines, newest model families         | ComfyUI (wrap for OpenAI shape)                                        | `references/comfyui.md`                                        |
+| Video                                                  | ComfyUI native workflows, async; sd-server `vid_gen` as an alternative | `references/video.md`                                          |
+| STT, lean single model                                 | whisper-server mounted at `/v1/audio/transcriptions`                   | `references/speech-to-text.md`                                 |
+| STT + TTS in one OpenAI-compatible container           | Speaches                                                               | `references/speech-to-text.md`, `references/text-to-speech.md` |
+| STT with high throughput on an existing vLLM           | vLLM `/v1/audio/transcriptions`                                        | `references/speech-to-text.md`                                 |
+| TTS with rich voice features                           | Kokoro-FastAPI                                                         | `references/text-to-speech.md`                                 |
 
 Placement: speech services are small, so make them **co-resident** (persistent group). Image and video models are large, so **swap** them with the big LLM (exclusive group) unless memory clearly allows both.
 
@@ -79,12 +82,14 @@ Placement: speech services are small, so make them **co-resident** (persistent g
 ## Workflows
 
 ### Choose a server per modality
+
 - [ ] Map each need to a server with the decision table above
 - [ ] Check the license of every model you plan to serve (`references/licenses.md`)
 - [ ] Decide interactive vs batch; batch or video means an async API (`references/video.md`, `references/stack-integration.md`)
 - [ ] Decide co-resident vs swap for each server (`references/memory-planning.md`)
 
 ### Install a server
+
 - [ ] Image: build sd-server with `-DSD_CUDA=ON` in a memory-capped scope (`references/image-servers.md`), or install ComfyUI in a venv with CUDA PyTorch wheels (`references/comfyui.md`)
 - [ ] Video: update ComfyUI and download exactly the files the official tutorial lists (`references/video.md`)
 - [ ] STT: build whisper-server with `-DGGML_CUDA=1` or run the Speaches container (`references/speech-to-text.md`)
@@ -93,6 +98,7 @@ Placement: speech services are small, so make them **co-resident** (persistent g
 - [ ] Repeat the weight staging on every node that may run the model
 
 ### Expose an OpenAI-compatible route (or wrap)
+
 - [ ] sd-server: `/v1/images/generations` and `/v1/images/edits` are native (`references/image-servers.md`)
 - [ ] whisper-server: `--request-path /v1/audio --inference-path /transcriptions` (`references/speech-to-text.md`)
 - [ ] Speaches and Kokoro-FastAPI: `/v1/audio/*` is native (`references/speech-to-text.md`, `references/text-to-speech.md`)
@@ -100,22 +106,25 @@ Placement: speech services are small, so make them **co-resident** (persistent g
 - [ ] Video: native async job APIs only; no OpenAI route (`references/video.md`)
 
 ### Add to llama-swap
+
 - [ ] One entry per server with `cmd` using `${PORT}`; Docker entries need `proxy`, `-p 127.0.0.1:${PORT}:<port>` and `cmdStop` (`references/stack-integration.md`)
 - [ ] Set `checkEndpoint`: sd-server `/v1/models`, whisper `<request-path>/health`, Kokoro/Speaches `/health`, ComfyUI `/` (`references/stack-integration.md`)
 - [ ] ComfyUI: entry id `comfyui_auto`, used via `/comfyui/` (`references/comfyui.md`)
 - [ ] Put entries in groups under `routing.router.settings.groups`: heavy media in the LLM's exclusive group, speech in a persistent group (`references/stack-integration.md`)
 - [ ] Preload co-resident services with `hooks.on_startup.preload`; set `ttl` for swappable media
 - [ ] Raise `healthCheckTimeout` above the slowest cold load; keep `timeouts.responseHeader` at `0` for image models
-- [ ] Start from `templates/llama-swap-genmedia.yaml`
+- [ ] Start from `assets/llama-swap-genmedia.yaml`
 
 ### Add to LiteLLM
+
 - [ ] `model: openai/<llama-swap-id>`, `api_base: http://127.0.0.1:<swap-port>/v1` (`references/stack-integration.md`)
 - [ ] `model_info.mode`: `image_generation`, `image_edit`, `audio_transcription`, or `audio_speech` (+ `health_check_voice`)
 - [ ] Per-model `litellm_params.timeout` above the slowest job plus a cold load
 - [ ] Keep image models out of background health checks (`disable_background_health_check: true`)
-- [ ] Start from `templates/litellm-genmedia.yaml`; keys and budgets per the `llm-gateway` skill
+- [ ] Start from `assets/litellm-genmedia.yaml`; keys and budgets per the `llm-gateway` skill
 
 ### Plan memory alongside LLMs
+
 - [ ] Measure the resident LLM's real footprint at your context and parallel slots (`references/memory-planning.md`)
 - [ ] Load each media model alone, run one job, and record the peak
 - [ ] Fill the budget table; leave headroom, especially on unified memory
@@ -123,12 +132,14 @@ Placement: speech services are small, so make them **co-resident** (persistent g
 - [ ] Builds, conversions and downloads go in `systemd-run --user --scope -p MemoryMax=... -p MemorySwapMax=0`
 
 ### Handle long jobs
+
 - [ ] List every hop's timeout: client, Cloudflare, LiteLLM, llama-swap load, server (`references/stack-integration.md`)
 - [ ] Jobs that can exceed ~2 minutes go async: sd-server `/sdcpp/v1/img_gen` + `jobs/{id}`, ComfyUI `/prompt` + `/history/{id}` (`references/image-servers.md`, `references/comfyui.md`)
 - [ ] Route long-job clients over a tailnet/VPN to LiteLLM directly, or keep the model warm (preload, `ttl: 0`)
 - [ ] Re-test through the public path with a worst-case job
 
 ### Smoke-test
+
 - [ ] Test the upstream directly, then through llama-swap, then through LiteLLM (`references/stack-integration.md`)
 - [ ] Write outputs to files and check them with `file`:
 
@@ -148,19 +159,19 @@ curl -s http://127.0.0.1:8080/running | jq .
 
 ### Troubleshoot
 
-| Symptom | Likely cause | Reference |
-|---|---|---|
-| 524 after ~125 s through Cloudflare | sync generation or cold swap exceeds the proxy read timeout | `references/stack-integration.md` |
-| llama-swap load times out | wrong `checkEndpoint` (sd-server/ComfyUI have no `/health`) or `healthCheckTimeout` too low | `references/stack-integration.md` |
-| GPU memory stays used after unload | Docker entry without `cmdStop` | `references/stack-integration.md` |
-| ComfyUI never unloads / reloads by itself | open UI tab; not using `comfyui_auto` + `/comfyui/` | `references/comfyui.md` |
-| LiteLLM "Not Found" | `api_base` missing `/v1`, or missing `openai/` prefix | `references/stack-integration.md` |
-| LLM evicted every few minutes | monitor or LiteLLM health check hitting an image model | `references/stack-integration.md` |
-| Node OOM / swap storm on DGX Spark | media model + resident LLM over budget; uncapped build or download | `references/memory-planning.md` |
-| Transcripts in wrong language | whisper-server defaults to `-l en` | `references/speech-to-text.md` |
-| Black/noisy images | wrong encoder/VAE for the family, or FLUX `--cfg-scale` ≠ 1 | `references/image-servers.md` |
-| `<lora:...>` ignored | sd-server APIs require structured LoRA fields | `references/image-servers.md` |
-| Missing nodes in a video template | ComfyUI outdated or a node failed to import | `references/video.md` |
+| Symptom                                   | Likely cause                                                                                | Reference                         |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------- | --------------------------------- |
+| 524 after ~125 s through Cloudflare       | sync generation or cold swap exceeds the proxy read timeout                                 | `references/stack-integration.md` |
+| llama-swap load times out                 | wrong `checkEndpoint` (sd-server/ComfyUI have no `/health`) or `healthCheckTimeout` too low | `references/stack-integration.md` |
+| GPU memory stays used after unload        | Docker entry without `cmdStop`                                                              | `references/stack-integration.md` |
+| ComfyUI never unloads / reloads by itself | open UI tab; not using `comfyui_auto` + `/comfyui/`                                         | `references/comfyui.md`           |
+| LiteLLM "Not Found"                       | `api_base` missing `/v1`, or missing `openai/` prefix                                       | `references/stack-integration.md` |
+| LLM evicted every few minutes             | monitor or LiteLLM health check hitting an image model                                      | `references/stack-integration.md` |
+| Node OOM / swap storm on DGX Spark        | media model + resident LLM over budget; uncapped build or download                          | `references/memory-planning.md`   |
+| Transcripts in wrong language             | whisper-server defaults to `-l en`                                                          | `references/speech-to-text.md`    |
+| Black/noisy images                        | wrong encoder/VAE for the family, or FLUX `--cfg-scale` ≠ 1                                 | `references/image-servers.md`     |
+| `<lora:...>` ignored                      | sd-server APIs require structured LoRA fields                                               | `references/image-servers.md`     |
+| Missing nodes in a video template         | ComfyUI outdated or a node failed to import                                                 | `references/video.md`             |
 
 ## Reference index
 
@@ -172,8 +183,8 @@ curl -s http://127.0.0.1:8080/running | jq .
 - `references/stack-integration.md`: llama-swap keys, groups, `/comfyui/`, LiteLLM modes, end-to-end timeouts, auth and binding.
 - `references/memory-planning.md`: budgeting discrete and unified memory, co-resident vs swap, capped scopes, hf-xet limits, weight staging.
 - `references/licenses.md`: verified license terms for image, video and speech models, plus server software.
-- `templates/llama-swap-genmedia.yaml`: llama-swap entries and groups for sd-server, whisper-server, Kokoro and ComfyUI.
-- `templates/litellm-genmedia.yaml`: LiteLLM `model_list` entries for image and audio routes.
+- `assets/llama-swap-genmedia.yaml`: llama-swap entries and groups for sd-server, whisper-server, Kokoro and ComfyUI.
+- `assets/litellm-genmedia.yaml`: LiteLLM `model_list` entries for image and audio routes.
 
 ## Companion skills
 

@@ -29,7 +29,7 @@ OPENAI_API_KEYS=<your-virtual-key>
 
 `OPENAI_API_BASE_URLS` and `OPENAI_API_KEYS` are semicolon-separated and paired by position. On Linux, run the container with `--add-host=host.docker.internal:host-gateway`.
 
-Template: `templates/open-webui.env.example`.
+Template: `assets/open-webui.env.example`.
 
 ### Capability flags
 

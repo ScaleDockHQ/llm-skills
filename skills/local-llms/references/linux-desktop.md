@@ -26,12 +26,14 @@ systemctl status ollama --no-pager 2>/dev/null; systemctl --user list-units --ty
 ## Install
 
 **Drivers first**
+
 - NVIDIA: use the distro's packaged proprietary driver (for example `ubuntu-drivers`). Ollama needs driver 550+ (570+ for compute capability 5.0–6.2). Check with `nvidia-smi`.
 - AMD ROCm: install with AMD's `amdgpu-install` tool. Ollama requires ROCm v7 on Linux and lists the supported RX/PRO/Ryzen AI parts in its GPU docs. Unsupported RDNA cards can sometimes use `HSA_OVERRIDE_GFX_VERSION=x.y.z`; use this at your own risk.
 - Vulkan: Mesa (RADV for AMD, ANV for Intel) and `vulkan-tools`.
 - Add yourself to the GPU groups if needed: `sudo usermod -aG render,video "$USER"`, then log out and back in.
 
 **Runtimes**
+
 - Ollama: `curl -fsSL https://ollama.com/install.sh | sh`. This installs a system service `ollama.service` that runs as user `ollama`, with models in `/usr/share/ollama/.ollama/models`.
 - llama.cpp: `brew install llama.cpp`, or a release tarball: `ubuntu-x64` (CPU), `ubuntu-vulkan-x64`, `ubuntu-cuda-<ver>-x64` (plus the `cudart-` tarball), `ubuntu-rocm-<ver>-x64`, or `ubuntu-sycl-*`. Building from source with `-DGGML_CUDA=ON` / `-DGGML_HIP=ON` / `-DGGML_VULKAN=ON` gives the best fit for your exact card.
 - LM Studio: the AppImage (GUI), or headless llmster with `curl -fsSL https://lmstudio.ai/install.sh | bash`.
@@ -49,7 +51,7 @@ Run your own servers as **user** services, not system services. A user service r
 
 ```bash
 mkdir -p ~/.config/systemd/user
-cp templates/llama-server.service ~/.config/systemd/user/
+cp assets/llama-server.service ~/.config/systemd/user/
 systemctl --user daemon-reload
 systemctl --user enable --now llama-server
 journalctl --user -u llama-server -f

@@ -8,13 +8,13 @@ Running inference engines as Kubernetes workloads on GPU nodes (managed clusters
 
 Options, from simplest to most capable:
 
-| Option | What it adds | Choose when |
-| --- | --- | --- |
-| Plain manifests (Deployment + Service + PVC) | Nothing beyond Kubernetes | One or a few models, you want full control. Template: `templates/k8s/vllm-deployment.yaml` |
-| vLLM production-stack (Helm) | Router with model-aware and prefix-aware routing, Grafana dashboards, KV offloading via LMCache | Several vLLM models behind one router, quick start |
-| KServe `InferenceService` | Model CRD, storage initializer (`hf://`, S3, GCS), OpenAI routes under `/openai/v1`, autoscaling (KEDA) | Platform teams standardizing model serving. Template: `templates/k8s/kserve-inferenceservice.yaml` |
-| KServe `LLMInferenceService` / llm-d | Prefix-cache-aware routing, prefill/decode disaggregation, wide expert parallelism, SLO-aware autoscaling | Large fleets where cache locality and tail latency matter |
-| LeaderWorkerSet (LWS) | Multi-node pod groups for one model replica | Models too large for one node |
+| Option                                       | What it adds                                                                                              | Choose when                                                                                     |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Plain manifests (Deployment + Service + PVC) | Nothing beyond Kubernetes                                                                                 | One or a few models, you want full control. Template: `assets/k8s/vllm-deployment.yaml`         |
+| vLLM production-stack (Helm)                 | Router with model-aware and prefix-aware routing, Grafana dashboards, KV offloading via LMCache           | Several vLLM models behind one router, quick start                                              |
+| KServe `InferenceService`                    | Model CRD, storage initializer (`hf://`, S3, GCS), OpenAI routes under `/openai/v1`, autoscaling (KEDA)   | Platform teams standardizing model serving. Template: `assets/k8s/kserve-inferenceservice.yaml` |
+| KServe `LLMInferenceService` / llm-d         | Prefix-cache-aware routing, prefill/decode disaggregation, wide expert parallelism, SLO-aware autoscaling | Large fleets where cache locality and tail latency matter                                       |
+| LeaderWorkerSet (LWS)                        | Multi-node pod groups for one model replica                                                               | Models too large for one node                                                                   |
 
 ## Install / setup
 
@@ -50,17 +50,17 @@ kubectl apply --server-side -f "https://github.com/kubernetes-sigs/lws/releases/
 
 ## Minimal working config
 
-`templates/k8s/vllm-deployment.yaml` follows vLLM's Kubernetes guide: a PVC for the Hugging Face cache, a Secret for the token, a Deployment running `vllm/vllm-openai` with a memory-backed `/dev/shm`, `/health` probes and one GPU, and a ClusterIP Service.
+`assets/k8s/vllm-deployment.yaml` follows vLLM's Kubernetes guide: a PVC for the Hugging Face cache, a Secret for the token, a Deployment running `vllm/vllm-openai` with a memory-backed `/dev/shm`, `/health` probes and one GPU, and a ClusterIP Service.
 
 ```bash
 kubectl create secret generic hf-token-secret --from-file=token=<path-to-token-file>   # no token on the command line
-kubectl apply -f templates/k8s/vllm-deployment.yaml
+kubectl apply -f assets/k8s/vllm-deployment.yaml
 kubectl rollout status deploy/vllm-chat
 kubectl port-forward svc/vllm-chat 8000:80 &
 curl -s http://localhost:8000/v1/models | jq -r '.data[].id'
 ```
 
-`templates/k8s/kserve-inferenceservice.yaml` follows KServe's text-generation guide: a Secret, a `ClusterStorageContainer` for `hf://` URIs and an `InferenceService` with the Hugging Face runtime (vLLM backend by default).
+`assets/k8s/kserve-inferenceservice.yaml` follows KServe's text-generation guide: a Secret, a `ClusterStorageContainer` for `hf://` URIs and an `InferenceService` with the Hugging Face runtime (vLLM backend by default).
 
 ## How it plugs into the stack
 
