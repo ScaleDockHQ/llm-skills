@@ -1,0 +1,28 @@
+# .github/workflows/deepeval.yml
+# Judge must be reachable from the runner; use a self-hosted runner for a private server.
+name: deepeval
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install "deepeval==4.2.8" -r requirements.txt
+      - run: deepeval test run tests/evals -x
+        env:
+          DEEPEVAL_TELEMETRY_OPT_OUT: "1"
+          DEEPEVAL_DISABLE_DOTENV: "1"
+          CONFIDENT_OPEN_BROWSER: "0"
+          USE_LOCAL_MODEL: "1"
+          LOCAL_MODEL_NAME: ${{ vars.JUDGE_MODEL }}
+          LOCAL_MODEL_BASE_URL: ${{ vars.JUDGE_BASE_URL }}
+          LOCAL_MODEL_API_KEY: ${{ secrets.JUDGE_API_KEY }}
