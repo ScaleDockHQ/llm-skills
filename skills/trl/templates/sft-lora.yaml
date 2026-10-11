@@ -1,0 +1,31 @@
+# TRL CLI config for LoRA SFT. Run:  trl sft --config sft-lora.yaml
+# Keys mirror SFTConfig / ModelConfig / ScriptArguments fields, as in the upstream CLI docs
+# (https://huggingface.co/docs/trl/clis) and PEFT integration docs
+# (https://huggingface.co/docs/trl/peft_integration). model_name_or_path, dataset_name and
+# num_processes appear in the upstream YAML examples; the LoRA keys below are documented as
+# CLI flags (--use_peft --lora_r ...) and are assumed to use the same names in YAML (unverified).
+# For a local JSONL dataset or custom collators, use a Python script instead (references/trainers.md).
+
+model_name_or_path: <org>/<instruct-model>
+dataset_name: <org>/<dataset> # HF dataset id with a conversational "messages" column
+output_dir: ./outputs/sft-lora
+
+# LoRA (flags: --use_peft --lora_r --lora_alpha --lora_dropout)
+use_peft: true
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+# QLoRA: uncomment (needs bitsandbytes)
+# load_in_4bit: true
+
+# SFTConfig defaults: learning_rate 2e-5 (full FT), max_length 1024. LoRA usually wants ~10x higher.
+learning_rate: 2.0e-4
+num_train_epochs: 2
+max_length: 2048
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 4
+# Loss only on assistant turns (needs a chat template with generation markers; TRL patches some families).
+# assistant_only_loss: true
+
+# Multi-GPU through Accelerate:
+# num_processes: 2

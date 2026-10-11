@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Agent skill for Hugging Face TRL: install, run SFT, DPO, KTO, reward-model, RLOO and GRPO training with the trl CLI or Python trainers, LoRA/QLoRA, custom reward functions, vLLM server and colocate generation, Accelerate/DeepSpeed scaling, merging adapters, troubleshooting and updating.",
+  "references": [
+    "https://github.com/huggingface/trl",
+    "https://huggingface.co/docs/trl",
+    "https://huggingface.co/docs/trl/clis",
+    "https://huggingface.co/docs/trl/sft_trainer",
+    "https://huggingface.co/docs/trl/dpo_trainer",
+    "https://huggingface.co/docs/trl/grpo_trainer",
+    "https://huggingface.co/docs/trl/vllm_integration",
+    "https://huggingface.co/docs/trl/peft_integration",
+    "https://huggingface.co/docs/trl/reducing_memory_usage",
+    "https://github.com/huggingface/trl/releases",
+    "https://github.com/huggingface/peft"
+  ],
+  "kind": "product"
+}

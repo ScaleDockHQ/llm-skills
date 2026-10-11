@@ -1,0 +1,29 @@
+# TRL CLI config for GRPO. Run:  trl grpo --config grpo.yaml
+# model_name_or_path, dataset_name and reward_funcs (a list of reward names from trl.rewards,
+# for example accuracy_reward) follow the upstream CLI docs
+# (https://huggingface.co/docs/trl/clis). The other keys are GRPOConfig fields
+# (https://huggingface.co/docs/trl/grpo_trainer); their YAML use through the CLI is assumed (unverified).
+# For custom reward functions use a Python script (references/trainers.md).
+#
+# vLLM: use_vllm: true with vllm_mode colocate (default, one GPU) or server (separate vLLM server
+# on other GPUs; see references/combos/grpo-vllm.md).
+
+model_name_or_path: Qwen/Qwen2.5-0.5B-Instruct
+dataset_name: trl-lib/DeepMath-103K
+reward_funcs:
+  - accuracy_reward
+output_dir: ./outputs/grpo
+
+# GRPOConfig defaults (v1.15.0): num_generations 8, max_completion_length 512, learning_rate 1e-6,
+# beta 0.0 (no KL term, no reference model), loss_type dapo, vllm_mode colocate,
+# vllm_gpu_memory_utilization 0.3 (colocate only).
+# num_processes * per_device_train_batch_size * gradient_accumulation_steps must be divisible by num_generations.
+num_generations: 8
+max_completion_length: 512
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 1
+
+use_vllm: true
+vllm_mode: colocate
+# vllm_enable_sleep_mode: true      # offload vLLM memory during the optimizer step
+# vllm_mode: server                 # with vllm_server_host / vllm_server_port, or vllm_server_base_url
