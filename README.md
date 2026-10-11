@@ -1,59 +1,65 @@
 # llms-skills
 
-Agent skills for choosing, running, connecting, improving and operating LLMs and generative-AI models: on a laptop, on your own GPU servers (NVIDIA DGX Spark first-class), or in the cloud. Each skill teaches an AI coding agent to inspect the live system first, follow verified upstream documentation, never print secrets, and measure before and after every change. The skills work with any agent that supports the [Agent Skills](https://agentskills.io/specification) format and install with the [skills CLI](https://github.com/vercel-labs/skills).
+Agent skills for choosing, running, connecting, improving and operating LLMs and generative-AI models: on a laptop, on your own GPU servers (NVIDIA DGX Spark first-class), or in the cloud. Each skill teaches an AI coding agent to inspect the live system first, follow verified upstream documentation, never print secrets, and measure before and after every change. The skills work with any agent that supports the [Agent Skills](https://agentskills.io/specification) format (Cursor, Claude Code, Codex, and others) and install with the [skills CLI](https://github.com/vercel-labs/skills).
 
 ## Install
-
-All skills:
 
 ```bash
 npx skills add ScaleDockHQ/llms-skills
 ```
 
-One skill:
+The CLI lists every skill in this repo and asks which ones to install (space to toggle). To skip the picker:
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill <name>
+# See what's available
+npx skills add ScaleDockHQ/llms-skills --list
+
+# Install one or more skills by name
+npx skills add ScaleDockHQ/llms-skills --skill local-llms
+
+# Same thing, shorter
+npx skills add ScaleDockHQ/llms-skills@local-llms
 ```
+
+Add `-g` to install globally (user level) instead of per project. Run `npx skills update` to pull the latest versions.
 
 ## Skills
 
 ### Decide
 
-- [`choosing-llm-hosting`](skills/choosing-llm-hosting/): decide where models should run (local, owned server, rented GPUs, serverless, APIs or hybrid) and record the decision.
-  `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`
+| Skill                                                 | Description                                                                                                            |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| [`choosing-llm-hosting`](skills/choosing-llm-hosting) | Decide where models should run (local, owned server, rented GPUs, serverless, APIs or hybrid) and record the decision. |
 
 ### Run
 
-- [`local-llms`](skills/local-llms/): run models on a laptop or desktop with Ollama, LM Studio, llama.cpp or MLX.
-  `npx skills add ScaleDockHQ/llms-skills --skill local-llms`
-- [`self-hosted-llms`](skills/self-hosted-llms/): serve models on your own NVIDIA Linux servers and DGX Spark as one authenticated endpoint (engines, llama-swap, LiteLLM, Cloudflare Tunnel or Tailscale).
-  `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`
-- [`cloud-llms`](skills/cloud-llms/): run and consume models in the cloud: APIs, GPU VMs, serverless GPUs and managed endpoints, with budgets and teardown.
-  `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`
-- [`self-hosted-genmedia`](skills/self-hosted-genmedia/): self-host image, video, speech-to-text and text-to-speech servers next to your LLMs.
-  `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`
+| Skill                                                 | Description                                                                                                                                               |
+| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`local-llms`](skills/local-llms)                     | Run models on a laptop or desktop with Ollama, LM Studio, llama.cpp or MLX.                                                                               |
+| [`self-hosted-llms`](skills/self-hosted-llms)         | Serve models on your own NVIDIA Linux servers and DGX Spark as one authenticated endpoint (engines, llama-swap, LiteLLM, Cloudflare Tunnel or Tailscale). |
+| [`cloud-llms`](skills/cloud-llms)                     | Run and consume models in the cloud: APIs, GPU VMs, serverless GPUs and managed endpoints, with budgets and teardown.                                     |
+| [`self-hosted-genmedia`](skills/self-hosted-genmedia) | Self-host image, video, speech-to-text and text-to-speech servers next to your LLMs.                                                                      |
 
 ### Connect
 
-- [`llm-gateway`](skills/llm-gateway/): one OpenAI- and Anthropic-compatible gateway in front of many providers: keys, budgets, routing, fallbacks, API bridging.
-  `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`
-- [`llm-clients`](skills/llm-clients/): connect coding agents, IDEs, chat UIs and SDKs to any OpenAI- or Anthropic-compatible endpoint.
-  `npx skills add ScaleDockHQ/llms-skills --skill llm-clients`
+| Skill                               | Description                                                                                                               |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| [`llm-gateway`](skills/llm-gateway) | One OpenAI- and Anthropic-compatible gateway in front of many providers: keys, budgets, routing, fallbacks, API bridging. |
+| [`llm-clients`](skills/llm-clients) | Connect coding agents, IDEs, chat UIs and SDKs to any OpenAI- or Anthropic-compatible endpoint.                           |
 
 ### Improve
 
-- [`llm-evals`](skills/llm-evals/): evaluate models and option changes on your own tasks against any OpenAI-compatible endpoint.
-  `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`
-- [`model-quantization`](skills/model-quantization/): produce and publish quantized checkpoints (GGUF, EXL3, FP8, NVFP4 and more).
-  `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`
-- [`fine-tuning-llms`](skills/fine-tuning-llms/): fine-tune open-weight models locally or on rented GPUs, then serve the result.
-  `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`
+| Skill                                             | Description                                                                                  |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [`llm-evals`](skills/llm-evals)                   | Evaluate models and option changes on your own tasks against any OpenAI-compatible endpoint. |
+| [`model-quantization`](skills/model-quantization) | Produce and publish quantized checkpoints (GGUF, EXL3, FP8, NVFP4 and more).                 |
+| [`fine-tuning-llms`](skills/fine-tuning-llms)     | Fine-tune open-weight models locally or on rented GPUs, then serve the result.               |
 
 ### Operate
 
-- [`llm-observability`](skills/llm-observability/): metrics, tracing, logging, cost tracking and alerting for LLM serving and LLM apps.
-  `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`
+| Skill                                           | Description                                                                         |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------- |
+| [`llm-observability`](skills/llm-observability) | Metrics, tracing, logging, cost tracking and alerting for LLM serving and LLM apps. |
 
 ## Repository layout
 
@@ -62,15 +68,18 @@ skills/<name>/
   SKILL.md        instructions the agent loads
   README.md       human overview: install, rules, references
   metadata.json   version, date, abstract, upstream references
-  LICENSE         MIT
   references/     detailed, version-stamped guides loaded on demand
-  templates/      config and shell templates (some skills)
+  assets/         config and shell templates (some skills)
   scripts/        bench.sh, a shared curl + jq benchmark (some skills)
-tools/validate.sh structure and format checks for every skill
+template/skill/   starting point for a new skill
+scripts/          validate-skills.mjs and the git hook installer
+docs/decisions/   architecture decision records
 ```
 
-Run `tools/validate.sh` before opening a pull request.
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Run `pnpm install`, then `pnpm verify` before opening a pull request. Agents follow [AGENTS.md](AGENTS.md). Report security issues as described in [SECURITY.md](SECURITY.md).
 
 ## License
 
-MIT
+[MIT](LICENSE)
