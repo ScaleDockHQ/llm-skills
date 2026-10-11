@@ -113,7 +113,7 @@
       "name": "vllm",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 1,
       "upstream": "https://github.com/vllm-project/vllm",
       "replaces": "skills/self-hosted-llms/references/engine-vllm.md"
@@ -122,7 +122,7 @@
       "name": "sglang",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 1,
       "upstream": "https://github.com/sgl-project/sglang",
       "replaces": "skills/self-hosted-llms/references/engine-sglang.md"
@@ -131,7 +131,7 @@
       "name": "tensorrt-llm",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 1,
       "upstream": "https://github.com/NVIDIA/TensorRT-LLM",
       "replaces": "skills/self-hosted-llms/references/engine-trtllm.md"
@@ -140,7 +140,7 @@
       "name": "llama-cpp",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 1,
       "upstream": "https://github.com/ggml-org/llama.cpp",
       "replaces": "skills/self-hosted-llms/references/engine-llamacpp.md"
@@ -149,7 +149,7 @@
       "name": "ollama",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 1,
       "upstream": "https://github.com/ollama/ollama",
       "replaces": "skills/self-hosted-llms/references/engine-ollama.md"
@@ -158,16 +158,16 @@
       "name": "tensorfold",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 1,
-      "upstream": null,
+      "upstream": "https://github.com/ashhart/TensorFold",
       "replaces": "skills/self-hosted-llms/references/engine-tensorfold.md"
     },
     {
       "name": "exllamav3",
       "kind": "product",
       "category": "inference-engines",
-      "status": "planned",
+      "status": "stable",
       "wave": 1,
       "upstream": "https://github.com/turboderp-org/exllamav3",
       "replaces": "skills/self-hosted-llms/references/engine-exllama.md"
@@ -314,7 +314,7 @@
       "name": "lm-studio",
       "kind": "product",
       "category": "local-runtimes",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://lmstudio.ai/docs",
       "replaces": "skills/local-llms/references/lm-studio.md"
@@ -323,7 +323,7 @@
       "name": "mlx",
       "kind": "product",
       "category": "local-runtimes",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://github.com/ml-explore/mlx-lm",
       "replaces": "skills/local-llms/references/mlx.md"
@@ -360,7 +360,7 @@
       "name": "llama-swap",
       "kind": "product",
       "category": "orchestration",
-      "status": "planned",
+      "status": "stable",
       "wave": 1,
       "upstream": "https://github.com/mostlygeek/llama-swap",
       "replaces": "skills/self-hosted-llms/references/llama-swap.md"
@@ -441,7 +441,7 @@
       "name": "litellm",
       "kind": "product",
       "category": "gateways",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://github.com/BerriAI/litellm",
       "replaces": "skills/self-hosted-llms/references/litellm.md"
@@ -523,7 +523,7 @@
       "name": "cloudflare-tunnel",
       "kind": "product",
       "category": "exposure-networking",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/",
       "replaces": "skills/self-hosted-llms/references/exposure-cloudflare.md"
@@ -532,7 +532,7 @@
       "name": "tailscale",
       "kind": "product",
       "category": "exposure-networking",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://tailscale.com/kb",
       "replaces": "skills/self-hosted-llms/references/exposure-tailscale.md"
@@ -541,7 +541,7 @@
       "name": "caddy",
       "kind": "product",
       "category": "exposure-networking",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://caddyserver.com/docs/",
       "replaces": "skills/self-hosted-llms/references/model-catalog.md"
@@ -568,7 +568,7 @@
       "name": "nvidia-dgx-spark",
       "kind": "platform",
       "category": "hardware-platforms",
-      "status": "planned",
+      "status": "stable",
       "wave": 1,
       "upstream": "https://docs.nvidia.com/dgx/dgx-spark/",
       "replaces": "skills/self-hosted-llms/references/hardware-dgx-spark.md"
@@ -668,7 +668,7 @@
       "name": "runpod",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.runpod.io",
       "replaces": "skills/cloud-llms/references/serverless-gpu.md"
@@ -677,7 +677,7 @@
       "name": "modal",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://modal.com/docs",
       "replaces": "skills/cloud-llms/references/serverless-gpu.md"
@@ -686,7 +686,7 @@
       "name": "lambda-cloud",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.lambda.ai",
       "replaces": "skills/cloud-llms/references/gpu-vms.md"
@@ -695,7 +695,7 @@
       "name": "vast-ai",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.vast.ai",
       "replaces": "skills/cloud-llms/references/gpu-vms.md"
@@ -704,7 +704,7 @@
       "name": "coreweave",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.coreweave.com",
       "replaces": null
@@ -713,7 +713,7 @@
       "name": "nebius",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.nebius.com",
       "replaces": null
@@ -722,7 +722,7 @@
       "name": "baseten",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.baseten.co",
       "replaces": "skills/cloud-llms/references/managed-endpoints.md"
@@ -731,7 +731,7 @@
       "name": "replicate",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://replicate.com/docs",
       "replaces": null
@@ -740,7 +740,7 @@
       "name": "fal",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.fal.ai",
       "replaces": null
@@ -749,7 +749,7 @@
       "name": "crusoe",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.crusoecloud.com",
       "replaces": null
@@ -758,7 +758,7 @@
       "name": "hyperbolic",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.hyperbolic.xyz",
       "replaces": null
@@ -767,7 +767,7 @@
       "name": "together-ai",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.together.ai",
       "replaces": "skills/cloud-llms/references/open-model-apis.md"
@@ -776,7 +776,7 @@
       "name": "fireworks-ai",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.fireworks.ai",
       "replaces": "skills/cloud-llms/references/open-model-apis.md"
@@ -785,7 +785,7 @@
       "name": "groq",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://console.groq.com/docs",
       "replaces": "skills/cloud-llms/references/open-model-apis.md"
@@ -794,7 +794,7 @@
       "name": "cerebras",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://inference-docs.cerebras.ai",
       "replaces": "skills/cloud-llms/references/open-model-apis.md"
@@ -803,7 +803,7 @@
       "name": "sambanova",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.sambanova.ai",
       "replaces": "skills/cloud-llms/references/open-model-apis.md"
@@ -812,7 +812,7 @@
       "name": "deepinfra",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://deepinfra.com/docs",
       "replaces": "skills/cloud-llms/references/open-model-apis.md"
@@ -821,7 +821,7 @@
       "name": "hugging-face",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://huggingface.co/docs",
       "replaces": "skills/cloud-llms/references/managed-endpoints.md"
@@ -830,25 +830,25 @@
       "name": "openai-api",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
-      "upstream": "https://platform.openai.com/docs",
+      "upstream": "https://developers.openai.com/api/docs/quickstart",
       "replaces": "skills/cloud-llms/references/frontier-apis.md"
     },
     {
       "name": "anthropic-api",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
-      "upstream": "https://docs.anthropic.com",
+      "upstream": "https://platform.claude.com/docs/en/get-started",
       "replaces": "skills/cloud-llms/references/frontier-apis.md"
     },
     {
       "name": "gemini-api",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://ai.google.dev/gemini-api/docs",
       "replaces": "skills/cloud-llms/references/frontier-apis.md"
@@ -857,7 +857,7 @@
       "name": "aws-bedrock",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.aws.amazon.com/bedrock/",
       "replaces": "skills/cloud-llms/references/hyperscalers.md"
@@ -866,7 +866,7 @@
       "name": "aws-sagemaker",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
       "upstream": "https://docs.aws.amazon.com/sagemaker/",
       "replaces": "skills/cloud-llms/references/hyperscalers.md"
@@ -875,25 +875,25 @@
       "name": "google-vertex-ai",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
-      "upstream": "https://cloud.google.com/vertex-ai/docs",
+      "upstream": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/vertex-ai-name-changes",
       "replaces": "skills/cloud-llms/references/hyperscalers.md"
     },
     {
       "name": "azure-foundry",
       "kind": "platform",
       "category": "cloud-providers",
-      "status": "planned",
+      "status": "stable",
       "wave": 6,
-      "upstream": "https://learn.microsoft.com/azure/ai-foundry/",
+      "upstream": "https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry",
       "replaces": "skills/cloud-llms/references/hyperscalers.md"
     },
     {
       "name": "llm-compressor",
       "kind": "product",
       "category": "quantization",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://github.com/vllm-project/llm-compressor",
       "replaces": "skills/model-quantization/references/llm-compressor.md"
@@ -902,9 +902,9 @@
       "name": "nvidia-modelopt",
       "kind": "product",
       "category": "quantization",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
-      "upstream": "https://github.com/NVIDIA/TensorRT-Model-Optimizer",
+      "upstream": "https://github.com/NVIDIA/Model-Optimizer",
       "replaces": "skills/model-quantization/references/modelopt-nvfp4.md"
     },
     {
@@ -975,7 +975,7 @@
       "name": "axolotl",
       "kind": "product",
       "category": "fine-tuning",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://github.com/axolotl-ai-cloud/axolotl",
       "replaces": "skills/fine-tuning-llms/references/axolotl.md"
@@ -984,7 +984,7 @@
       "name": "unsloth",
       "kind": "product",
       "category": "fine-tuning",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://github.com/unslothai/unsloth",
       "replaces": "skills/fine-tuning-llms/references/unsloth.md"
@@ -993,7 +993,7 @@
       "name": "trl",
       "kind": "product",
       "category": "fine-tuning",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://github.com/huggingface/trl",
       "replaces": "skills/fine-tuning-llms/references/trl.md"
@@ -1066,7 +1066,7 @@
       "name": "promptfoo",
       "kind": "product",
       "category": "evals-benchmarks",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://github.com/promptfoo/promptfoo",
       "replaces": "skills/llm-evals/references/promptfoo.md"
@@ -1075,7 +1075,7 @@
       "name": "lm-evaluation-harness",
       "kind": "product",
       "category": "evals-benchmarks",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://github.com/EleutherAI/lm-evaluation-harness",
       "replaces": "skills/llm-evals/references/lm-eval-harness.md"
@@ -1157,7 +1157,7 @@
       "name": "langfuse",
       "kind": "product",
       "category": "observability",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://github.com/langfuse/langfuse",
       "replaces": "skills/llm-observability/references/tracing.md"
@@ -1463,9 +1463,9 @@
       "name": "comfyui",
       "kind": "product",
       "category": "generative-media",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
-      "upstream": "https://github.com/comfyanonymous/ComfyUI",
+      "upstream": "https://github.com/Comfy-Org/ComfyUI",
       "replaces": "skills/self-hosted-genmedia/references/comfyui.md"
     },
     {
@@ -1490,7 +1490,7 @@
       "name": "whisper-cpp",
       "kind": "product",
       "category": "generative-media",
-      "status": "planned",
+      "status": "stable",
       "wave": 2,
       "upstream": "https://github.com/ggml-org/whisper.cpp",
       "replaces": "skills/self-hosted-genmedia/references/speech-to-text.md"
@@ -1638,7 +1638,7 @@
       "name": "speculative-decoding",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": null
@@ -1647,7 +1647,7 @@
       "name": "disaggregated-serving",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": null
@@ -1656,7 +1656,7 @@
       "name": "kv-cache-offloading",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": null
@@ -1665,7 +1665,7 @@
       "name": "prefix-aware-routing",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": null
@@ -1674,7 +1674,7 @@
       "name": "multi-node-inference",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": null
@@ -1683,7 +1683,7 @@
       "name": "moe-serving",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": null
@@ -1692,7 +1692,7 @@
       "name": "structured-outputs",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": null
@@ -1701,7 +1701,7 @@
       "name": "tool-calling-parsers",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": null
@@ -1710,7 +1710,7 @@
       "name": "reasoning-models",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": "skills/self-hosted-llms/references/reasoning-effort.md"
@@ -1719,7 +1719,7 @@
       "name": "long-context",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": null
@@ -1728,7 +1728,7 @@
       "name": "multi-lora-serving",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": "skills/fine-tuning-llms/references/serving-adapters.md"
@@ -1737,7 +1737,7 @@
       "name": "kv-cache-quantization",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": null
@@ -1746,7 +1746,7 @@
       "name": "choosing-inference-engine",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": "skills/local-llms/references/choosing-a-runtime.md"
@@ -1755,7 +1755,7 @@
       "name": "choosing-hardware",
       "kind": "technique",
       "category": "techniques",
-      "status": "planned",
+      "status": "stable",
       "wave": 3,
       "upstream": null,
       "replaces": null
@@ -1764,7 +1764,7 @@
       "name": "qwen",
       "kind": "model-family",
       "category": "model-families",
-      "status": "planned",
+      "status": "stable",
       "wave": 7,
       "upstream": "https://huggingface.co/Qwen",
       "replaces": null
@@ -1773,7 +1773,7 @@
       "name": "llama",
       "kind": "model-family",
       "category": "model-families",
-      "status": "planned",
+      "status": "stable",
       "wave": 7,
       "upstream": "https://www.llama.com",
       "replaces": null
@@ -1782,7 +1782,7 @@
       "name": "deepseek",
       "kind": "model-family",
       "category": "model-families",
-      "status": "planned",
+      "status": "stable",
       "wave": 7,
       "upstream": "https://huggingface.co/deepseek-ai",
       "replaces": null
@@ -1791,7 +1791,7 @@
       "name": "gpt-oss",
       "kind": "model-family",
       "category": "model-families",
-      "status": "planned",
+      "status": "stable",
       "wave": 7,
       "upstream": "https://github.com/openai/gpt-oss",
       "replaces": null
@@ -1800,7 +1800,7 @@
       "name": "gemma",
       "kind": "model-family",
       "category": "model-families",
-      "status": "planned",
+      "status": "stable",
       "wave": 7,
       "upstream": "https://ai.google.dev/gemma",
       "replaces": null
@@ -1809,7 +1809,7 @@
       "name": "mistral",
       "kind": "model-family",
       "category": "model-families",
-      "status": "planned",
+      "status": "stable",
       "wave": 7,
       "upstream": "https://huggingface.co/mistralai",
       "replaces": null
@@ -1818,7 +1818,7 @@
       "name": "glm",
       "kind": "model-family",
       "category": "model-families",
-      "status": "planned",
+      "status": "stable",
       "wave": 7,
       "upstream": "https://huggingface.co/zai-org",
       "replaces": null
@@ -1827,7 +1827,7 @@
       "name": "kimi",
       "kind": "model-family",
       "category": "model-families",
-      "status": "planned",
+      "status": "stable",
       "wave": 7,
       "upstream": "https://huggingface.co/moonshotai",
       "replaces": null
@@ -1836,7 +1836,7 @@
       "name": "nemotron",
       "kind": "model-family",
       "category": "model-families",
-      "status": "planned",
+      "status": "stable",
       "wave": 7,
       "upstream": "https://huggingface.co/nvidia",
       "replaces": null
@@ -1845,7 +1845,7 @@
       "name": "minimax",
       "kind": "model-family",
       "category": "model-families",
-      "status": "planned",
+      "status": "stable",
       "wave": 7,
       "upstream": "https://huggingface.co/MiniMaxAI",
       "replaces": null
@@ -1854,7 +1854,7 @@
       "name": "phi",
       "kind": "model-family",
       "category": "model-families",
-      "status": "planned",
+      "status": "stable",
       "wave": 7,
       "upstream": "https://huggingface.co/microsoft",
       "replaces": null
