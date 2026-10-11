@@ -625,7 +625,7 @@
       "name": "apple-silicon",
       "kind": "platform",
       "category": "hardware-platforms",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": null,
       "replaces": "skills/local-llms/references/macos-apple-silicon.md"
