@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Quantize Hugging Face LLMs with LLM Compressor (vllm-project/llm-compressor) into compressed-tensors checkpoints for vLLM: oneshot recipes for FP8, INT8, W4A16 (GPTQ, AWQ), NVFP4 and MXFP4, KV cache and MoE models, calibration data, disk offload and DDP for huge models, model-free PTQ, serving and verifying in vLLM, troubleshooting and updating. Verified against llm-compressor 0.14.0 and vLLM v0.31.0.",
+  "references": [
+    "https://github.com/vllm-project/llm-compressor",
+    "https://docs.vllm.ai/projects/llm-compressor/en/latest/",
+    "https://pypi.org/project/llmcompressor/",
+    "https://github.com/vllm-project/compressed-tensors",
+    "https://docs.vllm.ai/en/latest/features/quantization/",
+    "https://docs.vllm.ai/en/latest/features/quantization/quantized_kvcache.html",
+    "https://github.com/vllm-project/vllm",
+    "https://github.com/vllm-project/llm-compressor/releases",
+    "https://github.com/vllm-project/llm-compressor/tree/main/examples"
+  ],
+  "kind": "product"
+}
