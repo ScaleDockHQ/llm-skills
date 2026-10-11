@@ -283,9 +283,19 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`phi`](skills/phi)               | Serve Microsoft Phi small models (Phi-4, Phi-4-reasoning, mini, mini-flash-reasoning, multimodal, reasoning-vision-15B) with the right template, parser, quant and...   | `npx skills add ScaleDockHQ/llms-skills@phi`        |
 | [`openrouter`](skills/openrouter) | OpenRouter hosted gateway: one OpenAI-compatible API for hundreds of models with provider routing, fallbacks, presets, BYOK, guardrails and spend limits.               | `npx skills add ScaleDockHQ/llms-skills@openrouter` |
 
+### Stack skills
+
+#### Stacks
+
+| Skill                                                               | Description                                                                                                                                             | Install                                                              |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [`ollama-open-webui-tailscale`](skills/ollama-open-webui-tailscale) | Private web chat for local models: Ollama behind Open WebUI, reachable only over your Tailscale tailnet with HTTPS.                                     | `npx skills add ScaleDockHQ/llms-skills@ollama-open-webui-tailscale` |
+| [`litellm-langfuse-prometheus`](skills/litellm-langfuse-prometheus) | One LiteLLM gateway reporting traces to Langfuse and metrics to Prometheus and Grafana.                                                                 | `npx skills add ScaleDockHQ/llms-skills@litellm-langfuse-prometheus` |
+| [`voice-stack`](skills/voice-stack)                                 | Self-hosted voice assistant: whisper.cpp speech-to-text, an LLM and Kokoro text-to-speech behind Open WebUI Voice Mode, with Pipecat and LiveKit paths. | `npx skills add ScaleDockHQ/llms-skills@voice-stack`                 |
+
 ## Roadmap
 
-[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 129 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
+[`catalog.json`](catalog.json) lists every published and planned skill with its kind, category, status and build wave. 133 of 215 catalogued skills are published; the rest are planned and not installable until they are published and listed above.
 
 ## Repository layout
 

@@ -1866,7 +1866,7 @@
       "name": "ollama-open-webui-tailscale",
       "kind": "stack",
       "category": "stacks",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": null,
       "replaces": null
@@ -1929,7 +1929,7 @@
       "name": "litellm-langfuse-prometheus",
       "kind": "stack",
       "category": "stacks",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": null,
       "replaces": null
@@ -1938,7 +1938,7 @@
       "name": "voice-stack",
       "kind": "stack",
       "category": "stacks",
-      "status": "planned",
+      "status": "stable",
       "wave": 4,
       "upstream": null,
       "replaces": null
