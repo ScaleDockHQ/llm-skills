@@ -1304,7 +1304,7 @@
       "name": "cursor",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://cursor.com/docs",
       "replaces": "skills/llm-clients/references/ide-extensions.md"
@@ -1313,7 +1313,7 @@
       "name": "continue",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/continuedev/continue",
       "replaces": "skills/llm-clients/references/ide-extensions.md"
@@ -1568,7 +1568,7 @@
       "name": "text-embeddings-inference",
       "kind": "product",
       "category": "embeddings-rag",
-      "status": "planned",
+      "status": "stable",
       "wave": 9,
       "upstream": "https://github.com/huggingface/text-embeddings-inference",
       "replaces": null
