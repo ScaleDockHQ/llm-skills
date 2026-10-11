@@ -339,6 +339,7 @@ Workflow skills are the entry points. Product, platform, technique and model-fam
 | [`lm-studio-claude-code`](skills/lm-studio-claude-code)             | Run Claude Code against a local model served by LM Studio over its Anthropic-compatible /v1/messages endpoint (ANTHROPIC_BASE_URL, ANTHROPIC_AUTH_TOKEN, lms...                      | `npx skills add ScaleDockHQ/llms-skills@lm-studio-claude-code`       |
 | [`openrouter`](skills/openrouter)                                   | OpenRouter hosted gateway: one OpenAI-compatible API for hundreds of models with provider routing, fallbacks, presets, BYOK, guardrails and spend limits.                            | `npx skills add ScaleDockHQ/llms-skills@openrouter`                  |
 | [`portkey`](skills/portkey)                                         | Portkey AI Gateway: open-source Node.js gateway with configs for fallbacks, load balancing, retries and conditional routing, plus the hosted Portkey platform.                       | `npx skills add ScaleDockHQ/llms-skills@portkey`                     |
+| [`envoy-ai-gateway`](skills/envoy-ai-gateway)                       | Envoy AI Gateway (Agent Router): Kubernetes and standalone aigw gateway for LLM and MCP traffic, with model routing, upstream auth, fallback, token limits and InferencePool.        | `npx skills add ScaleDockHQ/llms-skills@envoy-ai-gateway`            |
 
 ## Roadmap
 
