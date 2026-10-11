@@ -5,7 +5,7 @@ license: MIT
 compatibility: Personal machines (macOS on Apple Silicon, Windows 10/11, Linux desktops). Discovery commands need a shell (bash/zsh or PowerShell); benchmarking needs curl and jq. Installs, sysctl changes, firewall rules and LAN exposure require the user's explicit approval.
 metadata:
   author: ScaleDockHQ
-  version: "1.0.1"
+  version: "1.1.0"
 ---
 
 # Local LLMs
@@ -188,5 +188,7 @@ Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`
 - **cloud-llms**: hosted APIs and GPU clouds.
 - **llm-clients**: connect agents, IDEs, and chat UIs to the endpoint.
 - **llm-gateway**: one endpoint over several backends (LiteLLM and similar).
+- **llama-cpp**, **ollama**, **lm-studio**, **mlx**: runtime depth.
+- **llama-swap**: model swapping across local runtimes.
 - **model-quantization**: produce your own GGUF/MLX/EXL3 quants.
 - **fine-tuning-llms**, **llm-evals**, **llm-observability**, **self-hosted-genmedia** (image, video, and speech).
