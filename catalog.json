@@ -1335,10 +1335,11 @@
       "name": "roo-code",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "note-only",
       "wave": 8,
       "upstream": "https://github.com/RooCodeInc/Roo-Code",
-      "replaces": "skills/llm-clients/references/ide-extensions.md"
+      "replaces": "skills/llm-clients/references/ide-extensions.md",
+      "note": "Archived upstream (May 2026, last release v3.54.0); use kilo-code or cline."
     },
     {
       "name": "kilo-code",
