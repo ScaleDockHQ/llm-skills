@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Stack recipe for vLLM on Modal serverless GPUs (own Server or Dedicated Endpoint) behind a LiteLLM gateway. References cover deploy and smoke test, the LiteLLM entry with proxy token handling and fallback, and cost watching and teardown, linking the modal, vllm and litellm skills for depth.",
+  "references": [
+    "https://modal.com/docs/examples/vllm_inference",
+    "https://modal.com/docs/guide",
+    "https://docs.litellm.ai/docs/providers/openai_compatible",
+    "https://docs.vllm.ai/"
+  ],
+  "kind": "stack"
+}
