@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Operating guide for Helicone and its AI Gateway with the maintenance-mode status stated up front (acquired by Mintlify 2026-03-03): API key and base URL, credits vs BYOK, model-string routing and failover, sessions, properties, user ids, caching and rate-limit headers, Docker self-hosting and its security defaults, LiteLLM wiring, migration and teardown. Not archived: Helicone/helicone has commits through 2026-09; the separate ai-gateway repo has not been updated since 2025-11.",
+  "references": [
+    "https://github.com/Helicone/helicone",
+    "https://github.com/Helicone/ai-gateway",
+    "https://www.helicone.ai/blog/joining-mintlify",
+    "https://www.mintlify.com/blog/mintlify-acquires-helicone",
+    "https://docs.helicone.ai/llms.txt",
+    "https://docs.helicone.ai/getting-started/quick-start",
+    "https://docs.helicone.ai/gateway/overview",
+    "https://docs.helicone.ai/gateway/provider-routing",
+    "https://docs.helicone.ai/gateway/concepts/error-handling",
+    "https://docs.helicone.ai/features/advanced-usage/caching",
+    "https://docs.helicone.ai/features/advanced-usage/custom-rate-limits",
+    "https://docs.helicone.ai/features/sessions",
+    "https://docs.helicone.ai/helicone-headers/header-directory",
+    "https://docs.helicone.ai/getting-started/self-host/docker",
+    "https://docs.helicone.ai/gateway/integrations/litellm"
+  ],
+  "kind": "product"
+}
