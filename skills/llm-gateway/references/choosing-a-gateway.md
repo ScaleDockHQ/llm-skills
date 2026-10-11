@@ -21,7 +21,7 @@ Skip the gateway when one client talks to one backend that already speaks the cl
 
 ## How each plugs into the stack
 
-- **LiteLLM**: port 4000; `/v1/chat/completions`, `/v1/responses`, `/v1/messages`, `/v1/embeddings`, `/v1/models`; health at `/health/liveliness` and `/health/readiness`; Bearer auth with master or virtual keys. See `litellm-setup.md`.
+- **LiteLLM**: port 4000; `/v1/chat/completions`, `/v1/responses`, `/v1/messages`, `/v1/embeddings`, `/v1/models`; health at `/health/liveliness` and `/health/readiness`; Bearer auth with master or virtual keys. See `litellm-setup.md`. Depth: install the `litellm` skill (`npx skills add ScaleDockHQ/llms-skills --skill litellm`).
 - **OpenRouter**: base `https://openrouter.ai/api/v1` for OpenAI clients; Claude Code uses `ANTHROPIC_BASE_URL=https://openrouter.ai/api` with `ANTHROPIC_AUTH_TOKEN` and an explicitly empty `ANTHROPIC_API_KEY` (per OpenRouter's Claude Code guide).
 - **Portkey**: OpenAI-compatible at `http://localhost:8787/v1`; provider chosen per request via headers or a saved config.
 - **Agent Router**: OpenAI-compatible at `http://localhost:1975/v1` in standalone mode; on Kubernetes, through the Envoy Gateway listener you define. Resource names and the `aigw` CLI kept their Envoy AI Gateway names.
