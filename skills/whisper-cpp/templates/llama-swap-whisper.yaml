@@ -1,0 +1,12 @@
+# llama-swap entry for whisper-server mounted at the OpenAI audio path.
+# Verified against whisper.cpp v1.9.5 flags and the existing self-hosted-genmedia entry, 2026-10-11.
+# Merge into your config.yaml. The client's multipart `model` field must equal the key below.
+models:
+  "whisper":
+    cmd: |
+      ${env.HOME}/src/whisper.cpp/build/bin/whisper-server
+      --host 127.0.0.1 --port ${PORT}
+      -m ${env.HOME}/models/whisper/ggml-large-v3-turbo.bin -l auto --convert
+      --request-path /v1/audio --inference-path /transcriptions
+    checkEndpoint: /v1/audio/health # 200 when ready, 503 while loading a model
+    ttl: 300 # unload when idle; the model is small, ttl: 0 keeps it resident

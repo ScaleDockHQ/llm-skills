@@ -1,0 +1,11 @@
+# LiteLLM model_list entry for whisper-server behind llama-swap.
+# Verified against LiteLLM v1.105.0 docs (audio_transcription) and the existing genmedia entry, 2026-10-11.
+model_list:
+  - model_name: whisper
+    litellm_params:
+      model: openai/whisper # the part after openai/ is the llama-swap model id
+      api_base: http://127.0.0.1:8080/v1 # llama-swap
+      api_key: os.environ/LLAMA_SWAP_API_KEY
+      timeout: 600
+    model_info:
+      mode: audio_transcription
