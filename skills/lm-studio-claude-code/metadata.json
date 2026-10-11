@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run Claude Code against a local model served by LM Studio over its Anthropic-compatible Messages endpoint. References cover the end-to-end recipe, LM Studio model, context and auth settings, Claude Code environment variables and limits, troubleshooting and updates.",
+  "references": [
+    "https://lmstudio.ai/docs/integrations/claude-code",
+    "https://lmstudio.ai/docs/developer/anthropic-compat/messages",
+    "https://code.claude.com/docs/en/llm-gateway",
+    "https://code.claude.com/docs/en/llm-gateway-connect",
+    "https://code.claude.com/docs/en/llm-gateway-protocol",
+    "https://code.claude.com/docs/en/model-config"
+  ],
+  "kind": "stack"
+}
