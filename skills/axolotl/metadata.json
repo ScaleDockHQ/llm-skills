@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Agent skill for Axolotl, the YAML-driven LLM fine-tuning framework: install with uv or Docker, write and debug configs, LoRA/QLoRA/full SFT, DPO/KTO/GRPO with vLLM, multi-GPU with FSDP2 and DeepSpeed, merge-lora and GGUF export, troubleshooting and updating. References split by install, config, RL, multi-GPU, export, troubleshooting and updating, plus an FP8 merge-and-serve combo and two config templates.",
+  "references": [
+    "https://github.com/axolotl-ai-cloud/axolotl",
+    "https://docs.axolotl.ai/docs/installation.html",
+    "https://docs.axolotl.ai/docs/config-reference.html",
+    "https://docs.axolotl.ai/docs/cli.html",
+    "https://docs.axolotl.ai/docs/docker.html",
+    "https://docs.axolotl.ai/docs/rlhf.html",
+    "https://docs.axolotl.ai/docs/grpo.html",
+    "https://docs.axolotl.ai/docs/vllm_serving.html",
+    "https://docs.axolotl.ai/docs/multi-gpu.html",
+    "https://docs.axolotl.ai/docs/export.html",
+    "https://docs.axolotl.ai/docs/faq.html",
+    "https://github.com/vllm-project/llm-compressor/tree/main/examples/quantization_w8a8_fp8"
+  ],
+  "kind": "product"
+}

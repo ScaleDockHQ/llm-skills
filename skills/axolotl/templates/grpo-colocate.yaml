@@ -1,0 +1,60 @@
+# Axolotl GRPO, single GPU, vLLM in colocate mode.
+# Keys follow docs/vllm_serving.qmd and docs/rlhf.qmd in axolotl-ai-cloud/axolotl.
+# Needs the vLLM extra (see references/install.md): axolotl requires vllm>=0.30.0.
+#
+# Run:
+#   axolotl train grpo-colocate.yaml
+#
+# Colocate mode is slower than server mode and practical up to roughly 3B on a 24 GB GPU.
+# For 2+ GPUs use server mode instead (references/rl-and-grpo.md).
+
+base_model: Qwen/Qwen2.5-1.5B-Instruct
+
+rl: grpo
+adapter: lora
+lora_r: 16
+lora_alpha: 32
+lora_target_linear: true
+
+trl:
+  use_vllm: true
+  vllm_mode: colocate
+  # Offload vLLM's VRAM while the trainer runs its optimizer step.
+  vllm_enable_sleep_mode: true
+  num_generations: 8
+  max_completion_length: 512
+  # Import paths to reward functions in a rewards.py in the working directory.
+  # Each takes (completions, **kwargs) and returns a list of floats; the example
+  # rewards.py (accuracy_reward, prompt_transform) is in references/rl-and-grpo.md.
+  reward_funcs:
+    - rewards.accuracy_reward
+
+vllm:
+  # Fraction of GPU memory reserved for vLLM; the rest is for training.
+  gpu_memory_utilization: 0.3
+  # Always set: otherwise vLLM reserves KV cache for the model's full context.
+  max_model_len: 2048
+  # Disable CUDA graphs if vLLM's custom all-reduce errors.
+  enforce_eager: true
+
+# Prompts dataset plus a transform from your rewards.py (GSM8K shown, as in the upstream docs).
+datasets:
+  - path: openai/gsm8k
+    name: main
+    type: rewards.prompt_transform
+    split: train
+
+chat_template: tokenizer_default
+skip_prepare_dataset: true
+val_set_size: 0.0
+sequence_len: 2048
+micro_batch_size: 1
+gradient_accumulation_steps: 8
+num_epochs: 1
+learning_rate: 0.00001
+optimizer: adamw_bnb_8bit
+bf16: auto
+gradient_checkpointing: true
+dataset_prepared_path: ./prepared/grpo-run
+output_dir: ./outputs/grpo-run
+logging_steps: 1
