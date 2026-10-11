@@ -1,0 +1,11 @@
+# aphrodite serve --config /etc/aphrodite/serve.yaml   (keys are CLI flag names without the leading --)
+# The API key comes from APHRODITE_API_KEY in the service environment, not from this file.
+model: Qwen/Qwen3-8B
+served-model-name: qwen3
+host: 127.0.0.1
+port: 2242
+max-model-len: 32768
+gpu-memory-utilization: 0.90
+max-num-seqs: 32
+enable-auto-tool-choice: true
+tool-call-parser: hermes
