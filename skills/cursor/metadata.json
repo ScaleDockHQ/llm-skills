@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Connect Cursor to self-hosted OpenAI-compatible endpoints (vLLM, llama.cpp, Ollama, LiteLLM, llama-swap). Covers the Override OpenAI Base URL setting, why the endpoint must be public HTTPS because Cursor's servers make the request, scoped key handling, model-name mapping, tool-calling and streaming requirements, billing and data notes, troubleshooting, and a read-only probe script.",
+  "references": [
+    "https://cursor.com/docs/llms.txt",
+    "https://cursor.com/docs/release-notes.md",
+    "https://cursor.com/help/models-and-usage/api-keys",
+    "https://cursor.com/docs/enterprise/network-configuration.md",
+    "https://cursor.com/docs/ips.json",
+    "https://forum.cursor.com/t/how-can-i-use-a-local-llm-on-my-desktop-ai-computer/152419",
+    "https://forum.cursor.com/t/use-on-prem-model/149334",
+    "https://forum.cursor.com/t/connecting-local-ai-server-to-cursor-does-not-work/152940",
+    "https://forum.cursor.com/t/cursor-managed-models-are-routed-through-override-openai-base-url/169088",
+    "https://forum.cursor.com/t/can-we-get-cursor-server-egress-ip-ranges-when-using-a-custom-base-url/160995"
+  ],
+  "kind": "product"
+}
