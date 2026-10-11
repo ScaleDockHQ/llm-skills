@@ -1448,7 +1448,7 @@
       "name": "llamaindex",
       "kind": "product",
       "category": "clients",
-      "status": "planned",
+      "status": "stable",
       "wave": 8,
       "upstream": "https://github.com/run-llama/llama_index",
       "replaces": null
