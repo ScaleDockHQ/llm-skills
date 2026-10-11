@@ -398,7 +398,7 @@
       "name": "aibrix",
       "kind": "product",
       "category": "orchestration",
-      "status": "planned",
+      "status": "stable",
       "wave": 5,
       "upstream": "https://github.com/vllm-project/aibrix",
       "replaces": null
