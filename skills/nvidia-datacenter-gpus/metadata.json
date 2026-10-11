@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Choose and operate NVIDIA datacenter GPUs (H100, H200, B200, B300, GB200) for LLM serving. References cover memory and interconnect specs, data center driver branches and Fabric Manager, MIG and DCGM, troubleshooting and an engine matrix.",
+  "references": [
+    "https://docs.nvidia.com/datacenter/tesla/",
+    "https://docs.nvidia.com/datacenter/tesla/drivers/supported-drivers-and-cuda-toolkit-versions.html",
+    "https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-580-178-04/index.html",
+    "https://resources.nvidia.com/en-us-gpu/h100-datasheet-24306",
+    "https://www.nvidia.com/en-us/data-center/h200/",
+    "https://docs.nvidia.com/enterprise-reference-architectures/hgx-ai-factory/latest/components.html",
+    "https://docs.nvidia.com/enterprise-reference-architectures/hgx-ai-factory-h100-h200-b200/latest/components.html"
+  ],
+  "kind": "platform"
+}
