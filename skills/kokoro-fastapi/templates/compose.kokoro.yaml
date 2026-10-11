@@ -1,0 +1,36 @@
+# Kokoro-FastAPI from the published image, loopback only, NVIDIA GPU.
+# Verified against Kokoro-FastAPI v0.9.0 docs/configuration.md and README, 2026-10-11.
+# Pin a release tag you checked exists. CPU only: use ghcr.io/remsky/kokoro-fastapi-cpu:<tag> and delete the deploy block.
+# RTX 50-series: use the gpu image tag with the -cu128 variant (amd64).
+# The API has no authentication. Do not publish beyond loopback without a gateway in front.
+services:
+  kokoro:
+    container_name: kokoro
+    image: ghcr.io/remsky/kokoro-fastapi-gpu:v0.9.0
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8880:8880"
+    environment:
+      API_LOG_LEVEL: INFO
+      DEFAULT_VOICE: af_heart
+      CORS_ORIGINS: '["http://localhost:3000"]'
+      # Leave these off unless you need them (all default to false):
+      # ENABLE_DEBUG_ENDPOINTS: "false"
+      # ALLOW_DEV_UNLOAD: "false"
+      # ENABLE_INNO_TUNER: "false"
+      # ALLOW_LOCAL_VOICE_SAVING: "false"
+      # Free VRAM after 10 idle minutes when sharing a GPU:
+      # MODEL_AUTO_UNLOAD_TIMEOUT_SECONDS: "600"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://127.0.0.1:8880/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

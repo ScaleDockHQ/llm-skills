@@ -1,0 +1,14 @@
+# llama-swap entry that runs Kokoro-FastAPI in Docker on demand.
+# Verified against llama-swap v263 (docs/config.example.yaml Docker example) and Kokoro-FastAPI v0.9.0, 2026-10-11.
+# Merge into your config.yaml. ${PORT} and ${MODEL_ID} are llama-swap macros. Clients send model=kokoro.
+models:
+  "kokoro":
+    proxy: http://127.0.0.1:${PORT}
+    cmd: |
+      docker run --name ${MODEL_ID} --init --rm --gpus all
+      -p 127.0.0.1:${PORT}:8880
+      ghcr.io/remsky/kokoro-fastapi-gpu:v0.9.0
+    cmdStop: docker stop ${MODEL_ID}
+    checkEndpoint: /health
+    ttl: 300
+    unloadTimeout: 30

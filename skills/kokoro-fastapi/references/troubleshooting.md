@@ -1,0 +1,28 @@
+# Kokoro-FastAPI: troubleshooting
+
+> Verified against Kokoro-FastAPI v0.9.0 docs/troubleshooting.md, docs/configuration.md and source, 2026-10-11
+
+| Symptom                                              | Likely cause                                                    | Fix                                                                                                                       |
+| ---------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Connection refused from another container            | `localhost` is the container itself                             | use `http://host.docker.internal:8880` from a container (upstream), or a shared Docker network and container name         |
+| Port reachable from the LAN unexpectedly             | published as `-p 8880:8880`                                     | republish with `-p 127.0.0.1:8880:8880`; the API has no auth                                                              |
+| Runs on CPU, slow                                    | CPU image, missing NVIDIA toolkit, or `USE_GPU=false`           | use the `gpu` image with `--gpus all`; check `docker logs kokoro` for the device; verify with `nvidia-smi` on the host    |
+| CUDA error on RTX 50-series                          | cu126 image lacks Blackwell kernels                             | use `kokoro-fastapi-gpu:latest-cu128` (amd64 only)                                                                        |
+| GPU image on Apple silicon fails                     | the Docker GPU image is CUDA only                               | use the CPU image, or run natively with `./start-gpu_mac.sh` (MPS)                                                        |
+| Permission errors using the GPU as non-root (Linux)  | missing device groups                                           | add `group_add: ["video","render"]` in Compose (upstream option 1); avoid broad device mounts                             |
+| Write errors on mounted `api` or `web` dirs          | host ownership; the image runs as uid 1001                      | `chown`, or drop the source mounts when using the published image                                                         |
+| Missing model when running from source               | weights not downloaded                                          | `python docker/scripts/download_model.py --output api/src/models/v1_0` (prebuilt images already contain it)               |
+| `HIP error: invalid device function` (ROCm)          | GPU architecture not in the ROCm build                          | set `HSA_OVERRIDE_GFX_VERSION` to the nearest supported target (for example `11.0.0` for RX 7900); native Linux host only |
+| ROCm first requests very slow                        | MIOpen compiling kernels per shape                              | keep `ENABLE_MIOPEN=false` (default)                                                                                      |
+| 403 on `/v1/audio/voices/combine` or `/dev/*` routes | feature flags default to off                                    | enable only what you need: `ALLOW_LOCAL_VOICE_SAVING`, `ALLOW_DEV_UNLOAD`, `ENABLE_INNO_TUNER`                            |
+| `[voice:x]` or `[rate:x]` is spoken aloud            | tags need `allow_voice_tags: true` per request                  | add the field; also check `ENABLE_VOICE_TAGS`. `[pause=1.5]` is the wrong form; use `[pause:1.5s]`                        |
+| SSML spoken as markup, or 403                        | `ssml` needs `allow_voice_tags`; `ENABLE_SSML` may be false     | send both flags; check the server flag                                                                                    |
+| Odd pronunciation in another language                | voice language does not match the text                          | choose a voice with the right prefix, or set `lang_code`; `DEFAULT_VOICE_CODE` overrides every speaker                    |
+| Numbers, URLs read oddly                             | normalization is English only                                   | adjust `normalization_options`, or spell out text for other languages                                                     |
+| Request fails with 400 on long text or pauses        | `MAX_INPUT_LENGTH`, `MAX_PAUSE_DURATION_S`, `MAX_TOTAL_PAUSE_S` | shorten input or raise limits deliberately                                                                                |
+| Intonation artifacts when streaming                  | small chunks                                                    | raise `TARGET_MIN_TOKENS` and `TARGET_MAX_TOKENS` (README note on chunk size)                                             |
+| Several clients wait on each other                   | synchronous inference, `WEB_CONCURRENCY=1`                      | add workers (more memory each) or queue at the gateway                                                                    |
+| Saved audio file is JSON or HTML                     | wrote an error body to the output file                          | check `curl -w '%{http_code}'`; `scripts/speak.sh` removes the file on error                                              |
+| Open WebUI shows only six voices                     | client could not read `voice['id']`                             | use the default `/v1/audio/voices` response shape (not `?legacy=true`); check the API base ends in `/v1`                  |
+
+Raise log detail with `API_LOG_LEVEL=DEBUG` (the default) and read `docker logs -f kokoro`. `/docs` lists the routes the running version actually has.

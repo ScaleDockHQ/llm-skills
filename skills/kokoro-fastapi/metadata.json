@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run and tune Kokoro-FastAPI, the Dockerized OpenAI-compatible server for the Kokoro-82M text-to-speech model. References cover image tags per hardware, every environment variable with defaults, the verified HTTP routes (voices, blends, inline tags, SSML, captions, phonemes), performance and VRAM reclaim, LiteLLM, llama-swap and Open WebUI integration, updating and troubleshooting, with templates and a curl script.",
+  "references": [
+    "https://github.com/remsky/Kokoro-FastAPI",
+    "https://github.com/remsky/Kokoro-FastAPI/releases",
+    "https://github.com/remsky/Kokoro-FastAPI/blob/master/README.md",
+    "https://github.com/remsky/Kokoro-FastAPI/blob/master/docs/configuration.md",
+    "https://github.com/remsky/Kokoro-FastAPI/blob/master/docs/troubleshooting.md",
+    "https://github.com/remsky/Kokoro-FastAPI/blob/master/api/src/core/config.py",
+    "https://github.com/remsky/Kokoro-FastAPI/blob/master/api/src/routers/openai_compatible.py",
+    "https://huggingface.co/hexgrad/Kokoro-82M",
+    "https://github.com/mostlygeek/llama-swap",
+    "https://docs.litellm.ai/docs/text_to_speech"
+  ],
+  "kind": "product"
+}
