@@ -1,0 +1,38 @@
+# Infinity beside an LLM stack. Create infinity.env first (0600): INFINITY_API_KEY=..., INFINITY_ANONYMOUS_USAGE_STATS=0
+services:
+  infinity:
+    image: michaelf34/infinity:0.0.77 # pin; check references/install.md
+    command:
+      [
+        "v2",
+        "--model-id",
+        "BAAI/bge-small-en-v1.5",
+        "--model-id",
+        "mixedbread-ai/mxbai-rerank-xsmall-v1",
+        "--port",
+        "7997",
+      ]
+    env_file: ./infinity.env
+    ports:
+      - "127.0.0.1:7997:7997"
+    volumes:
+      - ./cache:/app/.cache
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:7997/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 10
+      start_period: 180s
+    networks: [llm]
+
+networks:
+  llm:
+    name: llm

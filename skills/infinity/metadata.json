@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "organization": "ScaleDockHQ",
+  "date": "October 2026",
+  "abstract": "Run Infinity (infinity_emb) for embeddings, reranking, multimodal and ColBERT models beside a self-hosted LLM stack. References cover install paths and image tags, CLI and env configuration, sizing, the REST API, security, updating and teardown, troubleshooting, and combos with LiteLLM, llama-swap and Open WebUI, plus templates.",
+  "references": [
+    "https://github.com/michaelfeil/infinity",
+    "https://michaelfeil.github.io/infinity/",
+    "https://hub.docker.com/r/michaelf34/infinity",
+    "https://docs.litellm.ai/docs/providers/infinity"
+  ],
+  "kind": "product"
+}
