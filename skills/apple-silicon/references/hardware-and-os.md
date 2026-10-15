@@ -29,7 +29,7 @@ sw_vers -productVersion
 
 ## Intel Macs
 
-CPU only. Ollama runs on CPU, LM Studio and MLX do not support them, llama.cpp ships a `macos-x64` build. Treat an Intel Mac as a `cpu-inference` target (install: `npx skills add ScaleDockHQ/llms-skills --skill cpu-inference`).
+CPU only. Ollama runs on CPU, LM Studio and MLX do not support them, llama.cpp ships a `macos-x64` build. Treat an Intel Mac as a `cpu-inference` target (install: `npx skills add ScaleDockHQ/llm-skills --skill cpu-inference`).
 
 ## Rosetta
 

@@ -5,7 +5,7 @@ An agent skill for deploying and operating [Speaches](https://github.com/speache
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill speaches
+npx skills add ScaleDockHQ/llm-skills --skill speaches
 ```
 
 ## Rules

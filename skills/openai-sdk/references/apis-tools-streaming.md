@@ -61,7 +61,7 @@ r2 = client.chat.completions.create(model=MODEL, messages=msgs, tools=tools)
 | Ollama              | A model that supports tools; `tool_choice` is not supported                                                                                                                                             |
 | LiteLLM, llama-swap | Pass-through, so the backend must support it                                                                                                                                                            |
 
-If the model prints the call as plain text in `content`, the parser flag or template is missing: see the `tool-calling-parsers` skill (`npx skills add ScaleDockHQ/llms-skills --skill tool-calling-parsers`).
+If the model prints the call as plain text in `content`, the parser flag or template is missing: see the `tool-calling-parsers` skill (`npx skills add ScaleDockHQ/llm-skills --skill tool-calling-parsers`).
 
 ## Structured output
 

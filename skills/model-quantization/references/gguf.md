@@ -11,4 +11,4 @@
 - Serve with `llama-server -m <file>.gguf --jinja -ngl all --host 127.0.0.1 --port 9931` (9931 is the default since b11521; v0.6.0 and older default to 8080); health at `GET /health`. Ollama and LM Studio import the same file (`local-llms` skill); llama-swap fronts multiple GGUFs (`self-hosted-llms` skill).
 - Quality check with `llama-perplexity` KL divergence (`quality-checks.md`). Record the llama.cpp tag and exact commands in the model card (`publishing.md`).
 
-Depth: install the gguf-quantization skill (npx skills add ScaleDockHQ/llms-skills --skill gguf-quantization). For the engine itself, install the llama-cpp skill (npx skills add ScaleDockHQ/llms-skills --skill llama-cpp).
+Depth: install the gguf-quantization skill (npx skills add ScaleDockHQ/llm-skills --skill gguf-quantization). For the engine itself, install the llama-cpp skill (npx skills add ScaleDockHQ/llm-skills --skill llama-cpp).

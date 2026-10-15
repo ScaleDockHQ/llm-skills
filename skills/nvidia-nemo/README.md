@@ -5,7 +5,7 @@ An agent skill for NVIDIA NeMo Framework as it is now organised under [github.co
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill nvidia-nemo
+npx skills add ScaleDockHQ/llm-skills --skill nvidia-nemo
 ```
 
 ## Rules

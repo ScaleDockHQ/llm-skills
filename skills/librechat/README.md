@@ -5,7 +5,7 @@ An agent skill for running LibreChat, the self-hosted multi-user chat UI with ag
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill librechat
+npx skills add ScaleDockHQ/llm-skills --skill librechat
 ```
 
 ## Rules

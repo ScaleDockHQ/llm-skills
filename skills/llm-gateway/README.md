@@ -5,7 +5,7 @@ An agent skill for putting one OpenAI- and Anthropic-compatible endpoint in fron
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llm-gateway
+npx skills add ScaleDockHQ/llm-skills --skill llm-gateway
 ```
 
 ## Rules
@@ -20,7 +20,7 @@ npx skills add ScaleDockHQ/llms-skills --skill llm-gateway
 
 ## References
 
-The LiteLLM files below are short stack notes; each ends with a pointer to the `litellm` skill for depth (`npx skills add ScaleDockHQ/llms-skills --skill litellm`).
+The LiteLLM files below are short stack notes; each ends with a pointer to the `litellm` skill for depth (`npx skills add ScaleDockHQ/llm-skills --skill litellm`).
 
 - [`references/choosing-a-gateway.md`](references/choosing-a-gateway.md): LiteLLM, OpenRouter, Portkey, Envoy AI Gateway (Agent Router), Kong, Cloudflare compared.
 - [`references/litellm-setup.md`](references/litellm-setup.md): Docker install, Postgres, master and salt keys, config sections, health endpoints.
@@ -36,7 +36,7 @@ Templates: [`assets/litellm-config.yaml`](assets/litellm-config.yaml), [`assets/
 
 ## Companion skills
 
-From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+From [ScaleDockHQ/llm-skills](https://github.com/ScaleDockHQ/llm-skills); install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `choosing-llm-hosting`: decide where models run.
 - `litellm`: LiteLLM proxy in depth; the LiteLLM reference files here are short stack notes pointing to it.

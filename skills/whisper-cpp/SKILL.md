@@ -79,8 +79,8 @@ ps -eo args | grep -E '[w]hisper-server'
 
 ## Companion skills
 
-- `self-hosted-genmedia`: choose among whisper.cpp, Speaches and vLLM; co-resident placement next to LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `llama-swap`: run whisper-server next to LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `litellm`: keys, budgets and routing in front. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `llama-cpp`: sibling ggml engine for LLMs; same build tooling. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `hugging-face`: model downloads and cache. Install: `npx skills add ScaleDockHQ/llms-skills --skill hugging-face`.
+- `self-hosted-genmedia`: choose among whisper.cpp, Speaches and vLLM; co-resident placement next to LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `llama-swap`: run whisper-server next to LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `litellm`: keys, budgets and routing in front. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `llama-cpp`: sibling ggml engine for LLMs; same build tooling. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `hugging-face`: model downloads and cache. Install: `npx skills add ScaleDockHQ/llm-skills --skill hugging-face`.

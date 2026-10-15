@@ -75,15 +75,15 @@ curl -fsS http://127.0.0.1:8000/v1/models 2>/dev/null | jq -r '.data[].id'
 
 ## Companion skills
 
-- `vllm`: install, tune and troubleshoot the vLLM server. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `sglang`: SGLang server. Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
-- `llama-cpp`: llama.cpp and GGUF. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `ollama`: Ollama server and Modelfiles. Install: `npx skills add ScaleDockHQ/llms-skills --skill ollama`.
-- `mlx`: Apple Silicon MLX. Install: `npx skills add ScaleDockHQ/llms-skills --skill mlx`.
-- `tensorrt-llm`: TensorRT-LLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorrt-llm`.
-- `tensorfold`: TensorFold engine. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorfold`.
-- `speculative-decoding`: MTP, DFlash and DSpark drafters. Install: `npx skills add ScaleDockHQ/llms-skills --skill speculative-decoding`.
-- `self-hosted-llms`: DGX Spark and GPU server stacks, gateway, benchmarks. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `local-llms`: laptop-first local running. Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `model-quantization`: choosing and making quants. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `fine-tuning-llms`: tuning Qwen with TRL and PEFT. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
+- `vllm`: install, tune and troubleshoot the vLLM server. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `sglang`: SGLang server. Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
+- `llama-cpp`: llama.cpp and GGUF. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `ollama`: Ollama server and Modelfiles. Install: `npx skills add ScaleDockHQ/llm-skills --skill ollama`.
+- `mlx`: Apple Silicon MLX. Install: `npx skills add ScaleDockHQ/llm-skills --skill mlx`.
+- `tensorrt-llm`: TensorRT-LLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill tensorrt-llm`.
+- `tensorfold`: TensorFold engine. Install: `npx skills add ScaleDockHQ/llm-skills --skill tensorfold`.
+- `speculative-decoding`: MTP, DFlash and DSpark drafters. Install: `npx skills add ScaleDockHQ/llm-skills --skill speculative-decoding`.
+- `self-hosted-llms`: DGX Spark and GPU server stacks, gateway, benchmarks. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `local-llms`: laptop-first local running. Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `model-quantization`: choosing and making quants. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `fine-tuning-llms`: tuning Qwen with TRL and PEFT. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.

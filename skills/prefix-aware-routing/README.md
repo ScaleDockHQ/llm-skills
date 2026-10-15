@@ -5,7 +5,7 @@ Helps an agent choose, configure and validate KV/prefix-cache-aware request rout
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill prefix-aware-routing
+npx skills add ScaleDockHQ/llm-skills --skill prefix-aware-routing
 ```
 
 ## Rules
@@ -23,8 +23,8 @@ npx skills add ScaleDockHQ/llms-skills --skill prefix-aware-routing
 
 ## Companion skills
 
-- `llm-evals`: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`
-- `disaggregated-serving`: `npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving`
+- `llm-evals`: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`
+- `disaggregated-serving`: `npx skills add ScaleDockHQ/llm-skills --skill disaggregated-serving`
 - `llm-gateway`, `self-hosted-llms`, `vllm`, `sglang`, `tensorrt-llm`.
 - Planned: `dynamo`, `llm-d`, `aibrix`, `kserve`.
 

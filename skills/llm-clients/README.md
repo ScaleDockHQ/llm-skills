@@ -5,7 +5,7 @@ An agent skill for connecting the tools people actually use to any OpenAI- or An
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llm-clients
+npx skills add ScaleDockHQ/llm-skills --skill llm-clients
 ```
 
 ## Rules
@@ -29,7 +29,7 @@ Templates: [`claude-code.env.example`](assets/claude-code.env.example), [`claude
 
 ## Companion skills
 
-From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+From [ScaleDockHQ/llm-skills](https://github.com/ScaleDockHQ/llm-skills); install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `llm-gateway`: the endpoint these clients connect to; aliases, keys, API bridging.
 - `local-llms`: endpoints on laptops and desktops.

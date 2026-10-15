@@ -79,5 +79,5 @@ pnpm dlx skills add . --list
 Install from your working copy into another project to try it out:
 
 ```bash
-pnpm dlx skills add /path/to/llms-skills --skill <name>
+pnpm dlx skills add /path/to/llm-skills --skill <name>
 ```

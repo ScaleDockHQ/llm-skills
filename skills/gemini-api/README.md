@@ -5,7 +5,7 @@ Helps an agent call the Gemini Developer API (generativelanguage.googleapis.com)
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill gemini-api
+npx skills add ScaleDockHQ/llm-skills --skill gemini-api
 ```
 
 ## Rules

@@ -5,7 +5,7 @@ An agent skill for producing quantized LLMs: picking the right format for the se
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill model-quantization
+npx skills add ScaleDockHQ/llm-skills --skill model-quantization
 ```
 
 ## Rules
@@ -33,15 +33,15 @@ npx skills add ScaleDockHQ/llms-skills --skill model-quantization
 
 ## Companion skills
 
-- `gguf-quantization`, `exl3-quantization`, `gptqmodel`, `bitsandbytes`, `torchao`, `hqq` — per-format depth (install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`)
-- `llm-compressor` — AWQ, GPTQ, FP8, NVFP4 with LLM Compressor in depth (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`)
-- `nvidia-modelopt` — NVIDIA Model Optimizer PTQ and export in depth (install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-modelopt`)
-- `mlx` — mlx-lm conversion and serving in depth (install: `npx skills add ScaleDockHQ/llms-skills --skill mlx`)
-- `self-hosted-llms` — choose/download existing quants and run the serving stack (install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`)
-- `local-llms` — Ollama, LM Studio, llama.cpp on a laptop or desktop (install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`)
-- `llm-evals` — task evals and quality gates (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`)
-- `fine-tuning-llms` — train or merge before quantizing (install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`)
-- `llm-gateway` — expose the model through LiteLLM (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`)
+- `gguf-quantization`, `exl3-quantization`, `gptqmodel`, `bitsandbytes`, `torchao`, `hqq` — per-format depth (install: `npx skills add ScaleDockHQ/llm-skills --skill <name>`)
+- `llm-compressor` — AWQ, GPTQ, FP8, NVFP4 with LLM Compressor in depth (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-compressor`)
+- `nvidia-modelopt` — NVIDIA Model Optimizer PTQ and export in depth (install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-modelopt`)
+- `mlx` — mlx-lm conversion and serving in depth (install: `npx skills add ScaleDockHQ/llm-skills --skill mlx`)
+- `self-hosted-llms` — choose/download existing quants and run the serving stack (install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`)
+- `local-llms` — Ollama, LM Studio, llama.cpp on a laptop or desktop (install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`)
+- `llm-evals` — task evals and quality gates (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`)
+- `fine-tuning-llms` — train or merge before quantizing (install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`)
+- `llm-gateway` — expose the model through LiteLLM (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`)
 
 ## License
 

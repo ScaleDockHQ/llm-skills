@@ -5,7 +5,7 @@ Install, run and tune KoboldCpp, the single-executable llama.cpp-based server fo
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill koboldcpp
+npx skills add ScaleDockHQ/llm-skills --skill koboldcpp
 ```
 
 ## Rules

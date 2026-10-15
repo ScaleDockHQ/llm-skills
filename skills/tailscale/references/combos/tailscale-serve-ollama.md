@@ -19,7 +19,7 @@ client --HTTPS--> node-a.<tailnet>.ts.net:443 (tailscale serve)
 ```
 
 1. Ollama stays on its default bind. Confirm: `ss -tlnp | grep 11434` shows `127.0.0.1:11434`.
-2. Install the `caddy` skill (`npx skills add ScaleDockHQ/llms-skills --skill caddy`) and use `assets/Caddyfile.ollama-guard` there. Put `OLLAMA_PROXY_TOKEN=<random>` in a `0600` `EnvironmentFile` (generate with `openssl rand -hex 32` straight into `sudoedit`).
+2. Install the `caddy` skill (`npx skills add ScaleDockHQ/llm-skills --skill caddy`) and use `assets/Caddyfile.ollama-guard` there. Put `OLLAMA_PROXY_TOKEN=<random>` in a `0600` `EnvironmentFile` (generate with `openssl rand -hex 32` straight into `sudoedit`).
 3. `sudo tailscale serve --bg --https=443 http://127.0.0.1:8089` and confirm `tailscale serve status`.
 4. Restrict who may reach the node with a tag and grant (`access-control.md`).
 

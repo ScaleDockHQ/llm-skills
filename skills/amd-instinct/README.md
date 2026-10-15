@@ -5,7 +5,7 @@ Set up, verify and operate AMD Instinct GPUs (MI300X, MI325X, MI350X, MI355X, MI
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill amd-instinct
+npx skills add ScaleDockHQ/llm-skills --skill amd-instinct
 ```
 
 ## Rules

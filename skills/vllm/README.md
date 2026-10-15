@@ -5,7 +5,7 @@ An agent skill for running [vLLM](https://github.com/vllm-project/vllm), the Ope
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill vllm
+npx skills add ScaleDockHQ/llm-skills --skill vllm
 ```
 
 ## Rules
@@ -45,7 +45,7 @@ Templates: [`templates/config.yaml`](templates/config.yaml), [`templates/docker-
 
 ## Companion skills
 
-From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+From [ScaleDockHQ/llm-skills](https://github.com/ScaleDockHQ/llm-skills); install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `choosing-inference-engine`: vLLM vs llama.cpp vs SGLang vs TensorRT-LLM.
 - `self-hosted-llms`: the llama-swap + LiteLLM stack on owned GPU servers.

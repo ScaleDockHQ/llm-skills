@@ -5,7 +5,7 @@ Run Infinity (infinity_emb), a multi-model REST server for embeddings, rerankers
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill infinity
+npx skills add ScaleDockHQ/llm-skills --skill infinity
 ```
 
 ## Rules

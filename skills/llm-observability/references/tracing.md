@@ -24,12 +24,12 @@ Stack pitfalls:
 
 Depth:
 
-- `opentelemetry-genai`: `npx skills add ScaleDockHQ/llms-skills --skill opentelemetry-genai`
-- `openllmetry`: `npx skills add ScaleDockHQ/llms-skills --skill openllmetry`
-- `arize-phoenix`: `npx skills add ScaleDockHQ/llms-skills --skill arize-phoenix`
-- `langfuse`: `npx skills add ScaleDockHQ/llms-skills --skill langfuse`
-- `mlflow-tracing`: `npx skills add ScaleDockHQ/llms-skills --skill mlflow-tracing`
-- `weave`: `npx skills add ScaleDockHQ/llms-skills --skill weave`
-- `posthog-llm-analytics`: `npx skills add ScaleDockHQ/llms-skills --skill posthog-llm-analytics`
-- `datadog-llm-observability`: `npx skills add ScaleDockHQ/llms-skills --skill datadog-llm-observability`
-- `sentry-ai-monitoring`: `npx skills add ScaleDockHQ/llms-skills --skill sentry-ai-monitoring`
+- `opentelemetry-genai`: `npx skills add ScaleDockHQ/llm-skills --skill opentelemetry-genai`
+- `openllmetry`: `npx skills add ScaleDockHQ/llm-skills --skill openllmetry`
+- `arize-phoenix`: `npx skills add ScaleDockHQ/llm-skills --skill arize-phoenix`
+- `langfuse`: `npx skills add ScaleDockHQ/llm-skills --skill langfuse`
+- `mlflow-tracing`: `npx skills add ScaleDockHQ/llm-skills --skill mlflow-tracing`
+- `weave`: `npx skills add ScaleDockHQ/llm-skills --skill weave`
+- `posthog-llm-analytics`: `npx skills add ScaleDockHQ/llm-skills --skill posthog-llm-analytics`
+- `datadog-llm-observability`: `npx skills add ScaleDockHQ/llm-skills --skill datadog-llm-observability`
+- `sentry-ai-monitoring`: `npx skills add ScaleDockHQ/llm-skills --skill sentry-ai-monitoring`

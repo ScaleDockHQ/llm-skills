@@ -5,7 +5,7 @@ Run Weaviate beside a self-hosted LLM stack: Docker install, memory rule of thum
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill weaviate
+npx skills add ScaleDockHQ/llm-skills --skill weaviate
 ```
 
 ## Rules

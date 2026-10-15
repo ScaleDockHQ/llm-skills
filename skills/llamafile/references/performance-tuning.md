@@ -42,7 +42,7 @@ Build GPU libraries with `llamafile/cuda.sh`, `rocm.sh` or `vulkan.sh` (each nee
 
 ## Benchmarking
 
-Source builds can also produce `llama-bench`, `quantize`, `imatrix` and `perplexity` (0.10.6 added their link recipes). For service benchmarking use the bench script shipped with the `self-hosted-llms` skill (`npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`).
+Source builds can also produce `llama-bench`, `quantize`, `imatrix` and `perplexity` (0.10.6 added their link recipes). For service benchmarking use the bench script shipped with the `self-hosted-llms` skill (`npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`).
 
 ## Checklist for slow output
 

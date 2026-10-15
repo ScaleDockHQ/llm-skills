@@ -5,7 +5,7 @@ An agent skill for forcing self-hosted LLM output to match a JSON schema, regex,
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill structured-outputs
+npx skills add ScaleDockHQ/llm-skills --skill structured-outputs
 ```
 
 ## Rules

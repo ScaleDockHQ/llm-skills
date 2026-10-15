@@ -2,7 +2,7 @@
 
 > Verified against AIPerf 0.13.0 (docs `tutorial.md`, `tutorials/control-hooks-by-server.md`, `tutorials/goodput.md`) and the vLLM server flags documented there, 2026-10-11
 
-Server setup is not covered here: use the `vllm` skill (`npx skills add ScaleDockHQ/llms-skills --skill vllm`). AIPerf only needs an OpenAI-compatible origin.
+Server setup is not covered here: use the `vllm` skill (`npx skills add ScaleDockHQ/llm-skills --skill vllm`). AIPerf only needs an OpenAI-compatible origin.
 
 ## 1. Server
 

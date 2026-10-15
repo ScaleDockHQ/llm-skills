@@ -96,9 +96,9 @@ curl -s http://127.0.0.1:8000/v1/chat/completions -H 'Content-Type: application/
 
 ## Companion skills
 
-- `choosing-inference-engine`: compare engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `vllm`: high-concurrency serving on NVIDIA/AMD. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `llama-cpp`: GGUF models. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `litellm`: gateway and keys. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `model-quantization`: choosing a quantization. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `self-hosted-llms`: the end-to-end stack. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `choosing-inference-engine`: compare engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `vllm`: high-concurrency serving on NVIDIA/AMD. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `llama-cpp`: GGUF models. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `litellm`: gateway and keys. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `model-quantization`: choosing a quantization. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `self-hosted-llms`: the end-to-end stack. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

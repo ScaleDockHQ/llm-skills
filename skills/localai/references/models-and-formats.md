@@ -82,4 +82,4 @@ Pitfalls:
 | `vllm`, `sglang`, `transformers`          | Hugging Face repo (safetensors); parser options like `tool_parser:` and `reasoning_parser:` for vLLM |
 | `mlx`, `mlx-vlm`, `mlx-audio`             | MLX-quantized Hugging Face repos (Apple silicon)                                                     |
 
-Quantize and convert GGUF elsewhere (`model-quantization`, `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`); LocalAI also has a quantization API for GGUF (`features/quantization` upstream).
+Quantize and convert GGUF elsewhere (`model-quantization`, `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`); LocalAI also has a quantization API for GGUF (`features/quantization` upstream).

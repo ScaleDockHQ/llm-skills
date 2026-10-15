@@ -61,7 +61,7 @@ Also ask: how long are shared prefixes (system prompts, RAG documents, agent his
 
 Plain byte-for-byte offload and reload is not meant to change outputs, but reuse of cached KV can differ from recomputation through batch-shape and kernel effects (llama.cpp warns `cache_prompt` can make results nondeterministic). Options that reuse non-prefix KV or compress KV (for example LMCache blending or compression features, (details unverified here)) are lossy and need the full gate.
 
-Gate with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`):
+Gate with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`):
 
 1. **Baseline:** the same engine and model without the offload tier.
 2. **Candidate:** only the offload configuration changes.
@@ -87,18 +87,18 @@ Gate with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llms-skill
 
 ## Companion skills
 
-- `llm-evals`: A/B quality gate and decision record. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `vllm`: install and operate vLLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `sglang`: install and operate SGLang. Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
-- `tensorrt-llm`: install and operate TensorRT-LLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorrt-llm`.
-- `llama-cpp`: install and operate llama.cpp. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `ollama`: install and operate Ollama. Install: `npx skills add ScaleDockHQ/llms-skills --skill ollama`.
-- `tensorfold`: install and operate TensorFold. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorfold`.
-- `exllamav3`: install and operate ExLlamaV3 and TabbyAPI. Install: `npx skills add ScaleDockHQ/llms-skills --skill exllamav3`.
-- `kv-cache-quantization`: shrink the cache instead of moving it. Install: `npx skills add ScaleDockHQ/llms-skills --skill kv-cache-quantization`.
-- `prefix-aware-routing`: route requests to the instance that holds their prefix. Install: `npx skills add ScaleDockHQ/llms-skills --skill prefix-aware-routing`.
-- `disaggregated-serving`: prefill/decode split that shares KV between instances. Install: `npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving`.
-- `multi-node-inference`: spread weights and KV across nodes. Install: `npx skills add ScaleDockHQ/llms-skills --skill multi-node-inference`.
-- `long-context`: long-context serving and evaluation. Install: `npx skills add ScaleDockHQ/llms-skills --skill long-context`.
-- `choosing-hardware`: size RAM, GPUs and storage. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `self-hosted-llms`: run the stack on owned GPU servers. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `llm-evals`: A/B quality gate and decision record. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `vllm`: install and operate vLLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `sglang`: install and operate SGLang. Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
+- `tensorrt-llm`: install and operate TensorRT-LLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill tensorrt-llm`.
+- `llama-cpp`: install and operate llama.cpp. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `ollama`: install and operate Ollama. Install: `npx skills add ScaleDockHQ/llm-skills --skill ollama`.
+- `tensorfold`: install and operate TensorFold. Install: `npx skills add ScaleDockHQ/llm-skills --skill tensorfold`.
+- `exllamav3`: install and operate ExLlamaV3 and TabbyAPI. Install: `npx skills add ScaleDockHQ/llm-skills --skill exllamav3`.
+- `kv-cache-quantization`: shrink the cache instead of moving it. Install: `npx skills add ScaleDockHQ/llm-skills --skill kv-cache-quantization`.
+- `prefix-aware-routing`: route requests to the instance that holds their prefix. Install: `npx skills add ScaleDockHQ/llm-skills --skill prefix-aware-routing`.
+- `disaggregated-serving`: prefill/decode split that shares KV between instances. Install: `npx skills add ScaleDockHQ/llm-skills --skill disaggregated-serving`.
+- `multi-node-inference`: spread weights and KV across nodes. Install: `npx skills add ScaleDockHQ/llm-skills --skill multi-node-inference`.
+- `long-context`: long-context serving and evaluation. Install: `npx skills add ScaleDockHQ/llm-skills --skill long-context`.
+- `choosing-hardware`: size RAM, GPUs and storage. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `self-hosted-llms`: run the stack on owned GPU servers. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

@@ -84,7 +84,7 @@ Templates: `assets/librechat.yaml`, `assets/docker-compose.override.yml`. Script
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-clients`: choosing and troubleshooting clients of every kind, incl. capability flags.
 - `litellm`: the gateway most LibreChat setups point at; virtual keys, model aliases.

@@ -95,12 +95,12 @@ curl -s http://127.0.0.1:11434/v1/models | jq -r '.data[].id'
 
 ## Companion skills
 
-- `llama-cpp`: exact engine flags, new architectures first. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `llama-swap`: model swapping in front of several engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `litellm`: keys, routing and budgets in front of Ollama. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `llm-clients`: pointing coding agents and chat UIs at Ollama. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-clients`.
-- `local-llms`: choosing a runtime on a laptop. Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `self-hosted-llms`: the full self-hosted stack. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `tailscale`, `cloudflare-tunnel`: private or tunnelled access. Install: `npx skills add ScaleDockHQ/llms-skills --skill tailscale`.
-- `nvidia-dgx-spark`: unified-memory specifics. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`.
-- `hugging-face`: finding and downloading GGUFs. Install: `npx skills add ScaleDockHQ/llms-skills --skill hugging-face`.
+- `llama-cpp`: exact engine flags, new architectures first. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `llama-swap`: model swapping in front of several engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `litellm`: keys, routing and budgets in front of Ollama. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `llm-clients`: pointing coding agents and chat UIs at Ollama. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-clients`.
+- `local-llms`: choosing a runtime on a laptop. Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `self-hosted-llms`: the full self-hosted stack. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `tailscale`, `cloudflare-tunnel`: private or tunnelled access. Install: `npx skills add ScaleDockHQ/llm-skills --skill tailscale`.
+- `nvidia-dgx-spark`: unified-memory specifics. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`.
+- `hugging-face`: finding and downloading GGUFs. Install: `npx skills add ScaleDockHQ/llm-skills --skill hugging-face`.

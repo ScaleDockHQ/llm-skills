@@ -2,7 +2,7 @@
 
 > Verified against LobeHub v2.2.19 and LiteLLM v1.105.0 (inherited stamp; docs: model-provider, model-list), 2026-10-11
 
-One OpenAI-compatible connection to a gateway keeps LobeHub config small; the gateway holds upstream keys and routes to vLLM, llama.cpp, Ollama and clouds. Set the gateway up with `litellm` or `llama-swap` (`npx skills add ScaleDockHQ/llms-skills --skill litellm`).
+One OpenAI-compatible connection to a gateway keeps LobeHub config small; the gateway holds upstream keys and routes to vLLM, llama.cpp, Ollama and clouds. Set the gateway up with `litellm` or `llama-swap` (`npx skills add ScaleDockHQ/llm-skills --skill litellm`).
 
 1. Create a gateway virtual key limited to the models LobeHub should use, with a budget; save it in a `0600` file.
 2. In the Compose `.env`:

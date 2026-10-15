@@ -38,7 +38,7 @@ Most tool-calling reasoning models need both parsers (see the `reasoning-models`
 
 ## Tool-call gate
 
-Run this with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`) whenever the parser, chat template, engine version, quantization, KV-cache dtype, strict level or model changes. Write thresholds first.
+Run this with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`) whenever the parser, chat template, engine version, quantization, KV-cache dtype, strict level or model changes. Write thresholds first.
 
 1. **Tool set and golden prompts.** 30 to 100 real tasks with the real tool schemas. For each: expected tool name(s), expected arguments (exact or checkable), and for multi-step tasks the expected sequence. Include no-tool prompts, ambiguous prompts, parallel-call prompts, large argument payloads, nested objects, arrays and non-ASCII strings.
 2. **Baseline arm.** Current parser and template. Run each prompt at least 3 times with fixed sampling. Capture the raw response, not only the parsed one.

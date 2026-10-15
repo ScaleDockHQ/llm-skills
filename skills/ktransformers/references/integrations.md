@@ -28,7 +28,7 @@ model_list:
       api_key: not-used
 ```
 
-Cap concurrency at the gateway (`max_parallel_requests`) to match `--max-running-requests`. Skill: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
+Cap concurrency at the gateway (`max_parallel_requests`) to match `--max-running-requests`. Skill: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
 
 ## Open WebUI, coding agents
 
@@ -39,7 +39,7 @@ Claude Code needs an Anthropic-style endpoint, so front KT with LiteLLM.
 ## llama-swap
 
 A KT server is heavy (large RAM, long load): swap whole processes only if you can afford minutes per swap. Use `python -m sglang.launch_server ...` as the command with
-`--port ${PORT}` and probe `/health` plus `/v1/models`. Skill: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
+`--port ${PORT}` and probe `/health` plus `/v1/models`. Skill: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
 
 ## Kubernetes
 

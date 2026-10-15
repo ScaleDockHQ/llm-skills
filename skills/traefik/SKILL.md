@@ -94,7 +94,7 @@ Templates: `templates/docker-compose.yml`, `templates/traefik.yml`, `templates/d
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `caddy`: simpler auto-TLS reverse proxy and the LLM model catalog front.
 - `cloudflare-tunnel`, `tailscale`: exposure without opening ports.

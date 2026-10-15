@@ -9,4 +9,4 @@
 - Debug logs (`--detailed_debug`, `LITELLM_LOG=DEBUG`) can contain prompts: enable briefly.
 - Pitfalls: a hook that raises on every request takes the gateway down; hook signatures change between releases, so pin the image and retest on upgrade. Dashboards belong to the `llm-observability` skill.
 
-Depth: install the litellm skill (npx skills add ScaleDockHQ/llms-skills --skill litellm)
+Depth: install the litellm skill (npx skills add ScaleDockHQ/llm-skills --skill litellm)

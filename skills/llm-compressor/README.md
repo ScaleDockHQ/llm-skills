@@ -5,7 +5,7 @@ An agent skill for quantizing Hugging Face models with [LLM Compressor](https://
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llm-compressor
+npx skills add ScaleDockHQ/llm-skills --skill llm-compressor
 ```
 
 ## Rules
@@ -30,12 +30,12 @@ npx skills add ScaleDockHQ/llms-skills --skill llm-compressor
 
 ## Companion skills
 
-- `model-quantization`: format choice, memory caps, quality checks, publishing. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `vllm`: serve and tune the engine. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `nvidia-modelopt`: NVIDIA's PTQ path. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-modelopt`.
-- `kv-cache-quantization`: KV cache dtype choices. Install: `npx skills add ScaleDockHQ/llms-skills --skill kv-cache-quantization`.
-- `llm-evals`: task evals and gates. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `sglang`: SGLang serving. Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
+- `model-quantization`: format choice, memory caps, quality checks, publishing. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `vllm`: serve and tune the engine. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `nvidia-modelopt`: NVIDIA's PTQ path. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-modelopt`.
+- `kv-cache-quantization`: KV cache dtype choices. Install: `npx skills add ScaleDockHQ/llm-skills --skill kv-cache-quantization`.
+- `llm-evals`: task evals and gates. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `sglang`: SGLang serving. Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
 
 ## License
 

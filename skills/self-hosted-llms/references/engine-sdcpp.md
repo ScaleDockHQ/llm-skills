@@ -20,4 +20,4 @@
 
 - **Operating:** start and stop via llama-swap; logs via `/logs/stream/image-sd`. After an update generate one fixed-seed image and compare.
 
-Depth: install the stable-diffusion-cpp skill (npx skills add ScaleDockHQ/llms-skills --skill stable-diffusion-cpp). For the node-graph alternative install the comfyui skill; for Python pipelines the diffusers skill; for the genmedia stack the self-hosted-genmedia skill.
+Depth: install the stable-diffusion-cpp skill (npx skills add ScaleDockHQ/llm-skills --skill stable-diffusion-cpp). For the node-graph alternative install the comfyui skill; for Python pipelines the diffusers skill; for the genmedia stack the self-hosted-genmedia skill.

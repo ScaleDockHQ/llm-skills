@@ -110,9 +110,9 @@ curl -fsS -H "Authorization: Bearer ${LLM_API_KEY:-none}" "${LLM_BASE_URL:-http:
 
 ## Companion skills
 
-- `llm-evals`: eval strategy, gates and decision records. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `lm-evaluation-harness`: public benchmarks against the same endpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill lm-evaluation-harness`.
-- `litellm`: gateway endpoint and keys that evals run through. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `vllm`: the usual self-hosted target. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `llama-cpp`: local GGUF target. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `reasoning-models`: thinking-token handling. Install: `npx skills add ScaleDockHQ/llms-skills --skill reasoning-models`.
+- `llm-evals`: eval strategy, gates and decision records. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `lm-evaluation-harness`: public benchmarks against the same endpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill lm-evaluation-harness`.
+- `litellm`: gateway endpoint and keys that evals run through. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `vllm`: the usual self-hosted target. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `llama-cpp`: local GGUF target. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `reasoning-models`: thinking-token handling. Install: `npx skills add ScaleDockHQ/llm-skills --skill reasoning-models`.

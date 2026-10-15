@@ -5,7 +5,7 @@ An agent skill for grading coding-agent patches with [SWE-bench](https://github.
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill swe-bench
+npx skills add ScaleDockHQ/llm-skills --skill swe-bench
 ```
 
 ## Rules

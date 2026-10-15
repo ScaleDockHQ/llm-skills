@@ -73,7 +73,7 @@ With an existing instance and key (read from your env file, never echoed): `curl
 
 ## Companion skills
 
-- `text-embeddings-inference`, `infinity`: embedding servers. Install: `npx skills add ScaleDockHQ/llms-skills --skill text-embeddings-inference`.
-- `litellm`: gateway for embeddings. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `pgvector`: the Postgres alternative. Install: `npx skills add ScaleDockHQ/llms-skills --skill pgvector`.
-- `mcp-servers`: expose Qdrant to MCP tools. Install: `npx skills add ScaleDockHQ/llms-skills --skill mcp-servers`.
+- `text-embeddings-inference`, `infinity`: embedding servers. Install: `npx skills add ScaleDockHQ/llm-skills --skill text-embeddings-inference`.
+- `litellm`: gateway for embeddings. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `pgvector`: the Postgres alternative. Install: `npx skills add ScaleDockHQ/llm-skills --skill pgvector`.
+- `mcp-servers`: expose Qdrant to MCP tools. Install: `npx skills add ScaleDockHQ/llm-skills --skill mcp-servers`.

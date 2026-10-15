@@ -145,12 +145,12 @@ curl -fsS http://127.0.0.1:30000/v1/chat/completions -H 'Content-Type: applicati
 
 ## Companion skills
 
-- `self-hosted-llms`: choose and run engines on GPU servers with llama-swap and LiteLLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `vllm`: the main alternative engine. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `nvidia-dgx-spark`: host setup for GB10 machines. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`.
-- `llama-swap`: model swapping in front of engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `litellm`: gateway with keys and routing. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `speculative-decoding`: draft-model strategy across engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill speculative-decoding`.
-- `multi-node-inference`: cross-engine cluster design. Install: `npx skills add ScaleDockHQ/llms-skills --skill multi-node-inference`.
-- `model-quantization`: producing FP8/NVFP4/AWQ checkpoints. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `llm-observability`: Prometheus/Grafana for engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `self-hosted-llms`: choose and run engines on GPU servers with llama-swap and LiteLLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `vllm`: the main alternative engine. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `nvidia-dgx-spark`: host setup for GB10 machines. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`.
+- `llama-swap`: model swapping in front of engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `litellm`: gateway with keys and routing. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `speculative-decoding`: draft-model strategy across engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill speculative-decoding`.
+- `multi-node-inference`: cross-engine cluster design. Install: `npx skills add ScaleDockHQ/llm-skills --skill multi-node-inference`.
+- `model-quantization`: producing FP8/NVFP4/AWQ checkpoints. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `llm-observability`: Prometheus/Grafana for engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

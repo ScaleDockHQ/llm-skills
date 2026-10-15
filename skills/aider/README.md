@@ -5,7 +5,7 @@ Helps an agent connect Aider (`aider`, the terminal AI pair-programming tool, Py
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill aider
+npx skills add ScaleDockHQ/llm-skills --skill aider
 ```
 
 ## Rules

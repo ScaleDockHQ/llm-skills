@@ -5,7 +5,7 @@ Install, serve and tune Aphrodite Engine (now branded Sonar), the vLLM-derived L
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill aphrodite-engine
+npx skills add ScaleDockHQ/llm-skills --skill aphrodite-engine
 ```
 
 ## Rules

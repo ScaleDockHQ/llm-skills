@@ -76,8 +76,8 @@ Ask only what discovery cannot show: what Caddy fronts (gateway, engine, Ollama)
 
 ## Companion skills
 
-- `litellm`: the gateway Caddy usually fronts. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `cloudflare-tunnel`: public hostname without open ports. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloudflare-tunnel`.
-- `tailscale`: tailnet access and certificates. Install: `npx skills add ScaleDockHQ/llms-skills --skill tailscale`.
-- `llm-clients`: how clients read `/v1/models`. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-clients`.
-- `self-hosted-llms`: the full self-hosted stack that uses these pieces. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `litellm`: the gateway Caddy usually fronts. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `cloudflare-tunnel`: public hostname without open ports. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloudflare-tunnel`.
+- `tailscale`: tailnet access and certificates. Install: `npx skills add ScaleDockHQ/llm-skills --skill tailscale`.
+- `llm-clients`: how clients read `/v1/models`. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-clients`.
+- `self-hosted-llms`: the full self-hosted stack that uses these pieces. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

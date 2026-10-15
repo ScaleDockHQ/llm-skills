@@ -15,15 +15,15 @@ The OpenAI SDK posts to `<baseURL>/audio/transcriptions`, so with the mapping ab
 
 ## llama-swap
 
-One entry per model; the proxy forwards multipart uploads and chooses the upstream by the `model` form field (the existing `self-hosted-genmedia` stack relies on this). Use `/v1/audio/health` as `checkEndpoint`. Template: `templates/llama-swap-whisper.yaml`. Install the proxy skill: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`. For a long-running or memory-hungry LLM, put whisper in a swap group so loading one evicts the other.
+One entry per model; the proxy forwards multipart uploads and chooses the upstream by the `model` form field (the existing `self-hosted-genmedia` stack relies on this). Use `/v1/audio/health` as `checkEndpoint`. Template: `templates/llama-swap-whisper.yaml`. Install the proxy skill: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`. For a long-running or memory-hungry LLM, put whisper in a swap group so loading one evicts the other.
 
 ## LiteLLM
 
-`model_info.mode: audio_transcription` with `openai/<llama-swap id>` and `api_base` at llama-swap. Template: `templates/litellm-whisper.yaml`. Set `timeout` high for long files. LiteLLM supplies the API-key and rate-limit layer that whisper-server lacks: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
+`model_info.mode: audio_transcription` with `openai/<llama-swap id>` and `api_base` at llama-swap. Template: `templates/litellm-whisper.yaml`. Set `timeout` high for long files. LiteLLM supplies the API-key and rate-limit layer that whisper-server lacks: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
 
 ## Other speech servers
 
-If you need an OpenAI-shaped multi-model STT server with TTS, or vLLM batching, compare Speaches and vLLM in the `self-hosted-genmedia` skill (`npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`).
+If you need an OpenAI-shaped multi-model STT server with TTS, or vLLM batching, compare Speaches and vLLM in the `self-hosted-genmedia` skill (`npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`).
 
 ## Apps that call it
 

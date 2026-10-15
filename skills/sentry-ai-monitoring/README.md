@@ -5,7 +5,7 @@ An agent skill for Sentry Agent Tracing (formerly AI Insights). It covers tracin
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill sentry-ai-monitoring
+npx skills add ScaleDockHQ/llm-skills --skill sentry-ai-monitoring
 ```
 
 ## Rules

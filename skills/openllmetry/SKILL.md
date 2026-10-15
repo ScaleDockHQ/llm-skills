@@ -88,7 +88,7 @@ Script: `scripts/check.sh` (read-only: SDK version, which `TRACELOOP_*` and `OTE
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-observability`: choosing and combining tracing backends.
 - `opentelemetry-genai`: GenAI semantic conventions, OTel-native instrumentation and Collector config.

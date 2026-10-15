@@ -10,4 +10,4 @@
 - `LITELLM_MASTER_KEY` starts with `sk-` and stays admin-only; `LITELLM_SALT_KEY` is set once and never changed after credentials are stored.
 - Pitfalls: `127.0.0.1` inside the container is the container (use `host.docker.internal`); config edits need `docker compose restart litellm`; budgets need the database.
 
-Depth: install the litellm skill (npx skills add ScaleDockHQ/llms-skills --skill litellm)
+Depth: install the litellm skill (npx skills add ScaleDockHQ/llm-skills --skill litellm)

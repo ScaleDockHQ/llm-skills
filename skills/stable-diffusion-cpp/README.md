@@ -5,7 +5,7 @@ An agent skill for installing, serving and tuning [stable-diffusion.cpp](https:/
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill stable-diffusion-cpp
+npx skills add ScaleDockHQ/llm-skills --skill stable-diffusion-cpp
 ```
 
 ## Rules

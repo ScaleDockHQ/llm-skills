@@ -5,7 +5,7 @@ Run Milvus (Lite, single container or Compose standalone) beside a self-hosted L
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill milvus
+npx skills add ScaleDockHQ/llm-skills --skill milvus
 ```
 
 ## Rules

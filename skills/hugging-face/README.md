@@ -5,7 +5,7 @@ Helps an agent work with Hugging Face: manage tokens and the local cache, downlo
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill hugging-face
+npx skills add ScaleDockHQ/llm-skills --skill hugging-face
 ```
 
 ## Rules

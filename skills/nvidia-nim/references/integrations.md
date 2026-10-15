@@ -8,7 +8,7 @@ Sources: related software, tool calling, Claude Code and Codex CLI integration p
 
 NIM documents no API-key setting for `/v1`. Put it behind a gateway that issues keys, rate limits and
 logs. Install `litellm` or `llm-gateway` from this repo for configuration:
-`npx skills add ScaleDockHQ/llms-skills --skill litellm`. Bind NIM to loopback or a private network
+`npx skills add ScaleDockHQ/llm-skills --skill litellm`. Bind NIM to loopback or a private network
 and let only the gateway reach it.
 
 ## OpenAI SDKs and LiteLLM

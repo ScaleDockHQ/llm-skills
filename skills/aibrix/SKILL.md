@@ -93,8 +93,8 @@ curl -s localhost:8888/v1/chat/completions -H 'Content-Type: application/json' -
 
 ## Companion skills
 
-- `vllm`: engine flags. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `vllm-production-stack`: the Helm-based alternative. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm-production-stack`.
-- `llm-d`: scheduler-based alternative. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-d`.
-- `kv-cache-offloading`: offload concepts. Install: `npx skills add ScaleDockHQ/llms-skills --skill kv-cache-offloading`.
-- `disaggregated-serving`: when P/D pays off. Install: `npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving`.
+- `vllm`: engine flags. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `vllm-production-stack`: the Helm-based alternative. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm-production-stack`.
+- `llm-d`: scheduler-based alternative. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-d`.
+- `kv-cache-offloading`: offload concepts. Install: `npx skills add ScaleDockHQ/llm-skills --skill kv-cache-offloading`.
+- `disaggregated-serving`: when P/D pays off. Install: `npx skills add ScaleDockHQ/llm-skills --skill disaggregated-serving`.

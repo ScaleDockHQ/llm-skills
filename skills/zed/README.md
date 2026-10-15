@@ -5,7 +5,7 @@ An agent skill for connecting Zed, the Rust code editor, to your own model endpo
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill zed
+npx skills add ScaleDockHQ/llm-skills --skill zed
 ```
 
 ## Rules

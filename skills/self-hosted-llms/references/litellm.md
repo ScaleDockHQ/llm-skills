@@ -2,7 +2,7 @@
 
 > Verified against LiteLLM v1.105.0, 2026-10-11
 
-Depth: install the litellm skill (`npx skills add ScaleDockHQ/llms-skills --skill litellm`). Keys, budgets,
+Depth: install the litellm skill (`npx skills add ScaleDockHQ/llm-skills --skill litellm`). Keys, budgets,
 fallbacks, cloud providers and alternatives: the `llm-gateway` skill.
 
 ## How it plugs into this stack

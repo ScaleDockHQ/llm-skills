@@ -6,7 +6,7 @@ Use instead of `tailscale serve` when you want Caddy's features (auth matchers, 
 
 ## Prerequisites
 
-- MagicDNS and HTTPS enabled for the tailnet (`tailscale` skill: `npx skills add ScaleDockHQ/llms-skills --skill tailscale`).
+- MagicDNS and HTTPS enabled for the tailnet (`tailscale` skill: `npx skills add ScaleDockHQ/llm-skills --skill tailscale`).
 - If Caddy runs as a non-root user (Debian package: `caddy`), in `/etc/default/tailscaled` set `TS_PERMIT_CERT_UID=caddy` and restart `tailscaled`.
 
 ## Caddyfile

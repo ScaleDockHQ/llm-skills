@@ -5,7 +5,7 @@ An agent skill for installing, operating and integrating Arize Phoenix, the open
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill arize-phoenix
+npx skills add ScaleDockHQ/llm-skills --skill arize-phoenix
 ```
 
 ## Rules

@@ -82,7 +82,7 @@ ls logs/evaluation/ 2>/dev/null                # earlier run ids (cached by run_
 
 ## Companion skills
 
-- `vllm`: serves the model that the agent calls. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `evalplus`: function-level code benchmarks. Install: `npx skills add ScaleDockHQ/llms-skills --skill evalplus`.
-- `lm-evaluation-harness`: other public benchmarks. Install: `npx skills add ScaleDockHQ/llms-skills --skill lm-evaluation-harness`.
-- `llm-evals`: eval strategy, gates, decision records. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- `vllm`: serves the model that the agent calls. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `evalplus`: function-level code benchmarks. Install: `npx skills add ScaleDockHQ/llm-skills --skill evalplus`.
+- `lm-evaluation-harness`: other public benchmarks. Install: `npx skills add ScaleDockHQ/llm-skills --skill lm-evaluation-harness`.
+- `llm-evals`: eval strategy, gates, decision records. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.

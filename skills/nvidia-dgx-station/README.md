@@ -5,7 +5,7 @@ Set up, size and operate an NVIDIA DGX Station (GB300 Grace Blackwell Ultra, 252
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-station
+npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-station
 ```
 
 ## Rules

@@ -69,9 +69,9 @@ curl -s https://api.github.com/repos/runpod-workers/worker-vllm/releases/latest 
 
 ## Companion skills
 
-- `runpod`: all Runpod detail (account, runpodctl, Pods, limits, errors). Install: `npx skills add ScaleDockHQ/llms-skills --skill runpod`.
-- `vllm`: engine flags, tool parsers, tuning. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `litellm`: gateway install, keys, budgets, fallbacks. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `llm-gateway`: gateway design. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `choosing-hardware`: GPU sizing. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `cloud-llms`: other providers and fallback targets. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
+- `runpod`: all Runpod detail (account, runpodctl, Pods, limits, errors). Install: `npx skills add ScaleDockHQ/llm-skills --skill runpod`.
+- `vllm`: engine flags, tool parsers, tuning. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `litellm`: gateway install, keys, budgets, fallbacks. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `llm-gateway`: gateway design. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `choosing-hardware`: GPU sizing. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `cloud-llms`: other providers and fallback targets. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.

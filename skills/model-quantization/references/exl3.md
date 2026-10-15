@@ -9,4 +9,4 @@
 - Serve with TabbyAPI (default port 5000, keys in `api_tokens.yml`, `GET /health` unauthenticated). It is an OpenAI-compatible backend: put it behind llama-swap or LiteLLM (`self-hosted-llms`, `llm-gateway` skills).
 - Run conversions in a memory-capped scope (`memory-safety.md`) and quality-check against the BF16 base (`quality-checks.md`).
 
-Depth: install the exl3-quantization skill (npx skills add ScaleDockHQ/llms-skills --skill exl3-quantization). For serving, install the exllamav3 skill (npx skills add ScaleDockHQ/llms-skills --skill exllamav3).
+Depth: install the exl3-quantization skill (npx skills add ScaleDockHQ/llm-skills --skill exl3-quantization). For serving, install the exllamav3 skill (npx skills add ScaleDockHQ/llm-skills --skill exllamav3).

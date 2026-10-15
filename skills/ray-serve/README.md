@@ -8,7 +8,7 @@ troubleshooting. Verified against Ray 2.59.0 and KubeRay v1.7.1.
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill ray-serve
+npx skills add ScaleDockHQ/llm-skills --skill ray-serve
 ```
 
 ## Rules

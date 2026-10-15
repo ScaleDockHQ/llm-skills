@@ -78,7 +78,7 @@ Templates: `templates/config.toml`, `templates/local.config.toml`. Script: `scri
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `litellm`: bridges `/v1/responses` onto chat-only engines.
 - `llm-gateway`: whether to use a gateway and which one.

@@ -81,7 +81,7 @@ Template: `assets/config.yaml`. Script: `scripts/probe.sh` (read-only; key from 
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `litellm`: gateway with scoped virtual keys and aliases for Continue.
 - `llm-gateway`: whether to use a gateway at all.

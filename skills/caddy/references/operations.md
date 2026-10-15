@@ -27,7 +27,7 @@ Note: `validate` loads the config and prints "Valid configuration" but also read
 
 ## Metrics
 
-Enable Prometheus metrics with the `metrics` global option (and per-server `metrics` in `servers`); they are served by the admin API at `/metrics` on the admin address (default `localhost:2019`). For LLM-level metrics (tokens, cost, latency per model) use the gateway and the `llm-observability` skill: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`. I did not verify the exact `metrics` option syntax in this pass: check the global options page before enabling.
+Enable Prometheus metrics with the `metrics` global option (and per-server `metrics` in `servers`); they are served by the admin API at `/metrics` on the admin address (default `localhost:2019`). For LLM-level metrics (tokens, cost, latency per model) use the gateway and the `llm-observability` skill: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`. I did not verify the exact `metrics` option syntax in this pass: check the global options page before enabling.
 
 ## Update
 

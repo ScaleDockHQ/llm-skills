@@ -4,7 +4,7 @@
 
 Frontier and open models consumed through your own cloud account, billed on your cloud invoice, governed by your IAM and reachable over private networking.
 
-Depth: install the `aws-bedrock` skill (`npx skills add ScaleDockHQ/llms-skills --skill aws-bedrock`), the `google-vertex-ai` skill (`npx skills add ScaleDockHQ/llms-skills --skill google-vertex-ai`) and the `azure-foundry` skill (`npx skills add ScaleDockHQ/llms-skills --skill azure-foundry`).
+Depth: install the `aws-bedrock` skill (`npx skills add ScaleDockHQ/llm-skills --skill aws-bedrock`), the `google-vertex-ai` skill (`npx skills add ScaleDockHQ/llm-skills --skill google-vertex-ai`) and the `azure-foundry` skill (`npx skills add ScaleDockHQ/llm-skills --skill azure-foundry`).
 
 Naming: Google renamed Vertex AI to Gemini Enterprise Agent Platform; hosts, model IDs and auth did not change, and LiteLLM still uses the `vertex_ai/` prefix. Azure AI Foundry is now Microsoft Foundry.
 

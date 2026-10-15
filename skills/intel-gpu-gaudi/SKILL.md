@@ -12,7 +12,7 @@ metadata:
 
 Pick the right Intel path, check the host, and serve a model: Gaudi through the Gaudi software stack and the vllm-gaudi plugin, Intel GPUs through vLLM XPU, llama.cpp SYCL or OpenVINO.
 
-**Scope:** the platform. Engine flags belong to `vllm` (install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`) and `llama-cpp`; sizing across hardware to `choosing-hardware`. Nothing here was run on Intel hardware; each reference states its sources and date.
+**Scope:** the platform. Engine flags belong to `vllm` (install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`) and `llama-cpp`; sizing across hardware to `choosing-hardware`. Nothing here was run on Intel hardware; each reference states its sources and date.
 
 Work through the steps in order. Load a reference only when a step names it.
 
@@ -69,7 +69,7 @@ command -v clinfo && clinfo -l; command -v xpu-smi && xpu-smi discovery
 
 ## Companion skills
 
-- `vllm`: flags and serving. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `llama-cpp`: GGUF serving and builds. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `choosing-hardware`: compare Intel with other hardware. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `self-hosted-llms`: gateway and exposure on top. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `vllm`: flags and serving. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `llama-cpp`: GGUF serving and builds. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `choosing-hardware`: compare Intel with other hardware. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `self-hosted-llms`: gateway and exposure on top. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

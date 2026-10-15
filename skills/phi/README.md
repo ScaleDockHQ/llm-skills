@@ -8,7 +8,7 @@ official and vendor quants, context limits, licenses and known bugs. Facts were 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill phi
+npx skills add ScaleDockHQ/llm-skills --skill phi
 ```
 
 ## Rules

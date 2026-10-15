@@ -44,7 +44,7 @@ model_list:
       extra_headers: { "cf-aig-gateway-id": "<gateway>" }
 ```
 
-Replace `<ACCOUNT_ID>` literally; LiteLLM does not expand shell variables in `api_base`. Use `litellm` for the proxy side: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
+Replace `<ACCOUNT_ID>` literally; LiteLLM does not expand shell variables in `api_base`. Use `litellm` for the proxy side: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
 
 ## Vercel AI SDK
 

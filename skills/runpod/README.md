@@ -5,7 +5,7 @@ Helps an agent run LLMs on Runpod: rent a GPU Pod, deploy a Serverless vLLM endp
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill runpod
+npx skills add ScaleDockHQ/llm-skills --skill runpod
 ```
 
 ## Rules

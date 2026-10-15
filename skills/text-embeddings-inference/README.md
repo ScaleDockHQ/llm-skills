@@ -5,7 +5,7 @@ Run Hugging Face Text Embeddings Inference (TEI) beside a self-hosted LLM stack:
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill text-embeddings-inference
+npx skills add ScaleDockHQ/llm-skills --skill text-embeddings-inference
 ```
 
 ## Rules

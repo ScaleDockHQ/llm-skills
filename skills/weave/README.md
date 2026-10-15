@@ -5,7 +5,7 @@ An agent skill for tracing and evaluating LLM apps and agents with W&B Weave. It
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill weave
+npx skills add ScaleDockHQ/llm-skills --skill weave
 ```
 
 ## Rules

@@ -5,7 +5,7 @@ Helps an agent set up and operate AWS Inferentia2 and Trainium (Inf2, Trn1, Trn2
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill aws-neuron
+npx skills add ScaleDockHQ/llm-skills --skill aws-neuron
 ```
 
 ## Rules

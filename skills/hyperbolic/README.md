@@ -5,7 +5,7 @@ Helps an agent rent, use and tear down Hyperbolic GPUs (on-demand, spot and rese
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill hyperbolic
+npx skills add ScaleDockHQ/llm-skills --skill hyperbolic
 ```
 
 ## Rules

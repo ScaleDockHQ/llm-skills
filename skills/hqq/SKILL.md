@@ -96,9 +96,9 @@ Ask only what cannot be discovered: base model, target bit width, GPU, serving e
 
 ## Companion skills
 
-- `model-quantization`: pick a format and gate quality. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `torchao`: HQQ is also an int4 qparams algorithm there. Install: `npx skills add ScaleDockHQ/llms-skills --skill torchao`.
-- `bitsandbytes`: NF4 QLoRA. Install: `npx skills add ScaleDockHQ/llms-skills --skill bitsandbytes`.
-- `vllm`: serve the model. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `llm-compressor`: calibrated FP8 and W4A16. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`.
-- `llm-evals`: quality gates. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- `model-quantization`: pick a format and gate quality. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `torchao`: HQQ is also an int4 qparams algorithm there. Install: `npx skills add ScaleDockHQ/llm-skills --skill torchao`.
+- `bitsandbytes`: NF4 QLoRA. Install: `npx skills add ScaleDockHQ/llm-skills --skill bitsandbytes`.
+- `vllm`: serve the model. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `llm-compressor`: calibrated FP8 and W4A16. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-compressor`.
+- `llm-evals`: quality gates. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.

@@ -92,7 +92,7 @@ Assets and scripts: `assets/docker-compose.yaml` (MLflow plus PostgreSQL, loopba
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-observability`: choosing and combining tracing backends.
 - `opentelemetry-genai`: GenAI semantic conventions and Collector configs in front of MLflow.

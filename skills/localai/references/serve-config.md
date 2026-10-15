@@ -58,7 +58,7 @@ LocalAI does not terminate TLS. Put Caddy, nginx, HAProxy or a tunnel in front.
 - Streaming responses: disable proxy buffering and raise read timeouts.
 - CORS: `LOCALAI_CORS=true` with `LOCALAI_CORS_ALLOW_ORIGINS`. CSRF middleware is on by default (`LOCALAI_DISABLE_CSRF` turns it off).
 
-Skills: `caddy` for the proxy (`npx skills add ScaleDockHQ/llms-skills --skill caddy`).
+Skills: `caddy` for the proxy (`npx skills add ScaleDockHQ/llm-skills --skill caddy`).
 
 ## Socket activation
 

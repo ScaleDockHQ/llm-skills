@@ -101,9 +101,9 @@ Anything listed under `model list` with replicas up is billing. Report it first.
 
 ## Companion skills
 
-- `cloud-llms`: compare Baseten with other hosted and cloud options. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: LiteLLM routing, fallbacks and budgets. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `self-hosted-llms`: vLLM and SGLang flags that also apply in a Baseten Docker server. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `llm-observability`: traces and cost dashboards. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `llm-evals`: check a deployed model before shifting traffic. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `llm-clients`: point apps and agents at the endpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-clients`.
+- `cloud-llms`: compare Baseten with other hosted and cloud options. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: LiteLLM routing, fallbacks and budgets. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `self-hosted-llms`: vLLM and SGLang flags that also apply in a Baseten Docker server. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `llm-observability`: traces and cost dashboards. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `llm-evals`: check a deployed model before shifting traffic. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `llm-clients`: point apps and agents at the endpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-clients`.

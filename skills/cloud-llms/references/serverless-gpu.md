@@ -4,7 +4,7 @@
 
 You hand the platform a container (or Python function on Modal); it runs on GPUs when requests arrive and scales down, optionally to zero. Choose it for custom models with spiky traffic, batch jobs and demos; avoid it for sparse interactive traffic (cold starts) and steady all-day load.
 
-Depth: install the `runpod` skill (`npx skills add ScaleDockHQ/llms-skills --skill runpod`), the `modal` skill (`npx skills add ScaleDockHQ/llms-skills --skill modal`), and for managed dedicated deployments the `baseten` skill (`npx skills add ScaleDockHQ/llms-skills --skill baseten`).
+Depth: install the `runpod` skill (`npx skills add ScaleDockHQ/llm-skills --skill runpod`), the `modal` skill (`npx skills add ScaleDockHQ/llm-skills --skill modal`), and for managed dedicated deployments the `baseten` skill (`npx skills add ScaleDockHQ/llm-skills --skill baseten`).
 
 ## How it plugs into this stack
 

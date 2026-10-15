@@ -8,7 +8,7 @@ migration from the old GAIE charts and troubleshooting. Verified against GAIE v1
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill gateway-api-inference-extension
+npx skills add ScaleDockHQ/llm-skills --skill gateway-api-inference-extension
 ```
 
 ## Rules

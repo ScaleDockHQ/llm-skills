@@ -5,7 +5,7 @@ Helps an agent serve many LoRA adapters over one base model: register adapters, 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill multi-lora-serving
+npx skills add ScaleDockHQ/llm-skills --skill multi-lora-serving
 ```
 
 ## Rules

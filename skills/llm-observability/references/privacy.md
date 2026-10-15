@@ -64,7 +64,7 @@ Where content and PII can land, and the control for each:
 
 **Langfuse in this stack.** It stores every prompt and completion sent to it and keeps them forever unless retention is configured, so mask at the client or keep content out until a retention plan exists.
 
-Depth: install the langfuse skill (npx skills add ScaleDockHQ/llms-skills --skill langfuse)
+Depth: install the langfuse skill (npx skills add ScaleDockHQ/llm-skills --skill langfuse)
 
 ## Operating
 

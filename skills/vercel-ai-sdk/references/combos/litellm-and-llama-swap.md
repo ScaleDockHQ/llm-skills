@@ -2,7 +2,7 @@
 
 > Verified against Vercel AI SDK ai@7.0.137 (@ai-sdk/openai-compatible 3.0.67, @ai-sdk/anthropic 4.0.78), 2026-10-11
 
-A gateway gives the app one URL, one key and stable aliases; the AI SDK needs only the gateway's base URL. Run and secure the gateway with the `litellm` skill (`npx skills add ScaleDockHQ/llms-skills --skill litellm`) or `llama-swap` (`npx skills add ScaleDockHQ/llms-skills --skill llama-swap`).
+A gateway gives the app one URL, one key and stable aliases; the AI SDK needs only the gateway's base URL. Run and secure the gateway with the `litellm` skill (`npx skills add ScaleDockHQ/llm-skills --skill litellm`) or `llama-swap` (`npx skills add ScaleDockHQ/llm-skills --skill llama-swap`).
 
 ```ts
 import { createOpenAICompatible } from "@ai-sdk/openai-compatible";

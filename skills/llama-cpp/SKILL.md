@@ -103,12 +103,12 @@ docker run --rm --gpus all -p 127.0.0.1:8081:8080 -v /srv/models/gguf:/models:ro
 
 ## Companion skills
 
-- `choosing-inference-engine`: llama.cpp versus vLLM, SGLang, TensorRT-LLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `model-quantization`: GGUF versus AWQ/GPTQ/FP8 decisions. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `llm-gateway`: LiteLLM or another gateway in front of `llama-server`. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `local-llms`: laptop and desktop workflow (llama.cpp, Ollama, LM Studio). Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `self-hosted-llms`: running engines on owned GPU servers. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `llama-swap`: model swapping proxy (planned). Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `nvidia-dgx-spark` and `amd-strix-halo`: platform notes (planned). Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`.
-- `speculative-decoding` and `multi-node-inference`: cross-engine techniques (planned). Install: `npx skills add ScaleDockHQ/llms-skills --skill speculative-decoding`.
-- `ollama`, `lm-studio`, `vllm`, `tailscale`, `cloudflare-tunnel`: neighbours. Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+- `choosing-inference-engine`: llama.cpp versus vLLM, SGLang, TensorRT-LLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `model-quantization`: GGUF versus AWQ/GPTQ/FP8 decisions. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `llm-gateway`: LiteLLM or another gateway in front of `llama-server`. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `local-llms`: laptop and desktop workflow (llama.cpp, Ollama, LM Studio). Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `self-hosted-llms`: running engines on owned GPU servers. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `llama-swap`: model swapping proxy (planned). Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `nvidia-dgx-spark` and `amd-strix-halo`: platform notes (planned). Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`.
+- `speculative-decoding` and `multi-node-inference`: cross-engine techniques (planned). Install: `npx skills add ScaleDockHQ/llm-skills --skill speculative-decoding`.
+- `ollama`, `lm-studio`, `vllm`, `tailscale`, `cloudflare-tunnel`: neighbours. Install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.

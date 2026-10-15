@@ -45,7 +45,7 @@ Ask only what discovery cannot show: server and URL, whether it needs a key, whe
 - **Probe before blaming code.** One `curl` through the same URL, key and model id isolates server from client.
 - **Defaults are generous.** Python and Node default to 600 s timeout (Python connect 5 s) and 2 retries; set them explicitly for long generations and for fail-fast health checks.
 - **Check versions upstream.** Flags and defaults come from the SDK release notes and the server's docs, not memory.
-- **Other skills:** install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+- **Other skills:** install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 ## Workflows
 

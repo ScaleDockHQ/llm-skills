@@ -7,7 +7,7 @@ Verified against GPT-QModel v7.5.0 and `main` (7.6.0-dev) on 2026-10-11.
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill gptqmodel
+npx skills add ScaleDockHQ/llm-skills --skill gptqmodel
 ```
 
 ## Rules

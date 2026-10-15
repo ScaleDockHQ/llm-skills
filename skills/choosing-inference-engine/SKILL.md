@@ -74,7 +74,7 @@ These are starting points, not benchmarks. Measure on the real model with `scrip
 - **Ask before changing the system.** Installs, services, containers and exposure need approval and an undo path.
 - **Secrets never touch output.** Keys live in `0600` files or environment variables.
 - **Verify upstream.** Versions, flags and support lists come from upstream docs read on the writing date. The engine matrix is dated; re-check the support page for your exact GPU and model before buying or building.
-- **Gate numerics changes with `llm-evals`.** Quantization (FP8, NVFP4, AWQ, GPTQ, GGUF, EXL3), KV-cache quantization and speculative decoding can change outputs. Run the same eval set before and after. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- **Gate numerics changes with `llm-evals`.** Quantization (FP8, NVFP4, AWQ, GPTQ, GGUF, EXL3), KV-cache quantization and speculative decoding can change outputs. Run the same eval set before and after. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
 - **Do not trust a headline tok/s number.** Compare engines on the same model, quant, context length, batch and sampling settings.
 - **Prefer one engine per model.** Mixed fleets cost operations time. Swap per model only when the matrix forces it.
 
@@ -85,12 +85,12 @@ These are starting points, not benchmarks. Measure on the real model with `scrip
 
 ## Companion skills
 
-Install any of these with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any of these with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
-- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `tensorfold`, `exllamav3`: install, serve flags and tuning for the chosen engine. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm` (and the same form for each name).
-- `choosing-hardware`: size the machine for the model and concurrency. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `choosing-llm-hosting`: decide local, owned server, cloud or hybrid. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
-- `self-hosted-llms`: run the chosen engine behind one authenticated endpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `local-llms`: run it on a laptop or desktop. Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `model-quantization`: make the quant the engine wants. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `llm-evals`: quality gate for numerics changes. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `tensorfold`, `exllamav3`: install, serve flags and tuning for the chosen engine. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm` (and the same form for each name).
+- `choosing-hardware`: size the machine for the model and concurrency. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `choosing-llm-hosting`: decide local, owned server, cloud or hybrid. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.
+- `self-hosted-llms`: run the chosen engine behind one authenticated endpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `local-llms`: run it on a laptop or desktop. Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `model-quantization`: make the quant the engine wants. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `llm-evals`: quality gate for numerics changes. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.

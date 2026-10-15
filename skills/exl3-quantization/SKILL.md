@@ -88,7 +88,7 @@ python convert.py -w ~/scratch/exl3-work -r                  # resume after an i
 
 ## Companion skills
 
-- `exllamav3`: install the library and serve EXL3 models with TabbyAPI. Install: `npx skills add ScaleDockHQ/llms-skills --skill exllamav3`.
-- `model-quantization`: choose a format and method. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `choosing-hardware`: size VRAM and bandwidth. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `gguf-quantization`: the llama.cpp equivalent. Install: `npx skills add ScaleDockHQ/llms-skills --skill gguf-quantization`.
+- `exllamav3`: install the library and serve EXL3 models with TabbyAPI. Install: `npx skills add ScaleDockHQ/llm-skills --skill exllamav3`.
+- `model-quantization`: choose a format and method. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `choosing-hardware`: size VRAM and bandwidth. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `gguf-quantization`: the llama.cpp equivalent. Install: `npx skills add ScaleDockHQ/llm-skills --skill gguf-quantization`.

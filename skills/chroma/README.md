@@ -5,7 +5,7 @@ Run Chroma beside a self-hosted LLM stack: Docker install, RAM sizing, an auth p
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill chroma
+npx skills add ScaleDockHQ/llm-skills --skill chroma
 ```
 
 ## Rules

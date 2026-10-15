@@ -50,7 +50,7 @@ Ask only what cannot be discovered: model and context target, how many nodes and
 - **Verify upstream.** Flags and defaults drift. Re-read the docs for the installed version. "(unverified)" items in references are leads only.
 - **Private networks only.** vLLM's Ray traffic is unencrypted and exploitable; llama.cpp RPC is documented as insecure; exo discovers peers automatically. Never expose these ports publicly. Set `VLLM_HOST_IP` to a private address.
 - **Same everything on every node.** Engine image or version, driver, NCCL, model files at the same path.
-- **Gate numerics changes.** Any option that changes numerics (different TP/PP layout, lossy or FP8 KV cache, quantization, quantized all-to-all, TensorFold speed-up) must pass the `llm-evals` gate below. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- **Gate numerics changes.** Any option that changes numerics (different TP/PP layout, lossy or FP8 KV cache, quantization, quantized all-to-all, TensorFold speed-up) must pass the `llm-evals` gate below. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
 
 ## Techniques per engine
 
@@ -75,11 +75,11 @@ Ask only what cannot be discovered: model and context target, how many nodes and
 
 ## Companion skills
 
-- `llm-evals`: quality-gates numerics-changing options. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `self-hosted-llms`: serving stack, memory safety and benchmarks on owned GPUs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `nvidia-dgx-spark`: Spark setup and networking. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`.
-- `disaggregated-serving`: prefill/decode splits and transport flags. Install: `npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving`.
-- `prefix-aware-routing`: routing across replicas. Install: `npx skills add ScaleDockHQ/llms-skills --skill prefix-aware-routing`.
-- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `tensorfold`: engine skills. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
+- `llm-evals`: quality-gates numerics-changing options. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `self-hosted-llms`: serving stack, memory safety and benchmarks on owned GPUs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `nvidia-dgx-spark`: Spark setup and networking. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`.
+- `disaggregated-serving`: prefill/decode splits and transport flags. Install: `npx skills add ScaleDockHQ/llm-skills --skill disaggregated-serving`.
+- `prefix-aware-routing`: routing across replicas. Install: `npx skills add ScaleDockHQ/llm-skills --skill prefix-aware-routing`.
+- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `tensorfold`: engine skills. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
 - `moe-serving`, `choosing-hardware`, `choosing-inference-engine`: sibling techniques, by name.
 - Planned product skills, by name: `exo`, `ray-serve`, `kserve`, `dynamo`.

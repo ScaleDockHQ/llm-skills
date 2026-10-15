@@ -10,4 +10,4 @@
 - **Memory:** budget it with `memory-planning.md`; share the GPU with LLMs through an exclusive llama-swap group or `--reserve-vram`.
 - **Long jobs:** `POST /prompt` returns at once; poll `/history/{id}` rather than holding a request open through Cloudflare.
 
-Depth: install the comfyui skill (npx skills add ScaleDockHQ/llms-skills --skill comfyui)
+Depth: install the comfyui skill (npx skills add ScaleDockHQ/llm-skills --skill comfyui)

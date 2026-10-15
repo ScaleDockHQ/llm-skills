@@ -5,7 +5,7 @@ An agent skill for connecting Cursor to your own OpenAI-compatible LLM endpoint 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill cursor
+npx skills add ScaleDockHQ/llm-skills --skill cursor
 ```
 
 ## Rules

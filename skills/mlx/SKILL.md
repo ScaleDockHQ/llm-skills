@@ -94,9 +94,9 @@ curl -s http://127.0.0.1:8080/v1/models | jq -r '.data[].id'
 
 ## Companion skills
 
-- `lm-studio`: GUI and daemon that also runs MLX models. Install: `npx skills add ScaleDockHQ/llms-skills --skill lm-studio`.
-- `local-llms`: compare local runtimes. Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `model-quantization`: quant formats across engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `fine-tuning-llms`: training strategy and adapter serving. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `llama-swap`: model swapping proxy. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `hugging-face`: hub auth and caches. Install: `npx skills add ScaleDockHQ/llms-skills --skill hugging-face`.
+- `lm-studio`: GUI and daemon that also runs MLX models. Install: `npx skills add ScaleDockHQ/llm-skills --skill lm-studio`.
+- `local-llms`: compare local runtimes. Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `model-quantization`: quant formats across engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `fine-tuning-llms`: training strategy and adapter serving. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `llama-swap`: model swapping proxy. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `hugging-face`: hub auth and caches. Install: `npx skills add ScaleDockHQ/llm-skills --skill hugging-face`.

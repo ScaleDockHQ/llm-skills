@@ -5,7 +5,7 @@ An agent skill for configuring Kilo Code (VS Code, JetBrains, `kilo` CLI) agains
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill kilo-code
+npx skills add ScaleDockHQ/llm-skills --skill kilo-code
 ```
 
 ## Rules

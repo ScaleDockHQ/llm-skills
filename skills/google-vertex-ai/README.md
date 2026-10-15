@@ -5,7 +5,7 @@ Helps an agent use Google Cloud Vertex AI, renamed Gemini Enterprise Agent Platf
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill google-vertex-ai
+npx skills add ScaleDockHQ/llm-skills --skill google-vertex-ai
 ```
 
 ## Rules

@@ -164,7 +164,7 @@ Templates: `assets/prometheus.yml` (vLLM, SGLang, llama.cpp, llama-swap, LiteLLM
 
 ## Companion skills
 
-Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `self-hosted-llms` — engines and llama-swap being monitored; its sparkDash reference covers DGX-specific monitoring.
 - Tracing and metrics depth: `opentelemetry-genai`, `openllmetry`, `arize-phoenix`, `mlflow-tracing`, `weave`, `posthog-llm-analytics`, `datadog-llm-observability`, `sentry-ai-monitoring`, `prometheus-grafana-llm`, `dcgm-exporter`, `sparkdash`.

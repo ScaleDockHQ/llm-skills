@@ -167,12 +167,12 @@ The first start downloads weights and compiles kernels, so it can take many minu
 
 ## Companion skills
 
-- `choosing-inference-engine`: vLLM vs llama.cpp vs SGLang vs TensorRT-LLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `self-hosted-llms`: the llama-swap + LiteLLM stack on owned GPU servers. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `nvidia-dgx-spark`: DGX Spark host setup. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`.
-- `llama-swap`: on-demand model swapping in front of vLLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `litellm` and `llm-gateway`: keys, routing, fallbacks. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `tool-calling-parsers` and `structured-outputs`: model-level parser and schema detail. Install: `npx skills add ScaleDockHQ/llms-skills --skill tool-calling-parsers`.
-- `llm-compressor`, `nvidia-modelopt`, `model-quantization`: make quantized checkpoints. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`.
-- `speculative-decoding`, `multi-node-inference`, `disaggregated-serving`: technique-level guidance. Install: `npx skills add ScaleDockHQ/llms-skills --skill speculative-decoding`.
-- `llm-observability`: traces, cost and evals around the server. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `choosing-inference-engine`: vLLM vs llama.cpp vs SGLang vs TensorRT-LLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `self-hosted-llms`: the llama-swap + LiteLLM stack on owned GPU servers. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `nvidia-dgx-spark`: DGX Spark host setup. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`.
+- `llama-swap`: on-demand model swapping in front of vLLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `litellm` and `llm-gateway`: keys, routing, fallbacks. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `tool-calling-parsers` and `structured-outputs`: model-level parser and schema detail. Install: `npx skills add ScaleDockHQ/llm-skills --skill tool-calling-parsers`.
+- `llm-compressor`, `nvidia-modelopt`, `model-quantization`: make quantized checkpoints. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-compressor`.
+- `speculative-decoding`, `multi-node-inference`, `disaggregated-serving`: technique-level guidance. Install: `npx skills add ScaleDockHQ/llm-skills --skill speculative-decoding`.
+- `llm-observability`: traces, cost and evals around the server. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

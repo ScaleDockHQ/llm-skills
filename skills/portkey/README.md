@@ -5,7 +5,7 @@ An agent skill for the [Portkey AI Gateway](https://github.com/Portkey-AI/gatewa
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill portkey
+npx skills add ScaleDockHQ/llm-skills --skill portkey
 ```
 
 ## Rules
@@ -33,7 +33,7 @@ Templates: [`assets/docker-compose.yaml`](assets/docker-compose.yaml), [`assets/
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `llm-gateway`: choose a gateway.
 - `litellm`: virtual keys, budgets, callbacks.

@@ -4,7 +4,7 @@
 
 This page keeps the minimal command and how it plugs into the local stack. Flags, builds and tuning live in the product skill.
 
-Depth: install the llama-cpp skill (`npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`).
+Depth: install the llama-cpp skill (`npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`).
 
 ## Minimal working config
 

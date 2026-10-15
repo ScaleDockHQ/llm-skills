@@ -85,7 +85,7 @@ Ask only what discovery cannot show: OS and GPU, which models, whether other dev
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `local-llms`: choosing a local runtime.
 - `lm-studio`, `ollama`, `llama-cpp`, `mlx`: alternative or underlying engines.

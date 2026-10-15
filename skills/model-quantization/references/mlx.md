@@ -10,4 +10,4 @@
 - Quality check with `mlx_lm.perplexity` on base and quant using identical settings (`quality-checks.md`).
 - `--upload-repo` creates a public repo if missing and replaces the card body; prefer converting locally, writing the card and publishing private first (`publishing.md`).
 
-Depth: install the mlx skill (npx skills add ScaleDockHQ/llms-skills --skill mlx)
+Depth: install the mlx skill (npx skills add ScaleDockHQ/llm-skills --skill mlx)

@@ -5,7 +5,7 @@ Set up, size and operate AMD Ryzen AI Max (Strix Halo, `gfx1151`, up to 128 GB u
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill amd-strix-halo
+npx skills add ScaleDockHQ/llm-skills --skill amd-strix-halo
 ```
 
 ## Rules

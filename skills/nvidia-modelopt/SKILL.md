@@ -90,10 +90,10 @@ Ask only what cannot be discovered: base model and revision, the engine and GPU 
 
 ## Companion skills
 
-- `model-quantization`: pick a format for an engine, memory caps, quality checks and Hub publishing. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `llm-compressor`: the vLLM project's quantizer producing compressed-tensors checkpoints. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`.
-- `tensorrt-llm`: serve and tune TensorRT-LLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorrt-llm`.
-- `vllm`: serve and tune vLLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `sglang`: serve and tune SGLang. Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
-- `kv-cache-quantization`: KV cache dtype choices at serve time. Install: `npx skills add ScaleDockHQ/llms-skills --skill kv-cache-quantization`.
-- `llm-evals`: task evals and quality gates. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- `model-quantization`: pick a format for an engine, memory caps, quality checks and Hub publishing. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `llm-compressor`: the vLLM project's quantizer producing compressed-tensors checkpoints. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-compressor`.
+- `tensorrt-llm`: serve and tune TensorRT-LLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill tensorrt-llm`.
+- `vllm`: serve and tune vLLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `sglang`: serve and tune SGLang. Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
+- `kv-cache-quantization`: KV cache dtype choices at serve time. Install: `npx skills add ScaleDockHQ/llm-skills --skill kv-cache-quantization`.
+- `llm-evals`: task evals and quality gates. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.

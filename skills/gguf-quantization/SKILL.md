@@ -92,7 +92,7 @@ python convert_hf_to_gguf.py ~/models/<model> --outtype bf16 --outfile ~/models/
 
 ## Companion skills
 
-- `llama-cpp`: serve the result. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `model-quantization`: pick a format and method. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `choosing-hardware`: size RAM and VRAM. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `exl3-quantization`: the EXL3 equivalent for NVIDIA GPUs. Install: `npx skills add ScaleDockHQ/llms-skills --skill exl3-quantization`.
+- `llama-cpp`: serve the result. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `model-quantization`: pick a format and method. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `choosing-hardware`: size RAM and VRAM. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `exl3-quantization`: the EXL3 equivalent for NVIDIA GPUs. Install: `npx skills add ScaleDockHQ/llm-skills --skill exl3-quantization`.

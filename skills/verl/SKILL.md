@@ -101,7 +101,7 @@ gh api repos/verl-project/verl/releases/latest --jq '.tag_name,.published_at' 2>
 
 ## Companion skills
 
-Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `fine-tuning-llms`: decide whether and how to tune, data, evaluation.
 - `openrlhf`: Ray + vLLM + DeepSpeed alternative. `trl`: Python-script GRPO/DPO. `axolotl`: YAML SFT/DPO/GRPO.

@@ -5,7 +5,7 @@ Helps an agent use GroqCloud for open-model inference: the OpenAI-compatible API
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill groq
+npx skills add ScaleDockHQ/llm-skills --skill groq
 ```
 
 ## Rules

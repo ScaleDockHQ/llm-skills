@@ -5,7 +5,7 @@ An agent skill for running AnythingLLM, the all-in-one chat, RAG and agent app, 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill anythingllm
+npx skills add ScaleDockHQ/llm-skills --skill anythingllm
 ```
 
 ## Rules

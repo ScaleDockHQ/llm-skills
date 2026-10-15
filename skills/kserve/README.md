@@ -5,7 +5,7 @@ Install and operate KServe on Kubernetes for LLMs and classic models: `LLMInfere
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill kserve
+npx skills add ScaleDockHQ/llm-skills --skill kserve
 ```
 
 ## Rules

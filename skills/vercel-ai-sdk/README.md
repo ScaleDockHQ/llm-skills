@@ -5,7 +5,7 @@ An agent skill for pointing the Vercel AI SDK (`ai`, `@ai-sdk/*`) at self-hosted
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill vercel-ai-sdk
+npx skills add ScaleDockHQ/llm-skills --skill vercel-ai-sdk
 ```
 
 ## Rules

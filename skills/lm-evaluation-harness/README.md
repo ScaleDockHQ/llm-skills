@@ -5,7 +5,7 @@ An agent skill for running [EleutherAI's lm-evaluation-harness](https://github.c
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill lm-evaluation-harness
+npx skills add ScaleDockHQ/llm-skills --skill lm-evaluation-harness
 ```
 
 ## Rules

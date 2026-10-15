@@ -5,7 +5,7 @@ An agent skill for installing, serving, tuning, connecting, updating and trouble
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill ollama
+npx skills add ScaleDockHQ/llm-skills --skill ollama
 ```
 
 ## Rules

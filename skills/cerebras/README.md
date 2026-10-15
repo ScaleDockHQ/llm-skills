@@ -5,7 +5,7 @@ Helps an agent use Cerebras Inference Cloud: create projects and keys, list mode
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill cerebras
+npx skills add ScaleDockHQ/llm-skills --skill cerebras
 ```
 
 ## Rules

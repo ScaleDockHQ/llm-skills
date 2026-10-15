@@ -66,7 +66,7 @@ trtllm-eval --model meta-llama/Llama-3.3-70B-Instruct gpqa_diamond
 
 Tasks: CNN Dailymail (rouge), MMLU, GSM8K, GPQA, JSON mode eval. GSM8K and GPQA need `lm_eval` (`requirements-dev.txt` in the repo). Flags mirror serve: `--tp_size`, `--pp_size`, `--ep_size`, `--max_batch_size`, `--max_num_tokens`, `--max_seq_len`, `--kv_cache_free_gpu_memory_fraction`, `--trust_remote_code`, `--config`, `--disable_kv_cache_reuse`; `--backend tensorrt` selects the legacy backend at v1.2.1; `--model` also accepts a local engine directory with `--tokenizer`.
 
-Use it to compare a quant against its base before deploying; for broader gates use `llm-evals` (`npx skills add ScaleDockHQ/llms-skills --skill llm-evals`).
+Use it to compare a quant against its base before deploying; for broader gates use `llm-evals` (`npx skills add ScaleDockHQ/llm-skills --skill llm-evals`).
 
 ## Official links
 

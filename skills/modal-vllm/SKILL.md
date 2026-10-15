@@ -69,9 +69,9 @@ curl -s https://pypi.org/pypi/modal/json | jq -r .info.version      # newest mod
 
 ## Companion skills
 
-- `modal`: all Modal detail (CLI, SDK, Servers, Endpoints, Volumes, errors). Install: `npx skills add ScaleDockHQ/llms-skills --skill modal`.
-- `vllm`: engine flags, tool parsers, tuning. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `litellm`: gateway install, keys, budgets, fallbacks. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `llm-gateway`: gateway design. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `choosing-hardware`: GPU sizing. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `cloud-llms`: other providers and fallback targets. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
+- `modal`: all Modal detail (CLI, SDK, Servers, Endpoints, Volumes, errors). Install: `npx skills add ScaleDockHQ/llm-skills --skill modal`.
+- `vllm`: engine flags, tool parsers, tuning. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `litellm`: gateway install, keys, budgets, fallbacks. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `llm-gateway`: gateway design. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `choosing-hardware`: GPU sizing. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `cloud-llms`: other providers and fallback targets. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.

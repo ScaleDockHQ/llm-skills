@@ -12,7 +12,7 @@ metadata:
 
 A working LobeHub v2 (`lobehub/lobehub`, formerly `lobe-chat`) talking to your own endpoints through a server-side provider config, with secrets in `0600` files and a pinned image.
 
-**Scope:** this one product: install, connect endpoints, model lists and capabilities, Docker networking, update, backup, troubleshoot. Choosing among chat UIs belongs to `llm-clients` (`npx skills add ScaleDockHQ/llms-skills --skill llm-clients`); the gateway belongs to `litellm` or `llama-swap`; engines to `vllm`, `llama-cpp`, `ollama`.
+**Scope:** this one product: install, connect endpoints, model lists and capabilities, Docker networking, update, backup, troubleshoot. Choosing among chat UIs belongs to `llm-clients` (`npx skills add ScaleDockHQ/llm-skills --skill llm-clients`); the gateway belongs to `litellm` or `llama-swap`; engines to `vllm`, `llama-cpp`, `ollama`.
 
 Work through the steps in order. Load a reference only when a step names it.
 

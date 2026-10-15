@@ -93,9 +93,9 @@ curl -fsS "${LLM_BASE_URL:-http://localhost:8000/v1}/models" ${LLM_API_KEY:+-H "
 
 ## Companion skills
 
-- `llm-evals`: eval strategy and gates. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `inspect-ai`: the framework behind `lighteval eval`. Install: `npx skills add ScaleDockHQ/llms-skills --skill inspect-ai`.
-- `lm-evaluation-harness`: EleutherAI benchmarks. Install: `npx skills add ScaleDockHQ/llms-skills --skill lm-evaluation-harness`.
-- `promptfoo`: own golden-set tests. Install: `npx skills add ScaleDockHQ/llms-skills --skill promptfoo`.
-- `vllm`: serve the model under test. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `litellm`: gateway to endpoints. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
+- `llm-evals`: eval strategy and gates. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `inspect-ai`: the framework behind `lighteval eval`. Install: `npx skills add ScaleDockHQ/llm-skills --skill inspect-ai`.
+- `lm-evaluation-harness`: EleutherAI benchmarks. Install: `npx skills add ScaleDockHQ/llm-skills --skill lm-evaluation-harness`.
+- `promptfoo`: own golden-set tests. Install: `npx skills add ScaleDockHQ/llm-skills --skill promptfoo`.
+- `vllm`: serve the model under test. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `litellm`: gateway to endpoints. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.

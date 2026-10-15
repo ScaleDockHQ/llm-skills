@@ -122,13 +122,13 @@ Learn which workspace and environment are active and what is already running bef
 
 ## Companion skills
 
-- `cloud-llms`: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms` (compare providers, hybrid setups)
-- `llm-gateway`: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway` (one endpoint, keys, budgets)
-- `choosing-llm-hosting`: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`
-- `self-hosted-llms`: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`
-- `llm-clients`: `npx skills add ScaleDockHQ/llms-skills --skill llm-clients`
-- `llm-observability`: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`
-- `llm-evals`: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`
-- `fine-tuning-llms`: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`
-- `model-quantization`: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`
-- `vllm`: `npx skills add ScaleDockHQ/llms-skills --skill vllm`
+- `cloud-llms`: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms` (compare providers, hybrid setups)
+- `llm-gateway`: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway` (one endpoint, keys, budgets)
+- `choosing-llm-hosting`: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`
+- `self-hosted-llms`: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`
+- `llm-clients`: `npx skills add ScaleDockHQ/llm-skills --skill llm-clients`
+- `llm-observability`: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`
+- `llm-evals`: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`
+- `fine-tuning-llms`: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`
+- `model-quantization`: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`
+- `vllm`: `npx skills add ScaleDockHQ/llm-skills --skill vllm`

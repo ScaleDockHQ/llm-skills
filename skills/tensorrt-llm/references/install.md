@@ -60,7 +60,7 @@ Spark specifics, all from the playbook or this repo's earlier notes:
 - `PYTORCH_ALLOC_CONF=expandable_segments:True` is used in the playbook's Nemotron Omni recipe.
 - gpt-oss needs tiktoken encodings. The playbook downloads `o200k_base.tiktoken` and `cl100k_base.tiktoken` from `openaipublic.blob.core.windows.net/encodings/` into a directory and sets `TIKTOKEN_ENCODINGS_BASE`. Pre-fetch them and mount the directory.
 - GB10 reports compute capability 12.1 (check with `nvidia-smi --query-gpu=compute_cap --format=csv`); upstream's quantization table names sm100/103 and sm120, so which FP4 kernels an image selects on GB10 is not documented: read the startup log. (unverified)
-- Memory hygiene and the OS side of GB10 live in the `nvidia-dgx-spark` skill (`npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`).
+- Memory hygiene and the OS side of GB10 live in the `nvidia-dgx-spark` skill (`npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`).
 
 ### Dual DGX Spark (two nodes over ConnectX-7)
 

@@ -7,7 +7,7 @@ install, `values.yaml`, routing, features, scaling, upgrades and troubleshooting
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill vllm-production-stack
+npx skills add ScaleDockHQ/llm-skills --skill vllm-production-stack
 ```
 
 ## Rules
@@ -31,10 +31,10 @@ npx skills add ScaleDockHQ/llms-skills --skill vllm-production-stack
 
 ## Companion skills
 
-- `vllm`: engine flags and parsers. `npx skills add ScaleDockHQ/llms-skills --skill vllm`
-- `llm-d`: scheduler-based alternative. `npx skills add ScaleDockHQ/llms-skills --skill llm-d`
-- `kserve`: CRD-based platform. `npx skills add ScaleDockHQ/llms-skills --skill kserve`
-- `keda`: event-driven autoscaling. `npx skills add ScaleDockHQ/llms-skills --skill keda`
+- `vllm`: engine flags and parsers. `npx skills add ScaleDockHQ/llm-skills --skill vllm`
+- `llm-d`: scheduler-based alternative. `npx skills add ScaleDockHQ/llm-skills --skill llm-d`
+- `kserve`: CRD-based platform. `npx skills add ScaleDockHQ/llm-skills --skill kserve`
+- `keda`: event-driven autoscaling. `npx skills add ScaleDockHQ/llm-skills --skill keda`
 
 ## License
 

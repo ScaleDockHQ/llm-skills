@@ -10,4 +10,4 @@ Choose TRL directly for custom Python (reward functions, collators), the newest 
 - **Out:** the same adapter and merged weights as the other trainers (`evaluate-and-merge.md`, `serving-adapters.md`).
 - **Run it** in `tmux` under a memory cap (`hardware.md`). For GRPO, keep generation on separate GPUs or colocated per the skill.
 
-Depth: install the trl skill (npx skills add ScaleDockHQ/llms-skills --skill trl)
+Depth: install the trl skill (npx skills add ScaleDockHQ/llm-skills --skill trl)

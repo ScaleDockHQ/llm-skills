@@ -98,9 +98,9 @@ Drop the header if the server runs without `--api-key` on loopback.
 
 ## Companion skills
 
-- `llama-cpp`: mainline llama.cpp and GGUF basics. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `choosing-inference-engine`: compare engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `llama-swap`: model swapping in front of `llama-server`. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `litellm`: gateway and keys. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `self-hosted-llms`: the end-to-end stack. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `model-quantization`: choosing a quantization. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
+- `llama-cpp`: mainline llama.cpp and GGUF basics. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `choosing-inference-engine`: compare engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `llama-swap`: model swapping in front of `llama-server`. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `litellm`: gateway and keys. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `self-hosted-llms`: the end-to-end stack. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `model-quantization`: choosing a quantization. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.

@@ -77,16 +77,16 @@ curl -s http://localhost:8000/v1/models | jq -r '.data[].id'
 
 This note stays short on purpose. Install the skill for the stack you choose:
 
-| Need                                                 | Skill                             | Install                                                                          |
-| ---------------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------- |
-| Model-serving CRDs, `LLMInferenceService`            | `kserve`                          | `npx skills add ScaleDockHQ/llms-skills --skill kserve`                          |
-| Cache-aware routing, P/D, wide expert parallelism    | `llm-d`                           | `npx skills add ScaleDockHQ/llms-skills --skill llm-d`                           |
-| Helm router plus vLLM engines                        | `vllm-production-stack`           | `npx skills add ScaleDockHQ/llms-skills --skill vllm-production-stack`           |
-| Gateway, control plane, LoRA and KV cache            | `aibrix`                          | `npx skills add ScaleDockHQ/llms-skills --skill aibrix`                          |
-| Ray-based serving and multi-node                     | `ray-serve`                       | `npx skills add ScaleDockHQ/llms-skills --skill ray-serve`                       |
-| Inference-aware gateway routing (EPP, InferencePool) | `gateway-api-inference-extension` | `npx skills add ScaleDockHQ/llms-skills --skill gateway-api-inference-extension` |
-| GPU drivers, device plugin, MIG, monitoring          | `nvidia-gpu-operator`             | `npx skills add ScaleDockHQ/llms-skills --skill nvidia-gpu-operator`             |
-| Event-driven autoscaling                             | `keda`                            | `npx skills add ScaleDockHQ/llms-skills --skill keda`                            |
+| Need                                                 | Skill                             | Install                                                                         |
+| ---------------------------------------------------- | --------------------------------- | ------------------------------------------------------------------------------- |
+| Model-serving CRDs, `LLMInferenceService`            | `kserve`                          | `npx skills add ScaleDockHQ/llm-skills --skill kserve`                          |
+| Cache-aware routing, P/D, wide expert parallelism    | `llm-d`                           | `npx skills add ScaleDockHQ/llm-skills --skill llm-d`                           |
+| Helm router plus vLLM engines                        | `vllm-production-stack`           | `npx skills add ScaleDockHQ/llm-skills --skill vllm-production-stack`           |
+| Gateway, control plane, LoRA and KV cache            | `aibrix`                          | `npx skills add ScaleDockHQ/llm-skills --skill aibrix`                          |
+| Ray-based serving and multi-node                     | `ray-serve`                       | `npx skills add ScaleDockHQ/llm-skills --skill ray-serve`                       |
+| Inference-aware gateway routing (EPP, InferencePool) | `gateway-api-inference-extension` | `npx skills add ScaleDockHQ/llm-skills --skill gateway-api-inference-extension` |
+| GPU drivers, device plugin, MIG, monitoring          | `nvidia-gpu-operator`             | `npx skills add ScaleDockHQ/llm-skills --skill nvidia-gpu-operator`             |
+| Event-driven autoscaling                             | `keda`                            | `npx skills add ScaleDockHQ/llm-skills --skill keda`                            |
 
 ## Official links
 

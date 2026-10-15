@@ -103,10 +103,10 @@ Tier, rate limits and spend caps are on the Console Rate limits and Billing page
 
 ## Companion skills
 
-- `cloud-llms`: choose between frontier APIs, hyperscalers and GPU rental. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: one endpoint, virtual keys and budgets. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `litellm`: proxy details. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `openai-api`, `gemini-api`: sibling frontier APIs. Install: `npx skills add ScaleDockHQ/llms-skills --skill openai-api`.
-- `aws-bedrock`: Claude through AWS contracts and IAM. Install: `npx skills add ScaleDockHQ/llms-skills --skill aws-bedrock`.
-- `structured-outputs`, `llm-clients`, `llm-evals`, `llm-observability`: schema output, clients, quality, tracing. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-clients`.
-- `choosing-llm-hosting`, `self-hosted-llms`: when data rules out an API. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
+- `cloud-llms`: choose between frontier APIs, hyperscalers and GPU rental. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: one endpoint, virtual keys and budgets. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `litellm`: proxy details. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `openai-api`, `gemini-api`: sibling frontier APIs. Install: `npx skills add ScaleDockHQ/llm-skills --skill openai-api`.
+- `aws-bedrock`: Claude through AWS contracts and IAM. Install: `npx skills add ScaleDockHQ/llm-skills --skill aws-bedrock`.
+- `structured-outputs`, `llm-clients`, `llm-evals`, `llm-observability`: schema output, clients, quality, tracing. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-clients`.
+- `choosing-llm-hosting`, `self-hosted-llms`: when data rules out an API. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.

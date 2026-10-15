@@ -66,9 +66,9 @@ tailscale status 2>/dev/null | head -5; tailscale serve status 2>/dev/null
 
 ## Companion skills
 
-- `ollama`: install, models and tuning. Install: `npx skills add ScaleDockHQ/llms-skills --skill ollama`.
-- `tailscale`: tailnet, MagicDNS, HTTPS, ACLs and grants. Install: `npx skills add ScaleDockHQ/llms-skills --skill tailscale`.
-- `litellm`: multi-user gateway in front of Ollama. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `cloudflare-tunnel`: public hostname with Access, when the tailnet is not enough. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloudflare-tunnel`.
-- `voice-stack`: adds speech input and spoken replies to this UI. Install: `npx skills add ScaleDockHQ/llms-skills --skill voice-stack`.
-- `open-webui`: not published yet. Install later: `npx skills add ScaleDockHQ/llms-skills --skill open-webui`.
+- `ollama`: install, models and tuning. Install: `npx skills add ScaleDockHQ/llm-skills --skill ollama`.
+- `tailscale`: tailnet, MagicDNS, HTTPS, ACLs and grants. Install: `npx skills add ScaleDockHQ/llm-skills --skill tailscale`.
+- `litellm`: multi-user gateway in front of Ollama. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `cloudflare-tunnel`: public hostname with Access, when the tailnet is not enough. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloudflare-tunnel`.
+- `voice-stack`: adds speech input and spoken replies to this UI. Install: `npx skills add ScaleDockHQ/llm-skills --skill voice-stack`.
+- `open-webui`: not published yet. Install later: `npx skills add ScaleDockHQ/llm-skills --skill open-webui`.

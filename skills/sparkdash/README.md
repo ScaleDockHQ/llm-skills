@@ -5,7 +5,7 @@ An agent skill for installing, operating and securing sparkDash, a community web
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill sparkdash
+npx skills add ScaleDockHQ/llm-skills --skill sparkdash
 ```
 
 ## Rules

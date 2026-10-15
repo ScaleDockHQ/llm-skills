@@ -121,7 +121,7 @@ Templates: `assets/claude-code.env.example`, `assets/claude-code-settings.json`,
 
 ## Companion skills
 
-Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - Per-client depth (config, capability flags, troubleshooting): `claude-code`, `codex-cli`, `opencode`, `aider`, `cursor`, `continue`, `cline`, `kilo-code`, `zed`, `goose`, `open-webui`, `lobehub`, `librechat`, `anythingllm`, `sillytavern`, `openai-sdk`, `anthropic-sdk`, `vercel-ai-sdk`, `langchain`, `llamaindex`, `pydantic-ai`.
 - `llm-gateway`: one endpoint, aliases, keys, API bridging; fix server-side causes here.

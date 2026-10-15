@@ -35,7 +35,7 @@ python -m tensorrt_llm.serve.scripts.benchmark_serving --model "$MODEL" --backen
 
 Sweep concurrency 1, 2, 4 ... 256 with `num_prompts = concurrency * 5`. Report TTFT, TPOT, ITL, E2EL and output tokens per second. Warm up first (CUDA graph capture, lazy connection setup). Upstream warns example configs are illustrative.
 
-For a stack-level benchmark script that works against any OpenAI-compatible endpoint, see `self-hosted-llms` (`npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`).
+For a stack-level benchmark script that works against any OpenAI-compatible endpoint, see `self-hosted-llms` (`npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`).
 
 ## Knobs, in the order to try them
 

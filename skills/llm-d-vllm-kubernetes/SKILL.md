@@ -80,14 +80,14 @@ command -v helm git kubectl
 
 ## Companion skills
 
-- `vllm`: engine flags and metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `gateway-api-inference-extension`: InferencePool, EPP and CRD depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill gateway-api-inference-extension`.
-- `prefix-aware-routing`: how cache-aware routing works. Install: `npx skills add ScaleDockHQ/llms-skills --skill prefix-aware-routing`.
-- `disaggregated-serving`: when the split helps. Install: `npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving`.
-- `keda`: scalers and auth. Install: `npx skills add ScaleDockHQ/llms-skills --skill keda`.
-- `kserve`: llm-d inside KServe as `LLMInferenceService`. Install: `npx skills add ScaleDockHQ/llms-skills --skill kserve`.
-- `nvidia-gpu-operator`: GPU drivers and device plugin. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-gpu-operator`.
-- `nccl-rdma-networking`: RDMA for NIXL KV transfer. Install: `npx skills add ScaleDockHQ/llms-skills --skill nccl-rdma-networking`.
-- `prometheus-grafana-llm`: dashboards for router and vLLM metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill prometheus-grafana-llm`.
-- `llm-evals`: check quality after changing the setup. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `llm-d`: llm-d product depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-d`.
+- `vllm`: engine flags and metrics. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `gateway-api-inference-extension`: InferencePool, EPP and CRD depth. Install: `npx skills add ScaleDockHQ/llm-skills --skill gateway-api-inference-extension`.
+- `prefix-aware-routing`: how cache-aware routing works. Install: `npx skills add ScaleDockHQ/llm-skills --skill prefix-aware-routing`.
+- `disaggregated-serving`: when the split helps. Install: `npx skills add ScaleDockHQ/llm-skills --skill disaggregated-serving`.
+- `keda`: scalers and auth. Install: `npx skills add ScaleDockHQ/llm-skills --skill keda`.
+- `kserve`: llm-d inside KServe as `LLMInferenceService`. Install: `npx skills add ScaleDockHQ/llm-skills --skill kserve`.
+- `nvidia-gpu-operator`: GPU drivers and device plugin. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-gpu-operator`.
+- `nccl-rdma-networking`: RDMA for NIXL KV transfer. Install: `npx skills add ScaleDockHQ/llm-skills --skill nccl-rdma-networking`.
+- `prometheus-grafana-llm`: dashboards for router and vLLM metrics. Install: `npx skills add ScaleDockHQ/llm-skills --skill prometheus-grafana-llm`.
+- `llm-evals`: check quality after changing the setup. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `llm-d`: llm-d product depth. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-d`.

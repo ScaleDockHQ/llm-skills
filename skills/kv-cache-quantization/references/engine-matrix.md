@@ -4,7 +4,7 @@
 
 Every row comes from the upstream pages in the Sources list. Anything not confirmed is marked "(unverified)". Flags change between releases: run the installed engine's `--help` before applying one.
 
-Numerics: every non-default KV dtype changes outputs. Gate each change with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`) using the procedure in `SKILL.md`: baseline against candidate on the user's eval set at the longest context served, a user-chosen acceptance threshold, and a rollback to the baseline launch command.
+Numerics: every non-default KV dtype changes outputs. Gate each change with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`) using the procedure in `SKILL.md`: baseline against candidate on the user's eval set at the longest context served, a user-chosen acceptance threshold, and a rollback to the baseline launch command.
 
 ## Quick comparison
 

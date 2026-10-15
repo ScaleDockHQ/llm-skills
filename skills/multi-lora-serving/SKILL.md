@@ -49,7 +49,7 @@ Record: base model (exact repo and revision), each adapter's rank `r`, target mo
 - **Secrets never touch output.** Adapter hub tokens live in `0600` files or environment variables.
 - **Verify upstream.** Flags and defaults change between releases. Check `--help` of the installed version.
 - **Runtime loading is a trust boundary.** vLLM's docs warn that runtime LoRA updating "should not be used in production unless it is an isolated, fully trusted environment", and remote resolvers that download from Hugging Face are "insecure". Keep the endpoint on loopback behind the gateway, load only vetted local paths, never expose it publicly.
-- **Numerics gate.** LoRA merging at low precision, quantized base plus LoRA, an adapter trained on a different precision than it is served at, and `--lora-scaled` blends change outputs. Gate with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`) using `references/quality-gate.md`: adapter-versus-trained-expectation, base-versus-served-base, per-adapter regression, adapter isolation, and a rollback.
+- **Numerics gate.** LoRA merging at low precision, quantized base plus LoRA, an adapter trained on a different precision than it is served at, and `--lora-scaled` blends change outputs. Gate with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`) using `references/quality-gate.md`: adapter-versus-trained-expectation, base-versus-served-base, per-adapter regression, adapter isolation, and a rollback.
 - **Wrong adapter silently looks fine.** Load success does not prove the adapter is applied. Always run the verify step per adapter.
 
 ## Techniques per engine
@@ -84,7 +84,7 @@ Identical output from the base and the adapter on an adapter-specific prompt mea
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`. Engine skills may not be published yet; use upstream docs until they are.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`. Engine skills may not be published yet; use upstream docs until they are.
 
 - `fine-tuning-llms`: produce, evaluate, merge and convert LoRA adapters.
 - `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `tensorfold`, `exllamav3`: install, serve and tune each engine.

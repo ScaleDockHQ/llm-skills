@@ -78,8 +78,8 @@ Find what already exists and what runs before proposing anything. TPU resources 
 
 ## Companion skills
 
-- `vllm`: engine flags, parsers, tuning. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `google-vertex-ai`: managed Gemini and Model Garden instead of self-managed TPUs. Install: `npx skills add ScaleDockHQ/llms-skills --skill google-vertex-ai`.
-- `litellm`: gateway in front of the endpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `choosing-hardware`: compare TPU against GPU options. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `cloud-llms`: other providers. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
+- `vllm`: engine flags, parsers, tuning. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `google-vertex-ai`: managed Gemini and Model Garden instead of self-managed TPUs. Install: `npx skills add ScaleDockHQ/llm-skills --skill google-vertex-ai`.
+- `litellm`: gateway in front of the endpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `choosing-hardware`: compare TPU against GPU options. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `cloud-llms`: other providers. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.

@@ -5,7 +5,7 @@ Helps an agent use Replicate: run hosted models through the predictions API or t
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill replicate
+npx skills add ScaleDockHQ/llm-skills --skill replicate
 ```
 
 ## Rules

@@ -7,7 +7,7 @@ Verified against ExLlamaV3 v1.6.1 and TabbyAPI `main` on 2026-10-11.
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill exllamav3
+npx skills add ScaleDockHQ/llm-skills --skill exllamav3
 ```
 
 ## Rules

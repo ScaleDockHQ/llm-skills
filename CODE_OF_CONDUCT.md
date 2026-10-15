@@ -4,4 +4,4 @@ This project follows the [Contributor Covenant, version 2.1](https://www.contrib
 
 In short: be respectful, assume good intent, keep feedback about the work, and don't harass anyone in issues, pull requests or any other project space.
 
-Report unacceptable behavior privately to the maintainers through a [GitHub security advisory](https://github.com/ScaleDockHQ/llms-skills/security/advisories/new), marked as a conduct report. Maintainers review every report and keep the reporter's identity confidential.
+Report unacceptable behavior privately to the maintainers through a [GitHub security advisory](https://github.com/ScaleDockHQ/llm-skills/security/advisories/new), marked as a conduct report. Maintainers review every report and keep the reporter's identity confidential.

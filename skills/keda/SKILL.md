@@ -123,10 +123,10 @@ kubectl get hpa -n <ns>                                  # keda-hpa-<name> shows
 
 ## Companion skills
 
-- `vllm-kserve-keda`: KServe InferenceService with KEDA. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm-kserve-keda`.
-- `vllm`: engine flags and metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `nvidia-gpu-operator`: GPU nodes and DCGM. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-gpu-operator`.
-- `dcgm-exporter`: GPU metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill dcgm-exporter`.
-- `gateway-api-inference-extension`: model-aware routing. Install: `npx skills add ScaleDockHQ/llms-skills --skill gateway-api-inference-extension`.
-- `ray-serve`: Ray's own autoscaling. Install: `npx skills add ScaleDockHQ/llms-skills --skill ray-serve`.
-- `prometheus-grafana-llm`: scraping and dashboards. Install: `npx skills add ScaleDockHQ/llms-skills --skill prometheus-grafana-llm`.
+- `vllm-kserve-keda`: KServe InferenceService with KEDA. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm-kserve-keda`.
+- `vllm`: engine flags and metrics. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `nvidia-gpu-operator`: GPU nodes and DCGM. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-gpu-operator`.
+- `dcgm-exporter`: GPU metrics. Install: `npx skills add ScaleDockHQ/llm-skills --skill dcgm-exporter`.
+- `gateway-api-inference-extension`: model-aware routing. Install: `npx skills add ScaleDockHQ/llm-skills --skill gateway-api-inference-extension`.
+- `ray-serve`: Ray's own autoscaling. Install: `npx skills add ScaleDockHQ/llm-skills --skill ray-serve`.
+- `prometheus-grafana-llm`: scraping and dashboards. Install: `npx skills add ScaleDockHQ/llm-skills --skill prometheus-grafana-llm`.

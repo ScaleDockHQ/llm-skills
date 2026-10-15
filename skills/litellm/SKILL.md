@@ -114,7 +114,7 @@ Templates: `assets/litellm-config.yaml`, `assets/docker-compose.yaml`, `assets/l
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-gateway`: whether to use a gateway and which one; stack-level workflow around LiteLLM.
 - `llama-swap`: the swapper usually behind LiteLLM on a local or GPU host.

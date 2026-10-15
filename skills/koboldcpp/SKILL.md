@@ -152,11 +152,11 @@ Prefer a pinned release tag in the URL over `latest` for anything that must be r
 
 ## Companion skills
 
-- `choosing-inference-engine`: KoboldCpp vs vLLM vs llama.cpp vs SGLang. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `llama-cpp`: the upstream engine and `llama-server`. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `gguf-quantization`: make or pick GGUF quants. Install: `npx skills add ScaleDockHQ/llms-skills --skill gguf-quantization`.
-- `llama-swap`: on-demand model swapping in front of KoboldCpp. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `litellm` and `llm-gateway`: keys, routing, fallbacks. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `comfyui`: richer image workflows than the built-in SD server. Install: `npx skills add ScaleDockHQ/llms-skills --skill comfyui`.
-- `whisper-cpp`: standalone speech-to-text server. Install: `npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp`.
-- `tool-calling-parsers`: model-level tool-call formats. Install: `npx skills add ScaleDockHQ/llms-skills --skill tool-calling-parsers`.
+- `choosing-inference-engine`: KoboldCpp vs vLLM vs llama.cpp vs SGLang. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `llama-cpp`: the upstream engine and `llama-server`. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `gguf-quantization`: make or pick GGUF quants. Install: `npx skills add ScaleDockHQ/llm-skills --skill gguf-quantization`.
+- `llama-swap`: on-demand model swapping in front of KoboldCpp. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `litellm` and `llm-gateway`: keys, routing, fallbacks. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `comfyui`: richer image workflows than the built-in SD server. Install: `npx skills add ScaleDockHQ/llm-skills --skill comfyui`.
+- `whisper-cpp`: standalone speech-to-text server. Install: `npx skills add ScaleDockHQ/llm-skills --skill whisper-cpp`.
+- `tool-calling-parsers`: model-level tool-call formats. Install: `npx skills add ScaleDockHQ/llm-skills --skill tool-calling-parsers`.

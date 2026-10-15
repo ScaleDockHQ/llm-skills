@@ -166,6 +166,6 @@ When something fails at any step → `references/troubleshooting.md`.
 - `references/example.md`: anonymized hybrid with a local DGX Spark primary and cloud overflow plus frontier behind one LiteLLM endpoint.
 - `assets/litellm-hybrid.yaml`, `assets/k8s/vllm-deployment.yaml`, `assets/k8s/kserve-inferenceservice.yaml`.
 
-Provider skills (depth, one per provider): `runpod`, `modal`, `lambda-cloud`, `vast-ai`, `coreweave`, `nebius`, `baseten`, `replicate`, `fal`, `crusoe`, `hyperbolic`, `together-ai`, `fireworks-ai`, `groq`, `cerebras`, `sambanova`, `deepinfra`, `hugging-face`, `openai-api`, `anthropic-api`, `gemini-api`, `aws-bedrock`, `aws-sagemaker`, `google-vertex-ai`, `azure-foundry`. Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Provider skills (depth, one per provider): `runpod`, `modal`, `lambda-cloud`, `vast-ai`, `coreweave`, `nebius`, `baseten`, `replicate`, `fal`, `crusoe`, `hyperbolic`, `together-ai`, `fireworks-ai`, `groq`, `cerebras`, `sambanova`, `deepinfra`, `hugging-face`, `openai-api`, `anthropic-api`, `gemini-api`, `aws-bedrock`, `aws-sagemaker`, `google-vertex-ai`, `azure-foundry`. Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
-Companion skills: `choosing-llm-hosting`, `self-hosted-llms`, `llm-gateway`, `llm-evals`, `llm-observability`, `llm-clients`, `local-llms`, `model-quantization`, `fine-tuning-llms`, `self-hosted-genmedia`. Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Companion skills: `choosing-llm-hosting`, `self-hosted-llms`, `llm-gateway`, `llm-evals`, `llm-observability`, `llm-clients`, `local-llms`, `model-quantization`, `fine-tuning-llms`, `self-hosted-genmedia`. Install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.

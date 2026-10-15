@@ -5,7 +5,7 @@ An agent skill for [Traefik Proxy](https://github.com/traefik/traefik) as the TL
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill traefik
+npx skills add ScaleDockHQ/llm-skills --skill traefik
 ```
 
 ## Rules
@@ -34,7 +34,7 @@ Templates: [`templates/docker-compose.yml`](templates/docker-compose.yml), [`tem
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 `caddy`, `cloudflare-tunnel`, `tailscale`, `choosing-llm-hosting`, `litellm`, `llama-swap`, `vllm`, `ollama`, `llm-gateway`.
 

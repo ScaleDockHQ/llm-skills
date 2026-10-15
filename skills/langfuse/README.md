@@ -5,7 +5,7 @@ An agent skill for installing, operating and integrating Langfuse, the open-sour
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill langfuse
+npx skills add ScaleDockHQ/llm-skills --skill langfuse
 ```
 
 ## Rules

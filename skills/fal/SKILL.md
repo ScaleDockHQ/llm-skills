@@ -102,8 +102,8 @@ Apps with `min_concurrency` above zero hold GPUs and bill. Report them first.
 
 ## Companion skills
 
-- `self-hosted-genmedia`: run image, video and audio models on your own GPUs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `cloud-llms`: compare fal with other cloud options. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: LiteLLM routing and budgets. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `choosing-llm-hosting`: laptop, owned GPUs or cloud. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
-- `llm-observability`: traces and cost. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `self-hosted-genmedia`: run image, video and audio models on your own GPUs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `cloud-llms`: compare fal with other cloud options. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: LiteLLM routing and budgets. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `choosing-llm-hosting`: laptop, owned GPUs or cloud. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.
+- `llm-observability`: traces and cost. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

@@ -102,12 +102,12 @@ hf jobs ls                     # running Jobs
 
 ## Companion skills
 
-- `cloud-llms`: choose providers and hybrid routing. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: one endpoint in front of Hugging Face and others. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `litellm`: proxy configuration in depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `choosing-llm-hosting`: decide between hosted and self-hosted. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
-- `self-hosted-llms`, `vllm`: serve the weights yourself. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `fine-tuning-llms`: produce weights to upload. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `model-quantization`: shrink weights before upload or deploy. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `llm-evals`, `llm-observability`: quality and cost checks. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `local-llms`: run downloaded weights on a laptop. Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
+- `cloud-llms`: choose providers and hybrid routing. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: one endpoint in front of Hugging Face and others. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `litellm`: proxy configuration in depth. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `choosing-llm-hosting`: decide between hosted and self-hosted. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.
+- `self-hosted-llms`, `vllm`: serve the weights yourself. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `fine-tuning-llms`: produce weights to upload. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `model-quantization`: shrink weights before upload or deploy. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `llm-evals`, `llm-observability`: quality and cost checks. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `local-llms`: run downloaded weights on a laptop. Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.

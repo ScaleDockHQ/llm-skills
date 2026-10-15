@@ -10,4 +10,4 @@
 - For OpenAI-compatible backends behind `/v1/messages`, set `litellm_settings.use_chat_completions_url_for_anthropic_messages: true`.
 - Test plain, streaming and one tool call on each bridged path; never let a client hit a route the backend does not implement.
 
-Depth: install the litellm skill (npx skills add ScaleDockHQ/llms-skills --skill litellm)
+Depth: install the litellm skill (npx skills add ScaleDockHQ/llm-skills --skill litellm)

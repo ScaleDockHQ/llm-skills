@@ -4,11 +4,11 @@
 
 Server flags are not covered here: the quantized endpoint is whatever your serving skill produced.
 
-Goal: before a quantized model (or any other numerics change such as KV-cache dtype or an engine upgrade) reaches users, run the same golden set against the current production endpoint and the candidate endpoint, and block the change on a pre-agreed rule. This file is the promptfoo mechanics. What to measure, thresholds and the decision record live in the `llm-evals` skill (`npx skills add ScaleDockHQ/llms-skills --skill llm-evals`, reference `quality-gates.md`).
+Goal: before a quantized model (or any other numerics change such as KV-cache dtype or an engine upgrade) reaches users, run the same golden set against the current production endpoint and the candidate endpoint, and block the change on a pre-agreed rule. This file is the promptfoo mechanics. What to measure, thresholds and the decision record live in the `llm-evals` skill (`npx skills add ScaleDockHQ/llm-skills --skill llm-evals`, reference `quality-gates.md`).
 
 ## Setup
 
-1. **Two endpoints, one change.** Baseline = production as deployed (same model, quant, engine version, flags, chat template). Candidate = exactly one difference. Serving details: `vllm` (`npx skills add ScaleDockHQ/llms-skills --skill vllm`), `llama-cpp`, or `llm-gateway`; producing the quant: `model-quantization`.
+1. **Two endpoints, one change.** Baseline = production as deployed (same model, quant, engine version, flags, chat template). Candidate = exactly one difference. Serving details: `vllm` (`npx skills add ScaleDockHQ/llm-skills --skill vllm`), `llama-cpp`, or `llm-gateway`; producing the quant: `model-quantization`.
 2. **Model IDs and URLs** from `/v1/models` on each endpoint. Through a gateway both can sit behind one base URL with two aliases; then `BASELINE_BASE_URL` and `CANDIDATE_BASE_URL` are equal.
 3. **Config:** copy `templates/promptfooconfig.yaml`. It already has `baseline` and `candidate` providers with identical `temperature: 0`, `top_p`, `max_tokens`, `seed`, `showThinking: false`, and format assertions (`not-icontains: "<think>"`, `finish-reason: stop`, non-empty).
 4. **Golden set:** `tests: file://golden-set.jsonl`, items tagged `metadata.critical: "yes"` for must-not-regress behaviour.
@@ -71,7 +71,7 @@ Start from `templates/llm-evals.yml` and add a job (or workflow) triggered by `w
 ## 5. Add the other signals, then decide
 
 - Throughput and latency from the same run (`latency` metric, or a separate bench): a quant that is not faster or smaller has no point.
-- Optional distribution screen with `llama-perplexity` (KL divergence) when both weight files exist, and a benchmark subset via `lm-evaluation-harness` (`npx skills add ScaleDockHQ/llms-skills --skill lm-evaluation-harness`). Both are screens, not the decision.
+- Optional distribution screen with `llama-perplexity` (KL divergence) when both weight files exist, and a benchmark subset via `lm-evaluation-harness` (`npx skills add ScaleDockHQ/llm-skills --skill lm-evaluation-harness`). Both are screens, not the decision.
 - Write the decision record (PASS, FAIL, PASS WITH CONDITIONS) with config, model IDs, versions, sampling, noise floor, regressions and artifacts.
 
 ## Pitfalls

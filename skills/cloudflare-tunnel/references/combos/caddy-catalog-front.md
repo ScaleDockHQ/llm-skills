@@ -29,7 +29,7 @@ ingress:
 
 ## Caddy side
 
-Install the `caddy` skill and follow its model-catalog reference: `npx skills add ScaleDockHQ/llms-skills --skill caddy`. The Caddy site binds `127.0.0.1:8088` only.
+Install the `caddy` skill and follow its model-catalog reference: `npx skills add ScaleDockHQ/llm-skills --skill caddy`. The Caddy site binds `127.0.0.1:8088` only.
 
 ## Pitfalls
 

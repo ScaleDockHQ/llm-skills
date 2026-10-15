@@ -5,7 +5,7 @@ A stack recipe for a scale-to-zero, OpenAI-compatible LLM endpoint: vLLM (worker
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill runpod-serverless-vllm
+npx skills add ScaleDockHQ/llm-skills --skill runpod-serverless-vllm
 ```
 
 ## Rules

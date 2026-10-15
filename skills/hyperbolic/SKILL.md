@@ -107,8 +107,8 @@ Any rental already listed is billing now. Report it before doing anything else.
 
 ## Companion skills
 
-- `cloud-llms`: hosted APIs and other cloud tiers. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: LiteLLM in front of the rented box. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `self-hosted-llms`: vLLM, SGLang and sizing on a GPU server. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `choosing-llm-hosting`: pick between laptop, owned GPUs and cloud. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
-- `llm-observability`: traces and spend once the box is serving. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `cloud-llms`: hosted APIs and other cloud tiers. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: LiteLLM in front of the rented box. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `self-hosted-llms`: vLLM, SGLang and sizing on a GPU server. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `choosing-llm-hosting`: pick between laptop, owned GPUs and cloud. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.
+- `llm-observability`: traces and spend once the box is serving. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

@@ -5,7 +5,7 @@ Cluster two or more Apple Silicon Macs into one inference host with exo (automat
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill mac-cluster-exo-mlx
+npx skills add ScaleDockHQ/llm-skills --skill mac-cluster-exo-mlx
 ```
 
 ## Rules

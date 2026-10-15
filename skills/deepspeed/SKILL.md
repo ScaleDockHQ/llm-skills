@@ -101,7 +101,7 @@ ls hostfile ~/.deepspeed_env 2>/dev/null; ls ds_config*.json 2>/dev/null
 
 ## Companion skills
 
-Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `fine-tuning-llms`: decide, prepare data, choose method and hardware.
 - `trl`, `llama-factory`, `axolotl`, `peft`: trainers and adapters that call DeepSpeed.

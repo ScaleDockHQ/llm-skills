@@ -64,7 +64,7 @@ docker exec -e MODEL="nvidia/Qwen3-235B-A22B-FP4" -e HF_TOKEN="$HF_TOKEN" -it tr
 
 Download weights on both nodes first: `mpirun -x HF_TOKEN bash -c "hf download $MODEL"` (the playbook does this so each rank has the files). Requirements per node: the same image tag, SSH keys and the hostfile, the IB device, enough disk for the weights. A missing one hangs `mpirun`.
 
-In a llama-swap stack: keep the two containers persistent (systemd), have the model's start wrapper run the `docker exec ... mpirun ...` on the primary with `--host 127.0.0.1 --port "$PORT"`, and make the stop step end that process explicitly (the container name no longer equals the model id). Validate this before relying on it; the pattern is not an upstream recipe. See `llama-swap` (`npx skills add ScaleDockHQ/llms-skills --skill llama-swap`) and `self-hosted-llms`.
+In a llama-swap stack: keep the two containers persistent (systemd), have the model's start wrapper run the `docker exec ... mpirun ...` on the primary with `--host 127.0.0.1 --port "$PORT"`, and make the stop step end that process explicitly (the container name no longer equals the model id). Validate this before relying on it; the pattern is not an upstream recipe. See `llama-swap` (`npx skills add ScaleDockHQ/llm-skills --skill llama-swap`) and `self-hosted-llms`.
 
 ### Kubernetes
 

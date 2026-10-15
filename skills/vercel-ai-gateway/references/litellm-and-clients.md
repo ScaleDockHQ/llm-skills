@@ -47,7 +47,7 @@ model_list:
       api_key: os.environ/VERCEL_AI_GATEWAY_API_KEY
 ```
 
-Use the `litellm` skill for the proxy side: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
+Use the `litellm` skill for the proxy side: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
 
 ## Other agents
 

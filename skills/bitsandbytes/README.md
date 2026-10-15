@@ -5,7 +5,7 @@ Helps an agent load LLMs in 8-bit (LLM.int8()) or 4-bit (NF4/FP4) with bitsandby
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill bitsandbytes
+npx skills add ScaleDockHQ/llm-skills --skill bitsandbytes
 ```
 
 ## Rules

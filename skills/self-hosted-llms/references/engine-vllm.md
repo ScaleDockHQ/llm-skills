@@ -5,7 +5,7 @@
 This page keeps only what is specific to this stack: the wrapper script, the llama-swap and LiteLLM entries, and the stack pitfalls. Install, flags, tuning and operating detail live in the product skill.
 Dual DGX Spark runtimes (Ray and multiprocessing) are covered in the `vllm` skill.
 
-Depth: install the vllm skill (`npx skills add ScaleDockHQ/llms-skills --skill vllm`).
+Depth: install the vllm skill (`npx skills add ScaleDockHQ/llm-skills --skill vllm`).
 
 ## Minimal working config
 

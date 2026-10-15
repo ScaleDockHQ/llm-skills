@@ -75,4 +75,4 @@ exact settings.
 
 - `llm-gateway` for gateway choice, `llm-clients` for pointing tools at an endpoint,
   `llm-observability` for traces and cost, `self-hosted-llms` for the wider server stack.
-  Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+  Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.

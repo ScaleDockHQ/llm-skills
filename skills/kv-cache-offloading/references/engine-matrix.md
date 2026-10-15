@@ -4,7 +4,7 @@
 
 Every row comes from the upstream pages in the Sources list. Anything not confirmed is marked "(unverified)". Flags change between releases: run the installed engine's `--help` before applying one.
 
-Numerics: plain offload and reload copies bytes and is not meant to change outputs, but reused KV can still differ from recomputation through batch and kernel effects. Options that reuse non-prefix KV or compress KV are lossy (marked below where known). Gate every change with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`) using the procedure in `SKILL.md`: baseline against candidate (cold and warm) on the user's eval set, a user-chosen acceptance threshold, and a rollback to the baseline launch command.
+Numerics: plain offload and reload copies bytes and is not meant to change outputs, but reused KV can still differ from recomputation through batch and kernel effects. Options that reuse non-prefix KV or compress KV are lossy (marked below where known). Gate every change with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`) using the procedure in `SKILL.md`: baseline against candidate (cold and warm) on the user's eval set, a user-chosen acceptance threshold, and a rollback to the baseline launch command.
 
 ## Quick comparison
 

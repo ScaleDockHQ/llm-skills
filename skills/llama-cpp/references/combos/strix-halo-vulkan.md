@@ -61,7 +61,7 @@ llama-bench -m model-Q4_K_M.gguf -ngl 99 -fa on -lm none -p 512,2048 -n 128 -d 0
 - ROCm run is pathologically slow: missing `GGML_CUDA_ENABLE_UNIFIED_MEMORY=1` (the HIP build sees only BIOS-reserved VRAM and splits the graph).
 - Only about half the RAM is visible: TTM limit or `amdgpu.gttsize` conflict.
 
-See the `amd-strix-halo` platform skill (planned) for hardware, BIOS and OS setup: `npx skills add ScaleDockHQ/llms-skills --skill amd-strix-halo`.
+See the `amd-strix-halo` platform skill (planned) for hardware, BIOS and OS setup: `npx skills add ScaleDockHQ/llm-skills --skill amd-strix-halo`.
 
 ## Sources
 

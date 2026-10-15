@@ -7,7 +7,7 @@ Verified against LocalAI v4.11.0 on 2026-10-11.
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill localai
+npx skills add ScaleDockHQ/llm-skills --skill localai
 ```
 
 ## Rules

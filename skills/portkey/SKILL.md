@@ -98,7 +98,7 @@ Templates: `assets/docker-compose.yaml`, `assets/config-fallback.json`, `assets/
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-gateway`: choose a gateway and the stack workflow around it.
 - `litellm`: virtual keys, budgets and callbacks on your own host.

@@ -85,7 +85,7 @@ Templates: `assets/custom_provider.openai.json`, `assets/custom_provider.anthrop
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-clients`: choosing a client, shared capability and troubleshooting notes.
 - `litellm`: the gateway that gives goose one endpoint, virtual keys and `/v1/messages`.

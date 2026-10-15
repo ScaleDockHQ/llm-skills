@@ -5,7 +5,7 @@ One paragraph on what this technique skill helps an agent do, for whom, and whic
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill {{name}}
+npx skills add ScaleDockHQ/llm-skills --skill {{name}}
 ```
 
 ## Rules

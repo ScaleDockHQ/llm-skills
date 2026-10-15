@@ -84,7 +84,7 @@ Templates: `templates/provider.ts`, `templates/env.example`. Script: `scripts/pr
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-clients`: other SDKs, coding agents and chat UIs against the same endpoint.
 - `litellm`: the gateway that gives one key, stable aliases and API bridging.

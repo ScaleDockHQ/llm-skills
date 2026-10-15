@@ -68,8 +68,8 @@ dcgmi discovery -l 2>/dev/null | head; docker run --rm --gpus all ubuntu nvidia-
 
 ## Companion skills
 
-- `choosing-hardware`: sizing math. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `vllm`, `sglang`, `tensorrt-llm`: engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
-- `nvidia-gpu-operator`: Kubernetes. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-gpu-operator`.
-- `llm-observability`: DCGM exporter and Grafana. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `nvidia-rtx-workstation`: desktop cards. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-rtx-workstation`.
+- `choosing-hardware`: sizing math. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `vllm`, `sglang`, `tensorrt-llm`: engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
+- `nvidia-gpu-operator`: Kubernetes. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-gpu-operator`.
+- `llm-observability`: DCGM exporter and Grafana. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `nvidia-rtx-workstation`: desktop cards. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-rtx-workstation`.

@@ -5,7 +5,7 @@ Helps an agent connect OpenAI's Codex CLI (`codex`) to self-hosted and gateway m
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill codex-cli
+npx skills add ScaleDockHQ/llm-skills --skill codex-cli
 ```
 
 ## Rules

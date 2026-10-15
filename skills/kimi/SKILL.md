@@ -74,9 +74,9 @@ du -sh ~/.cache/huggingface/hub/models--moonshotai--* 2>/dev/null
 
 ## Companion skills
 
-- `self-hosted-llms`: gateway, model swapping and exposure for a GPU server. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `local-llms`: laptop and desktop serving (llama.cpp, Ollama, MLX). Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `cloud-llms`: hosted Kimi APIs and providers. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `model-quantization`: making or judging GGUF, FP8, NVFP4 and MLX quants. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `fine-tuning-llms`: fine-tuning Kimi-Linear or Kimi-VL (the 1T-class models are out of reach for single-node tuning). Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `mlx`, `ollama`, `tensorfold`, `tool-calling-parsers`: engine-level detail. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm` (same pattern for the others).
+- `self-hosted-llms`: gateway, model swapping and exposure for a GPU server. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `local-llms`: laptop and desktop serving (llama.cpp, Ollama, MLX). Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `cloud-llms`: hosted Kimi APIs and providers. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `model-quantization`: making or judging GGUF, FP8, NVFP4 and MLX quants. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `fine-tuning-llms`: fine-tuning Kimi-Linear or Kimi-VL (the 1T-class models are out of reach for single-node tuning). Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `mlx`, `ollama`, `tensorfold`, `tool-calling-parsers`: engine-level detail. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm` (same pattern for the others).

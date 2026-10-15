@@ -8,7 +8,7 @@ parallelism, the proxy server, Prometheus metrics and Kubernetes. Verified again
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill lmdeploy
+npx skills add ScaleDockHQ/llm-skills --skill lmdeploy
 ```
 
 ## Rules

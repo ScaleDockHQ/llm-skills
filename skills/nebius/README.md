@@ -5,7 +5,7 @@ Helps an agent run LLMs on Nebius: Token Factory (formerly AI Studio) for OpenAI
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill nebius
+npx skills add ScaleDockHQ/llm-skills --skill nebius
 ```
 
 ## Rules

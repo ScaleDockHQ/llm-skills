@@ -12,7 +12,7 @@ metadata:
 
 Combine two or more Macs so a model that does not fit one machine runs across them, either with exo (automatic discovery, dashboard and API) or with MLX distributed (`mlx.launch` plus `mlx_lm.server`), over Thunderbolt 5 with RDMA when available.
 
-**Scope:** this opinionated combination. Per-Mac setup belongs to `apple-silicon`; MLX serving, conversion and quantization belong to `mlx`; exo as a product will belong to the `exo` skill (not yet published; install later: `npx skills add ScaleDockHQ/llms-skills --skill exo` once it exists); remote access belongs to `tailscale`; gateways belong to `llm-gateway` and `litellm`.
+**Scope:** this opinionated combination. Per-Mac setup belongs to `apple-silicon`; MLX serving, conversion and quantization belong to `mlx`; exo as a product will belong to the `exo` skill (not yet published; install later: `npx skills add ScaleDockHQ/llm-skills --skill exo` once it exists); remote access belongs to `tailscale`; gateways belong to `llm-gateway` and `litellm`.
 
 Work through the steps in order. Load a reference only when a step names it. Facts were read from exo-explore/exo (README, docs/api.md, pyproject) and MLX docs on 2026-10-11.
 
@@ -68,9 +68,9 @@ curl -s http://localhost:52415/state | jq '.nodes | length' 2>/dev/null     # ex
 
 ## Companion skills
 
-- `mlx`: MLX serving, convert, quantize, LoRA on one Mac. Install: `npx skills add ScaleDockHQ/llms-skills --skill mlx`.
-- `apple-silicon`: per-Mac memory, wired limit, power and thermals. Install: `npx skills add ScaleDockHQ/llms-skills --skill apple-silicon`.
-- `tailscale`: private remote access to the cluster head. Install: `npx skills add ScaleDockHQ/llms-skills --skill tailscale`.
-- `llm-gateway`: tokens, routing and one endpoint in front. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `litellm`: proxy that can front the exo or MLX endpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `exo`: not yet published; install later with `npx skills add ScaleDockHQ/llms-skills --skill exo` once it is listed.
+- `mlx`: MLX serving, convert, quantize, LoRA on one Mac. Install: `npx skills add ScaleDockHQ/llm-skills --skill mlx`.
+- `apple-silicon`: per-Mac memory, wired limit, power and thermals. Install: `npx skills add ScaleDockHQ/llm-skills --skill apple-silicon`.
+- `tailscale`: private remote access to the cluster head. Install: `npx skills add ScaleDockHQ/llm-skills --skill tailscale`.
+- `llm-gateway`: tokens, routing and one endpoint in front. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `litellm`: proxy that can front the exo or MLX endpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `exo`: not yet published; install later with `npx skills add ScaleDockHQ/llm-skills --skill exo` once it is listed.

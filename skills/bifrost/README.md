@@ -5,7 +5,7 @@ Helps an agent install and run Bifrost, the open-source Go AI gateway: start it 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill bifrost
+npx skills add ScaleDockHQ/llm-skills --skill bifrost
 ```
 
 ## Rules

@@ -64,7 +64,7 @@ grep -n -E 'callbacks|prometheus|turn_off_message_logging' litellm-config.yaml c
 
 ## Companion skills
 
-- `litellm`: install, config, keys, budgets. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `langfuse`: self-hosting, projects, prompts, scores. Install: `npx skills add ScaleDockHQ/llms-skills --skill langfuse`.
-- `llm-observability`: Prometheus and Grafana install, alert rules, engine and GPU metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `llm-gateway`: choosing a gateway. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
+- `litellm`: install, config, keys, budgets. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `langfuse`: self-hosting, projects, prompts, scores. Install: `npx skills add ScaleDockHQ/llm-skills --skill langfuse`.
+- `llm-observability`: Prometheus and Grafana install, alert rules, engine and GPU metrics. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `llm-gateway`: choosing a gateway. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.

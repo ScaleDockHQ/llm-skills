@@ -99,8 +99,8 @@ For a quick test, port-forward the Envoy Gateway service labeled `serving.kserve
 
 ## Companion skills
 
-- `llm-d`: the router and well-lit-path architecture KServe's LLMInferenceService is built on. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-d`.
-- `vllm`: engine flags, parsers and tuning. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `vllm-production-stack`: Helm-based alternative with its own router. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm-production-stack`.
-- `litellm`: gateway with keys and budgets in front of the endpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `cloud-llms`: where Kubernetes fits among hosting options. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
+- `llm-d`: the router and well-lit-path architecture KServe's LLMInferenceService is built on. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-d`.
+- `vllm`: engine flags, parsers and tuning. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `vllm-production-stack`: Helm-based alternative with its own router. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm-production-stack`.
+- `litellm`: gateway with keys and budgets in front of the endpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `cloud-llms`: where Kubernetes fits among hosting options. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.

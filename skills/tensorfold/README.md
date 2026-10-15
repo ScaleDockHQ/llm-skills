@@ -5,7 +5,7 @@ Helps an agent install, serve, tune, scale out, update and troubleshoot [TensorF
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill tensorfold
+npx skills add ScaleDockHQ/llm-skills --skill tensorfold
 ```
 
 ## Rules

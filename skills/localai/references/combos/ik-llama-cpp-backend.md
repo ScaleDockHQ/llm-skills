@@ -2,7 +2,7 @@
 
 > Verified against LocalAI v4.11.0 and ik_llama.cpp pinned commit 04b4ebc2 (backend Makefile), 2026-10-11
 
-LocalAI ships `ik-llama-cpp` as a gallery backend, so GGUF models can run on the ik_llama.cpp fork behind the normal LocalAI API. Use it for CPU-heavy or quantization-specific (IQK quants) models where plain `llama-cpp` is slower. For GPU or hybrid offload tuning, run ik_llama.cpp directly instead (skill `ik-llama-cpp`, `npx skills add ScaleDockHQ/llms-skills --skill ik-llama-cpp`).
+LocalAI ships `ik-llama-cpp` as a gallery backend, so GGUF models can run on the ik_llama.cpp fork behind the normal LocalAI API. Use it for CPU-heavy or quantization-specific (IQK quants) models where plain `llama-cpp` is slower. For GPU or hybrid offload tuning, run ik_llama.cpp directly instead (skill `ik-llama-cpp`, `npx skills add ScaleDockHQ/llm-skills --skill ik-llama-cpp`).
 
 ## Facts that decide the choice
 

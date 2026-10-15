@@ -113,7 +113,7 @@ Ask only what discovery cannot show: workloads, whether data may leave to third-
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-gateway`: choose between OpenRouter, LiteLLM, Portkey, Envoy and Kong.
 - `litellm`: self-hosted gateway that can front OpenRouter.

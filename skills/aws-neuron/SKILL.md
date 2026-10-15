@@ -79,8 +79,8 @@ Find what exists and what runs before proposing anything. Neuron instances bill 
 
 ## Companion skills
 
-- `vllm`: engine flags and tuning (GPU-centred). Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `aws-bedrock`: managed models instead of self-managed accelerators. Install: `npx skills add ScaleDockHQ/llms-skills --skill aws-bedrock`.
-- `aws-sagemaker`: managed endpoints. Install: `npx skills add ScaleDockHQ/llms-skills --skill aws-sagemaker`.
-- `litellm`: gateway in front of the endpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `choosing-hardware`: compare accelerators. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
+- `vllm`: engine flags and tuning (GPU-centred). Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `aws-bedrock`: managed models instead of self-managed accelerators. Install: `npx skills add ScaleDockHQ/llm-skills --skill aws-bedrock`.
+- `aws-sagemaker`: managed endpoints. Install: `npx skills add ScaleDockHQ/llm-skills --skill aws-sagemaker`.
+- `litellm`: gateway in front of the endpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `choosing-hardware`: compare accelerators. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.

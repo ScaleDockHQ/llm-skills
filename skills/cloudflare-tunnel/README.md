@@ -5,7 +5,7 @@ An agent skill for publishing a self-hosted LLM endpoint through Cloudflare Tunn
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill cloudflare-tunnel
+npx skills add ScaleDockHQ/llm-skills --skill cloudflare-tunnel
 ```
 
 ## Rules

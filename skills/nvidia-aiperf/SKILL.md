@@ -102,9 +102,9 @@ nvidia-smi -L 2>/dev/null; curl -fsS localhost:9400/metrics 2>/dev/null | head -
 
 ## Companion skills
 
-- `vllm`: the usual server under test. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `sglang`: alternative server (cache flush path differs). Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
-- `dcgm-exporter`: GPU telemetry source for `--gpu-telemetry`. Install: `npx skills add ScaleDockHQ/llms-skills --skill dcgm-exporter`.
-- `nvidia-dynamo`: Dynamo serving, which AIPerf is part of. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dynamo`.
-- `self-hosted-llms`: shared `bench.sh` smoke benchmark and sizing. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `lm-evaluation-harness`: answer quality for the same endpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill lm-evaluation-harness`.
+- `vllm`: the usual server under test. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `sglang`: alternative server (cache flush path differs). Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
+- `dcgm-exporter`: GPU telemetry source for `--gpu-telemetry`. Install: `npx skills add ScaleDockHQ/llm-skills --skill dcgm-exporter`.
+- `nvidia-dynamo`: Dynamo serving, which AIPerf is part of. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dynamo`.
+- `self-hosted-llms`: shared `bench.sh` smoke benchmark and sizing. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `lm-evaluation-harness`: answer quality for the same endpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill lm-evaluation-harness`.

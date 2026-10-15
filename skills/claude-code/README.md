@@ -5,7 +5,7 @@ Helps an agent connect Claude Code (`claude`) to self-hosted and gateway models 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill claude-code
+npx skills add ScaleDockHQ/llm-skills --skill claude-code
 ```
 
 ## Rules

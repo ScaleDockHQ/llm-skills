@@ -148,9 +148,9 @@ common cause of poor speed.
 
 ## Companion skills
 
-- `sglang`: the server underneath. Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
-- `moe-serving`: expert parallelism and MoE concepts. Install: `npx skills add ScaleDockHQ/llms-skills --skill moe-serving`.
-- `cpu-inference`: CPU-only options. Install: `npx skills add ScaleDockHQ/llms-skills --skill cpu-inference`.
-- `choosing-inference-engine`: compare KTransformers with other engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `litellm`, `llm-gateway`, `caddy`: routing, auth and TLS in front. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `tool-calling-parsers`, `reasoning-models`: parser choices. Install: `npx skills add ScaleDockHQ/llms-skills --skill tool-calling-parsers`.
+- `sglang`: the server underneath. Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
+- `moe-serving`: expert parallelism and MoE concepts. Install: `npx skills add ScaleDockHQ/llm-skills --skill moe-serving`.
+- `cpu-inference`: CPU-only options. Install: `npx skills add ScaleDockHQ/llm-skills --skill cpu-inference`.
+- `choosing-inference-engine`: compare KTransformers with other engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `litellm`, `llm-gateway`, `caddy`: routing, auth and TLS in front. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `tool-calling-parsers`, `reasoning-models`: parser choices. Install: `npx skills add ScaleDockHQ/llm-skills --skill tool-calling-parsers`.

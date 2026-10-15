@@ -208,7 +208,7 @@ Templates (copy, then edit; all hosts, ports and paths come from env vars or fla
 
 ## Companion skills
 
-Install any of these with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any of these with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `choosing-llm-hosting` - decide local vs self-hosted vs cloud vs hybrid before building anything.
 - `local-llms` - laptops and desktops (Ollama, LM Studio, llama.cpp, MLX).

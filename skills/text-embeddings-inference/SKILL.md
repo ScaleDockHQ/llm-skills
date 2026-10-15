@@ -73,7 +73,7 @@ ss -ltnp 2>/dev/null | grep -E ':(8080|8081|9000)\b' || true
 
 ## Companion skills
 
-- `litellm`: the gateway in front. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `llama-swap`: on-demand model loading. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `vllm`: chat models on the same GPU. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `choosing-hardware`: GPU sizing. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
+- `litellm`: the gateway in front. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `llama-swap`: on-demand model loading. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `vllm`: chat models on the same GPU. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `choosing-hardware`: GPU sizing. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.

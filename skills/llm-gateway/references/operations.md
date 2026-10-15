@@ -10,4 +10,4 @@
 - Back up the env file too: a restored DB is unreadable without the original `LITELLM_SALT_KEY`.
 - Pitfall: `docker compose up -d` after a config-only edit does not restart the container; use `docker compose restart litellm`.
 
-Depth: install the litellm skill (npx skills add ScaleDockHQ/llms-skills --skill litellm)
+Depth: install the litellm skill (npx skills add ScaleDockHQ/llm-skills --skill litellm)

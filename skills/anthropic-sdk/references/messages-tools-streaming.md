@@ -42,7 +42,7 @@ msgs = [{"role": "user", "content": "Weather in Paris? Use the tool."},
 r2 = client.messages.create(model=MODEL, max_tokens=512, tools=tools, messages=msgs)
 ```
 
-Unlike OpenAI, `input` is a parsed object, tool results go in a `user` message, and tool definitions use `input_schema`. Server prerequisites: llama.cpp needs `--jinja` for tool use on this route; vLLM needs `--enable-auto-tool-choice --tool-call-parser <name>`; Ollama supports tools and tool results; gateways pass through to a backend that must support tools. If the model prints JSON as text, the parser or template is missing: see `tool-calling-parsers` (`npx skills add ScaleDockHQ/llms-skills --skill tool-calling-parsers`). Check coverage per server: Ollama and llama.cpp document subsets of the Messages API, so unsupported fields (certain content types, server tools, citations, caching) are ignored or rejected.
+Unlike OpenAI, `input` is a parsed object, tool results go in a `user` message, and tool definitions use `input_schema`. Server prerequisites: llama.cpp needs `--jinja` for tool use on this route; vLLM needs `--enable-auto-tool-choice --tool-call-parser <name>`; Ollama supports tools and tool results; gateways pass through to a backend that must support tools. If the model prints JSON as text, the parser or template is missing: see `tool-calling-parsers` (`npx skills add ScaleDockHQ/llm-skills --skill tool-calling-parsers`). Check coverage per server: Ollama and llama.cpp document subsets of the Messages API, so unsupported fields (certain content types, server tools, citations, caching) are ignored or rejected.
 
 ## Thinking
 

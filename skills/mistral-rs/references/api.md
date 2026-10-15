@@ -44,7 +44,7 @@ agent approvals, skill upload, MCP port. Treat the whole HTTP surface as admin.
 - Forward `x-request-id` so access logs correlate.
 - Block `/metrics`, `/docs`, `/ui`, `/v1/load_lora_adapter`, `/v1/unload_lora_adapter` and `/mcp` from public routes unless you
   authenticate them. A global bearer check in front is simplest.
-- Ready-made recipes: see the `caddy` skill (`npx skills add ScaleDockHQ/llms-skills --skill caddy`).
+- Ready-made recipes: see the `caddy` skill (`npx skills add ScaleDockHQ/llm-skills --skill caddy`).
 
 ```bash
 # Verify auth is enforced at the proxy before pointing users at it (key from a 0600 file, never echoed)

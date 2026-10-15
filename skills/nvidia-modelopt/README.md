@@ -5,7 +5,7 @@ An agent skill for quantizing Hugging Face LLMs with [NVIDIA Model Optimizer](ht
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill nvidia-modelopt
+npx skills add ScaleDockHQ/llm-skills --skill nvidia-modelopt
 ```
 
 ## Rules
@@ -28,13 +28,13 @@ npx skills add ScaleDockHQ/llms-skills --skill nvidia-modelopt
 
 ## Companion skills
 
-- `model-quantization`: format choice, memory caps, quality checks, publishing. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `llm-compressor`: the vLLM project's quantizer (compressed-tensors). Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`.
-- `tensorrt-llm`: TensorRT-LLM serving. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorrt-llm`.
-- `vllm`: vLLM serving. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `sglang`: SGLang serving. Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
-- `kv-cache-quantization`: KV cache dtype choices. Install: `npx skills add ScaleDockHQ/llms-skills --skill kv-cache-quantization`.
-- `llm-evals`: task evals and gates. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- `model-quantization`: format choice, memory caps, quality checks, publishing. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `llm-compressor`: the vLLM project's quantizer (compressed-tensors). Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-compressor`.
+- `tensorrt-llm`: TensorRT-LLM serving. Install: `npx skills add ScaleDockHQ/llm-skills --skill tensorrt-llm`.
+- `vllm`: vLLM serving. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `sglang`: SGLang serving. Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
+- `kv-cache-quantization`: KV cache dtype choices. Install: `npx skills add ScaleDockHQ/llm-skills --skill kv-cache-quantization`.
+- `llm-evals`: task evals and gates. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
 
 ## License
 

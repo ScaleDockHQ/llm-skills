@@ -81,11 +81,11 @@ Full details and the reasons are in `references/install.md`.
 
 ## Companion skills
 
-- `kserve`: KServe depth, runtimes, storage, transformers. Install: `npx skills add ScaleDockHQ/llms-skills --skill kserve`.
-- `keda`: KEDA scalers and authentication depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill keda`.
-- `vllm`: engine flags, quantization, metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `llm-d-vllm-kubernetes`: the llm-d router with vLLM outside KServe. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-d-vllm-kubernetes`.
-- `prometheus-grafana-llm`: Prometheus scraping and dashboards for vLLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill prometheus-grafana-llm`.
-- `nvidia-gpu-operator`: GPU drivers and device plugin on the cluster. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-gpu-operator`.
-- `llm-evals`: check quality after changing the runtime or quantization. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `self-hosted-llms`: pick between hosting options. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `kserve`: KServe depth, runtimes, storage, transformers. Install: `npx skills add ScaleDockHQ/llm-skills --skill kserve`.
+- `keda`: KEDA scalers and authentication depth. Install: `npx skills add ScaleDockHQ/llm-skills --skill keda`.
+- `vllm`: engine flags, quantization, metrics. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `llm-d-vllm-kubernetes`: the llm-d router with vLLM outside KServe. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-d-vllm-kubernetes`.
+- `prometheus-grafana-llm`: Prometheus scraping and dashboards for vLLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill prometheus-grafana-llm`.
+- `nvidia-gpu-operator`: GPU drivers and device plugin on the cluster. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-gpu-operator`.
+- `llm-evals`: check quality after changing the runtime or quantization. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `self-hosted-llms`: pick between hosting options. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

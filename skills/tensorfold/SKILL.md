@@ -92,9 +92,9 @@ curl -fsS http://127.0.0.1:8090/v1/chat/completions -H 'Content-Type: applicatio
 
 ## Companion skills
 
-- `nvidia-dgx-spark`: GB10 hardware, CX7 links, memory behaviour. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`.
-- `llama-swap`: model swapping in front of engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `litellm`: gateway entries and keys. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `self-hosted-llms`: engine choice, stack and benchmarking. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `multi-node-inference`: general multi-node concerns. Install: `npx skills add ScaleDockHQ/llms-skills --skill multi-node-inference`.
-- `speculative-decoding`: draft concepts. Install: `npx skills add ScaleDockHQ/llms-skills --skill speculative-decoding`.
+- `nvidia-dgx-spark`: GB10 hardware, CX7 links, memory behaviour. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`.
+- `llama-swap`: model swapping in front of engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `litellm`: gateway entries and keys. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `self-hosted-llms`: engine choice, stack and benchmarking. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `multi-node-inference`: general multi-node concerns. Install: `npx skills add ScaleDockHQ/llm-skills --skill multi-node-inference`.
+- `speculative-decoding`: draft concepts. Install: `npx skills add ScaleDockHQ/llm-skills --skill speculative-decoding`.

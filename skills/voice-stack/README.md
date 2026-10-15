@@ -5,7 +5,7 @@ A stack skill for a self-hosted voice assistant: whisper.cpp for speech-to-text,
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill voice-stack
+npx skills add ScaleDockHQ/llm-skills --skill voice-stack
 ```
 
 ## Rules

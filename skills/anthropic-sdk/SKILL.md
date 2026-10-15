@@ -44,7 +44,7 @@ Ask only what discovery cannot show: server and URL, which header the server che
 - **`max_tokens` is required** on every request.
 - **Defaults are generous:** 10-minute timeout, 2 retries. Large non-streaming `max_tokens` can raise a client error before sending; stream long generations.
 - **Beta features are opt-in** (`betas` / `anthropic-beta`); non-Anthropic servers often reject them. Leave them off for self-hosted servers unless the server documents support.
-- **Other skills:** install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+- **Other skills:** install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 ## Workflows
 

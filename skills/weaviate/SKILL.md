@@ -72,7 +72,7 @@ With auth on, add `-H "Authorization: Bearer $WEAVIATE_API_KEY"` from your env f
 
 ## Companion skills
 
-- `text-embeddings-inference`, `infinity`: embedding servers. Install: `npx skills add ScaleDockHQ/llms-skills --skill text-embeddings-inference`.
-- `litellm`: embeddings gateway. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `qdrant`: lighter alternative. Install: `npx skills add ScaleDockHQ/llms-skills --skill qdrant`.
-- `pgvector`: Postgres alternative. Install: `npx skills add ScaleDockHQ/llms-skills --skill pgvector`.
+- `text-embeddings-inference`, `infinity`: embedding servers. Install: `npx skills add ScaleDockHQ/llm-skills --skill text-embeddings-inference`.
+- `litellm`: embeddings gateway. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `qdrant`: lighter alternative. Install: `npx skills add ScaleDockHQ/llm-skills --skill qdrant`.
+- `pgvector`: Postgres alternative. Install: `npx skills add ScaleDockHQ/llm-skills --skill pgvector`.

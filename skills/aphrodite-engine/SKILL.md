@@ -139,9 +139,9 @@ curl -s -H "Authorization: Bearer $APHRODITE_API_KEY" http://127.0.0.1:2242/v1/c
 
 ## Companion skills
 
-- `choosing-inference-engine`: Aphrodite vs vLLM vs SGLang vs llama.cpp. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `vllm`: the upstream engine whose flags mostly carry over. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `choosing-hardware`: sizing math for GPU memory and context. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `litellm`: keys, routing, fallbacks in front of the server. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `disaggregated-serving`: prefill/decode technique guidance. Install: `npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving`.
-- `llm-observability`: traces and cost around the server. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `choosing-inference-engine`: Aphrodite vs vLLM vs SGLang vs llama.cpp. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `vllm`: the upstream engine whose flags mostly carry over. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `choosing-hardware`: sizing math for GPU memory and context. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `litellm`: keys, routing, fallbacks in front of the server. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `disaggregated-serving`: prefill/decode technique guidance. Install: `npx skills add ScaleDockHQ/llm-skills --skill disaggregated-serving`.
+- `llm-observability`: traces and cost around the server. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

@@ -19,7 +19,7 @@ Served at `/` (disable with `--no-ui`; defaults via `--ui-config-file`). It is o
 
 ## llama-swap
 
-llama-swap (`mostlygeek/llama-swap`) starts and stops `llama-server` processes (or containers) per requested model name and proxies OpenAI/Anthropic requests. Config per model: `cmd`, `proxy`, `checkEndpoint: /health`, `ttl`, `cmdStop`, groups for co-resident models. Details and the combined setup are in `references/combos/llama-swap-router.md`; the `llama-swap` skill (planned) covers the proxy itself: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
+llama-swap (`mostlygeek/llama-swap`) starts and stops `llama-server` processes (or containers) per requested model name and proxies OpenAI/Anthropic requests. Config per model: `cmd`, `proxy`, `checkEndpoint: /health`, `ttl`, `cmdStop`, groups for co-resident models. Details and the combined setup are in `references/combos/llama-swap-router.md`; the `llama-swap` skill (planned) covers the proxy itself: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
 
 ## LiteLLM and other gateways
 

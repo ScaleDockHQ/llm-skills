@@ -10,4 +10,4 @@ Choose Unsloth for single-GPU or single-DGX-Spark runs where memory is the const
 - **Out:** adapter via `model.save_pretrained(dir)` (PEFT format, works with vLLM `--lora-modules` and `convert_lora_to_gguf.py`, see `serving-adapters.md`), merged 16-bit weights, or GGUF for Ollama (`evaluate-and-merge.md`).
 - **Run it** as a script in `tmux` under a memory cap, not in a notebook (`hardware.md`). On DGX Spark the GGUF export and image builds can use a lot of RAM; stop servers first.
 
-Depth: install the unsloth skill (npx skills add ScaleDockHQ/llms-skills --skill unsloth)
+Depth: install the unsloth skill (npx skills add ScaleDockHQ/llm-skills --skill unsloth)

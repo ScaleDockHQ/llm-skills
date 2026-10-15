@@ -79,9 +79,9 @@ ps -eo args | grep -E '[l]lama-swap.*-(config|listen)'
 
 ## Companion skills
 
-- `llama-cpp`: the engine llama-swap was built around. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `vllm`: container engine behind `cmd`/`cmdStop`. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `litellm`: keys, budgets and routing in front. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `nvidia-dgx-spark`: the platform profile this stack was proven on. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`.
-- `self-hosted-llms`: the full stack (gateway, exposure, catalog). Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `local-llms`: laptop setups that use llama-swap with llama.cpp. Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
+- `llama-cpp`: the engine llama-swap was built around. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `vllm`: container engine behind `cmd`/`cmdStop`. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `litellm`: keys, budgets and routing in front. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `nvidia-dgx-spark`: the platform profile this stack was proven on. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`.
+- `self-hosted-llms`: the full stack (gateway, exposure, catalog). Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `local-llms`: laptop setups that use llama-swap with llama.cpp. Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.

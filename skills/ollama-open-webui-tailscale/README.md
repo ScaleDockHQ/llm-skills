@@ -5,7 +5,7 @@ A stack skill that gets an agent from local Ollama models to a private web chat 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill ollama-open-webui-tailscale
+npx skills add ScaleDockHQ/llm-skills --skill ollama-open-webui-tailscale
 ```
 
 ## Rules

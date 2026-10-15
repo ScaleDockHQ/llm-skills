@@ -2,7 +2,7 @@
 
 > Verified against NVIDIA/Model-Optimizer 0.47.0 (`examples/hf_ptq/README.md`), TensorRT-LLM v1.2.1 (`features/quantization.md`) and NGC release tags, 2026-10-11
 
-Combo owned by this skill: quantize a Hugging Face model with NVIDIA Model Optimizer ("ModelOpt", PyPI `nvidia-modelopt`, repo `NVIDIA/Model-Optimizer`) and serve the exported checkpoint with `trtllm-serve`. The full quantization workflow (formats, calibration datasets, quality gates, publishing) is the `model-quantization` skill: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`. This file keeps only what is TensorRT-LLM specific.
+Combo owned by this skill: quantize a Hugging Face model with NVIDIA Model Optimizer ("ModelOpt", PyPI `nvidia-modelopt`, repo `NVIDIA/Model-Optimizer`) and serve the exported checkpoint with `trtllm-serve`. The full quantization workflow (formats, calibration datasets, quality gates, publishing) is the `model-quantization` skill: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`. This file keeps only what is TensorRT-LLM specific.
 
 ## First check whether you need to quantize
 

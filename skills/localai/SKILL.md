@@ -98,8 +98,8 @@ curl -s http://127.0.0.1:8080/v1/chat/completions -H 'Content-Type: application/
 
 ## Companion skills
 
-- `choosing-inference-engine`: compare engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `ik-llama-cpp`: the CPU and hybrid fork LocalAI can run as a backend. Install: `npx skills add ScaleDockHQ/llms-skills --skill ik-llama-cpp`.
-- `llama-cpp`: the default GGUF backend. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `litellm`: gateway and keys. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `self-hosted-llms`: the end-to-end stack. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `choosing-inference-engine`: compare engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `ik-llama-cpp`: the CPU and hybrid fork LocalAI can run as a backend. Install: `npx skills add ScaleDockHQ/llm-skills --skill ik-llama-cpp`.
+- `llama-cpp`: the default GGUF backend. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `litellm`: gateway and keys. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `self-hosted-llms`: the end-to-end stack. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

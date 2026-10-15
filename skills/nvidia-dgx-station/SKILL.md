@@ -72,7 +72,7 @@ ibdev2netdev 2>/dev/null; docker ps --format '{{.Names}}\t{{.Image}}'
 
 ## Companion skills
 
-- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`: engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
-- `nvidia-dgx-spark`: the small GB10 box. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`.
-- `self-hosted-llms`: gateway, exposure and catalog. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `llm-observability`: Prometheus, Grafana and DCGM. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`: engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
+- `nvidia-dgx-spark`: the small GB10 box. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`.
+- `self-hosted-llms`: gateway, exposure and catalog. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `llm-observability`: Prometheus, Grafana and DCGM. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

@@ -5,7 +5,7 @@ An agent skill for getting a model's tool calls returned as structured `tool_cal
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill tool-calling-parsers
+npx skills add ScaleDockHQ/llm-skills --skill tool-calling-parsers
 ```
 
 ## Rules

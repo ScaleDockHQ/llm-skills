@@ -24,7 +24,7 @@ Skip the gateway when one client talks to one backend that already speaks the cl
 
 ## How each plugs into the stack
 
-- **LiteLLM**: port 4000; `/v1/chat/completions`, `/v1/responses`, `/v1/messages`, `/v1/embeddings`, `/v1/models`; health at `/health/liveliness` and `/health/readiness`; Bearer auth with master or virtual keys. See `litellm-setup.md`. Depth: install the `litellm` skill (`npx skills add ScaleDockHQ/llms-skills --skill litellm`).
+- **LiteLLM**: port 4000; `/v1/chat/completions`, `/v1/responses`, `/v1/messages`, `/v1/embeddings`, `/v1/models`; health at `/health/liveliness` and `/health/readiness`; Bearer auth with master or virtual keys. See `litellm-setup.md`. Depth: install the `litellm` skill (`npx skills add ScaleDockHQ/llm-skills --skill litellm`).
 - **OpenRouter**: base `https://openrouter.ai/api/v1` for OpenAI clients; Claude Code uses `ANTHROPIC_BASE_URL=https://openrouter.ai/api` with `ANTHROPIC_AUTH_TOKEN` and an explicitly empty `ANTHROPIC_API_KEY` (per OpenRouter's Claude Code guide).
 - **Portkey**: OpenAI-compatible at `http://localhost:8787/v1`; provider chosen per request via headers or a saved config.
 - **Agent Router**: OpenAI-compatible at `http://localhost:1975/v1` in standalone mode; on Kubernetes, through the Envoy Gateway listener you define. Resource names and the `aigw` CLI kept their Envoy AI Gateway names.
@@ -35,15 +35,15 @@ Skip the gateway when one client talks to one backend that already speaks the cl
 
 Each gateway below has its own skill with install, configuration, operations and troubleshooting. Install with the command shown.
 
-- litellm: `npx skills add ScaleDockHQ/llms-skills --skill litellm`
-- openrouter: `npx skills add ScaleDockHQ/llms-skills --skill openrouter`
-- portkey: `npx skills add ScaleDockHQ/llms-skills --skill portkey`
-- envoy-ai-gateway: `npx skills add ScaleDockHQ/llms-skills --skill envoy-ai-gateway`
-- kong-ai-gateway: `npx skills add ScaleDockHQ/llms-skills --skill kong-ai-gateway`
-- cloudflare-ai-gateway: `npx skills add ScaleDockHQ/llms-skills --skill cloudflare-ai-gateway`
-- vercel-ai-gateway: `npx skills add ScaleDockHQ/llms-skills --skill vercel-ai-gateway`
-- bifrost: `npx skills add ScaleDockHQ/llms-skills --skill bifrost`
-- helicone: `npx skills add ScaleDockHQ/llms-skills --skill helicone`
+- litellm: `npx skills add ScaleDockHQ/llm-skills --skill litellm`
+- openrouter: `npx skills add ScaleDockHQ/llm-skills --skill openrouter`
+- portkey: `npx skills add ScaleDockHQ/llm-skills --skill portkey`
+- envoy-ai-gateway: `npx skills add ScaleDockHQ/llm-skills --skill envoy-ai-gateway`
+- kong-ai-gateway: `npx skills add ScaleDockHQ/llm-skills --skill kong-ai-gateway`
+- cloudflare-ai-gateway: `npx skills add ScaleDockHQ/llm-skills --skill cloudflare-ai-gateway`
+- vercel-ai-gateway: `npx skills add ScaleDockHQ/llm-skills --skill vercel-ai-gateway`
+- bifrost: `npx skills add ScaleDockHQ/llm-skills --skill bifrost`
+- helicone: `npx skills add ScaleDockHQ/llm-skills --skill helicone`
 
 ## Patterns that work
 

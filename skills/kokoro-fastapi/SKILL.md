@@ -75,8 +75,8 @@ curl -fsS "$B/v1/audio/voices" | jq -r '.default_voice, (.voices[].id)' | head -
 
 ## Companion skills
 
-- `speaches`: OpenAI-compatible STT and TTS server that can also run Kokoro. Install: `npx skills add ScaleDockHQ/llms-skills --skill speaches`.
-- `self-hosted-genmedia`: choose a TTS stack and place it next to LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `litellm`: keys, budgets and routing in front (Kokoro-FastAPI has no auth). Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `llama-swap`: hot-swap the container with LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `f5-tts`, `chatterbox`: zero-shot voice cloning TTS when Kokoro's fixed voices are not enough. Install: `npx skills add ScaleDockHQ/llms-skills --skill f5-tts`.
+- `speaches`: OpenAI-compatible STT and TTS server that can also run Kokoro. Install: `npx skills add ScaleDockHQ/llm-skills --skill speaches`.
+- `self-hosted-genmedia`: choose a TTS stack and place it next to LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `litellm`: keys, budgets and routing in front (Kokoro-FastAPI has no auth). Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `llama-swap`: hot-swap the container with LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `f5-tts`, `chatterbox`: zero-shot voice cloning TTS when Kokoro's fixed voices are not enough. Install: `npx skills add ScaleDockHQ/llm-skills --skill f5-tts`.

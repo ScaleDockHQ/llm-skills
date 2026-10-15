@@ -2,7 +2,7 @@
 
 > Verified against promptfoo 0.124.1, 2026-10-11
 
-Depth: install the promptfoo skill (npx skills add ScaleDockHQ/llms-skills --skill promptfoo)
+Depth: install the promptfoo skill (npx skills add ScaleDockHQ/llm-skills --skill promptfoo)
 
 ## How it plugs into this stack
 

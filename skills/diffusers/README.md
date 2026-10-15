@@ -5,7 +5,7 @@ An agent skill for installing, running and tuning [Hugging Face Diffusers](https
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill diffusers
+npx skills add ScaleDockHQ/llm-skills --skill diffusers
 ```
 
 ## Rules

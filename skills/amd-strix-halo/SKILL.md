@@ -75,8 +75,8 @@ tuned-adm active 2>/dev/null; docker --version 2>/dev/null; podman --version 2>/
 
 ## Companion skills
 
-- `llama-cpp`: flags, builds and the Strix Halo Vulkan recipe. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `vllm`: vLLM on ROCm. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `choosing-hardware`: compare with DGX Spark, Macs and discrete GPUs. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `llama-swap`: model swapping. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `self-hosted-llms`: gateway, exposure and catalog on top. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `llama-cpp`: flags, builds and the Strix Halo Vulkan recipe. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `vllm`: vLLM on ROCm. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `choosing-hardware`: compare with DGX Spark, Macs and discrete GPUs. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `llama-swap`: model swapping. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `self-hosted-llms`: gateway, exposure and catalog on top. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

@@ -2,7 +2,7 @@
 
 > Verified against llm-evals skill v1.0.1 (workflow 3, quality-gate a numerics change), vLLM v0.31.0 (lora docs), SGLang v0.5.21 (lora docs), llama.cpp build b11556 (server README), 2026-10-11
 
-Install the gate tooling: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`. This page adds the adapter-specific checks. The generic baseline-versus-candidate method lives in that skill. Adapter creation and the "does the adapter beat the base" training evaluation live in the `fine-tuning-llms` skill.
+Install the gate tooling: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`. This page adds the adapter-specific checks. The generic baseline-versus-candidate method lives in that skill. Adapter creation and the "does the adapter beat the base" training evaluation live in the `fine-tuning-llms` skill.
 
 ## Which changes need the gate
 

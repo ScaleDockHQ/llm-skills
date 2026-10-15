@@ -72,8 +72,8 @@ ls ~/.cache/huggingface/hub 2>/dev/null | grep -iE 'F5|vocos|whisper'
 
 ## Companion skills
 
-- `kokoro-fastapi`: fixed-voice TTS with an OpenAI-compatible API. Install: `npx skills add ScaleDockHQ/llms-skills --skill kokoro-fastapi`.
-- `chatterbox`: another zero-shot voice-cloning TTS with a different licence. Install: `npx skills add ScaleDockHQ/llms-skills --skill chatterbox`.
-- `self-hosted-genmedia`: choose speech and image stacks and place them next to LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `faster-whisper`: transcribe reference clips accurately. Install: `npx skills add ScaleDockHQ/llms-skills --skill faster-whisper`.
-- `hugging-face`: model cache and tokens. Install: `npx skills add ScaleDockHQ/llms-skills --skill hugging-face`.
+- `kokoro-fastapi`: fixed-voice TTS with an OpenAI-compatible API. Install: `npx skills add ScaleDockHQ/llm-skills --skill kokoro-fastapi`.
+- `chatterbox`: another zero-shot voice-cloning TTS with a different licence. Install: `npx skills add ScaleDockHQ/llm-skills --skill chatterbox`.
+- `self-hosted-genmedia`: choose speech and image stacks and place them next to LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `faster-whisper`: transcribe reference clips accurately. Install: `npx skills add ScaleDockHQ/llm-skills --skill faster-whisper`.
+- `hugging-face`: model cache and tokens. Install: `npx skills add ScaleDockHQ/llm-skills --skill hugging-face`.

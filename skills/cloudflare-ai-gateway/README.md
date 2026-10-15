@@ -5,7 +5,7 @@ Helps an agent set up and operate Cloudflare's hosted AI Gateway: create and aut
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill cloudflare-ai-gateway
+npx skills add ScaleDockHQ/llm-skills --skill cloudflare-ai-gateway
 ```
 
 ## Rules

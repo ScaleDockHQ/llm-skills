@@ -5,7 +5,7 @@ Choose, size and run NVIDIA RTX PRO Blackwell workstation GPUs (6000 96 GB, 5000
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill nvidia-rtx-workstation
+npx skills add ScaleDockHQ/llm-skills --skill nvidia-rtx-workstation
 ```
 
 ## Rules

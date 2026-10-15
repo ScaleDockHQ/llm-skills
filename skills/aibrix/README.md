@@ -7,7 +7,7 @@ cache offload. Verified against v0.7.0.
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill aibrix
+npx skills add ScaleDockHQ/llm-skills --skill aibrix
 ```
 
 ## Rules
@@ -30,9 +30,9 @@ npx skills add ScaleDockHQ/llms-skills --skill aibrix
 
 ## Companion skills
 
-- `vllm`: engine flags. `npx skills add ScaleDockHQ/llms-skills --skill vllm`
-- `vllm-production-stack`: Helm alternative. `npx skills add ScaleDockHQ/llms-skills --skill vllm-production-stack`
-- `llm-d`: scheduler-based alternative. `npx skills add ScaleDockHQ/llms-skills --skill llm-d`
+- `vllm`: engine flags. `npx skills add ScaleDockHQ/llm-skills --skill vllm`
+- `vllm-production-stack`: Helm alternative. `npx skills add ScaleDockHQ/llm-skills --skill vllm-production-stack`
+- `llm-d`: scheduler-based alternative. `npx skills add ScaleDockHQ/llm-skills --skill llm-d`
 
 ## License
 

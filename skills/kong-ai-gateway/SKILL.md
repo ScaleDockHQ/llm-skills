@@ -98,7 +98,7 @@ Templates: `assets/docker-compose.yaml`, `assets/kong-ai-proxy.yaml`, `assets/ko
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-gateway`: choose a gateway and the stack workflow around it.
 - `litellm`: Python proxy with virtual keys and budgets.

@@ -74,11 +74,11 @@ curl -fsS http://127.0.0.1:8000/v1/models 2>/dev/null | jq -r '.data[].id'
 
 ## Companion skills
 
-- `vllm`: vLLM install and tuning. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `sglang`: SGLang install and tuning. Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
-- `llama-cpp`: GGUF serving. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `tensorrt-llm`: NVIDIA engine. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorrt-llm`.
-- `mlx`: Apple Silicon. Install: `npx skills add ScaleDockHQ/llms-skills --skill mlx`.
-- `speculative-decoding`: DSpark and draft models. Install: `npx skills add ScaleDockHQ/llms-skills --skill speculative-decoding`.
-- `self-hosted-llms`: run, expose and benchmark models on your own server. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `model-quantization`: choosing formats. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
+- `vllm`: vLLM install and tuning. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `sglang`: SGLang install and tuning. Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
+- `llama-cpp`: GGUF serving. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `tensorrt-llm`: NVIDIA engine. Install: `npx skills add ScaleDockHQ/llm-skills --skill tensorrt-llm`.
+- `mlx`: Apple Silicon. Install: `npx skills add ScaleDockHQ/llm-skills --skill mlx`.
+- `speculative-decoding`: DSpark and draft models. Install: `npx skills add ScaleDockHQ/llm-skills --skill speculative-decoding`.
+- `self-hosted-llms`: run, expose and benchmark models on your own server. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `model-quantization`: choosing formats. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.

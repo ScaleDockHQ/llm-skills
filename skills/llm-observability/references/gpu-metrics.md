@@ -14,5 +14,5 @@ Stack notes only. Exporter install, metric reading and troubleshooting live in t
 
 Depth:
 
-- `dcgm-exporter`: `npx skills add ScaleDockHQ/llms-skills --skill dcgm-exporter`
-- `sparkdash`: `npx skills add ScaleDockHQ/llms-skills --skill sparkdash`
+- `dcgm-exporter`: `npx skills add ScaleDockHQ/llm-skills --skill dcgm-exporter`
+- `sparkdash`: `npx skills add ScaleDockHQ/llm-skills --skill sparkdash`

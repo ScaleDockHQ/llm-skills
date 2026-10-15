@@ -39,7 +39,7 @@ Point Claude Code, Codex, curl or the SDKs at `localhost:1234` as usual (`combos
 ## Pitfalls
 
 - A device shows "disconnected" when it crashed without reporting, or LM Studio/llmster is not running there.
-- If you would rather run your own network with Tailscale, expose the server with a bind address plus authentication instead; that is plain Tailscale, not LM Link (`tailscale` skill: `npx skills add ScaleDockHQ/llms-skills --skill tailscale`).
+- If you would rather run your own network with Tailscale, expose the server with a bind address plus authentication instead; that is plain Tailscale, not LM Link (`tailscale` skill: `npx skills add ScaleDockHQ/llm-skills --skill tailscale`).
 
 ## Official links
 

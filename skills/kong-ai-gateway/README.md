@@ -5,7 +5,7 @@ An agent skill for [Kong AI Gateway](https://developer.konghq.com/ai-gateway/): 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill kong-ai-gateway
+npx skills add ScaleDockHQ/llm-skills --skill kong-ai-gateway
 ```
 
 ## Rules

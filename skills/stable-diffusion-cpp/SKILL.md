@@ -78,9 +78,9 @@ df -h ~ | tail -1; ls -lh ~/models/sd 2>/dev/null
 
 ## Companion skills
 
-- `self-hosted-genmedia`: choose between ComfyUI, sd-server and speech servers; memory planning next to LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `comfyui`: node-graph workflows and a richer API. Install: `npx skills add ScaleDockHQ/llms-skills --skill comfyui`.
-- `llama-swap`: hot-swap sd-server with LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `litellm`: keys, budgets and routing in front. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `hugging-face`: fetch weights and manage the cache. Install: `npx skills add ScaleDockHQ/llms-skills --skill hugging-face`.
-- `nvidia-dgx-spark`: arm64 unified-memory notes. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`.
+- `self-hosted-genmedia`: choose between ComfyUI, sd-server and speech servers; memory planning next to LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `comfyui`: node-graph workflows and a richer API. Install: `npx skills add ScaleDockHQ/llm-skills --skill comfyui`.
+- `llama-swap`: hot-swap sd-server with LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `litellm`: keys, budgets and routing in front. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `hugging-face`: fetch weights and manage the cache. Install: `npx skills add ScaleDockHQ/llm-skills --skill hugging-face`.
+- `nvidia-dgx-spark`: arm64 unified-memory notes. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`.

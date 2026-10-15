@@ -7,7 +7,7 @@ Verified against ik_llama.cpp `main` (89bba35c, the project has no tagged releas
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill ik-llama-cpp
+npx skills add ScaleDockHQ/llm-skills --skill ik-llama-cpp
 ```
 
 ## Rules

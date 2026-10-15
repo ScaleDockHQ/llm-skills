@@ -5,7 +5,7 @@ Helps an agent deploy a vLLM model on Kubernetes with KServe in Standard mode an
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill vllm-kserve-keda
+npx skills add ScaleDockHQ/llm-skills --skill vllm-kserve-keda
 ```
 
 ## Rules

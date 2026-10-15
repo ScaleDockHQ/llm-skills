@@ -5,7 +5,7 @@ An agent skill for making multi-node NVIDIA GPU clusters actually use their fabr
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill nccl-rdma-networking
+npx skills add ScaleDockHQ/llm-skills --skill nccl-rdma-networking
 ```
 
 ## Rules
@@ -32,7 +32,7 @@ Script: [`scripts/nccl-net-check.sh`](scripts/nccl-net-check.sh). Template: [`te
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 `multi-node-inference`, `vllm`, `sglang`, `tensorrt-llm`, `disaggregated-serving`, `choosing-hardware`, `exo`.
 

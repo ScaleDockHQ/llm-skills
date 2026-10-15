@@ -73,8 +73,8 @@ df -h ~ | tail -1; ps -eo args | grep -E '[s]erver.py|[u]vicorn'
 
 ## Companion skills
 
-- `self-hosted-genmedia`: choose between ComfyUI, sd-server and Diffusers; memory planning next to LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `comfyui`: node-graph engine with an HTTP API. Install: `npx skills add ScaleDockHQ/llms-skills --skill comfyui`.
-- `stable-diffusion-cpp`: C++ engine with an OpenAI-shaped image server. Install: `npx skills add ScaleDockHQ/llms-skills --skill stable-diffusion-cpp`.
-- `hugging-face`: tokens, downloads and the cache. Install: `npx skills add ScaleDockHQ/llms-skills --skill hugging-face`.
-- `peft`: LoRA training concepts. Install: `npx skills add ScaleDockHQ/llms-skills --skill peft`.
+- `self-hosted-genmedia`: choose between ComfyUI, sd-server and Diffusers; memory planning next to LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `comfyui`: node-graph engine with an HTTP API. Install: `npx skills add ScaleDockHQ/llm-skills --skill comfyui`.
+- `stable-diffusion-cpp`: C++ engine with an OpenAI-shaped image server. Install: `npx skills add ScaleDockHQ/llm-skills --skill stable-diffusion-cpp`.
+- `hugging-face`: tokens, downloads and the cache. Install: `npx skills add ScaleDockHQ/llm-skills --skill hugging-face`.
+- `peft`: LoRA training concepts. Install: `npx skills add ScaleDockHQ/llm-skills --skill peft`.

@@ -90,7 +90,7 @@ Templates: `assets/otel-collector.yaml` (validated), `assets/litellm-weave.yaml`
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-observability`: choosing a stack, metrics, gateway logging.
 - `langfuse`: the self-hostable alternative.

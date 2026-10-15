@@ -50,4 +50,4 @@ Tools: `read_file`, `file_glob_search`, `grep_search`, `get_datetime`, `get_info
 - In 0.10.* whisperfile has no Windows GPU support. Models come from `ggerganov/whisper.cpp` on Hugging Face.
 - `transcribefile` (transcribe.cpp) and `diffusionfile` (Stable Diffusion) are separate release files; the 0.10 notes list Stable Diffusion as not yet ported while a `diffusionfile` is released, so test it before relying on it.
 
-See `whisper-cpp` for whisper tuning (`npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp`).
+See `whisper-cpp` for whisper tuning (`npx skills add ScaleDockHQ/llm-skills --skill whisper-cpp`).

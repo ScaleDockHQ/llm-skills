@@ -5,7 +5,7 @@ One paragraph on what this workflow skill helps an agent do, for whom, and which
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill {{name}}
+npx skills add ScaleDockHQ/llm-skills --skill {{name}}
 ```
 
 ## Rules

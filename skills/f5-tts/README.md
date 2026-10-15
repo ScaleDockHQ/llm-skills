@@ -5,7 +5,7 @@ An agent skill for installing and running [F5-TTS](https://github.com/SWivid/F5-
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill f5-tts
+npx skills add ScaleDockHQ/llm-skills --skill f5-tts
 ```
 
 ## Rules

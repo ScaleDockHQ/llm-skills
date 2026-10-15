@@ -73,7 +73,7 @@ ss -ltnp 2>/dev/null | grep ':5432\b' || true
 
 ## Companion skills
 
-- `text-embeddings-inference`, `infinity`: embedding servers. Install: `npx skills add ScaleDockHQ/llms-skills --skill text-embeddings-inference`.
-- `litellm`: embeddings gateway. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `qdrant`: dedicated vector DB. Install: `npx skills add ScaleDockHQ/llms-skills --skill qdrant`.
-- `mcp-servers`: expose pgvector to MCP tools. Install: `npx skills add ScaleDockHQ/llms-skills --skill mcp-servers`.
+- `text-embeddings-inference`, `infinity`: embedding servers. Install: `npx skills add ScaleDockHQ/llm-skills --skill text-embeddings-inference`.
+- `litellm`: embeddings gateway. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `qdrant`: dedicated vector DB. Install: `npx skills add ScaleDockHQ/llm-skills --skill qdrant`.
+- `mcp-servers`: expose pgvector to MCP tools. Install: `npx skills add ScaleDockHQ/llm-skills --skill mcp-servers`.

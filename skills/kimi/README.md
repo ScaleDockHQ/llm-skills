@@ -5,7 +5,7 @@ Helps an agent choose, serve and troubleshoot Moonshot AI's open-weight Kimi mod
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill kimi
+npx skills add ScaleDockHQ/llm-skills --skill kimi
 ```
 
 ## Rules

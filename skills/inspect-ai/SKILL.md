@@ -103,9 +103,9 @@ inspect log list --json 2>/dev/null | jq -r '.[0:5][] | [.name,.task,.status]|@t
 
 ## Companion skills
 
-- `llm-evals`: eval strategy, gates, decision records. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `promptfoo`: YAML golden-set tests and CI gates. Install: `npx skills add ScaleDockHQ/llms-skills --skill promptfoo`.
-- `lm-evaluation-harness`: EleutherAI public benchmarks. Install: `npx skills add ScaleDockHQ/llms-skills --skill lm-evaluation-harness`.
-- `vllm`: usual self-hosted target. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `litellm`: gateway the evals can go through. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `reasoning-models`: thinking-token handling. Install: `npx skills add ScaleDockHQ/llms-skills --skill reasoning-models`.
+- `llm-evals`: eval strategy, gates, decision records. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `promptfoo`: YAML golden-set tests and CI gates. Install: `npx skills add ScaleDockHQ/llm-skills --skill promptfoo`.
+- `lm-evaluation-harness`: EleutherAI public benchmarks. Install: `npx skills add ScaleDockHQ/llm-skills --skill lm-evaluation-harness`.
+- `vllm`: usual self-hosted target. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `litellm`: gateway the evals can go through. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `reasoning-models`: thinking-token handling. Install: `npx skills add ScaleDockHQ/llm-skills --skill reasoning-models`.

@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This repo publishes agent skills for choosing, running, connecting, improving and operating LLMs and generative-AI models, on a laptop, on owned GPU servers or in the cloud. Consumers install them with `npx skills add ScaleDockHQ/llms-skills`. Follow [CONTRIBUTING.md](CONTRIBUTING.md) for the details.
+This repo publishes agent skills for choosing, running, connecting, improving and operating LLMs and generative-AI models, on a laptop, on owned GPU servers or in the cloud. Consumers install them with `npx skills add ScaleDockHQ/llm-skills`. Follow [CONTRIBUTING.md](CONTRIBUTING.md) for the details.
 
 ## Commands
 

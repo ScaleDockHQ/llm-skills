@@ -9,7 +9,7 @@ Ollama has no authentication. Anything that can open port 11434 can run, pull an
 ## Options, safest first
 
 1. **Stay on loopback** and use SSH port forwarding: `ssh -N -L 11434:127.0.0.1:11434 user@server`. Clients use `http://127.0.0.1:11434`.
-2. **Bind to a private-mesh address only** (for example your Tailscale IP): `OLLAMA_HOST=<tailscale-ip>:11434` in the systemd override. Only peers on the tailnet reach it. See the `tailscale` skill (`npx skills add ScaleDockHQ/llms-skills --skill tailscale`).
+2. **Bind to a private-mesh address only** (for example your Tailscale IP): `OLLAMA_HOST=<tailscale-ip>:11434` in the systemd override. Only peers on the tailnet reach it. See the `tailscale` skill (`npx skills add ScaleDockHQ/llm-skills --skill tailscale`).
 3. **Reverse proxy with auth** (nginx, Caddy) on the host, Ollama on loopback. Rewrite the Host header, or Ollama answers 403:
 
 ```nginx

@@ -104,7 +104,7 @@ Templates: `assets/docker-compose.yaml`, `assets/langfuse.env.example`, `assets/
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-observability`: choosing and combining tracing backends, plus Prometheus, Grafana, GPU metrics and alerting around Langfuse.
 - `litellm`: the gateway whose callbacks send traces here.

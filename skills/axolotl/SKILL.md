@@ -106,7 +106,7 @@ ls *.yml *.yaml 2>/dev/null
 
 ## Companion skills
 
-Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `fine-tuning-llms`: decide whether to fine-tune, prepare data, pick method and hardware, evaluate.
 - `unsloth`: single-GPU memory-tight alternative. `trl`: custom Python trainers and rewards.

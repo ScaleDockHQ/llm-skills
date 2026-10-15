@@ -76,8 +76,8 @@ curl -fsS "${BASE:-http://127.0.0.1:8000/v1}/models" | jq -r '.data[].id' | grep
 
 ## Companion skills
 
-- `self-hosted-llms`: run the engine on an owned NVIDIA GPU server or DGX Spark behind a gateway. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `local-llms`: run models on a laptop (Ollama, llama.cpp, MLX). Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `model-quantization`: make or evaluate quants. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `fine-tuning-llms`: adapt Phi to a task. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `cloud-llms`: hosted Phi on Azure AI Foundry and other clouds. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
+- `self-hosted-llms`: run the engine on an owned NVIDIA GPU server or DGX Spark behind a gateway. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `local-llms`: run models on a laptop (Ollama, llama.cpp, MLX). Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `model-quantization`: make or evaluate quants. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `fine-tuning-llms`: adapt Phi to a task. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `cloud-llms`: hosted Phi on Azure AI Foundry and other clouds. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.

@@ -97,10 +97,10 @@ The `/v1/models` response also carries per-model metadata (the caching page says
 
 ## Companion skills
 
-- `cloud-llms`: compare providers and hybrid routing. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: one endpoint in front of SambaNova and others. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `litellm`: proxy configuration in depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `cerebras`, `groq`, `together-ai`: other fast managed APIs. Install: `npx skills add ScaleDockHQ/llms-skills --skill cerebras`.
-- `llm-evals`: re-check quality after a model swap. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `llm-observability`: cost and trace tracking. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `self-hosted-llms`: run open models on owned GPUs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `cloud-llms`: compare providers and hybrid routing. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: one endpoint in front of SambaNova and others. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `litellm`: proxy configuration in depth. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `cerebras`, `groq`, `together-ai`: other fast managed APIs. Install: `npx skills add ScaleDockHQ/llm-skills --skill cerebras`.
+- `llm-evals`: re-check quality after a model swap. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `llm-observability`: cost and trace tracking. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `self-hosted-llms`: run open models on owned GPUs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

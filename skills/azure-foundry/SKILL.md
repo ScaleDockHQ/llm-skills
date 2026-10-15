@@ -121,9 +121,9 @@ Note: subscription, existing resources and deployment types, whether key auth is
 
 ## Companion skills
 
-- `cloud-llms`: cross-provider cloud workflow. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: one endpoint, keys, routing and fallbacks. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `choosing-llm-hosting`: cloud vs local vs owned GPUs. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
-- `self-hosted-llms`: the serving stack for Azure ML endpoints. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `llm-evals`: compare models before committing. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `llm-observability`: tracing and cost dashboards. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `cloud-llms`: cross-provider cloud workflow. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: one endpoint, keys, routing and fallbacks. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `choosing-llm-hosting`: cloud vs local vs owned GPUs. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.
+- `self-hosted-llms`: the serving stack for Azure ML endpoints. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `llm-evals`: compare models before committing. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `llm-observability`: tracing and cost dashboards. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

@@ -5,7 +5,7 @@ Helps an agent rent GPUs on the Vast.ai marketplace to serve LLMs: search offers
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill vast-ai
+npx skills add ScaleDockHQ/llm-skills --skill vast-ai
 ```
 
 ## Rules

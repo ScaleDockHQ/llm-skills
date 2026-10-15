@@ -5,7 +5,7 @@ Helps an agent decide whether to split LLM inference into prefill and decode poo
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving
+npx skills add ScaleDockHQ/llm-skills --skill disaggregated-serving
 ```
 
 ## Rules
@@ -24,8 +24,8 @@ npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving
 
 ## Companion skills
 
-- `llm-evals`: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`
-- `self-hosted-llms`: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`
+- `llm-evals`: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`
+- `self-hosted-llms`: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`
 - `vllm`, `sglang`, `tensorrt-llm`: engine skills.
 - `prefix-aware-routing`, `multi-node-inference`, `kv-cache-offloading`: sibling techniques.
 - Planned: `dynamo`, `llm-d`, `aibrix`.

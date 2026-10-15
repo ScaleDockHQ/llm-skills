@@ -5,7 +5,7 @@ Helps an agent run LLMs on CoreWeave: choose between Serverless Inference (per-t
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill coreweave
+npx skills add ScaleDockHQ/llm-skills --skill coreweave
 ```
 
 ## Rules

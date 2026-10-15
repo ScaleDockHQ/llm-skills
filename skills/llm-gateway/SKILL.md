@@ -135,7 +135,7 @@ Templates: `assets/litellm-config.yaml`, `assets/docker-compose.yaml`, `assets/l
 
 ## Companion skills
 
-Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `choosing-llm-hosting`: where models should run before you put a gateway in front.
 - `self-hosted-llms`: engines and llama-swap behind the gateway; keeps only stack-specific LiteLLM config.

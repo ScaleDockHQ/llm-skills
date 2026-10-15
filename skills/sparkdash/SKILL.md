@@ -92,7 +92,7 @@ Templates: `assets/sparkdash.env.example`, `assets/sparkdash-alerts.yml`.
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `prometheus-grafana-llm`: Prometheus, Grafana and Alertmanager that scrape sparkDash.
 - `dcgm-exporter`: NVIDIA GPU telemetry for Prometheus on discrete GPUs.

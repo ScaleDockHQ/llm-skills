@@ -94,11 +94,11 @@ curl -s http://127.0.0.1:5000/v1/chat/completions \
 
 ## Companion skills
 
-- `choosing-inference-engine`: compare EXL3 with other engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `self-hosted-llms`: the end-to-end stack (llama-swap, LiteLLM, DGX Spark). Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `llama-swap`: model swapping in front of TabbyAPI. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `litellm`: gateway and key management. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `nvidia-dgx-spark`: GB10/aarch64 host specifics. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`.
-- `model-quantization`: choosing a quantization format. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `exl3-quantization` (planned): deep EXL3 conversion and optimized recipes. Install: `npx skills add ScaleDockHQ/llms-skills --skill exl3-quantization`.
-- `speculative-decoding` (planned): drafting strategy across engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill speculative-decoding`.
+- `choosing-inference-engine`: compare EXL3 with other engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `self-hosted-llms`: the end-to-end stack (llama-swap, LiteLLM, DGX Spark). Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `llama-swap`: model swapping in front of TabbyAPI. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `litellm`: gateway and key management. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `nvidia-dgx-spark`: GB10/aarch64 host specifics. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`.
+- `model-quantization`: choosing a quantization format. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `exl3-quantization` (planned): deep EXL3 conversion and optimized recipes. Install: `npx skills add ScaleDockHQ/llm-skills --skill exl3-quantization`.
+- `speculative-decoding` (planned): drafting strategy across engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill speculative-decoding`.

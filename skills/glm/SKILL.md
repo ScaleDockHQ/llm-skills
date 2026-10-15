@@ -76,8 +76,8 @@ ls ~/.cache/huggingface/hub 2>/dev/null | grep -i -E 'glm'
 
 ## Companion skills
 
-- `self-hosted-llms`: gateway, model swapping, exposure and benchmarking around the engine. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `local-llms`: laptop and desktop runs. Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `cloud-llms`: hosted GLM through providers. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `model-quantization`: making or choosing GGUF, FP8, NVFP4 and MLX quants. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `fine-tuning-llms`: SFT and RL on GLM weights. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
+- `self-hosted-llms`: gateway, model swapping, exposure and benchmarking around the engine. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `local-llms`: laptop and desktop runs. Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `cloud-llms`: hosted GLM through providers. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `model-quantization`: making or choosing GGUF, FP8, NVFP4 and MLX quants. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `fine-tuning-llms`: SFT and RL on GLM weights. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.

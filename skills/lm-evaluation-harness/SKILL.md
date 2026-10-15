@@ -104,9 +104,9 @@ nvidia-smi -L 2>/dev/null; uname -sm
 
 ## Companion skills
 
-- `llm-evals`: eval strategy and quality gates. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `promptfoo`: task evals on your own golden set. Install: `npx skills add ScaleDockHQ/llms-skills --skill promptfoo`.
-- `vllm`: serve the model with prompt logprobs; also the `vllm` backend's engine. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `llama-cpp`: local GGUF server as an endpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `model-quantization`: produce the quantized candidates. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `reasoning-models`: thinking-token handling. Install: `npx skills add ScaleDockHQ/llms-skills --skill reasoning-models`.
+- `llm-evals`: eval strategy and quality gates. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `promptfoo`: task evals on your own golden set. Install: `npx skills add ScaleDockHQ/llm-skills --skill promptfoo`.
+- `vllm`: serve the model with prompt logprobs; also the `vllm` backend's engine. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `llama-cpp`: local GGUF server as an endpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `model-quantization`: produce the quantized candidates. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `reasoning-models`: thinking-token handling. Install: `npx skills add ScaleDockHQ/llm-skills --skill reasoning-models`.

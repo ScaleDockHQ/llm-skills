@@ -46,7 +46,7 @@ An OpenTelemetry Collector `attributes` processor can drop `gen_ai.input.message
 - [ ] Search the Langfuse UI (observations full-text), the S3 event objects and the worker logs for the marker.
 - [ ] With content capture off, it must appear nowhere. Record the result in the decision record.
 
-For the cross-stack privacy review (metrics labels, gateway spend logs, llama-swap captures), install `llm-observability`: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+For the cross-stack privacy review (metrics labels, gateway spend logs, llama-swap captures), install `llm-observability`: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
 
 ## Official links
 

@@ -5,7 +5,7 @@ An agent skill for pointing LangChain (Python `langchain`, `langchain-openai`, `
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill langchain
+npx skills add ScaleDockHQ/llm-skills --skill langchain
 ```
 
 ## Rules

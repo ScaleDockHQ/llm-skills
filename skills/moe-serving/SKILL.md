@@ -45,7 +45,7 @@ Record: model total vs active parameters, expert count and top-k, quantization, 
 - **Ask before changing the system.** Installs (DeepEP, NVSHMEM, DeepGEMM), container changes, restarts and network settings need approval and an undo path.
 - **Secrets never touch output.** API keys and Hugging Face tokens live in `0600` files or environment variables.
 - **Verify upstream.** Flags and defaults change between releases. Re-read the engine's docs for the installed version, or run `<engine> --help`, before applying a flag from here.
-- **Numerics gate.** Expert offload with a lossy quantization, FP8 or FP4 MoE kernels (`--moe-backend`, `--moe-runner-backend`), a changed dispatch precision (`--deepep-dispatcher-output-dtype`) and low-precision combine (`use_low_precision_moe_combine`) can change outputs. Gate each with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`) using `references/quality-gate.md`. Pure placement changes (EP, EPLB, offload at the same dtype) are not meant to change quality, but still run the smoke gate, because reduction order can differ.
+- **Numerics gate.** Expert offload with a lossy quantization, FP8 or FP4 MoE kernels (`--moe-backend`, `--moe-runner-backend`), a changed dispatch precision (`--deepep-dispatcher-output-dtype`) and low-precision combine (`use_low_precision_moe_combine`) can change outputs. Gate each with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`) using `references/quality-gate.md`. Pure placement changes (EP, EPLB, offload at the same dtype) are not meant to change quality, but still run the smoke gate, because reduction order can differ.
 - **One change at a time**, each benchmarked against the saved baseline, and roll back on any gate failure.
 
 ## Techniques per engine
@@ -75,7 +75,7 @@ llama.cpp (port 8080 by default): use `/health` and the same chat call. Then run
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`. Engine skills may not be published yet; use upstream docs until they are.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`. Engine skills may not be published yet; use upstream docs until they are.
 
 - `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `tensorfold`, `exllamav3`: install, serve and tune each engine.
 - `llm-evals`: baseline-versus-candidate gate for every numerics-changing option.

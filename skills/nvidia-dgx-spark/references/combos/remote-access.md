@@ -11,7 +11,7 @@
 
 Rules: SSH key authentication, keep the dashboard and engine ports on loopback, no `0.0.0.0` binds without a token, and prefer the same private network for both cluster nodes (inter-node traffic uses the QSFP link, not the management network).
 
-Install: `npx skills add ScaleDockHQ/llms-skills --skill tailscale`.
+Install: `npx skills add ScaleDockHQ/llm-skills --skill tailscale`.
 
 ## Sources
 

@@ -5,7 +5,7 @@ Helps an agent install, serve, tune, scale and update SGLang (`python3 -m sglang
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill sglang
+npx skills add ScaleDockHQ/llm-skills --skill sglang
 ```
 
 ## Rules

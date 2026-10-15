@@ -10,4 +10,4 @@
 - Test by stopping one backend on purpose and watching the fallback and cooldown.
 - Pitfalls: a single-deployment group is benched after a few errors (`disable_cooldowns` or more replicas); without Redis each instance keeps its own cooldown state.
 
-Depth: install the litellm skill (npx skills add ScaleDockHQ/llms-skills --skill litellm)
+Depth: install the litellm skill (npx skills add ScaleDockHQ/llm-skills --skill litellm)

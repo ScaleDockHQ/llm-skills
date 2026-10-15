@@ -83,7 +83,7 @@ Templates: `assets/anythingllm.env.example`. Script: `scripts/check-endpoint.sh`
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-clients`: choosing and troubleshooting clients of every kind.
 - `litellm`, `llama-swap`: gateways to point AnythingLLM at.

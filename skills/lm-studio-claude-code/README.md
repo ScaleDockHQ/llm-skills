@@ -5,7 +5,7 @@ Run the Claude Code CLI against a local model served by LM Studio over its Anthr
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill lm-studio-claude-code
+npx skills add ScaleDockHQ/llm-skills --skill lm-studio-claude-code
 ```
 
 ## Rules

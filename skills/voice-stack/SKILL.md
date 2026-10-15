@@ -65,10 +65,10 @@ command -v ffmpeg whisper-server nvidia-smi 2>/dev/null
 
 ## Companion skills
 
-- `whisper-cpp`: whisper-server build, models, OpenAI path mapping. Install: `npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp`.
-- `self-hosted-genmedia`: Kokoro-FastAPI, Speaches, GPU budgets next to LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `ollama`: the LLM server. Install: `npx skills add ScaleDockHQ/llms-skills --skill ollama`.
-- `litellm`: gateway with `audio_transcription` and speech models. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `llama-swap`: swap STT, TTS and LLM on one GPU. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `ollama-open-webui-tailscale`: private HTTPS access to Open WebUI. Install: `npx skills add ScaleDockHQ/llms-skills --skill ollama-open-webui-tailscale`.
-- `open-webui`: not published yet. Install later: `npx skills add ScaleDockHQ/llms-skills --skill open-webui`.
+- `whisper-cpp`: whisper-server build, models, OpenAI path mapping. Install: `npx skills add ScaleDockHQ/llm-skills --skill whisper-cpp`.
+- `self-hosted-genmedia`: Kokoro-FastAPI, Speaches, GPU budgets next to LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `ollama`: the LLM server. Install: `npx skills add ScaleDockHQ/llm-skills --skill ollama`.
+- `litellm`: gateway with `audio_transcription` and speech models. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `llama-swap`: swap STT, TTS and LLM on one GPU. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `ollama-open-webui-tailscale`: private HTTPS access to Open WebUI. Install: `npx skills add ScaleDockHQ/llm-skills --skill ollama-open-webui-tailscale`.
+- `open-webui`: not published yet. Install later: `npx skills add ScaleDockHQ/llm-skills --skill open-webui`.

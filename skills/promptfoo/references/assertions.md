@@ -88,7 +88,7 @@ Reasoning judges: promptfoo parses the judge output, so thinking text breaks sco
 
 Custom rubric prompts go in `defaultTest.options.rubricPrompt` (a chat-messages JSON with `{{output}}` and `{{rubric}}`); the judge must still return the JSON shape `{"reason", "pass", "score"}`.
 
-Calibration, bias, and when to trust a judge are strategy questions: install the `llm-evals` skill (`npx skills add ScaleDockHQ/llms-skills --skill llm-evals`).
+Calibration, bias, and when to trust a judge are strategy questions: install the `llm-evals` skill (`npx skills add ScaleDockHQ/llm-skills --skill llm-evals`).
 
 ## Writing assertions that do not rot
 

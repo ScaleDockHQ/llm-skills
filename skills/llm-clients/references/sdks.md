@@ -28,9 +28,9 @@ curl -sS https://llm.example.com/v1/chat/completions \
 
 Depth:
 
-- `openai-sdk`: `npx skills add ScaleDockHQ/llms-skills --skill openai-sdk`
-- `anthropic-sdk`: `npx skills add ScaleDockHQ/llms-skills --skill anthropic-sdk`
-- `vercel-ai-sdk`: `npx skills add ScaleDockHQ/llms-skills --skill vercel-ai-sdk`
-- `langchain`: `npx skills add ScaleDockHQ/llms-skills --skill langchain`
-- `llamaindex`: `npx skills add ScaleDockHQ/llms-skills --skill llamaindex`
-- `pydantic-ai`: `npx skills add ScaleDockHQ/llms-skills --skill pydantic-ai`
+- `openai-sdk`: `npx skills add ScaleDockHQ/llm-skills --skill openai-sdk`
+- `anthropic-sdk`: `npx skills add ScaleDockHQ/llm-skills --skill anthropic-sdk`
+- `vercel-ai-sdk`: `npx skills add ScaleDockHQ/llm-skills --skill vercel-ai-sdk`
+- `langchain`: `npx skills add ScaleDockHQ/llm-skills --skill langchain`
+- `llamaindex`: `npx skills add ScaleDockHQ/llm-skills --skill llamaindex`
+- `pydantic-ai`: `npx skills add ScaleDockHQ/llm-skills --skill pydantic-ai`

@@ -96,7 +96,7 @@ curl -fsS ${LLM_API_KEY:+-H "Authorization: Bearer $LLM_API_KEY"} "$URL/v1/model
 
 ## Companion skills
 
-- `vllm`: the usual server under test. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `nvidia-aiperf`: alternative benchmark tool; do not mix numbers between tools. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-aiperf`.
-- `self-hosted-llms`: shared `bench.sh` smoke benchmark and sizing. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `lm-evaluation-harness`: answer quality for the same endpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill lm-evaluation-harness`.
+- `vllm`: the usual server under test. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `nvidia-aiperf`: alternative benchmark tool; do not mix numbers between tools. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-aiperf`.
+- `self-hosted-llms`: shared `bench.sh` smoke benchmark and sizing. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `lm-evaluation-harness`: answer quality for the same endpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill lm-evaluation-harness`.

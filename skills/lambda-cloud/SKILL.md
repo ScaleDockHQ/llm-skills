@@ -96,9 +96,9 @@ The API allows about one request per second. A key file must be mode `600`.
 
 ## Companion skills
 
-- `cloud-llms`: cross-provider workflow, tiers, budgets. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: LiteLLM gateway in front of the instance. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `self-hosted-llms`: vLLM and engine choice, tuning, hardening. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `choosing-llm-hosting`: laptop vs owned GPU vs cloud. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
-- `llm-evals`: check quality and speed on the new box. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `llm-observability`: traces and metrics for the endpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `cloud-llms`: cross-provider workflow, tiers, budgets. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: LiteLLM gateway in front of the instance. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `self-hosted-llms`: vLLM and engine choice, tuning, hardening. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `choosing-llm-hosting`: laptop vs owned GPU vs cloud. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.
+- `llm-evals`: check quality and speed on the new box. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `llm-observability`: traces and metrics for the endpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

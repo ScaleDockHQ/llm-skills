@@ -77,8 +77,8 @@ docker --version; docker ps --format '{{.Names}}\t{{.Image}}'
 
 ## Companion skills
 
-- `vllm`, `sglang`, `llama-cpp`: engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
-- `choosing-hardware`: sizing and engine-to-hardware fit. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `multi-node-inference`: multi-node serving. Install: `npx skills add ScaleDockHQ/llms-skills --skill multi-node-inference`.
-- `llm-observability`: Prometheus and Grafana. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `self-hosted-llms`: gateway, exposure and catalog on top. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `vllm`, `sglang`, `llama-cpp`: engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
+- `choosing-hardware`: sizing and engine-to-hardware fit. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `multi-node-inference`: multi-node serving. Install: `npx skills add ScaleDockHQ/llm-skills --skill multi-node-inference`.
+- `llm-observability`: Prometheus and Grafana. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `self-hosted-llms`: gateway, exposure and catalog on top. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

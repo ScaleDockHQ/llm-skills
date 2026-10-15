@@ -5,7 +5,7 @@ Deploy and operate llm-d, the CNCF distributed LLM inference stack for Kubernete
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llm-d
+npx skills add ScaleDockHQ/llm-skills --skill llm-d
 ```
 
 ## Rules

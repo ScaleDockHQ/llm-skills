@@ -5,7 +5,7 @@ An agent skill for [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory), th
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llama-factory
+npx skills add ScaleDockHQ/llm-skills --skill llama-factory
 ```
 
 ## Rules
@@ -30,10 +30,10 @@ npx skills add ScaleDockHQ/llms-skills --skill llama-factory
 
 ## Companion skills
 
-- `fine-tuning-llms`: decide, prepare data, choose method and hardware (install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`)
+- `fine-tuning-llms`: decide, prepare data, choose method and hardware (install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`)
 - `deepspeed` and `peft`: the libraries underneath
 - `axolotl`, `unsloth`, `trl`: other training stacks
-- `vllm`: serve the merged model (install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`)
+- `vllm`: serve the merged model (install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`)
 
 ## License
 

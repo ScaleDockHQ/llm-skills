@@ -5,7 +5,7 @@ An agent skill for running [Hugging Face Lighteval](https://github.com/huggingfa
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill lighteval
+npx skills add ScaleDockHQ/llm-skills --skill lighteval
 ```
 
 ## Rules

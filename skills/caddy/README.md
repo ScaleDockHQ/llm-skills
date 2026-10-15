@@ -5,7 +5,7 @@ An agent skill for using Caddy as the front of a self-hosted LLM endpoint: insta
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill caddy
+npx skills add ScaleDockHQ/llm-skills --skill caddy
 ```
 
 ## Rules

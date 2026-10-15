@@ -103,8 +103,8 @@ Existing deployments with a minimum instance count above zero are billing around
 
 ## Companion skills
 
-- `cloud-llms`: compare Replicate with other cloud options. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: LiteLLM routing and budgets. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `self-hosted-genmedia`: run image, video and audio models on your own GPUs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `choosing-llm-hosting`: laptop, owned GPUs or cloud. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
-- `llm-observability`: traces and cost. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `cloud-llms`: compare Replicate with other cloud options. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: LiteLLM routing and budgets. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `self-hosted-genmedia`: run image, video and audio models on your own GPUs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `choosing-llm-hosting`: laptop, owned GPUs or cloud. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.
+- `llm-observability`: traces and cost. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

@@ -5,7 +5,7 @@ An agent skill for running image, video, speech-to-text and text-to-speech serve
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia
+npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia
 ```
 
 ## Rules
@@ -32,15 +32,15 @@ npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia
 
 ## Companion skills
 
-- `faster-whisper`, `speaches`, `kokoro-fastapi`, `f5-tts`, `chatterbox`, `stable-diffusion-cpp`, `diffusers`, `invokeai`, `vllm-omni`, `sglang-diffusion`: speech, image and video server depth (install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`)
-- `comfyui`: ComfyUI install, API, custom nodes and memory (install: `npx skills add ScaleDockHQ/llms-skills --skill comfyui`)
-- `whisper-cpp`: whisper.cpp build, models, server API and tuning (install: `npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp`)
-- `self-hosted-llms`: the LLM stack this plugs into, including the engine-sdcpp reference (install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`)
-- `llm-gateway`: LiteLLM keys, budgets, routing and fallbacks (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`)
-- `llm-clients`: connect apps and agents to the new endpoints (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-clients`)
-- `llm-observability`: logs, metrics and tracing (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`)
-- `cloud-llms`: hosted APIs and rented GPUs when media load outgrows local hardware (install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`)
-- `choosing-llm-hosting`: decide local vs self-hosted vs cloud (install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`)
+- `faster-whisper`, `speaches`, `kokoro-fastapi`, `f5-tts`, `chatterbox`, `stable-diffusion-cpp`, `diffusers`, `invokeai`, `vllm-omni`, `sglang-diffusion`: speech, image and video server depth (install: `npx skills add ScaleDockHQ/llm-skills --skill <name>`)
+- `comfyui`: ComfyUI install, API, custom nodes and memory (install: `npx skills add ScaleDockHQ/llm-skills --skill comfyui`)
+- `whisper-cpp`: whisper.cpp build, models, server API and tuning (install: `npx skills add ScaleDockHQ/llm-skills --skill whisper-cpp`)
+- `self-hosted-llms`: the LLM stack this plugs into, including the engine-sdcpp reference (install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`)
+- `llm-gateway`: LiteLLM keys, budgets, routing and fallbacks (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`)
+- `llm-clients`: connect apps and agents to the new endpoints (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-clients`)
+- `llm-observability`: logs, metrics and tracing (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`)
+- `cloud-llms`: hosted APIs and rented GPUs when media load outgrows local hardware (install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`)
+- `choosing-llm-hosting`: decide local vs self-hosted vs cloud (install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`)
 
 ## License
 

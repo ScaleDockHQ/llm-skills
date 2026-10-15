@@ -7,7 +7,7 @@ Verified against llamafile 0.10.6 (main `a3ccf09`) on 2026-10-11.
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llamafile
+npx skills add ScaleDockHQ/llm-skills --skill llamafile
 ```
 
 ## Rules

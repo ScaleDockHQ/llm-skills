@@ -109,10 +109,10 @@ Ask only what cannot be discovered: the base model, the goal (inference memory, 
 
 ## Companion skills
 
-- `model-quantization`: pick a format for an engine, quality checks, Hub publishing. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `fine-tuning-llms`: choose a fine-tuning stack and data. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `trl`: SFT and preference training that consumes a bnb-quantized base. Install: `npx skills add ScaleDockHQ/llms-skills --skill trl`.
-- `unsloth`: faster QLoRA on a single GPU. Install: `npx skills add ScaleDockHQ/llms-skills --skill unsloth`.
-- `vllm`: serve the checkpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `llm-compressor`: serving-grade quantization (FP8, W4A16). Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`.
-- `llm-evals`: quality gates for the quantized model. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- `model-quantization`: pick a format for an engine, quality checks, Hub publishing. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `fine-tuning-llms`: choose a fine-tuning stack and data. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `trl`: SFT and preference training that consumes a bnb-quantized base. Install: `npx skills add ScaleDockHQ/llm-skills --skill trl`.
+- `unsloth`: faster QLoRA on a single GPU. Install: `npx skills add ScaleDockHQ/llm-skills --skill unsloth`.
+- `vllm`: serve the checkpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `llm-compressor`: serving-grade quantization (FP8, W4A16). Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-compressor`.
+- `llm-evals`: quality gates for the quantized model. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.

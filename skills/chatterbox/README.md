@@ -5,7 +5,7 @@ An agent skill for installing and running [Chatterbox](https://github.com/resemb
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill chatterbox
+npx skills add ScaleDockHQ/llm-skills --skill chatterbox
 ```
 
 ## Rules

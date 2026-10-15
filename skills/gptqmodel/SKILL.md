@@ -80,8 +80,8 @@ ls ~/.cache/gptqmodel 2>/dev/null | head                          # JIT kernel c
 
 ## Companion skills
 
-- `vllm`: serve GPTQ/AWQ checkpoints. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `llm-compressor`: the vLLM-project quantizer. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`.
-- `model-quantization`: choose a format. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `gguf-quantization`, `exl3-quantization`: dedicated pipelines. Install: `npx skills add ScaleDockHQ/llms-skills --skill gguf-quantization`.
-- `choosing-hardware`: size VRAM. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
+- `vllm`: serve GPTQ/AWQ checkpoints. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `llm-compressor`: the vLLM-project quantizer. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-compressor`.
+- `model-quantization`: choose a format. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `gguf-quantization`, `exl3-quantization`: dedicated pipelines. Install: `npx skills add ScaleDockHQ/llm-skills --skill gguf-quantization`.
+- `choosing-hardware`: size VRAM. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.

@@ -5,7 +5,7 @@ An agent skill for running [OpenRLHF](https://github.com/OpenRLHF/OpenRLHF), the
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill openrlhf
+npx skills add ScaleDockHQ/llm-skills --skill openrlhf
 ```
 
 ## Rules

@@ -5,7 +5,7 @@ Helps an agent serve Alibaba's Qwen3.x open models (Qwen3.8-27B, Qwen3.8-Flash-N
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill qwen
+npx skills add ScaleDockHQ/llm-skills --skill qwen
 ```
 
 ## Rules

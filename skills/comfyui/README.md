@@ -5,7 +5,7 @@ An agent skill for installing, running headless and operating ComfyUI, the node-
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill comfyui
+npx skills add ScaleDockHQ/llm-skills --skill comfyui
 ```
 
 ## Rules

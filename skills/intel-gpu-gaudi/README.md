@@ -5,7 +5,7 @@ Set up, verify and operate Intel accelerators for LLM inference: Gaudi 2 and 3 w
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill intel-gpu-gaudi
+npx skills add ScaleDockHQ/llm-skills --skill intel-gpu-gaudi
 ```
 
 ## Rules

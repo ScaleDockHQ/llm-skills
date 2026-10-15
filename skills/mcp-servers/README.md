@@ -5,7 +5,7 @@ Connect a self-hosted LLM stack to MCP tool servers: stdio vs streamable HTTP un
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill mcp-servers
+npx skills add ScaleDockHQ/llm-skills --skill mcp-servers
 ```
 
 ## Rules

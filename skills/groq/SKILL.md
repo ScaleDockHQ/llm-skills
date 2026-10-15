@@ -98,10 +98,10 @@ Current rate limits and the spend limit are console pages: https://console.groq.
 
 ## Companion skills
 
-- `cloud-llms`: cross-provider workflow and cost model. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: LiteLLM-style gateway, fallbacks and budgets. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `llm-evals`: check quality against your current model. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `llm-observability`: traces and per-request cost. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `llm-clients`: SDK and client wiring. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-clients`.
-- `fine-tuning-llms`: train adapters before uploading them. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `choosing-llm-hosting` and `self-hosted-llms`: when you need GPUs you control. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
+- `cloud-llms`: cross-provider workflow and cost model. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: LiteLLM-style gateway, fallbacks and budgets. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `llm-evals`: check quality against your current model. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `llm-observability`: traces and per-request cost. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `llm-clients`: SDK and client wiring. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-clients`.
+- `fine-tuning-llms`: train adapters before uploading them. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `choosing-llm-hosting` and `self-hosted-llms`: when you need GPUs you control. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.

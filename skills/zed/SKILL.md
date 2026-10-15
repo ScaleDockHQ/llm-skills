@@ -94,7 +94,7 @@ Template: `assets/settings.openai-compatible.jsonc`, `assets/settings.anthropic-
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-clients`: choosing a client, shared capability and troubleshooting notes.
 - `litellm`: the gateway that gives Zed one endpoint, virtual keys and `/v1/messages`.

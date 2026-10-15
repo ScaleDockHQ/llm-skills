@@ -5,7 +5,7 @@ Run, serve, convert, quantize and fine-tune models on Apple Silicon with Apple's
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill mlx
+npx skills add ScaleDockHQ/llm-skills --skill mlx
 ```
 
 ## Rules

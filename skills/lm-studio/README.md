@@ -5,7 +5,7 @@ Install, serve, tune and update LM Studio for an agent: the desktop app, the `lm
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill lm-studio
+npx skills add ScaleDockHQ/llm-skills --skill lm-studio
 ```
 
 ## Rules

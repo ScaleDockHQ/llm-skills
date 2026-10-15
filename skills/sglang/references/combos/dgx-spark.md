@@ -2,7 +2,7 @@
 
 > Verified against SGLang v0.5.21 (image `lmsysorg/sglang:v0.5.21-cu130`, Docker Hub tags checked 2026-10-11), NVIDIA dgx-spark-playbooks `nvidia/sglang` (last updated 04/28/2026 per its README) and `nvidia/connect-two-sparks`; the wrapper, llama-swap and dual-node recipes are carried over from this repo's earlier DGX Spark work and were not re-run on hardware in this pass, 2026-10-11
 
-Host setup, memory safety, networking and updates for Spark machines: skill `nvidia-dgx-spark` (install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`). Engine-agnostic stack layout with llama-swap, LiteLLM and a tunnel: skill `self-hosted-llms`.
+Host setup, memory safety, networking and updates for Spark machines: skill `nvidia-dgx-spark` (install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`). Engine-agnostic stack layout with llama-swap, LiteLLM and a tunnel: skill `self-hosted-llms`.
 
 ## When SGLang on a Spark
 

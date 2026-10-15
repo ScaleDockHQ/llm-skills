@@ -5,7 +5,7 @@ Helps an agent call the first-party OpenAI API (api.openai.com) safely from code
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill openai-api
+npx skills add ScaleDockHQ/llm-skills --skill openai-api
 ```
 
 ## Rules

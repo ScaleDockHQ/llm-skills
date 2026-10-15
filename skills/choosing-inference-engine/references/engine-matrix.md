@@ -44,7 +44,7 @@ Notes:
 | bitsandbytes, TorchAO, Quark, ModelOpt | yes (vLLM quantization docs)                     | TorchAO and others (unverified list)                         | via ModelOpt                                           | no                           | no                                           | no                                       | no                                         |
 | KV-cache quantization                  | yes (quantized KV cache)                         | yes (quantized KV cache docs)                                | KV cache dtype is a setting                            | yes (`--cache-type-k`, `-v`) | yes (`OLLAMA_KV_CACHE_TYPE` f16, q8_0, q4_0) | KV dtype is a flag (see `tensorfold`)    | yes (2 to 8 bit cache)                     |
 
-**Quality gate.** Every quantized weight format and every KV-cache quantization above changes numerics. Gate each with the `llm-evals` skill before serving traffic: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`. Ollama's own FAQ says `q4_0` KV cache can hurt more at high context and for high-GQA models.
+**Quality gate.** Every quantized weight format and every KV-cache quantization above changes numerics. Gate each with the `llm-evals` skill before serving traffic: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`. Ollama's own FAQ says `q4_0` KV cache can hurt more at high context and for high-GQA models.
 
 ## 3. Engine by feature
 

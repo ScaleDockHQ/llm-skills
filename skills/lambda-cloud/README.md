@@ -5,7 +5,7 @@ Helps an agent get an LLM running on Lambda Cloud GPU instances, 1-Click Cluster
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill lambda-cloud
+npx skills add ScaleDockHQ/llm-skills --skill lambda-cloud
 ```
 
 ## Rules

@@ -5,7 +5,7 @@ An agent skill for pointing the official OpenAI Python and Node SDKs at your own
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill openai-sdk
+npx skills add ScaleDockHQ/llm-skills --skill openai-sdk
 ```
 
 ## Rules

@@ -79,9 +79,9 @@ curl -fsS "$B/v1/models" ${SPEACHES_API_KEY:+-H "Authorization: Bearer $SPEACHES
 
 ## Companion skills
 
-- `faster-whisper`: the engine library, compute types and model conversion. Install: `npx skills add ScaleDockHQ/llms-skills --skill faster-whisper`.
-- `kokoro-fastapi`: dedicated Kokoro TTS server with SSML and voice mixing. Install: `npx skills add ScaleDockHQ/llms-skills --skill kokoro-fastapi`.
-- `whisper-cpp`: lean single-model Whisper server. Install: `npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp`.
-- `self-hosted-genmedia`: choose a speech stack and share a GPU with LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `litellm`: keys, budgets and routing in front. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `llama-swap`: hot-swap speech containers with LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
+- `faster-whisper`: the engine library, compute types and model conversion. Install: `npx skills add ScaleDockHQ/llm-skills --skill faster-whisper`.
+- `kokoro-fastapi`: dedicated Kokoro TTS server with SSML and voice mixing. Install: `npx skills add ScaleDockHQ/llm-skills --skill kokoro-fastapi`.
+- `whisper-cpp`: lean single-model Whisper server. Install: `npx skills add ScaleDockHQ/llm-skills --skill whisper-cpp`.
+- `self-hosted-genmedia`: choose a speech stack and share a GPU with LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `litellm`: keys, budgets and routing in front. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `llama-swap`: hot-swap speech containers with LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.

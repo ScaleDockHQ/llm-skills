@@ -5,7 +5,7 @@ An agent skill for serving Meta's open models: **Muse Glimmer 30B** (August 2026
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llama
+npx skills add ScaleDockHQ/llm-skills --skill llama
 ```
 
 ## Rules

@@ -139,11 +139,11 @@ not reproducible. Send a request through the Gateway address with the model name
 
 ## Companion skills
 
-- `llm-d-vllm-kubernetes`: the full llm-d stack (router, P/D, wide EP) on vLLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-d-vllm-kubernetes`.
-- `vllm`: the model server flags and metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `prefix-aware-routing`: technique-level routing guidance across stacks. Install: `npx skills add ScaleDockHQ/llms-skills --skill prefix-aware-routing`.
-- `nvidia-gpu-operator`: GPU nodes for the pool. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-gpu-operator`.
-- `keda`: scale the model-server Deployment on queue and GPU metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill keda`.
-- `ray-serve`: Ray-native routing instead of pod routing. Install: `npx skills add ScaleDockHQ/llms-skills --skill ray-serve`.
-- `kserve`: CRD-driven serving with its own inference-gateway integration. Install: `npx skills add ScaleDockHQ/llms-skills --skill kserve`.
-- `litellm`: keys, budgets, fallbacks in front. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
+- `llm-d-vllm-kubernetes`: the full llm-d stack (router, P/D, wide EP) on vLLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-d-vllm-kubernetes`.
+- `vllm`: the model server flags and metrics. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `prefix-aware-routing`: technique-level routing guidance across stacks. Install: `npx skills add ScaleDockHQ/llm-skills --skill prefix-aware-routing`.
+- `nvidia-gpu-operator`: GPU nodes for the pool. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-gpu-operator`.
+- `keda`: scale the model-server Deployment on queue and GPU metrics. Install: `npx skills add ScaleDockHQ/llm-skills --skill keda`.
+- `ray-serve`: Ray-native routing instead of pod routing. Install: `npx skills add ScaleDockHQ/llm-skills --skill ray-serve`.
+- `kserve`: CRD-driven serving with its own inference-gateway integration. Install: `npx skills add ScaleDockHQ/llm-skills --skill kserve`.
+- `litellm`: keys, budgets, fallbacks in front. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.

@@ -118,10 +118,10 @@ If `tg beta endpoints ls` shows endpoints you did not create, stop and ask befor
 
 ## Companion skills
 
-- `cloud-llms`: cross-provider workflow and cost model. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: LiteLLM-style gateway, fallbacks and budgets. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `fine-tuning-llms`: dataset and training choices before you pay for a job. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `llm-evals`: compare the Together model with your current one. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `llm-observability`: traces and cost per request. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `llm-clients`: SDK and client wiring. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-clients`.
-- `choosing-llm-hosting` and `self-hosted-llms`: when to leave a managed API. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
+- `cloud-llms`: cross-provider workflow and cost model. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: LiteLLM-style gateway, fallbacks and budgets. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `fine-tuning-llms`: dataset and training choices before you pay for a job. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `llm-evals`: compare the Together model with your current one. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `llm-observability`: traces and cost per request. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `llm-clients`: SDK and client wiring. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-clients`.
+- `choosing-llm-hosting` and `self-hosted-llms`: when to leave a managed API. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.

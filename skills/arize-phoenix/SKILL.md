@@ -93,7 +93,7 @@ Templates: `assets/docker-compose.yaml` (Phoenix plus PostgreSQL), `assets/otel-
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-observability`: choosing and combining tracing backends, plus Prometheus, Grafana and GPU metrics.
 - `opentelemetry-genai`: the GenAI semantic conventions and Collector patterns Phoenix ingests.

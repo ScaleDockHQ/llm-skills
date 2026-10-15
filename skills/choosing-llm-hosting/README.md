@@ -5,7 +5,7 @@ An agent skill that helps decide where language models should run: on a laptop, 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting
+npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting
 ```
 
 ## Rules
@@ -32,7 +32,7 @@ The `SKILL.md` overview is always loaded; the agent pulls a reference only when 
 
 ## Companion skills
 
-All in [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+All in [ScaleDockHQ/llm-skills](https://github.com/ScaleDockHQ/llm-skills); install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `local-llms`: laptops and desktops (Ollama, LM Studio, llama.cpp, MLX).
 - `self-hosted-llms`: your own servers, DGX Spark first-class, LiteLLM + llama-swap + engines behind one endpoint.

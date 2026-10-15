@@ -52,7 +52,7 @@ Ask only what cannot be discovered: replica count, whether prompts share long pr
 - **Verify upstream.** Router plugin and flag names change between releases. Re-read the version you deploy. Items marked "unverified" in references are leads only.
 - **Private event ports.** KV-event ZMQ sockets, EPP ports and metrics are unauthenticated: bind to private networks only. AIBrix `x-session-id` is a routing hint, not auth.
 - **Match block sizes.** Router block size must equal the engine block or page size, or hit prediction is wrong.
-- **Gate numerics changes.** Any option that changes numerics (FP8 KV, non-exact KV reuse, engine/backend change) must pass the `llm-evals` gate. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- **Gate numerics changes.** Any option that changes numerics (FP8 KV, non-exact KV reuse, engine/backend change) must pass the `llm-evals` gate. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
 - **Watch skew.** Higher hit rate with one hot replica is a regression.
 
 ## Techniques per router
@@ -72,10 +72,10 @@ Ask only what cannot be discovered: replica count, whether prompts share long pr
 
 ## Companion skills
 
-- `llm-evals`: quality gates for numerics-changing options. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `disaggregated-serving`: prefill/decode splits that combine with prefix routing. Install: `npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving`.
-- `llm-gateway`: client-facing gateway in front of the pool. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `self-hosted-llms`: benchmarks and stack on owned GPUs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `vllm`, `sglang`, `tensorrt-llm`: engine skills. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
+- `llm-evals`: quality gates for numerics-changing options. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `disaggregated-serving`: prefill/decode splits that combine with prefix routing. Install: `npx skills add ScaleDockHQ/llm-skills --skill disaggregated-serving`.
+- `llm-gateway`: client-facing gateway in front of the pool. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `self-hosted-llms`: benchmarks and stack on owned GPUs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `vllm`, `sglang`, `tensorrt-llm`: engine skills. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
 - `kv-cache-offloading`, `kv-cache-quantization`, `reasoning-models`, `multi-node-inference`: sibling techniques, by name.
 - Planned product skills, by name: `dynamo`, `llm-d`, `aibrix`, `kserve`.
