@@ -89,7 +89,7 @@ Templates: `assets/docker-compose.yaml`, `assets/llm-counters.csv`, `assets/dcgm
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `prometheus-grafana-llm`: the stack that scrapes, stores and alerts.
 - `sparkdash`: DGX Spark dashboard when DCGM is a poor fit.

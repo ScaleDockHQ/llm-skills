@@ -101,10 +101,10 @@ curl -sS https://api.openai.com/v1/models -H "Authorization: Bearer $OPENAI_API_
 
 ## Companion skills
 
-- `cloud-llms`: choose between frontier APIs, hyperscalers and GPU rental. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: one endpoint, virtual keys and budgets in front of providers. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `litellm`: LiteLLM proxy details. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `anthropic-api`, `gemini-api`: the sibling frontier APIs. Install: `npx skills add ScaleDockHQ/llms-skills --skill anthropic-api`.
-- `structured-outputs`, `llm-clients`: schema-constrained output and client config. Install: `npx skills add ScaleDockHQ/llms-skills --skill structured-outputs`.
-- `llm-evals`, `llm-observability`: measure quality and trace calls. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `choosing-llm-hosting`, `self-hosted-llms`: when the data class rules out an API. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
+- `cloud-llms`: choose between frontier APIs, hyperscalers and GPU rental. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: one endpoint, virtual keys and budgets in front of providers. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `litellm`: LiteLLM proxy details. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `anthropic-api`, `gemini-api`: the sibling frontier APIs. Install: `npx skills add ScaleDockHQ/llm-skills --skill anthropic-api`.
+- `structured-outputs`, `llm-clients`: schema-constrained output and client config. Install: `npx skills add ScaleDockHQ/llm-skills --skill structured-outputs`.
+- `llm-evals`, `llm-observability`: measure quality and trace calls. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `choosing-llm-hosting`, `self-hosted-llms`: when the data class rules out an API. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.

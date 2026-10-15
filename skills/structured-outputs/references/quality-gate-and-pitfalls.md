@@ -4,7 +4,7 @@
 
 Constrained decoding masks tokens so the output matches a grammar. That guarantees syntax, not meaning: the model can still fill valid fields with wrong values, and a changed backend, schema or engine version can change which tokens are allowed. Treat any change to the constraint path as a numerics-and-validity change and gate it.
 
-Install the eval skill if it is missing: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+Install the eval skill if it is missing: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
 
 ## Gate procedure
 

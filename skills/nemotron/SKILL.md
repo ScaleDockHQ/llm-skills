@@ -90,11 +90,11 @@ ps -eo pid,args | grep -i -E 'vllm|sglang|trtllm|llama-server|tensorfold' | grep
 
 ## Companion skills
 
-- `self-hosted-llms`: the full gateway, swapping and exposure stack on Linux GPU servers. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `nvidia-dgx-spark`: DGX Spark setup and memory. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`.
-- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `tensorfold`: engine install and operation. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm` (same pattern for the others).
-- `tool-calling-parsers`: parser internals across engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill tool-calling-parsers`.
-- `local-llms`: running models on a laptop. Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `model-quantization`: making or choosing GGUF, FP8 and NVFP4 quants. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `fine-tuning-llms`: finetuning Nemotron models. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `cloud-llms`: calling Nemotron through a hosted API instead. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
+- `self-hosted-llms`: the full gateway, swapping and exposure stack on Linux GPU servers. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `nvidia-dgx-spark`: DGX Spark setup and memory. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`.
+- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `tensorfold`: engine install and operation. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm` (same pattern for the others).
+- `tool-calling-parsers`: parser internals across engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill tool-calling-parsers`.
+- `local-llms`: running models on a laptop. Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `model-quantization`: making or choosing GGUF, FP8 and NVFP4 quants. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `fine-tuning-llms`: finetuning Nemotron models. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `cloud-llms`: calling Nemotron through a hosted API instead. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.

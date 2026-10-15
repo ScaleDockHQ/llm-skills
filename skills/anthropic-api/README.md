@@ -5,7 +5,7 @@ Helps an agent call the first-party Claude API (api.anthropic.com) safely from c
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill anthropic-api
+npx skills add ScaleDockHQ/llm-skills --skill anthropic-api
 ```
 
 ## Rules

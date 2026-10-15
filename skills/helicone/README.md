@@ -5,7 +5,7 @@ Helps an agent use Helicone, the open-source LLM observability platform and Open
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill helicone
+npx skills add ScaleDockHQ/llm-skills --skill helicone
 ```
 
 ## Rules

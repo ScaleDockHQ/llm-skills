@@ -5,7 +5,7 @@ Helps an agent choose, size and serve MiniMax open-weight models: MiniMax-M3 (42
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill minimax
+npx skills add ScaleDockHQ/llm-skills --skill minimax
 ```
 
 ## Rules

@@ -146,17 +146,17 @@ Full format-to-engine matrix and hardware notes: `references/formats.md`. If a t
 
 ## Companion skills
 
-- `gguf-quantization` — llama-quantize, imatrix and GGUF recipes in depth: `npx skills add ScaleDockHQ/llms-skills --skill gguf-quantization`
-- `exl3-quantization` — ExLlamaV3 convert.py and bpw choices in depth: `npx skills add ScaleDockHQ/llms-skills --skill exl3-quantization`
-- `gptqmodel` — GPTQ quantization and its backends: `npx skills add ScaleDockHQ/llms-skills --skill gptqmodel`
-- `bitsandbytes` — 8-bit and 4-bit (NF4) loading: `npx skills add ScaleDockHQ/llms-skills --skill bitsandbytes`
-- `torchao` — PyTorch-native int4, int8 and float8 quantization: `npx skills add ScaleDockHQ/llms-skills --skill torchao`
-- `hqq` — calibration-free HQQ quantization: `npx skills add ScaleDockHQ/llms-skills --skill hqq`
-- `llm-compressor` — AWQ, GPTQ, FP8, NVFP4 recipes and vLLM serving in depth: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`
-- `nvidia-modelopt` — `hf_ptq.py` NVFP4/FP8 PTQ and unified HF export in depth: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-modelopt`
-- `mlx` — `mlx_lm.convert`, flags, modes and `mlx_lm.server` in depth: `npx skills add ScaleDockHQ/llms-skills --skill mlx`
-- `self-hosted-llms` — choosing/downloading existing quants and running the serving stack: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`
-- `local-llms` — Ollama, LM Studio and llama.cpp on a laptop or desktop: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`
-- `llm-evals` — task evals and quality gates for a quant: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`
-- `fine-tuning-llms` — train or merge before quantizing: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`
-- `llm-gateway` — expose the new model through LiteLLM: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`
+- `gguf-quantization` — llama-quantize, imatrix and GGUF recipes in depth: `npx skills add ScaleDockHQ/llm-skills --skill gguf-quantization`
+- `exl3-quantization` — ExLlamaV3 convert.py and bpw choices in depth: `npx skills add ScaleDockHQ/llm-skills --skill exl3-quantization`
+- `gptqmodel` — GPTQ quantization and its backends: `npx skills add ScaleDockHQ/llm-skills --skill gptqmodel`
+- `bitsandbytes` — 8-bit and 4-bit (NF4) loading: `npx skills add ScaleDockHQ/llm-skills --skill bitsandbytes`
+- `torchao` — PyTorch-native int4, int8 and float8 quantization: `npx skills add ScaleDockHQ/llm-skills --skill torchao`
+- `hqq` — calibration-free HQQ quantization: `npx skills add ScaleDockHQ/llm-skills --skill hqq`
+- `llm-compressor` — AWQ, GPTQ, FP8, NVFP4 recipes and vLLM serving in depth: `npx skills add ScaleDockHQ/llm-skills --skill llm-compressor`
+- `nvidia-modelopt` — `hf_ptq.py` NVFP4/FP8 PTQ and unified HF export in depth: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-modelopt`
+- `mlx` — `mlx_lm.convert`, flags, modes and `mlx_lm.server` in depth: `npx skills add ScaleDockHQ/llm-skills --skill mlx`
+- `self-hosted-llms` — choosing/downloading existing quants and running the serving stack: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`
+- `local-llms` — Ollama, LM Studio and llama.cpp on a laptop or desktop: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`
+- `llm-evals` — task evals and quality gates for a quant: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`
+- `fine-tuning-llms` — train or merge before quantizing: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`
+- `llm-gateway` — expose the new model through LiteLLM: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`

@@ -94,9 +94,9 @@ Ask only what cannot be discovered: the base model and revision, the GPU/engine 
 
 ## Companion skills
 
-- `model-quantization`: pick a format for an engine, memory caps, quality checks and Hub publishing. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `vllm`: serve the checkpoint and tune the engine. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `nvidia-modelopt`: NVIDIA's PTQ path for TensorRT-LLM, vLLM and SGLang. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-modelopt`.
-- `kv-cache-quantization`: KV cache dtype choices at serve time. Install: `npx skills add ScaleDockHQ/llms-skills --skill kv-cache-quantization`.
-- `llm-evals`: task evals and quality gates for the quant. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `sglang`: serve compressed-tensors checkpoints on SGLang (partial support). Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
+- `model-quantization`: pick a format for an engine, memory caps, quality checks and Hub publishing. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `vllm`: serve the checkpoint and tune the engine. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `nvidia-modelopt`: NVIDIA's PTQ path for TensorRT-LLM, vLLM and SGLang. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-modelopt`.
+- `kv-cache-quantization`: KV cache dtype choices at serve time. Install: `npx skills add ScaleDockHQ/llm-skills --skill kv-cache-quantization`.
+- `llm-evals`: task evals and quality gates for the quant. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `sglang`: serve compressed-tensors checkpoints on SGLang (partial support). Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.

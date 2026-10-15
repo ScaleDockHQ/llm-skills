@@ -5,7 +5,7 @@ Helps an agent use SambaNova SambaCloud: create keys, list models, call the Open
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill sambanova
+npx skills add ScaleDockHQ/llm-skills --skill sambanova
 ```
 
 ## Rules

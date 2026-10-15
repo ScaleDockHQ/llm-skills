@@ -103,10 +103,10 @@ curl -sS https://api.deepinfra.com/v1/containers -H "Authorization: Bearer $DEEP
 
 ## Companion skills
 
-- `cloud-llms`: provider choice and hybrid routing. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: one endpoint in front of DeepInfra. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `litellm`: proxy configuration in depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `together-ai`, `fireworks-ai`, `groq`: comparable managed APIs. Install: `npx skills add ScaleDockHQ/llms-skills --skill together-ai`.
-- `llm-evals`, `llm-observability`: quality and cost checks. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `fine-tuning-llms`: produce the weights you deploy privately. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `self-hosted-llms`, `vllm`: your own GPUs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `cloud-llms`: provider choice and hybrid routing. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: one endpoint in front of DeepInfra. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `litellm`: proxy configuration in depth. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `together-ai`, `fireworks-ai`, `groq`: comparable managed APIs. Install: `npx skills add ScaleDockHQ/llm-skills --skill together-ai`.
+- `llm-evals`, `llm-observability`: quality and cost checks. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `fine-tuning-llms`: produce the weights you deploy privately. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `self-hosted-llms`, `vllm`: your own GPUs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

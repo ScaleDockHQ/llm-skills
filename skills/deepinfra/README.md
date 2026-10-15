@@ -5,7 +5,7 @@ Helps an agent use DeepInfra: create and limit API keys, call the OpenAI and Ant
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill deepinfra
+npx skills add ScaleDockHQ/llm-skills --skill deepinfra
 ```
 
 ## Rules

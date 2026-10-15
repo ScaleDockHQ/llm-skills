@@ -98,8 +98,8 @@ An empty list means no gateway exists yet. The `default` gateway is created on t
 
 ## Companion skills
 
-- `llm-gateway`: gateway design across products. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `litellm`: self-hosted proxy, can sit behind or in front of AI Gateway. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `cloudflare-tunnel`: expose your own model servers. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloudflare-tunnel`.
-- `llm-observability`: wider tracing and cost checks. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `cloud-llms`: provider choice. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
+- `llm-gateway`: gateway design across products. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `litellm`: self-hosted proxy, can sit behind or in front of AI Gateway. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `cloudflare-tunnel`: expose your own model servers. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloudflare-tunnel`.
+- `llm-observability`: wider tracing and cost checks. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `cloud-llms`: provider choice. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.

@@ -88,8 +88,8 @@ ps -eo pid,args | grep -i -E 'vllm|sglang|llama-server' | grep -v grep | cut -c1
 
 ## Companion skills
 
-- `self-hosted-llms`: the full gateway, swapping and exposure stack on Linux GPU servers. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `local-llms`: running models on a laptop. Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `model-quantization`: making or choosing GGUF, FP8 and NVFP4 quants. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `fine-tuning-llms`: finetuning Mistral models. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `cloud-llms`: calling Mistral through a hosted API instead. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
+- `self-hosted-llms`: the full gateway, swapping and exposure stack on Linux GPU servers. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `local-llms`: running models on a laptop. Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `model-quantization`: making or choosing GGUF, FP8 and NVFP4 quants. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `fine-tuning-llms`: finetuning Mistral models. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `cloud-llms`: calling Mistral through a hosted API instead. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.

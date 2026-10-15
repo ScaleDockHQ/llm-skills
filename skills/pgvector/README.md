@@ -5,7 +5,7 @@ Add vector search to Postgres with pgvector beside a self-hosted LLM stack: Dock
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill pgvector
+npx skills add ScaleDockHQ/llm-skills --skill pgvector
 ```
 
 ## Rules

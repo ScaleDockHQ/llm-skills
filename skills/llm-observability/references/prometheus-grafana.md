@@ -26,5 +26,5 @@ Stack pitfalls:
 
 Depth:
 
-- `prometheus-grafana-llm`: `npx skills add ScaleDockHQ/llms-skills --skill prometheus-grafana-llm`
-- `dcgm-exporter`: `npx skills add ScaleDockHQ/llms-skills --skill dcgm-exporter`
+- `prometheus-grafana-llm`: `npx skills add ScaleDockHQ/llm-skills --skill prometheus-grafana-llm`
+- `dcgm-exporter`: `npx skills add ScaleDockHQ/llm-skills --skill dcgm-exporter`

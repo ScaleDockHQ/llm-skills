@@ -4,7 +4,7 @@
 
 Providers that host open-weight models behind per-token APIs, usually OpenAI-compatible. Choose this tier for open models without running GPUs, for validating a model before self-hosting it, or as overflow capacity for a self-hosted model.
 
-Depth: install the provider skill (`npx skills add ScaleDockHQ/llms-skills --skill <skill>`): `together-ai`, `fireworks-ai`, `groq`, `cerebras`, `sambanova`, `deepinfra` and `hugging-face`. OpenRouter has no skill yet; use the table and links below.
+Depth: install the provider skill (`npx skills add ScaleDockHQ/llm-skills --skill <skill>`): `together-ai`, `fireworks-ai`, `groq`, `cerebras`, `sambanova`, `deepinfra` and `hugging-face`. OpenRouter has no skill yet; use the table and links below.
 
 ## How it plugs into this stack
 

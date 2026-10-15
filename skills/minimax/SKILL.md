@@ -83,8 +83,8 @@ curl -fsS http://127.0.0.1:8000/v1/models | jq -r '.data[].id' 2>/dev/null
 
 ## Companion skills
 
-- `self-hosted-llms`: the surrounding serving stack (gateway, model swapping, engines, exposure). Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `local-llms`: laptop and desktop runtimes. Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `cloud-llms`: hosted MiniMax APIs and cloud providers. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `model-quantization`: making or choosing GGUF, AWQ, NVFP4. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `fine-tuning-llms`: adapting weights (mind the license for fine-tuned commercial use). Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
+- `self-hosted-llms`: the surrounding serving stack (gateway, model swapping, engines, exposure). Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `local-llms`: laptop and desktop runtimes. Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `cloud-llms`: hosted MiniMax APIs and cloud providers. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `model-quantization`: making or choosing GGUF, AWQ, NVFP4. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `fine-tuning-llms`: adapting weights (mind the license for fine-tuned commercial use). Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.

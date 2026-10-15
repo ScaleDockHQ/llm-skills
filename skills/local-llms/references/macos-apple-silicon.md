@@ -2,7 +2,7 @@
 
 > Verified against the `apple-silicon` skill (mlx-lm 0.32.0, mlx 0.32.3, llama.cpp b11557, Ollama v0.40.3, LM Studio 0.4.26), 2026-10-11
 
-The platform depth (unified-memory budget, `iogpu.wired_limit_mb`, Rosetta checks, thermals, sleep and launchd, Intel Macs) moved to the `apple-silicon` skill. Install: `npx skills add ScaleDockHQ/llms-skills --skill apple-silicon`.
+The platform depth (unified-memory budget, `iogpu.wired_limit_mb`, Rosetta checks, thermals, sleep and launchd, Intel Macs) moved to the `apple-silicon` skill. Install: `npx skills add ScaleDockHQ/llm-skills --skill apple-silicon`.
 
 ## What stays here
 

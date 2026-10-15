@@ -102,9 +102,9 @@ for a smaller cluster. Test from inside the cluster against `svc/${GUIDE_NAME}-e
 
 ## Companion skills
 
-- `vllm`: the engine under the pool; flags, parsers, tuning. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `kserve`: `LLMInferenceService` wraps llm-d's router for KServe users. Install: `npx skills add ScaleDockHQ/llms-skills --skill kserve`.
-- `vllm-production-stack`: the Helm-based alternative. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm-production-stack`.
-- `gateway-api-inference-extension`: the InferencePool and EPP standard llm-d builds on. Install: `npx skills add ScaleDockHQ/llms-skills --skill gateway-api-inference-extension`.
-- `keda`: event-driven autoscaling for the EPP path. Install: `npx skills add ScaleDockHQ/llms-skills --skill keda`.
-- `disaggregated-serving`, `prefix-aware-routing`, `kv-cache-offloading`: technique skills behind the paths. Install: `npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving`.
+- `vllm`: the engine under the pool; flags, parsers, tuning. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `kserve`: `LLMInferenceService` wraps llm-d's router for KServe users. Install: `npx skills add ScaleDockHQ/llm-skills --skill kserve`.
+- `vllm-production-stack`: the Helm-based alternative. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm-production-stack`.
+- `gateway-api-inference-extension`: the InferencePool and EPP standard llm-d builds on. Install: `npx skills add ScaleDockHQ/llm-skills --skill gateway-api-inference-extension`.
+- `keda`: event-driven autoscaling for the EPP path. Install: `npx skills add ScaleDockHQ/llm-skills --skill keda`.
+- `disaggregated-serving`, `prefix-aware-routing`, `kv-cache-offloading`: technique skills behind the paths. Install: `npx skills add ScaleDockHQ/llm-skills --skill disaggregated-serving`.

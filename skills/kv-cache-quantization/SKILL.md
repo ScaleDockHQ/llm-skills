@@ -60,7 +60,7 @@ Also read: target context length, expected concurrency, and whether the checkpoi
 
 ## Quality gate
 
-Gate with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`). Procedure:
+Gate with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`). Procedure:
 
 1. **Baseline:** current KV dtype (`auto`/`f16`/`bf16`), same engine version, model, sampling and context.
 2. **Candidate:** only the KV dtype (and its scales) changes.
@@ -85,17 +85,17 @@ Gate with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llms-skill
 
 ## Companion skills
 
-- `llm-evals`: A/B quality gate and decision record. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `vllm`: install and operate vLLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `sglang`: install and operate SGLang. Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
-- `tensorrt-llm`: install and operate TensorRT-LLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorrt-llm`.
-- `llama-cpp`: install and operate llama.cpp. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `ollama`: install and operate Ollama. Install: `npx skills add ScaleDockHQ/llms-skills --skill ollama`.
-- `tensorfold`: install and operate TensorFold. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorfold`.
-- `exllamav3`: install and operate ExLlamaV3 and TabbyAPI. Install: `npx skills add ScaleDockHQ/llms-skills --skill exllamav3`.
-- `model-quantization`: weight and calibrated KV-scale checkpoints (ModelOpt, llm-compressor, GGUF). Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `kv-cache-offloading`: move KV to CPU or disk instead of shrinking it. Install: `npx skills add ScaleDockHQ/llms-skills --skill kv-cache-offloading`.
-- `long-context`: long-context serving and evaluation. Install: `npx skills add ScaleDockHQ/llms-skills --skill long-context`.
-- `speculative-decoding`: drafters add KV and memory cost. Install: `npx skills add ScaleDockHQ/llms-skills --skill speculative-decoding`.
-- `choosing-hardware`: size GPUs and memory. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `self-hosted-llms`: run the stack on owned GPU servers. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `llm-evals`: A/B quality gate and decision record. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `vllm`: install and operate vLLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `sglang`: install and operate SGLang. Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
+- `tensorrt-llm`: install and operate TensorRT-LLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill tensorrt-llm`.
+- `llama-cpp`: install and operate llama.cpp. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `ollama`: install and operate Ollama. Install: `npx skills add ScaleDockHQ/llm-skills --skill ollama`.
+- `tensorfold`: install and operate TensorFold. Install: `npx skills add ScaleDockHQ/llm-skills --skill tensorfold`.
+- `exllamav3`: install and operate ExLlamaV3 and TabbyAPI. Install: `npx skills add ScaleDockHQ/llm-skills --skill exllamav3`.
+- `model-quantization`: weight and calibrated KV-scale checkpoints (ModelOpt, llm-compressor, GGUF). Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `kv-cache-offloading`: move KV to CPU or disk instead of shrinking it. Install: `npx skills add ScaleDockHQ/llm-skills --skill kv-cache-offloading`.
+- `long-context`: long-context serving and evaluation. Install: `npx skills add ScaleDockHQ/llm-skills --skill long-context`.
+- `speculative-decoding`: drafters add KV and memory cost. Install: `npx skills add ScaleDockHQ/llm-skills --skill speculative-decoding`.
+- `choosing-hardware`: size GPUs and memory. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `self-hosted-llms`: run the stack on owned GPU servers. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

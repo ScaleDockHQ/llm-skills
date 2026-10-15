@@ -2,7 +2,7 @@
 
 > Verified against LlamaIndex llama-index v0.14.25 (llama-index-llms-openai-like 0.8.1, llama-index-embeddings-openai-like 0.4.0), 2026-10-11
 
-A gateway gives the app one URL, one key and stable aliases. Run it with the `litellm` skill (`npx skills add ScaleDockHQ/llms-skills --skill litellm`) or `llama-swap` (`npx skills add ScaleDockHQ/llms-skills --skill llama-swap`).
+A gateway gives the app one URL, one key and stable aliases. Run it with the `litellm` skill (`npx skills add ScaleDockHQ/llm-skills --skill litellm`) or `llama-swap` (`npx skills add ScaleDockHQ/llm-skills --skill llama-swap`).
 
 ```python
 import os

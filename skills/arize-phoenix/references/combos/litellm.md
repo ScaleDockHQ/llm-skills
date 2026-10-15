@@ -2,7 +2,7 @@
 
 > Verified against Arize Phoenix v20.21.0 and LiteLLM docs 2026-10-10 (observability/phoenix_integration, observability/opentelemetry_integration; latest release v1.105.0), 2026-10-11
 
-Every LiteLLM call becomes a Phoenix span with model, provider, token counts and (when allowed) messages. For running the proxy itself, install `litellm`: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
+Every LiteLLM call becomes a Phoenix span with model, provider, token counts and (when allowed) messages. For running the proxy itself, install `litellm`: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
 
 ## Proxy config (recommended: the `arize_phoenix` preset)
 

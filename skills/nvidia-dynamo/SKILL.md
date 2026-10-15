@@ -154,9 +154,9 @@ docs say vLLM needs it in file-discovery mode. `-e HF_TOKEN` forwards the variab
 
 ## Companion skills
 
-- `vllm`, `sglang`, `tensorrt-llm`: the engines Dynamo drives. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `disaggregated-serving`: technique-level guidance and gates. Install: `npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving`.
-- `multi-node-inference`: parallelism across nodes. Install: `npx skills add ScaleDockHQ/llms-skills --skill multi-node-inference`.
-- `choosing-inference-engine`: engine selection. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `litellm` and `llm-gateway`: auth, keys, routing in front of the frontend. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `llm-observability`: traces and cost. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `vllm`, `sglang`, `tensorrt-llm`: the engines Dynamo drives. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `disaggregated-serving`: technique-level guidance and gates. Install: `npx skills add ScaleDockHQ/llm-skills --skill disaggregated-serving`.
+- `multi-node-inference`: parallelism across nodes. Install: `npx skills add ScaleDockHQ/llm-skills --skill multi-node-inference`.
+- `choosing-inference-engine`: engine selection. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `litellm` and `llm-gateway`: auth, keys, routing in front of the frontend. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `llm-observability`: traces and cost. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

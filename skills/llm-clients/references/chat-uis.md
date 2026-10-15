@@ -17,8 +17,8 @@ Stack pitfalls:
 
 Depth:
 
-- `open-webui`: `npx skills add ScaleDockHQ/llms-skills --skill open-webui`
-- `lobehub`: `npx skills add ScaleDockHQ/llms-skills --skill lobehub`
-- `librechat`: `npx skills add ScaleDockHQ/llms-skills --skill librechat`
-- `anythingllm`: `npx skills add ScaleDockHQ/llms-skills --skill anythingllm`
-- `sillytavern`: `npx skills add ScaleDockHQ/llms-skills --skill sillytavern`
+- `open-webui`: `npx skills add ScaleDockHQ/llm-skills --skill open-webui`
+- `lobehub`: `npx skills add ScaleDockHQ/llm-skills --skill lobehub`
+- `librechat`: `npx skills add ScaleDockHQ/llm-skills --skill librechat`
+- `anythingllm`: `npx skills add ScaleDockHQ/llm-skills --skill anythingllm`
+- `sillytavern`: `npx skills add ScaleDockHQ/llm-skills --skill sillytavern`

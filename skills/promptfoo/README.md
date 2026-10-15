@@ -5,7 +5,7 @@ An agent skill for running [promptfoo](https://github.com/promptfoo/promptfoo) t
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill promptfoo
+npx skills add ScaleDockHQ/llm-skills --skill promptfoo
 ```
 
 ## Rules

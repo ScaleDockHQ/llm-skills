@@ -2,7 +2,7 @@
 
 > Verified against unslothai/unsloth library 2026.10.3 and Ollama v0.40.3, 2026-10-11
 
-Goal: take a model fine-tuned with Unsloth, export a GGUF, and run it as an Ollama model with the template you trained on. Depth for the pieces: `npx skills add ScaleDockHQ/llms-skills --skill ollama`, `--skill llama-cpp`, `--skill model-quantization`.
+Goal: take a model fine-tuned with Unsloth, export a GGUF, and run it as an Ollama model with the template you trained on. Depth for the pieces: `npx skills add ScaleDockHQ/llm-skills --skill ollama`, `--skill llama-cpp`, `--skill model-quantization`.
 
 ## Why GGUF and a merge
 

@@ -12,7 +12,7 @@ metadata:
 
 Point the `claude` CLI at a model served locally by LM Studio, with a context length large enough for agent work, a verified request path, and clear limits on what the vendors support.
 
-**Scope:** this combination. LM Studio depth (install, serving, tuning, LM Link) belongs to `lm-studio`; Claude Code itself is not yet a published skill here, so for its settings, permissions and hooks install later: `npx skills add ScaleDockHQ/llms-skills --skill claude-code` once it exists; sizing the machine belongs to `apple-silicon` or `choosing-hardware`; a multi-backend gateway belongs to `litellm`.
+**Scope:** this combination. LM Studio depth (install, serving, tuning, LM Link) belongs to `lm-studio`; Claude Code itself is not yet a published skill here, so for its settings, permissions and hooks install later: `npx skills add ScaleDockHQ/llm-skills --skill claude-code` once it exists; sizing the machine belongs to `apple-silicon` or `choosing-hardware`; a multi-backend gateway belongs to `litellm`.
 
 Work through the steps in order. Load a reference only when a step names it. Facts were read from lmstudio.ai/docs (Claude Code integration, Messages endpoint) and code.claude.com/docs (LLM gateway pages, model configuration) on 2026-10-11; Claude Code npm `latest` was 2.1.296 and `stable` 2.1.287 that day.
 
@@ -71,7 +71,7 @@ sysctl -n hw.memsize 2>/dev/null; free -h 2>/dev/null | head -2 # memory for mod
 
 ## Companion skills
 
-- `lm-studio`: install, serve, tune, auth, LM Link. Install: `npx skills add ScaleDockHQ/llms-skills --skill lm-studio`.
-- `apple-silicon`: memory sizing and wired limit on a Mac. Install: `npx skills add ScaleDockHQ/llms-skills --skill apple-silicon`.
-- `litellm`: one endpoint in front of several backends. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `claude-code`: not yet published; install later with `npx skills add ScaleDockHQ/llms-skills --skill claude-code` once it is listed.
+- `lm-studio`: install, serve, tune, auth, LM Link. Install: `npx skills add ScaleDockHQ/llm-skills --skill lm-studio`.
+- `apple-silicon`: memory sizing and wired limit on a Mac. Install: `npx skills add ScaleDockHQ/llm-skills --skill apple-silicon`.
+- `litellm`: one endpoint in front of several backends. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `claude-code`: not yet published; install later with `npx skills add ScaleDockHQ/llm-skills --skill claude-code` once it is listed.

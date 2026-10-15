@@ -2,7 +2,7 @@
 
 > Verified against huggingface/trl v1.15.0 (docs: vllm_integration, grpo_trainer), vLLM v0.31.0 (latest release; TRL supports vLLM 0.21.0 to 0.31.0), 2026-10-11
 
-Online methods (`GRPOTrainer`, `RLOOTrainer`, `experimental.online_dpo.OnlineDPOTrainer`) spend most time generating. vLLM generation is enabled with `use_vllm=True`. Install: `pip install "trl[vllm]"` (pins `vllm>=0.21.0,<=0.31.0`). For vLLM itself, install the `vllm` skill (`npx skills add ScaleDockHQ/llms-skills --skill vllm`).
+Online methods (`GRPOTrainer`, `RLOOTrainer`, `experimental.online_dpo.OnlineDPOTrainer`) spend most time generating. vLLM generation is enabled with `use_vllm=True`. Install: `pip install "trl[vllm]"` (pins `vllm>=0.21.0,<=0.31.0`). For vLLM itself, install the `vllm` skill (`npx skills add ScaleDockHQ/llm-skills --skill vllm`).
 
 ## Colocate (default, one machine, simplest)
 

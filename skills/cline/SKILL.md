@@ -80,7 +80,7 @@ Script: `scripts/probe.sh` (read-only; key from `LLM_API_KEY` or `LLM_API_KEY_FI
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `litellm`: gateway with scoped virtual keys for Cline.
 - `llm-gateway`: whether to use a gateway at all.

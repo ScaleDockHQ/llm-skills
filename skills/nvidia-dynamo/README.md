@@ -5,7 +5,7 @@ An agent skill for deploying [NVIDIA Dynamo](https://github.com/ai-dynamo/dynamo
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill nvidia-dynamo
+npx skills add ScaleDockHQ/llm-skills --skill nvidia-dynamo
 ```
 
 ## Rules
@@ -35,7 +35,7 @@ Templates: [`templates/docker-compose.yml`](templates/docker-compose.yml), [`tem
 
 ## Companion skills
 
-From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+From [ScaleDockHQ/llm-skills](https://github.com/ScaleDockHQ/llm-skills); install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `vllm`, `sglang`, `tensorrt-llm`: the engines Dynamo drives.
 - `disaggregated-serving`, `multi-node-inference`: technique-level guidance.

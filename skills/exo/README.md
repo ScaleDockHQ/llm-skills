@@ -5,7 +5,7 @@ An agent skill for [exo](https://github.com/exo-explore/exo), the open-source ru
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill exo
+npx skills add ScaleDockHQ/llm-skills --skill exo
 ```
 
 ## Rules
@@ -30,7 +30,7 @@ npx skills add ScaleDockHQ/llms-skills --skill exo
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 `mlx`, `local-llms`, `nccl-rdma-networking`, `llm-gateway`, `litellm`, `tailscale`.
 

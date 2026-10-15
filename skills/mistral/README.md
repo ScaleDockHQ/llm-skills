@@ -8,7 +8,7 @@ context limits, licenses and known bugs. Verified on 2026-10-11. Mistral Large 4
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill mistral
+npx skills add ScaleDockHQ/llm-skills --skill mistral
 ```
 
 ## Rules

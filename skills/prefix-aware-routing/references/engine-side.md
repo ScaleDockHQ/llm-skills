@@ -48,7 +48,7 @@ Check the cache really hits (read-only): `curl -s http://<engine>:8000/metrics |
 
 ## Numerics: what to gate
 
-Exact prefix routing does not change what a replica computes for a given token sequence, but these related options change outputs or cache behaviour and must pass the `llm-evals` gate (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`):
+Exact prefix routing does not change what a replica computes for a given token sequence, but these related options change outputs or cache behaviour and must pass the `llm-evals` gate (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`):
 
 - Any change of KV-cache dtype used to make the prefix cache larger (for example FP8 KV): lossy, gate it.
 - Engine upgrades or attention-backend changes made while enabling precise routing.

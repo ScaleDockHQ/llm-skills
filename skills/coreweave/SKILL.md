@@ -98,10 +98,10 @@ kubectl config current-context 2>/dev/null && kubectl get nodepool 2>/dev/null
 
 ## Companion skills
 
-- `cloud-llms`: cross-provider workflow, tiers, budgets. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: LiteLLM gateway, fallbacks, budgets. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `self-hosted-llms`: vLLM, engines, Kubernetes patterns. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `choosing-llm-hosting`: pick where to host. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
-- `fine-tuning-llms`: produce weights for Dedicated Inference. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `llm-evals`: verify quality and latency. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `llm-observability`: traces and metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `cloud-llms`: cross-provider workflow, tiers, budgets. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: LiteLLM gateway, fallbacks, budgets. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `self-hosted-llms`: vLLM, engines, Kubernetes patterns. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `choosing-llm-hosting`: pick where to host. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.
+- `fine-tuning-llms`: produce weights for Dedicated Inference. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `llm-evals`: verify quality and latency. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `llm-observability`: traces and metrics. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

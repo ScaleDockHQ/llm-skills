@@ -92,9 +92,9 @@ curl -fsS "${LLM_BASE_URL:-http://localhost:8000/v1}/models" ${LLM_API_KEY:+-H "
 
 ## Companion skills
 
-- `llm-evals`: eval strategy, gates, decision records. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `ragas`: RAG evaluation with Ragas. Install: `npx skills add ScaleDockHQ/llms-skills --skill ragas`.
-- `promptfoo`: YAML golden-set tests. Install: `npx skills add ScaleDockHQ/llms-skills --skill promptfoo`.
-- `vllm`: usual local judge server. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `litellm`: gateway for the judge. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `ollama`: simple local judge. Install: `npx skills add ScaleDockHQ/llms-skills --skill ollama`.
+- `llm-evals`: eval strategy, gates, decision records. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `ragas`: RAG evaluation with Ragas. Install: `npx skills add ScaleDockHQ/llm-skills --skill ragas`.
+- `promptfoo`: YAML golden-set tests. Install: `npx skills add ScaleDockHQ/llm-skills --skill promptfoo`.
+- `vllm`: usual local judge server. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `litellm`: gateway for the judge. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `ollama`: simple local judge. Install: `npx skills add ScaleDockHQ/llm-skills --skill ollama`.

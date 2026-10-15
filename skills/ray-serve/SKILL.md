@@ -166,10 +166,10 @@ with a gateway or network policy. Use `serve deploy config.yaml` to hand the con
 
 ## Companion skills
 
-- `vllm`: engine flags, parsers, quantization. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `nvidia-gpu-operator`: GPU drivers and device plugin on Kubernetes. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-gpu-operator`.
-- `keda`: event-driven pod autoscaling on queue and vLLM metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill keda`.
-- `gateway-api-inference-extension`: model-aware load balancing for plain vLLM pods. Install: `npx skills add ScaleDockHQ/llms-skills --skill gateway-api-inference-extension`.
-- `litellm` and `llm-gateway`: keys, routing, fallbacks. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `multi-node-inference`, `disaggregated-serving`, `prefix-aware-routing`: technique-level guidance. Install: `npx skills add ScaleDockHQ/llms-skills --skill multi-node-inference`.
-- `multi-lora-serving`: adapter strategy across engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill multi-lora-serving`.
+- `vllm`: engine flags, parsers, quantization. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `nvidia-gpu-operator`: GPU drivers and device plugin on Kubernetes. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-gpu-operator`.
+- `keda`: event-driven pod autoscaling on queue and vLLM metrics. Install: `npx skills add ScaleDockHQ/llm-skills --skill keda`.
+- `gateway-api-inference-extension`: model-aware load balancing for plain vLLM pods. Install: `npx skills add ScaleDockHQ/llm-skills --skill gateway-api-inference-extension`.
+- `litellm` and `llm-gateway`: keys, routing, fallbacks. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `multi-node-inference`, `disaggregated-serving`, `prefix-aware-routing`: technique-level guidance. Install: `npx skills add ScaleDockHQ/llm-skills --skill multi-node-inference`.
+- `multi-lora-serving`: adapter strategy across engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill multi-lora-serving`.

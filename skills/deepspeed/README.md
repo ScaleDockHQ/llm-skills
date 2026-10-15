@@ -5,7 +5,7 @@ An agent skill for [DeepSpeed](https://github.com/deepspeedai/DeepSpeed), the la
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill deepspeed
+npx skills add ScaleDockHQ/llm-skills --skill deepspeed
 ```
 
 ## Rules
@@ -31,10 +31,10 @@ npx skills add ScaleDockHQ/llms-skills --skill deepspeed
 
 ## Companion skills
 
-- `fine-tuning-llms`: decide, prepare data, choose method and hardware (install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`)
+- `fine-tuning-llms`: decide, prepare data, choose method and hardware (install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`)
 - `trl`, `llama-factory`, `axolotl`, `peft`: trainers and adapters that use DeepSpeed
 - `deepspeed-mii`: DeepSpeed inference
-- `vllm`: serving (install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`)
+- `vllm`: serving (install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`)
 
 ## License
 

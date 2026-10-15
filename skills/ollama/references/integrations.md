@@ -22,7 +22,7 @@ export ANTHROPIC_AUTH_TOKEN=ollama ANTHROPIC_API_KEY="" ANTHROPIC_BASE_URL=http:
 
 Direct to Ollama Cloud: `ANTHROPIC_BASE_URL=https://ollama.com` and `ANTHROPIC_AUTH_TOKEN="$OLLAMA_API_KEY"` (bearer auth). Agents need long context: serve with `OLLAMA_CONTEXT_LENGTH` of at least 64000 and a model with the `tools` capability.
 
-VS Code (1.127+) uses the Ollama extension, which discovers models at `http://127.0.0.1:11434`. Other editors and clients: see the `llm-clients` skill (`npx skills add ScaleDockHQ/llms-skills --skill llm-clients`).
+VS Code (1.127+) uses the Ollama extension, which discovers models at `http://127.0.0.1:11434`. Other editors and clients: see the `llm-clients` skill (`npx skills add ScaleDockHQ/llm-skills --skill llm-clients`).
 
 ## Generic OpenAI or Anthropic clients
 
@@ -43,7 +43,7 @@ model_list:
       api_key: ollama # ignored by Ollama, required by the client
 ```
 
-Or the native route, `model: ollama_chat/qwen3:8b` with `api_base: http://localhost:11434` (LiteLLM's documented form). Keys and budgets live in LiteLLM; Ollama stays on loopback or a private network. See the `litellm` skill (`npx skills add ScaleDockHQ/llms-skills --skill litellm`) and `llm-gateway`.
+Or the native route, `model: ollama_chat/qwen3:8b` with `api_base: http://localhost:11434` (LiteLLM's documented form). Keys and budgets live in LiteLLM; Ollama stays on loopback or a private network. See the `litellm` skill (`npx skills add ScaleDockHQ/llm-skills --skill litellm`) and `llm-gateway`.
 
 ## llama-swap
 
@@ -73,4 +73,4 @@ No official Helm chart is cited here. Use `templates/kubernetes.yaml` (Deploymen
 
 ## DGX Spark and unified memory
 
-NVIDIA's DGX Spark playbook uses the native install (https://github.com/NVIDIA/dgx-spark-playbooks/tree/main/nvidia/ollama). GB10 is compute capability 12.1 and listed as supported in the GPU docs. On shared-memory machines set `OLLAMA_CONTEXT_LENGTH`, `OLLAMA_MAX_LOADED_MODELS` and keep-alive explicitly; the VRAM-based defaults assume a discrete card. The `nvidia-dgx-spark` skill (`npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`) has the platform details.
+NVIDIA's DGX Spark playbook uses the native install (https://github.com/NVIDIA/dgx-spark-playbooks/tree/main/nvidia/ollama). GB10 is compute capability 12.1 and listed as supported in the GPU docs. On shared-memory machines set `OLLAMA_CONTEXT_LENGTH`, `OLLAMA_MAX_LOADED_MODELS` and keep-alive explicitly; the VRAM-based defaults assume a discrete card. The `nvidia-dgx-spark` skill (`npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`) has the platform details.

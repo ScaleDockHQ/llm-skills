@@ -48,7 +48,7 @@ curl -s http://127.0.0.1:8000/health; curl -s http://127.0.0.1:8000/v1/models | 
 
 NVFP4 kernel selection (vLLM doc): chosen at load time from the available backends (CUTLASS, FlashInfer, Marlin, others). On GPUs without a supported native FP4 GEMM vLLM falls back to weight-only W4A16 through Marlin and logs a warning, which may reduce throughput on compute-heavy workloads. Override with `--linear-backend` (replaces the deprecated `VLLM_NVFP4_GEMM_BACKEND`); NVFP4 values include `cutlass`, `flashinfer_cutlass`, `flashinfer_cutedsl`, `flashinfer_trtllm`, `flashinfer_cudnn`, `marlin`; list them with `vllm serve --help=KernelConfig`. For `W4A16_NVFP4`, `auto` currently selects Marlin. MXFP8 with BF16 activations on SM100-family GPUs: `--linear-backend flashinfer_trtllm`.
 
-Engine tuning belongs to the `vllm` skill (`npx skills add ScaleDockHQ/llms-skills --skill vllm`). Python API: `LLM(model=..., quantization="modelopt")`.
+Engine tuning belongs to the `vllm` skill (`npx skills add ScaleDockHQ/llm-skills --skill vllm`). Python API: `LLM(model=..., quantization="modelopt")`.
 
 ## SGLang
 
@@ -59,7 +59,7 @@ python3 -m sglang.launch_server --model-path ~/models/<model>-NVFP4 --quantizati
 python3 -m sglang.launch_server --model-path ~/models/<model>-FP8   --quantization modelopt_fp8 --host 127.0.0.1 --port 30000
 ```
 
-ModelOpt's own README uses `sgl.Engine(model_path=..., quantization="modelopt")`. SGLang also documents an online path (apply ModelOpt quantization at startup: high startup time and extra VRAM risk) and an example `examples/usage/modelopt_quantize_and_export.py` in its repo; prefer the offline checkpoint. FP4 and FP8 GEMM backends are selectable with `--fp4-gemm-backend` and `--fp8-gemm-backend`; on SM80 to SM90 `auto` picks Marlin for NVFP4. Tuning: `sglang` skill (`npx skills add ScaleDockHQ/llms-skills --skill sglang`).
+ModelOpt's own README uses `sgl.Engine(model_path=..., quantization="modelopt")`. SGLang also documents an online path (apply ModelOpt quantization at startup: high startup time and extra VRAM risk) and an example `examples/usage/modelopt_quantize_and_export.py` in its repo; prefer the offline checkpoint. FP4 and FP8 GEMM backends are selectable with `--fp4-gemm-backend` and `--fp8-gemm-backend`; on SM80 to SM90 `auto` picks Marlin for NVFP4. Tuning: `sglang` skill (`npx skills add ScaleDockHQ/llm-skills --skill sglang`).
 
 ## TensorRT-LLM
 
@@ -70,7 +70,7 @@ curl -s http://127.0.0.1:8000/health; curl -s http://127.0.0.1:8000/v1/models | 
 
 or Python: `from tensorrt_llm import LLM; LLM(model="<export dir>")`. `trtllm-serve <model> [--tp_size N --pp_size N --ep_size N --host H --port P]` starts an OpenAI-compatible server with `/v1/models`, `/v1/completions`, `/v1/chat/completions`, `/health`, `/metrics`, `/version`.
 
-TensorRT-LLM's PyTorch backend supports FP4 and FP8 on Blackwell and Hopper; its hardware matrix (v1.2.1) shows NVFP4 on Blackwell sm120 and sm100/103, FP8 on Hopper and Ada, W4A16 AWQ on Ampere. KV cache dtype can be set at load: `LLM(model=..., kv_cache_config=KvCacheConfig(dtype='fp8'))` (or `'nvfp4'` after offline ModelOpt quantization with an NVFP4 KV cache). DGX Spark support is listed as beta in the 1.2.1 release notes. Tuning: `tensorrt-llm` skill (`npx skills add ScaleDockHQ/llms-skills --skill tensorrt-llm`).
+TensorRT-LLM's PyTorch backend supports FP4 and FP8 on Blackwell and Hopper; its hardware matrix (v1.2.1) shows NVFP4 on Blackwell sm120 and sm100/103, FP8 on Hopper and Ada, W4A16 AWQ on Ampere. KV cache dtype can be set at load: `LLM(model=..., kv_cache_config=KvCacheConfig(dtype='fp8'))` (or `'nvfp4'` after offline ModelOpt quantization with an NVFP4 KV cache). DGX Spark support is listed as beta in the 1.2.1 release notes. Tuning: `tensorrt-llm` skill (`npx skills add ScaleDockHQ/llm-skills --skill tensorrt-llm`).
 
 Legacy (C++ backend only): `export_tensorrt_llm_checkpoint(model, decoder_type, dtype, export_dir, inference_tensor_parallel, inference_pipeline_parallel, use_nfs_workspace)` then `trtllm-build` to build engines; prefer the unified checkpoint.
 

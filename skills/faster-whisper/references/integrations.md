@@ -15,7 +15,7 @@ faster-whisper is a library: it has no HTTP server, CLI or diarization. These pr
 
 ## Serving over HTTP
 
-Prefer Speaches over a hand-written server: it already handles model loading and unloading, VAD defaults, `multipart/form-data` uploads and the OpenAI response formats. Install with the `speaches` skill (`npx skills add ScaleDockHQ/llms-skills --skill speaches`).
+Prefer Speaches over a hand-written server: it already handles model loading and unloading, VAD defaults, `multipart/form-data` uploads and the OpenAI response formats. Install with the `speaches` skill (`npx skills add ScaleDockHQ/llm-skills --skill speaches`).
 
 If you must embed faster-whisper in your own service:
 

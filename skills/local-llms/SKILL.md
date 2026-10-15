@@ -181,7 +181,7 @@ Don't print API keys, tokens, or the contents of key files. Check that a key exi
 
 ## Companion skills
 
-Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - **choosing-llm-hosting**: local vs self-hosted vs cloud.
 - **self-hosted-llms**: dedicated servers, vLLM/SGLang, DGX Spark, multi-user serving.

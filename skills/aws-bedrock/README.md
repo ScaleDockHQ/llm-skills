@@ -5,7 +5,7 @@ Helps an agent call LLMs through Amazon Bedrock in your own AWS account: grant m
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill aws-bedrock
+npx skills add ScaleDockHQ/llm-skills --skill aws-bedrock
 ```
 
 ## Rules

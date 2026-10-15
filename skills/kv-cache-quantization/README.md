@@ -5,7 +5,7 @@ Helps an agent fit more context or more concurrent requests by quantizing the KV
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill kv-cache-quantization
+npx skills add ScaleDockHQ/llm-skills --skill kv-cache-quantization
 ```
 
 ## Rules

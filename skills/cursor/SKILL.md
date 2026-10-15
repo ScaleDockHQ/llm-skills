@@ -78,7 +78,7 @@ Script: `scripts/probe.sh` (read-only endpoint check; key from `LLM_API_KEY` or 
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `litellm`: the gateway that gives Cursor a scoped key, aliases and budgets.
 - `cloudflare-tunnel`: public HTTPS for a private endpoint; `caddy`: reverse proxy with auth.

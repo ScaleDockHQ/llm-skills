@@ -5,7 +5,7 @@ An agent skill for pointing the official Anthropic Python and TypeScript SDKs at
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill anthropic-sdk
+npx skills add ScaleDockHQ/llm-skills --skill anthropic-sdk
 ```
 
 ## Rules

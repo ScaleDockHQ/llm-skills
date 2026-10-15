@@ -5,7 +5,7 @@ Install, connect and operate Open WebUI against self-hosted OpenAI-compatible en
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill open-webui
+npx skills add ScaleDockHQ/llm-skills --skill open-webui
 ```
 
 ## Contents

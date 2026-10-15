@@ -5,7 +5,7 @@ An agent skill for fine-tuning open-weight LLMs on a local GPU, an NVIDIA DGX Sp
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms
+npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms
 ```
 
 ## Rules
@@ -34,18 +34,18 @@ npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms
 
 ## Companion skills
 
-- `llama-factory`, `peft`, `deepspeed`, `verl`, `openrlhf`, `nvidia-nemo` — trainer, adapter, sharding and RL depth (install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`)
-- `axolotl` — config-driven training and merge/export (install: `npx skills add ScaleDockHQ/llms-skills --skill axolotl`)
-- `unsloth` — memory-tight single-GPU training (install: `npx skills add ScaleDockHQ/llms-skills --skill unsloth`)
-- `trl` — custom Python trainers and GRPO (install: `npx skills add ScaleDockHQ/llms-skills --skill trl`)
-- `llm-evals` — eval sets and quality gates for base vs fine-tune (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`)
-- `model-quantization` — quantize merged models, GGUF types (install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`)
-- `cloud-llms` — rent cloud GPUs for bigger runs (install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`)
-- `self-hosted-llms` — serve the result with vLLM / llama.cpp behind llama-swap and LiteLLM (install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`)
-- `local-llms` — run the result on a laptop or desktop (install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`)
-- `llm-gateway` — expose adapters as model names in LiteLLM (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`)
-- `choosing-llm-hosting` — decide where the model should run (install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`)
-- `llm-observability` — monitor per-adapter traffic and errors (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`)
+- `llama-factory`, `peft`, `deepspeed`, `verl`, `openrlhf`, `nvidia-nemo` — trainer, adapter, sharding and RL depth (install: `npx skills add ScaleDockHQ/llm-skills --skill <name>`)
+- `axolotl` — config-driven training and merge/export (install: `npx skills add ScaleDockHQ/llm-skills --skill axolotl`)
+- `unsloth` — memory-tight single-GPU training (install: `npx skills add ScaleDockHQ/llm-skills --skill unsloth`)
+- `trl` — custom Python trainers and GRPO (install: `npx skills add ScaleDockHQ/llm-skills --skill trl`)
+- `llm-evals` — eval sets and quality gates for base vs fine-tune (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`)
+- `model-quantization` — quantize merged models, GGUF types (install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`)
+- `cloud-llms` — rent cloud GPUs for bigger runs (install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`)
+- `self-hosted-llms` — serve the result with vLLM / llama.cpp behind llama-swap and LiteLLM (install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`)
+- `local-llms` — run the result on a laptop or desktop (install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`)
+- `llm-gateway` — expose adapters as model names in LiteLLM (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`)
+- `choosing-llm-hosting` — decide where the model should run (install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`)
+- `llm-observability` — monitor per-adapter traffic and errors (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`)
 
 ## License
 

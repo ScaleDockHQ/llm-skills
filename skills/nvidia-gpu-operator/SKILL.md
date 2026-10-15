@@ -138,10 +138,10 @@ kubectl apply -f templates/cuda-vectoradd.yaml && kubectl logs pod/cuda-vectorad
 
 ## Companion skills
 
-- `vllm`: the workload. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `ray-serve`: Ray Serve LLM and KubeRay on GPU nodes. Install: `npx skills add ScaleDockHQ/llms-skills --skill ray-serve`.
-- `dcgm-exporter`: GPU metrics in depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill dcgm-exporter`.
-- `keda`: scale model pods on queue and GPU metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill keda`.
-- `gateway-api-inference-extension`: route to the pods. Install: `npx skills add ScaleDockHQ/llms-skills --skill gateway-api-inference-extension`.
-- `choosing-hardware`: pick GPUs and sizing. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `nvidia-dgx-spark`: single-node DGX Spark setup (not Kubernetes). Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`.
+- `vllm`: the workload. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `ray-serve`: Ray Serve LLM and KubeRay on GPU nodes. Install: `npx skills add ScaleDockHQ/llm-skills --skill ray-serve`.
+- `dcgm-exporter`: GPU metrics in depth. Install: `npx skills add ScaleDockHQ/llm-skills --skill dcgm-exporter`.
+- `keda`: scale model pods on queue and GPU metrics. Install: `npx skills add ScaleDockHQ/llm-skills --skill keda`.
+- `gateway-api-inference-extension`: route to the pods. Install: `npx skills add ScaleDockHQ/llm-skills --skill gateway-api-inference-extension`.
+- `choosing-hardware`: pick GPUs and sizing. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `nvidia-dgx-spark`: single-node DGX Spark setup (not Kubernetes). Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`.

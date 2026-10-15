@@ -5,7 +5,7 @@ An agent skill for running and consuming language models in the cloud: frontier 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill cloud-llms
+npx skills add ScaleDockHQ/llm-skills --skill cloud-llms
 ```
 
 ## Rules
@@ -44,7 +44,7 @@ Upstream credit: the Kubernetes templates follow [vLLM's Kubernetes guide](https
 
 ## Companion skills
 
-All in [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+All in [ScaleDockHQ/llm-skills](https://github.com/ScaleDockHQ/llm-skills); install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `choosing-llm-hosting`: decide whether and which cloud tier to use.
 - `self-hosted-llms`: the self-hosted stack (DGX Spark first-class, LiteLLM + llama-swap + engines); also the source of `scripts/bench.sh`.

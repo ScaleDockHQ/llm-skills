@@ -9,4 +9,4 @@
 - Never hand out the master key. With `LITELLM_SALT_KEY` set, rotate the master key by changing the env var and restarting; do not call `/key/regenerate` with `new_master_key`.
 - Pitfalls: a key without `models` can call every alias including paid cloud ones; local models need explicit zero cost or spend is mispriced.
 
-Depth: install the litellm skill (npx skills add ScaleDockHQ/llms-skills --skill litellm)
+Depth: install the litellm skill (npx skills add ScaleDockHQ/llm-skills --skill litellm)

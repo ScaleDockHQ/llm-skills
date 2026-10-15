@@ -8,7 +8,7 @@ sleep mode and version pairing.
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill vllm-omni
+npx skills add ScaleDockHQ/llm-skills --skill vllm-omni
 ```
 
 ## Rules

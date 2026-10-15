@@ -29,7 +29,7 @@ model_list:
       api_key: not-used
 ```
 
-For the full gateway setup (keys, budgets, fallbacks) use the `litellm` skill: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
+For the full gateway setup (keys, budgets, fallbacks) use the `litellm` skill: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
 mistral.rs reports per-model readiness in `/v1/models` `status`, which a gateway health check can use.
 
 ## Open WebUI
@@ -41,7 +41,7 @@ from `/v1/models`.
 
 mistral.rs already hosts several models in one process via `from-config`; use llama-swap only to swap whole processes (for example a
 CUDA model and another engine). Command template: `mistralrs serve --host 127.0.0.1 --port ${PORT} -m ...`, health-check path `/health`
-(liveness only, so also probe `/v1/models`). Skill: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
+(liveness only, so also probe `/v1/models`). Skill: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
 
 ## Codex (Responses API)
 

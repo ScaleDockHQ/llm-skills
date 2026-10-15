@@ -5,7 +5,7 @@ A stack skill that wires one LiteLLM gateway to Langfuse for per-request traces 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill litellm-langfuse-prometheus
+npx skills add ScaleDockHQ/llm-skills --skill litellm-langfuse-prometheus
 ```
 
 ## Rules

@@ -91,7 +91,7 @@ Assets and scripts: `assets/otel-collector.yaml` (validated against contrib 0.16
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-observability`: choosing and combining tracing backends.
 - `arize-phoenix`, `langfuse`, `mlflow-tracing`: backends that receive the spans.

@@ -5,7 +5,7 @@ Choose and operate NVIDIA datacenter GPUs (H100, H200, B200, B300, GB200/GB300) 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill nvidia-datacenter-gpus
+npx skills add ScaleDockHQ/llm-skills --skill nvidia-datacenter-gpus
 ```
 
 ## Rules

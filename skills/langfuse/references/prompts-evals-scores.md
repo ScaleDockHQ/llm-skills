@@ -56,7 +56,7 @@ curl -fsS -u "$LANGFUSE_PUBLIC_KEY:$LANGFUSE_SECRET_KEY" "$LANGFUSE_HOST/api/pub
 
 ## Boundary with other skills
 
-Choosing an eval methodology, golden sets and CI gates in general belongs to `llm-evals`: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+Choosing an eval methodology, golden sets and CI gates in general belongs to `llm-evals`: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
 
 ## Official links
 

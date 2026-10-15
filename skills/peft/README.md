@@ -5,7 +5,7 @@ An agent skill for [PEFT](https://github.com/huggingface/peft), Hugging Face's p
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill peft
+npx skills add ScaleDockHQ/llm-skills --skill peft
 ```
 
 ## Rules
@@ -30,10 +30,10 @@ npx skills add ScaleDockHQ/llms-skills --skill peft
 
 ## Companion skills
 
-- `fine-tuning-llms`: decide, prepare data, choose method and hardware (install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`)
+- `fine-tuning-llms`: decide, prepare data, choose method and hardware (install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`)
 - `trl`, `axolotl`, `llama-factory`, `unsloth`: trainers built on PEFT
 - `deepspeed`: ZeRO configs and offload
-- `vllm`: serve adapters or merged models (install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`)
+- `vllm`: serve adapters or merged models (install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`)
 
 ## License
 

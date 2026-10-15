@@ -5,7 +5,7 @@ An agent skill for running [DeepEval](https://github.com/confident-ai/deepeval) 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill deepeval
+npx skills add ScaleDockHQ/llm-skills --skill deepeval
 ```
 
 ## Rules

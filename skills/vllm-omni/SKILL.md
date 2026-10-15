@@ -82,8 +82,8 @@ curl -s -m 3 http://127.0.0.1:8091/v1/models | jq '.data[].id'
 
 ## Companion skills
 
-- `vllm`: the text-only engine this builds on. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `self-hosted-genmedia`: choose between vLLM-Omni, ComfyUI, sd-server, diffusers and InvokeAI. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `comfyui`: node UI that can call vLLM-Omni through a custom node. Install: `npx skills add ScaleDockHQ/llms-skills --skill comfyui`.
-- `hugging-face`: tokens, gated repos and cache. Install: `npx skills add ScaleDockHQ/llms-skills --skill hugging-face`.
-- `litellm`: gateway in front of OpenAI-style routes. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
+- `vllm`: the text-only engine this builds on. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `self-hosted-genmedia`: choose between vLLM-Omni, ComfyUI, sd-server, diffusers and InvokeAI. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `comfyui`: node UI that can call vLLM-Omni through a custom node. Install: `npx skills add ScaleDockHQ/llm-skills --skill comfyui`.
+- `hugging-face`: tokens, gated repos and cache. Install: `npx skills add ScaleDockHQ/llm-skills --skill hugging-face`.
+- `litellm`: gateway in front of OpenAI-style routes. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.

@@ -99,8 +99,8 @@ curl -s http://127.0.0.1:1234/v1/chat/completions -H 'Content-Type: application/
 
 ## Companion skills
 
-- `local-llms`: choose and compare local runtimes. Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `mlx`: run, convert and fine-tune MLX models directly with `mlx-lm`. Install: `npx skills add ScaleDockHQ/llms-skills --skill mlx`.
-- `llm-clients`: wire editors and coding agents to an endpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-clients`.
-- `llm-gateway`: put a gateway in front for keys and routing. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `choosing-hardware`: size RAM/VRAM for a model. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
+- `local-llms`: choose and compare local runtimes. Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `mlx`: run, convert and fine-tune MLX models directly with `mlx-lm`. Install: `npx skills add ScaleDockHQ/llm-skills --skill mlx`.
+- `llm-clients`: wire editors and coding agents to an endpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-clients`.
+- `llm-gateway`: put a gateway in front for keys and routing. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `choosing-hardware`: size RAM/VRAM for a model. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.

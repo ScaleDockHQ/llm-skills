@@ -159,8 +159,8 @@ can take many minutes. Gated models need `HF_TOKEN` forwarded with `-e HF_TOKEN`
 
 ## Companion skills
 
-- `choosing-inference-engine`: compare LMDeploy with vLLM, SGLang and others. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `llama-swap`, `litellm`: routing and gateways in front of LMDeploy. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `tool-calling-parsers`, `structured-outputs`: parser and schema detail. Install: `npx skills add ScaleDockHQ/llms-skills --skill tool-calling-parsers`.
-- `model-quantization`: other quantization paths. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `llm-observability`: traces, cost and evals. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `choosing-inference-engine`: compare LMDeploy with vLLM, SGLang and others. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `llama-swap`, `litellm`: routing and gateways in front of LMDeploy. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `tool-calling-parsers`, `structured-outputs`: parser and schema detail. Install: `npx skills add ScaleDockHQ/llm-skills --skill tool-calling-parsers`.
+- `model-quantization`: other quantization paths. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `llm-observability`: traces, cost and evals. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

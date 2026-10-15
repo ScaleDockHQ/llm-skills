@@ -5,7 +5,7 @@ An agent skill for running [Axolotl](https://github.com/axolotl-ai-cloud/axolotl
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill axolotl
+npx skills add ScaleDockHQ/llm-skills --skill axolotl
 ```
 
 ## Rules
@@ -32,12 +32,12 @@ npx skills add ScaleDockHQ/llms-skills --skill axolotl
 
 ## Companion skills
 
-- `fine-tuning-llms`: decide, prepare data, choose method and hardware (install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`)
-- `unsloth`: memory-tight single-GPU alternative (install: `npx skills add ScaleDockHQ/llms-skills --skill unsloth`)
-- `trl`: custom Python trainers and rewards (install: `npx skills add ScaleDockHQ/llms-skills --skill trl`)
-- `llm-compressor`: quantize merged models (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`)
-- `vllm`: serve merged models or adapters (install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`)
-- `llm-evals`: compare the fine-tune with the base model (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`)
+- `fine-tuning-llms`: decide, prepare data, choose method and hardware (install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`)
+- `unsloth`: memory-tight single-GPU alternative (install: `npx skills add ScaleDockHQ/llm-skills --skill unsloth`)
+- `trl`: custom Python trainers and rewards (install: `npx skills add ScaleDockHQ/llm-skills --skill trl`)
+- `llm-compressor`: quantize merged models (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-compressor`)
+- `vllm`: serve merged models or adapters (install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`)
+- `llm-evals`: compare the fine-tune with the base model (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`)
 
 ## License
 

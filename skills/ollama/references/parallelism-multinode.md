@@ -52,4 +52,4 @@ No clustering. Put a load balancer or a gateway (`litellm`, `llm-gateway`) in fr
 | LoRA serving                                                                       | `vllm`, `llama-cpp`, or merge the adapter and import (Ollama rejects adapters) |
 | Model swapping across engines with TTLs                                            | `llama-swap` in front of Ollama (see `combos/llama-swap.md`)                   |
 
-Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.

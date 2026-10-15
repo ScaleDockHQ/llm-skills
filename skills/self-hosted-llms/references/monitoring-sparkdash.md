@@ -7,7 +7,7 @@ probes, decode benchmark, power controls. Generic metrics pipelines (Prometheus,
 LiteLLM spend) belong to the companion skill:
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llm-observability
+npx skills add ScaleDockHQ/llm-skills --skill llm-observability
 ```
 
 ## sparkDash

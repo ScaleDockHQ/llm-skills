@@ -94,7 +94,7 @@ Templates: `assets/docker-compose.yml`, `assets/open-webui.env.example`.
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-clients`: choosing a client, shared capability and troubleshooting notes.
 - `litellm`: the gateway with virtual keys that Open WebUI should point at.

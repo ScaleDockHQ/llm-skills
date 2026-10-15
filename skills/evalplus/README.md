@@ -5,7 +5,7 @@ An agent skill for scoring code-generation models with [EvalPlus](https://github
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill evalplus
+npx skills add ScaleDockHQ/llm-skills --skill evalplus
 ```
 
 ## Rules

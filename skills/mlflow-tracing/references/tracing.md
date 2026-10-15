@@ -47,7 +47,7 @@ curl -sS -G "$MLFLOW_URL/api/2.0/mlflow/experiments/get-by-name" --data-urlencod
 
 **GenAI semantic conventions are recognized on ingest.** Tested on 3.17.0: a span with `gen_ai.operation.name=chat`, `gen_ai.provider.name`, `gen_ai.request.model`, `gen_ai.usage.input_tokens`/`output_tokens` and `gen_ai.input.messages`/`gen_ai.output.messages` arrived as a `CHAT_MODEL` span with token usage `{input: 7, output: 3, total: 10}` and structured inputs and outputs. Attributes in OpenInference and OpenLLMetry vocabularies are translated by the attribute mapping table in the docs (`genai/tracing/opentelemetry/attribute-mapping`). Without LLM attributes spans still appear as generic spans.
 
-Official instrumentation and Collector configs: `opentelemetry-genai` skill (`npx skills add ScaleDockHQ/llms-skills --skill opentelemetry-genai`). A Collector between apps and MLflow adds content stripping and sampling:
+Official instrumentation and Collector configs: `opentelemetry-genai` skill (`npx skills add ScaleDockHQ/llm-skills --skill opentelemetry-genai`). A Collector between apps and MLflow adds content stripping and sampling:
 
 ```yaml
 exporters:

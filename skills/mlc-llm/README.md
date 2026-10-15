@@ -7,7 +7,7 @@ Verified against MLC LLM `main` (8978ea9a, tags v0.20.0 and v0.26.dev0) on 2026-
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill mlc-llm
+npx skills add ScaleDockHQ/llm-skills --skill mlc-llm
 ```
 
 ## Rules

@@ -5,7 +5,7 @@ Helps an agent choose and size hardware for running an LLM. It turns a model, a 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware
+npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware
 ```
 
 ## Rules

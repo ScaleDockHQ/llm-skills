@@ -5,7 +5,7 @@ An agent skill for pointing LlamaIndex (Python `llama-index` 0.14.x) at self-hos
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llamaindex
+npx skills add ScaleDockHQ/llm-skills --skill llamaindex
 ```
 
 ## Rules

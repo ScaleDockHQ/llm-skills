@@ -104,8 +104,8 @@ curl -sS http://localhost:8080/api/providers | jq 'keys? // .'
 
 ## Companion skills
 
-- `llm-gateway`: gateway design. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `litellm`: the main alternative and migration source. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `llm-observability`: wider tracing. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `vllm`, `ollama`: self-hosted providers behind Bifrost. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `caddy`, `cloudflare-tunnel`, `tailscale`: TLS and exposure. Install: `npx skills add ScaleDockHQ/llms-skills --skill caddy`.
+- `llm-gateway`: gateway design. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `litellm`: the main alternative and migration source. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `llm-observability`: wider tracing. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `vllm`, `ollama`: self-hosted providers behind Bifrost. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `caddy`, `cloudflare-tunnel`, `tailscale`: TLS and exposure. Install: `npx skills add ScaleDockHQ/llm-skills --skill caddy`.

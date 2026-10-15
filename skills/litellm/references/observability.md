@@ -46,7 +46,7 @@ Env vars (names only): `LITELLM_OTEL_V2=true` (required for `langfuse_otel`: OTe
 
 ## Beyond LiteLLM
 
-Dashboards, OTel collectors, retention and alerting across engines and the gateway: install the `llm-observability` skill (`npx skills add ScaleDockHQ/llms-skills --skill llm-observability`).
+Dashboards, OTel collectors, retention and alerting across engines and the gateway: install the `llm-observability` skill (`npx skills add ScaleDockHQ/llm-skills --skill llm-observability`).
 
 ## Official links
 

@@ -5,7 +5,7 @@ Run Qdrant beside a self-hosted LLM stack: Docker install, RAM and disk sizing, 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill qdrant
+npx skills add ScaleDockHQ/llm-skills --skill qdrant
 ```
 
 ## Rules

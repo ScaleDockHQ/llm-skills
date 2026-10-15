@@ -2,7 +2,7 @@
 
 > Verified against GuideLLM 0.8.1 (README, docs `getting-started/benchmark.md`, `guides/service_level_objectives.md`) and vLLM `vllm serve` as used there, 2026-10-11
 
-Server setup lives in the `vllm` skill (`npx skills add ScaleDockHQ/llms-skills --skill vllm`).
+Server setup lives in the `vllm` skill (`npx skills add ScaleDockHQ/llm-skills --skill vllm`).
 
 ## 1. Server and check
 

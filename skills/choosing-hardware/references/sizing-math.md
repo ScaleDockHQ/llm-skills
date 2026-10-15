@@ -38,7 +38,7 @@ Illustrative numbers (not a specific model): 48 layers, 8 KV heads, head dim 128
 - 8 concurrent sequences at 32,768 tokens: 48 GiB.
 - An 8-bit cache halves those figures, a 4-bit cache quarters them. Ollama's FAQ describes `q8_0` as about half of `f16` memory and `q4_0` as about a quarter, with `q4_0` loss more noticeable at higher context and for high-GQA models. llama.cpp exposes the same idea through `--cache-type-k` and `--cache-type-v`.
 
-**Quality gate.** KV-cache quantization changes numerics. Gate it with `llm-evals` before using it to make a model fit: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+**Quality gate.** KV-cache quantization changes numerics. Gate it with `llm-evals` before using it to make a model fit: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
 
 Concurrency multiplies this term. Ollama states that required memory scales with `OLLAMA_NUM_PARALLEL` times `OLLAMA_CONTEXT_LENGTH`, and that a 2K context with 4 parallel requests becomes an 8K context allocation. Other engines expose their own limits (vLLM `--max-num-seqs`, llama.cpp `--parallel`); see the engine skills.
 

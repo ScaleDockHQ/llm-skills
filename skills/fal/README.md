@@ -5,7 +5,7 @@ Helps an agent use fal (fal.ai): call hosted image, video, audio and 3D models t
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill fal
+npx skills add ScaleDockHQ/llm-skills --skill fal
 ```
 
 ## Rules

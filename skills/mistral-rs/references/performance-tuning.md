@@ -7,7 +7,7 @@ Change one thing at a time. Record the version, model, quant, flags, prompt and 
 
 ```bash
 mistralrs bench -m Qwen/Qwen3-4B --quant 4                       # single-request prefill and decode rates
-# Concurrent load: the shared script from the self-hosted-llms skill (npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms)
+# Concurrent load: the shared script from the self-hosted-llms skill (npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms)
 ```
 
 ## Levers, in order of impact

@@ -5,7 +5,7 @@ Helps an agent use Fireworks AI for open-model APIs: OpenAI- and Anthropic-compa
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill fireworks-ai
+npx skills add ScaleDockHQ/llm-skills --skill fireworks-ai
 ```
 
 ## Rules

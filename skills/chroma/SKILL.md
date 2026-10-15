@@ -69,7 +69,7 @@ free -g 2>/dev/null | sed -n 1,2p; df -h . | tail -1
 
 ## Companion skills
 
-- `text-embeddings-inference`, `infinity`: embedding servers. Install: `npx skills add ScaleDockHQ/llms-skills --skill text-embeddings-inference`.
-- `litellm`: embeddings gateway. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `qdrant`: alternative with API keys. Install: `npx skills add ScaleDockHQ/llms-skills --skill qdrant`.
-- `pgvector`: Postgres alternative. Install: `npx skills add ScaleDockHQ/llms-skills --skill pgvector`.
+- `text-embeddings-inference`, `infinity`: embedding servers. Install: `npx skills add ScaleDockHQ/llm-skills --skill text-embeddings-inference`.
+- `litellm`: embeddings gateway. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `qdrant`: alternative with API keys. Install: `npx skills add ScaleDockHQ/llm-skills --skill qdrant`.
+- `pgvector`: Postgres alternative. Install: `npx skills add ScaleDockHQ/llm-skills --skill pgvector`.

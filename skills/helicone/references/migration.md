@@ -22,7 +22,7 @@ List every base URL, header (`Helicone-*`) and `helicone/` model prefix in use.
 | Tracing, sessions, evals          | `langfuse`, `llm-observability`, `llm-evals`                       |
 | Caching and rate limits           | the new gateway's own features                                     |
 
-Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 ## Steps
 

@@ -25,7 +25,7 @@ Stack pitfalls:
 
 Depth:
 
-- `claude-code`: `npx skills add ScaleDockHQ/llms-skills --skill claude-code`
-- `codex-cli`: `npx skills add ScaleDockHQ/llms-skills --skill codex-cli`
-- `opencode`: `npx skills add ScaleDockHQ/llms-skills --skill opencode`
-- `aider`: `npx skills add ScaleDockHQ/llms-skills --skill aider`
+- `claude-code`: `npx skills add ScaleDockHQ/llm-skills --skill claude-code`
+- `codex-cli`: `npx skills add ScaleDockHQ/llm-skills --skill codex-cli`
+- `opencode`: `npx skills add ScaleDockHQ/llm-skills --skill opencode`
+- `aider`: `npx skills add ScaleDockHQ/llm-skills --skill aider`

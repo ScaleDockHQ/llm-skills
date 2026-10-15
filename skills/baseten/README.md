@@ -5,7 +5,7 @@ Helps an agent use Baseten: call hosted Model APIs (OpenAI Chat Completions and 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill baseten
+npx skills add ScaleDockHQ/llm-skills --skill baseten
 ```
 
 ## Rules

@@ -2,7 +2,7 @@
 
 > Verified against Open WebUI v0.12.0 and LiteLLM v1.105.0 (inherited stamp; docs: connect-a-provider), 2026-10-11
 
-Pattern: Open WebUI has a single OpenAI-compatible connection to LiteLLM (or llama-swap); the gateway fans out to vLLM, llama.cpp, Ollama and clouds, and holds the upstream keys. Open WebUI then needs only one virtual key and one URL. Set up the gateway with the `litellm` or `llama-swap` skill (install with `npx skills add ScaleDockHQ/llms-skills --skill litellm`).
+Pattern: Open WebUI has a single OpenAI-compatible connection to LiteLLM (or llama-swap); the gateway fans out to vLLM, llama.cpp, Ollama and clouds, and holds the upstream keys. Open WebUI then needs only one virtual key and one URL. Set up the gateway with the `litellm` or `llama-swap` skill (install with `npx skills add ScaleDockHQ/llm-skills --skill litellm`).
 
 1. Gateway: create a virtual key limited to the models Open WebUI should see, with a budget (`litellm` skill), stored in a `0600` file.
 2. Connection: `http://host.docker.internal:4000/v1` (or `http://litellm:4000/v1` on a shared network), Bearer, that key. Set Provider to LiteLLM in Advanced.

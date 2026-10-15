@@ -5,7 +5,7 @@ An agent skill for [Jan](https://github.com/janhq/jan), the open-source desktop 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill jan
+npx skills add ScaleDockHQ/llm-skills --skill jan
 ```
 
 ## Rules
@@ -27,7 +27,7 @@ npx skills add ScaleDockHQ/llms-skills --skill jan
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 `local-llms`, `lm-studio`, `ollama`, `llama-cpp`, `mlx`, `litellm`, `llm-clients`.
 

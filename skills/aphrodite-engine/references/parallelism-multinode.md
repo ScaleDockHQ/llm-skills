@@ -53,7 +53,7 @@ only if you accept uneven load.
 Via NIXL and other KV connectors; the Rust frontend and render API (`/v1/chat/completions/render`,
 `/inference/v1/generate`) support split encode/prefill/decode. Upstream says the code and examples in your
 installed commit define the supported configuration. Technique guidance: `disaggregated-serving` skill. Install:
-`npx skills add ScaleDockHQ/llms-skills --skill disaggregated-serving`.
+`npx skills add ScaleDockHQ/llm-skills --skill disaggregated-serving`.
 
 ## Ray security
 

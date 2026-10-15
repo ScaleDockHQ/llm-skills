@@ -11,4 +11,4 @@ Axolotl is this skill's default trainer: one YAML describes model, data, adapter
 - **Out:** adapter in `output_dir` for vLLM `--lora-modules` and `convert_lora_to_gguf.py` (`serving-adapters.md`), or merged weights via `axolotl merge-lora cfg.yaml` (QLoRA: `--dequant`) for `evaluate-and-merge.md`.
 - **Run it** in `tmux` and a memory-capped scope (`hardware.md`).
 
-Depth: install the axolotl skill (npx skills add ScaleDockHQ/llms-skills --skill axolotl)
+Depth: install the axolotl skill (npx skills add ScaleDockHQ/llm-skills --skill axolotl)

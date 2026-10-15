@@ -5,7 +5,7 @@ An agent skill for PostHog AI Observability (formerly LLM analytics). It covers 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill posthog-llm-analytics
+npx skills add ScaleDockHQ/llm-skills --skill posthog-llm-analytics
 ```
 
 ## Rules

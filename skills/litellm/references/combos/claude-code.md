@@ -50,4 +50,4 @@ curl -fsS http://127.0.0.1:4000/v1/messages -H "Authorization: Bearer $LITELLM_A
   | jq '{type, stop_reason, content: [.content[].type]}'
 ```
 
-Then run one tool call and one streamed answer. Per-client settings files and other agents: install the `llm-clients` skill (`npx skills add ScaleDockHQ/llms-skills --skill llm-clients`).
+Then run one tool call and one streamed answer. Per-client settings files and other agents: install the `llm-clients` skill (`npx skills add ScaleDockHQ/llm-skills --skill llm-clients`).

@@ -5,7 +5,7 @@ An agent skill for installing and operating [InvokeAI](https://github.com/invoke
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill invokeai
+npx skills add ScaleDockHQ/llm-skills --skill invokeai
 ```
 
 ## Rules

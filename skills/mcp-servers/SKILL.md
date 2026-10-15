@@ -69,7 +69,7 @@ ss -ltnp 2>/dev/null | grep -E ':(4000|6333|8000|8001)\b' || true
 
 ## Companion skills
 
-- `qdrant`, `chroma`, `pgvector`: the stores. Install: `npx skills add ScaleDockHQ/llms-skills --skill qdrant`.
-- `litellm`: gateway for models and MCP. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `open-webui`: chat host with MCP tool support. Install: `npx skills add ScaleDockHQ/llms-skills --skill open-webui`.
-- `text-embeddings-inference`: embedder. Install: `npx skills add ScaleDockHQ/llms-skills --skill text-embeddings-inference`.
+- `qdrant`, `chroma`, `pgvector`: the stores. Install: `npx skills add ScaleDockHQ/llm-skills --skill qdrant`.
+- `litellm`: gateway for models and MCP. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `open-webui`: chat host with MCP tool support. Install: `npx skills add ScaleDockHQ/llm-skills --skill open-webui`.
+- `text-embeddings-inference`: embedder. Install: `npx skills add ScaleDockHQ/llm-skills --skill text-embeddings-inference`.

@@ -5,7 +5,7 @@ Helps an agent choose and serve DeepSeek models: V4.1-Flash, V4-Flash-0731, V4-P
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill deepseek
+npx skills add ScaleDockHQ/llm-skills --skill deepseek
 ```
 
 ## Rules

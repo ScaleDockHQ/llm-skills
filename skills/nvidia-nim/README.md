@@ -5,7 +5,7 @@ An agent skill for running [NVIDIA NIM for LLMs and VLMs](https://docs.nvidia.co
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill nvidia-nim
+npx skills add ScaleDockHQ/llm-skills --skill nvidia-nim
 ```
 
 ## Rules
@@ -35,7 +35,7 @@ Templates: [`templates/docker-compose.yml`](templates/docker-compose.yml), [`tem
 
 ## Companion skills
 
-From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+From [ScaleDockHQ/llm-skills](https://github.com/ScaleDockHQ/llm-skills); install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `vllm`, `sglang`: the backends inside the image.
 - `nvidia-dynamo`, `triton-inference-server`: the other NVIDIA serving products.

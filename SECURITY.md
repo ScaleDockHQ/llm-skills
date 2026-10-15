@@ -4,7 +4,7 @@ This repo publishes agent skills: markdown instructions, references, config temp
 
 ## Reporting a vulnerability
 
-Report it privately through [GitHub security advisories](https://github.com/ScaleDockHQ/llms-skills/security/advisories/new). Do not open a public issue.
+Report it privately through [GitHub security advisories](https://github.com/ScaleDockHQ/llm-skills/security/advisories/new). Do not open a public issue.
 
 Include the skill name and version, the file and line, and what an agent would do as a result. We reply within five working days.
 

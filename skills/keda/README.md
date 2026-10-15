@@ -8,7 +8,7 @@ add-on v0.16.0.
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill keda
+npx skills add ScaleDockHQ/llm-skills --skill keda
 ```
 
 ## Rules

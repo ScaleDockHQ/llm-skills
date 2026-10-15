@@ -5,7 +5,7 @@ An agent skill for Datadog Agent Observability (formerly LLM Observability). It 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill datadog-llm-observability
+npx skills add ScaleDockHQ/llm-skills --skill datadog-llm-observability
 ```
 
 ## Rules

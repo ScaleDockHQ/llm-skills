@@ -171,10 +171,10 @@ can take many minutes and needs access to PyPI or a mirror.
 
 ## Companion skills
 
-- `choosing-inference-engine`: Xinference vs vLLM vs SGLang vs llama.cpp. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `vllm` and `sglang`: engine-level flags that Xinference passes through. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `llama-cpp` and `mlx`: the GGUF and Apple Silicon engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `litellm` and `llm-gateway`: keys, routing, fallbacks. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `llama-swap`: on-demand swapping alternative. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `multi-node-inference`, `prefix-aware-routing`, `disaggregated-serving`: technique-level guidance. Install: `npx skills add ScaleDockHQ/llms-skills --skill multi-node-inference`.
-- `llm-observability`: traces and cost around the server. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `choosing-inference-engine`: Xinference vs vLLM vs SGLang vs llama.cpp. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `vllm` and `sglang`: engine-level flags that Xinference passes through. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `llama-cpp` and `mlx`: the GGUF and Apple Silicon engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `litellm` and `llm-gateway`: keys, routing, fallbacks. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `llama-swap`: on-demand swapping alternative. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `multi-node-inference`, `prefix-aware-routing`, `disaggregated-serving`: technique-level guidance. Install: `npx skills add ScaleDockHQ/llm-skills --skill multi-node-inference`.
+- `llm-observability`: traces and cost around the server. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

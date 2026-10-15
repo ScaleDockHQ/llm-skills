@@ -79,7 +79,7 @@ Ask only what discovery cannot show: hostname and zone, who calls the API (brows
 
 ## Companion skills
 
-- `tailscale`: tailnet-only access, no public hostname. Install: `npx skills add ScaleDockHQ/llms-skills --skill tailscale`.
-- `caddy`: loopback reverse proxy, model catalog, forward auth. Install: `npx skills add ScaleDockHQ/llms-skills --skill caddy`.
-- `litellm`: the authenticated gateway behind the tunnel. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `self-hosted-llms`: the full self-hosted stack that uses this tunnel. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `tailscale`: tailnet-only access, no public hostname. Install: `npx skills add ScaleDockHQ/llm-skills --skill tailscale`.
+- `caddy`: loopback reverse proxy, model catalog, forward auth. Install: `npx skills add ScaleDockHQ/llm-skills --skill caddy`.
+- `litellm`: the authenticated gateway behind the tunnel. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `self-hosted-llms`: the full self-hosted stack that uses this tunnel. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

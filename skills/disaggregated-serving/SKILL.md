@@ -53,7 +53,7 @@ Ask the user only what cannot be discovered: latency targets (TTFT, ITL), typica
 - **Secrets never touch output.** Keys and tokens live in `0600` files or environment variables. Never echo `HF_TOKEN` or API keys in launch commands you print.
 - **Verify upstream.** Flags and defaults drift. Re-read the engine docs for the installed version before using a flag from a reference. Anything marked "(unverified)" is a lead, not a fact.
 - **Do not expose side channels.** NIXL side-channel ports, Mooncake bootstrap ports, SGLang bootstrap ports, Ray and ZMQ KV-event ports are unauthenticated internal interfaces: bind to a private network only.
-- **Gate numerics changes.** Any option that changes numerics (lossy or lower-precision KV, heterogeneous TP, recompute-on-failure, quantization) must pass the `llm-evals` gate. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- **Gate numerics changes.** Any option that changes numerics (lossy or lower-precision KV, heterogeneous TP, recompute-on-failure, quantization) must pass the `llm-evals` gate. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
 - **One change at a time.** P/D split first, then one numerics option per gate run.
 
 ## Techniques per engine
@@ -75,13 +75,13 @@ Flag names below are the ones upstream documents for the versions in the referen
 
 ## Companion skills
 
-- `llm-evals`: quality-gates numerics-changing options. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `self-hosted-llms`: benchmarks and serving stack on owned GPUs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `vllm`: engine install and tuning. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `sglang`: engine install and tuning. Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
-- `tensorrt-llm`: engine install and tuning. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorrt-llm`.
-- `prefix-aware-routing`: KV/prefix-aware request routing across replicas. Install: `npx skills add ScaleDockHQ/llms-skills --skill prefix-aware-routing`.
-- `multi-node-inference`: TP/PP/DP/EP across nodes and the interconnect. Install: `npx skills add ScaleDockHQ/llms-skills --skill multi-node-inference`.
-- `kv-cache-offloading`: tiered KV storage. Install: `npx skills add ScaleDockHQ/llms-skills --skill kv-cache-offloading`.
-- `choosing-inference-engine`, `choosing-hardware`: pick engine and GPUs first. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
+- `llm-evals`: quality-gates numerics-changing options. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `self-hosted-llms`: benchmarks and serving stack on owned GPUs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `vllm`: engine install and tuning. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `sglang`: engine install and tuning. Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
+- `tensorrt-llm`: engine install and tuning. Install: `npx skills add ScaleDockHQ/llm-skills --skill tensorrt-llm`.
+- `prefix-aware-routing`: KV/prefix-aware request routing across replicas. Install: `npx skills add ScaleDockHQ/llm-skills --skill prefix-aware-routing`.
+- `multi-node-inference`: TP/PP/DP/EP across nodes and the interconnect. Install: `npx skills add ScaleDockHQ/llm-skills --skill multi-node-inference`.
+- `kv-cache-offloading`: tiered KV storage. Install: `npx skills add ScaleDockHQ/llm-skills --skill kv-cache-offloading`.
+- `choosing-inference-engine`, `choosing-hardware`: pick engine and GPUs first. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
 - Planned product skills, by name: `dynamo`, `llm-d`, `aibrix`.

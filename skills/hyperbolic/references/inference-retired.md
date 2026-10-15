@@ -24,7 +24,7 @@ The old inference overview and quickstart paths now redirect to that FAQ. The do
 
 ## Migration paths
 
-1. **Another hosted open-model provider.** Load `cloud-llms` (`npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`). It covers managed open-model APIs and how to wire them into LiteLLM.
+1. **Another hosted open-model provider.** Load `cloud-llms` (`npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`). It covers managed open-model APIs and how to wire them into LiteLLM.
 2. **Keep Hyperbolic, run it yourself.** Rent a GPU (`SKILL.md` workflow 2), serve the model with `self-hosted-llms`, and expose it through `llm-gateway` with the same model alias your clients already use. The client code then needs only a new base URL and key at the gateway.
 3. **Wait for the new product.** Not plannable until a date is published. Check https://hyperbolic.ai/docs/changelog.
 

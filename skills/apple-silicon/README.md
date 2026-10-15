@@ -5,7 +5,7 @@ Size, tune and operate an Apple Silicon Mac (MacBook, Mac mini, Mac Studio) for 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill apple-silicon
+npx skills add ScaleDockHQ/llm-skills --skill apple-silicon
 ```
 
 ## Rules

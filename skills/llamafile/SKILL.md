@@ -96,9 +96,9 @@ curl -s http://127.0.0.1:8080/v1/chat/completions -H 'Content-Type: application/
 
 ## Companion skills
 
-- `choosing-inference-engine`: compare engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `llama-cpp`: the engine inside llamafile. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `whisper-cpp`: the engine behind whisperfile. Install: `npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp`.
-- `ollama`: model-manager alternative. Install: `npx skills add ScaleDockHQ/llms-skills --skill ollama`.
-- `litellm`: gateway and keys. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `self-hosted-llms`: the end-to-end stack. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `choosing-inference-engine`: compare engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `llama-cpp`: the engine inside llamafile. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `whisper-cpp`: the engine behind whisperfile. Install: `npx skills add ScaleDockHQ/llm-skills --skill whisper-cpp`.
+- `ollama`: model-manager alternative. Install: `npx skills add ScaleDockHQ/llm-skills --skill ollama`.
+- `litellm`: gateway and keys. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `self-hosted-llms`: the end-to-end stack. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

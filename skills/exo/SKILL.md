@@ -97,7 +97,7 @@ Ask only what discovery cannot show: which devices, how they are cabled (Thunder
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `mlx`: the single-machine MLX stack exo builds on.
 - `local-llms`: choosing a local runtime.

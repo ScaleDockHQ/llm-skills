@@ -5,7 +5,7 @@ Helps an agent connect OpenCode (`opencode`, the open-source terminal coding age
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill opencode
+npx skills add ScaleDockHQ/llm-skills --skill opencode
 ```
 
 ## Rules

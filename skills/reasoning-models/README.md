@@ -5,7 +5,7 @@ An agent skill for running thinking models on self-hosted engines: separating th
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill reasoning-models
+npx skills add ScaleDockHQ/llm-skills --skill reasoning-models
 ```
 
 ## Rules

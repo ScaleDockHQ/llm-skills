@@ -2,7 +2,7 @@
 
 > Verified against LM Studio 0.4.26 (`lms` CLI bundled, llmster headless daemon), 2026-10-11
 
-Depth: install the lm-studio skill (`npx skills add ScaleDockHQ/llms-skills --skill lm-studio`).
+Depth: install the lm-studio skill (`npx skills add ScaleDockHQ/llm-skills --skill lm-studio`).
 
 ## How it plugs into this stack
 

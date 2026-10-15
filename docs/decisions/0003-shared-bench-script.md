@@ -7,7 +7,7 @@
 
 `local-llms`, `self-hosted-llms` and `cloud-llms` all tell the agent to measure before and after every change with the same fixed protocol against an OpenAI-compatible endpoint. Results are only comparable across machines and providers if the script is the same.
 
-Each skill is installed on its own (`npx skills add ScaleDockHQ/llms-skills --skill local-llms`), so a skill cannot rely on a file in another skill or at the repo root.
+Each skill is installed on its own (`npx skills add ScaleDockHQ/llm-skills --skill local-llms`), so a skill cannot rely on a file in another skill or at the repo root.
 
 ## Decision
 

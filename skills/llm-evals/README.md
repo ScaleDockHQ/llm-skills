@@ -5,7 +5,7 @@ An agent skill for evaluating LLMs on your own tasks against any OpenAI-compatib
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llm-evals
+npx skills add ScaleDockHQ/llm-skills --skill llm-evals
 ```
 
 ## Rules
@@ -45,7 +45,7 @@ The `SKILL.md` overview is always loaded; the agent pulls a reference only when 
 
 ## Companion skills
 
-From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+From [ScaleDockHQ/llm-skills](https://github.com/ScaleDockHQ/llm-skills); install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `inspect-ai`, `lighteval`, `deepeval`, `evalplus`, `swe-bench`, `guidellm`, `nvidia-aiperf` — eval runner and benchmark depth.
 - `promptfoo` — task-eval runner in depth: config, assertions, CLI, CI workflow, quantization A/B gate.

@@ -5,7 +5,7 @@ An agent skill for running [NVIDIA TensorRT-LLM](https://github.com/NVIDIA/Tenso
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill tensorrt-llm
+npx skills add ScaleDockHQ/llm-skills --skill tensorrt-llm
 ```
 
 ## Rules

@@ -5,7 +5,7 @@ Helps an agent serve one model across several machines: choose TP, PP, DP and EP
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill multi-node-inference
+npx skills add ScaleDockHQ/llm-skills --skill multi-node-inference
 ```
 
 ## Rules
@@ -23,8 +23,8 @@ npx skills add ScaleDockHQ/llms-skills --skill multi-node-inference
 
 ## Companion skills
 
-- `llm-evals`: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`
-- `self-hosted-llms`: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`
+- `llm-evals`: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`
+- `self-hosted-llms`: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`
 - `nvidia-dgx-spark`, `disaggregated-serving`, `prefix-aware-routing`, `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `tensorfold`.
 - Planned: `exo`, `ray-serve`, `kserve`, `dynamo`.
 

@@ -105,7 +105,7 @@ callback_settings:
 
 **Langfuse in this stack.** Use the `langfuse_otel` preset (needs `LITELLM_OTEL_V2=true`) so gateway generations carry model, usage, cost and key/team attribution; keep `turn_off_message_logging: true` until content logging is approved.
 
-Depth: install the langfuse skill (npx skills add ScaleDockHQ/llms-skills --skill langfuse)
+Depth: install the langfuse skill (npx skills add ScaleDockHQ/llm-skills --skill langfuse)
 
 ### Spend logs
 

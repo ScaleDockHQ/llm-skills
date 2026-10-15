@@ -41,4 +41,4 @@ Reading it:
 - `DCGM_FI_PROF_DRAM_ACTIVE` high at steady decode: memory-bandwidth bound, expected for decode.
 - Thermal or power violation counters rising while TTFT worsens: throttling is a cause.
 
-Install the companions: `npx skills add ScaleDockHQ/llms-skills --skill prometheus-grafana-llm`, `--skill vllm`.
+Install the companions: `npx skills add ScaleDockHQ/llm-skills --skill prometheus-grafana-llm`, `--skill vllm`.

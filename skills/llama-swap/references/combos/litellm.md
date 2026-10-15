@@ -26,4 +26,4 @@ One `model_list` entry per llama-swap ID, including `setParamsByID` aliases (for
 - Duplicate model IDs between LiteLLM and llama-swap are fine; LiteLLM chooses the deployment, llama-swap the process.
 - Health: `GET /health` on llama-swap, `/health/liveliness` on LiteLLM. Use the `litellm` skill for gateway depth.
 
-Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
+Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.

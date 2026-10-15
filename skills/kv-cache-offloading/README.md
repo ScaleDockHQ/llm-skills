@@ -5,7 +5,7 @@ Helps an agent extend LLM KV cache capacity by offloading evicted blocks to CPU 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill kv-cache-offloading
+npx skills add ScaleDockHQ/llm-skills --skill kv-cache-offloading
 ```
 
 ## Rules

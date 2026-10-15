@@ -86,9 +86,9 @@ ls ~/.cache/huggingface/hub 2>/dev/null | grep -Ei 'gpt-oss|gpt_oss'
 
 ## Companion skills
 
-- `self-hosted-llms`: run it behind llama-swap and LiteLLM on a DGX Spark or GPU server. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `local-llms`: laptop and desktop runtimes (Ollama, llama.cpp, LM Studio, MLX). Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `cloud-llms`: hosted or rented gpt-oss endpoints. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `model-quantization`: produce or check GGUF, MLX, FP8 or NVFP4 variants. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `fine-tuning-llms`: LoRA or QLoRA on gpt-oss and merging adapters. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
+- `self-hosted-llms`: run it behind llama-swap and LiteLLM on a DGX Spark or GPU server. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `local-llms`: laptop and desktop runtimes (Ollama, llama.cpp, LM Studio, MLX). Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `cloud-llms`: hosted or rented gpt-oss endpoints. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `model-quantization`: produce or check GGUF, MLX, FP8 or NVFP4 variants. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `fine-tuning-llms`: LoRA or QLoRA on gpt-oss and merging adapters. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
 - Engine skills such as vLLM, SGLang, llama.cpp, Ollama, TensorRT-LLM and `tool-calling-parsers` cover the engines themselves.

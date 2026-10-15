@@ -125,7 +125,7 @@ The same stack runs on a rented GPU VM, but provisioning, persistent disks, egre
 and stop/start are cloud-specific. Use the companion skill:
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill cloud-llms
+npx skills add ScaleDockHQ/llm-skills --skill cloud-llms
 ```
 
 Keep the loopback-only port map from this skill on the VM and expose only via

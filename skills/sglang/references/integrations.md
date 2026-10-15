@@ -4,7 +4,7 @@
 
 ## llama-swap (several models, one endpoint)
 
-SGLang is one model per process with a slow cold start, so run it as an exclusive llama-swap group (it should not share GPU memory with another resident engine). Skill: `llama-swap` (install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`); host layout in `self-hosted-llms`.
+SGLang is one model per process with a slow cold start, so run it as an exclusive llama-swap group (it should not share GPU memory with another resident engine). Skill: `llama-swap` (install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`); host layout in `self-hosted-llms`.
 
 ```yaml
 models:

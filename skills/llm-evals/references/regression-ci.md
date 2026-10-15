@@ -2,7 +2,7 @@
 
 > Verified against promptfoo 0.124.1 docs (CI/CD, GitHub Action, CLI exit codes), 2026-10-11
 
-Run a fast eval on every change that can affect model behaviour (prompts, system prompts, tool schemas, model IDs, gateway routing, quantization), and a full eval on a schedule or before release. Tool mechanics (workflow YAML, action inputs, flags, exit codes) live in the promptfoo skill: `npx skills add ScaleDockHQ/llms-skills --skill promptfoo`, references `ci.md` and `combos/quant-ci-gate.md`, template `llm-evals.yml`.
+Run a fast eval on every change that can affect model behaviour (prompts, system prompts, tool schemas, model IDs, gateway routing, quantization), and a full eval on a schedule or before release. Tool mechanics (workflow YAML, action inputs, flags, exit codes) live in the promptfoo skill: `npx skills add ScaleDockHQ/llm-skills --skill promptfoo`, references `ci.md` and `combos/quant-ci-gate.md`, template `llm-evals.yml`.
 
 ## Two tiers
 

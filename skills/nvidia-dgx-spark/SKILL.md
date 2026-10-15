@@ -79,7 +79,7 @@ systemctl is-active earlyoom docker; docker ps --format '{{.Names}}\t{{.Image}}'
 
 ## Companion skills
 
-- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `tensorfold`: engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
-- `llama-swap`: model swapping on one or two nodes. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `self-hosted-llms`: gateway, exposure and catalog on top. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `llm-observability`: Prometheus, Grafana and DCGM. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `tensorfold`: engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
+- `llama-swap`: model swapping on one or two nodes. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `self-hosted-llms`: gateway, exposure and catalog on top. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `llm-observability`: Prometheus, Grafana and DCGM. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

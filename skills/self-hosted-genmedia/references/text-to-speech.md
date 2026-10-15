@@ -25,4 +25,4 @@
 
 - **Operating:** stream (`"stream": true`) or split long text for interactive use.
 
-Depth: install the kokoro-fastapi skill (npx skills add ScaleDockHQ/llms-skills --skill kokoro-fastapi), the speaches skill (npx skills add ScaleDockHQ/llms-skills --skill speaches), the f5-tts skill (npx skills add ScaleDockHQ/llms-skills --skill f5-tts) or the chatterbox skill (npx skills add ScaleDockHQ/llms-skills --skill chatterbox).
+Depth: install the kokoro-fastapi skill (npx skills add ScaleDockHQ/llm-skills --skill kokoro-fastapi), the speaches skill (npx skills add ScaleDockHQ/llm-skills --skill speaches), the f5-tts skill (npx skills add ScaleDockHQ/llm-skills --skill f5-tts) or the chatterbox skill (npx skills add ScaleDockHQ/llm-skills --skill chatterbox).

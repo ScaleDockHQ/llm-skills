@@ -92,7 +92,7 @@ for r in Automodel RL Megatron-Bridge; do gh api repos/NVIDIA-NeMo/$r/releases/l
 
 ## Companion skills
 
-Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `fine-tuning-llms`: decide whether and how to tune, data, evaluation.
 - `axolotl`, `trl`, `unsloth`: other fine-tuning stacks. `verl`, `openrlhf`: other Ray RL stacks.

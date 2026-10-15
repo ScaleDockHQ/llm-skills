@@ -5,7 +5,7 @@ Helps an agent choose, provision and operate Google Cloud TPUs (v5e, v6e Trilliu
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill google-tpu
+npx skills add ScaleDockHQ/llm-skills --skill google-tpu
 ```
 
 ## Rules

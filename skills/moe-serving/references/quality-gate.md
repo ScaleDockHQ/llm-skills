@@ -2,7 +2,7 @@
 
 > Verified against llm-evals skill v1.0.1 (workflow 3, quality-gate a numerics change), vLLM v0.31.0 (parallel.py, kernel.py), SGLang v0.5.21 (server_arguments), TensorRT-LLM v1.2.1 (llm_args.py), 2026-10-11
 
-Install the gate tooling: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`. This page adds the MoE-specific parts. The generic baseline-versus-candidate method lives in that skill.
+Install the gate tooling: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`. This page adds the MoE-specific parts. The generic baseline-versus-candidate method lives in that skill.
 
 ## Which options need the gate
 

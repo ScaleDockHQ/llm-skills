@@ -7,7 +7,7 @@ troubleshooting. Verified against GPU Operator v26.7.1.
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill nvidia-gpu-operator
+npx skills add ScaleDockHQ/llm-skills --skill nvidia-gpu-operator
 ```
 
 ## Rules

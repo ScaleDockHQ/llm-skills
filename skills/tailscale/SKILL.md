@@ -80,7 +80,7 @@ Ask only what discovery cannot show: who must reach the endpoint (only you, a te
 
 ## Companion skills
 
-- `cloudflare-tunnel`: public hostname with Access, no tailnet needed. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloudflare-tunnel`.
-- `caddy`: loopback reverse proxy, forward auth, model catalog. Install: `npx skills add ScaleDockHQ/llms-skills --skill caddy`.
-- `litellm`: the authenticated gateway behind Serve. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `self-hosted-llms`: the full self-hosted stack that uses Serve. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `cloudflare-tunnel`: public hostname with Access, no tailnet needed. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloudflare-tunnel`.
+- `caddy`: loopback reverse proxy, forward auth, model catalog. Install: `npx skills add ScaleDockHQ/llm-skills --skill caddy`.
+- `litellm`: the authenticated gateway behind Serve. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `self-hosted-llms`: the full self-hosted stack that uses Serve. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

@@ -5,7 +5,7 @@ Install, serve and operate Xorbits Inference (Xinference), the Python model serv
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill xinference
+npx skills add ScaleDockHQ/llm-skills --skill xinference
 ```
 
 ## Rules

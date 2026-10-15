@@ -5,7 +5,7 @@ Helps an agent serve long context windows: size the KV cache, set the engine's c
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill long-context
+npx skills add ScaleDockHQ/llm-skills --skill long-context
 ```
 
 ## Rules

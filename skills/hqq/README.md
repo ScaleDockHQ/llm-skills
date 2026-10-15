@@ -5,7 +5,7 @@ Helps an agent quantize models with HQQ (Half-Quadratic Quantization) at 8, 4, 3
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill hqq
+npx skills add ScaleDockHQ/llm-skills --skill hqq
 ```
 
 ## Rules

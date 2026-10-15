@@ -57,7 +57,7 @@ Ask the user only what discovery cannot show: which model and engine, which clie
 - **Ask before changing the system.** Parser flags, template files and restarts need approval and an undo path (keep the old command line and template).
 - **Secrets never touch output.** Keys live in `0600` files or environment variables (`LLM_API_KEY_FILE`, `LLM_API_KEY`).
 - **Verify upstream.** Parser names come from the installed `--help` and upstream docs; the references record versions and date. Do not carry a name from one engine to another.
-- **Tool parsers change behavior.** Gate any parser, template, engine, quantization or strict-level change with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`): tool-call success rate, correct-tool and argument accuracy, markup-leak rate, multi-turn completion, rollback to the saved flags.
+- **Tool parsers change behavior.** Gate any parser, template, engine, quantization or strict-level change with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`): tool-call success rate, correct-tool and argument accuracy, markup-leak rate, multi-turn completion, rollback to the saved flags.
 - **Extreme KV quantization hurts tool calling** (llama.cpp upstream caution); re-gate after any KV-cache dtype change.
 - **Never enable llama.cpp `--tools` or `--agent` on a shared endpoint**; they expose file and shell tools.
 
@@ -81,16 +81,16 @@ Ask the user only what discovery cannot show: which model and engine, which clie
 
 ## Companion skills
 
-- `llm-evals`: golden sets and the quality gate. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `structured-outputs`: grammar-constrained and strict tool arguments. Install: `npx skills add ScaleDockHQ/llms-skills --skill structured-outputs`.
-- `reasoning-models`: reasoning parsers and thinking controls. Install: `npx skills add ScaleDockHQ/llms-skills --skill reasoning-models`.
-- `vllm`: vLLM install and tuning. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `sglang`: SGLang install and tuning. Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
-- `tensorrt-llm`: TensorRT-LLM and `trtllm-serve`. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorrt-llm`.
-- `llama-cpp`: llama.cpp server. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `ollama`: Ollama. Install: `npx skills add ScaleDockHQ/llms-skills --skill ollama`.
-- `tensorfold`: TensorFold. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorfold`.
-- `exllamav3`: ExLlamaV3 and TabbyAPI. Install: `npx skills add ScaleDockHQ/llms-skills --skill exllamav3`.
-- `choosing-inference-engine`: pick an engine by tool-calling support. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `llm-gateway`: gateway behavior for tools. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `self-hosted-llms`: the full self-hosted stack. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `llm-evals`: golden sets and the quality gate. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `structured-outputs`: grammar-constrained and strict tool arguments. Install: `npx skills add ScaleDockHQ/llm-skills --skill structured-outputs`.
+- `reasoning-models`: reasoning parsers and thinking controls. Install: `npx skills add ScaleDockHQ/llm-skills --skill reasoning-models`.
+- `vllm`: vLLM install and tuning. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `sglang`: SGLang install and tuning. Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
+- `tensorrt-llm`: TensorRT-LLM and `trtllm-serve`. Install: `npx skills add ScaleDockHQ/llm-skills --skill tensorrt-llm`.
+- `llama-cpp`: llama.cpp server. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `ollama`: Ollama. Install: `npx skills add ScaleDockHQ/llm-skills --skill ollama`.
+- `tensorfold`: TensorFold. Install: `npx skills add ScaleDockHQ/llm-skills --skill tensorfold`.
+- `exllamav3`: ExLlamaV3 and TabbyAPI. Install: `npx skills add ScaleDockHQ/llm-skills --skill exllamav3`.
+- `choosing-inference-engine`: pick an engine by tool-calling support. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `llm-gateway`: gateway behavior for tools. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `self-hosted-llms`: the full self-hosted stack. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

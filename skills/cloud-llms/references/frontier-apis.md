@@ -4,7 +4,7 @@
 
 Closed models consumed through the vendor's own API. Choose this tier when only a frontier model passes your eval and the data class allows it. For your cloud contract, IAM or residency, use the same models through a hyperscaler (`hyperscalers.md`).
 
-Depth: install the `openai-api` skill (`npx skills add ScaleDockHQ/llms-skills --skill openai-api`), the `anthropic-api` skill (`npx skills add ScaleDockHQ/llms-skills --skill anthropic-api`) and the `gemini-api` skill (`npx skills add ScaleDockHQ/llms-skills --skill gemini-api`).
+Depth: install the `openai-api` skill (`npx skills add ScaleDockHQ/llm-skills --skill openai-api`), the `anthropic-api` skill (`npx skills add ScaleDockHQ/llm-skills --skill anthropic-api`) and the `gemini-api` skill (`npx skills add ScaleDockHQ/llm-skills --skill gemini-api`).
 
 ## How it plugs into this stack
 

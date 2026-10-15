@@ -93,7 +93,7 @@ Script: `scripts/nccl-net-check.sh` (read-only node check). Template: `templates
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `multi-node-inference`: parallelism strategy across nodes.
 - `vllm`, `sglang`, `tensorrt-llm`: engines that use NCCL.

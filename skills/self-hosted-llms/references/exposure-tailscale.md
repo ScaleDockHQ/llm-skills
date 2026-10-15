@@ -2,7 +2,7 @@
 
 > Verified against Tailscale v1.104.1 docs (tailscale serve CLI, HTTPS certificates, key expiry, Funnel; validated Jan 2026), 2026-10-11
 
-Depth: install the tailscale skill (`npx skills add ScaleDockHQ/llms-skills --skill tailscale`). For public access
+Depth: install the tailscale skill (`npx skills add ScaleDockHQ/llm-skills --skill tailscale`). For public access
 with API keys use `exposure-cloudflare.md`.
 
 ## How it plugs into this stack

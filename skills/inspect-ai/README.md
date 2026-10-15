@@ -5,7 +5,7 @@ An agent skill for running [Inspect AI](https://inspect.aisi.org.uk/) (`inspect 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill inspect-ai
+npx skills add ScaleDockHQ/llm-skills --skill inspect-ai
 ```
 
 ## Rules

@@ -5,7 +5,7 @@ An agent skill for running open-weight LLMs on your own laptop or desktop with [
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill local-llms
+npx skills add ScaleDockHQ/llm-skills --skill local-llms
 ```
 
 ## Rules
@@ -43,7 +43,7 @@ Credit: the commands and defaults come from the upstream docs for [Ollama](https
 
 ## Companion skills
 
-From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+From [ScaleDockHQ/llm-skills](https://github.com/ScaleDockHQ/llm-skills); install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `choosing-llm-hosting`: local vs self-hosted vs cloud.
 - `self-hosted-llms`: your own servers, DGX Spark, vLLM/SGLang, multi-user serving.

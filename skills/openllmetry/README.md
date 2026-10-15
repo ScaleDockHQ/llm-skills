@@ -5,7 +5,7 @@ An agent skill for tracing LLM applications with OpenLLMetry (Traceloop SDK), th
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill openllmetry
+npx skills add ScaleDockHQ/llm-skills --skill openllmetry
 ```
 
 ## Rules

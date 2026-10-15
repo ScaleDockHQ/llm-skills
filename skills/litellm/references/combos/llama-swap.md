@@ -2,7 +2,7 @@
 
 > Verified against LiteLLM v1.105.0 and llama-swap v263 (README: OpenAI and Anthropic compatible endpoints, default listen `0.0.0.0:8080`), 2026-10-11
 
-llama-swap hot-swaps local model servers behind one OpenAI/Anthropic-compatible port. LiteLLM sits in front as the authenticated public entry point: virtual keys, stable aliases, Messages/Responses bridging, `model_info`, param dropping. For llama-swap's own config install the `llama-swap` skill (`npx skills add ScaleDockHQ/llms-skills --skill llama-swap`).
+llama-swap hot-swaps local model servers behind one OpenAI/Anthropic-compatible port. LiteLLM sits in front as the authenticated public entry point: virtual keys, stable aliases, Messages/Responses bridging, `model_info`, param dropping. For llama-swap's own config install the `llama-swap` skill (`npx skills add ScaleDockHQ/llm-skills --skill llama-swap`).
 
 ## Wiring
 

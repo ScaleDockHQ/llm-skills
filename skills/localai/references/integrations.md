@@ -19,7 +19,7 @@ model_list:
       api_key: os.environ/LOCALAI_API_KEY
 ```
 
-Raise LiteLLM's request timeout above the model cold-load time (first call loads the model). Skill: `litellm` (`npx skills add ScaleDockHQ/llms-skills --skill litellm`).
+Raise LiteLLM's request timeout above the model cold-load time (first call loads the model). Skill: `litellm` (`npx skills add ScaleDockHQ/llm-skills --skill litellm`).
 
 ## systemd
 
@@ -35,7 +35,7 @@ Upstream Helm chart `go-skynet/local-ai` and example manifests. Needed: PVCs for
 
 ## Reverse proxy and tunnels
 
-Set `LOCALAI_BASE_URL` and forward `X-Forwarded-Proto` and `X-Forwarded-Host`; disable proxy response buffering for streaming. Skills: `caddy`, `cloudflare-tunnel`, `tailscale` (`npx skills add ScaleDockHQ/llms-skills --skill caddy`).
+Set `LOCALAI_BASE_URL` and forward `X-Forwarded-Proto` and `X-Forwarded-Host`; disable proxy response buffering for streaming. Skills: `caddy`, `cloudflare-tunnel`, `tailscale` (`npx skills add ScaleDockHQ/llm-skills --skill caddy`).
 
 ## Ollama-compatible clients
 

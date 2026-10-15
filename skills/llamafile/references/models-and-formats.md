@@ -17,7 +17,7 @@ llamafile -m /models/model-Q4_K_M.gguf --server -ngl 999
 llamafile -hf <org>/<repo> -hff <file>.gguf --server        # download first, then serve
 ```
 
-Pick a quantization that fits memory with room for the KV cache (see `gguf-quantization`, `npx skills add ScaleDockHQ/llms-skills --skill gguf-quantization`). On NVIDIA, the bundled CUDA library omits IQ-quant kernels (`IQ1_*` to `IQ4_*`): layers of IQ-quantized models stay on the CPU automatically, so output is correct but slower. Q*\_*, MXFP4, NVFP4, F16 and BF16 run fully on the GPU. Metal and ROCm builds include IQ kernels. For full IQ acceleration on NVIDIA, build or supply a full CUDA library (`references/performance-tuning.md`).
+Pick a quantization that fits memory with room for the KV cache (see `gguf-quantization`, `npx skills add ScaleDockHQ/llm-skills --skill gguf-quantization`). On NVIDIA, the bundled CUDA library omits IQ-quant kernels (`IQ1_*` to `IQ4_*`): layers of IQ-quantized models stay on the CPU automatically, so output is correct but slower. Q*\_*, MXFP4, NVFP4, F16 and BF16 run fully on the GPU. Metal and ROCm builds include IQ kernels. For full IQ acceleration on NVIDIA, build or supply a full CUDA library (`references/performance-tuning.md`).
 
 ## Models from other tools
 

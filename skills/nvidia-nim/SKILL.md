@@ -148,7 +148,7 @@ cache and the mirrored image, then start with the same `NIM_CACHE_PATH`. See `re
 
 ## Companion skills
 
-From the same repo; install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+From the same repo; install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `vllm`, `sglang`: the backends inside the image.
 - `nvidia-dynamo`, `triton-inference-server`: the other NVIDIA serving products.

@@ -2,7 +2,7 @@
 
 > Verified against LangChain langchain v1.4.4 (langchain-openai 1.7.0, langchain-litellm 0.11.0), 2026-10-11
 
-A gateway gives the app one URL, one key and stable aliases. Run it with the `litellm` skill (`npx skills add ScaleDockHQ/llms-skills --skill litellm`) or `llama-swap` (`npx skills add ScaleDockHQ/llms-skills --skill llama-swap`).
+A gateway gives the app one URL, one key and stable aliases. Run it with the `litellm` skill (`npx skills add ScaleDockHQ/llm-skills --skill litellm`) or `llama-swap` (`npx skills add ScaleDockHQ/llm-skills --skill llama-swap`).
 
 ```python
 import os

@@ -5,7 +5,7 @@ An agent skill for load-testing LLM servers with [GuideLLM](https://github.com/v
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill guidellm
+npx skills add ScaleDockHQ/llm-skills --skill guidellm
 ```
 
 ## Rules

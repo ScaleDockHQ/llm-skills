@@ -27,4 +27,4 @@ litellm_settings:
 - To strip attributes centrally or fan out, send the proxy's OTLP to the Collector (`assets/otel-collector.yaml`) instead of straight to Weave.
 - Metrics (queueing, KV cache) are not in Weave; use `prometheus-grafana-llm` beside it.
 
-Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
+Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.

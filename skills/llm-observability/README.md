@@ -5,7 +5,7 @@ An agent skill for seeing what LLM serving and LLM apps are doing: latency users
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llm-observability
+npx skills add ScaleDockHQ/llm-skills --skill llm-observability
 ```
 
 ## Rules
@@ -47,7 +47,7 @@ The `SKILL.md` overview is always loaded; the agent pulls a reference only when 
 
 ## Companion skills
 
-From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+From [ScaleDockHQ/llm-skills](https://github.com/ScaleDockHQ/llm-skills); install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `self-hosted-llms`: the engines and llama-swap being monitored; its sparkDash reference covers DGX-specific monitoring and points here for generic metrics.
 - `langfuse`: installing, operating and upgrading Langfuse, its SDK and OTLP ingestion, retention and masking.

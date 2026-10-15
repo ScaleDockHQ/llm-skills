@@ -7,7 +7,7 @@ sequence, tensor and CFG parallelism, caching, quantization, batching, metrics a
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill sglang-diffusion
+npx skills add ScaleDockHQ/llm-skills --skill sglang-diffusion
 ```
 
 ## Rules

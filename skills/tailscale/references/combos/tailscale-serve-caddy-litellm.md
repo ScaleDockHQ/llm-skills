@@ -13,7 +13,7 @@ client --HTTPS--> node-a.<tailnet>.ts.net:443 (tailscale serve)
 ## Steps
 
 1. Gateway and engines bind `127.0.0.1` (`scripts/check-exposure.sh` verifies).
-2. Install the `caddy` skill (`npx skills add ScaleDockHQ/llms-skills --skill caddy`) and set up the catalog front from its `assets/` and `references/model-catalog.md`.
+2. Install the `caddy` skill (`npx skills add ScaleDockHQ/llm-skills --skill caddy`) and set up the catalog front from its `assets/` and `references/model-catalog.md`.
 3. Enable MagicDNS and HTTPS for the tailnet (`https-and-magicdns.md`), then:
 
    ```bash

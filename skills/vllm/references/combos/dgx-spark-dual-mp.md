@@ -81,7 +81,7 @@ models:
 Put it in an exclusive group so only one big model is loaded, and raise the top-level `healthCheckTimeout`
 above the observed two-node cold start. The `start-model.sh` wrapper, exclusive-group handling and worker
 start-over-SSH logic come from the skill `self-hosted-llms`
-(`npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`) and `llama-swap`.
+(`npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`) and `llama-swap`.
 
 ## Security
 

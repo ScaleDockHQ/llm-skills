@@ -5,7 +5,7 @@ Helps an agent pick an LLM inference engine for a given machine. It starts from 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine
+npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine
 ```
 
 ## Rules
@@ -23,7 +23,7 @@ npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine
 
 ## Companion skills
 
-- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `tensorfold`, `exllamav3`: install and tune the chosen engine. Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+- `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `tensorfold`, `exllamav3`: install and tune the chosen engine. Install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 - `choosing-hardware`: size the machine for the model and concurrency.
 - `choosing-llm-hosting`: decide local, owned server, cloud or hybrid.
 - `self-hosted-llms`: serve the engine behind one authenticated endpoint.

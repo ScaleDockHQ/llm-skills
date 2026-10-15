@@ -98,9 +98,9 @@ Uninstall with `helm uninstall vllm` (PVCs stay until deleted).
 
 ## Companion skills
 
-- `vllm`: engine flags, parsers and tuning for `vllmConfig.extraArgs`. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `llm-d`: scheduler-based alternative with precise prefix routing. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-d`.
-- `kserve`: CRD-based platform. Install: `npx skills add ScaleDockHQ/llms-skills --skill kserve`.
-- `keda`: event-driven autoscaling used by the chart. Install: `npx skills add ScaleDockHQ/llms-skills --skill keda`.
-- `prefix-aware-routing`: why and when. Install: `npx skills add ScaleDockHQ/llms-skills --skill prefix-aware-routing`.
-- `kv-cache-offloading`: LMCache and offload concepts. Install: `npx skills add ScaleDockHQ/llms-skills --skill kv-cache-offloading`.
+- `vllm`: engine flags, parsers and tuning for `vllmConfig.extraArgs`. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `llm-d`: scheduler-based alternative with precise prefix routing. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-d`.
+- `kserve`: CRD-based platform. Install: `npx skills add ScaleDockHQ/llm-skills --skill kserve`.
+- `keda`: event-driven autoscaling used by the chart. Install: `npx skills add ScaleDockHQ/llm-skills --skill keda`.
+- `prefix-aware-routing`: why and when. Install: `npx skills add ScaleDockHQ/llm-skills --skill prefix-aware-routing`.
+- `kv-cache-offloading`: LMCache and offload concepts. Install: `npx skills add ScaleDockHQ/llm-skills --skill kv-cache-offloading`.

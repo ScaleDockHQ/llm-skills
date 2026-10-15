@@ -72,12 +72,12 @@ ls ~/.cache/huggingface/hub 2>/dev/null | grep -i -E 'llama|muse'
 
 ## Companion skills
 
-- `vllm`: install and tune vLLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `sglang`: install and tune SGLang. Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
-- `llama-cpp`: build and serve GGUF. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `ollama`: run models in Ollama. Install: `npx skills add ScaleDockHQ/llms-skills --skill ollama`.
-- `tensorrt-llm`: NVIDIA TensorRT-LLM serving. Install: `npx skills add ScaleDockHQ/llms-skills --skill tensorrt-llm`.
-- `mlx`: Apple Silicon MLX. Install: `npx skills add ScaleDockHQ/llms-skills --skill mlx`.
-- `self-hosted-llms`: the full serving stack, gateway and exposure. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `model-quantization`: quantize or compare formats. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `llm-evals`: quality gates after a quant or engine change. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- `vllm`: install and tune vLLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `sglang`: install and tune SGLang. Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
+- `llama-cpp`: build and serve GGUF. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `ollama`: run models in Ollama. Install: `npx skills add ScaleDockHQ/llm-skills --skill ollama`.
+- `tensorrt-llm`: NVIDIA TensorRT-LLM serving. Install: `npx skills add ScaleDockHQ/llm-skills --skill tensorrt-llm`.
+- `mlx`: Apple Silicon MLX. Install: `npx skills add ScaleDockHQ/llm-skills --skill mlx`.
+- `self-hosted-llms`: the full serving stack, gateway and exposure. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `model-quantization`: quantize or compare formats. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `llm-evals`: quality gates after a quant or engine change. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.

@@ -24,4 +24,4 @@ Team defaults live in trusted `config.yaml`; per-key callbacks are provisioned v
 
 Send one chat through a virtual key, open the Langfuse traces view and look for a generation with the alias as model. If nothing arrives, check `litellm_callback_logging_failures_metric` (needs the `prometheus` callback) and `docker compose logs litellm` for 401, 404 or DNS errors toward the Langfuse host.
 
-Running Langfuse itself, retention and dashboards: install the `llm-observability` skill (`npx skills add ScaleDockHQ/llms-skills --skill llm-observability`).
+Running Langfuse itself, retention and dashboards: install the `llm-observability` skill (`npx skills add ScaleDockHQ/llm-skills --skill llm-observability`).

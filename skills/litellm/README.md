@@ -5,7 +5,7 @@ An agent skill for running the [LiteLLM proxy](https://github.com/BerriAI/litell
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill litellm
+npx skills add ScaleDockHQ/llm-skills --skill litellm
 ```
 
 ## Rules
@@ -36,7 +36,7 @@ Templates: [`assets/litellm-config.yaml`](assets/litellm-config.yaml), [`assets/
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `llm-gateway`: choose a gateway and the stack workflow around it.
 - `llama-swap`: swapper behind LiteLLM.

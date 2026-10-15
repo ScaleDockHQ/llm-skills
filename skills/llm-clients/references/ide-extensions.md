@@ -25,7 +25,7 @@ Stack pitfalls:
 
 Depth:
 
-- `cursor`: `npx skills add ScaleDockHQ/llms-skills --skill cursor`
-- `continue`: `npx skills add ScaleDockHQ/llms-skills --skill continue`
-- `cline`: `npx skills add ScaleDockHQ/llms-skills --skill cline`
-- `kilo-code`: `npx skills add ScaleDockHQ/llms-skills --skill kilo-code`
+- `cursor`: `npx skills add ScaleDockHQ/llm-skills --skill cursor`
+- `continue`: `npx skills add ScaleDockHQ/llm-skills --skill continue`
+- `cline`: `npx skills add ScaleDockHQ/llm-skills --skill cline`
+- `kilo-code`: `npx skills add ScaleDockHQ/llm-skills --skill kilo-code`

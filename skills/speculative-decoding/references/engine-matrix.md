@@ -4,7 +4,7 @@
 
 Every row comes from the upstream pages in the Sources list at the end. Anything not confirmed is marked "(unverified)". Flags change between releases: run the installed engine's `--help` before applying one.
 
-Numerics: exact verification is designed to be lossless up to floating point, but outputs can still differ. Gate every row with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`) using the procedure in `SKILL.md`. Rows marked **lossy** change the acceptance rule.
+Numerics: exact verification is designed to be lossless up to floating point, but outputs can still differ. Gate every row with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`) using the procedure in `SKILL.md`. Rows marked **lossy** change the acceptance rule.
 
 ## vLLM v0.31.0
 

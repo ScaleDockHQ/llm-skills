@@ -5,7 +5,7 @@ An agent skill for [Envoy AI Gateway](https://github.com/theagentrouter/agent-ro
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill envoy-ai-gateway
+npx skills add ScaleDockHQ/llm-skills --skill envoy-ai-gateway
 ```
 
 ## Rules

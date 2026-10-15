@@ -103,10 +103,10 @@ Limits and spend are not available through a documented read-only API call. They
 
 ## Companion skills
 
-- `cloud-llms`: choose among providers and tiers, hybrid cloud plus local routing. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: one endpoint in front of Cerebras and other backends. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `litellm`: LiteLLM proxy configuration in depth. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `groq`, `together-ai`, `fireworks-ai`: other managed open-model APIs for fallbacks. Install: `npx skills add ScaleDockHQ/llms-skills --skill groq`.
-- `llm-evals`: re-check quality when a model ID changes. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `llm-observability`: tracing and cost tracking for gateway traffic. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `self-hosted-llms` and `vllm`: run the same open model on your own GPUs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- `cloud-llms`: choose among providers and tiers, hybrid cloud plus local routing. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: one endpoint in front of Cerebras and other backends. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `litellm`: LiteLLM proxy configuration in depth. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `groq`, `together-ai`, `fireworks-ai`: other managed open-model APIs for fallbacks. Install: `npx skills add ScaleDockHQ/llm-skills --skill groq`.
+- `llm-evals`: re-check quality when a model ID changes. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `llm-observability`: tracing and cost tracking for gateway traffic. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `self-hosted-llms` and `vllm`: run the same open model on your own GPUs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

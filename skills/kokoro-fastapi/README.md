@@ -5,7 +5,7 @@ An agent skill for running and tuning [Kokoro-FastAPI](https://github.com/remsky
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill kokoro-fastapi
+npx skills add ScaleDockHQ/llm-skills --skill kokoro-fastapi
 ```
 
 ## Rules

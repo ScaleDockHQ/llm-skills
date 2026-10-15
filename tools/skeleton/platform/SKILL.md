@@ -47,4 +47,4 @@ command -v some-tool && some-tool --version
 
 ## Companion skills
 
-- `other-skill`: what to use it for. Install: `npx skills add ScaleDockHQ/llms-skills --skill other-skill`.
+- `other-skill`: what to use it for. Install: `npx skills add ScaleDockHQ/llm-skills --skill other-skill`.

@@ -5,7 +5,7 @@ An agent skill for running your own LLM and generative-AI servers on Linux hosts
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms
+npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms
 ```
 
 ## Rules
@@ -62,7 +62,7 @@ Script: [`scripts/bench.sh`](scripts/bench.sh), a curl + jq benchmark for any Op
 
 ## Companion skills
 
-From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+From [ScaleDockHQ/llm-skills](https://github.com/ScaleDockHQ/llm-skills); install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `stable-diffusion-cpp`: sd-server depth; engine-sdcpp is now a stack note.
 - `choosing-llm-hosting`: decide local vs self-hosted vs cloud vs hybrid before building anything.

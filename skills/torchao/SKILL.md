@@ -102,9 +102,9 @@ Ask only what cannot be discovered: base model, serving engine, GPU, whether the
 
 ## Companion skills
 
-- `model-quantization`: pick a format and gate quality. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `bitsandbytes`: NF4 QLoRA and 8-bit optimizers when torchao is not the right tool. Install: `npx skills add ScaleDockHQ/llms-skills --skill bitsandbytes`.
-- `vllm`: serve torchao checkpoints. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `llm-compressor`: calibrated FP8 and W4A16 for vLLM. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`.
-- `fine-tuning-llms`: pick a training stack and data. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `llm-evals`: quality gates. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- `model-quantization`: pick a format and gate quality. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `bitsandbytes`: NF4 QLoRA and 8-bit optimizers when torchao is not the right tool. Install: `npx skills add ScaleDockHQ/llm-skills --skill bitsandbytes`.
+- `vllm`: serve torchao checkpoints. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `llm-compressor`: calibrated FP8 and W4A16 for vLLM. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-compressor`.
+- `fine-tuning-llms`: pick a training stack and data. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `llm-evals`: quality gates. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.

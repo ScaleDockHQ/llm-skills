@@ -10,4 +10,4 @@
 - Run the script in a memory-capped scope and stop serving first on unified-memory nodes (`memory-safety.md`).
 - Serve with `vllm serve <dir>`; vLLM detects compressed-tensors from the config, so no `--quantization` flag is needed. Smoke-test and compare with the base model (`quality-checks.md`), then publish with the script and package versions in the card (`publishing.md`).
 
-Depth: install the llm-compressor skill (npx skills add ScaleDockHQ/llms-skills --skill llm-compressor)
+Depth: install the llm-compressor skill (npx skills add ScaleDockHQ/llm-skills --skill llm-compressor)

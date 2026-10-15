@@ -160,8 +160,8 @@ start downloads weights and (with `--quant 4`) may quantize while loading. Gated
 
 ## Companion skills
 
-- `choosing-inference-engine`: compare mistral.rs with vLLM, llama.cpp and others. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `litellm`, `llama-swap`, `llm-gateway`: routing and auth in front of mistral.rs. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `caddy`, `traefik`: reverse proxy for TLS and auth. Install: `npx skills add ScaleDockHQ/llms-skills --skill caddy`.
-- `tool-calling-parsers`, `structured-outputs`, `model-quantization`: technique detail. Install: `npx skills add ScaleDockHQ/llms-skills --skill structured-outputs`.
-- `apple-silicon`: Metal host setup. Install: `npx skills add ScaleDockHQ/llms-skills --skill apple-silicon`.
+- `choosing-inference-engine`: compare mistral.rs with vLLM, llama.cpp and others. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `litellm`, `llama-swap`, `llm-gateway`: routing and auth in front of mistral.rs. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `caddy`, `traefik`: reverse proxy for TLS and auth. Install: `npx skills add ScaleDockHQ/llm-skills --skill caddy`.
+- `tool-calling-parsers`, `structured-outputs`, `model-quantization`: technique detail. Install: `npx skills add ScaleDockHQ/llm-skills --skill structured-outputs`.
+- `apple-silicon`: Metal host setup. Install: `npx skills add ScaleDockHQ/llm-skills --skill apple-silicon`.

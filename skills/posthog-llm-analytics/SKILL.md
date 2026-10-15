@@ -86,7 +86,7 @@ Templates: `assets/otel-collector.yaml` (validated), `assets/litellm-posthog.yam
 
 ## Companion skills
 
-- `llm-observability`: choosing a stack. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `litellm`: the proxy. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `prometheus-grafana-llm`: engine metrics and alerts. Install: `npx skills add ScaleDockHQ/llms-skills --skill prometheus-grafana-llm`.
-- `llm-evals`: evaluation method. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- `llm-observability`: choosing a stack. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `litellm`: the proxy. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `prometheus-grafana-llm`: engine metrics and alerts. Install: `npx skills add ScaleDockHQ/llm-skills --skill prometheus-grafana-llm`.
+- `llm-evals`: evaluation method. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.

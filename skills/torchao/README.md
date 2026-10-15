@@ -5,7 +5,7 @@ Helps an agent quantize and train PyTorch and Hugging Face models with torchao (
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill torchao
+npx skills add ScaleDockHQ/llm-skills --skill torchao
 ```
 
 ## Rules

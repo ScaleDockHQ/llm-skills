@@ -7,7 +7,7 @@ Verified against llama.cpp v0.6.0 and master b11556 on 2026-10-11.
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill gguf-quantization
+npx skills add ScaleDockHQ/llm-skills --skill gguf-quantization
 ```
 
 ## Rules

@@ -80,7 +80,7 @@ Templates: `templates/opencode.json` (v1), `templates/opencode-v2.jsonc`. Script
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `litellm`, `llm-gateway`: gateway to bridge and manage endpoints.
 - `vllm`, `llama-cpp`, `ollama`, `llama-swap`: the endpoints OpenCode talks to.

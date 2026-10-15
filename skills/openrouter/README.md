@@ -5,7 +5,7 @@ An agent skill for using [OpenRouter](https://openrouter.ai/docs), the hosted ga
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill openrouter
+npx skills add ScaleDockHQ/llm-skills --skill openrouter
 ```
 
 ## Rules
@@ -32,7 +32,7 @@ npx skills add ScaleDockHQ/llms-skills --skill openrouter
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `llm-gateway`: choose a gateway.
 - `litellm`: self-hosted gateway that can front OpenRouter.

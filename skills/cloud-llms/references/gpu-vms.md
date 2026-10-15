@@ -4,7 +4,7 @@
 
 A cloud machine with GPUs running the same stack you would run on your own server: an engine, optionally llama-swap, and the LiteLLM gateway. The stack is owned by `self-hosted-llms`; this file is the cloud-side stack note.
 
-Depth: install the provider skill (`npx skills add ScaleDockHQ/llms-skills --skill <skill>`): `runpod`, `lambda-cloud`, `vast-ai`, `coreweave`, `nebius`, `crusoe` and `hyperbolic`. Hyperscaler GPU instances (EC2, GCE, Azure VMs) have no skill yet; use their CLIs (`aws ec2`, `gcloud compute`, `az vm`).
+Depth: install the provider skill (`npx skills add ScaleDockHQ/llm-skills --skill <skill>`): `runpod`, `lambda-cloud`, `vast-ai`, `coreweave`, `nebius`, `crusoe` and `hyperbolic`. Hyperscaler GPU instances (EC2, GCE, Azure VMs) have no skill yet; use their CLIs (`aws ec2`, `gcloud compute`, `az vm`).
 
 ## How it plugs into this stack
 

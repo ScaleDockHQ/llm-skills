@@ -4,7 +4,7 @@
 
 The cloud runs the serving infrastructure; you pick the model, container and instance type, and pay per instance-hour while replicas exist. Choose this tier for a fine-tune, niche model or specific quantization when you do not want to run VMs or Kubernetes.
 
-Depth: install the `aws-sagemaker` skill (`npx skills add ScaleDockHQ/llms-skills --skill aws-sagemaker`), the `google-vertex-ai` skill (`npx skills add ScaleDockHQ/llms-skills --skill google-vertex-ai`), the `azure-foundry` skill (`npx skills add ScaleDockHQ/llms-skills --skill azure-foundry`) and the `hugging-face` skill (`npx skills add ScaleDockHQ/llms-skills --skill hugging-face`).
+Depth: install the `aws-sagemaker` skill (`npx skills add ScaleDockHQ/llm-skills --skill aws-sagemaker`), the `google-vertex-ai` skill (`npx skills add ScaleDockHQ/llm-skills --skill google-vertex-ai`), the `azure-foundry` skill (`npx skills add ScaleDockHQ/llm-skills --skill azure-foundry`) and the `hugging-face` skill (`npx skills add ScaleDockHQ/llm-skills --skill hugging-face`).
 
 ## How it plugs into this stack
 

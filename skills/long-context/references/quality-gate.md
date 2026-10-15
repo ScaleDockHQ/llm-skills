@@ -2,7 +2,7 @@
 
 > Verified against llm-evals skill v1.0.1 (workflow 3, quality-gate a numerics change), Qwen3-30B-A3B model card (static YaRN guidance), vLLM v0.31.0 (context_extension), 2026-10-11
 
-Install the gate tooling: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`. This page adds the long-context checks. The generic baseline-versus-candidate method lives in that skill.
+Install the gate tooling: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`. This page adds the long-context checks. The generic baseline-versus-candidate method lives in that skill.
 
 ## Which changes need the gate
 

@@ -8,7 +8,7 @@ decoding, agent and sandbox safety, NCCL multi-GPU, Prometheus metrics and Kuber
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill mistral-rs
+npx skills add ScaleDockHQ/llm-skills --skill mistral-rs
 ```
 
 ## Rules

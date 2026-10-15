@@ -41,7 +41,7 @@ speculative_config: # NGram
   is_public_pool: true
 ```
 
-EAGLE-3 draft checkpoints: `yuhuili/*` for Llama 3, `nvidia/Llama-4-Maverick-17B-128E-Eagle3`, others (gpt-oss-120b, Qwen3) from NVIDIA's "Speculative Decoding Modules" collection. Eagle3 one-model on Llama 4: `eagle3_one_model: true` (Python `EagleDecodingConfig`). For cross-engine technique guidance and quality gates use `speculative-decoding` (`npx skills add ScaleDockHQ/llms-skills --skill speculative-decoding`). Reuse across requests works with all speculative models.
+EAGLE-3 draft checkpoints: `yuhuili/*` for Llama 3, `nvidia/Llama-4-Maverick-17B-128E-Eagle3`, others (gpt-oss-120b, Qwen3) from NVIDIA's "Speculative Decoding Modules" collection. Eagle3 one-model on Llama 4: `eagle3_one_model: true` (Python `EagleDecodingConfig`). For cross-engine technique guidance and quality gates use `speculative-decoding` (`npx skills add ScaleDockHQ/llm-skills --skill speculative-decoding`). Reuse across requests works with all speculative models.
 
 ## Reasoning and tool parsers
 

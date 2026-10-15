@@ -5,7 +5,7 @@ An agent skill for [Unsloth](https://github.com/unslothai/unsloth): the fast, lo
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill unsloth
+npx skills add ScaleDockHQ/llm-skills --skill unsloth
 ```
 
 ## Rules
@@ -31,12 +31,12 @@ npx skills add ScaleDockHQ/llms-skills --skill unsloth
 
 ## Companion skills
 
-- `fine-tuning-llms`: decide, prepare data, choose method and hardware (install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`)
-- `axolotl`: config-only, multi-GPU alternative (install: `npx skills add ScaleDockHQ/llms-skills --skill axolotl`)
-- `trl`: custom trainers and reward functions (install: `npx skills add ScaleDockHQ/llms-skills --skill trl`)
-- `ollama`: run the GGUF (install: `npx skills add ScaleDockHQ/llms-skills --skill ollama`)
-- `llama-cpp`: convert and serve GGUF (install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`)
-- `model-quantization`: quant types and imatrix (install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`)
+- `fine-tuning-llms`: decide, prepare data, choose method and hardware (install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`)
+- `axolotl`: config-only, multi-GPU alternative (install: `npx skills add ScaleDockHQ/llm-skills --skill axolotl`)
+- `trl`: custom trainers and reward functions (install: `npx skills add ScaleDockHQ/llm-skills --skill trl`)
+- `ollama`: run the GGUF (install: `npx skills add ScaleDockHQ/llm-skills --skill ollama`)
+- `llama-cpp`: convert and serve GGUF (install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`)
+- `model-quantization`: quant types and imatrix (install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`)
 
 ## License
 

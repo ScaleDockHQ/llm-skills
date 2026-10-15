@@ -20,7 +20,7 @@ models:
     unloadTimeout: 90
 ```
 
-The wrapper runs `docker run -d --name "$MODEL_ID" ... trtllm-serve ... --port 8000` with `-p "127.0.0.1:${PORT}:8000"` (see `serve-config.md`, container wrapper pattern). `docker logs -f gpt-oss` or llama-swap's `/logs/stream/gpt-oss` for logs; `curl -s http://127.0.0.1:8080/upstream/gpt-oss/metrics` for engine stats. Skill: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`. Stack-level plumbing: `self-hosted-llms`.
+The wrapper runs `docker run -d --name "$MODEL_ID" ... trtllm-serve ... --port 8000` with `-p "127.0.0.1:${PORT}:8000"` (see `serve-config.md`, container wrapper pattern). `docker logs -f gpt-oss` or llama-swap's `/logs/stream/gpt-oss` for logs; `curl -s http://127.0.0.1:8080/upstream/gpt-oss/metrics` for engine stats. Skill: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`. Stack-level plumbing: `self-hosted-llms`.
 
 ## LiteLLM
 
@@ -32,7 +32,7 @@ The wrapper runs `docker run -d --name "$MODEL_ID" ... trtllm-serve ... --port 8
     api_key: os.environ/LLAMA_SWAP_API_KEY # any non-empty value is accepted upstream
 ```
 
-LiteLLM also bridges Anthropic `/v1/messages` onto chat completions, which `trtllm-serve` does not offer. Skill: `npx skills add ScaleDockHQ/llms-skills --skill litellm`; gateway design: `llm-gateway`.
+LiteLLM also bridges Anthropic `/v1/messages` onto chat completions, which `trtllm-serve` does not offer. Skill: `npx skills add ScaleDockHQ/llm-skills --skill litellm`; gateway design: `llm-gateway`.
 
 ## Open WebUI
 
@@ -48,7 +48,7 @@ The UI is then on port 8080. Pin the Open WebUI image instead of `main` for anyt
 
 ## Cursor, Claude Code, other OpenAI clients
 
-Point a client at the gateway's `/v1` base URL with the gateway key, not at `trtllm-serve`. Client set-up lives in `llm-clients` (`npx skills add ScaleDockHQ/llms-skills --skill llm-clients`). Tools and reasoning need the matching `--tool_parser` and `--reasoning_parser`.
+Point a client at the gateway's `/v1` base URL with the gateway key, not at `trtllm-serve`. Client set-up lives in `llm-clients` (`npx skills add ScaleDockHQ/llm-skills --skill llm-clients`). Tools and reasoning need the matching `--tool_parser` and `--reasoning_parser`.
 
 ## systemd, compose, Kubernetes
 

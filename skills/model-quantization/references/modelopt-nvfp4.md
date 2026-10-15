@@ -9,4 +9,4 @@
 - Calibration loads the full BF16 model: stop serving first and cap memory on unified-memory nodes such as DGX Spark (`memory-safety.md`).
 - NVFP4 needs Blackwell for speed; elsewhere engines run it weight-only. Read the engine's startup log for the kernel actually used (`formats.md`, Hardware notes), then smoke-test and compare with the base (`quality-checks.md`) and record ModelOpt version, qformat or recipe, KV format and calibration data in the card (`publishing.md`).
 
-Depth: install the nvidia-modelopt skill (npx skills add ScaleDockHQ/llms-skills --skill nvidia-modelopt)
+Depth: install the nvidia-modelopt skill (npx skills add ScaleDockHQ/llm-skills --skill nvidia-modelopt)

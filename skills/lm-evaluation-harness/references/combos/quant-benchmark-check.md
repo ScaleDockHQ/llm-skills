@@ -65,6 +65,6 @@ The script prints each metric with the delta and whether it is within twice the 
 - Running the parent on a different engine version than the candidate.
 - Reporting public-benchmark parity as proof your product behaves the same.
 
-Companion skills: `vllm`, `llama-cpp`, `model-quantization`, `llm-evals`, `promptfoo` (install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`).
+Companion skills: `vllm`, `llama-cpp`, `model-quantization`, `llm-evals`, `promptfoo` (install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`).
 
 Official sources: https://github.com/EleutherAI/lm-evaluation-harness, https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md

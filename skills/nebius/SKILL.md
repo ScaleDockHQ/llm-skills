@@ -99,10 +99,10 @@ nebius mk8s cluster list 2>/dev/null
 
 ## Companion skills
 
-- `cloud-llms`: cross-provider workflow. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: LiteLLM gateway, fallbacks, budgets. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `self-hosted-llms`: vLLM and engines on your VM or cluster. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `choosing-llm-hosting`: where to host. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
-- `fine-tuning-llms`: data and training choices. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `llm-evals`: verify quality and speed. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `llm-observability`: traces and metrics. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `cloud-llms`: cross-provider workflow. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: LiteLLM gateway, fallbacks, budgets. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `self-hosted-llms`: vLLM and engines on your VM or cluster. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `choosing-llm-hosting`: where to host. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.
+- `fine-tuning-llms`: data and training choices. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `llm-evals`: verify quality and speed. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `llm-observability`: traces and metrics. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

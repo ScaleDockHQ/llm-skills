@@ -16,7 +16,7 @@ pmset -g | grep lowpowermode        # prints 1 when Low Power Mode is on
 
 - Fanless MacBook Air models throttle during sustained generation; MacBook Pro, Mac mini and Mac Studio hold clocks longer (community). Expect decode to drop over a long run on fanless machines.
 - On battery macOS may lower performance; in Low Power Mode numbers are not comparable. Benchmark on AC, outside Low Power Mode.
-- Benchmark with fixed lengths and a cool-down gap. `llama-bench` has `-r` (repetitions, default 5), `--delay` (seconds between tests) and `-p`/`-n`; use `scripts/bench.sh` from `local-llms` for an end-to-end server benchmark (install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`).
+- Benchmark with fixed lengths and a cool-down gap. `llama-bench` has `-r` (repetitions, default 5), `--delay` (seconds between tests) and `-p`/`-n`; use `scripts/bench.sh` from `local-llms` for an end-to-end server benchmark (install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`).
 - Close memory-heavy apps first; thermal and memory pressure compound.
 
 ```bash

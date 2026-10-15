@@ -5,7 +5,7 @@ An agent skill for configuring Continue (VS Code, JetBrains and the `cn` CLI) ag
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill continue
+npx skills add ScaleDockHQ/llm-skills --skill continue
 ```
 
 ## Rules

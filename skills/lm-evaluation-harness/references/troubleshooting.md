@@ -41,6 +41,6 @@ Turn on logs with `LMEVAL_LOG_LEVEL=DEBUG`. Print the first prompts with `--writ
 4. Is the endpoint faithful? Logprobs present; tokenizer matches; no server-side truncation (`max_length`).
 5. Are you comparing like with like? Same version, task, few-shot, template, `gen_kwargs`, seed.
 
-Contamination and benchmark-versus-product questions: install `llm-evals` (`npx skills add ScaleDockHQ/llms-skills --skill llm-evals`).
+Contamination and benchmark-versus-product questions: install `llm-evals` (`npx skills add ScaleDockHQ/llm-skills --skill llm-evals`).
 
 Official sources: https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/footguns.md, https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md

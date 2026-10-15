@@ -5,7 +5,7 @@ An agent skill for connecting goose, the open-source AI agent (Desktop and CLI),
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill goose
+npx skills add ScaleDockHQ/llm-skills --skill goose
 ```
 
 ## Rules

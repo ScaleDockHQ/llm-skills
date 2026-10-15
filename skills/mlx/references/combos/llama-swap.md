@@ -14,7 +14,7 @@ Goal: several MLX models on one Mac behind a single OpenAI endpoint, loaded on d
 
 ```yaml
 # llama-swap config.yaml; install and full schema: llama-swap skill
-# npx skills add ScaleDockHQ/llms-skills --skill llama-swap
+# npx skills add ScaleDockHQ/llm-skills --skill llama-swap
 healthCheckTimeout: 300 # first start may download weights; 120 is the default
 models:
   "mlx-llama-3b":

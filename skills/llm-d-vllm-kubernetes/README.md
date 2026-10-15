@@ -5,7 +5,7 @@ Helps an agent deploy vLLM behind the llm-d router (endpoint picker on Gateway A
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llm-d-vllm-kubernetes
+npx skills add ScaleDockHQ/llm-skills --skill llm-d-vllm-kubernetes
 ```
 
 ## Rules

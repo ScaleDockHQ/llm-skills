@@ -76,7 +76,7 @@ ss -ltnp 2>/dev/null | grep ':7997\b' || true
 
 ## Companion skills
 
-- `text-embeddings-inference`: the Rust alternative. Install: `npx skills add ScaleDockHQ/llms-skills --skill text-embeddings-inference`.
-- `litellm`: the gateway. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `llama-swap`: on-demand loading. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `vllm`: chat models. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
+- `text-embeddings-inference`: the Rust alternative. Install: `npx skills add ScaleDockHQ/llm-skills --skill text-embeddings-inference`.
+- `litellm`: the gateway. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `llama-swap`: on-demand loading. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `vllm`: chat models. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.

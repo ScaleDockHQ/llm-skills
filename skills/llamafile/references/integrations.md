@@ -31,7 +31,7 @@ model_list:
       api_key: os.environ/LLAMAFILE_API_KEY
 ```
 
-Skill: `litellm` (`npx skills add ScaleDockHQ/llms-skills --skill litellm`).
+Skill: `litellm` (`npx skills add ScaleDockHQ/llm-skills --skill litellm`).
 
 ## systemd
 
@@ -53,7 +53,7 @@ One model per process. Use `llama-swap` to start and stop llamafile servers on d
 
 ## Open WebUI and other chat UIs
 
-Point any OpenAI-compatible UI at `http://host:8080/v1` with the key. See `open-webui` (`npx skills add ScaleDockHQ/llms-skills --skill open-webui`).
+Point any OpenAI-compatible UI at `http://host:8080/v1` with the key. See `open-webui` (`npx skills add ScaleDockHQ/llm-skills --skill open-webui`).
 
 ## Reverse proxy
 

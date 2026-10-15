@@ -2,7 +2,7 @@
 
 > Verified against mlx-lm 0.32.0 and mlx 0.32.3, 2026-10-11
 
-Depth: install the mlx skill (`npx skills add ScaleDockHQ/llms-skills --skill mlx`). To produce MLX quants see the `model-quantization` skill.
+Depth: install the mlx skill (`npx skills add ScaleDockHQ/llm-skills --skill mlx`). To produce MLX quants see the `model-quantization` skill.
 
 ## How it plugs into this stack
 

@@ -8,4 +8,4 @@
 - Dual-node models: have a wrapper script start and stop both nodes in `cmd` and `cmdStop`; llama-swap only knows the head process. The stack wrapper and assets live in the `self-hosted-llms` skill; platform memory and networking details in `nvidia-dgx-spark`.
 - Memory is shared with the OS: a container started outside llama-swap holds memory it cannot see (`docker ps`).
 
-Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark` and `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark` and `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.

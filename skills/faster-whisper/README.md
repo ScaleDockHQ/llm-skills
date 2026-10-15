@@ -5,7 +5,7 @@ An agent skill for installing, running and tuning [faster-whisper](https://githu
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill faster-whisper
+npx skills add ScaleDockHQ/llm-skills --skill faster-whisper
 ```
 
 ## Rules

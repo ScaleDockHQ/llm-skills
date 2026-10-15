@@ -41,7 +41,7 @@ routing:
           members: ["whisper", "<your-llm>"]
 ```
 
-Budget memory with `self-hosted-genmedia`; install it with `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
+Budget memory with `self-hosted-genmedia`; install it with `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
 
 ## 3. LiteLLM
 

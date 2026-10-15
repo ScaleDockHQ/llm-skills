@@ -2,7 +2,7 @@
 
 > Verified against cloudflared 2026.10.0, 2026-10-11
 
-Depth: install the cloudflare-tunnel skill (`npx skills add ScaleDockHQ/llms-skills --skill cloudflare-tunnel`).
+Depth: install the cloudflare-tunnel skill (`npx skills add ScaleDockHQ/llm-skills --skill cloudflare-tunnel`).
 
 ## How it plugs into this stack
 

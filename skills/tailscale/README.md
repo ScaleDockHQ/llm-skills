@@ -5,7 +5,7 @@ An agent skill for reaching a self-hosted LLM endpoint privately over a tailnet:
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill tailscale
+npx skills add ScaleDockHQ/llm-skills --skill tailscale
 ```
 
 ## Rules

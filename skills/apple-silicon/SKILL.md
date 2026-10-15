@@ -76,8 +76,8 @@ for b in ollama lms llama-server mlx_lm.server; do command -v $b && file "$(comm
 
 ## Companion skills
 
-- `mlx`, `lm-studio`, `ollama`, `llama-cpp`: runtimes. Install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
-- `local-llms`: choose a runtime, benchmark, share on a LAN. Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `choosing-hardware`: size models across hardware. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `mac-cluster-exo-mlx`: several Macs as one cluster. Install: `npx skills add ScaleDockHQ/llms-skills --skill mac-cluster-exo-mlx`.
-- `tailscale`: private remote access. Install: `npx skills add ScaleDockHQ/llms-skills --skill tailscale`.
+- `mlx`, `lm-studio`, `ollama`, `llama-cpp`: runtimes. Install: `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
+- `local-llms`: choose a runtime, benchmark, share on a LAN. Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `choosing-hardware`: size models across hardware. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `mac-cluster-exo-mlx`: several Macs as one cluster. Install: `npx skills add ScaleDockHQ/llm-skills --skill mac-cluster-exo-mlx`.
+- `tailscale`: private remote access. Install: `npx skills add ScaleDockHQ/llm-skills --skill tailscale`.

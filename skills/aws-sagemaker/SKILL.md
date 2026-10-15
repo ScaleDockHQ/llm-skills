@@ -111,13 +111,13 @@ Anything `InService` is billing right now. Unverified: the `--query` field names
 
 ## Companion skills
 
-- `cloud-llms`: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms` (compare providers, hybrid setups)
-- `llm-gateway`: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway` (one endpoint, keys, budgets)
-- `aws-bedrock`: `npx skills add ScaleDockHQ/llms-skills --skill aws-bedrock` (hosted models on AWS)
-- `vllm`: `npx skills add ScaleDockHQ/llms-skills --skill vllm` (engine flags behind LMI)
-- `choosing-llm-hosting`: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`
-- `self-hosted-llms`: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`
-- `model-quantization`: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`
-- `fine-tuning-llms`: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`
-- `llm-observability`: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`
-- `llm-evals`: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`
+- `cloud-llms`: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms` (compare providers, hybrid setups)
+- `llm-gateway`: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway` (one endpoint, keys, budgets)
+- `aws-bedrock`: `npx skills add ScaleDockHQ/llm-skills --skill aws-bedrock` (hosted models on AWS)
+- `vllm`: `npx skills add ScaleDockHQ/llm-skills --skill vllm` (engine flags behind LMI)
+- `choosing-llm-hosting`: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`
+- `self-hosted-llms`: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`
+- `model-quantization`: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`
+- `fine-tuning-llms`: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`
+- `llm-observability`: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`
+- `llm-evals`: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`

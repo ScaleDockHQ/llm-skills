@@ -5,7 +5,7 @@ An agent skill for running [NVIDIA Triton Inference Server](https://github.com/t
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill triton-inference-server
+npx skills add ScaleDockHQ/llm-skills --skill triton-inference-server
 ```
 
 ## Rules
@@ -35,7 +35,7 @@ Templates: [`templates/config.pbtxt`](templates/config.pbtxt), [`templates/docke
 
 ## Companion skills
 
-From [ScaleDockHQ/llms-skills](https://github.com/ScaleDockHQ/llms-skills); install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+From [ScaleDockHQ/llm-skills](https://github.com/ScaleDockHQ/llm-skills); install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `vllm`, `tensorrt-llm`: the engines behind the LLM backends.
 - `nvidia-dynamo`, `nvidia-nim`: LLM orchestration and packaged microservices.

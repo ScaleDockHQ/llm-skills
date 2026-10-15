@@ -100,7 +100,7 @@ Templates: `assets/gateway-vllm.yaml`, `assets/docker-compose.yaml`, `assets/fal
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `llm-gateway`: choose a gateway and the stack workflow around it.
 - `gateway-api-inference-extension`: InferencePool and the endpoint picker in depth.

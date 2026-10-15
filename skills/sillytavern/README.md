@@ -5,7 +5,7 @@ An agent skill for connecting SillyTavern, the local character-chat and roleplay
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill sillytavern
+npx skills add ScaleDockHQ/llm-skills --skill sillytavern
 ```
 
 ## Rules

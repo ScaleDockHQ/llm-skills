@@ -72,4 +72,4 @@ Quantized models can be sensitive to the `bos` token and `lm_eval` does not add 
 - Already-quantized FP8 checkpoints from the model vendor or Neural Magic / Red Hat collections avoid this work.
 - NVFP4 is the Blackwell-native next step (`combos/rtx-blackwell.md`; skill `nvidia-modelopt`). Other
   formats and general guidance: skill `model-quantization`.
-- Install with `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`.
+- Install with `npx skills add ScaleDockHQ/llm-skills --skill llm-compressor`.

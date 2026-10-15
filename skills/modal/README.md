@@ -5,7 +5,7 @@ Helps an agent run LLMs on Modal's serverless GPUs: deploy a vLLM Server with `@
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill modal
+npx skills add ScaleDockHQ/llm-skills --skill modal
 ```
 
 ## Rules

@@ -7,7 +7,7 @@ Flags and defaults were verified against llama.cpp master build b11556 and the v
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llama-cpp
+npx skills add ScaleDockHQ/llm-skills --skill llama-cpp
 ```
 
 ## Rules

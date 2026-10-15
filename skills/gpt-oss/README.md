@@ -5,7 +5,7 @@ An agent skill for serving OpenAI's gpt-oss-120b and gpt-oss-20b open-weight mod
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill gpt-oss
+npx skills add ScaleDockHQ/llm-skills --skill gpt-oss
 ```
 
 ## Rules

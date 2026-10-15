@@ -5,7 +5,7 @@ Helps an agent speed up LLM token generation with speculative decoding (EAGLE-3,
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill speculative-decoding
+npx skills add ScaleDockHQ/llm-skills --skill speculative-decoding
 ```
 
 ## Rules

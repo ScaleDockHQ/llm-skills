@@ -46,4 +46,4 @@ Run it as its own service outside llama-swap and size it so its worst case fits 
 - The OpenAI API cannot set the context; put `OLLAMA_CONTEXT_LENGTH` in the start script or use a Modelfile-derived model.
 - Chain: client -> LiteLLM -> llama-swap -> Ollama. Keep keys in LiteLLM only; Ollama has none.
 
-Companion skills: `llama-swap`, `litellm`, `nvidia-dgx-spark` (`npx skills add ScaleDockHQ/llms-skills --skill llama-swap`).
+Companion skills: `llama-swap`, `litellm`, `nvidia-dgx-spark` (`npx skills add ScaleDockHQ/llm-skills --skill llama-swap`).

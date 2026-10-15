@@ -8,7 +8,7 @@ NUMA and thread sizing, expert placement and layerwise prefill. Verified against
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill ktransformers
+npx skills add ScaleDockHQ/llm-skills --skill ktransformers
 ```
 
 ## Rules

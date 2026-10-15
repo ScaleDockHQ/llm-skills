@@ -19,4 +19,4 @@ scrape_configs:
     static_configs: [{ targets: ["node-a:9100", "node-b:9100"] }]
 ```
 
-Install companions: `npx skills add ScaleDockHQ/llms-skills --skill prometheus-grafana-llm`, `--skill dcgm-exporter`.
+Install companions: `npx skills add ScaleDockHQ/llm-skills --skill prometheus-grafana-llm`, `--skill dcgm-exporter`.

@@ -5,7 +5,7 @@ Helps an agent choose, quantize-select and serve Google Gemma 4 (E2B, E4B, 12B U
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill gemma
+npx skills add ScaleDockHQ/llm-skills --skill gemma
 ```
 
 ## Rules

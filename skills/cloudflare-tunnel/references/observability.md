@@ -36,7 +36,7 @@ cloudflared serves Prometheus metrics on `127.0.0.1:<port>/metrics`, the first f
 curl -fsS http://127.0.0.1:20241/metrics | grep -E '^cloudflared_tunnel_(ha_connections|request_errors|total_requests) '
 ```
 
-Keep the metrics port on loopback. For request-level LLM metrics (tokens, latency, cost) use the gateway and the `llm-observability` skill: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+Keep the metrics port on loopback. For request-level LLM metrics (tokens, latency, cost) use the gateway and the `llm-observability` skill: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
 
 ## Replicas
 

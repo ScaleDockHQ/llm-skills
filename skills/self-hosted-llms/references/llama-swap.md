@@ -4,7 +4,7 @@
 
 This page keeps only what is specific to this stack: the wrapper script, the llama-swap and LiteLLM entries, and the stack pitfalls. Install, flags, tuning and operating detail live in the product skill.
 
-Depth: install the llama-swap skill (`npx skills add ScaleDockHQ/llms-skills --skill llama-swap`).
+Depth: install the llama-swap skill (`npx skills add ScaleDockHQ/llm-skills --skill llama-swap`).
 
 ## Minimal working config
 

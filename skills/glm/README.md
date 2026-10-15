@@ -5,7 +5,7 @@ Serve Z.ai (Zhipu) GLM open-weight models with the right engine flags. It covers
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill glm
+npx skills add ScaleDockHQ/llm-skills --skill glm
 ```
 
 ## Rules

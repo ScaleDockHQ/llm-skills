@@ -69,7 +69,7 @@ Fields LiteLLM reads come from its model cost map (`model_prices_and_context_win
 - Health tuning: `health_check_timeout`, `health_check_max_tokens`, `disable_background_health_check`.
 - Arbitrary extra keys pass through to `/v1/model/info`.
 
-Important: these fields drive LiteLLM routing, cost, pre-call checks and `/v1/model/info`. The OpenAI-shaped `/v1/models` list only returns `id`, `object`, `created`, `owned_by`. Clients that need context size or capabilities must read them elsewhere (their own config or a model DB). See `troubleshooting.md` and the `llm-clients` skill (`npx skills add ScaleDockHQ/llms-skills --skill llm-clients`).
+Important: these fields drive LiteLLM routing, cost, pre-call checks and `/v1/model/info`. The OpenAI-shaped `/v1/models` list only returns `id`, `object`, `created`, `owned_by`. Clients that need context size or capabilities must read them elsewhere (their own config or a model DB). See `troubleshooting.md` and the `llm-clients` skill (`npx skills add ScaleDockHQ/llm-skills --skill llm-clients`).
 
 `router_settings.enable_pre_call_checks: true` makes LiteLLM reject or reroute requests that exceed `max_input_tokens` before calling the backend.
 

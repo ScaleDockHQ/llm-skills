@@ -93,7 +93,7 @@ Templates: `assets/docker-compose.yaml`, `assets/prometheus.yml`, `assets/alert-
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `dcgm-exporter`: GPU telemetry that Prometheus scrapes.
 - `sparkdash`: glanceable DGX Spark dashboard with a Prometheus export.

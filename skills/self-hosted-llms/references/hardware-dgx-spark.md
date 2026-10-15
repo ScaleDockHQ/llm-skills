@@ -4,7 +4,7 @@
 
 This page keeps the memory-budget formula the decision flow uses. Hardware, OS, networking, dual-node setup and troubleshooting live in the platform skill.
 
-Depth: install the nvidia-dgx-spark skill (`npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`).
+Depth: install the nvidia-dgx-spark skill (`npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`).
 
 ## Memory budgeting
 

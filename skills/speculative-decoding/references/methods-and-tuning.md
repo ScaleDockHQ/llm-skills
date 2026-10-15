@@ -65,7 +65,7 @@ Rules of thumb that upstream states:
 
 ## Benchmarking notes
 
-- Use identical prompts, output lengths, concurrency and sampling for baseline and candidate. The `self-hosted-llms` skill's benchmarking reference describes a fixed protocol and `scripts/bench.sh`. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
+- Use identical prompts, output lengths, concurrency and sampling for baseline and candidate. The `self-hosted-llms` skill's benchmarking reference describes a fixed protocol and `scripts/bench.sh`. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
 - llama.cpp ships a SPEED-Bench client under `tools/server/bench/speed-bench` that can compare a baseline run against a speculative run.
 - vLLM's docs point to `examples/features/speculative_decoding/spec_decode_offline.py` and its benchmark CLI for reproducible measurements.
 - Never use synthetic-acceptance switches for real measurements; they exist to benchmark scheduling, not quality.

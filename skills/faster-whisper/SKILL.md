@@ -73,7 +73,7 @@ ls ~/.cache/huggingface/hub 2>/dev/null | grep -iE 'whisper' | head
 
 ## Companion skills
 
-- `speaches`: OpenAI-compatible STT and TTS server on top of faster-whisper. Install: `npx skills add ScaleDockHQ/llms-skills --skill speaches`.
-- `whisper-cpp`: C/C++ Whisper engine with ggml models and Core ML or Metal. Install: `npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp`.
-- `self-hosted-genmedia`: choose a speech stack and place it next to LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `hugging-face`: model downloads, cache and tokens. Install: `npx skills add ScaleDockHQ/llms-skills --skill hugging-face`.
+- `speaches`: OpenAI-compatible STT and TTS server on top of faster-whisper. Install: `npx skills add ScaleDockHQ/llm-skills --skill speaches`.
+- `whisper-cpp`: C/C++ Whisper engine with ggml models and Core ML or Metal. Install: `npx skills add ScaleDockHQ/llm-skills --skill whisper-cpp`.
+- `self-hosted-genmedia`: choose a speech stack and place it next to LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `hugging-face`: model downloads, cache and tokens. Install: `npx skills add ScaleDockHQ/llm-skills --skill hugging-face`.

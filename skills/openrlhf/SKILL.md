@@ -99,7 +99,7 @@ curl -s https://pypi.org/pypi/openrlhf/json | jq -r '.info.version,.info.require
 
 ## Companion skills
 
-Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `fine-tuning-llms`: decide whether and how to tune, data, evaluation.
 - `verl`: Ray + FSDP/Megatron RL alternative. `trl`: Python-script trainers. `axolotl`: YAML SFT/DPO/GRPO.

@@ -67,9 +67,9 @@ sysctl -n machdep.cpu.brand_string hw.memsize 2>/dev/null         # macOS (Intel
 
 ## Companion skills
 
-- `llama-cpp`: the engine, flags, API and server config. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-cpp`.
-- `ik-llama-cpp`: fork focused on CPU and MoE performance. Install: `npx skills add ScaleDockHQ/llms-skills --skill ik-llama-cpp`.
-- `ollama`: simplest CPU-capable runtime. Install: `npx skills add ScaleDockHQ/llms-skills --skill ollama`.
-- `gguf-quantization`: pick or make a quant. Install: `npx skills add ScaleDockHQ/llms-skills --skill gguf-quantization`.
-- `choosing-hardware`: size models across hardware. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `apple-silicon`: Macs with unified memory. Install: `npx skills add ScaleDockHQ/llms-skills --skill apple-silicon`.
+- `llama-cpp`: the engine, flags, API and server config. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-cpp`.
+- `ik-llama-cpp`: fork focused on CPU and MoE performance. Install: `npx skills add ScaleDockHQ/llm-skills --skill ik-llama-cpp`.
+- `ollama`: simplest CPU-capable runtime. Install: `npx skills add ScaleDockHQ/llm-skills --skill ollama`.
+- `gguf-quantization`: pick or make a quant. Install: `npx skills add ScaleDockHQ/llm-skills --skill gguf-quantization`.
+- `choosing-hardware`: size models across hardware. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `apple-silicon`: Macs with unified memory. Install: `npx skills add ScaleDockHQ/llm-skills --skill apple-silicon`.

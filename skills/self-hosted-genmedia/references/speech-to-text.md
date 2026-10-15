@@ -21,4 +21,4 @@
 
 - **Operating:** whisper-server serves one request at a time, so use one llama-swap entry per model. Over Cloudflare a long synchronous transcription can exceed the 125 s read timeout; split audio or use a tailnet path.
 
-Depth: install the whisper-cpp skill (npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp), the faster-whisper skill (npx skills add ScaleDockHQ/llms-skills --skill faster-whisper) or the speaches skill (npx skills add ScaleDockHQ/llms-skills --skill speaches).
+Depth: install the whisper-cpp skill (npx skills add ScaleDockHQ/llm-skills --skill whisper-cpp), the faster-whisper skill (npx skills add ScaleDockHQ/llm-skills --skill faster-whisper) or the speaches skill (npx skills add ScaleDockHQ/llm-skills --skill speaches).

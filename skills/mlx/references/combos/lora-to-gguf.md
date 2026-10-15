@@ -29,11 +29,11 @@ ls -lh ./fused_model/ggml-model-f16.gguf
 llama-cli -m ./fused_model/ggml-model-f16.gguf -p "Hello" -n 32     # llama-cpp skill; confirms it loads
 ```
 
-If you trained QLoRA (quantized base), fuse with `--dequantize` first, which restores fp16 weights at full size; quality is that of the quantized base. Quantize the GGUF afterwards with llama.cpp's `llama-quantize` (`model-quantization` skill: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`).
+If you trained QLoRA (quantized base), fuse with `--dequantize` first, which restores fp16 weights at full size; quality is that of the quantized base. Quantize the GGUF afterwards with llama.cpp's `llama-quantize` (`model-quantization` skill: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`).
 
 ## Not covered by this route
 
-- Other architectures (Qwen, Gemma, ...): there is no mlx-lm export. Use a Hugging Face PEFT/TRL adapter and llama.cpp's own conversion instead (`fine-tuning-llms` skill: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`, which also covers serving adapters).
+- Other architectures (Qwen, Gemma, ...): there is no mlx-lm export. Use a Hugging Face PEFT/TRL adapter and llama.cpp's own conversion instead (`fine-tuning-llms` skill: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`, which also covers serving adapters).
 - Serving an MLX adapter directly needs no GGUF: `mlx_lm.server --model <base> --adapter-path ./adapters` (`serving.md`).
 - Upload: `mlx_lm.fuse --upload-repo` pushes to the Hub; ask first.
 

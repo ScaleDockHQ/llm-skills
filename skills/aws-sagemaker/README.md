@@ -5,7 +5,7 @@ Helps an agent host your own LLM on Amazon SageMaker AI in your AWS account: dep
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill aws-sagemaker
+npx skills add ScaleDockHQ/llm-skills --skill aws-sagemaker
 ```
 
 ## Rules

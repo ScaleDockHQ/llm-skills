@@ -143,9 +143,9 @@ Publishing ports on `127.0.0.1` keeps the server private; the upstream example u
 
 ## Companion skills
 
-- `vllm`, `tensorrt-llm`: engines behind the LLM backends. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `nvidia-dynamo`: multi-node LLM orchestration. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dynamo`.
-- `nvidia-nim`: packaged model microservices. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-nim`.
-- `choosing-inference-engine`: engine selection. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `litellm` and `llm-gateway`: auth and routing. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `llm-observability`, `dcgm-exporter`: metrics and GPU telemetry. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `vllm`, `tensorrt-llm`: engines behind the LLM backends. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `nvidia-dynamo`: multi-node LLM orchestration. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dynamo`.
+- `nvidia-nim`: packaged model microservices. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-nim`.
+- `choosing-inference-engine`: engine selection. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `litellm` and `llm-gateway`: auth and routing. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `llm-observability`, `dcgm-exporter`: metrics and GPU telemetry. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

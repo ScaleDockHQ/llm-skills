@@ -83,7 +83,7 @@ Template: `assets/kilo.jsonc`. Script: `scripts/probe.sh` (read-only; key from `
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `litellm`: gateway with scoped virtual keys and aliases for Kilo.
 - `llm-gateway`: whether to use a gateway at all.

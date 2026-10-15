@@ -2,7 +2,7 @@
 
 > Verified against SGLang v0.5.21 (docs: advanced_features/quantization, model_loading, supported-models/*; NVIDIA dgx-spark-playbooks/nvidia/sglang README), 2026-10-11
 
-Choosing a quantization format for a hardware target is a cross-engine decision: skill `model-quantization` (install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`). This page is what SGLang itself accepts.
+Choosing a quantization format for a hardware target is a cross-engine decision: skill `model-quantization` (install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`). This page is what SGLang itself accepts.
 
 ## Where models come from
 

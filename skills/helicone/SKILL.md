@@ -93,8 +93,8 @@ curl -sS http://localhost:8585/healthcheck
 
 ## Companion skills
 
-- `litellm`: self-hosted gateway with a Helicone callback path. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `bifrost`: actively developed open-source gateway. Install: `npx skills add ScaleDockHQ/llms-skills --skill bifrost`.
-- `langfuse`: open-source tracing. Install: `npx skills add ScaleDockHQ/llms-skills --skill langfuse`.
-- `llm-observability`: choosing observability. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `llm-gateway`: gateway design. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
+- `litellm`: self-hosted gateway with a Helicone callback path. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `bifrost`: actively developed open-source gateway. Install: `npx skills add ScaleDockHQ/llm-skills --skill bifrost`.
+- `langfuse`: open-source tracing. Install: `npx skills add ScaleDockHQ/llm-skills --skill langfuse`.
+- `llm-observability`: choosing observability. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `llm-gateway`: gateway design. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.

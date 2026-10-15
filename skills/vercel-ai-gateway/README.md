@@ -5,7 +5,7 @@ Helps an agent use Vercel AI Gateway: create API keys or use OIDC, call hundreds
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill vercel-ai-gateway
+npx skills add ScaleDockHQ/llm-skills --skill vercel-ai-gateway
 ```
 
 ## Rules

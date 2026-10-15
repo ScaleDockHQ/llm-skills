@@ -16,7 +16,7 @@ df -h                                           # onboard NVMe is fixed per conf
 - Onboard storage is mounted under `/home/ubuntu`, with extra space often at `/mnt` or `/data`. Mount points vary, so check `lsblk`.
 - Persistent volumes appear as a block device (for example `/dev/vdb`). A new volume must be formatted once, then mounted. The storage page has the exact steps: https://hyperbolic.ai/docs/on-demand/storage-and-ports.
 - Put model weights and checkpoints on a persistent volume, or be ready to re-download after termination.
-- For which engine to run, flags, quantization and sizing, load the `self-hosted-llms` skill (`npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`). Pin the engine image tag and the model revision.
+- For which engine to run, flags, quantization and sizing, load the `self-hosted-llms` skill (`npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`). Pin the engine image tag and the model revision.
 - Start the server with an API key set on the server itself. Whatever flag your engine uses, verify it in that engine's docs.
 
 ## Opening a port

@@ -5,7 +5,7 @@ Helps an agent run LLMs on Crusoe Cloud: GPU VMs and Managed Kubernetes (CMK) wi
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill crusoe
+npx skills add ScaleDockHQ/llm-skills --skill crusoe
 ```
 
 ## Rules

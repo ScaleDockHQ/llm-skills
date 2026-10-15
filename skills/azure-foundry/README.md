@@ -5,7 +5,7 @@ Helps an agent deploy and call models on Microsoft Foundry (formerly Azure AI Fo
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill azure-foundry
+npx skills add ScaleDockHQ/llm-skills --skill azure-foundry
 ```
 
 ## Rules

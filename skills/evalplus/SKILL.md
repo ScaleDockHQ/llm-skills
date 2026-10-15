@@ -88,9 +88,9 @@ curl -fsS ${OPENAI_API_KEY:+-H "Authorization: Bearer $OPENAI_API_KEY"} "$URL/mo
 
 ## Companion skills
 
-- `vllm`: usual server for `--backend openai`. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `lm-evaluation-harness`: other public benchmarks on the same endpoint. Install: `npx skills add ScaleDockHQ/llms-skills --skill lm-evaluation-harness`.
-- `swe-bench`: repository-level issue resolution. Install: `npx skills add ScaleDockHQ/llms-skills --skill swe-bench`.
-- `llm-evals`: eval strategy, gates, decision records. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `reasoning-models`: thinking-token handling. Install: `npx skills add ScaleDockHQ/llms-skills --skill reasoning-models`.
-- `model-quantization`: producing the quant under test. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
+- `vllm`: usual server for `--backend openai`. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `lm-evaluation-harness`: other public benchmarks on the same endpoint. Install: `npx skills add ScaleDockHQ/llm-skills --skill lm-evaluation-harness`.
+- `swe-bench`: repository-level issue resolution. Install: `npx skills add ScaleDockHQ/llm-skills --skill swe-bench`.
+- `llm-evals`: eval strategy, gates, decision records. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `reasoning-models`: thinking-token handling. Install: `npx skills add ScaleDockHQ/llm-skills --skill reasoning-models`.
+- `model-quantization`: producing the quant under test. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.

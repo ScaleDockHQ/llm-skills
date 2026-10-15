@@ -61,7 +61,7 @@ Docs on `main` describe usage telemetry, with `--no-telemetry` to opt out and a 
 
 ## Cross-stack
 
-For gateway-level metrics, traces and cost dashboards use `llm-observability` (`npx skills add ScaleDockHQ/llms-skills --skill llm-observability`).
+For gateway-level metrics, traces and cost dashboards use `llm-observability` (`npx skills add ScaleDockHQ/llm-skills --skill llm-observability`).
 
 ## Official links
 

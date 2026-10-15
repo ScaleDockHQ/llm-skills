@@ -9,4 +9,4 @@
 - `drop_params: true` globally or per deployment; `additional_drop_params` for named fields.
 - Pitfall: `/v1/models` is OpenAI-shaped and omits `model_info`; clients read context and capabilities from their own config (`llm-clients` skill).
 
-Depth: install the litellm skill (npx skills add ScaleDockHQ/llms-skills --skill litellm)
+Depth: install the litellm skill (npx skills add ScaleDockHQ/llm-skills --skill litellm)

@@ -4,7 +4,7 @@
 
 This page keeps only what is specific to this stack: the wrapper script, the llama-swap and LiteLLM entries, and the stack pitfalls. Install, flags, tuning and operating detail live in the product skill.
 
-Depth: install the sglang skill (`npx skills add ScaleDockHQ/llms-skills --skill sglang`).
+Depth: install the sglang skill (`npx skills add ScaleDockHQ/llm-skills --skill sglang`).
 
 ## Minimal working config
 

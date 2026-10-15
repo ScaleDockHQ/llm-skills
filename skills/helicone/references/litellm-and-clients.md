@@ -36,7 +36,7 @@ model_list:
       api_key: os.environ/HELICONE_API_KEY
 ```
 
-Use `litellm` for the proxy side: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
+Use `litellm` for the proxy side: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
 
 ## Other clients
 

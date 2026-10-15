@@ -153,7 +153,7 @@ Ask only what can't be discovered:
 
 ## Companion skills
 
-Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `axolotl` — config-driven training, multi-GPU, merge and export, the default trainer.
 - `unsloth` — memory-tight single-GPU training, Studio, merged and GGUF export.

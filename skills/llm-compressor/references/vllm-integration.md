@@ -21,7 +21,7 @@ jq -n '{model:"<model>-fp8",messages:[{role:"user",content:"Reply with exactly: 
   jq -r '.choices[0].message.content'
 ```
 
-The default port is 8000 on localhost, changed with `--host` and `--port` (upstream deploy guide). Use `vllm serve --help` for the flags of your installed version before adding others; engine tuning belongs to the `vllm` skill (`npx skills add ScaleDockHQ/llms-skills --skill vllm`).
+The default port is 8000 on localhost, changed with `--host` and `--port` (upstream deploy guide). Use `vllm serve --help` for the flags of your installed version before adding others; engine tuning belongs to the `vllm` skill (`npx skills add ScaleDockHQ/llm-skills --skill vllm`).
 
 Python API from upstream's guide:
 
@@ -47,7 +47,7 @@ Read the startup log, not just "it loaded".
 - No calibration: `--kv-cache-dtype fp8` (all scales 1.0).
 - Calibrated (recommended by vLLM's docs): quantize the KV cache with LLM Compressor (`recipes.md`), then serve; scales are stored in the checkpoint. Per-attention-head scales work only with the Flash Attention backend and need LLM Compressor's calibration.
 - `--kv-cache-dtype-skip-layers` keeps listed layers (indices or `sliding_window`) in the native dtype.
-- Choices and trade-offs: the `kv-cache-quantization` skill (`npx skills add ScaleDockHQ/llms-skills --skill kv-cache-quantization`).
+- Choices and trade-offs: the `kv-cache-quantization` skill (`npx skills add ScaleDockHQ/llm-skills --skill kv-cache-quantization`).
 
 ## Evaluate
 

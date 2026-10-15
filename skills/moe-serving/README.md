@@ -5,7 +5,7 @@ Helps an agent serve Mixture-of-Experts LLMs on the user's hardware: expert para
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill moe-serving
+npx skills add ScaleDockHQ/llm-skills --skill moe-serving
 ```
 
 ## Rules

@@ -105,7 +105,7 @@ test -n "$HF_TOKEN" && echo "HF_TOKEN set" || echo "HF_TOKEN not set"
 
 ## Companion skills
 
-Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `fine-tuning-llms`: decide, prepare data, choose method and hardware, evaluate.
 - `axolotl`: config-only, multi-GPU runs. `unsloth`: memory-tight single-GPU runs.

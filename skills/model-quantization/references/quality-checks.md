@@ -8,7 +8,7 @@ Three layers, cheapest first:
 
 1. **Smoke prompts** (minutes): does it load, follow the chat template, stop, call tools?
 2. **Distribution checks** (tens of minutes): perplexity delta and KL divergence vs base.
-3. **Task evals** (longer): your real tasks with a pass/fail gate. These belong to the `llm-evals` skill (`npx skills add ScaleDockHQ/llms-skills --skill llm-evals`).
+3. **Task evals** (longer): your real tasks with a pass/fail gate. These belong to the `llm-evals` skill (`npx skills add ScaleDockHQ/llm-skills --skill llm-evals`).
 
 ## 1. Smoke prompts (any OpenAI-compatible server)
 

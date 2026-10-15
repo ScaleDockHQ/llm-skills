@@ -5,7 +5,7 @@ An agent skill for benchmarking LLM serving with [NVIDIA AIPerf](https://github.
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill nvidia-aiperf
+npx skills add ScaleDockHQ/llm-skills --skill nvidia-aiperf
 ```
 
 ## Rules

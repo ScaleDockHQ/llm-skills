@@ -5,7 +5,7 @@ An agent skill for pointing Pydantic AI (Python `pydantic-ai` 2.x) at self-hoste
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill pydantic-ai
+npx skills add ScaleDockHQ/llm-skills --skill pydantic-ai
 ```
 
 ## Rules

@@ -5,7 +5,7 @@ An agent skill for running [verl](https://github.com/verl-project/verl), the ope
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill verl
+npx skills add ScaleDockHQ/llm-skills --skill verl
 ```
 
 ## Rules

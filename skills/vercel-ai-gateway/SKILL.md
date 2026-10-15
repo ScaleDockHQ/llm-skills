@@ -103,8 +103,8 @@ vercel ai-gateway api-keys list && vercel ai-gateway budgets list
 
 ## Companion skills
 
-- `llm-gateway`: gateway design across products. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `litellm`: self-hosted proxy. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `cloudflare-ai-gateway`: Cloudflare's hosted alternative. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloudflare-ai-gateway`.
-- `llm-observability`: wider tracing and cost. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `cloud-llms`: provider choice. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
+- `llm-gateway`: gateway design across products. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `litellm`: self-hosted proxy. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `cloudflare-ai-gateway`: Cloudflare's hosted alternative. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloudflare-ai-gateway`.
+- `llm-observability`: wider tracing and cost. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `cloud-llms`: provider choice. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.

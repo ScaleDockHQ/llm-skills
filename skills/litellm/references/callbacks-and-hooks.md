@@ -24,7 +24,7 @@ litellm_settings:
 - `prometheus` exposes `GET /metrics` on the proxy port; the Docker image already includes the client library.
 - `general_settings.service_callback` reports gateway dependency failures (Redis, Postgres) to the listed services.
 - Per request, a client can skip a callback with the header `x-litellm-disable-callbacks: <name>` (Enterprise feature per upstream logging docs).
-- Dashboards and trace backends beyond LiteLLM: install the `llm-observability` skill (`npx skills add ScaleDockHQ/llms-skills --skill llm-observability`). See `observability.md` here for the LiteLLM side.
+- Dashboards and trace backends beyond LiteLLM: install the `llm-observability` skill (`npx skills add ScaleDockHQ/llm-skills --skill llm-observability`). See `observability.md` here for the LiteLLM side.
 
 ## Debug logging
 

@@ -112,10 +112,10 @@ If `deployment list` shows deployments you did not create, stop and ask before t
 
 ## Companion skills
 
-- `cloud-llms`: cross-provider workflow and cost model. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `llm-gateway`: LiteLLM-style gateway, fallbacks and budgets. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-gateway`.
-- `fine-tuning-llms`: data and method choices before paying for training. Install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`.
-- `llm-evals`: compare Fireworks models with your current one. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
-- `llm-observability`: traces and per-request cost. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
-- `llm-clients`: SDK and client wiring. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-clients`.
-- `choosing-llm-hosting` and `self-hosted-llms`: when to move off a managed API. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
+- `cloud-llms`: cross-provider workflow and cost model. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `llm-gateway`: LiteLLM-style gateway, fallbacks and budgets. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-gateway`.
+- `fine-tuning-llms`: data and method choices before paying for training. Install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`.
+- `llm-evals`: compare Fireworks models with your current one. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
+- `llm-observability`: traces and per-request cost. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.
+- `llm-clients`: SDK and client wiring. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-clients`.
+- `choosing-llm-hosting` and `self-hosted-llms`: when to move off a managed API. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.

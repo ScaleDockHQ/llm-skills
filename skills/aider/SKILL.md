@@ -77,7 +77,7 @@ Templates: `templates/aider.conf.yml`, `templates/env.example`, `templates/aider
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `litellm`: one gateway for several engines.
 - `llm-gateway`: whether to use a gateway and which one.

@@ -6,7 +6,7 @@ How to point any client at the stack. Per-client depth (every setting, troublesh
 clients) lives in the companion skill:
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llm-clients
+npx skills add ScaleDockHQ/llm-skills --skill llm-clients
 ```
 
 ## The three values every client needs

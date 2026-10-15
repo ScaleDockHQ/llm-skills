@@ -74,8 +74,8 @@ python3 -c 'import chatterbox, pkgutil; print([m.name for m in pkgutil.iter_modu
 
 ## Companion skills
 
-- `f5-tts`: another zero-shot cloner (CC-BY-NC weights). Install: `npx skills add ScaleDockHQ/llms-skills --skill f5-tts`.
-- `kokoro-fastapi`: fixed-voice TTS with an OpenAI-compatible API. Install: `npx skills add ScaleDockHQ/llms-skills --skill kokoro-fastapi`.
-- `speaches`: OpenAI-compatible speech server (STT and Kokoro TTS). Install: `npx skills add ScaleDockHQ/llms-skills --skill speaches`.
-- `self-hosted-genmedia`: choose a speech stack and place it next to LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `hugging-face`: model cache and tokens. Install: `npx skills add ScaleDockHQ/llms-skills --skill hugging-face`.
+- `f5-tts`: another zero-shot cloner (CC-BY-NC weights). Install: `npx skills add ScaleDockHQ/llm-skills --skill f5-tts`.
+- `kokoro-fastapi`: fixed-voice TTS with an OpenAI-compatible API. Install: `npx skills add ScaleDockHQ/llm-skills --skill kokoro-fastapi`.
+- `speaches`: OpenAI-compatible speech server (STT and Kokoro TTS). Install: `npx skills add ScaleDockHQ/llm-skills --skill speaches`.
+- `self-hosted-genmedia`: choose a speech stack and place it next to LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `hugging-face`: model cache and tokens. Install: `npx skills add ScaleDockHQ/llm-skills --skill hugging-face`.

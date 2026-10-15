@@ -2,7 +2,7 @@
 
 > Verified against Langfuse v4.56.0 (docs: integrations/gateways/litellm, integrations/native/opentelemetry) and LiteLLM v1.105.0 (docs: observability/langfuse_integration, proxy/logging), 2026-10-11
 
-Every call through a LiteLLM proxy becomes a Langfuse generation with model, latency, token usage and cost, attributed by key and team. For running the proxy itself, install the `litellm` skill: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
+Every call through a LiteLLM proxy becomes a Langfuse generation with model, latency, token usage and cost, attributed by key and team. For running the proxy itself, install the `litellm` skill: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
 
 ## Config (recommended: OTel preset)
 

@@ -75,7 +75,7 @@ LiteLLM `drop_params` drops parameters LiteLLM knows the provider does not suppo
 
 ## Reasoning gate
 
-Reasoning on or off, an effort level, and a thinking budget all change what the model answers and what it costs. Run this with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`) before exposing a variant or changing a default. Write thresholds first.
+Reasoning on or off, an effort level, and a thinking budget all change what the model answers and what it costs. Run this with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`) before exposing a variant or changing a default. Write thresholds first.
 
 1. **Golden set.** Real tasks with checkable answers, plus tasks that need long reasoning, tasks that need none, structured-output tasks and tool-calling tasks if the product uses them.
 2. **Arms.** Baseline (current default) versus one candidate: thinking off, a lower effort, a budget of N, or a new engine or parser. One change per run. Same sampling settings; use the model card's recommended temperature for thinking mode.

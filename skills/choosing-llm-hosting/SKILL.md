@@ -155,7 +155,7 @@ Quick heuristics (not substitutes for the flow):
 | Connecting apps and coding tools                | `llm-clients`          |
 | Image, video, audio generation                  | `self-hosted-genmedia` |
 
-Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 ## References
 

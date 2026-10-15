@@ -34,7 +34,7 @@ What llama-swap forces on `comfyui_auto` (guide): `compat.ignoreWebsockets` is s
 
 Keep the process bound to `127.0.0.1`, because llama-swap's `apiKeys` is the only auth in the path. API-key checks apply to `/comfyui/` like other endpoints.
 
-For a second ComfyUI or a custom model id, use `/upstream/<model>/` and reproduce the settings by hand: `concurrencyLimit: 999`, `compat.ignoreWebsockets: true`, and `upstream.ignorePaths` (note that listing any pattern replaces the default static-asset pattern, and it matches every method rather than `GET` alone). The guide's exact patterns are in the `llama-swap` skill's `comfyui-images` combo (install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`).
+For a second ComfyUI or a custom model id, use `/upstream/<model>/` and reproduce the settings by hand: `concurrencyLimit: 999`, `compat.ignoreWebsockets: true`, and `upstream.ignorePaths` (note that listing any pattern replaces the default static-asset pattern, and it matches every method rather than `GET` alone). The guide's exact patterns are in the `llama-swap` skill's `comfyui-images` combo (install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`).
 
 ## 2. Placement next to LLMs
 

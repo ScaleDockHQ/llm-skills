@@ -5,7 +5,7 @@ Run, size and tune LLM inference on CPU-only hosts (x86 AVX2, AVX-512 and AMX, A
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill cpu-inference
+npx skills add ScaleDockHQ/llm-skills --skill cpu-inference
 ```
 
 ## Rules

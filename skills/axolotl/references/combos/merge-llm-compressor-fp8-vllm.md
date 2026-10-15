@@ -4,7 +4,7 @@
 
 Goal: take a LoRA adapter trained with Axolotl, merge it into the base, quantize the merged bf16 model to FP8 with LLM Compressor, and serve it with vLLM. Use this when you want one self-contained, faster-to-serve checkpoint rather than a base plus adapter.
 
-Install the other skills for depth: `npx skills add ScaleDockHQ/llms-skills --skill llm-compressor`, `--skill vllm`.
+Install the other skills for depth: `npx skills add ScaleDockHQ/llm-skills --skill llm-compressor`, `--skill vllm`.
 
 ## 1. Merge (Axolotl venv)
 

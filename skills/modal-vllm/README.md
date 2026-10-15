@@ -5,7 +5,7 @@ A stack recipe for a private, scale-to-zero, OpenAI-compatible LLM: vLLM on Moda
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill modal-vllm
+npx skills add ScaleDockHQ/llm-skills --skill modal-vllm
 ```
 
 ## Rules

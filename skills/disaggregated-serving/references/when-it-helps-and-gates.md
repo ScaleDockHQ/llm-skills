@@ -16,7 +16,7 @@ Bad fit (use aggregated serving and chunked prefill instead): one GPU, one serve
 
 ## Validate before and after
 
-1. **Baseline**: same model, same hardware count, aggregated (`--enable-chunked-prefill` where the engine has it). Record TTFT p50/p95/p99, ITL p50/p95/p99, request throughput and goodput under your SLO at three concurrencies (low, expected, peak). The `self-hosted-llms` skill has a benchmark workflow and script for OpenAI-compatible endpoints (`npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`).
+1. **Baseline**: same model, same hardware count, aggregated (`--enable-chunked-prefill` where the engine has it). Record TTFT p50/p95/p99, ITL p50/p95/p99, request throughput and goodput under your SLO at three concurrencies (low, expected, peak). The `self-hosted-llms` skill has a benchmark workflow and script for OpenAI-compatible endpoints (`npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`).
 2. **Candidate**: same GPUs split P:D. Sweep the P:D ratio, not just 1:1. Use realistic prompt/output length distributions: a synthetic short prompt hides the transfer cost.
 3. **Warm up**: both engines create transfer connections lazily (llm-d: about 5 s for a first NIXL handshake per pair; TensorRT-LLM: first requests slower). Discard warm-up requests.
 4. **Check the fabric** before blaming the engine: confirm the NIC link, RDMA device names and that the chosen transport actually uses them. `ibv_devinfo -l`, `ibdev2netdev`, `ip -br addr` and engine logs showing the transfer backend are read-only checks.
@@ -34,7 +34,7 @@ Plain transfer of the same KV bytes does not by itself change values. These rela
 
 ## Numerics gate (use the `llm-evals` skill)
 
-Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`. Follow its workflow "Quality-gate a numerics change" and decision record in `references/quality-gates.md`. Concretely for this change:
+Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`. Follow its workflow "Quality-gate a numerics change" and decision record in `references/quality-gates.md`. Concretely for this change:
 
 1. **Write the gate first**: metric (task pass rate on your golden set), threshold (for example no drop beyond baseline-vs-baseline noise, and zero regressions on critical items), who decides. Do this before the first candidate run.
 2. **Baseline** = current production aggregated config. **Candidate** = exactly one change: the P/D split, or one numerics option on top of an already-validated split. Do not combine P/D with a KV dtype change in one run.

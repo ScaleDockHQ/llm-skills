@@ -5,7 +5,7 @@ Helps an agent use Together AI for open-model APIs: the OpenAI-compatible server
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill together-ai
+npx skills add ScaleDockHQ/llm-skills --skill together-ai
 ```
 
 ## Rules

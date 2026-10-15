@@ -80,8 +80,8 @@ curl -s -m 3 http://127.0.0.1:30000/v1/models | jq '.data[] | {id, task_type, su
 
 ## Companion skills
 
-- `sglang`: the LLM runtime in the same project. Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
-- `self-hosted-genmedia`: choose between SGLang Diffusion, vLLM-Omni, ComfyUI, sd-server and diffusers. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `comfyui`: node UI; SGLang ships a plugin for it. Install: `npx skills add ScaleDockHQ/llms-skills --skill comfyui`.
-- `hugging-face`: tokens, gated repos and cache. Install: `npx skills add ScaleDockHQ/llms-skills --skill hugging-face`.
-- `caddy`: TLS and auth in front. Install: `npx skills add ScaleDockHQ/llms-skills --skill caddy`.
+- `sglang`: the LLM runtime in the same project. Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
+- `self-hosted-genmedia`: choose between SGLang Diffusion, vLLM-Omni, ComfyUI, sd-server and diffusers. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `comfyui`: node UI; SGLang ships a plugin for it. Install: `npx skills add ScaleDockHQ/llm-skills --skill comfyui`.
+- `hugging-face`: tokens, gated repos and cache. Install: `npx skills add ScaleDockHQ/llm-skills --skill hugging-face`.
+- `caddy`: TLS and auth in front. Install: `npx skills add ScaleDockHQ/llm-skills --skill caddy`.

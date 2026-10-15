@@ -7,7 +7,7 @@ Verified against ExLlamaV3 v1.6.1 on 2026-10-11.
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill exl3-quantization
+npx skills add ScaleDockHQ/llm-skills --skill exl3-quantization
 ```
 
 ## Rules

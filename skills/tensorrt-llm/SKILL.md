@@ -98,11 +98,11 @@ python3 -c "import tensorrt_llm; print(tensorrt_llm.__version__)" 2>&1 | tail -1
 
 ## Companion skills
 
-- `vllm`: alternative engine with wider model coverage. Install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`.
-- `sglang`: alternative engine. Install: `npx skills add ScaleDockHQ/llms-skills --skill sglang`.
-- `nvidia-dgx-spark`: GB10 memory, networking and dual-Spark setup. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark`.
-- `llama-swap`: model swapping in front of engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill llama-swap`.
-- `litellm`: authenticated gateway and key management. Install: `npx skills add ScaleDockHQ/llms-skills --skill litellm`.
-- `model-quantization`: produce FP8 / NVFP4 checkpoints. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `self-hosted-llms`: whole-stack workflow (gateway, swap, exposure). Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `speculative-decoding`, `multi-node-inference`: cross-engine techniques. Install: `npx skills add ScaleDockHQ/llms-skills --skill speculative-decoding`.
+- `vllm`: alternative engine with wider model coverage. Install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`.
+- `sglang`: alternative engine. Install: `npx skills add ScaleDockHQ/llm-skills --skill sglang`.
+- `nvidia-dgx-spark`: GB10 memory, networking and dual-Spark setup. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark`.
+- `llama-swap`: model swapping in front of engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill llama-swap`.
+- `litellm`: authenticated gateway and key management. Install: `npx skills add ScaleDockHQ/llm-skills --skill litellm`.
+- `model-quantization`: produce FP8 / NVFP4 checkpoints. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `self-hosted-llms`: whole-stack workflow (gateway, swap, exposure). Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `speculative-decoding`, `multi-node-inference`: cross-engine techniques. Install: `npx skills add ScaleDockHQ/llm-skills --skill speculative-decoding`.

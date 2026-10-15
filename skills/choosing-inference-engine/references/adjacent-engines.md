@@ -10,14 +10,14 @@ These are not in the main matrix. Each entry says what it is, its verified statu
 - MLX is an array framework for Apple silicon. mlx-lm is the LLM runner on top of it.
 - Choose it on a Mac when you want MLX checkpoints, MLX LoRA fine-tuning or the newest MLX-native model support. Choose `llama.cpp` or `Ollama` when you want GGUF and one tool across macOS, Linux and Windows.
 - SGLang and TensorFold both list MLX-format paths on Apple Silicon. See the matrix.
-- Skill status: an `mlx` skill may exist in this repo. Install: `npx skills add ScaleDockHQ/llms-skills --skill mlx`.
+- Skill status: an `mlx` skill may exist in this repo. Install: `npx skills add ScaleDockHQ/llm-skills --skill mlx`.
 
 ## LM Studio
 
 - Status: a desktop app with a headless mode (`llmster`) and `lms` CLI, documented at lmstudio.ai. Per its docs it runs LLMs with `llama.cpp` (GGUF) on Mac, Windows and Linux, and with MLX on Apple Silicon Macs. It exposes an OpenAI-compatible API and has a parallel-requests and speculative-decoding setting page.
 - It is a wrapper around the engines above, so engine capability limits still apply. The app is closed-source, so its release status could not be checked on GitHub in this pass. Treat release cadence as **(unverified)**.
 - Choose it for a GUI, model management and a quick local server. Choose a headless engine for servers and automation.
-- Skill: `npx skills add ScaleDockHQ/llms-skills --skill lm-studio` (if published).
+- Skill: `npx skills add ScaleDockHQ/llm-skills --skill lm-studio` (if published).
 
 ## NVIDIA Dynamo
 

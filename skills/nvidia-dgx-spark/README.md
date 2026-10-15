@@ -5,7 +5,7 @@ Set up, size, network and operate an NVIDIA DGX Spark (GB10 Grace Blackwell, 128
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-spark
+npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-spark
 ```
 
 ## Rules

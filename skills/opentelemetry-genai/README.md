@@ -5,7 +5,7 @@ An agent skill for vendor-neutral LLM tracing with OpenTelemetry. It explains th
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill opentelemetry-genai
+npx skills add ScaleDockHQ/llm-skills --skill opentelemetry-genai
 ```
 
 ## Rules

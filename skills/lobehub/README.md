@@ -5,7 +5,7 @@ Deploy and operate LobeHub (formerly LobeChat) v2 against self-hosted OpenAI-com
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill lobehub
+npx skills add ScaleDockHQ/llm-skills --skill lobehub
 ```
 
 ## Contents

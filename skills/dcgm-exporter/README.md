@@ -5,7 +5,7 @@ An agent skill for installing and operating NVIDIA DCGM Exporter, the Prometheus
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill dcgm-exporter
+npx skills add ScaleDockHQ/llm-skills --skill dcgm-exporter
 ```
 
 ## Rules

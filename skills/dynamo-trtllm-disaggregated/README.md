@@ -5,7 +5,7 @@ Helps an agent deploy TensorRT-LLM prefill and decode as separate NVIDIA Dynamo 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill dynamo-trtllm-disaggregated
+npx skills add ScaleDockHQ/llm-skills --skill dynamo-trtllm-disaggregated
 ```
 
 ## Rules

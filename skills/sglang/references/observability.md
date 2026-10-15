@@ -2,7 +2,7 @@
 
 > Verified against SGLang v0.5.21 (docs: advanced_features/observability, references/production_metrics, production_request_trace; source `srt/observability/metrics_collector.py`, `srt/utils/auth.py`), 2026-10-11
 
-For dashboards, alert rules and the Prometheus job layout across engines, use skill `llm-observability` (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`). This page is SGLang-specific.
+For dashboards, alert rules and the Prometheus job layout across engines, use skill `llm-observability` (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`). This page is SGLang-specific.
 
 ## Prometheus metrics
 

@@ -16,4 +16,4 @@ Most frequent causes in this stack:
 - Chat UI shows wrong context or dates: `/v1/models` is OpenAI-shaped; configure the client (`llm-clients` skill).
 - Stored credentials unreadable: `LITELLM_SALT_KEY` changed.
 
-Depth: install the litellm skill (npx skills add ScaleDockHQ/llms-skills --skill litellm)
+Depth: install the litellm skill (npx skills add ScaleDockHQ/llm-skills --skill litellm)

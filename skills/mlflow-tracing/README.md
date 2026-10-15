@@ -5,7 +5,7 @@ An agent skill for running MLflow as a self-hosted LLM trace store and sending t
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill mlflow-tracing
+npx skills add ScaleDockHQ/llm-skills --skill mlflow-tracing
 ```
 
 ## Rules

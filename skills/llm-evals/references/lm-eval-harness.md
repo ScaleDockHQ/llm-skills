@@ -2,7 +2,7 @@
 
 > Verified against lm-evaluation-harness v0.4.13, 2026-10-11
 
-Depth: install the lm-evaluation-harness skill (npx skills add ScaleDockHQ/llms-skills --skill lm-evaluation-harness)
+Depth: install the lm-evaluation-harness skill (npx skills add ScaleDockHQ/llm-skills --skill lm-evaluation-harness)
 
 ## How it plugs into this stack
 

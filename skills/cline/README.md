@@ -5,7 +5,7 @@ An agent skill for configuring Cline (VS Code, JetBrains, CLI) against self-host
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill cline
+npx skills add ScaleDockHQ/llm-skills --skill cline
 ```
 
 ## Rules

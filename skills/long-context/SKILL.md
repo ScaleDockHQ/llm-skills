@@ -43,7 +43,7 @@ Record: native context (`max_position_embeddings` and any existing `rope_scaling
 - **Ask before changing the system.** Config edits, restarts and memory settings need approval and an undo path.
 - **Secrets never touch output.** Keys live in `0600` files or environment variables.
 - **Verify upstream.** Flags move between releases. vLLM removed `--rope-scaling` for `--hf-overrides` with `rope_parameters`. Check `--help` of the installed version.
-- **Numerics gate.** RoPE or YaRN scaling, a quantized KV cache and sliding-window overrides change outputs. Static YaRN applies the scaling to short prompts too, so short-text quality can drop (Qwen's model card says so). Gate every such change with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`) using `references/quality-gate.md`: needle-in-a-haystack and RULER-style checks at several lengths, a short-prompt regression check, and a rollback.
+- **Numerics gate.** RoPE or YaRN scaling, a quantized KV cache and sliding-window overrides change outputs. Static YaRN applies the scaling to short prompts too, so short-text quality can drop (Qwen's model card says so). Gate every such change with the `llm-evals` skill (install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`) using `references/quality-gate.md`: needle-in-a-haystack and RULER-style checks at several lengths, a short-prompt regression check, and a rollback.
 - **A bigger window is not better quality.** Retrieval accuracy usually drops with length. Measure at the lengths you will really use.
 - **Memory first.** The flag that raises the window also reserves KV memory for it. Check the startup log for the KV capacity before announcing success.
 
@@ -80,7 +80,7 @@ Then run `references/quality-gate.md`. Keep the previous launch command as the r
 
 ## Companion skills
 
-Install any with `npx skills add ScaleDockHQ/llms-skills --skill <name>`. Engine skills may not be published yet; use upstream docs until they are.
+Install any with `npx skills add ScaleDockHQ/llm-skills --skill <name>`. Engine skills may not be published yet; use upstream docs until they are.
 
 - `vllm`, `sglang`, `tensorrt-llm`, `llama-cpp`, `ollama`, `tensorfold`, `exllamav3`: install, serve and tune each engine.
 - `llm-evals`: the quality gate for any numerics-changing option.

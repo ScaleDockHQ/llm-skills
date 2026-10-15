@@ -4,7 +4,7 @@
 
 This page keeps the minimal command and how it plugs into the local stack. Environment variables, tuning and operating live in the product skill.
 
-Depth: install the ollama skill (`npx skills add ScaleDockHQ/llms-skills --skill ollama`).
+Depth: install the ollama skill (`npx skills add ScaleDockHQ/llm-skills --skill ollama`).
 
 ## Minimal working config
 

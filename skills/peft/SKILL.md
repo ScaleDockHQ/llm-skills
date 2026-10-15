@@ -98,7 +98,7 @@ If you find an `adapter_config.json`, read it: it names the base model, the PEFT
 
 ## Companion skills
 
-Install with `npx skills add ScaleDockHQ/llms-skills --skill <name>`:
+Install with `npx skills add ScaleDockHQ/llm-skills --skill <name>`:
 
 - `fine-tuning-llms`: decide, prepare data, choose method and hardware, evaluate.
 - `trl`, `axolotl`, `llama-factory`, `unsloth`: trainers built on PEFT.

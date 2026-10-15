@@ -65,7 +65,7 @@ nvcc --version 2>/dev/null | tail -1; docker --version; nvidia-smi -q | grep -iE
 
 ## Companion skills
 
-- `choosing-hardware`: VRAM sizing math. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-hardware`.
-- `vllm`, `llama-cpp`, `ollama`, `sglang`, `exllamav3`: engines. Install: `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
-- `nvidia-dgx-station`: GB300 desktop. Install: `npx skills add ScaleDockHQ/llms-skills --skill nvidia-dgx-station`.
-- `llm-observability`: DCGM and Grafana. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-observability`.
+- `choosing-hardware`: VRAM sizing math. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-hardware`.
+- `vllm`, `llama-cpp`, `ollama`, `sglang`, `exllamav3`: engines. Install: `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
+- `nvidia-dgx-station`: GB300 desktop. Install: `npx skills add ScaleDockHQ/llm-skills --skill nvidia-dgx-station`.
+- `llm-observability`: DCGM and Grafana. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-observability`.

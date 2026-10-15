@@ -77,8 +77,8 @@ df -h ~ | tail -1; du -sh ~/invokeai/models 2>/dev/null
 
 ## Companion skills
 
-- `self-hosted-genmedia`: choose between InvokeAI, ComfyUI, sd-server and diffusers; memory planning next to LLMs. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-genmedia`.
-- `comfyui`: node-graph engine with a different HTTP API. Install: `npx skills add ScaleDockHQ/llms-skills --skill comfyui`.
-- `diffusers`: Python library underneath many Invoke models. Install: `npx skills add ScaleDockHQ/llms-skills --skill diffusers`.
-- `hugging-face`: tokens, gated repos and cache. Install: `npx skills add ScaleDockHQ/llms-skills --skill hugging-face`.
-- `caddy`: reverse proxy with auth in front. Install: `npx skills add ScaleDockHQ/llms-skills --skill caddy`.
+- `self-hosted-genmedia`: choose between InvokeAI, ComfyUI, sd-server and diffusers; memory planning next to LLMs. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-genmedia`.
+- `comfyui`: node-graph engine with a different HTTP API. Install: `npx skills add ScaleDockHQ/llm-skills --skill comfyui`.
+- `diffusers`: Python library underneath many Invoke models. Install: `npx skills add ScaleDockHQ/llm-skills --skill diffusers`.
+- `hugging-face`: tokens, gated repos and cache. Install: `npx skills add ScaleDockHQ/llm-skills --skill hugging-face`.
+- `caddy`: reverse proxy with auth in front. Install: `npx skills add ScaleDockHQ/llm-skills --skill caddy`.

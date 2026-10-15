@@ -70,7 +70,7 @@ Capacities and bandwidths are from vendor pages read on 2026-10-11. Full table a
 - **Ask before changing the system.** Purchases, installs, `sysctl` changes, power limits and BIOS settings need approval and an undo path.
 - **Secrets never touch output.** Keys live in `0600` files or environment variables.
 - **Verify upstream.** Specs, prices and support lists come from vendor pages read on the writing date. Re-check the exact SKU before buying. Street prices are not in this skill.
-- **Gate numerics changes with `llm-evals`.** Choosing a lower weight quant to fit, quantizing the KV cache, or adding speculative decoding to hit a speed target can change outputs. Run the same eval set before and after. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- **Gate numerics changes with `llm-evals`.** Choosing a lower weight quant to fit, quantizing the KV cache, or adding speculative decoding to hit a speed target can change outputs. Run the same eval set before and after. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.
 - **Estimates are ceilings.** Treat the bandwidth math as an upper bound and benchmark the real model, quant and engine before committing. The `self-hosted-llms` skill ships a benchmark script.
 - **Capacity is per sequence.** Concurrency multiplies KV cache. Ollama, for example, multiplies context by the number of parallel requests (`OLLAMA_NUM_PARALLEL` times `OLLAMA_CONTEXT_LENGTH`).
 - **Unified memory is not free VRAM.** On Apple Silicon the GPU limit is a share of RAM. Raising it with `iogpu.wired_limit_mb` is undocumented by Apple, resets on reboot and can cause swapping or freezes if set too high. Leave several GB for the OS.
@@ -82,12 +82,12 @@ Capacities and bandwidths are from vendor pages read on 2026-10-11. Full table a
 
 ## Companion skills
 
-Install any of these with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any of these with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
-- `choosing-inference-engine`: pick the engine for the hardware. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-inference-engine`.
-- `choosing-llm-hosting`: decide local, owned server, rented GPUs, serverless or API. Install: `npx skills add ScaleDockHQ/llms-skills --skill choosing-llm-hosting`.
-- `local-llms`: run models on a laptop or desktop. Install: `npx skills add ScaleDockHQ/llms-skills --skill local-llms`.
-- `self-hosted-llms`: serve on your own NVIDIA servers and DGX Spark, with memory budgeting and a benchmark script. Install: `npx skills add ScaleDockHQ/llms-skills --skill self-hosted-llms`.
-- `cloud-llms`: rent GPUs, serverless or managed endpoints. Install: `npx skills add ScaleDockHQ/llms-skills --skill cloud-llms`.
-- `model-quantization`: produce the smaller quant that makes a model fit. Install: `npx skills add ScaleDockHQ/llms-skills --skill model-quantization`.
-- `llm-evals`: quality gate for numerics changes. Install: `npx skills add ScaleDockHQ/llms-skills --skill llm-evals`.
+- `choosing-inference-engine`: pick the engine for the hardware. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-inference-engine`.
+- `choosing-llm-hosting`: decide local, owned server, rented GPUs, serverless or API. Install: `npx skills add ScaleDockHQ/llm-skills --skill choosing-llm-hosting`.
+- `local-llms`: run models on a laptop or desktop. Install: `npx skills add ScaleDockHQ/llm-skills --skill local-llms`.
+- `self-hosted-llms`: serve on your own NVIDIA servers and DGX Spark, with memory budgeting and a benchmark script. Install: `npx skills add ScaleDockHQ/llm-skills --skill self-hosted-llms`.
+- `cloud-llms`: rent GPUs, serverless or managed endpoints. Install: `npx skills add ScaleDockHQ/llm-skills --skill cloud-llms`.
+- `model-quantization`: produce the smaller quant that makes a model fit. Install: `npx skills add ScaleDockHQ/llm-skills --skill model-quantization`.
+- `llm-evals`: quality gate for numerics changes. Install: `npx skills add ScaleDockHQ/llm-skills --skill llm-evals`.

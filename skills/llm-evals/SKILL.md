@@ -147,7 +147,7 @@ Templates: `assets/promptfooconfig.yaml` (baseline vs candidate, OpenAI-compatib
 
 ## Companion skills
 
-Install any of them with `npx skills add ScaleDockHQ/llms-skills --skill <name>`.
+Install any of them with `npx skills add ScaleDockHQ/llm-skills --skill <name>`.
 
 - `promptfoo` — depth on the task-eval runner: config, assertions, CLI, CI workflow, quantization A/B gate.
 - `lm-evaluation-harness` — depth on public benchmarks: endpoint model types, backends, tasks, results.

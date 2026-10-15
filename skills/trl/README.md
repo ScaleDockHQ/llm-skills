@@ -5,7 +5,7 @@ An agent skill for [TRL](https://github.com/huggingface/trl), Hugging Face's pos
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill trl
+npx skills add ScaleDockHQ/llm-skills --skill trl
 ```
 
 ## Rules
@@ -30,9 +30,9 @@ npx skills add ScaleDockHQ/llms-skills --skill trl
 
 ## Companion skills
 
-- `fine-tuning-llms`: decide, prepare data, choose method and hardware (install: `npx skills add ScaleDockHQ/llms-skills --skill fine-tuning-llms`)
+- `fine-tuning-llms`: decide, prepare data, choose method and hardware (install: `npx skills add ScaleDockHQ/llm-skills --skill fine-tuning-llms`)
 - `axolotl` and `unsloth`: higher-level trainers built on TRL
-- `vllm`: serve the model and the GRPO generation server (install: `npx skills add ScaleDockHQ/llms-skills --skill vllm`)
+- `vllm`: serve the model and the GRPO generation server (install: `npx skills add ScaleDockHQ/llm-skills --skill vllm`)
 - `llm-evals`: compare against the base model
 
 ## License

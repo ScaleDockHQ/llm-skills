@@ -5,7 +5,7 @@ An agent skill for running Prometheus, Alertmanager and Grafana for self-hosted 
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill prometheus-grafana-llm
+npx skills add ScaleDockHQ/llm-skills --skill prometheus-grafana-llm
 ```
 
 ## Rules

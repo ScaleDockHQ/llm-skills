@@ -5,7 +5,7 @@ An agent skill for building, running and tuning whisper.cpp, the C/C++ Whisper s
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill whisper-cpp
+npx skills add ScaleDockHQ/llm-skills --skill whisper-cpp
 ```
 
 ## Rules

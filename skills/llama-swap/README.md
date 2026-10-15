@@ -5,7 +5,7 @@ Install, configure and operate llama-swap, the single-binary Go proxy that expos
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill llama-swap
+npx skills add ScaleDockHQ/llm-skills --skill llama-swap
 ```
 
 ## Rules

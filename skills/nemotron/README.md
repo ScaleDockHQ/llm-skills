@@ -8,7 +8,7 @@ quants, context limits, licenses and known bugs. Facts were read from upstream o
 ## Install
 
 ```bash
-npx skills add ScaleDockHQ/llms-skills --skill nemotron
+npx skills add ScaleDockHQ/llm-skills --skill nemotron
 ```
 
 ## Rules
